@@ -742,7 +742,7 @@ end:
 // Search for avaiable users for creating or updating assignment.
 //
 list_t*
-AssignmentAPI_assigmentAssigneeAccountSearch(apiClient_t *apiClient, double version, long accountId, char *keyword)
+AssignmentAPI_assigmentAssigneeAccountSearch(apiClient_t *apiClient, long accountId, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -756,12 +756,9 @@ AssignmentAPI_assigmentAssigneeAccountSearch(apiClient_t *apiClient, double vers
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/assignee/search");
+    char *localVarPath = strdup("/assignment/assignee/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -837,7 +834,6 @@ AssignmentAPI_assigmentAssigneeAccountSearch(apiClient_t *apiClient, double vers
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -870,7 +866,7 @@ end:
 // Create an assignment.
 //
 assignment_response_t*
-AssignmentAPI_assignmentCreate(apiClient_t *apiClient, double version, long accountId, char *name, long assigneeAccountId, char *description, long retailerLocationId, char *tags, int *active)
+AssignmentAPI_assignmentCreate(apiClient_t *apiClient, long accountId, char *name, long assigneeAccountId, char *description, long retailerLocationId, char *tags, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -884,12 +880,9 @@ AssignmentAPI_assignmentCreate(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/create");
+    char *localVarPath = strdup("/assignment/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1016,7 +1009,6 @@ AssignmentAPI_assignmentCreate(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1101,7 +1093,7 @@ end:
 // Delete an assignment.
 //
 sirqul_response_t*
-AssignmentAPI_assignmentDelete(apiClient_t *apiClient, double version, long accountId, long assignmentId)
+AssignmentAPI_assignmentDelete(apiClient_t *apiClient, long accountId, long assignmentId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1115,12 +1107,9 @@ AssignmentAPI_assignmentDelete(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/delete");
+    char *localVarPath = strdup("/assignment/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1186,7 +1175,6 @@ AssignmentAPI_assignmentDelete(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1215,7 +1203,7 @@ end:
 // Get the details of an assignment.
 //
 assignment_response_t*
-AssignmentAPI_assignmentGet(apiClient_t *apiClient, double version, long accountId, long assignmentId)
+AssignmentAPI_assignmentGet(apiClient_t *apiClient, long accountId, long assignmentId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1229,12 +1217,9 @@ AssignmentAPI_assignmentGet(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/get");
+    char *localVarPath = strdup("/assignment/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1300,7 +1285,6 @@ AssignmentAPI_assignmentGet(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1329,7 +1313,7 @@ end:
 // Search for assignments by the given parameters.
 //
 list_t*
-AssignmentAPI_assignmentSearch(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_assignmentSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, long creatorAccountId, char *assigneeAccountIds, char *retailerLocationIds, sirqul_iot_platform_assignmentSearch_currentStatusType_e currentStatusType, char *keyword)
+AssignmentAPI_assignmentSearch(apiClient_t *apiClient, long accountId, sirqul_iot_platform_assignmentSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, long creatorAccountId, char *assigneeAccountIds, char *retailerLocationIds, sirqul_iot_platform_assignmentSearch_currentStatusType_e currentStatusType, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1343,12 +1327,9 @@ AssignmentAPI_assignmentSearch(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/search");
+    char *localVarPath = strdup("/assignment/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1538,7 +1519,6 @@ AssignmentAPI_assignmentSearch(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1667,7 +1647,7 @@ end:
 // Create an assignment status.
 //
 assignment_status_response_t*
-AssignmentAPI_assignmentStatusCreate(apiClient_t *apiClient, double version, long accountId, long assignmentId, long scheduledNotificationId, sirqul_iot_platform_assignmentStatusCreate_toDo_e toDo, sirqul_iot_platform_assignmentStatusCreate_connection_e connection, sirqul_iot_platform_assignmentStatusCreate_method_e method, sirqul_iot_platform_assignmentStatusCreate_status_e status, sirqul_iot_platform_assignmentStatusCreate_closure_e closure, char *message, long followUp, int *active)
+AssignmentAPI_assignmentStatusCreate(apiClient_t *apiClient, long accountId, long assignmentId, long scheduledNotificationId, sirqul_iot_platform_assignmentStatusCreate_toDo_e toDo, sirqul_iot_platform_assignmentStatusCreate_connection_e connection, sirqul_iot_platform_assignmentStatusCreate_method_e method, sirqul_iot_platform_assignmentStatusCreate_status_e status, sirqul_iot_platform_assignmentStatusCreate_closure_e closure, char *message, long followUp, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1681,12 +1661,9 @@ AssignmentAPI_assignmentStatusCreate(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/status/create");
+    char *localVarPath = strdup("/assignment/status/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1866,7 +1843,6 @@ AssignmentAPI_assignmentStatusCreate(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1975,7 +1951,7 @@ end:
 // Deletes an assignment status.
 //
 sirqul_response_t*
-AssignmentAPI_assignmentStatusDelete(apiClient_t *apiClient, double version, long accountId, long assignmentStatusId)
+AssignmentAPI_assignmentStatusDelete(apiClient_t *apiClient, long accountId, long assignmentStatusId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1989,12 +1965,9 @@ AssignmentAPI_assignmentStatusDelete(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/status/delete");
+    char *localVarPath = strdup("/assignment/status/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2060,7 +2033,6 @@ AssignmentAPI_assignmentStatusDelete(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2089,7 +2061,7 @@ end:
 // Get an assignment status.
 //
 assignment_status_response_t*
-AssignmentAPI_assignmentStatusGet(apiClient_t *apiClient, double version, long accountId, long assignmentStatusId)
+AssignmentAPI_assignmentStatusGet(apiClient_t *apiClient, long accountId, long assignmentStatusId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2103,12 +2075,9 @@ AssignmentAPI_assignmentStatusGet(apiClient_t *apiClient, double version, long a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/status/get");
+    char *localVarPath = strdup("/assignment/status/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2174,7 +2143,6 @@ AssignmentAPI_assignmentStatusGet(apiClient_t *apiClient, double version, long a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2203,7 +2171,7 @@ end:
 // Search on assignment statuses.
 //
 list_t*
-AssignmentAPI_assignmentStatusSearch(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_assignmentStatusSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, long assignmentId, long creatorAccountId, long assigneeAccountId, long retailerLocationId, sirqul_iot_platform_assignmentStatusSearch_statusType_e statusType, char *keyword)
+AssignmentAPI_assignmentStatusSearch(apiClient_t *apiClient, long accountId, sirqul_iot_platform_assignmentStatusSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, long assignmentId, long creatorAccountId, long assigneeAccountId, long retailerLocationId, sirqul_iot_platform_assignmentStatusSearch_statusType_e statusType, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2217,12 +2185,9 @@ AssignmentAPI_assignmentStatusSearch(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/status/search");
+    char *localVarPath = strdup("/assignment/status/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2424,7 +2389,6 @@ AssignmentAPI_assignmentStatusSearch(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2553,7 +2517,7 @@ end:
 // Updates an assignment status.
 //
 assignment_status_response_t*
-AssignmentAPI_assignmentStatusUpdate(apiClient_t *apiClient, double version, long accountId, long assignmentStatusId, long scheduledNotificationId, sirqul_iot_platform_assignmentStatusUpdate_toDo_e toDo, sirqul_iot_platform_assignmentStatusUpdate_connection_e connection, sirqul_iot_platform_assignmentStatusUpdate_method_e method, sirqul_iot_platform_assignmentStatusUpdate_status_e status, sirqul_iot_platform_assignmentStatusUpdate_closure_e closure, char *message, long followUp, int *active)
+AssignmentAPI_assignmentStatusUpdate(apiClient_t *apiClient, long accountId, long assignmentStatusId, long scheduledNotificationId, sirqul_iot_platform_assignmentStatusUpdate_toDo_e toDo, sirqul_iot_platform_assignmentStatusUpdate_connection_e connection, sirqul_iot_platform_assignmentStatusUpdate_method_e method, sirqul_iot_platform_assignmentStatusUpdate_status_e status, sirqul_iot_platform_assignmentStatusUpdate_closure_e closure, char *message, long followUp, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2567,12 +2531,9 @@ AssignmentAPI_assignmentStatusUpdate(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/status/update");
+    char *localVarPath = strdup("/assignment/status/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2752,7 +2713,6 @@ AssignmentAPI_assignmentStatusUpdate(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2861,7 +2821,7 @@ end:
 // Updates an assignment.
 //
 assignment_response_t*
-AssignmentAPI_assignmentUpdate(apiClient_t *apiClient, double version, long accountId, long assignmentId, char *name, char *description, long assigneeAccountId, long retailerLocationId, char *tags, int *active)
+AssignmentAPI_assignmentUpdate(apiClient_t *apiClient, long accountId, long assignmentId, char *name, char *description, long assigneeAccountId, long retailerLocationId, char *tags, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2875,12 +2835,9 @@ AssignmentAPI_assignmentUpdate(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/assignment/update");
+    char *localVarPath = strdup("/assignment/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3019,7 +2976,6 @@ AssignmentAPI_assignmentUpdate(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

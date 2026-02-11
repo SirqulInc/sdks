@@ -16,7 +16,7 @@
 // Approve a route
 //
 route_t*
-RouteAPI_approveRoute(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_approveRoute(apiClient_t *apiClient, long routeId);
 
 
 // Copy Route
@@ -24,7 +24,7 @@ RouteAPI_approveRoute(apiClient_t *apiClient, double version, long routeId);
 // Make an copy of the given route with optional overriding properties
 //
 route_t*
-RouteAPI_copyRoute(apiClient_t *apiClient, double version, long routeId, route_t *body);
+RouteAPI_copyRoute(apiClient_t *apiClient, long routeId, route_t *body);
 
 
 // Create Route
@@ -32,7 +32,7 @@ RouteAPI_copyRoute(apiClient_t *apiClient, double version, long routeId, route_t
 // Create new route
 //
 route_t*
-RouteAPI_createRoute(apiClient_t *apiClient, double version, route_t *body);
+RouteAPI_createRoute(apiClient_t *apiClient, route_t *body);
 
 
 // Update Route Directions
@@ -40,7 +40,7 @@ RouteAPI_createRoute(apiClient_t *apiClient, double version, route_t *body);
 // Regenerate the directions of a route
 //
 list_t*
-RouteAPI_createRouteDirections(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_createRouteDirections(apiClient_t *apiClient, long routeId);
 
 
 // Create Route Polyline
@@ -48,7 +48,7 @@ RouteAPI_createRouteDirections(apiClient_t *apiClient, double version, long rout
 // Update the polyline of the requested route
 //
 route_t*
-RouteAPI_createRoutePolyline(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_createRoutePolyline(apiClient_t *apiClient, long routeId);
 
 
 // Delete Route
@@ -56,7 +56,7 @@ RouteAPI_createRoutePolyline(apiClient_t *apiClient, double version, long routeI
 // Delete an existing route
 //
 void
-RouteAPI_deleteRoute(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_deleteRoute(apiClient_t *apiClient, long routeId);
 
 
 // Disapprove Route
@@ -64,7 +64,7 @@ RouteAPI_deleteRoute(apiClient_t *apiClient, double version, long routeId);
 // Disapprove a route
 //
 route_t*
-RouteAPI_disapproveRoute(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_disapproveRoute(apiClient_t *apiClient, long routeId);
 
 
 // Get Route
@@ -72,7 +72,7 @@ RouteAPI_disapproveRoute(apiClient_t *apiClient, double version, long routeId);
 // Get an existing route
 //
 route_t*
-RouteAPI_getRoute(apiClient_t *apiClient, double version, long routeId, int *showInheritedProperties);
+RouteAPI_getRoute(apiClient_t *apiClient, long routeId, int *showInheritedProperties);
 
 
 // Get Route Directions
@@ -80,7 +80,7 @@ RouteAPI_getRoute(apiClient_t *apiClient, double version, long routeId, int *sho
 // Get the directions of a route
 //
 list_t*
-RouteAPI_getRouteDirections(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_getRouteDirections(apiClient_t *apiClient, long routeId);
 
 
 // Get Route Shipments
@@ -88,7 +88,7 @@ RouteAPI_getRouteDirections(apiClient_t *apiClient, double version, long routeId
 // Get the shipments on the requested route
 //
 list_t*
-RouteAPI_getRouteShipments(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_getRouteShipments(apiClient_t *apiClient, long routeId);
 
 
 // Get Route Stop
@@ -96,7 +96,7 @@ RouteAPI_getRouteShipments(apiClient_t *apiClient, double version, long routeId)
 // Get the specific stop on a route
 //
 stop_t*
-RouteAPI_getRouteStop(apiClient_t *apiClient, double version, long routeId, long stopId);
+RouteAPI_getRouteStop(apiClient_t *apiClient, long routeId, long stopId);
 
 
 // Get Route Stops
@@ -104,7 +104,7 @@ RouteAPI_getRouteStop(apiClient_t *apiClient, double version, long routeId, long
 // The stops of the route requested
 //
 list_t*
-RouteAPI_getRouteStops(apiClient_t *apiClient, double version, long routeId, int *confirmedOnly);
+RouteAPI_getRouteStops(apiClient_t *apiClient, long routeId, int *confirmedOnly);
 
 
 // Get Shipments At Stop
@@ -112,7 +112,7 @@ RouteAPI_getRouteStops(apiClient_t *apiClient, double version, long routeId, int
 // Get the list of shipments on the requested route at a stop
 //
 list_t*
-RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, double version, long routeId, long stopId);
+RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, long routeId, long stopId);
 
 
 // Optimize Route
@@ -120,7 +120,7 @@ RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, double version, long routeId
 // Optimize a route. The optimization method based on how the server is configured.
 //
 void
-RouteAPI_optimizeRoute(apiClient_t *apiClient, double version, long routeId);
+RouteAPI_optimizeRoute(apiClient_t *apiClient, long routeId);
 
 
 // Delete Stop
@@ -128,7 +128,7 @@ RouteAPI_optimizeRoute(apiClient_t *apiClient, double version, long routeId);
 // Delete a stop on a route
 //
 void
-RouteAPI_removeStop(apiClient_t *apiClient, double version, long routeId, long stopId);
+RouteAPI_removeStop(apiClient_t *apiClient, long routeId, long stopId);
 
 
 // Reorder Route Stops
@@ -136,7 +136,7 @@ RouteAPI_removeStop(apiClient_t *apiClient, double version, long routeId, long s
 // Reordering the stops on the route with and update route distance, time, direction, and polyline
 //
 list_t*
-RouteAPI_reorderRouteStopsPatch(apiClient_t *apiClient, double version, long routeId, list_t *body);
+RouteAPI_reorderRouteStopsPatch(apiClient_t *apiClient, long routeId, list_t *body);
 
 
 // Reorder Route Stops
@@ -144,7 +144,7 @@ RouteAPI_reorderRouteStopsPatch(apiClient_t *apiClient, double version, long rou
 // Reordering the stops on the route with and update route distance, time, direction, and polyline
 //
 list_t*
-RouteAPI_reorderRouteStopsPost(apiClient_t *apiClient, double version, long routeId, list_t *body);
+RouteAPI_reorderRouteStopsPost(apiClient_t *apiClient, long routeId, list_t *body);
 
 
 // Search Routes
@@ -152,7 +152,7 @@ RouteAPI_reorderRouteStopsPost(apiClient_t *apiClient, double version, long rout
 // Search for routes.
 //
 list_t*
-RouteAPI_searchRoutes(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *includesEmpty, int *rootOnly, int *showInheritedProperties, long hubId, long programId, long scheduledStart, long scheduledEnd, long updatedStart, long updatedEnd, int *featured, int *seatCount, int *approved, int *started, int *completed, int *valid, long parentId);
+RouteAPI_searchRoutes(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *includesEmpty, int *rootOnly, int *showInheritedProperties, long hubId, long programId, long scheduledStart, long scheduledEnd, long updatedStart, long updatedEnd, int *featured, int *seatCount, int *approved, int *started, int *completed, int *valid, long parentId);
 
 
 // Set Driver
@@ -160,7 +160,7 @@ RouteAPI_searchRoutes(apiClient_t *apiClient, double version, char *sortField, i
 // Update the driver of the route.
 //
 void
-RouteAPI_setDriver(apiClient_t *apiClient, double version, long id, long driverId);
+RouteAPI_setDriver(apiClient_t *apiClient, long id, long driverId);
 
 
 // Update Route
@@ -168,7 +168,7 @@ RouteAPI_setDriver(apiClient_t *apiClient, double version, long id, long driverI
 // Update an existing route
 //
 route_t*
-RouteAPI_updateRoute(apiClient_t *apiClient, double version, long routeId, route_t *body);
+RouteAPI_updateRoute(apiClient_t *apiClient, long routeId, route_t *body);
 
 
 // Update Route Stop
@@ -176,6 +176,6 @@ RouteAPI_updateRoute(apiClient_t *apiClient, double version, long routeId, route
 // Update a stop on a specified route
 //
 void
-RouteAPI_updateRouteStop(apiClient_t *apiClient, double version, long routeId, long stopId, stop_t *body);
+RouteAPI_updateRouteStop(apiClient_t *apiClient, long routeId, long stopId, stop_t *body);
 
 

@@ -118,7 +118,7 @@ end:
 // Adds offers to the wallet
 //
 list_t*
-WalletAPI_createOfferTransaction(apiClient_t *apiClient, double version, char *deviceId, long accountId, long offerId, long offerLocationId, char *offerCart, char *promoCode, char *currencyType, int *usePoints, char *metaData, char *appKey, int *status)
+WalletAPI_createOfferTransaction(apiClient_t *apiClient, char *deviceId, long accountId, long offerId, long offerLocationId, char *offerCart, char *promoCode, char *currencyType, int *usePoints, char *metaData, char *appKey, int *status)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -132,12 +132,9 @@ WalletAPI_createOfferTransaction(apiClient_t *apiClient, double version, char *d
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/wallet/create");
+    char *localVarPath = strdup("/wallet/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -323,7 +320,6 @@ WalletAPI_createOfferTransaction(apiClient_t *apiClient, double version, char *d
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -456,7 +452,7 @@ end:
 // Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 //
 sirqul_response_t*
-WalletAPI_deleteOfferTransaction(apiClient_t *apiClient, double version, long transactionId, char *deviceId, long accountId)
+WalletAPI_deleteOfferTransaction(apiClient_t *apiClient, long transactionId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -470,12 +466,9 @@ WalletAPI_deleteOfferTransaction(apiClient_t *apiClient, double version, long tr
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/wallet/delete");
+    char *localVarPath = strdup("/wallet/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -553,7 +546,6 @@ WalletAPI_deleteOfferTransaction(apiClient_t *apiClient, double version, long tr
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -592,7 +584,7 @@ end:
 // Get Wallet Offer
 //
 offer_transaction_response_t*
-WalletAPI_getOfferTransaction(apiClient_t *apiClient, double version, long transactionId, char *deviceId, long accountId, int *includeMission, double latitude, double longitude, int *returnFullResponse)
+WalletAPI_getOfferTransaction(apiClient_t *apiClient, long transactionId, char *deviceId, long accountId, int *includeMission, double latitude, double longitude, int *returnFullResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -606,12 +598,9 @@ WalletAPI_getOfferTransaction(apiClient_t *apiClient, double version, long trans
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/wallet/get");
+    char *localVarPath = strdup("/wallet/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -747,7 +736,6 @@ WalletAPI_getOfferTransaction(apiClient_t *apiClient, double version, long trans
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -828,7 +816,7 @@ end:
 // Preview the final cost of a transaction without charging the user
 //
 list_t*
-WalletAPI_previewOfferTransaction(apiClient_t *apiClient, double version, char *deviceId, long accountId, long offerId, long offerLocationId, char *offerCart, char *promoCode, char *currencyType, int *usePoints, char *metaData, char *appKey)
+WalletAPI_previewOfferTransaction(apiClient_t *apiClient, char *deviceId, long accountId, long offerId, long offerLocationId, char *offerCart, char *promoCode, char *currencyType, int *usePoints, char *metaData, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -842,12 +830,9 @@ WalletAPI_previewOfferTransaction(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/wallet/preview");
+    char *localVarPath = strdup("/wallet/preview");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1020,7 +1005,6 @@ WalletAPI_previewOfferTransaction(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1141,7 +1125,7 @@ end:
 // Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
 //
 list_t*
-WalletAPI_searchOfferTransactions(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *keyword, long retailerId, char *retailerIds, long retailerLocationId, char *retailerLocationIds, char *excludeRetailerLocationIds, long offerId, char *offerIds, long offerLocationId, char *offerLocationIds, sirqul_iot_platform_searchOfferTransactions_offerType_e offerType, char *offerTypes, char *specialOfferType, char *specialOfferTypes, char *categoryIds, char *filterIds, char *offerAudienceIds, sirqul_iot_platform_searchOfferTransactions_sortField_e sortField, int *descending, int *start, int *limit, double latitude, double longitude, long redeemableStartDate, long redeemableEndDate, int *filterByParentOffer, long startedSince, long startedBefore, long endedSince, long endedBefore, int *redeemed, char *statuses, int *reservationsOnly, int *activeOnly, int *returnFullResponse, long recurringStartedSince, long recurringStartedBefore, long recurringExpirationSince, long recurringExpirationBefore)
+WalletAPI_searchOfferTransactions(apiClient_t *apiClient, char *deviceId, long accountId, char *keyword, long retailerId, char *retailerIds, long retailerLocationId, char *retailerLocationIds, char *excludeRetailerLocationIds, long offerId, char *offerIds, long offerLocationId, char *offerLocationIds, sirqul_iot_platform_searchOfferTransactions_offerType_e offerType, char *offerTypes, char *specialOfferType, char *specialOfferTypes, char *categoryIds, char *filterIds, char *offerAudienceIds, sirqul_iot_platform_searchOfferTransactions_sortField_e sortField, int *descending, int *start, int *limit, double latitude, double longitude, long redeemableStartDate, long redeemableEndDate, int *filterByParentOffer, long startedSince, long startedBefore, long endedSince, long endedBefore, int *redeemed, char *statuses, int *reservationsOnly, int *activeOnly, int *returnFullResponse, long recurringStartedSince, long recurringStartedBefore, long recurringExpirationSince, long recurringExpirationBefore)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1155,12 +1139,9 @@ WalletAPI_searchOfferTransactions(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/wallet/search");
+    char *localVarPath = strdup("/wallet/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1722,7 +1703,6 @@ WalletAPI_searchOfferTransactions(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2151,7 +2131,7 @@ end:
 // Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
 //
 offer_transaction_response_t*
-WalletAPI_updateOfferTransaction(apiClient_t *apiClient, double version, long transactionId, int *status, char *deviceId, long accountId, long offerLocationId, char *currencyType, int *usePoints, char *appKey, double latitude, double longitude, char *metaData, int *returnFullResponse, char *exceptionMembershipOfferIds)
+WalletAPI_updateOfferTransaction(apiClient_t *apiClient, long transactionId, int *status, char *deviceId, long accountId, long offerLocationId, char *currencyType, int *usePoints, char *appKey, double latitude, double longitude, char *metaData, int *returnFullResponse, char *exceptionMembershipOfferIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2165,12 +2145,9 @@ WalletAPI_updateOfferTransaction(apiClient_t *apiClient, double version, long tr
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/wallet/update");
+    char *localVarPath = strdup("/wallet/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2379,7 +2356,6 @@ WalletAPI_updateOfferTransaction(apiClient_t *apiClient, double version, long tr
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

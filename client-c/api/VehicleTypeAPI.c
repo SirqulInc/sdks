@@ -14,7 +14,7 @@
 // Create a new vehicle type
 //
 vehicle_type_t*
-VehicleTypeAPI_createVehicleType(apiClient_t *apiClient, double version, char *vehicleType, vehicle_type_t *body)
+VehicleTypeAPI_createVehicleType(apiClient_t *apiClient, char *vehicleType, vehicle_type_t *body)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ VehicleTypeAPI_createVehicleType(apiClient_t *apiClient, double version, char *v
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/type");
+    char *localVarPath = strdup("/vehicle/type");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -97,7 +94,6 @@ VehicleTypeAPI_createVehicleType(apiClient_t *apiClient, double version, char *v
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -127,7 +123,7 @@ end:
 // Delete a vehicle type
 //
 void
-VehicleTypeAPI_deleteVehicleType(apiClient_t *apiClient, double version, long vehicleTypeId)
+VehicleTypeAPI_deleteVehicleType(apiClient_t *apiClient, long vehicleTypeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -141,15 +137,12 @@ VehicleTypeAPI_deleteVehicleType(apiClient_t *apiClient, double version, long ve
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/type/{vehicleTypeId}");
+    char *localVarPath = strdup("/vehicle/type/{vehicleTypeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(vehicleTypeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_vehicleTypeId =  + sizeof(vehicleTypeId)+3 + sizeof("{ vehicleTypeId }") - 1;
+    long sizeOfPathParams_vehicleTypeId = sizeof(vehicleTypeId)+3 + sizeof("{ vehicleTypeId }") - 1;
     if(vehicleTypeId == 0){
         goto end;
     }
@@ -191,7 +184,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_vehicleTypeId);
 
 }
@@ -201,7 +193,7 @@ end:
 // Get a vehicle type
 //
 vehicle_type_t*
-VehicleTypeAPI_getVehicleType(apiClient_t *apiClient, double version, long vehicleTypeId)
+VehicleTypeAPI_getVehicleType(apiClient_t *apiClient, long vehicleTypeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -215,15 +207,12 @@ VehicleTypeAPI_getVehicleType(apiClient_t *apiClient, double version, long vehic
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/type/{vehicleTypeId}");
+    char *localVarPath = strdup("/vehicle/type/{vehicleTypeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(vehicleTypeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_vehicleTypeId =  + sizeof(vehicleTypeId)+3 + sizeof("{ vehicleTypeId }") - 1;
+    long sizeOfPathParams_vehicleTypeId = sizeof(vehicleTypeId)+3 + sizeof("{ vehicleTypeId }") - 1;
     if(vehicleTypeId == 0){
         goto end;
     }
@@ -276,7 +265,6 @@ VehicleTypeAPI_getVehicleType(apiClient_t *apiClient, double version, long vehic
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_vehicleTypeId);
     return elementToReturn;
 end:
@@ -290,7 +278,7 @@ end:
 // Search for types of vehicles
 //
 list_t*
-VehicleTypeAPI_searchVehicleTypes(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId)
+VehicleTypeAPI_searchVehicleTypes(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -304,12 +292,9 @@ VehicleTypeAPI_searchVehicleTypes(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/type");
+    char *localVarPath = strdup("/vehicle/type");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -449,7 +434,6 @@ VehicleTypeAPI_searchVehicleTypes(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_retailerId){
         free(keyQuery_retailerId);
         keyQuery_retailerId = NULL;
@@ -538,7 +522,7 @@ end:
 // Update a vehicle type
 //
 vehicle_type_t*
-VehicleTypeAPI_updateVehicleType(apiClient_t *apiClient, double version, long vehicleTypeId, char *vehicleType, vehicle_type_t *body)
+VehicleTypeAPI_updateVehicleType(apiClient_t *apiClient, long vehicleTypeId, char *vehicleType, vehicle_type_t *body)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -552,15 +536,12 @@ VehicleTypeAPI_updateVehicleType(apiClient_t *apiClient, double version, long ve
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/type/{vehicleTypeId}");
+    char *localVarPath = strdup("/vehicle/type/{vehicleTypeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(vehicleTypeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_vehicleTypeId =  + sizeof(vehicleTypeId)+3 + sizeof("{ vehicleTypeId }") - 1;
+    long sizeOfPathParams_vehicleTypeId = sizeof(vehicleTypeId)+3 + sizeof("{ vehicleTypeId }") - 1;
     if(vehicleTypeId == 0){
         goto end;
     }
@@ -635,7 +616,6 @@ VehicleTypeAPI_updateVehicleType(apiClient_t *apiClient, double version, long ve
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_vehicleTypeId);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);

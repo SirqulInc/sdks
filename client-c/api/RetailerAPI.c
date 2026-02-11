@@ -326,7 +326,7 @@ end:
 // Create a retailer record. A billable entity must be created first before a retailer record can be made.
 //
 retailer_full_response_t*
-RetailerAPI_createRetailer(apiClient_t *apiClient, double version, char *name, char *deviceId, long accountId, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *categoryIdsToAdd, char *categoryIdsToRemove, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_createRetailer_visibility_e visibility, int *createDefaultLocation, sirqul_iot_platform_createRetailer_responseFormat_e responseFormat)
+RetailerAPI_createRetailer(apiClient_t *apiClient, char *name, char *deviceId, long accountId, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *categoryIdsToAdd, char *categoryIdsToRemove, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_createRetailer_visibility_e visibility, int *createDefaultLocation, sirqul_iot_platform_createRetailer_responseFormat_e responseFormat)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -340,12 +340,9 @@ RetailerAPI_createRetailer(apiClient_t *apiClient, double version, char *name, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/create");
+    char *localVarPath = strdup("/retailer/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -794,7 +791,6 @@ RetailerAPI_createRetailer(apiClient_t *apiClient, double version, char *name, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1159,7 +1155,7 @@ end:
 // Set the deleted timestamp to current time.
 //
 sirqul_response_t*
-RetailerAPI_deleteRetailer(apiClient_t *apiClient, double version, char *deviceId, long accountId, long retailerId)
+RetailerAPI_deleteRetailer(apiClient_t *apiClient, char *deviceId, long accountId, long retailerId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1173,12 +1169,9 @@ RetailerAPI_deleteRetailer(apiClient_t *apiClient, double version, char *deviceI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/delete");
+    char *localVarPath = strdup("/retailer/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1256,7 +1249,6 @@ RetailerAPI_deleteRetailer(apiClient_t *apiClient, double version, char *deviceI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1297,7 +1289,7 @@ end:
 // Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 //
 retailer_full_response_t*
-RetailerAPI_getRetailer(apiClient_t *apiClient, double version, long retailerId, char *deviceId, long accountId, int *includeCounts)
+RetailerAPI_getRetailer(apiClient_t *apiClient, long retailerId, char *deviceId, long accountId, int *includeCounts)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1311,12 +1303,9 @@ RetailerAPI_getRetailer(apiClient_t *apiClient, double version, long retailerId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/get");
+    char *localVarPath = strdup("/retailer/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1407,7 +1396,6 @@ RetailerAPI_getRetailer(apiClient_t *apiClient, double version, long retailerId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1460,7 +1448,7 @@ end:
 // earches on retailers that the account has access to.
 //
 list_t*
-RetailerAPI_getRetailers(apiClient_t *apiClient, double version, sirqul_iot_platform_getRetailers_visibility_e visibility, sirqul_iot_platform_getRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *deviceId, long accountId, char *q, char *keyword, char *categoryIds, char *filterIds, int *_i, int *_l)
+RetailerAPI_getRetailers(apiClient_t *apiClient, sirqul_iot_platform_getRetailers_visibility_e visibility, sirqul_iot_platform_getRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *deviceId, long accountId, char *q, char *keyword, char *categoryIds, char *filterIds, int *_i, int *_l)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1474,12 +1462,9 @@ RetailerAPI_getRetailers(apiClient_t *apiClient, double version, sirqul_iot_plat
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/search");
+    char *localVarPath = strdup("/retailer/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1707,7 +1692,6 @@ RetailerAPI_getRetailers(apiClient_t *apiClient, double version, sirqul_iot_plat
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1876,7 +1860,7 @@ end:
 // Retailer login check.
 //
 account_login_response_t*
-RetailerAPI_retailerLoginCheck(apiClient_t *apiClient, double version, char *username, char *password, char *deviceId, double latitude, double longitude, char *appKey)
+RetailerAPI_retailerLoginCheck(apiClient_t *apiClient, char *username, char *password, char *deviceId, double latitude, double longitude, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1890,12 +1874,9 @@ RetailerAPI_retailerLoginCheck(apiClient_t *apiClient, double version, char *use
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/login");
+    char *localVarPath = strdup("/retailer/login");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2017,7 +1998,6 @@ RetailerAPI_retailerLoginCheck(apiClient_t *apiClient, double version, char *use
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_username){
         free(keyQuery_username);
         keyQuery_username = NULL;
@@ -2094,7 +2074,7 @@ end:
 // Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 //
 retailer_full_response_t*
-RetailerAPI_updateRetailer(apiClient_t *apiClient, double version, long retailerId, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_updateRetailer_visibility_e visibility, int *active, sirqul_iot_platform_updateRetailer_responseFormat_e responseFormat)
+RetailerAPI_updateRetailer(apiClient_t *apiClient, long retailerId, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_updateRetailer_visibility_e visibility, int *active, sirqul_iot_platform_updateRetailer_responseFormat_e responseFormat)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2108,12 +2088,9 @@ RetailerAPI_updateRetailer(apiClient_t *apiClient, double version, long retailer
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/update");
+    char *localVarPath = strdup("/retailer/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2550,7 +2527,6 @@ RetailerAPI_updateRetailer(apiClient_t *apiClient, double version, long retailer
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

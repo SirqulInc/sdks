@@ -23,7 +23,7 @@ typedef enum  { sirqul_iot_platform_updateEmployee_GENDER_NULL = 0, sirqul_iot_p
 // Assign An existing account to be an employee
 //
 employee_response_t*
-EmployeeAPI_assignEmployee(apiClient_t *apiClient, double version, long accountId, long managerAccountId, long employeeAccountId, char *role);
+EmployeeAPI_assignEmployee(apiClient_t *apiClient, long accountId, long managerAccountId, long employeeAccountId, char *role);
 
 
 // Assign Employee to Location
@@ -31,7 +31,7 @@ EmployeeAPI_assignEmployee(apiClient_t *apiClient, double version, long accountI
 // Assign or unassign the account to a retailer location.
 //
 sirqul_response_t*
-EmployeeAPI_assignToLocationEmployee(apiClient_t *apiClient, double version, long accountId, long retailerLocationId, long employeeAccountId, int *assign);
+EmployeeAPI_assignToLocationEmployee(apiClient_t *apiClient, long accountId, long retailerLocationId, long employeeAccountId, int *assign);
 
 
 // Create Employee
@@ -39,7 +39,7 @@ EmployeeAPI_assignToLocationEmployee(apiClient_t *apiClient, double version, lon
 // Create a new account record with the provided information.
 //
 employee_response_t*
-EmployeeAPI_createEmployee(apiClient_t *apiClient, double version, long accountId, long managerAccountId, char *username, char *password, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, char *aboutUs, long assetId, sirqul_iot_platform_createEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId);
+EmployeeAPI_createEmployee(apiClient_t *apiClient, long accountId, long managerAccountId, char *username, char *password, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, char *aboutUs, long assetId, sirqul_iot_platform_createEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId);
 
 
 // Delete Employee
@@ -47,7 +47,7 @@ EmployeeAPI_createEmployee(apiClient_t *apiClient, double version, long accountI
 // Set the deleted date field which marks the record as deleted.
 //
 sirqul_response_t*
-EmployeeAPI_deleteEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId);
+EmployeeAPI_deleteEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId);
 
 
 // Get Employee
@@ -55,7 +55,7 @@ EmployeeAPI_deleteEmployee(apiClient_t *apiClient, double version, long accountI
 // Get the account record for the account id provided.
 //
 employee_response_t*
-EmployeeAPI_getEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId, char *settingsAppKey);
+EmployeeAPI_getEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId, char *settingsAppKey);
 
 
 // Search Employees
@@ -63,7 +63,7 @@ EmployeeAPI_getEmployee(apiClient_t *apiClient, double version, long accountId, 
 // Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 //
 list_t*
-EmployeeAPI_searchEmployees(apiClient_t *apiClient, double version, long accountId, char *role, long retailerId, long retailerLocationId, char *q, char *keyword, sirqul_iot_platform_searchEmployees_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *activeOnly, int *managedOnly, char *settingsAppKey, char *categoryIds, char *query);
+EmployeeAPI_searchEmployees(apiClient_t *apiClient, long accountId, char *role, long retailerId, long retailerLocationId, char *q, char *keyword, sirqul_iot_platform_searchEmployees_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *activeOnly, int *managedOnly, char *settingsAppKey, char *categoryIds, char *query);
 
 
 // Unassign Employee
@@ -71,7 +71,7 @@ EmployeeAPI_searchEmployees(apiClient_t *apiClient, double version, long account
 // Unassign An existing account to be an employee
 //
 employee_response_t*
-EmployeeAPI_unassignEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId);
+EmployeeAPI_unassignEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId);
 
 
 // Update Employee
@@ -79,6 +79,6 @@ EmployeeAPI_unassignEmployee(apiClient_t *apiClient, double version, long accoun
 // Update the account record with the provided information.
 //
 employee_response_t*
-EmployeeAPI_updateEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId, long managerAccountId, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, long assetId, sirqul_iot_platform_updateEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, int *active, char *password, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId);
+EmployeeAPI_updateEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId, long managerAccountId, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, long assetId, sirqul_iot_platform_updateEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, int *active, char *password, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId);
 
 

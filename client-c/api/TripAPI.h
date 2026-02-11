@@ -13,7 +13,7 @@
 // Delete an existing trip
 //
 void
-TripAPI_callDelete(apiClient_t *apiClient, double version, long id);
+TripAPI_callDelete(apiClient_t *apiClient, long id);
 
 
 // Create Trip
@@ -21,7 +21,7 @@ TripAPI_callDelete(apiClient_t *apiClient, double version, long id);
 // Create a new trip
 //
 trip_t*
-TripAPI_createTrip(apiClient_t *apiClient, double version, trip_t *body);
+TripAPI_createTrip(apiClient_t *apiClient, trip_t *body);
 
 
 // Set Trip Preference Driver
@@ -29,7 +29,7 @@ TripAPI_createTrip(apiClient_t *apiClient, double version, trip_t *body);
 // Update trip preference to drive, also create a route and assign the trip to the route
 //
 trip_t*
-TripAPI_driveTrip(apiClient_t *apiClient, double version, long id, int *recurrence);
+TripAPI_driveTrip(apiClient_t *apiClient, long id, int *recurrence);
 
 
 // Set Trip Preference Flexible
@@ -37,7 +37,7 @@ TripAPI_driveTrip(apiClient_t *apiClient, double version, long id, int *recurren
 // Update trip preference to flexible.
 //
 trip_t*
-TripAPI_flexibleTrip(apiClient_t *apiClient, double version, long id, int *recurrence);
+TripAPI_flexibleTrip(apiClient_t *apiClient, long id, int *recurrence);
 
 
 // Get Trip
@@ -45,7 +45,7 @@ TripAPI_flexibleTrip(apiClient_t *apiClient, double version, long id, int *recur
 // Get an existing trip
 //
 trip_t*
-TripAPI_getTrip(apiClient_t *apiClient, double version, long id);
+TripAPI_getTrip(apiClient_t *apiClient, long id);
 
 
 // Get Trip Matches
@@ -53,7 +53,7 @@ TripAPI_getTrip(apiClient_t *apiClient, double version, long id);
 // Get matching trips of specific trip
 //
 list_t*
-TripAPI_getTripMatches(apiClient_t *apiClient, double version, long id, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *matchedHasRoute, int *matchedHasDriver);
+TripAPI_getTripMatches(apiClient_t *apiClient, long id, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *matchedHasRoute, int *matchedHasDriver);
 
 
 // Process Trip Matches
@@ -61,7 +61,7 @@ TripAPI_getTripMatches(apiClient_t *apiClient, double version, long id, char *so
 // Process trip matching, assign trips with no route to matched trips with route.
 //
 list_t*
-TripAPI_processTripMatches(apiClient_t *apiClient, double version, long startDate, long endDate, long tripId);
+TripAPI_processTripMatches(apiClient_t *apiClient, long startDate, long endDate, long tripId);
 
 
 // Set Trip Preference Rider
@@ -69,7 +69,7 @@ TripAPI_processTripMatches(apiClient_t *apiClient, double version, long startDat
 // Update trip preference to ride.
 //
 trip_t*
-TripAPI_ride(apiClient_t *apiClient, double version, long id, int *recurrence);
+TripAPI_ride(apiClient_t *apiClient, long id, int *recurrence);
 
 
 // Search Trips
@@ -77,7 +77,7 @@ TripAPI_ride(apiClient_t *apiClient, double version, long id, int *recurrence);
 // Search for trips
 //
 list_t*
-TripAPI_search(apiClient_t *apiClient, double version, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *hasNotifications);
+TripAPI_search(apiClient_t *apiClient, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *hasNotifications);
 
 
 // Search Trips
@@ -85,31 +85,31 @@ TripAPI_search(apiClient_t *apiClient, double version, long accountId, char *sor
 // Search for trips with matching information.
 //
 list_t*
-TripAPI_searchTrips(apiClient_t *apiClient, double version, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *matchedHasRoute, int *matchedHasDriver);
+TripAPI_searchTrips(apiClient_t *apiClient, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *matchedHasRoute, int *matchedHasDriver);
 
 
 // Update Trip Locations
 //
 trip_t*
-TripAPI_updateLocations(apiClient_t *apiClient, double version, long id, trip_t *body);
+TripAPI_updateLocations(apiClient_t *apiClient, long id, trip_t *body);
 
 
 // Update Recurrence Locations
 //
 list_t*
-TripAPI_updateRecurrenceLocations(apiClient_t *apiClient, double version, long id, trip_t *body);
+TripAPI_updateRecurrenceLocations(apiClient_t *apiClient, long id, trip_t *body);
 
 
 // Update Recurrence Shipments
 //
 list_t*
-TripAPI_updateRecurrenceShipments(apiClient_t *apiClient, double version, long id, trip_t *body);
+TripAPI_updateRecurrenceShipments(apiClient_t *apiClient, long id, trip_t *body);
 
 
 // Update Trip Shipments
 //
 trip_t*
-TripAPI_updateShipments(apiClient_t *apiClient, double version, long id, trip_t *body);
+TripAPI_updateShipments(apiClient_t *apiClient, long id, trip_t *body);
 
 
 // Update Trip
@@ -117,7 +117,7 @@ TripAPI_updateShipments(apiClient_t *apiClient, double version, long id, trip_t 
 // Update an existing trip. Does not support recurring trip update.
 //
 trip_t*
-TripAPI_updateTrip(apiClient_t *apiClient, double version, long id, trip_t *body);
+TripAPI_updateTrip(apiClient_t *apiClient, long id, trip_t *body);
 
 
 // Trip Notifications
@@ -125,6 +125,6 @@ TripAPI_updateTrip(apiClient_t *apiClient, double version, long id, trip_t *body
 // Update the trip notifications
 //
 trip_t*
-TripAPI_updateTripNotifications(apiClient_t *apiClient, double version, long id, char *notifications);
+TripAPI_updateTripNotifications(apiClient_t *apiClient, long id, char *notifications);
 
 

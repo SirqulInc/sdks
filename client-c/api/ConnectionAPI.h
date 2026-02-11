@@ -20,7 +20,7 @@ typedef enum  { sirqul_iot_platform_groupSearch_SORTFIELD_NULL = 0, sirqul_iot_p
 // Adds a connection to a group.
 //
 sirqul_response_t*
-ConnectionAPI_addConnectionToGroup(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude);
+ConnectionAPI_addConnectionToGroup(apiClient_t *apiClient, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude);
 
 
 // Add Connections
@@ -28,7 +28,7 @@ ConnectionAPI_addConnectionToGroup(apiClient_t *apiClient, double version, int *
 // Adds a list of connections to a group.
 //
 sirqul_response_t*
-ConnectionAPI_addConnectionsToGroup(apiClient_t *apiClient, double version, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude);
+ConnectionAPI_addConnectionsToGroup(apiClient_t *apiClient, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude);
 
 
 // Add Connection Groups
@@ -36,7 +36,7 @@ ConnectionAPI_addConnectionsToGroup(apiClient_t *apiClient, double version, long
 // Add sub groups to a group.
 //
 connection_group_response_t*
-ConnectionAPI_addSubGroups(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude);
+ConnectionAPI_addSubGroups(apiClient_t *apiClient, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Create or Update Connection
@@ -44,7 +44,7 @@ ConnectionAPI_addSubGroups(apiClient_t *apiClient, double version, int *returnNu
 // Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 //
 connection_response_t*
-ConnectionAPI_createOrUpdateConnection(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, long groupId, char *gameType, char *appKey, int *isTrusted, int *ignoreFriendRequest, int *isContact, int *isBlocked, int *isFollowing, int *connectionResponse);
+ConnectionAPI_createOrUpdateConnection(apiClient_t *apiClient, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, long groupId, char *gameType, char *appKey, int *isTrusted, int *ignoreFriendRequest, int *isContact, int *isBlocked, int *isFollowing, int *connectionResponse);
 
 
 // Create or Update Connection Group
@@ -52,7 +52,7 @@ ConnectionAPI_createOrUpdateConnection(apiClient_t *apiClient, double version, c
 // Creates a new private group.
 //
 sirqul_response_t*
-ConnectionAPI_createOrUpdateGroup(apiClient_t *apiClient, double version, int *returnNulls, char *deviceId, long accountId, char *name, long groupId, long assetId, char *connections, char *description, int *canViewProfileInfo, int *canViewGameInfo, int *canViewFriendInfo, int *active, double latitude, double longitude);
+ConnectionAPI_createOrUpdateGroup(apiClient_t *apiClient, int *returnNulls, char *deviceId, long accountId, char *name, long groupId, long assetId, char *connections, char *description, int *canViewProfileInfo, int *canViewGameInfo, int *canViewFriendInfo, int *active, double latitude, double longitude);
 
 
 // Accept Follow Request
@@ -60,7 +60,7 @@ ConnectionAPI_createOrUpdateGroup(apiClient_t *apiClient, double version, int *r
 // Accept someone's follow request.
 //
 sirqul_response_t*
-ConnectionAPI_followAccept(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey);
+ConnectionAPI_followAccept(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey);
 
 
 // Reject Follow Request
@@ -68,7 +68,7 @@ ConnectionAPI_followAccept(apiClient_t *apiClient, double version, long accountI
 // Reject someone's follow request or remove them as a follower.
 //
 sirqul_response_t*
-ConnectionAPI_followReject(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey);
+ConnectionAPI_followReject(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey);
 
 
 // Remove Follower / Unfollow
@@ -76,7 +76,7 @@ ConnectionAPI_followReject(apiClient_t *apiClient, double version, long accountI
 // Unfollow someone you are following or remove them as a follower.
 //
 sirqul_response_t*
-ConnectionAPI_followRemove(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey);
+ConnectionAPI_followRemove(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey);
 
 
 // Send Follow Request
@@ -84,7 +84,7 @@ ConnectionAPI_followRemove(apiClient_t *apiClient, double version, long accountI
 // Send a request to follow someone.
 //
 sirqul_response_t*
-ConnectionAPI_followRequest(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey, int *approvalNeeded);
+ConnectionAPI_followRequest(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey, int *approvalNeeded);
 
 
 // Accept Friend
@@ -92,7 +92,7 @@ ConnectionAPI_followRequest(apiClient_t *apiClient, double version, long account
 // Accept a friend request and optionally sends a notification.
 //
 sirqul_response_t*
-ConnectionAPI_friendAccept(apiClient_t *apiClient, double version, long friendAccountId, int *notifyFriend, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage);
+ConnectionAPI_friendAccept(apiClient_t *apiClient, long friendAccountId, int *notifyFriend, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage);
 
 
 // Decline Friend
@@ -100,7 +100,7 @@ ConnectionAPI_friendAccept(apiClient_t *apiClient, double version, long friendAc
 // Request a friend request and optionally sends a notification.
 //
 sirqul_response_t*
-ConnectionAPI_friendReject(apiClient_t *apiClient, double version, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, int *notifyFriend, char *notificationMessage);
+ConnectionAPI_friendReject(apiClient_t *apiClient, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, int *notifyFriend, char *notificationMessage);
 
 
 // Delete Friend
@@ -108,7 +108,7 @@ ConnectionAPI_friendReject(apiClient_t *apiClient, double version, long friendAc
 // Removes a friend from the user's friends list.
 //
 sirqul_response_t*
-ConnectionAPI_friendRemove(apiClient_t *apiClient, double version, long friendAccountId, char *deviceId, long accountId, int *notifyFriend, int *removeFromGroups);
+ConnectionAPI_friendRemove(apiClient_t *apiClient, long friendAccountId, char *deviceId, long accountId, int *notifyFriend, int *removeFromGroups);
 
 
 // Request Friend
@@ -116,7 +116,7 @@ ConnectionAPI_friendRemove(apiClient_t *apiClient, double version, long friendAc
 // Sends a friend request notification to another user.
 //
 sirqul_response_t*
-ConnectionAPI_friendRequest(apiClient_t *apiClient, double version, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage);
+ConnectionAPI_friendRequest(apiClient_t *apiClient, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage);
 
 
 // Get Sent Friend Requests
@@ -124,7 +124,7 @@ ConnectionAPI_friendRequest(apiClient_t *apiClient, double version, long friendA
 // Gets the connection sent friend requests.
 //
 connection_list_response_t*
-ConnectionAPI_getConnectionSentFriendRequests(apiClient_t *apiClient, double version, char *deviceId, long accountId);
+ConnectionAPI_getConnectionSentFriendRequests(apiClient_t *apiClient, char *deviceId, long accountId);
 
 
 // Search Connections
@@ -132,13 +132,13 @@ ConnectionAPI_getConnectionSentFriendRequests(apiClient_t *apiClient, double ver
 // Gets the connections.
 //
 connection_list_response_t*
-ConnectionAPI_getConnections(apiClient_t *apiClient, double version, int *returnNulls, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, long connectionAccountId, char *q, char *keyword, int *_i, int *_l, double latitude, double longitude);
+ConnectionAPI_getConnections(apiClient_t *apiClient, int *returnNulls, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, long connectionAccountId, char *q, char *keyword, int *_i, int *_l, double latitude, double longitude);
 
 
 // Get Connection Group
 //
 connection_group_response_t*
-ConnectionAPI_getGroupDetails(apiClient_t *apiClient, double version, int *combineConnections, char *deviceId, long accountId, long groupId, double latitude, double longitude);
+ConnectionAPI_getGroupDetails(apiClient_t *apiClient, int *combineConnections, char *deviceId, long accountId, long groupId, double latitude, double longitude);
 
 
 // Search Connection Groups
@@ -146,7 +146,7 @@ ConnectionAPI_getGroupDetails(apiClient_t *apiClient, double version, int *combi
 // Gets a user's private groups and default groups.
 //
 list_t*
-ConnectionAPI_groupSearch(apiClient_t *apiClient, double version, sirqul_iot_platform_groupSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword);
+ConnectionAPI_groupSearch(apiClient_t *apiClient, sirqul_iot_platform_groupSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword);
 
 
 // Delete Connection
@@ -154,7 +154,7 @@ ConnectionAPI_groupSearch(apiClient_t *apiClient, double version, sirqul_iot_pla
 // Removes the connection from group.
 //
 sirqul_response_t*
-ConnectionAPI_removeConnectionFromGroup(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude);
+ConnectionAPI_removeConnectionFromGroup(apiClient_t *apiClient, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude);
 
 
 // Remove Connections
@@ -162,7 +162,7 @@ ConnectionAPI_removeConnectionFromGroup(apiClient_t *apiClient, double version, 
 // Remove a list of connections from a group.
 //
 sirqul_response_t*
-ConnectionAPI_removeConnectionsFromGroup(apiClient_t *apiClient, double version, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude);
+ConnectionAPI_removeConnectionsFromGroup(apiClient_t *apiClient, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude);
 
 
 // Delete Connection Group
@@ -170,7 +170,7 @@ ConnectionAPI_removeConnectionsFromGroup(apiClient_t *apiClient, double version,
 // Remove a user's group.
 //
 sirqul_response_t*
-ConnectionAPI_removeGroup(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *deviceId, long accountId, double latitude, double longitude);
+ConnectionAPI_removeGroup(apiClient_t *apiClient, int *returnNulls, long groupId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Remove Connection Groups
@@ -178,7 +178,7 @@ ConnectionAPI_removeGroup(apiClient_t *apiClient, double version, int *returnNul
 // Remove sub groups from a group
 //
 sirqul_response_t*
-ConnectionAPI_removeSubGroups(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude);
+ConnectionAPI_removeSubGroups(apiClient_t *apiClient, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Search Possible Connections
@@ -186,6 +186,6 @@ ConnectionAPI_removeSubGroups(apiClient_t *apiClient, double version, int *retur
 // Search for accounts that the user may not have a connection with.
 //
 connection_list_response_t*
-ConnectionAPI_searchConnections(apiClient_t *apiClient, double version, int *returnNulls, int *start, int *limit, char *deviceId, long accountId, char *q, char *keyword, double latitude, double longitude, char *gameType, char *appKey, int *_i, int *_l, char *sortField, int *hasLocation);
+ConnectionAPI_searchConnections(apiClient_t *apiClient, int *returnNulls, int *start, int *limit, char *deviceId, long accountId, char *q, char *keyword, double latitude, double longitude, char *gameType, char *appKey, int *_i, int *_l, char *sortField, int *hasLocation);
 
 

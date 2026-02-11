@@ -14,7 +14,7 @@
 // Remove shipment from route
 //
 void
-ShipmentAPI_cancelShipment(apiClient_t *apiClient, double version, long id)
+ShipmentAPI_cancelShipment(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,15 +28,12 @@ ShipmentAPI_cancelShipment(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/{id}/cancel");
+    char *localVarPath = strdup("/shipment/{id}/cancel");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -78,7 +75,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
 
 }
@@ -88,7 +84,7 @@ end:
 // Create new shipment
 //
 shipment_t*
-ShipmentAPI_createShipment(apiClient_t *apiClient, double version, shipment_t *body)
+ShipmentAPI_createShipment(apiClient_t *apiClient, shipment_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -102,12 +98,9 @@ ShipmentAPI_createShipment(apiClient_t *apiClient, double version, shipment_t *b
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment");
+    char *localVarPath = strdup("/shipment");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -159,7 +152,6 @@ ShipmentAPI_createShipment(apiClient_t *apiClient, double version, shipment_t *b
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -177,7 +169,7 @@ end:
 // Delete an existing shipment
 //
 void
-ShipmentAPI_deleteShipment(apiClient_t *apiClient, double version, long id)
+ShipmentAPI_deleteShipment(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -191,15 +183,12 @@ ShipmentAPI_deleteShipment(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/{id}");
+    char *localVarPath = strdup("/shipment/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -241,7 +230,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
 
 }
@@ -251,7 +239,7 @@ end:
 // Get an existing shipment
 //
 shipment_t*
-ShipmentAPI_getShipment(apiClient_t *apiClient, double version, long id)
+ShipmentAPI_getShipment(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -265,15 +253,12 @@ ShipmentAPI_getShipment(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/{id}");
+    char *localVarPath = strdup("/shipment/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -326,7 +311,6 @@ ShipmentAPI_getShipment(apiClient_t *apiClient, double version, long id)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     return elementToReturn;
 end:
@@ -340,7 +324,7 @@ end:
 // Search for shipments
 //
 list_t*
-ShipmentAPI_searchShipments(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long ownerId, long riderId, long routeId)
+ShipmentAPI_searchShipments(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long ownerId, long riderId, long routeId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -354,12 +338,9 @@ ShipmentAPI_searchShipments(apiClient_t *apiClient, double version, char *sortFi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment");
+    char *localVarPath = strdup("/shipment");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -511,7 +492,6 @@ ShipmentAPI_searchShipments(apiClient_t *apiClient, double version, char *sortFi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_ownerId){
         free(keyQuery_ownerId);
         keyQuery_ownerId = NULL;
@@ -608,7 +588,7 @@ end:
 // Update an existing shipment
 //
 shipment_t*
-ShipmentAPI_updateShipment(apiClient_t *apiClient, double version, long id, shipment_t *body)
+ShipmentAPI_updateShipment(apiClient_t *apiClient, long id, shipment_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -622,15 +602,12 @@ ShipmentAPI_updateShipment(apiClient_t *apiClient, double version, long id, ship
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/{id}");
+    char *localVarPath = strdup("/shipment/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -693,7 +670,6 @@ ShipmentAPI_updateShipment(apiClient_t *apiClient, double version, long id, ship
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -712,7 +688,7 @@ end:
 // Update status of an existing shipment
 //
 void
-ShipmentAPI_updateShipmentStatus(apiClient_t *apiClient, double version, long id, list_t* body)
+ShipmentAPI_updateShipmentStatus(apiClient_t *apiClient, long id, list_t* body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -726,15 +702,12 @@ ShipmentAPI_updateShipmentStatus(apiClient_t *apiClient, double version, long id
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/{id}/status");
+    char *localVarPath = strdup("/shipment/{id}/status");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -786,7 +759,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);

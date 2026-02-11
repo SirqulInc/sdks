@@ -21,7 +21,7 @@ typedef enum  { sirqul_iot_platform_uploadCSV_FILEFORMAT_NULL = 0, sirqul_iot_pl
 // Detail Status
 //
 sirqul_response_t*
-CSVImportAPI_getStatusCSV(apiClient_t *apiClient, double version, long accountId, long batchId, sirqul_iot_platform_getStatusCSV_responseGroup_e responseGroup, long start, long limit);
+CSVImportAPI_getStatusCSV(apiClient_t *apiClient, long accountId, long batchId, sirqul_iot_platform_getStatusCSV_responseGroup_e responseGroup, long start, long limit);
 
 
 // Search Status
@@ -29,7 +29,7 @@ CSVImportAPI_getStatusCSV(apiClient_t *apiClient, double version, long accountId
 // Retrieves batches for a user.
 //
 csv_import_response_t*
-CSVImportAPI_listStatusCSV(apiClient_t *apiClient, double version, long accountId, int *start, int *limit);
+CSVImportAPI_listStatusCSV(apiClient_t *apiClient, long accountId, int *start, int *limit);
 
 
 // Batch Status
@@ -37,7 +37,7 @@ CSVImportAPI_listStatusCSV(apiClient_t *apiClient, double version, long accountI
 // Checks status of batch upload.
 //
 csv_import_response_t*
-CSVImportAPI_statusCSV(apiClient_t *apiClient, double version, long accountId, long batchId);
+CSVImportAPI_statusCSV(apiClient_t *apiClient, long accountId, long batchId);
 
 
 // Upload CSV
@@ -45,6 +45,6 @@ CSVImportAPI_statusCSV(apiClient_t *apiClient, double version, long accountId, l
 // Uploads a CSV import file.
 //
 csv_import_response_t*
-CSVImportAPI_uploadCSV(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_uploadCSV_uploadType_e uploadType, binary_t* importFile, sirqul_iot_platform_uploadCSV_fileFormat_e fileFormat, char *appKey);
+CSVImportAPI_uploadCSV(apiClient_t *apiClient, long accountId, sirqul_iot_platform_uploadCSV_uploadType_e uploadType, binary_t* importFile, sirqul_iot_platform_uploadCSV_fileFormat_e fileFormat, char *appKey);
 
 

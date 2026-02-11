@@ -66,7 +66,7 @@ end:
 // Adds an offer, offer location, retailer location, or category to your favorites.
 //
 wrapped_response_t*
-FavoriteAPI_addFavorite(apiClient_t *apiClient, double version, long favoritableId, char *favoritableType, char *deviceId, long accountId, double latitude, double longitude)
+FavoriteAPI_addFavorite(apiClient_t *apiClient, long favoritableId, char *favoritableType, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ FavoriteAPI_addFavorite(apiClient_t *apiClient, double version, long favoritable
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/favorite/create");
+    char *localVarPath = strdup("/favorite/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -207,7 +204,6 @@ FavoriteAPI_addFavorite(apiClient_t *apiClient, double version, long favoritable
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -276,7 +272,7 @@ end:
 // Removes a favorited item from the user's favorites list.
 //
 sirqul_response_t*
-FavoriteAPI_deleteFavorite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long favoriteId, long favoritableId, char *favoritableType)
+FavoriteAPI_deleteFavorite(apiClient_t *apiClient, char *deviceId, long accountId, long favoriteId, long favoritableId, char *favoritableType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -290,12 +286,9 @@ FavoriteAPI_deleteFavorite(apiClient_t *apiClient, double version, char *deviceI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/favorite/delete");
+    char *localVarPath = strdup("/favorite/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -397,7 +390,6 @@ FavoriteAPI_deleteFavorite(apiClient_t *apiClient, double version, char *deviceI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -458,7 +450,7 @@ end:
 // Retrieves a single favorited item.
 //
 wrapped_response_t*
-FavoriteAPI_getFavorite(apiClient_t *apiClient, double version, long favoriteId, char *deviceId, long accountId, double latitude, double longitude)
+FavoriteAPI_getFavorite(apiClient_t *apiClient, long favoriteId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -472,12 +464,9 @@ FavoriteAPI_getFavorite(apiClient_t *apiClient, double version, long favoriteId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/favorite/get");
+    char *localVarPath = strdup("/favorite/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -587,7 +576,6 @@ FavoriteAPI_getFavorite(apiClient_t *apiClient, double version, long favoriteId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -644,7 +632,7 @@ end:
 // Searches on the user's favorites.
 //
 search_response_t*
-FavoriteAPI_searchFavorites(apiClient_t *apiClient, double version, char *favoritableType, sirqul_iot_platform_searchFavorites_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, int *returnFullResponse, char *deviceId, long accountId, long connectionAccountId, char *secondaryType, char *keyword, double latitude, double longitude)
+FavoriteAPI_searchFavorites(apiClient_t *apiClient, char *favoritableType, sirqul_iot_platform_searchFavorites_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, int *returnFullResponse, char *deviceId, long accountId, long connectionAccountId, char *secondaryType, char *keyword, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -658,12 +646,9 @@ FavoriteAPI_searchFavorites(apiClient_t *apiClient, double version, char *favori
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/favorite/search");
+    char *localVarPath = strdup("/favorite/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -887,7 +872,6 @@ FavoriteAPI_searchFavorites(apiClient_t *apiClient, double version, char *favori
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1048,7 +1032,7 @@ end:
 // Searches for everyone that has favorited an item
 //
 list_t*
-FavoriteAPI_whoHasFavorited(apiClient_t *apiClient, double version, long favoritableId, char *favoritableType, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword)
+FavoriteAPI_whoHasFavorited(apiClient_t *apiClient, long favoritableId, char *favoritableType, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1062,12 +1046,9 @@ FavoriteAPI_whoHasFavorited(apiClient_t *apiClient, double version, long favorit
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/favorite/whois");
+    char *localVarPath = strdup("/favorite/whois");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1237,7 +1218,6 @@ FavoriteAPI_whoHasFavorited(apiClient_t *apiClient, double version, long favorit
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

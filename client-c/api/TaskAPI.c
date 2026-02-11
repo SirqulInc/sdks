@@ -118,7 +118,7 @@ end:
 // Create a Task
 //
 task_response_t*
-TaskAPI_createTask(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_createTask_visibility_e visibility, int *active)
+TaskAPI_createTask(apiClient_t *apiClient, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_createTask_visibility_e visibility, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -132,12 +132,9 @@ TaskAPI_createTask(apiClient_t *apiClient, double version, long accountId, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/task/create");
+    char *localVarPath = strdup("/task/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -325,7 +322,6 @@ TaskAPI_createTask(apiClient_t *apiClient, double version, long accountId, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -462,7 +458,7 @@ end:
 // Delete a Task
 //
 sirqul_response_t*
-TaskAPI_deleteTask(apiClient_t *apiClient, double version, long accountId, long taskId)
+TaskAPI_deleteTask(apiClient_t *apiClient, long accountId, long taskId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -476,12 +472,9 @@ TaskAPI_deleteTask(apiClient_t *apiClient, double version, long accountId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/task/delete");
+    char *localVarPath = strdup("/task/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -547,7 +540,6 @@ TaskAPI_deleteTask(apiClient_t *apiClient, double version, long accountId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -576,7 +568,7 @@ end:
 // Get a Task
 //
 task_response_t*
-TaskAPI_getTask(apiClient_t *apiClient, double version, long accountId, long taskId)
+TaskAPI_getTask(apiClient_t *apiClient, long accountId, long taskId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -590,12 +582,9 @@ TaskAPI_getTask(apiClient_t *apiClient, double version, long accountId, long tas
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/task/get");
+    char *localVarPath = strdup("/task/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -661,7 +650,6 @@ TaskAPI_getTask(apiClient_t *apiClient, double version, long accountId, long tas
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -690,7 +678,7 @@ end:
 // Search on Tasks
 //
 list_t*
-TaskAPI_searchTasks(apiClient_t *apiClient, double version, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly)
+TaskAPI_searchTasks(apiClient_t *apiClient, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -704,12 +692,9 @@ TaskAPI_searchTasks(apiClient_t *apiClient, double version, long accountId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/task/search");
+    char *localVarPath = strdup("/task/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -909,7 +894,6 @@ TaskAPI_searchTasks(apiClient_t *apiClient, double version, long accountId, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1062,7 +1046,7 @@ end:
 // Update a Task
 //
 task_response_t*
-TaskAPI_updateTask(apiClient_t *apiClient, double version, long taskId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_updateTask_visibility_e visibility, int *active)
+TaskAPI_updateTask(apiClient_t *apiClient, long taskId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_updateTask_visibility_e visibility, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1076,12 +1060,9 @@ TaskAPI_updateTask(apiClient_t *apiClient, double version, long taskId, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/task/update");
+    char *localVarPath = strdup("/task/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1281,7 +1262,6 @@ TaskAPI_updateTask(apiClient_t *apiClient, double version, long taskId, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_taskId){
         free(keyQuery_taskId);
         keyQuery_taskId = NULL;

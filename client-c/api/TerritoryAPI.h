@@ -17,7 +17,7 @@ typedef enum  { sirqul_iot_platform_searchTerritories_SORTFIELD_NULL = 0, sirqul
 // Creates a territory.
 //
 territory_response_t*
-TerritoryAPI_createTerritory(apiClient_t *apiClient, double version, long accountId, char *name, int *active);
+TerritoryAPI_createTerritory(apiClient_t *apiClient, long accountId, char *name, int *active);
 
 
 // Delete Territory
@@ -25,7 +25,7 @@ TerritoryAPI_createTerritory(apiClient_t *apiClient, double version, long accoun
 // Deletes a territory.
 //
 sirqul_response_t*
-TerritoryAPI_deleteTerritory(apiClient_t *apiClient, double version, long accountId, long territoryId);
+TerritoryAPI_deleteTerritory(apiClient_t *apiClient, long accountId, long territoryId);
 
 
 // Get Territory
@@ -33,7 +33,7 @@ TerritoryAPI_deleteTerritory(apiClient_t *apiClient, double version, long accoun
 // Get a territory.
 //
 territory_response_t*
-TerritoryAPI_getTerritory(apiClient_t *apiClient, double version, long territoryId);
+TerritoryAPI_getTerritory(apiClient_t *apiClient, long territoryId);
 
 
 // Search Territories
@@ -41,7 +41,7 @@ TerritoryAPI_getTerritory(apiClient_t *apiClient, double version, long territory
 // Searches on territories.
 //
 list_t*
-TerritoryAPI_searchTerritories(apiClient_t *apiClient, double version, sirqul_iot_platform_searchTerritories_sortField_e sortField, int *descending, char *keyword, int *start, int *limit);
+TerritoryAPI_searchTerritories(apiClient_t *apiClient, sirqul_iot_platform_searchTerritories_sortField_e sortField, int *descending, char *keyword, int *start, int *limit);
 
 
 // Update Territory
@@ -49,6 +49,6 @@ TerritoryAPI_searchTerritories(apiClient_t *apiClient, double version, sirqul_io
 // Updates a territory.
 //
 territory_response_t*
-TerritoryAPI_updateTerritory(apiClient_t *apiClient, double version, long accountId, long territoryId, char *name, int *active);
+TerritoryAPI_updateTerritory(apiClient_t *apiClient, long accountId, long territoryId, char *name, int *active);
 
 

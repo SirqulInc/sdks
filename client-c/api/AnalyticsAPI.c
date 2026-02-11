@@ -534,7 +534,7 @@ end:
 // Get an activity feed by user.
 //
 list_t*
-AnalyticsAPI_activities(apiClient_t *apiClient, double version, int *start, int *limit, long accountId)
+AnalyticsAPI_activities(apiClient_t *apiClient, int *start, int *limit, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -548,12 +548,9 @@ AnalyticsAPI_activities(apiClient_t *apiClient, double version, int *start, int 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/analytics/useractivity");
+    char *localVarPath = strdup("/analytics/useractivity");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -643,7 +640,6 @@ AnalyticsAPI_activities(apiClient_t *apiClient, double version, int *start, int 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_start){
         free(keyQuery_start);
         keyQuery_start = NULL;
@@ -688,7 +684,7 @@ end:
 // Query analytics to get data used for nested graphs and charts
 //
 chart_data_t*
-AnalyticsAPI_aggregatedFilteredUsage(apiClient_t *apiClient, double version, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, sirqul_iot_platform_aggregatedFilteredUsage_groupByRoot_e groupByRoot, sirqul_iot_platform_aggregatedFilteredUsage_groupBy_e groupBy, sirqul_iot_platform_aggregatedFilteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_aggregatedFilteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_aggregatedFilteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude)
+AnalyticsAPI_aggregatedFilteredUsage(apiClient_t *apiClient, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, sirqul_iot_platform_aggregatedFilteredUsage_groupByRoot_e groupByRoot, sirqul_iot_platform_aggregatedFilteredUsage_groupBy_e groupBy, sirqul_iot_platform_aggregatedFilteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_aggregatedFilteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_aggregatedFilteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -702,12 +698,9 @@ AnalyticsAPI_aggregatedFilteredUsage(apiClient_t *apiClient, double version, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/analytics/aggregatedFilteredUsage");
+    char *localVarPath = strdup("/analytics/aggregatedFilteredUsage");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1138,7 +1131,6 @@ AnalyticsAPI_aggregatedFilteredUsage(apiClient_t *apiClient, double version, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1475,7 +1467,7 @@ end:
 // Query analytics to get data used for graphs and charts
 //
 chart_data_t*
-AnalyticsAPI_filteredUsage(apiClient_t *apiClient, double version, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, long customId, char *customType, double customValue, double customValue2, long customLong, long customLong2, char *customMessage, char *customMessage2, sirqul_iot_platform_filteredUsage_groupBy_e groupBy, sirqul_iot_platform_filteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_filteredUsage_sumColumn_e sumColumn, sirqul_iot_platform_filteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_filteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude)
+AnalyticsAPI_filteredUsage(apiClient_t *apiClient, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, long customId, char *customType, double customValue, double customValue2, long customLong, long customLong2, char *customMessage, char *customMessage2, sirqul_iot_platform_filteredUsage_groupBy_e groupBy, sirqul_iot_platform_filteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_filteredUsage_sumColumn_e sumColumn, sirqul_iot_platform_filteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_filteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1489,12 +1481,9 @@ AnalyticsAPI_filteredUsage(apiClient_t *apiClient, double version, char *deviceI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/analytics/filteredUsage");
+    char *localVarPath = strdup("/analytics/filteredUsage");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2029,7 +2018,6 @@ AnalyticsAPI_filteredUsage(apiClient_t *apiClient, double version, char *deviceI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2442,7 +2430,7 @@ end:
 // Record an analytic record for a known state within the application.
 //
 sirqul_response_t*
-AnalyticsAPI_usage(apiClient_t *apiClient, double version, char *tag, char *deviceId, long accountId, long applicationId, char *appKey, char *appVersion, char *device, char *deviceType, char *deviceOS, char *model, double latitude, double longitude, long customId, char *customType, long achievementIncrement, char *city, char *state, char *country, char *zip, char *locationDescription, long clientTime, char *errorMessage, char *ip, char *userAgent, int *backgroundEvent, char *customMessage, char *customMessage2, double customValue, double customValue2, long customLong, long customLong2)
+AnalyticsAPI_usage(apiClient_t *apiClient, char *tag, char *deviceId, long accountId, long applicationId, char *appKey, char *appVersion, char *device, char *deviceType, char *deviceOS, char *model, double latitude, double longitude, long customId, char *customType, long achievementIncrement, char *city, char *state, char *country, char *zip, char *locationDescription, long clientTime, char *errorMessage, char *ip, char *userAgent, int *backgroundEvent, char *customMessage, char *customMessage2, double customValue, double customValue2, long customLong, long customLong2)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2456,12 +2444,9 @@ AnalyticsAPI_usage(apiClient_t *apiClient, double version, char *tag, char *devi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/analytics/usage");
+    char *localVarPath = strdup("/analytics/usage");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2892,7 +2877,6 @@ AnalyticsAPI_usage(apiClient_t *apiClient, double version, char *tag, char *devi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_tag){
         free(keyQuery_tag);
         keyQuery_tag = NULL;
@@ -3233,7 +3217,7 @@ end:
 // Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 //
 sirqul_response_t*
-AnalyticsAPI_usageBatch(apiClient_t *apiClient, double version, char *appKey, char *device, char *data, char *deviceId, long accountId, char *appVersion, char *deviceType, char *deviceOS, char *model, int *updateRanking, int *returnSummaryResponse)
+AnalyticsAPI_usageBatch(apiClient_t *apiClient, char *appKey, char *device, char *data, char *deviceId, long accountId, char *appVersion, char *deviceType, char *deviceOS, char *model, int *updateRanking, int *returnSummaryResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3247,12 +3231,9 @@ AnalyticsAPI_usageBatch(apiClient_t *apiClient, double version, char *appKey, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/analytics/usage/batch");
+    char *localVarPath = strdup("/analytics/usage/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3428,7 +3409,6 @@ AnalyticsAPI_usageBatch(apiClient_t *apiClient, double version, char *appKey, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

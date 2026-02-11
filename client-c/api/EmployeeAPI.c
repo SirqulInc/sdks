@@ -170,7 +170,7 @@ end:
 // Assign An existing account to be an employee
 //
 employee_response_t*
-EmployeeAPI_assignEmployee(apiClient_t *apiClient, double version, long accountId, long managerAccountId, long employeeAccountId, char *role)
+EmployeeAPI_assignEmployee(apiClient_t *apiClient, long accountId, long managerAccountId, long employeeAccountId, char *role)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -184,12 +184,9 @@ EmployeeAPI_assignEmployee(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/assign");
+    char *localVarPath = strdup("/employee/assign");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -279,7 +276,6 @@ EmployeeAPI_assignEmployee(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -328,7 +324,7 @@ end:
 // Assign or unassign the account to a retailer location.
 //
 sirqul_response_t*
-EmployeeAPI_assignToLocationEmployee(apiClient_t *apiClient, double version, long accountId, long retailerLocationId, long employeeAccountId, int *assign)
+EmployeeAPI_assignToLocationEmployee(apiClient_t *apiClient, long accountId, long retailerLocationId, long employeeAccountId, int *assign)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -342,12 +338,9 @@ EmployeeAPI_assignToLocationEmployee(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/assignToLocation");
+    char *localVarPath = strdup("/employee/assignToLocation");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -438,7 +431,6 @@ EmployeeAPI_assignToLocationEmployee(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -487,7 +479,7 @@ end:
 // Create a new account record with the provided information.
 //
 employee_response_t*
-EmployeeAPI_createEmployee(apiClient_t *apiClient, double version, long accountId, long managerAccountId, char *username, char *password, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, char *aboutUs, long assetId, sirqul_iot_platform_createEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId)
+EmployeeAPI_createEmployee(apiClient_t *apiClient, long accountId, long managerAccountId, char *username, char *password, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, char *aboutUs, long assetId, sirqul_iot_platform_createEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -501,12 +493,9 @@ EmployeeAPI_createEmployee(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/create");
+    char *localVarPath = strdup("/employee/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -909,7 +898,6 @@ EmployeeAPI_createEmployee(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1266,7 +1254,7 @@ end:
 // Set the deleted date field which marks the record as deleted.
 //
 sirqul_response_t*
-EmployeeAPI_deleteEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId)
+EmployeeAPI_deleteEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1280,12 +1268,9 @@ EmployeeAPI_deleteEmployee(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/delete");
+    char *localVarPath = strdup("/employee/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1351,7 +1336,6 @@ EmployeeAPI_deleteEmployee(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1380,7 +1364,7 @@ end:
 // Get the account record for the account id provided.
 //
 employee_response_t*
-EmployeeAPI_getEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId, char *settingsAppKey)
+EmployeeAPI_getEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId, char *settingsAppKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1394,12 +1378,9 @@ EmployeeAPI_getEmployee(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/get");
+    char *localVarPath = strdup("/employee/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1477,7 +1458,6 @@ EmployeeAPI_getEmployee(apiClient_t *apiClient, double version, long accountId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1518,7 +1498,7 @@ end:
 // Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 //
 list_t*
-EmployeeAPI_searchEmployees(apiClient_t *apiClient, double version, long accountId, char *role, long retailerId, long retailerLocationId, char *q, char *keyword, sirqul_iot_platform_searchEmployees_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *activeOnly, int *managedOnly, char *settingsAppKey, char *categoryIds, char *query)
+EmployeeAPI_searchEmployees(apiClient_t *apiClient, long accountId, char *role, long retailerId, long retailerLocationId, char *q, char *keyword, sirqul_iot_platform_searchEmployees_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *activeOnly, int *managedOnly, char *settingsAppKey, char *categoryIds, char *query)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1532,12 +1512,9 @@ EmployeeAPI_searchEmployees(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/search");
+    char *localVarPath = strdup("/employee/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1801,7 +1778,6 @@ EmployeeAPI_searchEmployees(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2002,7 +1978,7 @@ end:
 // Unassign An existing account to be an employee
 //
 employee_response_t*
-EmployeeAPI_unassignEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId)
+EmployeeAPI_unassignEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2016,12 +1992,9 @@ EmployeeAPI_unassignEmployee(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/unassign");
+    char *localVarPath = strdup("/employee/unassign");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2087,7 +2060,6 @@ EmployeeAPI_unassignEmployee(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2116,7 +2088,7 @@ end:
 // Update the account record with the provided information.
 //
 employee_response_t*
-EmployeeAPI_updateEmployee(apiClient_t *apiClient, double version, long accountId, long employeeAccountId, long managerAccountId, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, long assetId, sirqul_iot_platform_updateEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, int *active, char *password, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId)
+EmployeeAPI_updateEmployee(apiClient_t *apiClient, long accountId, long employeeAccountId, long managerAccountId, char *name, char *prefixName, char *firstName, char *middleName, char *lastName, char *suffixName, char *title, long assetId, sirqul_iot_platform_updateEmployee_gender_e gender, char *homePhone, char *cellPhone, char *cellPhoneCarrier, char *businessPhone, char *emailAddress, char *streetAddress, char *streetAddress2, char *city, char *state, char *zipcode, char *country, char *role, int *active, char *password, char *retailerLocationIds, char *settingsAppKey, char *appBlob, char *assignedDeviceId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2130,12 +2102,9 @@ EmployeeAPI_updateEmployee(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/employee/update");
+    char *localVarPath = strdup("/employee/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2539,7 +2508,6 @@ EmployeeAPI_updateEmployee(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

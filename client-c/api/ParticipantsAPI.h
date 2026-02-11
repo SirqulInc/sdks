@@ -13,7 +13,7 @@
 // Processes all supported participant feeds.
 //
 sirqul_response_t*
-ParticipantsAPI_processAllParticipants(apiClient_t *apiClient, double version, long accountId, char *appKey, int *useShortNameAsID);
+ParticipantsAPI_processAllParticipants(apiClient_t *apiClient, long accountId, char *appKey, int *useShortNameAsID);
 
 
 // Process Participants Feed
@@ -21,6 +21,6 @@ ParticipantsAPI_processAllParticipants(apiClient_t *apiClient, double version, l
 // Processes a participant feed or uploaded file for a specific league.
 //
 sirqul_response_t*
-ParticipantsAPI_processParticipants(apiClient_t *apiClient, double version, long accountId, char *league, char *appKey, int *useShortNameAsID, binary_t* file);
+ParticipantsAPI_processParticipants(apiClient_t *apiClient, long accountId, char *league, char *appKey, int *useShortNameAsID, binary_t* file);
 
 

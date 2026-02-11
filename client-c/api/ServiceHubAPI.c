@@ -14,7 +14,7 @@
 // Create new service hub
 //
 service_hub_t*
-ServiceHubAPI_createServiceHub(apiClient_t *apiClient, double version, service_hub_t *body)
+ServiceHubAPI_createServiceHub(apiClient_t *apiClient, service_hub_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ ServiceHubAPI_createServiceHub(apiClient_t *apiClient, double version, service_h
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/hub");
+    char *localVarPath = strdup("/hub");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -85,7 +82,6 @@ ServiceHubAPI_createServiceHub(apiClient_t *apiClient, double version, service_h
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -103,7 +99,7 @@ end:
 // Delete an existing service hub
 //
 void
-ServiceHubAPI_deleteServiceHub(apiClient_t *apiClient, double version, long id)
+ServiceHubAPI_deleteServiceHub(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ ServiceHubAPI_deleteServiceHub(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/hub/{id}");
+    char *localVarPath = strdup("/hub/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -167,7 +160,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
 
 }
@@ -177,7 +169,7 @@ end:
 // Get an existing service hub
 //
 object_t*
-ServiceHubAPI_getServiceHub(apiClient_t *apiClient, double version, long id)
+ServiceHubAPI_getServiceHub(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -191,15 +183,12 @@ ServiceHubAPI_getServiceHub(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/hub/{id}");
+    char *localVarPath = strdup("/hub/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -252,7 +241,6 @@ ServiceHubAPI_getServiceHub(apiClient_t *apiClient, double version, long id)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     return elementToReturn;
 end:
@@ -266,7 +254,7 @@ end:
 // Update an existing service hub
 //
 service_hub_t*
-ServiceHubAPI_postServiceHub(apiClient_t *apiClient, double version, long id, service_hub_t *body)
+ServiceHubAPI_postServiceHub(apiClient_t *apiClient, long id, service_hub_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -280,15 +268,12 @@ ServiceHubAPI_postServiceHub(apiClient_t *apiClient, double version, long id, se
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/hub/{id}");
+    char *localVarPath = strdup("/hub/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -351,7 +336,6 @@ ServiceHubAPI_postServiceHub(apiClient_t *apiClient, double version, long id, se
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -370,7 +354,7 @@ end:
 // Update an existing service hub
 //
 service_hub_t*
-ServiceHubAPI_putServiceHub(apiClient_t *apiClient, double version, long id, service_hub_t *body)
+ServiceHubAPI_putServiceHub(apiClient_t *apiClient, long id, service_hub_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -384,15 +368,12 @@ ServiceHubAPI_putServiceHub(apiClient_t *apiClient, double version, long id, ser
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/hub/{id}");
+    char *localVarPath = strdup("/hub/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -455,7 +436,6 @@ ServiceHubAPI_putServiceHub(apiClient_t *apiClient, double version, long id, ser
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -474,7 +454,7 @@ end:
 // Search for service hubs.
 //
 list_t*
-ServiceHubAPI_searchServiceHubs(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword, long retailerId)
+ServiceHubAPI_searchServiceHubs(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword, long retailerId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -488,12 +468,9 @@ ServiceHubAPI_searchServiceHubs(apiClient_t *apiClient, double version, char *so
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/hub");
+    char *localVarPath = strdup("/hub");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -633,7 +610,6 @@ ServiceHubAPI_searchServiceHubs(apiClient_t *apiClient, double version, char *so
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_keyword){
         free(keyQuery_keyword);
         keyQuery_keyword = NULL;

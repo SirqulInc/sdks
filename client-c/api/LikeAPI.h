@@ -14,7 +14,7 @@
 // Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
 //
 likable_response_t*
-LikeAPI_registerLike(apiClient_t *apiClient, double version, char *likableType, long likableId, char *deviceId, long accountId, char *permissionableType, long permissionableId, int *like, char *app, char *gameType, char *appKey, double latitude, double longitude);
+LikeAPI_registerLike(apiClient_t *apiClient, char *likableType, long likableId, char *deviceId, long accountId, char *permissionableType, long permissionableId, int *like, char *app, char *gameType, char *appKey, double latitude, double longitude);
 
 
 // Delete Like
@@ -22,7 +22,7 @@ LikeAPI_registerLike(apiClient_t *apiClient, double version, char *likableType, 
 // Removes a like. This will make the user \"neutral\".
 //
 likable_response_t*
-LikeAPI_removeLike(apiClient_t *apiClient, double version, char *likableType, long likableId, char *deviceId, long accountId, double latitude, double longitude);
+LikeAPI_removeLike(apiClient_t *apiClient, char *likableType, long likableId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Search Likes
@@ -30,6 +30,6 @@ LikeAPI_removeLike(apiClient_t *apiClient, double version, char *likableType, lo
 // Search for likes on a likable object.
 //
 search_response_t*
-LikeAPI_searchLikes(apiClient_t *apiClient, double version, char *likableType, long likableId, char *deviceId, long accountId, char *connectionAccountIds, char *sortField, int *descending, long updatedSince, long updatedBefore, int *start, int *limit);
+LikeAPI_searchLikes(apiClient_t *apiClient, char *likableType, long likableId, char *deviceId, long accountId, char *connectionAccountIds, char *sortField, int *descending, long updatedSince, long updatedBefore, int *start, int *limit);
 
 

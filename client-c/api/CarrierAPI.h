@@ -13,6 +13,6 @@
 // Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 //
 list_t*
-CarrierAPI_searchCarriers(apiClient_t *apiClient, double version, char *keyword, int *descending, int *start, int *limit, int *activeOnly);
+CarrierAPI_searchCarriers(apiClient_t *apiClient, char *keyword, int *descending, int *start, int *limit, int *activeOnly);
 
 

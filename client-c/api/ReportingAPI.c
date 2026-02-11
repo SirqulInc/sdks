@@ -170,7 +170,7 @@ end:
 // Create an entry for the batch for offline report
 //
 report_batch_response_t*
-ReportingAPI_createBatch(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_createBatch_status_e status, int *previewLimit, char *appKey, char *endpoint, char *parameters, char *name, long startDate, long endDate, char *description, char *pageUrl)
+ReportingAPI_createBatch(apiClient_t *apiClient, long accountId, sirqul_iot_platform_createBatch_status_e status, int *previewLimit, char *appKey, char *endpoint, char *parameters, char *name, long startDate, long endDate, char *description, char *pageUrl)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -184,12 +184,9 @@ ReportingAPI_createBatch(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/report/batch/create");
+    char *localVarPath = strdup("/report/batch/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -365,7 +362,6 @@ ReportingAPI_createBatch(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -494,7 +490,7 @@ end:
 // Create an entry for the batch for offline report
 //
 report_region_leg_summary_batch_response_t*
-ReportingAPI_createRegionLegSummaryBatch(apiClient_t *apiClient, double version, list_t *body)
+ReportingAPI_createRegionLegSummaryBatch(apiClient_t *apiClient, list_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -508,12 +504,9 @@ ReportingAPI_createRegionLegSummaryBatch(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/report/region/summary/batch");
+    char *localVarPath = strdup("/report/region/summary/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -585,7 +578,6 @@ ReportingAPI_createRegionLegSummaryBatch(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarItemJSON_body) {
         cJSON_Delete(localVarItemJSON_body);
         localVarItemJSON_body = NULL;
@@ -611,7 +603,7 @@ end:
 // Deletes a batch report.
 //
 sirqul_response_t*
-ReportingAPI_deleteBatch(apiClient_t *apiClient, double version, long accountId, long batchId)
+ReportingAPI_deleteBatch(apiClient_t *apiClient, long accountId, long batchId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -625,12 +617,9 @@ ReportingAPI_deleteBatch(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/report/batch/delete");
+    char *localVarPath = strdup("/report/batch/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -696,7 +685,6 @@ ReportingAPI_deleteBatch(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -725,7 +713,7 @@ end:
 // Checks status of batch report.
 //
 report_batch_response_t*
-ReportingAPI_getReportBatch(apiClient_t *apiClient, double version, long accountId, long batchId, int *allResults)
+ReportingAPI_getReportBatch(apiClient_t *apiClient, long accountId, long batchId, int *allResults)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -739,12 +727,9 @@ ReportingAPI_getReportBatch(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/report/batch/get");
+    char *localVarPath = strdup("/report/batch/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -823,7 +808,6 @@ ReportingAPI_getReportBatch(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -864,7 +848,7 @@ end:
 //  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 //
 report_response_t*
-ReportingAPI_runReport(apiClient_t *apiClient, double version, int *desc, long accountId, char *query, char *parameters, char *order, long start, long limit, sirqul_iot_platform_runReport_responseFormat_e responseFormat)
+ReportingAPI_runReport(apiClient_t *apiClient, int *desc, long accountId, char *query, char *parameters, char *order, long start, long limit, sirqul_iot_platform_runReport_responseFormat_e responseFormat)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -878,12 +862,9 @@ ReportingAPI_runReport(apiClient_t *apiClient, double version, int *desc, long a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/report/run");
+    char *localVarPath = strdup("/report/run");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1023,7 +1004,6 @@ ReportingAPI_runReport(apiClient_t *apiClient, double version, int *desc, long a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1116,7 +1096,7 @@ end:
 // Retrieves batches for a user..
 //
 list_t*
-ReportingAPI_searchBatch(apiClient_t *apiClient, double version, long accountId, int *start, int *limit, char *names, char *appKey, sirqul_iot_platform_searchBatch_status_e status, int *globalAppSearch, long startDate, long endDate)
+ReportingAPI_searchBatch(apiClient_t *apiClient, long accountId, int *start, int *limit, char *names, char *appKey, sirqul_iot_platform_searchBatch_status_e status, int *globalAppSearch, long startDate, long endDate)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1130,12 +1110,9 @@ ReportingAPI_searchBatch(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/report/batch/search");
+    char *localVarPath = strdup("/report/batch/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1299,7 +1276,6 @@ ReportingAPI_searchBatch(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

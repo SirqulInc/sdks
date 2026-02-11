@@ -66,7 +66,7 @@ end:
 // Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 //
 theme_descriptor_response_t*
-ThemeDescriptorAPI_addOrUpdateThemeDescriptor(apiClient_t *apiClient, double version, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, sirqul_iot_platform_addOrUpdateThemeDescriptor_visibility_e visibility, int *includeFriendGroup, int *completeWithDefaultValues, char *deviceId, long accountId, char *gameType, long themeDescriptorId, char *title, char *description, char *connectionIdsToAdd, char *connectionGroupIdsToAdd, char *appVersion, char *colorValueJson, char *stringReplacerJson, char *customJsonObjects, binary_t* iconImage, binary_t* sceneAtlasImage, binary_t* bgImage, binary_t* bgSound, char *musicSelection, char *locationDescription, double latitude, double longitude)
+ThemeDescriptorAPI_addOrUpdateThemeDescriptor(apiClient_t *apiClient, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, sirqul_iot_platform_addOrUpdateThemeDescriptor_visibility_e visibility, int *includeFriendGroup, int *completeWithDefaultValues, char *deviceId, long accountId, char *gameType, long themeDescriptorId, char *title, char *description, char *connectionIdsToAdd, char *connectionGroupIdsToAdd, char *appVersion, char *colorValueJson, char *stringReplacerJson, char *customJsonObjects, binary_t* iconImage, binary_t* sceneAtlasImage, binary_t* bgImage, binary_t* bgSound, char *musicSelection, char *locationDescription, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ ThemeDescriptorAPI_addOrUpdateThemeDescriptor(apiClient_t *apiClient, double ver
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/theme");
+    char *localVarPath = strdup("/consumer/theme");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -466,7 +463,6 @@ ThemeDescriptorAPI_addOrUpdateThemeDescriptor(apiClient_t *apiClient, double ver
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -767,7 +763,7 @@ end:
 // Gets a theme.
 //
 purchase_item_list_response_t*
-ThemeDescriptorAPI_getThemeDescriptor(apiClient_t *apiClient, double version, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude)
+ThemeDescriptorAPI_getThemeDescriptor(apiClient_t *apiClient, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -781,12 +777,9 @@ ThemeDescriptorAPI_getThemeDescriptor(apiClient_t *apiClient, double version, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/theme/get");
+    char *localVarPath = strdup("/consumer/theme/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -908,7 +901,6 @@ ThemeDescriptorAPI_getThemeDescriptor(apiClient_t *apiClient, double version, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -977,7 +969,7 @@ end:
 // Searches for themes.
 //
 purchase_item_list_response_t*
-ThemeDescriptorAPI_getThemeDescriptors(apiClient_t *apiClient, double version, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, char *gameType, char *contestType, long ownerId, char *q, char *keyword, int *_i, int *_l, long dateCreated, char *appVersion, double latitude, double longitude)
+ThemeDescriptorAPI_getThemeDescriptors(apiClient_t *apiClient, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, char *gameType, char *contestType, long ownerId, char *q, char *keyword, int *_i, int *_l, long dateCreated, char *appVersion, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -991,12 +983,9 @@ ThemeDescriptorAPI_getThemeDescriptors(apiClient_t *apiClient, double version, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/theme/search");
+    char *localVarPath = strdup("/consumer/theme/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1267,7 +1256,6 @@ ThemeDescriptorAPI_getThemeDescriptors(apiClient_t *apiClient, double version, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1476,7 +1464,7 @@ end:
 // Removes a theme.
 //
 sirqul_response_t*
-ThemeDescriptorAPI_removeThemeDescriptor(apiClient_t *apiClient, double version, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude)
+ThemeDescriptorAPI_removeThemeDescriptor(apiClient_t *apiClient, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1490,12 +1478,9 @@ ThemeDescriptorAPI_removeThemeDescriptor(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/theme/remove");
+    char *localVarPath = strdup("/consumer/theme/remove");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1617,7 +1602,6 @@ ThemeDescriptorAPI_removeThemeDescriptor(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

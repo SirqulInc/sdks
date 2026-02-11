@@ -222,7 +222,7 @@ end:
 // Creates a reservation on an offer object
 //
 void
-ReservationAPI_createReservation(apiClient_t *apiClient, double version, char *deviceId, long accountId, long startDate, long endDate, long offerId, long offerLocationId, char *appKey, char *metaData)
+ReservationAPI_createReservation(apiClient_t *apiClient, char *deviceId, long accountId, long startDate, long endDate, long offerId, long offerLocationId, char *appKey, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -236,12 +236,9 @@ ReservationAPI_createReservation(apiClient_t *apiClient, double version, char *d
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/reservation/create");
+    char *localVarPath = strdup("/reservation/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -368,7 +365,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -437,7 +433,7 @@ end:
 // Deleted a reservation on a reservation object
 //
 void
-ReservationAPI_deleteReservation(apiClient_t *apiClient, double version, long reservationId, char *deviceId, long accountId)
+ReservationAPI_deleteReservation(apiClient_t *apiClient, long reservationId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -451,12 +447,9 @@ ReservationAPI_deleteReservation(apiClient_t *apiClient, double version, long re
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/reservation/delete");
+    char *localVarPath = strdup("/reservation/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -523,7 +516,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -550,7 +542,7 @@ end:
 // Update Availability
 //
 list_t*
-ReservationAPI_reservableAvailability(apiClient_t *apiClient, double version, long reservableId, sirqul_iot_platform_reservableAvailability_reservableType_e reservableType, char *deviceId, long accountId, char *availability, char *availabilitySummary)
+ReservationAPI_reservableAvailability(apiClient_t *apiClient, long reservableId, sirqul_iot_platform_reservableAvailability_reservableType_e reservableType, char *deviceId, long accountId, char *availability, char *availabilitySummary)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -564,12 +556,9 @@ ReservationAPI_reservableAvailability(apiClient_t *apiClient, double version, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/reservable/availability/update");
+    char *localVarPath = strdup("/reservable/availability/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -694,7 +683,6 @@ ReservationAPI_reservableAvailability(apiClient_t *apiClient, double version, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -765,7 +753,7 @@ end:
 // Search Availability
 //
 list_t*
-ReservationAPI_searchAvailability(apiClient_t *apiClient, double version, long reservableId, sirqul_iot_platform_searchAvailability_reservableType_e reservableType, char *deviceId, long accountId, long startDate, long endDate, int *start, int *limit)
+ReservationAPI_searchAvailability(apiClient_t *apiClient, long reservableId, sirqul_iot_platform_searchAvailability_reservableType_e reservableType, char *deviceId, long accountId, long startDate, long endDate, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -779,12 +767,9 @@ ReservationAPI_searchAvailability(apiClient_t *apiClient, double version, long r
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/reservable/availability/search");
+    char *localVarPath = strdup("/reservable/availability/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -935,7 +920,6 @@ ReservationAPI_searchAvailability(apiClient_t *apiClient, double version, long r
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1022,7 +1006,7 @@ end:
 // Search Reservations
 //
 list_t*
-ReservationAPI_searchReservations(apiClient_t *apiClient, double version, char *deviceId, char *appKey, long accountId, long filterAccountId, long reservableId, sirqul_iot_platform_searchReservations_reservableType_e reservableType, char *keyword, long startDate, long endDate, int *start, int *limit)
+ReservationAPI_searchReservations(apiClient_t *apiClient, char *deviceId, char *appKey, long accountId, long filterAccountId, long reservableId, sirqul_iot_platform_searchReservations_reservableType_e reservableType, char *keyword, long startDate, long endDate, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1036,12 +1020,9 @@ ReservationAPI_searchReservations(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/reservation/search");
+    char *localVarPath = strdup("/reservation/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1228,7 +1209,6 @@ ReservationAPI_searchReservations(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1347,7 +1327,7 @@ end:
 // Search Schedule
 //
 list_t*
-ReservationAPI_searchSchedule(apiClient_t *apiClient, double version, long reservableId, sirqul_iot_platform_searchSchedule_reservableType_e reservableType, long startDate, long endDate, char *deviceId, long accountId, int *timeBucketMins)
+ReservationAPI_searchSchedule(apiClient_t *apiClient, long reservableId, sirqul_iot_platform_searchSchedule_reservableType_e reservableType, long startDate, long endDate, char *deviceId, long accountId, int *timeBucketMins)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1361,12 +1341,9 @@ ReservationAPI_searchSchedule(apiClient_t *apiClient, double version, long reser
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/reservable/schedule/search");
+    char *localVarPath = strdup("/reservable/schedule/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1504,7 +1481,6 @@ ReservationAPI_searchSchedule(apiClient_t *apiClient, double version, long reser
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

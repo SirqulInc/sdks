@@ -14,7 +14,7 @@
 // Create a Game.
 //
 game_response_t*
-GameAPI_createGame(apiClient_t *apiClient, double version, long accountId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData)
+GameAPI_createGame(apiClient_t *apiClient, long accountId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ GameAPI_createGame(apiClient_t *apiClient, double version, long accountId, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/create");
+    char *localVarPath = strdup("/game/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -160,7 +157,6 @@ GameAPI_createGame(apiClient_t *apiClient, double version, long accountId, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -253,7 +249,7 @@ end:
 // Delete a game.
 //
 sirqul_response_t*
-GameAPI_deleteGame(apiClient_t *apiClient, double version, long accountId, long gameId)
+GameAPI_deleteGame(apiClient_t *apiClient, long accountId, long gameId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -267,12 +263,9 @@ GameAPI_deleteGame(apiClient_t *apiClient, double version, long accountId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/delete");
+    char *localVarPath = strdup("/game/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -338,7 +331,6 @@ GameAPI_deleteGame(apiClient_t *apiClient, double version, long accountId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -367,7 +359,7 @@ end:
 // Get a Game by id.
 //
 game_response_t*
-GameAPI_getGame(apiClient_t *apiClient, double version, long accountId, long gameId, int *includeGameData)
+GameAPI_getGame(apiClient_t *apiClient, long accountId, long gameId, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -381,12 +373,9 @@ GameAPI_getGame(apiClient_t *apiClient, double version, long accountId, long gam
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/get");
+    char *localVarPath = strdup("/game/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -465,7 +454,6 @@ GameAPI_getGame(apiClient_t *apiClient, double version, long accountId, long gam
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -506,7 +494,7 @@ end:
 // Get a list of games for an application, just those the account has permissions to view.
 //
 game_response_t*
-GameAPI_searchGames(apiClient_t *apiClient, double version, long accountId, char *appKey, int *start, int *limit, char *keyword, char *appVersion, int *includeGameData, int *includeInactive)
+GameAPI_searchGames(apiClient_t *apiClient, long accountId, char *appKey, int *start, int *limit, char *keyword, char *appVersion, int *includeGameData, int *includeInactive)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -520,12 +508,9 @@ GameAPI_searchGames(apiClient_t *apiClient, double version, long accountId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/search");
+    char *localVarPath = strdup("/game/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -667,7 +652,6 @@ GameAPI_searchGames(apiClient_t *apiClient, double version, long accountId, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -772,7 +756,7 @@ end:
 // Update a Game
 //
 game_response_t*
-GameAPI_updateGame(apiClient_t *apiClient, double version, long accountId, long gameId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData)
+GameAPI_updateGame(apiClient_t *apiClient, long accountId, long gameId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -786,12 +770,9 @@ GameAPI_updateGame(apiClient_t *apiClient, double version, long accountId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/update");
+    char *localVarPath = strdup("/game/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -930,7 +911,6 @@ GameAPI_updateGame(apiClient_t *apiClient, double version, long accountId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

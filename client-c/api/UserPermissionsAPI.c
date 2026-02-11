@@ -326,7 +326,7 @@ end:
 // Adds a user to a permissionable object.
 //
 sirqul_response_t*
-UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_addUsersToPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, int *read, int *write, int *_delete, int *add, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *pending, int *admin, int *includeFriendGroup, double latitude, double longitude, char *audienceIds)
+UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, sirqul_iot_platform_addUsersToPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, int *read, int *write, int *_delete, int *add, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *pending, int *admin, int *includeFriendGroup, double latitude, double longitude, char *audienceIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -340,12 +340,9 @@ UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/permissions/add");
+    char *localVarPath = strdup("/consumer/permissions/add");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -607,7 +604,6 @@ UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -804,7 +800,7 @@ end:
 // Sets the approval status of a permissionable object.
 //
 sirqul_response_t*
-UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_approvePermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, sirqul_iot_platform_approvePermissionable_approvalStatus_e approvalStatus)
+UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, sirqul_iot_platform_approvePermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, sirqul_iot_platform_approvePermissionable_approvalStatus_e approvalStatus)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -818,12 +814,9 @@ UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/permissionable/approve");
+    char *localVarPath = strdup("/permissionable/approve");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -927,7 +920,6 @@ UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -984,7 +976,7 @@ end:
 // Used when the user wants to leave from someone else's permissionable object
 //
 sirqul_response_t*
-UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, double version, char *permissionableType, long permissionableId, char *deviceId, long accountId, double latitude, double longitude)
+UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, char *permissionableType, long permissionableId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -998,12 +990,9 @@ UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/permissions/leave");
+    char *localVarPath = strdup("/consumer/permissions/leave");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1125,7 +1114,6 @@ UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1194,7 +1182,7 @@ end:
 // Used to remove someone (assuming they have permission) from a permissionable object
 //
 sirqul_response_t*
-UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_removeUsersFromPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *removeFriendGroup, double latitude, double longitude, char *audienceIds)
+UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, sirqul_iot_platform_removeUsersFromPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *removeFriendGroup, double latitude, double longitude, char *audienceIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1208,12 +1196,9 @@ UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, double 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/permissions/remove");
+    char *localVarPath = strdup("/consumer/permissions/remove");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1397,7 +1382,6 @@ UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, double 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1522,7 +1506,7 @@ end:
 // Search on UserPermissions
 //
 list_t*
-UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionables_permissionableType_e permissionableType, long permissionableId, char *keyword, char *sortField, int *descending, int *pending, int *admin, int *start, int *limit)
+UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionables_permissionableType_e permissionableType, long permissionableId, char *keyword, char *sortField, int *descending, int *pending, int *admin, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1536,12 +1520,9 @@ UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/permissions/search");
+    char *localVarPath = strdup("/permissions/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1755,7 +1736,6 @@ UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1908,7 +1888,7 @@ end:
 // Search on UserPermissions by distance
 //
 list_t*
-UserPermissionsAPI_searchPermissionablesFollowingDistance(apiClient_t *apiClient, double version, double latitude, double longitude, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionablesFollowingDistance_permissionableType_e permissionableType, long permissionableId, double searchRange, char *keyword, int *pending, int *admin, int *start, int *limit)
+UserPermissionsAPI_searchPermissionablesFollowingDistance(apiClient_t *apiClient, double latitude, double longitude, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionablesFollowingDistance_permissionableType_e permissionableType, long permissionableId, double searchRange, char *keyword, int *pending, int *admin, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1922,12 +1902,9 @@ UserPermissionsAPI_searchPermissionablesFollowingDistance(apiClient_t *apiClient
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/permissions/distancesearch");
+    char *localVarPath = strdup("/permissions/distancesearch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2164,7 +2141,6 @@ UserPermissionsAPI_searchPermissionablesFollowingDistance(apiClient_t *apiClient
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

@@ -17,7 +17,7 @@ typedef enum  { sirqul_iot_platform_searchOfferTransactionStatuses_SORTFIELD_NUL
 // Create an offer status record
 //
 offer_transaction_status_response_t*
-OfferStatusAPI_createOfferTransactionStatus(apiClient_t *apiClient, double version, char *name, int *code, char *deviceId, long accountId, double latitude, double longitude, char *description, char *role, int *active, char *applicationIds);
+OfferStatusAPI_createOfferTransactionStatus(apiClient_t *apiClient, char *name, int *code, char *deviceId, long accountId, double latitude, double longitude, char *description, char *role, int *active, char *applicationIds);
 
 
 // Delete Offer Status
@@ -25,7 +25,7 @@ OfferStatusAPI_createOfferTransactionStatus(apiClient_t *apiClient, double versi
 // Mark an offer status record as deleted
 //
 sirqul_response_t*
-OfferStatusAPI_deleteOfferTransactionStatus(apiClient_t *apiClient, double version, long statusId, char *deviceId, long accountId, double latitude, double longitude);
+OfferStatusAPI_deleteOfferTransactionStatus(apiClient_t *apiClient, long statusId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Get Offer Status
@@ -33,7 +33,7 @@ OfferStatusAPI_deleteOfferTransactionStatus(apiClient_t *apiClient, double versi
 // Get an offer status record
 //
 offer_transaction_status_response_t*
-OfferStatusAPI_getOfferTransactionStatus(apiClient_t *apiClient, double version, long statusId, char *deviceId, long accountId, double latitude, double longitude);
+OfferStatusAPI_getOfferTransactionStatus(apiClient_t *apiClient, long statusId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Search Offer Status
@@ -41,7 +41,7 @@ OfferStatusAPI_getOfferTransactionStatus(apiClient_t *apiClient, double version,
 // Search for the available offer statuses
 //
 list_t*
-OfferStatusAPI_searchOfferTransactionStatuses(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude, char *keyword, char *role, char *appKey, sirqul_iot_platform_searchOfferTransactionStatuses_sortField_e sortField, int *descending, int *start, int *limit, int *includeInactive);
+OfferStatusAPI_searchOfferTransactionStatuses(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude, char *keyword, char *role, char *appKey, sirqul_iot_platform_searchOfferTransactionStatuses_sortField_e sortField, int *descending, int *start, int *limit, int *includeInactive);
 
 
 // Update Offer Status
@@ -49,6 +49,6 @@ OfferStatusAPI_searchOfferTransactionStatuses(apiClient_t *apiClient, double ver
 // Update an offer status record
 //
 offer_transaction_status_response_t*
-OfferStatusAPI_updateOfferTransactionStatus(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude, long statusId, char *name, char *description, int *code, char *role, int *active, char *applicationIds);
+OfferStatusAPI_updateOfferTransactionStatus(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude, long statusId, char *name, char *description, int *code, char *role, int *active, char *applicationIds);
 
 

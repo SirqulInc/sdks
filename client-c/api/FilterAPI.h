@@ -21,7 +21,7 @@ typedef enum  { sirqul_iot_platform_searchFilters_SORTFIELD_NULL = 0, sirqul_iot
 // Create a filter
 //
 filter_tree_response_t*
-FilterAPI_createFilter(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, long parentFilterId, char *description, char *externalId, char *externalType, int *active, char *metaData);
+FilterAPI_createFilter(apiClient_t *apiClient, long accountId, char *name, char *appKey, long parentFilterId, char *description, char *externalId, char *externalType, int *active, char *metaData);
 
 
 // Delete Filter
@@ -29,7 +29,7 @@ FilterAPI_createFilter(apiClient_t *apiClient, double version, long accountId, c
 // Delete a filter.
 //
 sirqul_response_t*
-FilterAPI_deleteFilter(apiClient_t *apiClient, double version, long accountId, long filterId);
+FilterAPI_deleteFilter(apiClient_t *apiClient, long accountId, long filterId);
 
 
 // Get Filter
@@ -37,7 +37,7 @@ FilterAPI_deleteFilter(apiClient_t *apiClient, double version, long accountId, l
 // Get the details of a specific filter. Recursively include all child filters and their children.
 //
 filter_tree_response_t*
-FilterAPI_getFilter(apiClient_t *apiClient, double version, long filterId);
+FilterAPI_getFilter(apiClient_t *apiClient, long filterId);
 
 
 // Search Filters
@@ -45,7 +45,7 @@ FilterAPI_getFilter(apiClient_t *apiClient, double version, long filterId);
 // Search for filters.
 //
 list_t*
-FilterAPI_searchFilters(apiClient_t *apiClient, double version, long accountId, char *keyword, char *appKey, sirqul_iot_platform_searchFilters_responseGroup_e responseGroup, int *rootOnly, sirqul_iot_platform_searchFilters_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly);
+FilterAPI_searchFilters(apiClient_t *apiClient, long accountId, char *keyword, char *appKey, sirqul_iot_platform_searchFilters_responseGroup_e responseGroup, int *rootOnly, sirqul_iot_platform_searchFilters_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly);
 
 
 // Update Filter
@@ -53,6 +53,6 @@ FilterAPI_searchFilters(apiClient_t *apiClient, double version, long accountId, 
 // Update a filter.
 //
 filter_tree_response_t*
-FilterAPI_updateFilter(apiClient_t *apiClient, double version, long accountId, long filterId, long parentFilterId, char *name, char *description, char *externalId, char *externalType, int *active, char *metaData);
+FilterAPI_updateFilter(apiClient_t *apiClient, long accountId, long filterId, long parentFilterId, char *name, char *description, char *externalId, char *externalType, int *active, char *metaData);
 
 

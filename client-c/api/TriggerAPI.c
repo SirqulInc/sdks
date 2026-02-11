@@ -118,7 +118,7 @@ end:
 // Create a trigger
 //
 trigger_response_t*
-TriggerAPI_createTrigger(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_createTrigger_visibility_e visibility, int *active)
+TriggerAPI_createTrigger(apiClient_t *apiClient, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_createTrigger_visibility_e visibility, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -132,12 +132,9 @@ TriggerAPI_createTrigger(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trigger/create");
+    char *localVarPath = strdup("/trigger/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -337,7 +334,6 @@ TriggerAPI_createTrigger(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -486,7 +482,7 @@ end:
 // Mark a trigger as deleted.
 //
 sirqul_response_t*
-TriggerAPI_deleteTrigger(apiClient_t *apiClient, double version, long accountId, long triggerId)
+TriggerAPI_deleteTrigger(apiClient_t *apiClient, long accountId, long triggerId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -500,12 +496,9 @@ TriggerAPI_deleteTrigger(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trigger/delete");
+    char *localVarPath = strdup("/trigger/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -571,7 +564,6 @@ TriggerAPI_deleteTrigger(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -600,7 +592,7 @@ end:
 // Get a trigger
 //
 trigger_response_t*
-TriggerAPI_getTrigger(apiClient_t *apiClient, double version, long accountId, long triggerId)
+TriggerAPI_getTrigger(apiClient_t *apiClient, long accountId, long triggerId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -614,12 +606,9 @@ TriggerAPI_getTrigger(apiClient_t *apiClient, double version, long accountId, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trigger/get");
+    char *localVarPath = strdup("/trigger/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -685,7 +674,6 @@ TriggerAPI_getTrigger(apiClient_t *apiClient, double version, long accountId, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -714,7 +702,7 @@ end:
 // Search for triggers
 //
 list_t*
-TriggerAPI_searchTriggers(apiClient_t *apiClient, double version, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly)
+TriggerAPI_searchTriggers(apiClient_t *apiClient, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -728,12 +716,9 @@ TriggerAPI_searchTriggers(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trigger/search");
+    char *localVarPath = strdup("/trigger/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -933,7 +918,6 @@ TriggerAPI_searchTriggers(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1086,7 +1070,7 @@ end:
 // Update a trigger
 //
 trigger_response_t*
-TriggerAPI_updateTrigger(apiClient_t *apiClient, double version, long triggerId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_updateTrigger_visibility_e visibility, int *active)
+TriggerAPI_updateTrigger(apiClient_t *apiClient, long triggerId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_updateTrigger_visibility_e visibility, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1100,12 +1084,9 @@ TriggerAPI_updateTrigger(apiClient_t *apiClient, double version, long triggerId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trigger/update");
+    char *localVarPath = strdup("/trigger/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1317,7 +1298,6 @@ TriggerAPI_updateTrigger(apiClient_t *apiClient, double version, long triggerId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_triggerId){
         free(keyQuery_triggerId);
         keyQuery_triggerId = NULL;

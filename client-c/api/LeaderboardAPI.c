@@ -14,7 +14,7 @@
 // Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 //
 leaderboard_response_t*
-LeaderboardAPI_createLeaderboard(apiClient_t *apiClient, double version, long accountId, char *appKey, char *rankType, char *leaderboardMode, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, char *sortField, char *title, char *description, char *metaData)
+LeaderboardAPI_createLeaderboard(apiClient_t *apiClient, long accountId, char *appKey, char *rankType, char *leaderboardMode, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, char *sortField, char *title, char *description, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ LeaderboardAPI_createLeaderboard(apiClient_t *apiClient, double version, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/leaderboard/create");
+    char *localVarPath = strdup("/leaderboard/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -232,7 +229,6 @@ LeaderboardAPI_createLeaderboard(apiClient_t *apiClient, double version, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -381,7 +377,7 @@ end:
 // Removes a leader board id.
 //
 sirqul_response_t*
-LeaderboardAPI_deleteLeaderboard(apiClient_t *apiClient, double version, long leaderboardId, long accountId)
+LeaderboardAPI_deleteLeaderboard(apiClient_t *apiClient, long leaderboardId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -395,12 +391,9 @@ LeaderboardAPI_deleteLeaderboard(apiClient_t *apiClient, double version, long le
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/leaderboard/delete");
+    char *localVarPath = strdup("/leaderboard/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -466,7 +459,6 @@ LeaderboardAPI_deleteLeaderboard(apiClient_t *apiClient, double version, long le
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -495,7 +487,7 @@ end:
 // Read a leaderboard by id and retrieve the matching ranking list
 //
 leaderboard_response_t*
-LeaderboardAPI_getLeaderboard(apiClient_t *apiClient, double version, long leaderboardId, long accountId, int *includeFullRankingList)
+LeaderboardAPI_getLeaderboard(apiClient_t *apiClient, long leaderboardId, long accountId, int *includeFullRankingList)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -509,12 +501,9 @@ LeaderboardAPI_getLeaderboard(apiClient_t *apiClient, double version, long leade
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/leaderboard/get");
+    char *localVarPath = strdup("/leaderboard/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -593,7 +582,6 @@ LeaderboardAPI_getLeaderboard(apiClient_t *apiClient, double version, long leade
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -634,7 +622,7 @@ end:
 // Search leaderboard and retrieve the matching ranking list
 //
 leaderboard_response_t*
-LeaderboardAPI_searchLeaderboards(apiClient_t *apiClient, double version, long accountId, char *appKey, int *globalOnly, char *keyword, char *leaderboardIds, char *rankTypes, char *sortField, int *descending, int *includeInactive, int *includeAppResponse, int *start, int *limit)
+LeaderboardAPI_searchLeaderboards(apiClient_t *apiClient, long accountId, char *appKey, int *globalOnly, char *keyword, char *leaderboardIds, char *rankTypes, char *sortField, int *descending, int *includeInactive, int *includeAppResponse, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -648,12 +636,9 @@ LeaderboardAPI_searchLeaderboards(apiClient_t *apiClient, double version, long a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/leaderboard/search");
+    char *localVarPath = strdup("/leaderboard/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -845,7 +830,6 @@ LeaderboardAPI_searchLeaderboards(apiClient_t *apiClient, double version, long a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -998,7 +982,7 @@ end:
 // Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 //
 leaderboard_response_t*
-LeaderboardAPI_updateLeaderboard(apiClient_t *apiClient, double version, long leaderboardId, long accountId, char *appKey, char *rankType, char *leaderboardMode, char *sortField, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, int *active, char *title, char *description, char *metaData)
+LeaderboardAPI_updateLeaderboard(apiClient_t *apiClient, long leaderboardId, long accountId, char *appKey, char *rankType, char *leaderboardMode, char *sortField, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, int *active, char *title, char *description, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1012,12 +996,9 @@ LeaderboardAPI_updateLeaderboard(apiClient_t *apiClient, double version, long le
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/leaderboard/update");
+    char *localVarPath = strdup("/leaderboard/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1241,7 +1222,6 @@ LeaderboardAPI_updateLeaderboard(apiClient_t *apiClient, double version, long le
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

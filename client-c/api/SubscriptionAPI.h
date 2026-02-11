@@ -16,7 +16,7 @@
 // Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 //
 subscription_response_t*
-SubscriptionAPI_createSubscription(apiClient_t *apiClient, double version, long accountId, long planId, char *promoCode);
+SubscriptionAPI_createSubscription(apiClient_t *apiClient, long accountId, long planId, char *promoCode);
 
 
 // Delete Subscription
@@ -24,7 +24,7 @@ SubscriptionAPI_createSubscription(apiClient_t *apiClient, double version, long 
 // Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 //
 sirqul_response_t*
-SubscriptionAPI_deleteSubscription(apiClient_t *apiClient, double version, long accountId);
+SubscriptionAPI_deleteSubscription(apiClient_t *apiClient, long accountId);
 
 
 // Get Subscription
@@ -32,7 +32,7 @@ SubscriptionAPI_deleteSubscription(apiClient_t *apiClient, double version, long 
 // Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 //
 subscription_response_t*
-SubscriptionAPI_getSubscription(apiClient_t *apiClient, double version, long accountId);
+SubscriptionAPI_getSubscription(apiClient_t *apiClient, long accountId);
 
 
 // Get Subscription Plan
@@ -40,7 +40,7 @@ SubscriptionAPI_getSubscription(apiClient_t *apiClient, double version, long acc
 // Get the matched subscription plan
 //
 subscription_plan_response_t*
-SubscriptionAPI_getSubscriptionPlan(apiClient_t *apiClient, double version, long planId);
+SubscriptionAPI_getSubscriptionPlan(apiClient_t *apiClient, long planId);
 
 
 // List Subscription Plans
@@ -48,7 +48,7 @@ SubscriptionAPI_getSubscriptionPlan(apiClient_t *apiClient, double version, long
 // Get the matched subscription plan
 //
 list_t*
-SubscriptionAPI_getSubscriptionPlans(apiClient_t *apiClient, double version, int *visible, char *role);
+SubscriptionAPI_getSubscriptionPlans(apiClient_t *apiClient, int *visible, char *role);
 
 
 // Get Subscription Usage
@@ -56,7 +56,7 @@ SubscriptionAPI_getSubscriptionPlans(apiClient_t *apiClient, double version, int
 // Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 //
 application_usage_response_t*
-SubscriptionAPI_getSubscriptionUsage(apiClient_t *apiClient, double version, long accountId, long applicationId, long start, long end);
+SubscriptionAPI_getSubscriptionUsage(apiClient_t *apiClient, long accountId, long applicationId, long start, long end);
 
 
 // Update Subscription
@@ -64,6 +64,6 @@ SubscriptionAPI_getSubscriptionUsage(apiClient_t *apiClient, double version, lon
 // Updates the subscription for the billable entity for an account
 //
 subscription_response_t*
-SubscriptionAPI_updateSubscription(apiClient_t *apiClient, double version, long accountId, long planId, char *promoCode, int *active);
+SubscriptionAPI_updateSubscription(apiClient_t *apiClient, long accountId, long planId, char *promoCode, int *active);
 
 

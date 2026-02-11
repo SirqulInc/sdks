@@ -14,7 +14,7 @@
 // Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
 //
 orson_ai_add_movie_response_t*
-OrsonAPI_addMovie(apiClient_t *apiClient, double version, long accountId, char *movieName, char *thirdPartyAccountId, char *tags, binary_t* file, char *url, char *callback)
+OrsonAPI_addMovie(apiClient_t *apiClient, long accountId, char *movieName, char *thirdPartyAccountId, char *tags, binary_t* file, char *url, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ OrsonAPI_addMovie(apiClient_t *apiClient, double version, long accountId, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/addMovie");
+    char *localVarPath = strdup("/orson/ai/addMovie");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -159,7 +156,6 @@ OrsonAPI_addMovie(apiClient_t *apiClient, double version, long accountId, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -248,7 +244,7 @@ end:
 // Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
 //
 orson_ai_proto_response_t*
-OrsonAPI_aiDocs(apiClient_t *apiClient, double version, long accountId, char *doc, int *return_topics, int *limit, int *offset)
+OrsonAPI_aiDocs(apiClient_t *apiClient, long accountId, char *doc, int *return_topics, int *limit, int *offset)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -262,12 +258,9 @@ OrsonAPI_aiDocs(apiClient_t *apiClient, double version, long accountId, char *do
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/docs");
+    char *localVarPath = strdup("/orson/ai/docs");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -372,7 +365,6 @@ OrsonAPI_aiDocs(apiClient_t *apiClient, double version, long accountId, char *do
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -441,7 +433,7 @@ end:
 // Returns a list of URIs of images that match the text.
 //
 orson_ai_proto_response_t*
-OrsonAPI_aiFindImages(apiClient_t *apiClient, double version, long accountId, char *text, char *parse_flag, char *fetch_flag, char *size)
+OrsonAPI_aiFindImages(apiClient_t *apiClient, long accountId, char *text, char *parse_flag, char *fetch_flag, char *size)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -455,12 +447,9 @@ OrsonAPI_aiFindImages(apiClient_t *apiClient, double version, long accountId, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/img");
+    char *localVarPath = strdup("/orson/ai/img");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -562,7 +551,6 @@ OrsonAPI_aiFindImages(apiClient_t *apiClient, double version, long accountId, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -631,7 +619,7 @@ end:
 // Search the tags column of user provided tags using this endpoint.
 //
 orson_ai_proto_response_t*
-OrsonAPI_aiTags(apiClient_t *apiClient, double version, long accountId, char *tags, char *conditional, int *limit, int *offset)
+OrsonAPI_aiTags(apiClient_t *apiClient, long accountId, char *tags, char *conditional, int *limit, int *offset)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -645,12 +633,9 @@ OrsonAPI_aiTags(apiClient_t *apiClient, double version, long accountId, char *ta
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/tags");
+    char *localVarPath = strdup("/orson/ai/tags");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -754,7 +739,6 @@ OrsonAPI_aiTags(apiClient_t *apiClient, double version, long accountId, char *ta
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -823,7 +807,7 @@ end:
 // Search the movie text column of movie text using this endpoint.
 //
 orson_ai_proto_response_t*
-OrsonAPI_aiText(apiClient_t *apiClient, double version, long accountId, char *terms, char *conditional, int *limit, int *offset)
+OrsonAPI_aiText(apiClient_t *apiClient, long accountId, char *terms, char *conditional, int *limit, int *offset)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -837,12 +821,9 @@ OrsonAPI_aiText(apiClient_t *apiClient, double version, long accountId, char *te
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/text");
+    char *localVarPath = strdup("/orson/ai/text");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -946,7 +927,6 @@ OrsonAPI_aiText(apiClient_t *apiClient, double version, long accountId, char *te
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1015,7 +995,7 @@ end:
 // Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
 //
 orson_ai_batch_response_t*
-OrsonAPI_batch(apiClient_t *apiClient, double version, long accountId, char *thirdPartyAccountId, int *limit, char *operations, binary_t* file, char *url, char *callback)
+OrsonAPI_batch(apiClient_t *apiClient, long accountId, char *thirdPartyAccountId, int *limit, char *operations, binary_t* file, char *url, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1029,12 +1009,9 @@ OrsonAPI_batch(apiClient_t *apiClient, double version, long accountId, char *thi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/batch");
+    char *localVarPath = strdup("/orson/ai/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1161,7 +1138,6 @@ OrsonAPI_batch(apiClient_t *apiClient, double version, long accountId, char *thi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1250,7 +1226,7 @@ end:
 // Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
 //
 orson_episode_response_t*
-OrsonAPI_createInstantEpisode(apiClient_t *apiClient, double version, long accountId, char *data)
+OrsonAPI_createInstantEpisode(apiClient_t *apiClient, long accountId, char *data)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1264,12 +1240,9 @@ OrsonAPI_createInstantEpisode(apiClient_t *apiClient, double version, long accou
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/stories/episodes/instant");
+    char *localVarPath = strdup("/orson/stories/episodes/instant");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1335,7 +1308,6 @@ OrsonAPI_createInstantEpisode(apiClient_t *apiClient, double version, long accou
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1368,7 +1340,7 @@ end:
 // Create VoiceCanvas images for provided text, file upload, or file URL
 //
 orson_ai_voice_canvas_response_t*
-OrsonAPI_createVoiceCanvas(apiClient_t *apiClient, double version, long accountId, char *dimensions, char *thirdPartyAccountId, char *text, binary_t* file, char *url, int *parseFlag, int *fetchFlag, char *callback)
+OrsonAPI_createVoiceCanvas(apiClient_t *apiClient, long accountId, char *dimensions, char *thirdPartyAccountId, char *text, binary_t* file, char *url, int *parseFlag, int *fetchFlag, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1382,12 +1354,9 @@ OrsonAPI_createVoiceCanvas(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/voiceCanvas");
+    char *localVarPath = strdup("/orson/ai/voiceCanvas");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1539,7 +1508,6 @@ OrsonAPI_createVoiceCanvas(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1652,7 +1620,7 @@ end:
 // Detects emotions in an audio or video recording.
 //
 orson_ai_emotions_response_t*
-OrsonAPI_emotion(apiClient_t *apiClient, double version, long accountId, char *thirdPartyAccountId, binary_t* file, char *url, char *callback)
+OrsonAPI_emotion(apiClient_t *apiClient, long accountId, char *thirdPartyAccountId, binary_t* file, char *url, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1666,12 +1634,9 @@ OrsonAPI_emotion(apiClient_t *apiClient, double version, long accountId, char *t
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/emotion");
+    char *localVarPath = strdup("/orson/ai/emotion");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1773,7 +1738,6 @@ OrsonAPI_emotion(apiClient_t *apiClient, double version, long accountId, char *t
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1838,7 +1802,7 @@ end:
 // Get the result of an in progress Add Movie request from an earlier POST.
 //
 orson_ai_add_movie_response_t*
-OrsonAPI_getAddMovieResult(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getAddMovieResult(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1852,17 +1816,14 @@ OrsonAPI_getAddMovieResult(apiClient_t *apiClient, double version, char *request
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/addMovie/{requestId}");
+    char *localVarPath = strdup("/orson/ai/addMovie/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -1923,7 +1884,6 @@ OrsonAPI_getAddMovieResult(apiClient_t *apiClient, double version, char *request
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -1945,7 +1905,7 @@ end:
 // Gets the completed Video Batch results, if done, or an error or status update if not.
 //
 orson_ai_batch_response_t*
-OrsonAPI_getBatch(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getBatch(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1959,17 +1919,14 @@ OrsonAPI_getBatch(apiClient_t *apiClient, double version, char *requestId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/batch/{requestId}");
+    char *localVarPath = strdup("/orson/ai/batch/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -2030,7 +1987,6 @@ OrsonAPI_getBatch(apiClient_t *apiClient, double version, char *requestId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2052,7 +2008,7 @@ end:
 // Checks the Emotion analysis and returns in progress, results, or error.
 //
 orson_ai_emotions_response_t*
-OrsonAPI_getEmotion(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getEmotion(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2066,17 +2022,14 @@ OrsonAPI_getEmotion(apiClient_t *apiClient, double version, char *requestId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/emotion/{requestId}");
+    char *localVarPath = strdup("/orson/ai/emotion/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -2137,7 +2090,6 @@ OrsonAPI_getEmotion(apiClient_t *apiClient, double version, char *requestId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2159,7 +2111,7 @@ end:
 // Gets a summary of the episode's status, including any renders.
 //
 orson_episode_response_t*
-OrsonAPI_getEpisodeStatus(apiClient_t *apiClient, double version, long episodeId, long accountId)
+OrsonAPI_getEpisodeStatus(apiClient_t *apiClient, long episodeId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2173,15 +2125,12 @@ OrsonAPI_getEpisodeStatus(apiClient_t *apiClient, double version, long episodeId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/stories/episodes/{episodeId}/status");
+    char *localVarPath = strdup("/orson/stories/episodes/{episodeId}/status");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(episodeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_episodeId =  + sizeof(episodeId)+3 + sizeof("{ episodeId }") - 1;
+    long sizeOfPathParams_episodeId = sizeof(episodeId)+3 + sizeof("{ episodeId }") - 1;
     if(episodeId == 0){
         goto end;
     }
@@ -2246,7 +2195,6 @@ OrsonAPI_getEpisodeStatus(apiClient_t *apiClient, double version, long episodeId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_episodeId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2268,7 +2216,7 @@ end:
 // Gets a summary of the episode's status, including any renders.
 //
 orson_render_response_t*
-OrsonAPI_getRenderStatus(apiClient_t *apiClient, double version, char *renderId, long accountId)
+OrsonAPI_getRenderStatus(apiClient_t *apiClient, char *renderId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2282,17 +2230,14 @@ OrsonAPI_getRenderStatus(apiClient_t *apiClient, double version, char *renderId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/stories/renders/{renderId}/status");
+    char *localVarPath = strdup("/orson/stories/renders/{renderId}/status");
 
     if(!renderId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(renderId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_renderId =  + strlen(renderId)+3 + sizeof("{ renderId }") - 1;
+    long sizeOfPathParams_renderId = strlen(renderId)+3 + sizeof("{ renderId }") - 1;
     if(renderId == NULL) {
         goto end;
     }
@@ -2353,7 +2298,6 @@ OrsonAPI_getRenderStatus(apiClient_t *apiClient, double version, char *renderId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_renderId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2375,7 +2319,7 @@ end:
 // The results of the video transcription and optional translation.
 //
 orson_ai_stt_response_t*
-OrsonAPI_getSTT(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getSTT(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2389,17 +2333,14 @@ OrsonAPI_getSTT(apiClient_t *apiClient, double version, char *requestId, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/stt/{requestId}");
+    char *localVarPath = strdup("/orson/ai/stt/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -2460,7 +2401,6 @@ OrsonAPI_getSTT(apiClient_t *apiClient, double version, char *requestId, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2482,7 +2422,7 @@ end:
 // Check the status of an in progress Text-to-Speech call or download the result.
 //
 orson_ai_tts_response_t*
-OrsonAPI_getTTS(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getTTS(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2496,17 +2436,14 @@ OrsonAPI_getTTS(apiClient_t *apiClient, double version, char *requestId, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/tts/{requestId}");
+    char *localVarPath = strdup("/orson/ai/tts/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -2567,7 +2504,6 @@ OrsonAPI_getTTS(apiClient_t *apiClient, double version, char *requestId, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2589,7 +2525,7 @@ end:
 // Get a result or continue waiting for a pending request for TechTune analysis.
 //
 orson_ai_tech_tune_response_t*
-OrsonAPI_getTechTune(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getTechTune(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2603,17 +2539,14 @@ OrsonAPI_getTechTune(apiClient_t *apiClient, double version, char *requestId, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/techTune/{requestId}");
+    char *localVarPath = strdup("/orson/ai/techTune/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -2674,7 +2607,6 @@ OrsonAPI_getTechTune(apiClient_t *apiClient, double version, char *requestId, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2696,7 +2628,7 @@ end:
 // Get the result of an in progress Topics Analysis from an earlier POST.
 //
 orson_ai_topics_response_t*
-OrsonAPI_getTopics(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getTopics(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2710,17 +2642,14 @@ OrsonAPI_getTopics(apiClient_t *apiClient, double version, char *requestId, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/topics/{requestId}");
+    char *localVarPath = strdup("/orson/ai/topics/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -2781,7 +2710,6 @@ OrsonAPI_getTopics(apiClient_t *apiClient, double version, char *requestId, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2803,7 +2731,7 @@ end:
 // Get a result or continue waiting for a pending request for VoiceCanvas Images.
 //
 orson_ai_voice_canvas_response_t*
-OrsonAPI_getVoiceCanvas(apiClient_t *apiClient, double version, char *requestId, long accountId)
+OrsonAPI_getVoiceCanvas(apiClient_t *apiClient, char *requestId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2817,17 +2745,14 @@ OrsonAPI_getVoiceCanvas(apiClient_t *apiClient, double version, char *requestId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/voiceCanvas/{requestId}");
+    char *localVarPath = strdup("/orson/ai/voiceCanvas/{requestId}");
 
     if(!requestId)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(requestId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_requestId =  + strlen(requestId)+3 + sizeof("{ requestId }") - 1;
+    long sizeOfPathParams_requestId = strlen(requestId)+3 + sizeof("{ requestId }") - 1;
     if(requestId == NULL) {
         goto end;
     }
@@ -2888,7 +2813,6 @@ OrsonAPI_getVoiceCanvas(apiClient_t *apiClient, double version, char *requestId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_requestId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -2910,7 +2834,7 @@ end:
 // Starts a StoryStitch video render to produce your final video, returning the status details.
 //
 orson_render_response_t*
-OrsonAPI_startVideoRender(apiClient_t *apiClient, double version, long accountId, char *data)
+OrsonAPI_startVideoRender(apiClient_t *apiClient, long accountId, char *data)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2924,12 +2848,9 @@ OrsonAPI_startVideoRender(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/stories/renders");
+    char *localVarPath = strdup("/orson/stories/renders");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2995,7 +2916,6 @@ OrsonAPI_startVideoRender(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -3028,7 +2948,7 @@ end:
 // Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
 //
 orson_ai_stt_response_t*
-OrsonAPI_stt(apiClient_t *apiClient, double version, long accountId, char *thirdPartyAccountId, char *sourceLanguage, char *targetLanguage, binary_t* file, char *url, char *callback)
+OrsonAPI_stt(apiClient_t *apiClient, long accountId, char *thirdPartyAccountId, char *sourceLanguage, char *targetLanguage, binary_t* file, char *url, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3042,12 +2962,9 @@ OrsonAPI_stt(apiClient_t *apiClient, double version, long accountId, char *third
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/stt");
+    char *localVarPath = strdup("/orson/ai/stt");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3173,7 +3090,6 @@ OrsonAPI_stt(apiClient_t *apiClient, double version, long accountId, char *third
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -3262,7 +3178,7 @@ end:
 // Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
 //
 orson_ai_topics_response_t*
-OrsonAPI_summarizeTopics(apiClient_t *apiClient, double version, long accountId, char *thirdPartyAccountId, char *doc, binary_t* file, char *url, int *limit, int *offset, char *callback)
+OrsonAPI_summarizeTopics(apiClient_t *apiClient, long accountId, char *thirdPartyAccountId, char *doc, binary_t* file, char *url, int *limit, int *offset, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3276,12 +3192,9 @@ OrsonAPI_summarizeTopics(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/topics");
+    char *localVarPath = strdup("/orson/ai/topics");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3421,7 +3334,6 @@ OrsonAPI_summarizeTopics(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -3522,7 +3434,7 @@ end:
 // Analyses a movie file to detect technical issues, such as too few people in frame.
 //
 orson_ai_tech_tune_response_t*
-OrsonAPI_techTune(apiClient_t *apiClient, double version, long accountId, int *numFacesExpected, char *thirdPartyAccountId, binary_t* file, char *url, char *callback)
+OrsonAPI_techTune(apiClient_t *apiClient, long accountId, int *numFacesExpected, char *thirdPartyAccountId, binary_t* file, char *url, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3536,12 +3448,9 @@ OrsonAPI_techTune(apiClient_t *apiClient, double version, long accountId, int *n
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/techTune");
+    char *localVarPath = strdup("/orson/ai/techTune");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3656,7 +3565,6 @@ OrsonAPI_techTune(apiClient_t *apiClient, double version, long accountId, int *n
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -3733,7 +3641,7 @@ end:
 // Creates an audio file for the given text, with the option of language and voice selection.
 //
 orson_ai_tts_response_t*
-OrsonAPI_tts(apiClient_t *apiClient, double version, long accountId, char *text, char *thirdPartyAccountId, char *language, char *voice, char *callback)
+OrsonAPI_tts(apiClient_t *apiClient, long accountId, char *text, char *thirdPartyAccountId, char *language, char *voice, char *callback)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3747,12 +3655,9 @@ OrsonAPI_tts(apiClient_t *apiClient, double version, long accountId, char *text,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/orson/ai/tts");
+    char *localVarPath = strdup("/orson/ai/tts");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3866,7 +3771,6 @@ OrsonAPI_tts(apiClient_t *apiClient, double version, long accountId, char *text,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

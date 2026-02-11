@@ -66,7 +66,7 @@ end:
 // This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
 //
 profile_response_t*
-ThirdPartyCredentialsAPI_createCredential(apiClient_t *apiClient, double version, char *thirdPartyId, char *thirdPartyToken, char *networkUID, char *appKey, long accountId, char *deviceId, char *sessionId, char *thirdPartyName, char *emailAddress, int *signinOnlyMode, char *responseFilters, double latitude, double longitude, char *metaData, char *thirdPartyRefreshToken, char *audienceIdsToAdd, char *audienceIdsToRemove)
+ThirdPartyCredentialsAPI_createCredential(apiClient_t *apiClient, char *thirdPartyId, char *thirdPartyToken, char *networkUID, char *appKey, long accountId, char *deviceId, char *sessionId, char *thirdPartyName, char *emailAddress, int *signinOnlyMode, char *responseFilters, double latitude, double longitude, char *metaData, char *thirdPartyRefreshToken, char *audienceIdsToAdd, char *audienceIdsToRemove)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ ThirdPartyCredentialsAPI_createCredential(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/credential/create");
+    char *localVarPath = strdup("/thirdparty/credential/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -340,7 +337,6 @@ ThirdPartyCredentialsAPI_createCredential(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -545,7 +541,7 @@ end:
 // Creates a custom third party network.
 //
 third_party_network_response_t*
-ThirdPartyCredentialsAPI_createNetwork(apiClient_t *apiClient, double version, long accountId, char *name, int *enableIntrospection, char *description, char *introspectionMethod, char *introspectionURL, char *introspectionParams, char *requiredRootField, int *enableMFA, int *sizeMFA, int *shelfLifeMFA, char *oauthTokenURL, binary_t* oauthPrivateKey, binary_t* oauthPublicKey, char *oauthClientId, char *oauthSecretKey, char *body)
+ThirdPartyCredentialsAPI_createNetwork(apiClient_t *apiClient, long accountId, char *name, int *enableIntrospection, char *description, char *introspectionMethod, char *introspectionURL, char *introspectionParams, char *requiredRootField, int *enableMFA, int *sizeMFA, int *shelfLifeMFA, char *oauthTokenURL, binary_t* oauthPrivateKey, binary_t* oauthPublicKey, char *oauthClientId, char *oauthSecretKey, char *body)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -559,12 +555,9 @@ ThirdPartyCredentialsAPI_createNetwork(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/network/create");
+    char *localVarPath = strdup("/thirdparty/network/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -806,7 +799,6 @@ ThirdPartyCredentialsAPI_createNetwork(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarBodyParameters);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -1000,7 +992,7 @@ end:
 // Delete a third party network on a Sirqul account.
 //
 sirqul_response_t*
-ThirdPartyCredentialsAPI_deleteCredential(apiClient_t *apiClient, double version, long accountId, char *networkUID, char *thirdPartyId, char *appKey)
+ThirdPartyCredentialsAPI_deleteCredential(apiClient_t *apiClient, long accountId, char *networkUID, char *thirdPartyId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1014,12 +1006,9 @@ ThirdPartyCredentialsAPI_deleteCredential(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/credential/delete");
+    char *localVarPath = strdup("/thirdparty/credential/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1109,7 +1098,6 @@ ThirdPartyCredentialsAPI_deleteCredential(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1166,7 +1154,7 @@ end:
 // Marks a custom third party network as deleted. Only the network owners and managers have access to this.
 //
 sirqul_response_t*
-ThirdPartyCredentialsAPI_deleteNetwork(apiClient_t *apiClient, double version, long accountId, char *networkUID)
+ThirdPartyCredentialsAPI_deleteNetwork(apiClient_t *apiClient, long accountId, char *networkUID)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1180,12 +1168,9 @@ ThirdPartyCredentialsAPI_deleteNetwork(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/network/delete");
+    char *localVarPath = strdup("/thirdparty/network/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1251,7 +1236,6 @@ ThirdPartyCredentialsAPI_deleteNetwork(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1284,7 +1268,7 @@ end:
 // Gets the account information given a third party token.
 //
 profile_response_t*
-ThirdPartyCredentialsAPI_getCredential(apiClient_t *apiClient, double version, char *networkUID, char *appKey, long accountId, char *deviceId, char *sessionId, long thirdPartyCredentialId, char *thirdPartyToken, char *thirdPartySecret, int *createNewAccount, char *responseFilters, double latitude, double longitude, char *audienceIdsToAdd, char *audienceIdsToRemove, long referralAccountId)
+ThirdPartyCredentialsAPI_getCredential(apiClient_t *apiClient, char *networkUID, char *appKey, long accountId, char *deviceId, char *sessionId, long thirdPartyCredentialId, char *thirdPartyToken, char *thirdPartySecret, int *createNewAccount, char *responseFilters, double latitude, double longitude, char *audienceIdsToAdd, char *audienceIdsToRemove, long referralAccountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1298,12 +1282,9 @@ ThirdPartyCredentialsAPI_getCredential(apiClient_t *apiClient, double version, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/credential/get");
+    char *localVarPath = strdup("/thirdparty/credential/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1534,7 +1515,6 @@ ThirdPartyCredentialsAPI_getCredential(apiClient_t *apiClient, double version, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1707,7 +1687,7 @@ end:
 // Get the details of a third party network. Only the network owners and managers have access to this.
 //
 third_party_network_response_t*
-ThirdPartyCredentialsAPI_getNetwork(apiClient_t *apiClient, double version, long accountId, char *networkUID)
+ThirdPartyCredentialsAPI_getNetwork(apiClient_t *apiClient, long accountId, char *networkUID)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1721,12 +1701,9 @@ ThirdPartyCredentialsAPI_getNetwork(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/network/get");
+    char *localVarPath = strdup("/thirdparty/network/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1792,7 +1769,6 @@ ThirdPartyCredentialsAPI_getNetwork(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1825,7 +1801,7 @@ end:
 // Search on a user's linked third party networks.
 //
 list_t*
-ThirdPartyCredentialsAPI_searchCredentials(apiClient_t *apiClient, double version, long accountId, char *keyword, char *networkUID, int *descending, int *start, int *limit)
+ThirdPartyCredentialsAPI_searchCredentials(apiClient_t *apiClient, long accountId, char *keyword, char *networkUID, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1839,12 +1815,9 @@ ThirdPartyCredentialsAPI_searchCredentials(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/credential/search");
+    char *localVarPath = strdup("/thirdparty/credential/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1971,7 +1944,6 @@ ThirdPartyCredentialsAPI_searchCredentials(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2052,7 +2024,7 @@ end:
 // Search on supported third party networks and custom networks from external users.
 //
 list_t*
-ThirdPartyCredentialsAPI_searchNetworks(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_searchNetworks_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword, int *filterBillable)
+ThirdPartyCredentialsAPI_searchNetworks(apiClient_t *apiClient, long accountId, sirqul_iot_platform_searchNetworks_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword, int *filterBillable)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2066,12 +2038,9 @@ ThirdPartyCredentialsAPI_searchNetworks(apiClient_t *apiClient, double version, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/network/search");
+    char *localVarPath = strdup("/thirdparty/network/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2225,7 +2194,6 @@ ThirdPartyCredentialsAPI_searchNetworks(apiClient_t *apiClient, double version, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2326,7 +2294,7 @@ end:
 // Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
 //
 sirqul_response_t*
-ThirdPartyCredentialsAPI_sendMFAChallenge(apiClient_t *apiClient, double version, char *networkUID, char *appKey, char *thirdPartyToken, long thirdPartyCredentialId, char *deviceId)
+ThirdPartyCredentialsAPI_sendMFAChallenge(apiClient_t *apiClient, char *networkUID, char *appKey, char *thirdPartyToken, long thirdPartyCredentialId, char *deviceId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2340,12 +2308,9 @@ ThirdPartyCredentialsAPI_sendMFAChallenge(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/credential/mfa/send");
+    char *localVarPath = strdup("/thirdparty/credential/mfa/send");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2447,7 +2412,6 @@ ThirdPartyCredentialsAPI_sendMFAChallenge(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_thirdPartyToken){
         free(keyQuery_thirdPartyToken);
         keyQuery_thirdPartyToken = NULL;
@@ -2516,7 +2480,7 @@ end:
 // Updates a third-party login for an account.
 //
 profile_response_t*
-ThirdPartyCredentialsAPI_updateCredential(apiClient_t *apiClient, double version, char *networkUID, char *thirdPartyId, char *appKey, char *deviceId, char *thirdPartyName, char *thirdPartyToken, char *responseFilters, char *metaData, char *thirdPartyRefreshToken)
+ThirdPartyCredentialsAPI_updateCredential(apiClient_t *apiClient, char *networkUID, char *thirdPartyId, char *appKey, char *deviceId, char *thirdPartyName, char *thirdPartyToken, char *responseFilters, char *metaData, char *thirdPartyRefreshToken)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2530,12 +2494,9 @@ ThirdPartyCredentialsAPI_updateCredential(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/credential/update");
+    char *localVarPath = strdup("/thirdparty/credential/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2685,7 +2646,6 @@ ThirdPartyCredentialsAPI_updateCredential(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2806,7 +2766,7 @@ end:
 // Updates a custom third party network. Only the network owners and managers have access to this.
 //
 third_party_network_response_t*
-ThirdPartyCredentialsAPI_updateNetwork(apiClient_t *apiClient, double version, long accountId, char *networkUID, char *name, char *description, int *enableIntrospection, char *introspectionMethod, char *introspectionURL, char *introspectionParams, char *requiredRootField, int *enableMFA, int *sizeMFA, int *shelfLifeMFA, char *oauthTokenURL, binary_t* oauthPrivateKey, binary_t* oauthPublicKey, char *oauthClientId, char *oauthSecretKey, char *body)
+ThirdPartyCredentialsAPI_updateNetwork(apiClient_t *apiClient, long accountId, char *networkUID, char *name, char *description, int *enableIntrospection, char *introspectionMethod, char *introspectionURL, char *introspectionParams, char *requiredRootField, int *enableMFA, int *sizeMFA, int *shelfLifeMFA, char *oauthTokenURL, binary_t* oauthPrivateKey, binary_t* oauthPublicKey, char *oauthClientId, char *oauthSecretKey, char *body)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2820,12 +2780,9 @@ ThirdPartyCredentialsAPI_updateNetwork(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/thirdparty/network/update");
+    char *localVarPath = strdup("/thirdparty/network/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3079,7 +3036,6 @@ ThirdPartyCredentialsAPI_updateNetwork(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarBodyParameters);
     if(keyQuery_accountId){
         free(keyQuery_accountId);

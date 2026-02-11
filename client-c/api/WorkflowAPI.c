@@ -14,7 +14,7 @@
 // Runs a published executable workflow
 //
 sirqul_response_t*
-WorkflowAPI_runWorkflow(apiClient_t *apiClient, double version, long accountId, long workflowId, long skuId, int *versionCode, char *parameters)
+WorkflowAPI_runWorkflow(apiClient_t *apiClient, long accountId, long workflowId, long skuId, int *versionCode, char *parameters)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ WorkflowAPI_runWorkflow(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/workflow/run");
+    char *localVarPath = strdup("/workflow/run");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -136,7 +133,6 @@ WorkflowAPI_runWorkflow(apiClient_t *apiClient, double version, long accountId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

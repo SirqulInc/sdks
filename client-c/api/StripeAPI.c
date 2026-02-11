@@ -14,7 +14,7 @@
 // Create a Stripe checkout session
 //
 sirqul_response_t*
-StripeAPI_createStripeCheckoutSession(apiClient_t *apiClient, double version, char *appKey, char *stripeParameters)
+StripeAPI_createStripeCheckoutSession(apiClient_t *apiClient, char *appKey, char *stripeParameters)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ StripeAPI_createStripeCheckoutSession(apiClient_t *apiClient, double version, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/stripe/checkout/session/create");
+    char *localVarPath = strdup("/stripe/checkout/session/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -99,7 +96,6 @@ StripeAPI_createStripeCheckoutSession(apiClient_t *apiClient, double version, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;

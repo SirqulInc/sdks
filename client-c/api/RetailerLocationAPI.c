@@ -222,7 +222,7 @@ end:
 // Creates a location record for an application that can support crowd sourced locations.
 //
 retailer_location_response_t*
-RetailerLocationAPI_createRetailerLocationConsumer(apiClient_t *apiClient, double version, char *appKey, char *name, char *deviceId, long accountId, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *detailsHeader, char *detailsBody, char *hours, char *tags, long logoAssetId, long picture1AssetId, long picture2AssetId, char *categoryIds, char *filterIds, char *metaData, int *publicLocation, int *active, char *locationType, double latitude, double longitude)
+RetailerLocationAPI_createRetailerLocationConsumer(apiClient_t *apiClient, char *appKey, char *name, char *deviceId, long accountId, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *detailsHeader, char *detailsBody, char *hours, char *tags, long logoAssetId, long picture1AssetId, long picture2AssetId, char *categoryIds, char *filterIds, char *metaData, int *publicLocation, int *active, char *locationType, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -236,12 +236,9 @@ RetailerLocationAPI_createRetailerLocationConsumer(apiClient_t *apiClient, doubl
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location/create");
+    char *localVarPath = strdup("/location/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -641,7 +638,6 @@ RetailerLocationAPI_createRetailerLocationConsumer(apiClient_t *apiClient, doubl
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -978,7 +974,7 @@ end:
 // Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 //
 retailer_location_response_t*
-RetailerLocationAPI_createRetailerLocations(apiClient_t *apiClient, double version, long retailerId, char *name, char *streetAddress, char *city, char *state, char *postalCode, char *deviceId, long accountId, char *streetAddress2, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *internalId, char *detailsHeader, char *detailsBody, char *hours, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *building, char *googlePlaceId, char *yelpId, int *active, int *publicLocation, char *locationType, char *audienceIds, char *audienceIdsToAdd, char *audienceIdsToRemove, sirqul_iot_platform_createRetailerLocations_responseFormat_e responseFormat, char *responseIncludes)
+RetailerLocationAPI_createRetailerLocations(apiClient_t *apiClient, long retailerId, char *name, char *streetAddress, char *city, char *state, char *postalCode, char *deviceId, long accountId, char *streetAddress2, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *internalId, char *detailsHeader, char *detailsBody, char *hours, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *building, char *googlePlaceId, char *yelpId, int *active, int *publicLocation, char *locationType, char *audienceIds, char *audienceIdsToAdd, char *audienceIdsToRemove, sirqul_iot_platform_createRetailerLocations_responseFormat_e responseFormat, char *responseIncludes)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -992,12 +988,9 @@ RetailerLocationAPI_createRetailerLocations(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/location/create");
+    char *localVarPath = strdup("/retailer/location/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1518,7 +1511,6 @@ RetailerLocationAPI_createRetailerLocations(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1955,7 +1947,7 @@ end:
 // Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
 //
 sirqul_response_t*
-RetailerLocationAPI_deleteRetailerLocation(apiClient_t *apiClient, double version, char *deviceId, long accountId, long retailerLocationId)
+RetailerLocationAPI_deleteRetailerLocation(apiClient_t *apiClient, char *deviceId, long accountId, long retailerLocationId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1969,12 +1961,9 @@ RetailerLocationAPI_deleteRetailerLocation(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/location/delete");
+    char *localVarPath = strdup("/retailer/location/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2052,7 +2041,6 @@ RetailerLocationAPI_deleteRetailerLocation(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2093,7 +2081,7 @@ end:
 // Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
 //
 retailer_location_response_t*
-RetailerLocationAPI_getRetailerLocation(apiClient_t *apiClient, double version, long retailerLocationId, char *deviceId, long accountId, char *retailerLocationToken)
+RetailerLocationAPI_getRetailerLocation(apiClient_t *apiClient, long retailerLocationId, char *deviceId, long accountId, char *retailerLocationToken)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2107,12 +2095,9 @@ RetailerLocationAPI_getRetailerLocation(apiClient_t *apiClient, double version, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/location/get");
+    char *localVarPath = strdup("/retailer/location/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2202,7 +2187,6 @@ RetailerLocationAPI_getRetailerLocation(apiClient_t *apiClient, double version, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2255,7 +2239,7 @@ end:
 // Gets the details of a retailer location as a consumer.
 //
 retailer_location_response_t*
-RetailerLocationAPI_getRetailerLocationConsumer(apiClient_t *apiClient, double version, long retailerLocationId, char *deviceId, long accountId)
+RetailerLocationAPI_getRetailerLocationConsumer(apiClient_t *apiClient, long retailerLocationId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2269,12 +2253,9 @@ RetailerLocationAPI_getRetailerLocationConsumer(apiClient_t *apiClient, double v
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location/get");
+    char *localVarPath = strdup("/location/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2352,7 +2333,6 @@ RetailerLocationAPI_getRetailerLocationConsumer(apiClient_t *apiClient, double v
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2393,7 +2373,7 @@ end:
 // Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
 //
 list_t*
-RetailerLocationAPI_indexedRetailerLocationDistanceSearch(apiClient_t *apiClient, double version, double latitude, double longitude, double searchRange, int *start, int *limit, long accountId, char *address, int *hasOffers, char *categories, char *filters, char *audiences, char *retailerIds, char *retailerLocationIds, char *tags, char *locationType, char *sortField, int *descending, char *q, char *keyword, char *keywordOperator, char *searchExpression, sirqul_iot_platform_indexedRetailerLocationDistanceSearch_distanceUnit_e distanceUnit, int *returnFavorited, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters, int *returnAudiences, int *returnQrCode, int *returnExternalCategoryData, int *includeFavorite, int *includeLiked, int *includeRating)
+RetailerLocationAPI_indexedRetailerLocationDistanceSearch(apiClient_t *apiClient, double latitude, double longitude, double searchRange, int *start, int *limit, long accountId, char *address, int *hasOffers, char *categories, char *filters, char *audiences, char *retailerIds, char *retailerLocationIds, char *tags, char *locationType, char *sortField, int *descending, char *q, char *keyword, char *keywordOperator, char *searchExpression, sirqul_iot_platform_indexedRetailerLocationDistanceSearch_distanceUnit_e distanceUnit, int *returnFavorited, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters, int *returnAudiences, int *returnQrCode, int *returnExternalCategoryData, int *includeFavorite, int *includeLiked, int *includeRating)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2407,12 +2387,9 @@ RetailerLocationAPI_indexedRetailerLocationDistanceSearch(apiClient_t *apiClient
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/location/idistancesearch");
+    char *localVarPath = strdup("/retailer/location/idistancesearch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2901,7 +2878,6 @@ RetailerLocationAPI_indexedRetailerLocationDistanceSearch(apiClient_t *apiClient
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_latitude){
         free(keyQuery_latitude);
         keyQuery_latitude = NULL;
@@ -3302,7 +3278,7 @@ end:
 // Retailer location (faster) indexed search. This searches all retailer locations.
 //
 list_t*
-RetailerLocationAPI_indexedRetailerLocationSearch(apiClient_t *apiClient, double version, long accountId, int *start, int *limit, int *hasOffers, char *categories, char *filters, char *audiences, char *retailerIds, char *retailerLocationIds, char *tags, char *locationType, char *sortField, int *descending, char *q, char *keyword, char *keywordOperator, char *searchExpression, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters, int *returnAudiences, int *returnQrCode, int *returnExternalCategoryData, int *includeFavorite, int *includeLiked, int *includeRating)
+RetailerLocationAPI_indexedRetailerLocationSearch(apiClient_t *apiClient, long accountId, int *start, int *limit, int *hasOffers, char *categories, char *filters, char *audiences, char *retailerIds, char *retailerLocationIds, char *tags, char *locationType, char *sortField, int *descending, char *q, char *keyword, char *keywordOperator, char *searchExpression, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters, int *returnAudiences, int *returnQrCode, int *returnExternalCategoryData, int *includeFavorite, int *includeLiked, int *includeRating)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3316,12 +3292,9 @@ RetailerLocationAPI_indexedRetailerLocationSearch(apiClient_t *apiClient, double
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/location/isearch");
+    char *localVarPath = strdup("/retailer/location/isearch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3724,7 +3697,6 @@ RetailerLocationAPI_indexedRetailerLocationSearch(apiClient_t *apiClient, double
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -4069,7 +4041,7 @@ end:
 // Searches on retailer locations that the account has access to.
 //
 list_t*
-RetailerLocationAPI_searchRetailerLocations(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *q, char *keyword, char *retailerIds, char *retailerLocationIds, char *locationType, sirqul_iot_platform_searchRetailerLocations_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *showPublicLocations, int *activeOnly, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters, int *returnAudiences, int *returnQrCode, int *includeFavorite, int *includeLiked, int *includeRating)
+RetailerLocationAPI_searchRetailerLocations(apiClient_t *apiClient, char *deviceId, long accountId, char *q, char *keyword, char *retailerIds, char *retailerLocationIds, char *locationType, sirqul_iot_platform_searchRetailerLocations_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *showPublicLocations, int *activeOnly, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters, int *returnAudiences, int *returnQrCode, int *includeFavorite, int *includeLiked, int *includeRating)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4083,12 +4055,9 @@ RetailerLocationAPI_searchRetailerLocations(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/location/search");
+    char *localVarPath = strdup("/retailer/location/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4458,7 +4427,6 @@ RetailerLocationAPI_searchRetailerLocations(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -4763,7 +4731,7 @@ end:
 // Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 //
 retailer_location_response_t*
-RetailerLocationAPI_updateRetailerLocations(apiClient_t *apiClient, double version, long retailerLocationId, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *internalId, char *detailsHeader, char *detailsBody, char *hours, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *building, char *googlePlaceId, char *yelpId, char *metaData, char *paymentProvider, int *active, int *publicLocation, char *locationType, char *audienceIds, char *audienceIdsToAdd, char *audienceIdsToRemove, sirqul_iot_platform_updateRetailerLocations_responseFormat_e responseFormat, char *tags)
+RetailerLocationAPI_updateRetailerLocations(apiClient_t *apiClient, long retailerLocationId, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *internalId, char *detailsHeader, char *detailsBody, char *hours, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *building, char *googlePlaceId, char *yelpId, char *metaData, char *paymentProvider, int *active, int *publicLocation, char *locationType, char *audienceIds, char *audienceIdsToAdd, char *audienceIdsToRemove, sirqul_iot_platform_updateRetailerLocations_responseFormat_e responseFormat, char *tags)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4777,12 +4745,9 @@ RetailerLocationAPI_updateRetailerLocations(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer/location/update");
+    char *localVarPath = strdup("/retailer/location/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5327,7 +5292,6 @@ RetailerLocationAPI_updateRetailerLocations(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

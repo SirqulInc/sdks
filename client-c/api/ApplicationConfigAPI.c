@@ -14,7 +14,7 @@
 // Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
 //
 application_config_response_t*
-ApplicationConfigAPI_createApplicationConfig(apiClient_t *apiClient, double version, long accountId, char *appKey, char *configVersion, long assetId, long retailerId, long retailerLocationId, char *udid)
+ApplicationConfigAPI_createApplicationConfig(apiClient_t *apiClient, long accountId, char *appKey, char *configVersion, long assetId, long retailerId, long retailerLocationId, char *udid)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ ApplicationConfigAPI_createApplicationConfig(apiClient_t *apiClient, double vers
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/appconfig/create");
+    char *localVarPath = strdup("/appconfig/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -159,7 +156,6 @@ ApplicationConfigAPI_createApplicationConfig(apiClient_t *apiClient, double vers
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -240,7 +236,7 @@ end:
 // Mark the application configuration for deletion.
 //
 sirqul_response_t*
-ApplicationConfigAPI_deleteApplicationConfig(apiClient_t *apiClient, double version, long accountId, long configId)
+ApplicationConfigAPI_deleteApplicationConfig(apiClient_t *apiClient, long accountId, long configId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -254,12 +250,9 @@ ApplicationConfigAPI_deleteApplicationConfig(apiClient_t *apiClient, double vers
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/appconfig/delete");
+    char *localVarPath = strdup("/appconfig/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -325,7 +318,6 @@ ApplicationConfigAPI_deleteApplicationConfig(apiClient_t *apiClient, double vers
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -354,7 +346,7 @@ end:
 // Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
 //
 application_config_response_t*
-ApplicationConfigAPI_getApplicationConfig(apiClient_t *apiClient, double version, long accountId, long configId)
+ApplicationConfigAPI_getApplicationConfig(apiClient_t *apiClient, long accountId, long configId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -368,12 +360,9 @@ ApplicationConfigAPI_getApplicationConfig(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/appconfig/get");
+    char *localVarPath = strdup("/appconfig/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -439,7 +428,6 @@ ApplicationConfigAPI_getApplicationConfig(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -468,7 +456,7 @@ end:
 // Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
 //
 application_config_response_t*
-ApplicationConfigAPI_getApplicationConfigByConfigVersion(apiClient_t *apiClient, double version, char *appKey, char *configVersion, long retailerId, long retailerLocationId, char *udid, int *allowOlderVersions)
+ApplicationConfigAPI_getApplicationConfigByConfigVersion(apiClient_t *apiClient, char *appKey, char *configVersion, long retailerId, long retailerLocationId, char *udid, int *allowOlderVersions)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -482,12 +470,9 @@ ApplicationConfigAPI_getApplicationConfigByConfigVersion(apiClient_t *apiClient,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/appconfig/getbyversion");
+    char *localVarPath = strdup("/appconfig/getbyversion");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -602,7 +587,6 @@ ApplicationConfigAPI_getApplicationConfigByConfigVersion(apiClient_t *apiClient,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -679,7 +663,7 @@ end:
 // Gets all versions of application configurations in a particular app by the given appKey.
 //
 list_t*
-ApplicationConfigAPI_searchApplicationConfig(apiClient_t *apiClient, double version, long accountId, char *appKey, long retailerId, long retailerLocationId, char *udid, char *configVersion, char *sortField, int *descending, int *start, int *limit)
+ApplicationConfigAPI_searchApplicationConfig(apiClient_t *apiClient, long accountId, char *appKey, long retailerId, long retailerLocationId, char *udid, char *configVersion, char *sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -693,12 +677,9 @@ ApplicationConfigAPI_searchApplicationConfig(apiClient_t *apiClient, double vers
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/appconfig/search");
+    char *localVarPath = strdup("/appconfig/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -873,7 +854,6 @@ ApplicationConfigAPI_searchApplicationConfig(apiClient_t *apiClient, double vers
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -994,7 +974,7 @@ end:
 // pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
 //
 application_config_response_t*
-ApplicationConfigAPI_updateApplicationConfig(apiClient_t *apiClient, double version, long accountId, long configId, char *appKey, char *configVersion, long assetId, long retailerId, long retailerLocationId, char *udid)
+ApplicationConfigAPI_updateApplicationConfig(apiClient_t *apiClient, long accountId, long configId, char *appKey, char *configVersion, long assetId, long retailerId, long retailerLocationId, char *udid)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1008,12 +988,9 @@ ApplicationConfigAPI_updateApplicationConfig(apiClient_t *apiClient, double vers
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/appconfig/update");
+    char *localVarPath = strdup("/appconfig/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1151,7 +1128,6 @@ ApplicationConfigAPI_updateApplicationConfig(apiClient_t *apiClient, double vers
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

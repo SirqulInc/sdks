@@ -13,6 +13,6 @@
 // Generate images with OpenAI.
 //
 wrapped_proxy_item_response_t*
-OpenAIAPI_imageGeneration(apiClient_t *apiClient, double version, long accountId, char *postBody, int *returnRawResponse);
+OpenAIAPI_imageGeneration(apiClient_t *apiClient, long accountId, char *postBody, int *returnRawResponse);
 
 

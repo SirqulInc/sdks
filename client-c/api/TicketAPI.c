@@ -14,7 +14,7 @@
 // Gets the ticket count.
 //
 count_response_t*
-TicketAPI_getTicketCount(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *gameType, char *appKey, char *ticketType)
+TicketAPI_getTicketCount(apiClient_t *apiClient, char *deviceId, long accountId, char *gameType, char *appKey, char *ticketType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ TicketAPI_getTicketCount(apiClient_t *apiClient, double version, char *deviceId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ticket/count");
+    char *localVarPath = strdup("/ticket/count");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -135,7 +132,6 @@ TicketAPI_getTicketCount(apiClient_t *apiClient, double version, char *deviceId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -204,7 +200,7 @@ end:
 // Gets the list of tickets.
 //
 ticket_list_response_t*
-TicketAPI_getTicketList(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *ticketObjectType, char *actionType, char *ticketIds, char *objectIds, char *receiptTokens, char *gameType, char *appKey)
+TicketAPI_getTicketList(apiClient_t *apiClient, char *deviceId, long accountId, char *ticketObjectType, char *actionType, char *ticketIds, char *objectIds, char *receiptTokens, char *gameType, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -218,12 +214,9 @@ TicketAPI_getTicketList(apiClient_t *apiClient, double version, char *deviceId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ticket/getList");
+    char *localVarPath = strdup("/ticket/getList");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -373,7 +366,6 @@ TicketAPI_getTicketList(apiClient_t *apiClient, double version, char *deviceId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -490,7 +482,7 @@ end:
 // Gift tickets to another user.
 //
 sirqul_response_t*
-TicketAPI_giftPurchase(apiClient_t *apiClient, double version, long receiverAccountId, long ticketId, char *deviceId, long accountId, long assetId, char *customMessage, char *gameType, char *appKey)
+TicketAPI_giftPurchase(apiClient_t *apiClient, long receiverAccountId, long ticketId, char *deviceId, long accountId, long assetId, char *customMessage, char *gameType, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -504,12 +496,9 @@ TicketAPI_giftPurchase(apiClient_t *apiClient, double version, long receiverAcco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/purchase/gift");
+    char *localVarPath = strdup("/purchase/gift");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -647,7 +636,6 @@ TicketAPI_giftPurchase(apiClient_t *apiClient, double version, long receiverAcco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -740,7 +728,7 @@ end:
 // Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 //
 profile_response_t*
-TicketAPI_saveTicket(apiClient_t *apiClient, double version, char *actionType, char *ticketObjectType, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, char *receiptData, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion)
+TicketAPI_saveTicket(apiClient_t *apiClient, char *actionType, char *ticketObjectType, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, char *receiptData, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -754,12 +742,9 @@ TicketAPI_saveTicket(apiClient_t *apiClient, double version, char *actionType, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ticket/save");
+    char *localVarPath = strdup("/ticket/save");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1020,7 +1005,6 @@ TicketAPI_saveTicket(apiClient_t *apiClient, double version, char *actionType, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -1237,7 +1221,7 @@ end:
 // Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 //
 profile_response_t*
-TicketAPI_saveTicketViaFileUpload(apiClient_t *apiClient, double version, char *actionType, char *ticketObjectType, binary_t* receiptData, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion)
+TicketAPI_saveTicketViaFileUpload(apiClient_t *apiClient, char *actionType, char *ticketObjectType, binary_t* receiptData, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1251,12 +1235,9 @@ TicketAPI_saveTicketViaFileUpload(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ticket/save/fileUpload");
+    char *localVarPath = strdup("/ticket/save/fileUpload");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1517,7 +1498,6 @@ TicketAPI_saveTicketViaFileUpload(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -1730,7 +1710,7 @@ end:
 // Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 //
 ticket_offer_response_t*
-TicketAPI_ticketOffers(apiClient_t *apiClient, double version)
+TicketAPI_ticketOffers(apiClient_t *apiClient)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1744,12 +1724,9 @@ TicketAPI_ticketOffers(apiClient_t *apiClient, double version)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ticket/ticketoffers");
+    char *localVarPath = strdup("/ticket/ticketoffers");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
     list_addElement(localVarHeaderType,"*/*"); //produces
@@ -1791,7 +1768,6 @@ TicketAPI_ticketOffers(apiClient_t *apiClient, double version)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     return elementToReturn;
 end:
     free(localVarPath);

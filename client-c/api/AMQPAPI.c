@@ -14,7 +14,7 @@
 // Create a connection to an existing amqp queue and register as a consumer.
 //
 queue_response_t*
-AMQPAPI_consumerCreate(apiClient_t *apiClient, double version, char *appKey, char *name, char *hostname, char *username, char *password, char *dataMapping, char *deviceId, long accountId, int *port, char *virtualHost, char *exchanger, char *exchangerType, int *workers, int *useSSL)
+AMQPAPI_consumerCreate(apiClient_t *apiClient, char *appKey, char *name, char *hostname, char *username, char *password, char *dataMapping, char *deviceId, long accountId, int *port, char *virtualHost, char *exchanger, char *exchangerType, int *workers, int *useSSL)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ AMQPAPI_consumerCreate(apiClient_t *apiClient, double version, char *appKey, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/consumer/create");
+    char *localVarPath = strdup("/queue/consumer/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -246,7 +243,6 @@ AMQPAPI_consumerCreate(apiClient_t *apiClient, double version, char *appKey, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -423,7 +419,7 @@ end:
 // Update an existing amqp queue's data mapping.
 //
 queue_response_t*
-AMQPAPI_consumerUpdate(apiClient_t *apiClient, double version, char *appKey, long queueId, char *dataMapping, char *deviceId, long accountId, int *useSSL)
+AMQPAPI_consumerUpdate(apiClient_t *apiClient, char *appKey, long queueId, char *dataMapping, char *deviceId, long accountId, int *useSSL)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -437,12 +433,9 @@ AMQPAPI_consumerUpdate(apiClient_t *apiClient, double version, char *appKey, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/consumer/update");
+    char *localVarPath = strdup("/queue/consumer/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -557,7 +550,6 @@ AMQPAPI_consumerUpdate(apiClient_t *apiClient, double version, char *appKey, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -634,7 +626,7 @@ end:
 // Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
 //
 queue_response_t*
-AMQPAPI_queueCreate(apiClient_t *apiClient, double version, char *appKey, char *name, char *deviceId, long accountId, int *workers, char *analyticTags, char *hostname, int *port, char *username, char *password, char *virtualHost, int *useSSL)
+AMQPAPI_queueCreate(apiClient_t *apiClient, char *appKey, char *name, char *deviceId, long accountId, int *workers, char *analyticTags, char *hostname, int *port, char *username, char *password, char *virtualHost, int *useSSL)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -648,12 +640,9 @@ AMQPAPI_queueCreate(apiClient_t *apiClient, double version, char *appKey, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/create");
+    char *localVarPath = strdup("/queue/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -842,7 +831,6 @@ AMQPAPI_queueCreate(apiClient_t *apiClient, double version, char *appKey, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -995,7 +983,7 @@ end:
 // Delete the stored queue record and close any active connections to the AMQP servers.
 //
 sirqul_response_t*
-AMQPAPI_queueDelete(apiClient_t *apiClient, double version, long queueId, char *deviceId, long accountId)
+AMQPAPI_queueDelete(apiClient_t *apiClient, long queueId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1009,12 +997,9 @@ AMQPAPI_queueDelete(apiClient_t *apiClient, double version, long queueId, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/delete");
+    char *localVarPath = strdup("/queue/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1092,7 +1077,6 @@ AMQPAPI_queueDelete(apiClient_t *apiClient, double version, long queueId, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1133,7 +1117,7 @@ end:
 // Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 //
 queue_response_t*
-AMQPAPI_queueGet(apiClient_t *apiClient, double version, char *deviceId, long accountId, long queueId, char *appKey, char *name, char *hostname, char *virtualHost)
+AMQPAPI_queueGet(apiClient_t *apiClient, char *deviceId, long accountId, long queueId, char *appKey, char *name, char *hostname, char *virtualHost)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1147,12 +1131,9 @@ AMQPAPI_queueGet(apiClient_t *apiClient, double version, char *deviceId, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/get");
+    char *localVarPath = strdup("/queue/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1278,7 +1259,6 @@ AMQPAPI_queueGet(apiClient_t *apiClient, double version, char *deviceId, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1367,7 +1347,7 @@ end:
 // Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 //
 sirqul_response_t*
-AMQPAPI_queuePublish(apiClient_t *apiClient, double version, char *message, long queueId, char *appKey, char *name, char *hostname, char *virtualHost)
+AMQPAPI_queuePublish(apiClient_t *apiClient, char *message, long queueId, char *appKey, char *name, char *hostname, char *virtualHost)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1381,12 +1361,9 @@ AMQPAPI_queuePublish(apiClient_t *apiClient, double version, char *message, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/publish");
+    char *localVarPath = strdup("/queue/publish");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1500,7 +1477,6 @@ AMQPAPI_queuePublish(apiClient_t *apiClient, double version, char *message, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_queueId){
         free(keyQuery_queueId);
         keyQuery_queueId = NULL;
@@ -1581,7 +1557,7 @@ end:
 // Get the queues setup for the BillableEntity's applications.
 //
 queue_response_t*
-AMQPAPI_queueSearch(apiClient_t *apiClient, double version, long queueId, char *deviceId, long accountId, char *name, int *start, int *limit)
+AMQPAPI_queueSearch(apiClient_t *apiClient, long queueId, char *deviceId, long accountId, char *name, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1595,12 +1571,9 @@ AMQPAPI_queueSearch(apiClient_t *apiClient, double version, long queueId, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/search");
+    char *localVarPath = strdup("/queue/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1716,7 +1689,6 @@ AMQPAPI_queueSearch(apiClient_t *apiClient, double version, long queueId, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_queueId){
         free(keyQuery_queueId);
         keyQuery_queueId = NULL;
@@ -1793,7 +1765,7 @@ end:
 // Update the basic AMQP queue.
 //
 queue_response_t*
-AMQPAPI_queueUpdate(apiClient_t *apiClient, double version, long queueId, char *deviceId, long accountId, char *appKey, int *workers, char *analyticTags, char *hostname, int *port, char *username, char *password, char *virtualHost, int *useSSL)
+AMQPAPI_queueUpdate(apiClient_t *apiClient, long queueId, char *deviceId, long accountId, char *appKey, int *workers, char *analyticTags, char *hostname, int *port, char *username, char *password, char *virtualHost, int *useSSL)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1807,12 +1779,9 @@ AMQPAPI_queueUpdate(apiClient_t *apiClient, double version, long queueId, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/queue/update");
+    char *localVarPath = strdup("/queue/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2001,7 +1970,6 @@ AMQPAPI_queueUpdate(apiClient_t *apiClient, double version, long queueId, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

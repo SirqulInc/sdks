@@ -326,7 +326,7 @@ end:
 // Create a secure application record.
 //
 sirqul_response_t*
-SecureAppAPI_createSecureApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, binary_t* keyCert, binary_t* trustStore, char *username, char *password, int *active, sirqul_iot_platform_createSecureApplication_biometricType_e biometricType, sirqul_iot_platform_createSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_createSecureApplication_biometricPosition2_e biometricPosition2)
+SecureAppAPI_createSecureApplication(apiClient_t *apiClient, long accountId, char *appKey, binary_t* keyCert, binary_t* trustStore, char *username, char *password, int *active, sirqul_iot_platform_createSecureApplication_biometricType_e biometricType, sirqul_iot_platform_createSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_createSecureApplication_biometricPosition2_e biometricPosition2)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -340,12 +340,9 @@ SecureAppAPI_createSecureApplication(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/secure/application/create");
+    char *localVarPath = strdup("/secure/application/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -511,7 +508,6 @@ SecureAppAPI_createSecureApplication(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -620,7 +616,7 @@ end:
 // Delete a secure application record.
 //
 sirqul_response_t*
-SecureAppAPI_deleteSecureApplication(apiClient_t *apiClient, double version, long accountId, char *appKey)
+SecureAppAPI_deleteSecureApplication(apiClient_t *apiClient, long accountId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -634,12 +630,9 @@ SecureAppAPI_deleteSecureApplication(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/secure/application/delete");
+    char *localVarPath = strdup("/secure/application/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -705,7 +698,6 @@ SecureAppAPI_deleteSecureApplication(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -738,7 +730,7 @@ end:
 // Login via Clear.me. Creates a new account if logging in for the first time.
 //
 profile_response_t*
-SecureAppAPI_loginSecure(apiClient_t *apiClient, double version, char *appKey, binary_t* biometricFile, char *deviceId, binary_t* biometricFile2, int *ageRestriction, int *returnProfile, char *responseFilters, double latitude, double longitude)
+SecureAppAPI_loginSecure(apiClient_t *apiClient, char *appKey, binary_t* biometricFile, char *deviceId, binary_t* biometricFile2, int *ageRestriction, int *returnProfile, char *responseFilters, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -752,12 +744,9 @@ SecureAppAPI_loginSecure(apiClient_t *apiClient, double version, char *appKey, b
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/secure/login");
+    char *localVarPath = strdup("/secure/login");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -917,7 +906,6 @@ SecureAppAPI_loginSecure(apiClient_t *apiClient, double version, char *appKey, b
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1022,7 +1010,7 @@ end:
 // Purchase via Clear.me. Creates a new account if purchasing for the first time.
 //
 profile_response_t*
-SecureAppAPI_purchaseSecure(apiClient_t *apiClient, double version, payment_request_t *body)
+SecureAppAPI_purchaseSecure(apiClient_t *apiClient, payment_request_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1036,12 +1024,9 @@ SecureAppAPI_purchaseSecure(apiClient_t *apiClient, double version, payment_requ
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/secure/purchase");
+    char *localVarPath = strdup("/secure/purchase");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1094,7 +1079,6 @@ SecureAppAPI_purchaseSecure(apiClient_t *apiClient, double version, payment_requ
     list_freeList(localVarHeaderType);
     list_freeList(localVarContentType);
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -1112,7 +1096,7 @@ end:
 // Reset a secure application client.
 //
 sirqul_response_t*
-SecureAppAPI_resetSecure(apiClient_t *apiClient, double version, long accountId, char *appKey)
+SecureAppAPI_resetSecure(apiClient_t *apiClient, long accountId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1126,12 +1110,9 @@ SecureAppAPI_resetSecure(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/secure/application/reset");
+    char *localVarPath = strdup("/secure/application/reset");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1197,7 +1178,6 @@ SecureAppAPI_resetSecure(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1230,7 +1210,7 @@ end:
 // Update a secure application record.
 //
 sirqul_response_t*
-SecureAppAPI_updateSecureApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, int *active, binary_t* keyCert, binary_t* trustStore, char *username, char *password, sirqul_iot_platform_updateSecureApplication_biometricType_e biometricType, sirqul_iot_platform_updateSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_updateSecureApplication_biometricPosition2_e biometricPosition2)
+SecureAppAPI_updateSecureApplication(apiClient_t *apiClient, long accountId, char *appKey, int *active, binary_t* keyCert, binary_t* trustStore, char *username, char *password, sirqul_iot_platform_updateSecureApplication_biometricType_e biometricType, sirqul_iot_platform_updateSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_updateSecureApplication_biometricPosition2_e biometricPosition2)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1244,12 +1224,9 @@ SecureAppAPI_updateSecureApplication(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/secure/application/update");
+    char *localVarPath = strdup("/secure/application/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1415,7 +1392,6 @@ SecureAppAPI_updateSecureApplication(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

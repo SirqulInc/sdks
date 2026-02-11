@@ -14,7 +14,7 @@
 // Create a Postal Code
 //
 postal_code_response_t*
-PostalCodeAPI_createPostalCode(apiClient_t *apiClient, double version, long accountId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active)
+PostalCodeAPI_createPostalCode(apiClient_t *apiClient, long accountId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ PostalCodeAPI_createPostalCode(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/postalCode/create");
+    char *localVarPath = strdup("/postalCode/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -168,7 +165,6 @@ PostalCodeAPI_createPostalCode(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -253,7 +249,7 @@ end:
 // Delete a Postal Code
 //
 sirqul_response_t*
-PostalCodeAPI_deletePostalCode(apiClient_t *apiClient, double version, long accountId, long postalCodeId)
+PostalCodeAPI_deletePostalCode(apiClient_t *apiClient, long accountId, long postalCodeId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -267,12 +263,9 @@ PostalCodeAPI_deletePostalCode(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/postalCode/delete");
+    char *localVarPath = strdup("/postalCode/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -338,7 +331,6 @@ PostalCodeAPI_deletePostalCode(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -367,7 +359,7 @@ end:
 // Get a Postal Code
 //
 postal_code_response_t*
-PostalCodeAPI_getPostalCode(apiClient_t *apiClient, double version, long postalCodeId)
+PostalCodeAPI_getPostalCode(apiClient_t *apiClient, long postalCodeId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -381,12 +373,9 @@ PostalCodeAPI_getPostalCode(apiClient_t *apiClient, double version, long postalC
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/postalCode/get");
+    char *localVarPath = strdup("/postalCode/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -440,7 +429,6 @@ PostalCodeAPI_getPostalCode(apiClient_t *apiClient, double version, long postalC
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_postalCodeId){
         free(keyQuery_postalCodeId);
         keyQuery_postalCodeId = NULL;
@@ -461,7 +449,7 @@ end:
 // Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 //
 list_t*
-PostalCodeAPI_getPostalCodes(apiClient_t *apiClient, double version, char *sortField, int *descending, double latitude, double longitude, char *keyword, double miles, int *start, int *limit)
+PostalCodeAPI_getPostalCodes(apiClient_t *apiClient, char *sortField, int *descending, double latitude, double longitude, char *keyword, double miles, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -475,12 +463,9 @@ PostalCodeAPI_getPostalCodes(apiClient_t *apiClient, double version, char *sortF
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/postalCode/search");
+    char *localVarPath = strdup("/postalCode/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -643,7 +628,6 @@ PostalCodeAPI_getPostalCodes(apiClient_t *apiClient, double version, char *sortF
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_latitude){
         free(keyQuery_latitude);
         keyQuery_latitude = NULL;
@@ -740,7 +724,7 @@ end:
 // Update a Postal Code
 //
 postal_code_response_t*
-PostalCodeAPI_updatePostalCode(apiClient_t *apiClient, double version, long accountId, long postalCodeId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active)
+PostalCodeAPI_updatePostalCode(apiClient_t *apiClient, long accountId, long postalCodeId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -754,12 +738,9 @@ PostalCodeAPI_updatePostalCode(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/postalCode/update");
+    char *localVarPath = strdup("/postalCode/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -906,7 +887,6 @@ PostalCodeAPI_updatePostalCode(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

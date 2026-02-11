@@ -13,6 +13,6 @@
 // Create a Stripe checkout session
 //
 sirqul_response_t*
-StripeAPI_createStripeCheckoutSession(apiClient_t *apiClient, double version, char *appKey, char *stripeParameters);
+StripeAPI_createStripeCheckoutSession(apiClient_t *apiClient, char *appKey, char *stripeParameters);
 
 

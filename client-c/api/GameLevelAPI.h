@@ -20,7 +20,7 @@ typedef enum  { sirqul_iot_platform_getGameLevelsByBillableEntity_SORTFIELD_NULL
 // Create a game level. Currently does NOT support game objects.
 //
 game_level_response_t*
-GameLevelAPI_createGameLevel(apiClient_t *apiClient, double version, long accountId, char *name, char *gameData, char *gameDataSuffix, char *appKey, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData);
+GameLevelAPI_createGameLevel(apiClient_t *apiClient, long accountId, char *name, char *gameData, char *gameDataSuffix, char *appKey, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData);
 
 
 // Delete Game Level
@@ -28,7 +28,7 @@ GameLevelAPI_createGameLevel(apiClient_t *apiClient, double version, long accoun
 // Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 //
 sirqul_response_t*
-GameLevelAPI_deleteGameLevel(apiClient_t *apiClient, double version, long accountId, long levelId);
+GameLevelAPI_deleteGameLevel(apiClient_t *apiClient, long accountId, long levelId);
 
 
 // Get Game Level
@@ -36,7 +36,7 @@ GameLevelAPI_deleteGameLevel(apiClient_t *apiClient, double version, long accoun
 // Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 //
 game_level_response_t*
-GameLevelAPI_getGameLevel(apiClient_t *apiClient, double version, long accountId, long levelId, int *includeGameData);
+GameLevelAPI_getGameLevel(apiClient_t *apiClient, long accountId, long levelId, int *includeGameData);
 
 
 // Search Game Levels
@@ -44,7 +44,7 @@ GameLevelAPI_getGameLevel(apiClient_t *apiClient, double version, long accountId
 // Get a list of levels for an application, just those the account has permissions to view.
 //
 game_level_list_response_t*
-GameLevelAPI_getGameLevelsByApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, char *appVersion, int *includeGameData, char *filters);
+GameLevelAPI_getGameLevelsByApplication(apiClient_t *apiClient, long accountId, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, char *appVersion, int *includeGameData, char *filters);
 
 
 // Search Game Level by Billable Entity
@@ -52,7 +52,7 @@ GameLevelAPI_getGameLevelsByApplication(apiClient_t *apiClient, double version, 
 // Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 //
 game_level_response_t*
-GameLevelAPI_getGameLevelsByBillableEntity(apiClient_t *apiClient, double version, long accountId, char *appKey, char *keyword, sirqul_iot_platform_getGameLevelsByBillableEntity_sortField_e sortField, int *descending, int *activeOnly, long start, long limit);
+GameLevelAPI_getGameLevelsByBillableEntity(apiClient_t *apiClient, long accountId, char *appKey, char *keyword, sirqul_iot_platform_getGameLevelsByBillableEntity_sortField_e sortField, int *descending, int *activeOnly, long start, long limit);
 
 
 // Get Level Questions
@@ -60,7 +60,7 @@ GameLevelAPI_getGameLevelsByBillableEntity(apiClient_t *apiClient, double versio
 // Get questions within a level.
 //
 question_response_t*
-GameLevelAPI_getQuestionsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId);
+GameLevelAPI_getQuestionsInLevel(apiClient_t *apiClient, long levelId, long accountId);
 
 
 // Get Level Words
@@ -68,7 +68,7 @@ GameLevelAPI_getQuestionsInLevel(apiClient_t *apiClient, double version, long le
 // Get words within a level.
 //
 wordz_word_response_t*
-GameLevelAPI_getWordsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId);
+GameLevelAPI_getWordsInLevel(apiClient_t *apiClient, long levelId, long accountId);
 
 
 // Update Game Level
@@ -76,7 +76,7 @@ GameLevelAPI_getWordsInLevel(apiClient_t *apiClient, double version, long levelI
 // Update a game level. Currently does NOT support game objects.
 //
 game_level_response_t*
-GameLevelAPI_updateGameLevel(apiClient_t *apiClient, double version, long accountId, long levelId, char *appKey, char *name, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *gameData, char *gameDataSuffix, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData);
+GameLevelAPI_updateGameLevel(apiClient_t *apiClient, long accountId, long levelId, char *appKey, char *name, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *gameData, char *gameDataSuffix, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData);
 
 
 // Update Level Questions
@@ -84,7 +84,7 @@ GameLevelAPI_updateGameLevel(apiClient_t *apiClient, double version, long accoun
 // Updates a level with question game objects.
 //
 sirqul_response_t*
-GameLevelAPI_updateQuestionsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId, char *questionIds);
+GameLevelAPI_updateQuestionsInLevel(apiClient_t *apiClient, long levelId, long accountId, char *questionIds);
 
 
 // Update Level Words
@@ -92,6 +92,6 @@ GameLevelAPI_updateQuestionsInLevel(apiClient_t *apiClient, double version, long
 // Updates a level with word game objects.
 //
 sirqul_response_t*
-GameLevelAPI_updateWordsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId, char *wordIds);
+GameLevelAPI_updateWordsInLevel(apiClient_t *apiClient, long levelId, long accountId, char *wordIds);
 
 

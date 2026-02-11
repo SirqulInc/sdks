@@ -34,7 +34,7 @@ typedef enum  { sirqul_iot_platform_updateRetailer_RESPONSEFORMAT_NULL = 0, sirq
 // Create a retailer record. A billable entity must be created first before a retailer record can be made.
 //
 retailer_full_response_t*
-RetailerAPI_createRetailer(apiClient_t *apiClient, double version, char *name, char *deviceId, long accountId, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *categoryIdsToAdd, char *categoryIdsToRemove, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_createRetailer_visibility_e visibility, int *createDefaultLocation, sirqul_iot_platform_createRetailer_responseFormat_e responseFormat);
+RetailerAPI_createRetailer(apiClient_t *apiClient, char *name, char *deviceId, long accountId, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *categoryIdsToAdd, char *categoryIdsToRemove, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_createRetailer_visibility_e visibility, int *createDefaultLocation, sirqul_iot_platform_createRetailer_responseFormat_e responseFormat);
 
 
 // Delete Retailer
@@ -42,7 +42,7 @@ RetailerAPI_createRetailer(apiClient_t *apiClient, double version, char *name, c
 // Set the deleted timestamp to current time.
 //
 sirqul_response_t*
-RetailerAPI_deleteRetailer(apiClient_t *apiClient, double version, char *deviceId, long accountId, long retailerId);
+RetailerAPI_deleteRetailer(apiClient_t *apiClient, char *deviceId, long accountId, long retailerId);
 
 
 // Get Retailer
@@ -50,7 +50,7 @@ RetailerAPI_deleteRetailer(apiClient_t *apiClient, double version, char *deviceI
 // Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 //
 retailer_full_response_t*
-RetailerAPI_getRetailer(apiClient_t *apiClient, double version, long retailerId, char *deviceId, long accountId, int *includeCounts);
+RetailerAPI_getRetailer(apiClient_t *apiClient, long retailerId, char *deviceId, long accountId, int *includeCounts);
 
 
 // Search Retailers
@@ -58,7 +58,7 @@ RetailerAPI_getRetailer(apiClient_t *apiClient, double version, long retailerId,
 // earches on retailers that the account has access to.
 //
 list_t*
-RetailerAPI_getRetailers(apiClient_t *apiClient, double version, sirqul_iot_platform_getRetailers_visibility_e visibility, sirqul_iot_platform_getRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *deviceId, long accountId, char *q, char *keyword, char *categoryIds, char *filterIds, int *_i, int *_l);
+RetailerAPI_getRetailers(apiClient_t *apiClient, sirqul_iot_platform_getRetailers_visibility_e visibility, sirqul_iot_platform_getRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *deviceId, long accountId, char *q, char *keyword, char *categoryIds, char *filterIds, int *_i, int *_l);
 
 
 // Login Retailer
@@ -66,7 +66,7 @@ RetailerAPI_getRetailers(apiClient_t *apiClient, double version, sirqul_iot_plat
 // Retailer login check.
 //
 account_login_response_t*
-RetailerAPI_retailerLoginCheck(apiClient_t *apiClient, double version, char *username, char *password, char *deviceId, double latitude, double longitude, char *appKey);
+RetailerAPI_retailerLoginCheck(apiClient_t *apiClient, char *username, char *password, char *deviceId, double latitude, double longitude, char *appKey);
 
 
 // Update Retailer
@@ -74,6 +74,6 @@ RetailerAPI_retailerLoginCheck(apiClient_t *apiClient, double version, char *use
 // Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 //
 retailer_full_response_t*
-RetailerAPI_updateRetailer(apiClient_t *apiClient, double version, long retailerId, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_updateRetailer_visibility_e visibility, int *active, sirqul_iot_platform_updateRetailer_responseFormat_e responseFormat);
+RetailerAPI_updateRetailer(apiClient_t *apiClient, long retailerId, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *country, char *businessPhone, char *businessPhoneExt, char *website, char *email, char *facebookUrl, char *twitterUrl, binary_t* logo, long logoAssetId, binary_t* picture1, long picture1AssetId, binary_t* picture2, long picture2AssetId, char *categoryIds, char *filterIds, double latitude, double longitude, char *metaData, char *searchTags, char *retailerType, sirqul_iot_platform_updateRetailer_visibility_e visibility, int *active, sirqul_iot_platform_updateRetailer_responseFormat_e responseFormat);
 
 

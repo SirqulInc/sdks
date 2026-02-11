@@ -14,7 +14,7 @@
 // Create a new shipment batch
 //
 shipment_batch_t*
-ShipmentBatchAPI_createShipmentBatch(apiClient_t *apiClient, double version, shipment_batch_t *body)
+ShipmentBatchAPI_createShipmentBatch(apiClient_t *apiClient, shipment_batch_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ ShipmentBatchAPI_createShipmentBatch(apiClient_t *apiClient, double version, shi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/batch");
+    char *localVarPath = strdup("/shipment/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -85,7 +82,6 @@ ShipmentBatchAPI_createShipmentBatch(apiClient_t *apiClient, double version, shi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -103,7 +99,7 @@ end:
 // Search for shipment batches
 //
 void
-ShipmentBatchAPI_deleteShipmentBatch(apiClient_t *apiClient, double version, long batchId)
+ShipmentBatchAPI_deleteShipmentBatch(apiClient_t *apiClient, long batchId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ ShipmentBatchAPI_deleteShipmentBatch(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/batch/{batchId}");
+    char *localVarPath = strdup("/shipment/batch/{batchId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(batchId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_batchId =  + sizeof(batchId)+3 + sizeof("{ batchId }") - 1;
+    long sizeOfPathParams_batchId = sizeof(batchId)+3 + sizeof("{ batchId }") - 1;
     if(batchId == 0){
         goto end;
     }
@@ -167,7 +160,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_batchId);
 
 }
@@ -177,7 +169,7 @@ end:
 // Get an existing shipment batch
 //
 shipment_batch_t*
-ShipmentBatchAPI_getShipmentBatch(apiClient_t *apiClient, double version, long batchId)
+ShipmentBatchAPI_getShipmentBatch(apiClient_t *apiClient, long batchId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -191,15 +183,12 @@ ShipmentBatchAPI_getShipmentBatch(apiClient_t *apiClient, double version, long b
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/batch/{batchId}");
+    char *localVarPath = strdup("/shipment/batch/{batchId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(batchId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_batchId =  + sizeof(batchId)+3 + sizeof("{ batchId }") - 1;
+    long sizeOfPathParams_batchId = sizeof(batchId)+3 + sizeof("{ batchId }") - 1;
     if(batchId == 0){
         goto end;
     }
@@ -252,7 +241,6 @@ ShipmentBatchAPI_getShipmentBatch(apiClient_t *apiClient, double version, long b
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_batchId);
     return elementToReturn;
 end:
@@ -266,7 +254,7 @@ end:
 // Get the import status list of the import shipment batch
 //
 list_t*
-ShipmentBatchAPI_getShipmentBatchStatus(apiClient_t *apiClient, double version, long batchId, long accountId, char *sortField, int *descending, int *start, int *limit, int *valid, int *started, int *completed, int *hasShipment, int *hasRoute, char *keyword)
+ShipmentBatchAPI_getShipmentBatchStatus(apiClient_t *apiClient, long batchId, long accountId, char *sortField, int *descending, int *start, int *limit, int *valid, int *started, int *completed, int *hasShipment, int *hasRoute, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -280,15 +268,12 @@ ShipmentBatchAPI_getShipmentBatchStatus(apiClient_t *apiClient, double version, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/batch/{batchId}/status");
+    char *localVarPath = strdup("/shipment/batch/{batchId}/status");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(batchId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_batchId =  + sizeof(batchId)+3 + sizeof("{ batchId }") - 1;
+    long sizeOfPathParams_batchId = sizeof(batchId)+3 + sizeof("{ batchId }") - 1;
     if(batchId == 0){
         goto end;
     }
@@ -491,7 +476,6 @@ ShipmentBatchAPI_getShipmentBatchStatus(apiClient_t *apiClient, double version, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_batchId);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
@@ -633,7 +617,7 @@ end:
 // Search for shipment batches
 //
 list_t*
-ShipmentBatchAPI_searchShipmentBatch(apiClient_t *apiClient, double version, long hubId, char *sortField, int *descending, int *start, int *limit)
+ShipmentBatchAPI_searchShipmentBatch(apiClient_t *apiClient, long hubId, char *sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -647,12 +631,9 @@ ShipmentBatchAPI_searchShipmentBatch(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/shipment/batch");
+    char *localVarPath = strdup("/shipment/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -767,7 +748,6 @@ ShipmentBatchAPI_searchShipmentBatch(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_hubId){
         free(keyQuery_hubId);
         keyQuery_hubId = NULL;

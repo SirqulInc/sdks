@@ -14,7 +14,7 @@
 // Create new cargo type
 //
 cargo_type_t*
-CargoTypeAPI_createCargoType(apiClient_t *apiClient, double version, cargo_type_t *body)
+CargoTypeAPI_createCargoType(apiClient_t *apiClient, cargo_type_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ CargoTypeAPI_createCargoType(apiClient_t *apiClient, double version, cargo_type_
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/type");
+    char *localVarPath = strdup("/cargo/type");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -85,7 +82,6 @@ CargoTypeAPI_createCargoType(apiClient_t *apiClient, double version, cargo_type_
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -103,7 +99,7 @@ end:
 // Delete a type of cargo
 //
 void
-CargoTypeAPI_deleteCargoType(apiClient_t *apiClient, double version, long cargoTypeId)
+CargoTypeAPI_deleteCargoType(apiClient_t *apiClient, long cargoTypeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ CargoTypeAPI_deleteCargoType(apiClient_t *apiClient, double version, long cargoT
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/type/{cargoTypeId}");
+    char *localVarPath = strdup("/cargo/type/{cargoTypeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(cargoTypeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_cargoTypeId =  + sizeof(cargoTypeId)+3 + sizeof("{ cargoTypeId }") - 1;
+    long sizeOfPathParams_cargoTypeId = sizeof(cargoTypeId)+3 + sizeof("{ cargoTypeId }") - 1;
     if(cargoTypeId == 0){
         goto end;
     }
@@ -167,7 +160,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_cargoTypeId);
 
 }
@@ -177,7 +169,7 @@ end:
 // Get an existing cargo type
 //
 cargo_type_t*
-CargoTypeAPI_getCargoType(apiClient_t *apiClient, double version, long cargoTypeId)
+CargoTypeAPI_getCargoType(apiClient_t *apiClient, long cargoTypeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -191,15 +183,12 @@ CargoTypeAPI_getCargoType(apiClient_t *apiClient, double version, long cargoType
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/type/{cargoTypeId}");
+    char *localVarPath = strdup("/cargo/type/{cargoTypeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(cargoTypeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_cargoTypeId =  + sizeof(cargoTypeId)+3 + sizeof("{ cargoTypeId }") - 1;
+    long sizeOfPathParams_cargoTypeId = sizeof(cargoTypeId)+3 + sizeof("{ cargoTypeId }") - 1;
     if(cargoTypeId == 0){
         goto end;
     }
@@ -252,7 +241,6 @@ CargoTypeAPI_getCargoType(apiClient_t *apiClient, double version, long cargoType
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_cargoTypeId);
     return elementToReturn;
 end:
@@ -266,7 +254,7 @@ end:
 // Search for types of cargo
 //
 list_t*
-CargoTypeAPI_searchCargoTypes(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId)
+CargoTypeAPI_searchCargoTypes(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -280,12 +268,9 @@ CargoTypeAPI_searchCargoTypes(apiClient_t *apiClient, double version, char *sort
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/type");
+    char *localVarPath = strdup("/cargo/type");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -425,7 +410,6 @@ CargoTypeAPI_searchCargoTypes(apiClient_t *apiClient, double version, char *sort
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_retailerId){
         free(keyQuery_retailerId);
         keyQuery_retailerId = NULL;
@@ -514,7 +498,7 @@ end:
 // Update an existing cargo type
 //
 cargo_type_t*
-CargoTypeAPI_updateCargoType(apiClient_t *apiClient, double version, long cargoTypeId, cargo_type_t *body)
+CargoTypeAPI_updateCargoType(apiClient_t *apiClient, long cargoTypeId, cargo_type_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -528,15 +512,12 @@ CargoTypeAPI_updateCargoType(apiClient_t *apiClient, double version, long cargoT
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/type/{cargoTypeId}");
+    char *localVarPath = strdup("/cargo/type/{cargoTypeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(cargoTypeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_cargoTypeId =  + sizeof(cargoTypeId)+3 + sizeof("{ cargoTypeId }") - 1;
+    long sizeOfPathParams_cargoTypeId = sizeof(cargoTypeId)+3 + sizeof("{ cargoTypeId }") - 1;
     if(cargoTypeId == 0){
         goto end;
     }
@@ -599,7 +580,6 @@ CargoTypeAPI_updateCargoType(apiClient_t *apiClient, double version, long cargoT
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_cargoTypeId);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);

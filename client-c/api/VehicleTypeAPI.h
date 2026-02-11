@@ -13,7 +13,7 @@
 // Create a new vehicle type
 //
 vehicle_type_t*
-VehicleTypeAPI_createVehicleType(apiClient_t *apiClient, double version, char *vehicleType, vehicle_type_t *body);
+VehicleTypeAPI_createVehicleType(apiClient_t *apiClient, char *vehicleType, vehicle_type_t *body);
 
 
 // Delete Vehicle Type
@@ -21,7 +21,7 @@ VehicleTypeAPI_createVehicleType(apiClient_t *apiClient, double version, char *v
 // Delete a vehicle type
 //
 void
-VehicleTypeAPI_deleteVehicleType(apiClient_t *apiClient, double version, long vehicleTypeId);
+VehicleTypeAPI_deleteVehicleType(apiClient_t *apiClient, long vehicleTypeId);
 
 
 // Get Vehicle Type
@@ -29,7 +29,7 @@ VehicleTypeAPI_deleteVehicleType(apiClient_t *apiClient, double version, long ve
 // Get a vehicle type
 //
 vehicle_type_t*
-VehicleTypeAPI_getVehicleType(apiClient_t *apiClient, double version, long vehicleTypeId);
+VehicleTypeAPI_getVehicleType(apiClient_t *apiClient, long vehicleTypeId);
 
 
 // Search Vehicle Type
@@ -37,7 +37,7 @@ VehicleTypeAPI_getVehicleType(apiClient_t *apiClient, double version, long vehic
 // Search for types of vehicles
 //
 list_t*
-VehicleTypeAPI_searchVehicleTypes(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId);
+VehicleTypeAPI_searchVehicleTypes(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId);
 
 
 // Update Vehicle Type
@@ -45,6 +45,6 @@ VehicleTypeAPI_searchVehicleTypes(apiClient_t *apiClient, double version, char *
 // Update a vehicle type
 //
 vehicle_type_t*
-VehicleTypeAPI_updateVehicleType(apiClient_t *apiClient, double version, long vehicleTypeId, char *vehicleType, vehicle_type_t *body);
+VehicleTypeAPI_updateVehicleType(apiClient_t *apiClient, long vehicleTypeId, char *vehicleType, vehicle_type_t *body);
 
 

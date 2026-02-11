@@ -66,7 +66,7 @@ end:
 // Downloads an asset from the server for assets that have been uploaded to the server.
 //
 sirqul_response_t*
-AssetAPI_assetDownload(apiClient_t *apiClient, double version, char *filename)
+AssetAPI_assetDownload(apiClient_t *apiClient, char *filename)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -80,17 +80,14 @@ AssetAPI_assetDownload(apiClient_t *apiClient, double version, char *filename)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/download/{filename}");
+    char *localVarPath = strdup("/asset/download/{filename}");
 
     if(!filename)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(filename)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_filename =  + strlen(filename)+3 + sizeof("{ filename }") - 1;
+    long sizeOfPathParams_filename = strlen(filename)+3 + sizeof("{ filename }") - 1;
     if(filename == NULL) {
         goto end;
     }
@@ -139,7 +136,6 @@ AssetAPI_assetDownload(apiClient_t *apiClient, double version, char *filename)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_filename);
     return elementToReturn;
 end:
@@ -153,7 +149,7 @@ end:
 // Converts an offer image + text into a creative image.
 //
 asset_short_response_t*
-AssetAPI_assetMorph(apiClient_t *apiClient, double version, long offerId, sirqul_iot_platform_assetMorph_adSize_e adSize, long creativeId, int *width, int *height, char *backgroundSize, char *_template)
+AssetAPI_assetMorph(apiClient_t *apiClient, long offerId, sirqul_iot_platform_assetMorph_adSize_e adSize, long creativeId, int *width, int *height, char *backgroundSize, char *_template)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -167,12 +163,9 @@ AssetAPI_assetMorph(apiClient_t *apiClient, double version, long offerId, sirqul
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/morph");
+    char *localVarPath = strdup("/asset/morph");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -301,7 +294,6 @@ AssetAPI_assetMorph(apiClient_t *apiClient, double version, long offerId, sirqul
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_offerId){
         free(keyQuery_offerId);
         keyQuery_offerId = NULL;
@@ -386,7 +378,7 @@ end:
 // Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 //
 asset_response_t*
-AssetAPI_createAsset(apiClient_t *apiClient, double version, int *returnNulls, char *deviceId, long accountId, long albumId, long collectionId, char *addToDefaultAlbum, int *addToMediaLibrary, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *app, char *appKey, char *searchTags, double latitude, double longitude)
+AssetAPI_createAsset(apiClient_t *apiClient, int *returnNulls, char *deviceId, long accountId, long albumId, long collectionId, char *addToDefaultAlbum, int *addToMediaLibrary, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *app, char *appKey, char *searchTags, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -400,12 +392,9 @@ AssetAPI_createAsset(apiClient_t *apiClient, double version, int *returnNulls, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/create");
+    char *localVarPath = strdup("/asset/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -870,7 +859,6 @@ AssetAPI_createAsset(apiClient_t *apiClient, double version, int *returnNulls, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -1259,7 +1247,7 @@ end:
 // Delete an asset.
 //
 sirqul_response_t*
-AssetAPI_deleteAsset(apiClient_t *apiClient, double version, char *assetId, char *deviceId, long accountId, double latitude, double longitude)
+AssetAPI_deleteAsset(apiClient_t *apiClient, char *assetId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1273,12 +1261,9 @@ AssetAPI_deleteAsset(apiClient_t *apiClient, double version, char *assetId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/delete");
+    char *localVarPath = strdup("/asset/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1388,7 +1373,6 @@ AssetAPI_deleteAsset(apiClient_t *apiClient, double version, char *assetId, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1449,7 +1433,7 @@ end:
 // Gets the full asset response including attached likes and notes.
 //
 asset_full_response_t*
-AssetAPI_getAsset(apiClient_t *apiClient, double version, long assetId, char *deviceId, long accountId, int *noteDescending)
+AssetAPI_getAsset(apiClient_t *apiClient, long assetId, char *deviceId, long accountId, int *noteDescending)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1463,12 +1447,9 @@ AssetAPI_getAsset(apiClient_t *apiClient, double version, long assetId, char *de
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/get");
+    char *localVarPath = strdup("/asset/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1559,7 +1540,6 @@ AssetAPI_getAsset(apiClient_t *apiClient, double version, long assetId, char *de
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1612,7 +1592,7 @@ end:
 // Remove assets from collections
 //
 sirqul_response_t*
-AssetAPI_removeAsset(apiClient_t *apiClient, double version, char *assetId, char *deviceId, long accountId, long albumId, long collectionId, int *removeFromDefaultAlbums, double latitude, double longitude)
+AssetAPI_removeAsset(apiClient_t *apiClient, char *assetId, char *deviceId, long accountId, long albumId, long collectionId, int *removeFromDefaultAlbums, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1626,12 +1606,9 @@ AssetAPI_removeAsset(apiClient_t *apiClient, double version, char *assetId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/remove");
+    char *localVarPath = strdup("/asset/remove");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1778,7 +1755,6 @@ AssetAPI_removeAsset(apiClient_t *apiClient, double version, char *assetId, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1867,7 +1843,7 @@ end:
 // Searches for assets
 //
 list_t*
-AssetAPI_searchAssets(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *albumIds, char *assetIds, char *appKey, char *mediaType, char *mimeType, char *keyword, int *versionCode, char *versionName, long updatedSince, long updatedBefore, char *sortField, int *descending, int *searchMediaLibrary, int *filterByBillable, int *activeOnly, int *returnApp, int *start, int *limit, char *searchMode, char *assetType, char *approvalStatus, long assignedAccountId)
+AssetAPI_searchAssets(apiClient_t *apiClient, char *deviceId, long accountId, char *albumIds, char *assetIds, char *appKey, char *mediaType, char *mimeType, char *keyword, int *versionCode, char *versionName, long updatedSince, long updatedBefore, char *sortField, int *descending, int *searchMediaLibrary, int *filterByBillable, int *activeOnly, int *returnApp, int *start, int *limit, char *searchMode, char *assetType, char *approvalStatus, long assignedAccountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1881,12 +1857,9 @@ AssetAPI_searchAssets(apiClient_t *apiClient, double version, char *deviceId, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/search");
+    char *localVarPath = strdup("/asset/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2234,7 +2207,6 @@ AssetAPI_searchAssets(apiClient_t *apiClient, double version, char *deviceId, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2519,7 +2491,7 @@ end:
 // Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 //
 sirqul_response_t*
-AssetAPI_updateAsset(apiClient_t *apiClient, double version, long assetId, char *deviceId, long accountId, long albumId, long attachedAssetId, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *searchTags, char *appKey, double latitude, double longitude)
+AssetAPI_updateAsset(apiClient_t *apiClient, long assetId, char *deviceId, long accountId, long albumId, long attachedAssetId, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *searchTags, char *appKey, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2533,12 +2505,9 @@ AssetAPI_updateAsset(apiClient_t *apiClient, double version, long assetId, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/asset/update");
+    char *localVarPath = strdup("/asset/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2965,7 +2934,6 @@ AssetAPI_updateAsset(apiClient_t *apiClient, double version, long assetId, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

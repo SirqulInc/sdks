@@ -31,7 +31,7 @@ typedef enum  { sirqul_iot_platform_updateRegion_VISIBILITY_NULL = 0, sirqul_iot
 // Create a region.
 //
 region_response_t*
-RegionAPI_createRegion(apiClient_t *apiClient, double version, long accountId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_createRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active);
+RegionAPI_createRegion(apiClient_t *apiClient, long accountId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_createRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active);
 
 
 // Delete Region
@@ -39,7 +39,7 @@ RegionAPI_createRegion(apiClient_t *apiClient, double version, long accountId, c
 // Delete a region.
 //
 region_response_t*
-RegionAPI_deleteRegion(apiClient_t *apiClient, double version, long accountId, long regionId);
+RegionAPI_deleteRegion(apiClient_t *apiClient, long accountId, long regionId);
 
 
 // Get Region
@@ -47,7 +47,7 @@ RegionAPI_deleteRegion(apiClient_t *apiClient, double version, long accountId, l
 // Get a region.
 //
 region_response_t*
-RegionAPI_getRegion(apiClient_t *apiClient, double version, long regionId, long accountId);
+RegionAPI_getRegion(apiClient_t *apiClient, long regionId, long accountId);
 
 
 // Search Regions
@@ -55,7 +55,7 @@ RegionAPI_getRegion(apiClient_t *apiClient, double version, long regionId, long 
 // Get the list of regions.
 //
 list_t*
-RegionAPI_searchRegions(apiClient_t *apiClient, double version, long accountId, char *query, char *keyword, double latitude, double longitude, double range, sirqul_iot_platform_searchRegions_regionClass_e regionClass, sirqul_iot_platform_searchRegions_visibility_e visibility, sirqul_iot_platform_searchRegions_searchMode_e searchMode, sirqul_iot_platform_searchRegions_sortField_e sortField, int *descending, int *includeParent, int *includeChildren, int *includePostalCodes, char *categoryIds, char *filterIds, int *versionCode, int *activeOnly, int *showDeleted, long lastUpdatedSince, int *start, int *limit);
+RegionAPI_searchRegions(apiClient_t *apiClient, long accountId, char *query, char *keyword, double latitude, double longitude, double range, sirqul_iot_platform_searchRegions_regionClass_e regionClass, sirqul_iot_platform_searchRegions_visibility_e visibility, sirqul_iot_platform_searchRegions_searchMode_e searchMode, sirqul_iot_platform_searchRegions_sortField_e sortField, int *descending, int *includeParent, int *includeChildren, int *includePostalCodes, char *categoryIds, char *filterIds, int *versionCode, int *activeOnly, int *showDeleted, long lastUpdatedSince, int *start, int *limit);
 
 
 // Update Region
@@ -63,6 +63,6 @@ RegionAPI_searchRegions(apiClient_t *apiClient, double version, long accountId, 
 // Update a region.
 //
 region_response_t*
-RegionAPI_updateRegion(apiClient_t *apiClient, double version, long accountId, long regionId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_updateRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active, int *clearLists);
+RegionAPI_updateRegion(apiClient_t *apiClient, long accountId, long regionId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_updateRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active, int *clearLists);
 
 

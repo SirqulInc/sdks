@@ -14,7 +14,7 @@
 // Delete an existing trip
 //
 void
-TripAPI_callDelete(apiClient_t *apiClient, double version, long id)
+TripAPI_callDelete(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,15 +28,12 @@ TripAPI_callDelete(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}");
+    char *localVarPath = strdup("/trip/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -78,7 +75,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
 
 }
@@ -88,7 +84,7 @@ end:
 // Create a new trip
 //
 trip_t*
-TripAPI_createTrip(apiClient_t *apiClient, double version, trip_t *body)
+TripAPI_createTrip(apiClient_t *apiClient, trip_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -102,12 +98,9 @@ TripAPI_createTrip(apiClient_t *apiClient, double version, trip_t *body)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip");
+    char *localVarPath = strdup("/trip");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -159,7 +152,6 @@ TripAPI_createTrip(apiClient_t *apiClient, double version, trip_t *body)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -177,7 +169,7 @@ end:
 // Update trip preference to drive, also create a route and assign the trip to the route
 //
 trip_t*
-TripAPI_driveTrip(apiClient_t *apiClient, double version, long id, int *recurrence)
+TripAPI_driveTrip(apiClient_t *apiClient, long id, int *recurrence)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -191,15 +183,12 @@ TripAPI_driveTrip(apiClient_t *apiClient, double version, long id, int *recurren
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/drive");
+    char *localVarPath = strdup("/trip/{id}/drive");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -265,7 +254,6 @@ TripAPI_driveTrip(apiClient_t *apiClient, double version, long id, int *recurren
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if(keyQuery_recurrence){
         free(keyQuery_recurrence);
@@ -291,7 +279,7 @@ end:
 // Update trip preference to flexible.
 //
 trip_t*
-TripAPI_flexibleTrip(apiClient_t *apiClient, double version, long id, int *recurrence)
+TripAPI_flexibleTrip(apiClient_t *apiClient, long id, int *recurrence)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -305,15 +293,12 @@ TripAPI_flexibleTrip(apiClient_t *apiClient, double version, long id, int *recur
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/flexible");
+    char *localVarPath = strdup("/trip/{id}/flexible");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -379,7 +364,6 @@ TripAPI_flexibleTrip(apiClient_t *apiClient, double version, long id, int *recur
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if(keyQuery_recurrence){
         free(keyQuery_recurrence);
@@ -405,7 +389,7 @@ end:
 // Get an existing trip
 //
 trip_t*
-TripAPI_getTrip(apiClient_t *apiClient, double version, long id)
+TripAPI_getTrip(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -419,15 +403,12 @@ TripAPI_getTrip(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}");
+    char *localVarPath = strdup("/trip/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -480,7 +461,6 @@ TripAPI_getTrip(apiClient_t *apiClient, double version, long id)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     return elementToReturn;
 end:
@@ -494,7 +474,7 @@ end:
 // Get matching trips of specific trip
 //
 list_t*
-TripAPI_getTripMatches(apiClient_t *apiClient, double version, long id, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *matchedHasRoute, int *matchedHasDriver)
+TripAPI_getTripMatches(apiClient_t *apiClient, long id, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *matchedHasRoute, int *matchedHasDriver)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -508,15 +488,12 @@ TripAPI_getTripMatches(apiClient_t *apiClient, double version, long id, char *so
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/match");
+    char *localVarPath = strdup("/trip/{id}/match");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -669,7 +646,6 @@ TripAPI_getTripMatches(apiClient_t *apiClient, double version, long id, char *so
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if(keyQuery_matchedHasRoute){
         free(keyQuery_matchedHasRoute);
@@ -767,7 +743,7 @@ end:
 // Process trip matching, assign trips with no route to matched trips with route.
 //
 list_t*
-TripAPI_processTripMatches(apiClient_t *apiClient, double version, long startDate, long endDate, long tripId)
+TripAPI_processTripMatches(apiClient_t *apiClient, long startDate, long endDate, long tripId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -781,12 +757,9 @@ TripAPI_processTripMatches(apiClient_t *apiClient, double version, long startDat
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/match/process");
+    char *localVarPath = strdup("/trip/match/process");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -874,7 +847,6 @@ TripAPI_processTripMatches(apiClient_t *apiClient, double version, long startDat
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_startDate){
         free(keyQuery_startDate);
         keyQuery_startDate = NULL;
@@ -911,7 +883,7 @@ end:
 // Update trip preference to ride.
 //
 trip_t*
-TripAPI_ride(apiClient_t *apiClient, double version, long id, int *recurrence)
+TripAPI_ride(apiClient_t *apiClient, long id, int *recurrence)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -925,15 +897,12 @@ TripAPI_ride(apiClient_t *apiClient, double version, long id, int *recurrence)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/ride");
+    char *localVarPath = strdup("/trip/{id}/ride");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -999,7 +968,6 @@ TripAPI_ride(apiClient_t *apiClient, double version, long id, int *recurrence)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if(keyQuery_recurrence){
         free(keyQuery_recurrence);
@@ -1025,7 +993,7 @@ end:
 // Search for trips
 //
 list_t*
-TripAPI_search(apiClient_t *apiClient, double version, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *hasNotifications)
+TripAPI_search(apiClient_t *apiClient, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *hasNotifications)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1039,12 +1007,9 @@ TripAPI_search(apiClient_t *apiClient, double version, long accountId, char *sor
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip");
+    char *localVarPath = strdup("/trip");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1209,7 +1174,6 @@ TripAPI_search(apiClient_t *apiClient, double version, long accountId, char *sor
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1318,7 +1282,7 @@ end:
 // Search for trips with matching information.
 //
 list_t*
-TripAPI_searchTrips(apiClient_t *apiClient, double version, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *matchedHasRoute, int *matchedHasDriver)
+TripAPI_searchTrips(apiClient_t *apiClient, long accountId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long startDate, long endDate, int *matchedHasRoute, int *matchedHasDriver)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1332,12 +1296,9 @@ TripAPI_searchTrips(apiClient_t *apiClient, double version, long accountId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/match");
+    char *localVarPath = strdup("/trip/match");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1515,7 +1476,6 @@ TripAPI_searchTrips(apiClient_t *apiClient, double version, long accountId, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1634,7 +1594,7 @@ end:
 // Update Trip Locations
 //
 trip_t*
-TripAPI_updateLocations(apiClient_t *apiClient, double version, long id, trip_t *body)
+TripAPI_updateLocations(apiClient_t *apiClient, long id, trip_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1648,15 +1608,12 @@ TripAPI_updateLocations(apiClient_t *apiClient, double version, long id, trip_t 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/locations");
+    char *localVarPath = strdup("/trip/{id}/locations");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -1719,7 +1676,6 @@ TripAPI_updateLocations(apiClient_t *apiClient, double version, long id, trip_t 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -1736,7 +1692,7 @@ end:
 // Update Recurrence Locations
 //
 list_t*
-TripAPI_updateRecurrenceLocations(apiClient_t *apiClient, double version, long id, trip_t *body)
+TripAPI_updateRecurrenceLocations(apiClient_t *apiClient, long id, trip_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1750,15 +1706,12 @@ TripAPI_updateRecurrenceLocations(apiClient_t *apiClient, double version, long i
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/locations/recurrence");
+    char *localVarPath = strdup("/trip/{id}/locations/recurrence");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -1831,7 +1784,6 @@ TripAPI_updateRecurrenceLocations(apiClient_t *apiClient, double version, long i
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -1848,7 +1800,7 @@ end:
 // Update Recurrence Shipments
 //
 list_t*
-TripAPI_updateRecurrenceShipments(apiClient_t *apiClient, double version, long id, trip_t *body)
+TripAPI_updateRecurrenceShipments(apiClient_t *apiClient, long id, trip_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1862,15 +1814,12 @@ TripAPI_updateRecurrenceShipments(apiClient_t *apiClient, double version, long i
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/shipments/recurrence");
+    char *localVarPath = strdup("/trip/{id}/shipments/recurrence");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -1943,7 +1892,6 @@ TripAPI_updateRecurrenceShipments(apiClient_t *apiClient, double version, long i
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -1960,7 +1908,7 @@ end:
 // Update Trip Shipments
 //
 trip_t*
-TripAPI_updateShipments(apiClient_t *apiClient, double version, long id, trip_t *body)
+TripAPI_updateShipments(apiClient_t *apiClient, long id, trip_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1974,15 +1922,12 @@ TripAPI_updateShipments(apiClient_t *apiClient, double version, long id, trip_t 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}/shipments");
+    char *localVarPath = strdup("/trip/{id}/shipments");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -2045,7 +1990,6 @@ TripAPI_updateShipments(apiClient_t *apiClient, double version, long id, trip_t 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -2064,7 +2008,7 @@ end:
 // Update an existing trip. Does not support recurring trip update.
 //
 trip_t*
-TripAPI_updateTrip(apiClient_t *apiClient, double version, long id, trip_t *body)
+TripAPI_updateTrip(apiClient_t *apiClient, long id, trip_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -2078,15 +2022,12 @@ TripAPI_updateTrip(apiClient_t *apiClient, double version, long id, trip_t *body
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/{id}");
+    char *localVarPath = strdup("/trip/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -2149,7 +2090,6 @@ TripAPI_updateTrip(apiClient_t *apiClient, double version, long id, trip_t *body
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -2168,7 +2108,7 @@ end:
 // Update the trip notifications
 //
 trip_t*
-TripAPI_updateTripNotifications(apiClient_t *apiClient, double version, long id, char *notifications)
+TripAPI_updateTripNotifications(apiClient_t *apiClient, long id, char *notifications)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2182,12 +2122,9 @@ TripAPI_updateTripNotifications(apiClient_t *apiClient, double version, long id,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/trip/notifications");
+    char *localVarPath = strdup("/trip/notifications");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2253,7 +2190,6 @@ TripAPI_updateTripNotifications(apiClient_t *apiClient, double version, long id,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_id){
         free(keyQuery_id);
         keyQuery_id = NULL;

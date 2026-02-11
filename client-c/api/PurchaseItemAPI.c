@@ -274,7 +274,7 @@ end:
 // Creates a purchase item for in app purchases
 //
 purchase_item_full_response_t*
-PurchaseItemAPI_createPurchaseItem(apiClient_t *apiClient, double version, char *appKey, char *name, sirqul_iot_platform_createPurchaseItem_purchaseType_e purchaseType, char *deviceId, long accountId, char *description, int *tickets, float price, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_createPurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *allocateTickets, char *ticketType, long points, long offerLocationId)
+PurchaseItemAPI_createPurchaseItem(apiClient_t *apiClient, char *appKey, char *name, sirqul_iot_platform_createPurchaseItem_purchaseType_e purchaseType, char *deviceId, long accountId, char *description, int *tickets, float price, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_createPurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *allocateTickets, char *ticketType, long points, long offerLocationId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -288,12 +288,9 @@ PurchaseItemAPI_createPurchaseItem(apiClient_t *apiClient, double version, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/purchase/create");
+    char *localVarPath = strdup("/purchase/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -586,7 +583,6 @@ PurchaseItemAPI_createPurchaseItem(apiClient_t *apiClient, double version, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -807,7 +803,7 @@ end:
 // Marks the purchase item as deleted
 //
 sirqul_response_t*
-PurchaseItemAPI_deletePurchaseItem(apiClient_t *apiClient, double version, long purchaseItemId, char *deviceId, long accountId)
+PurchaseItemAPI_deletePurchaseItem(apiClient_t *apiClient, long purchaseItemId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -821,12 +817,9 @@ PurchaseItemAPI_deletePurchaseItem(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/purchase/delete");
+    char *localVarPath = strdup("/purchase/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -904,7 +897,6 @@ PurchaseItemAPI_deletePurchaseItem(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -945,7 +937,7 @@ end:
 // Get detailed information about a purchase item
 //
 purchase_item_full_response_t*
-PurchaseItemAPI_getPurchaseItem(apiClient_t *apiClient, double version, long purchaseItemId, char *deviceId, long accountId)
+PurchaseItemAPI_getPurchaseItem(apiClient_t *apiClient, long purchaseItemId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -959,12 +951,9 @@ PurchaseItemAPI_getPurchaseItem(apiClient_t *apiClient, double version, long pur
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/purchase/get");
+    char *localVarPath = strdup("/purchase/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1042,7 +1031,6 @@ PurchaseItemAPI_getPurchaseItem(apiClient_t *apiClient, double version, long pur
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1083,7 +1071,7 @@ end:
 // Search for purchasable items from the system
 //
 list_t*
-PurchaseItemAPI_searchPurchaseItems(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, int *filterByBillable, char *purchaseType, char *serviceAction, char *keyword, sirqul_iot_platform_searchPurchaseItems_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly)
+PurchaseItemAPI_searchPurchaseItems(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, int *filterByBillable, char *purchaseType, char *serviceAction, char *keyword, sirqul_iot_platform_searchPurchaseItems_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1097,12 +1085,9 @@ PurchaseItemAPI_searchPurchaseItems(apiClient_t *apiClient, double version, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/purchase/search");
+    char *localVarPath = strdup("/purchase/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1304,7 +1289,6 @@ PurchaseItemAPI_searchPurchaseItems(apiClient_t *apiClient, double version, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1453,7 +1437,7 @@ end:
 // Updates a purchase item for in app purchases
 //
 purchase_item_full_response_t*
-PurchaseItemAPI_updatePurchaseItem(apiClient_t *apiClient, double version, long purchaseItemId, char *deviceId, long accountId, char *name, char *description, int *tickets, float price, sirqul_iot_platform_updatePurchaseItem_purchaseType_e purchaseType, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_updatePurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *active, int *allocateTickets, char *ticketType, long points, long offerLocationId)
+PurchaseItemAPI_updatePurchaseItem(apiClient_t *apiClient, long purchaseItemId, char *deviceId, long accountId, char *name, char *description, int *tickets, float price, sirqul_iot_platform_updatePurchaseItem_purchaseType_e purchaseType, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_updatePurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *active, int *allocateTickets, char *ticketType, long points, long offerLocationId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1467,12 +1451,9 @@ PurchaseItemAPI_updatePurchaseItem(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/purchase/update");
+    char *localVarPath = strdup("/purchase/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1778,7 +1759,6 @@ PurchaseItemAPI_updatePurchaseItem(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

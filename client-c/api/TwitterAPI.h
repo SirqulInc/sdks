@@ -14,7 +14,7 @@
 // Makes an authorization call to twitter for a user to login and allow any app permissions.
 //
 sirqul_response_t*
-TwitterAPI_authorizeTwitter(apiClient_t *apiClient, double version, char *appKey);
+TwitterAPI_authorizeTwitter(apiClient_t *apiClient, char *appKey);
 
 
 // Login Twitter
@@ -22,6 +22,6 @@ TwitterAPI_authorizeTwitter(apiClient_t *apiClient, double version, char *appKey
 // Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 //
 profile_response_t*
-TwitterAPI_loginTwitter(apiClient_t *apiClient, double version, char *accessToken, char *accessTokenSecret, char *appKey, char *responseFilters, char *deviceId, double latitude, double longitude);
+TwitterAPI_loginTwitter(apiClient_t *apiClient, char *accessToken, char *accessTokenSecret, char *appKey, char *responseFilters, char *deviceId, double latitude, double longitude);
 
 

@@ -14,7 +14,7 @@
 // This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
 //
 routing_list_response_t*
-RoutingAPI_computeRouting(apiClient_t *apiClient, double version, char *data)
+RoutingAPI_computeRouting(apiClient_t *apiClient, char *data)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ RoutingAPI_computeRouting(apiClient_t *apiClient, double version, char *data)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/routing/compute");
+    char *localVarPath = strdup("/routing/compute");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -87,7 +84,6 @@ RoutingAPI_computeRouting(apiClient_t *apiClient, double version, char *data)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_data){
         free(keyQuery_data);
         keyQuery_data = NULL;

@@ -168,7 +168,7 @@ end:
 // Detail Status
 //
 sirqul_response_t*
-CSVImportAPI_getStatusCSV(apiClient_t *apiClient, double version, long accountId, long batchId, sirqul_iot_platform_getStatusCSV_responseGroup_e responseGroup, long start, long limit)
+CSVImportAPI_getStatusCSV(apiClient_t *apiClient, long accountId, long batchId, sirqul_iot_platform_getStatusCSV_responseGroup_e responseGroup, long start, long limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -182,12 +182,9 @@ CSVImportAPI_getStatusCSV(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/csvimport/batch/status/details");
+    char *localVarPath = strdup("/csvimport/batch/status/details");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -290,7 +287,6 @@ CSVImportAPI_getStatusCSV(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -343,7 +339,7 @@ end:
 // Retrieves batches for a user.
 //
 csv_import_response_t*
-CSVImportAPI_listStatusCSV(apiClient_t *apiClient, double version, long accountId, int *start, int *limit)
+CSVImportAPI_listStatusCSV(apiClient_t *apiClient, long accountId, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -357,12 +353,9 @@ CSVImportAPI_listStatusCSV(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/csvimport/batch/list");
+    char *localVarPath = strdup("/csvimport/batch/list");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -442,7 +435,6 @@ CSVImportAPI_listStatusCSV(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -487,7 +479,7 @@ end:
 // Checks status of batch upload.
 //
 csv_import_response_t*
-CSVImportAPI_statusCSV(apiClient_t *apiClient, double version, long accountId, long batchId)
+CSVImportAPI_statusCSV(apiClient_t *apiClient, long accountId, long batchId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -501,12 +493,9 @@ CSVImportAPI_statusCSV(apiClient_t *apiClient, double version, long accountId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/csvimport/batch/status");
+    char *localVarPath = strdup("/csvimport/batch/status");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -572,7 +561,6 @@ CSVImportAPI_statusCSV(apiClient_t *apiClient, double version, long accountId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -601,7 +589,7 @@ end:
 // Uploads a CSV import file.
 //
 csv_import_response_t*
-CSVImportAPI_uploadCSV(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_uploadCSV_uploadType_e uploadType, binary_t* importFile, sirqul_iot_platform_uploadCSV_fileFormat_e fileFormat, char *appKey)
+CSVImportAPI_uploadCSV(apiClient_t *apiClient, long accountId, sirqul_iot_platform_uploadCSV_uploadType_e uploadType, binary_t* importFile, sirqul_iot_platform_uploadCSV_fileFormat_e fileFormat, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -615,12 +603,9 @@ CSVImportAPI_uploadCSV(apiClient_t *apiClient, double version, long accountId, s
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/csvimport/upload");
+    char *localVarPath = strdup("/csvimport/upload");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -724,7 +709,6 @@ CSVImportAPI_uploadCSV(apiClient_t *apiClient, double version, long accountId, s
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

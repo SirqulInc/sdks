@@ -14,7 +14,7 @@
 // Create new service hub
 //
 service_hub_t*
-ServiceHubAPI_createServiceHub(apiClient_t *apiClient, double version, service_hub_t *body);
+ServiceHubAPI_createServiceHub(apiClient_t *apiClient, service_hub_t *body);
 
 
 // Delete Service Hub
@@ -22,7 +22,7 @@ ServiceHubAPI_createServiceHub(apiClient_t *apiClient, double version, service_h
 // Delete an existing service hub
 //
 void
-ServiceHubAPI_deleteServiceHub(apiClient_t *apiClient, double version, long id);
+ServiceHubAPI_deleteServiceHub(apiClient_t *apiClient, long id);
 
 
 // Get Service Hub
@@ -30,7 +30,7 @@ ServiceHubAPI_deleteServiceHub(apiClient_t *apiClient, double version, long id);
 // Get an existing service hub
 //
 object_t*
-ServiceHubAPI_getServiceHub(apiClient_t *apiClient, double version, long id);
+ServiceHubAPI_getServiceHub(apiClient_t *apiClient, long id);
 
 
 // Update Service Hub
@@ -38,7 +38,7 @@ ServiceHubAPI_getServiceHub(apiClient_t *apiClient, double version, long id);
 // Update an existing service hub
 //
 service_hub_t*
-ServiceHubAPI_postServiceHub(apiClient_t *apiClient, double version, long id, service_hub_t *body);
+ServiceHubAPI_postServiceHub(apiClient_t *apiClient, long id, service_hub_t *body);
 
 
 // Update Service Hub
@@ -46,7 +46,7 @@ ServiceHubAPI_postServiceHub(apiClient_t *apiClient, double version, long id, se
 // Update an existing service hub
 //
 service_hub_t*
-ServiceHubAPI_putServiceHub(apiClient_t *apiClient, double version, long id, service_hub_t *body);
+ServiceHubAPI_putServiceHub(apiClient_t *apiClient, long id, service_hub_t *body);
 
 
 // Search Service Hubs
@@ -54,6 +54,6 @@ ServiceHubAPI_putServiceHub(apiClient_t *apiClient, double version, long id, ser
 // Search for service hubs.
 //
 list_t*
-ServiceHubAPI_searchServiceHubs(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword, long retailerId);
+ServiceHubAPI_searchServiceHubs(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword, long retailerId);
 
 

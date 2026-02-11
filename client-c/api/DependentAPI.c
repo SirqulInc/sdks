@@ -14,7 +14,7 @@
 // Create dependent of the account
 //
 sirqul_response_t*
-DependentAPI_create(apiClient_t *apiClient, double version, long accountId, account_t *body)
+DependentAPI_create(apiClient_t *apiClient, long accountId, account_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,15 +28,12 @@ DependentAPI_create(apiClient_t *apiClient, double version, long accountId, acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/dependent/{accountId}");
+    char *localVarPath = strdup("/cargo/dependent/{accountId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(accountId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_accountId =  + sizeof(accountId)+3 + sizeof("{ accountId }") - 1;
+    long sizeOfPathParams_accountId = sizeof(accountId)+3 + sizeof("{ accountId }") - 1;
     if(accountId == 0){
         goto end;
     }
@@ -99,7 +96,6 @@ DependentAPI_create(apiClient_t *apiClient, double version, long accountId, acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_accountId);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -118,7 +114,7 @@ end:
 // Get the dependent list of an account
 //
 sirqul_response_t*
-DependentAPI_getDependents(apiClient_t *apiClient, double version, long accountId)
+DependentAPI_getDependents(apiClient_t *apiClient, long accountId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -132,15 +128,12 @@ DependentAPI_getDependents(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/dependent/{accountId}");
+    char *localVarPath = strdup("/cargo/dependent/{accountId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(accountId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_accountId =  + sizeof(accountId)+3 + sizeof("{ accountId }") - 1;
+    long sizeOfPathParams_accountId = sizeof(accountId)+3 + sizeof("{ accountId }") - 1;
     if(accountId == 0){
         goto end;
     }
@@ -193,7 +186,6 @@ DependentAPI_getDependents(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_accountId);
     return elementToReturn;
 end:
@@ -207,7 +199,7 @@ end:
 // Delete the Dependent
 //
 void
-DependentAPI_removeDependent(apiClient_t *apiClient, double version, long accountId, long dependentId)
+DependentAPI_removeDependent(apiClient_t *apiClient, long accountId, long dependentId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -221,15 +213,12 @@ DependentAPI_removeDependent(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/cargo/dependent/{accountId}");
+    char *localVarPath = strdup("/cargo/dependent/{accountId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(accountId)+3 + sizeof(dependentId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_accountId =  + sizeof(accountId)+3 + sizeof(dependentId)+3 + sizeof("{ accountId }") - 1;
+    long sizeOfPathParams_accountId = sizeof(accountId)+3 + sizeof(dependentId)+3 + sizeof("{ accountId }") - 1;
     if(accountId == 0){
         goto end;
     }
@@ -243,7 +232,7 @@ DependentAPI_removeDependent(apiClient_t *apiClient, double version, long accoun
 
 
     // Path Params
-    long sizeOfPathParams_dependentId =  + sizeof(accountId)+3 + sizeof(dependentId)+3 + sizeof("{ dependentId }") - 1;
+    long sizeOfPathParams_dependentId = sizeof(accountId)+3 + sizeof(dependentId)+3 + sizeof("{ dependentId }") - 1;
     if(dependentId == 0){
         goto end;
     }
@@ -285,7 +274,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_accountId);
     free(localVarToReplace_dependentId);
 

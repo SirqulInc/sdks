@@ -66,7 +66,7 @@ end:
 // Adds a connection to a group.
 //
 sirqul_response_t*
-ConnectionAPI_addConnectionToGroup(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude)
+ConnectionAPI_addConnectionToGroup(apiClient_t *apiClient, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ ConnectionAPI_addConnectionToGroup(apiClient_t *apiClient, double version, int *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/group/addConnection");
+    char *localVarPath = strdup("/consumer/connection/group/addConnection");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -244,7 +241,6 @@ ConnectionAPI_addConnectionToGroup(apiClient_t *apiClient, double version, int *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -337,7 +333,7 @@ end:
 // Adds a list of connections to a group.
 //
 sirqul_response_t*
-ConnectionAPI_addConnectionsToGroup(apiClient_t *apiClient, double version, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude)
+ConnectionAPI_addConnectionsToGroup(apiClient_t *apiClient, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -351,12 +347,9 @@ ConnectionAPI_addConnectionsToGroup(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/connection/group/addConnections");
+    char *localVarPath = strdup("/connection/group/addConnections");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -490,7 +483,6 @@ ConnectionAPI_addConnectionsToGroup(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -571,7 +563,7 @@ end:
 // Add sub groups to a group.
 //
 connection_group_response_t*
-ConnectionAPI_addSubGroups(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude)
+ConnectionAPI_addSubGroups(apiClient_t *apiClient, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -585,12 +577,9 @@ ConnectionAPI_addSubGroups(apiClient_t *apiClient, double version, int *returnNu
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/group/addSubGroup");
+    char *localVarPath = strdup("/consumer/connection/group/addSubGroup");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -725,7 +714,6 @@ ConnectionAPI_addSubGroups(apiClient_t *apiClient, double version, int *returnNu
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -806,7 +794,7 @@ end:
 // Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 //
 connection_response_t*
-ConnectionAPI_createOrUpdateConnection(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, long groupId, char *gameType, char *appKey, int *isTrusted, int *ignoreFriendRequest, int *isContact, int *isBlocked, int *isFollowing, int *connectionResponse)
+ConnectionAPI_createOrUpdateConnection(apiClient_t *apiClient, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, long groupId, char *gameType, char *appKey, int *isTrusted, int *ignoreFriendRequest, int *isContact, int *isBlocked, int *isFollowing, int *connectionResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -820,12 +808,9 @@ ConnectionAPI_createOrUpdateConnection(apiClient_t *apiClient, double version, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/add");
+    char *localVarPath = strdup("/consumer/connection/add");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1041,7 +1026,6 @@ ConnectionAPI_createOrUpdateConnection(apiClient_t *apiClient, double version, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1202,7 +1186,7 @@ end:
 // Creates a new private group.
 //
 sirqul_response_t*
-ConnectionAPI_createOrUpdateGroup(apiClient_t *apiClient, double version, int *returnNulls, char *deviceId, long accountId, char *name, long groupId, long assetId, char *connections, char *description, int *canViewProfileInfo, int *canViewGameInfo, int *canViewFriendInfo, int *active, double latitude, double longitude)
+ConnectionAPI_createOrUpdateGroup(apiClient_t *apiClient, int *returnNulls, char *deviceId, long accountId, char *name, long groupId, long assetId, char *connections, char *description, int *canViewProfileInfo, int *canViewGameInfo, int *canViewFriendInfo, int *active, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1216,12 +1200,9 @@ ConnectionAPI_createOrUpdateGroup(apiClient_t *apiClient, double version, int *r
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/group");
+    char *localVarPath = strdup("/consumer/connection/group");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1444,7 +1425,6 @@ ConnectionAPI_createOrUpdateGroup(apiClient_t *apiClient, double version, int *r
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -1605,7 +1585,7 @@ end:
 // Accept someone's follow request.
 //
 sirqul_response_t*
-ConnectionAPI_followAccept(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey)
+ConnectionAPI_followAccept(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1619,12 +1599,9 @@ ConnectionAPI_followAccept(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/follow/accept");
+    char *localVarPath = strdup("/consumer/follow/accept");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1702,7 +1679,6 @@ ConnectionAPI_followAccept(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1743,7 +1719,7 @@ end:
 // Reject someone's follow request or remove them as a follower.
 //
 sirqul_response_t*
-ConnectionAPI_followReject(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey)
+ConnectionAPI_followReject(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1757,12 +1733,9 @@ ConnectionAPI_followReject(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/follow/reject");
+    char *localVarPath = strdup("/consumer/follow/reject");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1840,7 +1813,6 @@ ConnectionAPI_followReject(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1881,7 +1853,7 @@ end:
 // Unfollow someone you are following or remove them as a follower.
 //
 sirqul_response_t*
-ConnectionAPI_followRemove(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey)
+ConnectionAPI_followRemove(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1895,12 +1867,9 @@ ConnectionAPI_followRemove(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/follow/remove");
+    char *localVarPath = strdup("/consumer/follow/remove");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1978,7 +1947,6 @@ ConnectionAPI_followRemove(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2019,7 +1987,7 @@ end:
 // Send a request to follow someone.
 //
 sirqul_response_t*
-ConnectionAPI_followRequest(apiClient_t *apiClient, double version, long accountId, long connectionAccountId, char *appKey, int *approvalNeeded)
+ConnectionAPI_followRequest(apiClient_t *apiClient, long accountId, long connectionAccountId, char *appKey, int *approvalNeeded)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2033,12 +2001,9 @@ ConnectionAPI_followRequest(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/follow/request");
+    char *localVarPath = strdup("/consumer/follow/request");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2129,7 +2094,6 @@ ConnectionAPI_followRequest(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2182,7 +2146,7 @@ end:
 // Accept a friend request and optionally sends a notification.
 //
 sirqul_response_t*
-ConnectionAPI_friendAccept(apiClient_t *apiClient, double version, long friendAccountId, int *notifyFriend, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage)
+ConnectionAPI_friendAccept(apiClient_t *apiClient, long friendAccountId, int *notifyFriend, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2196,12 +2160,9 @@ ConnectionAPI_friendAccept(apiClient_t *apiClient, double version, long friendAc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/friend/accept");
+    char *localVarPath = strdup("/consumer/friend/accept");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2328,7 +2289,6 @@ ConnectionAPI_friendAccept(apiClient_t *apiClient, double version, long friendAc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2417,7 +2377,7 @@ end:
 // Request a friend request and optionally sends a notification.
 //
 sirqul_response_t*
-ConnectionAPI_friendReject(apiClient_t *apiClient, double version, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, int *notifyFriend, char *notificationMessage)
+ConnectionAPI_friendReject(apiClient_t *apiClient, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, int *notifyFriend, char *notificationMessage)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2431,12 +2391,9 @@ ConnectionAPI_friendReject(apiClient_t *apiClient, double version, long friendAc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/friend/reject");
+    char *localVarPath = strdup("/consumer/friend/reject");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2563,7 +2520,6 @@ ConnectionAPI_friendReject(apiClient_t *apiClient, double version, long friendAc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2652,7 +2608,7 @@ end:
 // Removes a friend from the user's friends list.
 //
 sirqul_response_t*
-ConnectionAPI_friendRemove(apiClient_t *apiClient, double version, long friendAccountId, char *deviceId, long accountId, int *notifyFriend, int *removeFromGroups)
+ConnectionAPI_friendRemove(apiClient_t *apiClient, long friendAccountId, char *deviceId, long accountId, int *notifyFriend, int *removeFromGroups)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2666,12 +2622,9 @@ ConnectionAPI_friendRemove(apiClient_t *apiClient, double version, long friendAc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/friend/remove");
+    char *localVarPath = strdup("/consumer/friend/remove");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2775,7 +2728,6 @@ ConnectionAPI_friendRemove(apiClient_t *apiClient, double version, long friendAc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2840,7 +2792,7 @@ end:
 // Sends a friend request notification to another user.
 //
 sirqul_response_t*
-ConnectionAPI_friendRequest(apiClient_t *apiClient, double version, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage)
+ConnectionAPI_friendRequest(apiClient_t *apiClient, long friendAccountId, char *deviceId, long accountId, char *gameType, char *appKey, char *notificationMessage)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2854,12 +2806,9 @@ ConnectionAPI_friendRequest(apiClient_t *apiClient, double version, long friendA
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/friend/request");
+    char *localVarPath = strdup("/consumer/friend/request");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2973,7 +2922,6 @@ ConnectionAPI_friendRequest(apiClient_t *apiClient, double version, long friendA
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -3050,7 +2998,7 @@ end:
 // Gets the connection sent friend requests.
 //
 connection_list_response_t*
-ConnectionAPI_getConnectionSentFriendRequests(apiClient_t *apiClient, double version, char *deviceId, long accountId)
+ConnectionAPI_getConnectionSentFriendRequests(apiClient_t *apiClient, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3064,12 +3012,9 @@ ConnectionAPI_getConnectionSentFriendRequests(apiClient_t *apiClient, double ver
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/getRequested");
+    char *localVarPath = strdup("/consumer/connection/getRequested");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3135,7 +3080,6 @@ ConnectionAPI_getConnectionSentFriendRequests(apiClient_t *apiClient, double ver
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -3168,7 +3112,7 @@ end:
 // Gets the connections.
 //
 connection_list_response_t*
-ConnectionAPI_getConnections(apiClient_t *apiClient, double version, int *returnNulls, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, long connectionAccountId, char *q, char *keyword, int *_i, int *_l, double latitude, double longitude)
+ConnectionAPI_getConnections(apiClient_t *apiClient, int *returnNulls, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, long connectionAccountId, char *q, char *keyword, int *_i, int *_l, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3182,12 +3126,9 @@ ConnectionAPI_getConnections(apiClient_t *apiClient, double version, int *return
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/get");
+    char *localVarPath = strdup("/consumer/connection/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3423,7 +3364,6 @@ ConnectionAPI_getConnections(apiClient_t *apiClient, double version, int *return
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -3598,7 +3538,7 @@ end:
 // Get Connection Group
 //
 connection_group_response_t*
-ConnectionAPI_getGroupDetails(apiClient_t *apiClient, double version, int *combineConnections, char *deviceId, long accountId, long groupId, double latitude, double longitude)
+ConnectionAPI_getGroupDetails(apiClient_t *apiClient, int *combineConnections, char *deviceId, long accountId, long groupId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3612,12 +3552,9 @@ ConnectionAPI_getGroupDetails(apiClient_t *apiClient, double version, int *combi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/group/details/get");
+    char *localVarPath = strdup("/consumer/connection/group/details/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3740,7 +3677,6 @@ ConnectionAPI_getGroupDetails(apiClient_t *apiClient, double version, int *combi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -3809,7 +3745,7 @@ end:
 // Gets a user's private groups and default groups.
 //
 list_t*
-ConnectionAPI_groupSearch(apiClient_t *apiClient, double version, sirqul_iot_platform_groupSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword)
+ConnectionAPI_groupSearch(apiClient_t *apiClient, sirqul_iot_platform_groupSearch_sortField_e sortField, int *descending, int *activeOnly, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3823,12 +3759,9 @@ ConnectionAPI_groupSearch(apiClient_t *apiClient, double version, sirqul_iot_pla
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/connection/group/search");
+    char *localVarPath = strdup("/connection/group/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4013,7 +3946,6 @@ ConnectionAPI_groupSearch(apiClient_t *apiClient, double version, sirqul_iot_pla
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -4130,7 +4062,7 @@ end:
 // Removes the connection from group.
 //
 sirqul_response_t*
-ConnectionAPI_removeConnectionFromGroup(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude)
+ConnectionAPI_removeConnectionFromGroup(apiClient_t *apiClient, int *returnNulls, long groupId, char *deviceId, long accountId, long connectionId, long connectionAccountId, long pendingId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4144,12 +4076,9 @@ ConnectionAPI_removeConnectionFromGroup(apiClient_t *apiClient, double version, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/group/removeConnection");
+    char *localVarPath = strdup("/consumer/connection/group/removeConnection");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4308,7 +4237,6 @@ ConnectionAPI_removeConnectionFromGroup(apiClient_t *apiClient, double version, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -4401,7 +4329,7 @@ end:
 // Remove a list of connections from a group.
 //
 sirqul_response_t*
-ConnectionAPI_removeConnectionsFromGroup(apiClient_t *apiClient, double version, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude)
+ConnectionAPI_removeConnectionsFromGroup(apiClient_t *apiClient, long connectionGroupId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4415,12 +4343,9 @@ ConnectionAPI_removeConnectionsFromGroup(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/connection/group/removeConnections");
+    char *localVarPath = strdup("/connection/group/removeConnections");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4554,7 +4479,6 @@ ConnectionAPI_removeConnectionsFromGroup(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -4635,7 +4559,7 @@ end:
 // Remove a user's group.
 //
 sirqul_response_t*
-ConnectionAPI_removeGroup(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *deviceId, long accountId, double latitude, double longitude)
+ConnectionAPI_removeGroup(apiClient_t *apiClient, int *returnNulls, long groupId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4649,12 +4573,9 @@ ConnectionAPI_removeGroup(apiClient_t *apiClient, double version, int *returnNul
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/group/remove");
+    char *localVarPath = strdup("/consumer/connection/group/remove");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4777,7 +4698,6 @@ ConnectionAPI_removeGroup(apiClient_t *apiClient, double version, int *returnNul
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -4846,7 +4766,7 @@ end:
 // Remove sub groups from a group
 //
 sirqul_response_t*
-ConnectionAPI_removeSubGroups(apiClient_t *apiClient, double version, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude)
+ConnectionAPI_removeSubGroups(apiClient_t *apiClient, int *returnNulls, long groupId, char *subGroupIds, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4860,12 +4780,9 @@ ConnectionAPI_removeSubGroups(apiClient_t *apiClient, double version, int *retur
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/consumer/connection/group/removeSubGroup");
+    char *localVarPath = strdup("/consumer/connection/group/removeSubGroup");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5000,7 +4917,6 @@ ConnectionAPI_removeSubGroups(apiClient_t *apiClient, double version, int *retur
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -5081,7 +4997,7 @@ end:
 // Search for accounts that the user may not have a connection with.
 //
 connection_list_response_t*
-ConnectionAPI_searchConnections(apiClient_t *apiClient, double version, int *returnNulls, int *start, int *limit, char *deviceId, long accountId, char *q, char *keyword, double latitude, double longitude, char *gameType, char *appKey, int *_i, int *_l, char *sortField, int *hasLocation)
+ConnectionAPI_searchConnections(apiClient_t *apiClient, int *returnNulls, int *start, int *limit, char *deviceId, long accountId, char *q, char *keyword, double latitude, double longitude, char *gameType, char *appKey, int *_i, int *_l, char *sortField, int *hasLocation)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5095,12 +5011,9 @@ ConnectionAPI_searchConnections(apiClient_t *apiClient, double version, int *ret
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/connection/search");
+    char *localVarPath = strdup("/connection/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5336,7 +5249,6 @@ ConnectionAPI_searchConnections(apiClient_t *apiClient, double version, int *ret
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;

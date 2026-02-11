@@ -17,7 +17,7 @@
 // Gets the ticket count.
 //
 count_response_t*
-TicketAPI_getTicketCount(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *gameType, char *appKey, char *ticketType);
+TicketAPI_getTicketCount(apiClient_t *apiClient, char *deviceId, long accountId, char *gameType, char *appKey, char *ticketType);
 
 
 // Get Ticket List
@@ -25,7 +25,7 @@ TicketAPI_getTicketCount(apiClient_t *apiClient, double version, char *deviceId,
 // Gets the list of tickets.
 //
 ticket_list_response_t*
-TicketAPI_getTicketList(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *ticketObjectType, char *actionType, char *ticketIds, char *objectIds, char *receiptTokens, char *gameType, char *appKey);
+TicketAPI_getTicketList(apiClient_t *apiClient, char *deviceId, long accountId, char *ticketObjectType, char *actionType, char *ticketIds, char *objectIds, char *receiptTokens, char *gameType, char *appKey);
 
 
 // Gift Tickets
@@ -33,7 +33,7 @@ TicketAPI_getTicketList(apiClient_t *apiClient, double version, char *deviceId, 
 // Gift tickets to another user.
 //
 sirqul_response_t*
-TicketAPI_giftPurchase(apiClient_t *apiClient, double version, long receiverAccountId, long ticketId, char *deviceId, long accountId, long assetId, char *customMessage, char *gameType, char *appKey);
+TicketAPI_giftPurchase(apiClient_t *apiClient, long receiverAccountId, long ticketId, char *deviceId, long accountId, long assetId, char *customMessage, char *gameType, char *appKey);
 
 
 // Save Ticket
@@ -41,7 +41,7 @@ TicketAPI_giftPurchase(apiClient_t *apiClient, double version, long receiverAcco
 // Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 //
 profile_response_t*
-TicketAPI_saveTicket(apiClient_t *apiClient, double version, char *actionType, char *ticketObjectType, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, char *receiptData, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion);
+TicketAPI_saveTicket(apiClient_t *apiClient, char *actionType, char *ticketObjectType, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, char *receiptData, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion);
 
 
 // Save Ticket with Reciept
@@ -49,7 +49,7 @@ TicketAPI_saveTicket(apiClient_t *apiClient, double version, char *actionType, c
 // Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 //
 profile_response_t*
-TicketAPI_saveTicketViaFileUpload(apiClient_t *apiClient, double version, char *actionType, char *ticketObjectType, binary_t* receiptData, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion);
+TicketAPI_saveTicketViaFileUpload(apiClient_t *apiClient, char *actionType, char *ticketObjectType, binary_t* receiptData, int *returnNulls, char *deviceId, long accountId, char *gameType, char *appKey, long objectId, char *purchaseCode, char *receiptToken, long count, char *ticketType, char *purchaseProvider, char *purchaseType, int *returnProfileResponse, int *includeProfileResponse, char *appVersion);
 
 
 // Get Ticket Offers
@@ -57,6 +57,6 @@ TicketAPI_saveTicketViaFileUpload(apiClient_t *apiClient, double version, char *
 // Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 //
 ticket_offer_response_t*
-TicketAPI_ticketOffers(apiClient_t *apiClient, double version);
+TicketAPI_ticketOffers(apiClient_t *apiClient);
 
 

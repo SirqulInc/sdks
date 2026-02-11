@@ -66,7 +66,7 @@ end:
 // Create a user defined audience.
 //
 audience_response_t*
-AudienceAPI_createAudience(apiClient_t *apiClient, double version, long accountId, char *name, char *description, char *searchTags, char *gender, char *ageGroups, char *categoryIds, char *applicationIds, char *gameExperienceLevel, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius, int *startTimeOffset, int *endTimeOffset, int *sendSuggestion, char *associateDescription, char *associateType, long associateId, char *groupingId, char *metaData, char *visibility, char *audienceType, int *useOrder, char *cohortRegionsData, char *appKey, char *trilaterationTypes, int *uniqueName)
+AudienceAPI_createAudience(apiClient_t *apiClient, long accountId, char *name, char *description, char *searchTags, char *gender, char *ageGroups, char *categoryIds, char *applicationIds, char *gameExperienceLevel, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius, int *startTimeOffset, int *endTimeOffset, int *sendSuggestion, char *associateDescription, char *associateType, long associateId, char *groupingId, char *metaData, char *visibility, char *audienceType, int *useOrder, char *cohortRegionsData, char *appKey, char *trilaterationTypes, int *uniqueName)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ AudienceAPI_createAudience(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/create");
+    char *localVarPath = strdup("/audience/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -480,7 +477,6 @@ AudienceAPI_createAudience(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -833,7 +829,7 @@ end:
 // Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
 //
 sirqul_response_t*
-AudienceAPI_deleteAudience(apiClient_t *apiClient, double version, long accountId, long audienceId)
+AudienceAPI_deleteAudience(apiClient_t *apiClient, long accountId, long audienceId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -847,12 +843,9 @@ AudienceAPI_deleteAudience(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/delete");
+    char *localVarPath = strdup("/audience/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -918,7 +911,6 @@ AudienceAPI_deleteAudience(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -947,7 +939,7 @@ end:
 // Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
 //
 list_t*
-AudienceAPI_getAgeGroups(apiClient_t *apiClient, double version)
+AudienceAPI_getAgeGroups(apiClient_t *apiClient)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -961,12 +953,9 @@ AudienceAPI_getAgeGroups(apiClient_t *apiClient, double version)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/ageGroups");
+    char *localVarPath = strdup("/audience/ageGroups");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
     list_addElement(localVarHeaderType,"*/*"); //produces
@@ -1018,7 +1007,6 @@ AudienceAPI_getAgeGroups(apiClient_t *apiClient, double version)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     return elementToReturn;
 end:
     free(localVarPath);
@@ -1031,7 +1019,7 @@ end:
 // Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
 //
 audience_response_t*
-AudienceAPI_getAudience(apiClient_t *apiClient, double version, long accountId, long audienceId, char *appKey, int *returnAccountCount, int *returnAlbumCount, char *albumTypesForCount)
+AudienceAPI_getAudience(apiClient_t *apiClient, long accountId, long audienceId, char *appKey, int *returnAccountCount, int *returnAlbumCount, char *albumTypesForCount)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1045,12 +1033,9 @@ AudienceAPI_getAudience(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/get");
+    char *localVarPath = strdup("/audience/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1166,7 +1151,6 @@ AudienceAPI_getAudience(apiClient_t *apiClient, double version, long accountId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1243,7 +1227,7 @@ end:
 // Get the list audiences owned by the account
 //
 list_t*
-AudienceAPI_getAudienceList(apiClient_t *apiClient, double version, long accountId, char *albumIds, char *keyword, char *keywordFields, sirqul_iot_platform_getAudienceList_sortField_e sortField, int *descending, int *start, int *limit, int *sendSuggestion, int *activeOnly, int *groupByGroupingId, char *appKey, int *returnGlobal, int *exactKeyword, char *audienceType, char *audienceTypes, int *returnAccountCount, int *returnAlbumCount, char *albumTypesForCount)
+AudienceAPI_getAudienceList(apiClient_t *apiClient, long accountId, char *albumIds, char *keyword, char *keywordFields, sirqul_iot_platform_getAudienceList_sortField_e sortField, int *descending, int *start, int *limit, int *sendSuggestion, int *activeOnly, int *groupByGroupingId, char *appKey, int *returnGlobal, int *exactKeyword, char *audienceType, char *audienceTypes, int *returnAccountCount, int *returnAlbumCount, char *albumTypesForCount)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1257,12 +1241,9 @@ AudienceAPI_getAudienceList(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/search");
+    char *localVarPath = strdup("/audience/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1553,7 +1534,6 @@ AudienceAPI_getAudienceList(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1786,7 +1766,7 @@ end:
 // Gets the list of available devices that can be selected by consumers and retailers.
 //
 list_t*
-AudienceAPI_getDevices(apiClient_t *apiClient, double version, int *includeInactive)
+AudienceAPI_getDevices(apiClient_t *apiClient, int *includeInactive)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1800,12 +1780,9 @@ AudienceAPI_getDevices(apiClient_t *apiClient, double version, int *includeInact
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/devices");
+    char *localVarPath = strdup("/audience/devices");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1870,7 +1847,6 @@ AudienceAPI_getDevices(apiClient_t *apiClient, double version, int *includeInact
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_includeInactive){
         free(keyQuery_includeInactive);
         keyQuery_includeInactive = NULL;
@@ -1895,7 +1871,7 @@ end:
 // Gets the list of available experiences that can be selected by consumers and retailers.
 //
 sirqul_response_t*
-AudienceAPI_getExperiences(apiClient_t *apiClient, double version)
+AudienceAPI_getExperiences(apiClient_t *apiClient)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1909,12 +1885,9 @@ AudienceAPI_getExperiences(apiClient_t *apiClient, double version)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/experiences");
+    char *localVarPath = strdup("/audience/experiences");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
     list_addElement(localVarHeaderType,"*/*"); //produces
@@ -1956,7 +1929,6 @@ AudienceAPI_getExperiences(apiClient_t *apiClient, double version)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     return elementToReturn;
 end:
     free(localVarPath);
@@ -1969,7 +1941,7 @@ end:
 // Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
 //
 audience_response_t*
-AudienceAPI_getGroupedAudiences(apiClient_t *apiClient, double version, long accountId, char *audienceGroupingId)
+AudienceAPI_getGroupedAudiences(apiClient_t *apiClient, long accountId, char *audienceGroupingId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1983,12 +1955,9 @@ AudienceAPI_getGroupedAudiences(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/grouped/get");
+    char *localVarPath = strdup("/audience/grouped/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2054,7 +2023,6 @@ AudienceAPI_getGroupedAudiences(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2087,7 +2055,7 @@ end:
 // List either Missions or Offers that the user matches the assigned audience.
 //
 offer_list_response_t*
-AudienceAPI_listByAccount(apiClient_t *apiClient, double version, long accountId, int *limit, char *suggestionType)
+AudienceAPI_listByAccount(apiClient_t *apiClient, long accountId, int *limit, char *suggestionType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2101,12 +2069,9 @@ AudienceAPI_listByAccount(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/suggestion/list");
+    char *localVarPath = strdup("/audience/suggestion/list");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2185,7 +2150,6 @@ AudienceAPI_listByAccount(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2230,7 +2194,7 @@ end:
 // Get a list of offer locations based on audience information provided.
 //
 offer_list_response_t*
-AudienceAPI_listByAudience(apiClient_t *apiClient, double version, int *limit, char *gender, int *age, char *categoryIds, double latitude, double longitude)
+AudienceAPI_listByAudience(apiClient_t *apiClient, int *limit, char *gender, int *age, char *categoryIds, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2244,12 +2208,9 @@ AudienceAPI_listByAudience(apiClient_t *apiClient, double version, int *limit, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/suggestion/offersByAudience");
+    char *localVarPath = strdup("/audience/suggestion/offersByAudience");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2373,7 +2334,6 @@ AudienceAPI_listByAudience(apiClient_t *apiClient, double version, int *limit, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_gender){
         free(keyQuery_gender);
         keyQuery_gender = NULL;
@@ -2450,7 +2410,7 @@ end:
 // Return list of recent trigger suggestions that have been sent to the user.
 //
 offer_list_response_t*
-AudienceAPI_listLastestByAccount(apiClient_t *apiClient, double version, long accountId, int *timeframe, char *suggestionType)
+AudienceAPI_listLastestByAccount(apiClient_t *apiClient, long accountId, int *timeframe, char *suggestionType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2464,12 +2424,9 @@ AudienceAPI_listLastestByAccount(apiClient_t *apiClient, double version, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/suggestion/latest");
+    char *localVarPath = strdup("/audience/suggestion/latest");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2548,7 +2505,6 @@ AudienceAPI_listLastestByAccount(apiClient_t *apiClient, double version, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2593,7 +2549,7 @@ end:
 // Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
 //
 sirqul_response_t*
-AudienceAPI_sendByAccount(apiClient_t *apiClient, double version, long accountId, double latitude, double longitude)
+AudienceAPI_sendByAccount(apiClient_t *apiClient, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2607,12 +2563,9 @@ AudienceAPI_sendByAccount(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/suggestion/send");
+    char *localVarPath = strdup("/audience/suggestion/send");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2698,7 +2651,6 @@ AudienceAPI_sendByAccount(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2735,7 +2687,7 @@ end:
 // Update a user defined audience.
 //
 audience_response_t*
-AudienceAPI_updateAudience(apiClient_t *apiClient, double version, long accountId, long audienceId, char *name, char *description, char *searchTags, char *gender, char *ageGroups, char *categoryIds, char *applicationIds, char *gameExperienceLevel, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius, int *active, int *sendSuggestion, int *startTimeOffset, int *endTimeOffset, char *associateDescription, char *associateType, long associateId, char *groupingId, char *metaData, char *visibility, char *audienceType, int *useOrder, char *cohortRegionsData, char *appKey, char *trilaterationTypes, int *uniqueName)
+AudienceAPI_updateAudience(apiClient_t *apiClient, long accountId, long audienceId, char *name, char *description, char *searchTags, char *gender, char *ageGroups, char *categoryIds, char *applicationIds, char *gameExperienceLevel, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius, int *active, int *sendSuggestion, int *startTimeOffset, int *endTimeOffset, char *associateDescription, char *associateType, long associateId, char *groupingId, char *metaData, char *visibility, char *audienceType, int *useOrder, char *cohortRegionsData, char *appKey, char *trilaterationTypes, int *uniqueName)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2749,12 +2701,9 @@ AudienceAPI_updateAudience(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/audience/update");
+    char *localVarPath = strdup("/audience/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3174,7 +3123,6 @@ AudienceAPI_updateAudience(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

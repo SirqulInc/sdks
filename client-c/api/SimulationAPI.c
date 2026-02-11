@@ -14,7 +14,7 @@
 // Simulates routing requests.
 //
 sirqul_response_t*
-SimulationAPI_simulation(apiClient_t *apiClient, double version, char *data, int *realTime)
+SimulationAPI_simulation(apiClient_t *apiClient, char *data, int *realTime)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ SimulationAPI_simulation(apiClient_t *apiClient, double version, char *data, int
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/simulation/routing");
+    char *localVarPath = strdup("/simulation/routing");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -100,7 +97,6 @@ SimulationAPI_simulation(apiClient_t *apiClient, double version, char *data, int
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_data){
         free(keyQuery_data);
         keyQuery_data = NULL;

@@ -66,7 +66,7 @@ end:
 // Calculates the shortest path from point to point on a grid
 //
 pathing_response_t*
-PathingAPI_computePath(apiClient_t *apiClient, double version, char *data, sirqul_iot_platform_computePath_units_e units, int *reducePath, int *directions)
+PathingAPI_computePath(apiClient_t *apiClient, char *data, sirqul_iot_platform_computePath_units_e units, int *reducePath, int *directions)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ PathingAPI_computePath(apiClient_t *apiClient, double version, char *data, sirqu
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/pathing/compute");
+    char *localVarPath = strdup("/pathing/compute");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -178,7 +175,6 @@ PathingAPI_computePath(apiClient_t *apiClient, double version, char *data, sirqu
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_data){
         free(keyQuery_data);
         keyQuery_data = NULL;

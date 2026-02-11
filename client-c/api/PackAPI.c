@@ -326,7 +326,7 @@ end:
 // Create a pack.
 //
 pack_response_t*
-PackAPI_createPack(apiClient_t *apiClient, double version, long accountId, char *title, long packOrder, int *price, int *highest, int *allocateTickets, long ticketCount, char *description, char *searchTags, int *active, char *gameType, char *appKey, sirqul_iot_platform_createPack_packType_e packType, sirqul_iot_platform_createPack_sequenceType_e sequenceType, long backgroundId, long imageId, long startDate, long endDate, char *authorOverride, char *priceType, char *gameLevelIds, int *inGame, char *ticketType, long points)
+PackAPI_createPack(apiClient_t *apiClient, long accountId, char *title, long packOrder, int *price, int *highest, int *allocateTickets, long ticketCount, char *description, char *searchTags, int *active, char *gameType, char *appKey, sirqul_iot_platform_createPack_packType_e packType, sirqul_iot_platform_createPack_sequenceType_e sequenceType, long backgroundId, long imageId, long startDate, long endDate, char *authorOverride, char *priceType, char *gameLevelIds, int *inGame, char *ticketType, long points)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -340,12 +340,9 @@ PackAPI_createPack(apiClient_t *apiClient, double version, long accountId, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/pack/create");
+    char *localVarPath = strdup("/pack/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -682,7 +679,6 @@ PackAPI_createPack(apiClient_t *apiClient, double version, long accountId, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -943,7 +939,7 @@ end:
 // Delete a pack.
 //
 sirqul_response_t*
-PackAPI_deletePack(apiClient_t *apiClient, double version, long accountId, long packId)
+PackAPI_deletePack(apiClient_t *apiClient, long accountId, long packId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -957,12 +953,9 @@ PackAPI_deletePack(apiClient_t *apiClient, double version, long accountId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/pack/delete");
+    char *localVarPath = strdup("/pack/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1028,7 +1021,6 @@ PackAPI_deletePack(apiClient_t *apiClient, double version, long accountId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1057,7 +1049,7 @@ end:
 // Get a pack.
 //
 pack_response_t*
-PackAPI_getPack(apiClient_t *apiClient, double version, long accountId, long packId, int *includeGameData)
+PackAPI_getPack(apiClient_t *apiClient, long accountId, long packId, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1071,12 +1063,9 @@ PackAPI_getPack(apiClient_t *apiClient, double version, long accountId, long pac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/pack/get");
+    char *localVarPath = strdup("/pack/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1155,7 +1144,6 @@ PackAPI_getPack(apiClient_t *apiClient, double version, long accountId, long pac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1196,7 +1184,7 @@ end:
 // Search on packs.
 //
 list_t*
-PackAPI_searchPacks(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_searchPacks_sortField_e sortField, int *descending, char *keyword, sirqul_iot_platform_searchPacks_packType_e packType, int *start, int *limit, int *includeGameData, int *includeInactive, char *appKey)
+PackAPI_searchPacks(apiClient_t *apiClient, long accountId, sirqul_iot_platform_searchPacks_sortField_e sortField, int *descending, char *keyword, sirqul_iot_platform_searchPacks_packType_e packType, int *start, int *limit, int *includeGameData, int *includeInactive, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1210,12 +1198,9 @@ PackAPI_searchPacks(apiClient_t *apiClient, double version, long accountId, sirq
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/pack/search");
+    char *localVarPath = strdup("/pack/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1394,7 +1379,6 @@ PackAPI_searchPacks(apiClient_t *apiClient, double version, long accountId, sirq
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1515,7 +1499,7 @@ end:
 // Update a pack.
 //
 pack_response_t*
-PackAPI_updatePack(apiClient_t *apiClient, double version, long accountId, long packId, int *allocateTickets, long ticketCount, char *title, char *description, char *searchTags, int *active, char *gameType, char *appKey, sirqul_iot_platform_updatePack_packType_e packType, long packOrder, sirqul_iot_platform_updatePack_sequenceType_e sequenceType, long backgroundId, long imageId, long startDate, long endDate, char *authorOverride, int *price, char *priceType, char *gameLevelIds, int *inGame, int *highest, char *ticketType, long points)
+PackAPI_updatePack(apiClient_t *apiClient, long accountId, long packId, int *allocateTickets, long ticketCount, char *title, char *description, char *searchTags, int *active, char *gameType, char *appKey, sirqul_iot_platform_updatePack_packType_e packType, long packOrder, sirqul_iot_platform_updatePack_sequenceType_e sequenceType, long backgroundId, long imageId, long startDate, long endDate, char *authorOverride, int *price, char *priceType, char *gameLevelIds, int *inGame, int *highest, char *ticketType, long points)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1529,12 +1513,9 @@ PackAPI_updatePack(apiClient_t *apiClient, double version, long accountId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/pack/update");
+    char *localVarPath = strdup("/pack/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1883,7 +1864,6 @@ PackAPI_updatePack(apiClient_t *apiClient, double version, long accountId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

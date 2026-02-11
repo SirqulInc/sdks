@@ -14,7 +14,7 @@
 // Makes an authorization call to twitter for a user to login and allow any app permissions.
 //
 sirqul_response_t*
-TwitterAPI_authorizeTwitter(apiClient_t *apiClient, double version, char *appKey)
+TwitterAPI_authorizeTwitter(apiClient_t *apiClient, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ TwitterAPI_authorizeTwitter(apiClient_t *apiClient, double version, char *appKey
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/twitter/authorize");
+    char *localVarPath = strdup("/twitter/authorize");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -87,7 +84,6 @@ TwitterAPI_authorizeTwitter(apiClient_t *apiClient, double version, char *appKey
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -112,7 +108,7 @@ end:
 // Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 //
 profile_response_t*
-TwitterAPI_loginTwitter(apiClient_t *apiClient, double version, char *accessToken, char *accessTokenSecret, char *appKey, char *responseFilters, char *deviceId, double latitude, double longitude)
+TwitterAPI_loginTwitter(apiClient_t *apiClient, char *accessToken, char *accessTokenSecret, char *appKey, char *responseFilters, char *deviceId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -126,12 +122,9 @@ TwitterAPI_loginTwitter(apiClient_t *apiClient, double version, char *accessToke
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/twitter/login");
+    char *localVarPath = strdup("/twitter/login");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -265,7 +258,6 @@ TwitterAPI_loginTwitter(apiClient_t *apiClient, double version, char *accessToke
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

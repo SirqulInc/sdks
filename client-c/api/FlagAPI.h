@@ -15,7 +15,7 @@
 // Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 //
 sirqul_response_t*
-FlagAPI_createFlag(apiClient_t *apiClient, double version, char *flagableType, long flagableId, char *deviceId, long accountId, char *flagDescription, double latitude, double longitude);
+FlagAPI_createFlag(apiClient_t *apiClient, char *flagableType, long flagableId, char *deviceId, long accountId, char *flagDescription, double latitude, double longitude);
 
 
 // Delete Flag
@@ -23,7 +23,7 @@ FlagAPI_createFlag(apiClient_t *apiClient, double version, char *flagableType, l
 // Deletes a flag.
 //
 sirqul_response_t*
-FlagAPI_deleteFlag(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *itemBeingFlaggedType, long itemBeingFlaggedId, char *flagableType, long flagableId);
+FlagAPI_deleteFlag(apiClient_t *apiClient, char *deviceId, long accountId, char *itemBeingFlaggedType, long itemBeingFlaggedId, char *flagableType, long flagableId);
 
 
 // Get Flag
@@ -31,7 +31,7 @@ FlagAPI_deleteFlag(apiClient_t *apiClient, double version, char *deviceId, long 
 // Gets the details on whether the user has flagged a particular flagable object.
 //
 flag_response_t*
-FlagAPI_getFlag(apiClient_t *apiClient, double version, char *flagableType, long flagableId, char *deviceId, long accountId, double latitude, double longitude);
+FlagAPI_getFlag(apiClient_t *apiClient, char *flagableType, long flagableId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Get Flag Threshold
@@ -39,7 +39,7 @@ FlagAPI_getFlag(apiClient_t *apiClient, double version, char *flagableType, long
 // Get the flag threshold value on an object type for a particular application.
 //
 count_response_t*
-FlagAPI_getFlagThreshold(apiClient_t *apiClient, double version, char *itemBeingFlaggedType, char *appKey);
+FlagAPI_getFlagThreshold(apiClient_t *apiClient, char *itemBeingFlaggedType, char *appKey);
 
 
 // Update Flag Threshold
@@ -47,6 +47,6 @@ FlagAPI_getFlagThreshold(apiClient_t *apiClient, double version, char *itemBeing
 // Update the flag threshold on an object type for a particular application.
 //
 count_response_t*
-FlagAPI_updateFlagThreshold(apiClient_t *apiClient, double version, char *itemBeingFlaggedType, long threshold, char *appKey, char *deviceId, long accountId);
+FlagAPI_updateFlagThreshold(apiClient_t *apiClient, char *itemBeingFlaggedType, long threshold, char *appKey, char *deviceId, long accountId);
 
 

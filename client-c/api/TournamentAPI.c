@@ -534,7 +534,7 @@ end:
 // Create a tournament.
 //
 tournament_response_t*
-TournamentAPI_createTournament(apiClient_t *apiClient, double version, long accountId, char *appKey, char *title, int *costToPlay, long startDate, char *subType, long imageAssetId, int *secondsBetweenLevels, int *secondsForTieBreaker, int *secondsBetweenPacks, int *maximumLevelLength, char *costToPlayType, int *minimumToPlay, int *startingLimit, int *availableLimit, char *description, char *metaData, char *audienceIds, int *active, int *enableBuyBack, char *offerIds, long offerAssetId, int *fixedReward, sirqul_iot_platform_createTournament_splitReward_e splitReward, int *allocateTickets, char *tournamentData, sirqul_iot_platform_createTournament_missionType_e missionType, sirqul_iot_platform_createTournament_visibility_e visibility, int *preliminaryGroups, char *preliminaryGroupAdvancements, int *enableMultipleEntries, int *enableMultipleVotes, int *featured, char *winnerTag, char *tieTag)
+TournamentAPI_createTournament(apiClient_t *apiClient, long accountId, char *appKey, char *title, int *costToPlay, long startDate, char *subType, long imageAssetId, int *secondsBetweenLevels, int *secondsForTieBreaker, int *secondsBetweenPacks, int *maximumLevelLength, char *costToPlayType, int *minimumToPlay, int *startingLimit, int *availableLimit, char *description, char *metaData, char *audienceIds, int *active, int *enableBuyBack, char *offerIds, long offerAssetId, int *fixedReward, sirqul_iot_platform_createTournament_splitReward_e splitReward, int *allocateTickets, char *tournamentData, sirqul_iot_platform_createTournament_missionType_e missionType, sirqul_iot_platform_createTournament_visibility_e visibility, int *preliminaryGroups, char *preliminaryGroupAdvancements, int *enableMultipleEntries, int *enableMultipleVotes, int *featured, char *winnerTag, char *tieTag)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -548,12 +548,9 @@ TournamentAPI_createTournament(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/create");
+    char *localVarPath = strdup("/tournament/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1034,7 +1031,6 @@ TournamentAPI_createTournament(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1439,7 +1435,7 @@ end:
 // Delete a tournament.
 //
 sirqul_response_t*
-TournamentAPI_deleteTournament(apiClient_t *apiClient, double version, long accountId, long missionId)
+TournamentAPI_deleteTournament(apiClient_t *apiClient, long accountId, long missionId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1453,12 +1449,9 @@ TournamentAPI_deleteTournament(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/delete");
+    char *localVarPath = strdup("/tournament/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1524,7 +1517,6 @@ TournamentAPI_deleteTournament(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1553,7 +1545,7 @@ end:
 // Get a tournament.
 //
 tournament_response_t*
-TournamentAPI_getTournament(apiClient_t *apiClient, double version, long accountId, long missionId, char *joinCode, sirqul_iot_platform_getTournament_includeScores_e includeScores, int *objectPreviewSize)
+TournamentAPI_getTournament(apiClient_t *apiClient, long accountId, long missionId, char *joinCode, sirqul_iot_platform_getTournament_includeScores_e includeScores, int *objectPreviewSize)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1567,12 +1559,9 @@ TournamentAPI_getTournament(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/get");
+    char *localVarPath = strdup("/tournament/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1676,7 +1665,6 @@ TournamentAPI_getTournament(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1737,7 +1725,7 @@ end:
 // Search on game objects of tournaments
 //
 sirqul_response_t*
-TournamentAPI_searchObjects(apiClient_t *apiClient, double version, long accountId, long gameLevelId, sirqul_iot_platform_searchObjects_sortField_e sortField, int *descending, int *start, int *limit)
+TournamentAPI_searchObjects(apiClient_t *apiClient, long accountId, long gameLevelId, sirqul_iot_platform_searchObjects_sortField_e sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1751,12 +1739,9 @@ TournamentAPI_searchObjects(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/object/search");
+    char *localVarPath = strdup("/tournament/object/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1874,7 +1859,6 @@ TournamentAPI_searchObjects(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1947,7 +1931,7 @@ end:
 // Search for the user's tournament games.
 //
 sirqul_response_t*
-TournamentAPI_searchRounds(apiClient_t *apiClient, double version, long accountId, char *appKey, char *status, sirqul_iot_platform_searchRounds_missionType_e missionType, int *currentOnly, char *visibilities, int *start, int *limit)
+TournamentAPI_searchRounds(apiClient_t *apiClient, long accountId, char *appKey, char *status, sirqul_iot_platform_searchRounds_missionType_e missionType, int *currentOnly, char *visibilities, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1961,12 +1945,9 @@ TournamentAPI_searchRounds(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/round/search");
+    char *localVarPath = strdup("/tournament/round/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2108,7 +2089,6 @@ TournamentAPI_searchRounds(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2209,7 +2189,7 @@ end:
 // Search for tournaments
 //
 mission_short_response_t*
-TournamentAPI_searchTournaments(apiClient_t *apiClient, double version, long accountId, char *appKey, char *keyword, char *subType, int *includeInactive, char *missionTypes, sirqul_iot_platform_searchTournaments_filter_e filter, sirqul_iot_platform_searchTournaments_sortField_e sortField, int *descending, char *visibility, int *start, int *limit)
+TournamentAPI_searchTournaments(apiClient_t *apiClient, long accountId, char *appKey, char *keyword, char *subType, int *includeInactive, char *missionTypes, sirqul_iot_platform_searchTournaments_filter_e filter, sirqul_iot_platform_searchTournaments_sortField_e sortField, int *descending, char *visibility, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2223,12 +2203,9 @@ TournamentAPI_searchTournaments(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/search");
+    char *localVarPath = strdup("/tournament/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2420,7 +2397,6 @@ TournamentAPI_searchTournaments(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2565,7 +2541,7 @@ end:
 // Submit an array of scores for a tournament match. 
 //
 sirqul_response_t*
-TournamentAPI_submitTournamentScore(apiClient_t *apiClient, double version, long accountId, char *appKey, long missionId, long gameId, long packId, char *scores, long gameLevelId)
+TournamentAPI_submitTournamentScore(apiClient_t *apiClient, long accountId, char *appKey, long missionId, long gameId, long packId, char *scores, long gameLevelId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2579,12 +2555,9 @@ TournamentAPI_submitTournamentScore(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/score");
+    char *localVarPath = strdup("/tournament/score");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2710,7 +2683,6 @@ TournamentAPI_submitTournamentScore(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2787,7 +2759,7 @@ end:
 // Submit a vote for a multi-stage album tournament.
 //
 sirqul_response_t*
-TournamentAPI_submitTournamentVote(apiClient_t *apiClient, double version, long accountId, char *appKey, long missionId, long gameObjectId, char *deviceId, int *checkIfDeviceAlreadyVoted)
+TournamentAPI_submitTournamentVote(apiClient_t *apiClient, long accountId, char *appKey, long missionId, long gameObjectId, char *deviceId, int *checkIfDeviceAlreadyVoted)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2801,12 +2773,9 @@ TournamentAPI_submitTournamentVote(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/vote");
+    char *localVarPath = strdup("/tournament/vote");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2921,7 +2890,6 @@ TournamentAPI_submitTournamentVote(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2994,7 +2962,7 @@ end:
 // Service to replace the user's opponent in the current level - pack - mission with an AI account.
 //
 sirqul_response_t*
-TournamentAPI_substituteTournamentPlayer(apiClient_t *apiClient, double version, long accountId, long missionId, long packId, long gameLevelId)
+TournamentAPI_substituteTournamentPlayer(apiClient_t *apiClient, long accountId, long missionId, long packId, long gameLevelId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3008,12 +2976,9 @@ TournamentAPI_substituteTournamentPlayer(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/substitute");
+    char *localVarPath = strdup("/tournament/substitute");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3103,7 +3068,6 @@ TournamentAPI_substituteTournamentPlayer(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -3148,7 +3112,7 @@ end:
 // Update a tournament.
 //
 tournament_response_t*
-TournamentAPI_updateTournament(apiClient_t *apiClient, double version, long accountId, long missionId, char *title, char *subType, long imageAssetId, int *secondsBetweenLevels, int *secondsForTieBreaker, int *secondsBetweenPacks, int *maximumLevelLength, int *costToPlay, char *costToPlayType, int *minimumToPlay, int *startingLimit, int *availableLimit, char *description, char *metaData, long startDate, char *audienceIds, int *active, int *enableBuyBack, char *offerIds, long offerAssetId, int *fixedReward, sirqul_iot_platform_updateTournament_splitReward_e splitReward, int *allocateTickets, char *tournamentData, sirqul_iot_platform_updateTournament_visibility_e visibility, int *preliminaryGroups, char *preliminaryGroupAdvancements, int *enableMultipleEntries, int *enableMultipleVotes, int *featured, char *winnerTag, char *tieTag)
+TournamentAPI_updateTournament(apiClient_t *apiClient, long accountId, long missionId, char *title, char *subType, long imageAssetId, int *secondsBetweenLevels, int *secondsForTieBreaker, int *secondsBetweenPacks, int *maximumLevelLength, int *costToPlay, char *costToPlayType, int *minimumToPlay, int *startingLimit, int *availableLimit, char *description, char *metaData, long startDate, char *audienceIds, int *active, int *enableBuyBack, char *offerIds, long offerAssetId, int *fixedReward, sirqul_iot_platform_updateTournament_splitReward_e splitReward, int *allocateTickets, char *tournamentData, sirqul_iot_platform_updateTournament_visibility_e visibility, int *preliminaryGroups, char *preliminaryGroupAdvancements, int *enableMultipleEntries, int *enableMultipleVotes, int *featured, char *winnerTag, char *tieTag)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3162,12 +3126,9 @@ TournamentAPI_updateTournament(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tournament/update");
+    char *localVarPath = strdup("/tournament/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3635,7 +3596,6 @@ TournamentAPI_updateTournament(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

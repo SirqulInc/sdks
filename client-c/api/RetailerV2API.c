@@ -14,7 +14,7 @@
 // Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 //
 sirqul_response_t*
-RetailerV2API_getRetaokiler(apiClient_t *apiClient, double version, long retailerId, int *activeOnly, char *keyword, char *sortField, long start, long limit)
+RetailerV2API_getRetaokiler(apiClient_t *apiClient, long retailerId, int *activeOnly, char *keyword, char *sortField, long start, long limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ RetailerV2API_getRetaokiler(apiClient_t *apiClient, double version, long retaile
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/retailer");
+    char *localVarPath = strdup("/retailer");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -148,7 +145,6 @@ RetailerV2API_getRetaokiler(apiClient_t *apiClient, double version, long retaile
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_keyword){
         free(keyQuery_keyword);
         keyQuery_keyword = NULL;

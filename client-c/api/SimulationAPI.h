@@ -13,6 +13,6 @@
 // Simulates routing requests.
 //
 sirqul_response_t*
-SimulationAPI_simulation(apiClient_t *apiClient, double version, char *data, int *realTime);
+SimulationAPI_simulation(apiClient_t *apiClient, char *data, int *realTime);
 
 

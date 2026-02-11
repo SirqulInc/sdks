@@ -14,7 +14,7 @@
 // Allows a user to accept an invite. The user could also become the inviter's friend.
 //
 consumer_invite_response_t*
-InviteAPI_acceptInvite(apiClient_t *apiClient, double version, char *token, long accountId, long albumId, long missionId, long albumContestId, long offerId, long offerLocationId, long retailerLocationId, char *appKey, int *autoFriend, int *autoAttendEvent, int *autoFavoriteOffer, int *autoFavoriteOfferLocation, int *autoFavoriteRetailerLocation)
+InviteAPI_acceptInvite(apiClient_t *apiClient, char *token, long accountId, long albumId, long missionId, long albumContestId, long offerId, long offerLocationId, long retailerLocationId, char *appKey, int *autoFriend, int *autoAttendEvent, int *autoFavoriteOffer, int *autoFavoriteOfferLocation, int *autoFavoriteRetailerLocation)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ InviteAPI_acceptInvite(apiClient_t *apiClient, double version, char *token, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/accept");
+    char *localVarPath = strdup("/invite/accept");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -248,7 +245,6 @@ InviteAPI_acceptInvite(apiClient_t *apiClient, double version, char *token, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_token){
         free(keyQuery_token);
         keyQuery_token = NULL;
@@ -401,7 +397,7 @@ end:
 // Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 //
 invite_response_t*
-InviteAPI_albumContestInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long appId, char *appKey, long albumContestId, double latitude, double longitude)
+InviteAPI_albumContestInvite(apiClient_t *apiClient, char *deviceId, long accountId, long appId, char *appKey, long albumContestId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -415,12 +411,9 @@ InviteAPI_albumContestInvite(apiClient_t *apiClient, double version, char *devic
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/albumContest");
+    char *localVarPath = strdup("/invite/albumContest");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -554,7 +547,6 @@ InviteAPI_albumContestInvite(apiClient_t *apiClient, double version, char *devic
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -631,7 +623,7 @@ end:
 // Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 //
 invite_response_t*
-InviteAPI_albumInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long appId, char *appKey, long albumId, double latitude, double longitude)
+InviteAPI_albumInvite(apiClient_t *apiClient, char *deviceId, long accountId, long appId, char *appKey, long albumId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -645,12 +637,9 @@ InviteAPI_albumInvite(apiClient_t *apiClient, double version, char *deviceId, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/album");
+    char *localVarPath = strdup("/invite/album");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -784,7 +773,6 @@ InviteAPI_albumInvite(apiClient_t *apiClient, double version, char *deviceId, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -861,7 +849,7 @@ end:
 // Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
 //
 invite_response_t*
-InviteAPI_eventInvite(apiClient_t *apiClient, double version, long accountId, char *appKey, long listingId, char *receiverAccountIds, long retailerLocationId)
+InviteAPI_eventInvite(apiClient_t *apiClient, long accountId, char *appKey, long listingId, char *receiverAccountIds, long retailerLocationId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -875,12 +863,9 @@ InviteAPI_eventInvite(apiClient_t *apiClient, double version, long accountId, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/event");
+    char *localVarPath = strdup("/invite/event");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -982,7 +967,6 @@ InviteAPI_eventInvite(apiClient_t *apiClient, double version, long accountId, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1043,7 +1027,7 @@ end:
 // Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 //
 invite_response_t*
-InviteAPI_gameInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long appId, char *appKey, long gameLevelId, double latitude, double longitude)
+InviteAPI_gameInvite(apiClient_t *apiClient, char *deviceId, long accountId, long appId, char *appKey, long gameLevelId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1057,12 +1041,9 @@ InviteAPI_gameInvite(apiClient_t *apiClient, double version, char *deviceId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/gameLevel");
+    char *localVarPath = strdup("/invite/gameLevel");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1196,7 +1177,6 @@ InviteAPI_gameInvite(apiClient_t *apiClient, double version, char *deviceId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1273,7 +1253,7 @@ end:
 // This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
 //
 sirqul_response_t*
-InviteAPI_getInvite(apiClient_t *apiClient, double version, long accountId, char *token, long albumId, long missionId, long albumContestId, long offerId, long offerLocationId, long retailerLocationId, char *appKey)
+InviteAPI_getInvite(apiClient_t *apiClient, long accountId, char *token, long albumId, long missionId, long albumContestId, long offerId, long offerLocationId, long retailerLocationId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1287,12 +1267,9 @@ InviteAPI_getInvite(apiClient_t *apiClient, double version, long accountId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/get");
+    char *localVarPath = strdup("/invite/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1442,7 +1419,6 @@ InviteAPI_getInvite(apiClient_t *apiClient, double version, long accountId, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1535,7 +1511,7 @@ end:
 // Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 //
 invite_response_t*
-InviteAPI_missionInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long appId, char *appKey, long missionId, double latitude, double longitude)
+InviteAPI_missionInvite(apiClient_t *apiClient, char *deviceId, long accountId, long appId, char *appKey, long missionId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1549,12 +1525,9 @@ InviteAPI_missionInvite(apiClient_t *apiClient, double version, char *deviceId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/mission");
+    char *localVarPath = strdup("/invite/mission");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1688,7 +1661,6 @@ InviteAPI_missionInvite(apiClient_t *apiClient, double version, char *deviceId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1765,7 +1737,7 @@ end:
 // Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
 //
 invite_response_t*
-InviteAPI_offerInvite(apiClient_t *apiClient, double version, long accountId, char *appKey, long offerId)
+InviteAPI_offerInvite(apiClient_t *apiClient, long accountId, char *appKey, long offerId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1779,12 +1751,9 @@ InviteAPI_offerInvite(apiClient_t *apiClient, double version, long accountId, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/offer");
+    char *localVarPath = strdup("/invite/offer");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1862,7 +1831,6 @@ InviteAPI_offerInvite(apiClient_t *apiClient, double version, long accountId, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1903,7 +1871,7 @@ end:
 // Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
 //
 invite_response_t*
-InviteAPI_offerLocationInvite(apiClient_t *apiClient, double version, long accountId, char *appKey, long offerLocationId)
+InviteAPI_offerLocationInvite(apiClient_t *apiClient, long accountId, char *appKey, long offerLocationId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1917,12 +1885,9 @@ InviteAPI_offerLocationInvite(apiClient_t *apiClient, double version, long accou
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/offerLocation");
+    char *localVarPath = strdup("/invite/offerLocation");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2000,7 +1965,6 @@ InviteAPI_offerLocationInvite(apiClient_t *apiClient, double version, long accou
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2041,7 +2005,7 @@ end:
 // Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
 //
 invite_response_t*
-InviteAPI_retailerLocationInvite(apiClient_t *apiClient, double version, long accountId, char *appKey, long retailerLocationId, long albumId)
+InviteAPI_retailerLocationInvite(apiClient_t *apiClient, long accountId, char *appKey, long retailerLocationId, long albumId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2055,12 +2019,9 @@ InviteAPI_retailerLocationInvite(apiClient_t *apiClient, double version, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/invite/retailerLocation");
+    char *localVarPath = strdup("/invite/retailerLocation");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2150,7 +2111,6 @@ InviteAPI_retailerLocationInvite(apiClient_t *apiClient, double version, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

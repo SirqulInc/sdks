@@ -14,7 +14,7 @@
 // reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 //
 billable_entity_response_t*
-BillableEntityAPI_createBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey);
+BillableEntityAPI_createBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey);
 
 
 // Delete Billable
@@ -22,7 +22,7 @@ BillableEntityAPI_createBillableEntity(apiClient_t *apiClient, double version, c
 // Mark the billable as deleted
 //
 sirqul_response_t*
-BillableEntityAPI_deleteBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId);
+BillableEntityAPI_deleteBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId);
 
 
 // Get Billable
@@ -30,7 +30,7 @@ BillableEntityAPI_deleteBillableEntity(apiClient_t *apiClient, double version, c
 // Used to determine the associated BillableEntity of an account
 //
 billable_entity_response_t*
-BillableEntityAPI_getBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId, int *includeCounts, int *includePayments);
+BillableEntityAPI_getBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId, int *includeCounts, int *includePayments);
 
 
 // Update Billable
@@ -38,6 +38,6 @@ BillableEntityAPI_getBillableEntity(apiClient_t *apiClient, double version, char
 // Updates the billable record for an account
 //
 billable_entity_response_t*
-BillableEntityAPI_updateBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey);
+BillableEntityAPI_updateBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey);
 
 

@@ -222,7 +222,7 @@ end:
 // Search for categories by distance.
 //
 list_t*
-CategoryAPI_categoryDistanceSearch(apiClient_t *apiClient, double version, long accountId, char *keyword, char *appKey, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_categoryDistanceSearch_sortField_e sortField, sirqul_iot_platform_categoryDistanceSearch_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *minOfferCount, double latitude, double longitude, double range)
+CategoryAPI_categoryDistanceSearch(apiClient_t *apiClient, long accountId, char *keyword, char *appKey, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_categoryDistanceSearch_sortField_e sortField, sirqul_iot_platform_categoryDistanceSearch_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *minOfferCount, double latitude, double longitude, double range)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -236,12 +236,9 @@ CategoryAPI_categoryDistanceSearch(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/category/distancesearch");
+    char *localVarPath = strdup("/category/distancesearch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -555,7 +552,6 @@ CategoryAPI_categoryDistanceSearch(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -784,7 +780,7 @@ end:
 // Create a new category.
 //
 category_tree_response_t*
-CategoryAPI_createCategory(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, long parentCategoryId, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags)
+CategoryAPI_createCategory(apiClient_t *apiClient, long accountId, char *name, char *appKey, long parentCategoryId, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -798,12 +794,9 @@ CategoryAPI_createCategory(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/category/create");
+    char *localVarPath = strdup("/category/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1014,7 +1007,6 @@ CategoryAPI_createCategory(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -1183,7 +1175,7 @@ end:
 // Delete a category.
 //
 sirqul_response_t*
-CategoryAPI_deleteCategory(apiClient_t *apiClient, double version, long accountId, long categoryId)
+CategoryAPI_deleteCategory(apiClient_t *apiClient, long accountId, long categoryId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1197,12 +1189,9 @@ CategoryAPI_deleteCategory(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/category/delete");
+    char *localVarPath = strdup("/category/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1268,7 +1257,6 @@ CategoryAPI_deleteCategory(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1297,7 +1285,7 @@ end:
 // Duplicate a category, including all its children.
 //
 category_tree_response_t*
-CategoryAPI_duplicateCategory(apiClient_t *apiClient, double version, long accountId, long categoryId, char *appKey, long parentCategoryId)
+CategoryAPI_duplicateCategory(apiClient_t *apiClient, long accountId, long categoryId, char *appKey, long parentCategoryId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1311,12 +1299,9 @@ CategoryAPI_duplicateCategory(apiClient_t *apiClient, double version, long accou
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/category/duplicate");
+    char *localVarPath = strdup("/category/duplicate");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1406,7 +1391,6 @@ CategoryAPI_duplicateCategory(apiClient_t *apiClient, double version, long accou
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -1455,7 +1439,7 @@ end:
 // Get the details of a specific category. Recursively include all child categories and their children.
 //
 category_tree_response_t*
-CategoryAPI_getCategory(apiClient_t *apiClient, double version, long categoryId, int *returnExternal)
+CategoryAPI_getCategory(apiClient_t *apiClient, long categoryId, int *returnExternal)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1469,12 +1453,9 @@ CategoryAPI_getCategory(apiClient_t *apiClient, double version, long categoryId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/category/get");
+    char *localVarPath = strdup("/category/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1541,7 +1522,6 @@ CategoryAPI_getCategory(apiClient_t *apiClient, double version, long categoryId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_categoryId){
         free(keyQuery_categoryId);
         keyQuery_categoryId = NULL;
@@ -1574,7 +1554,7 @@ end:
 // Search for categories.
 //
 list_t*
-CategoryAPI_searchCategories(apiClient_t *apiClient, double version, long accountId, char *keyword, char *appKey, char *categoryId, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_searchCategories_sortField_e sortField, sirqul_iot_platform_searchCategories_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *excludeExternalType, int *minOfferCount, int *searchDepth, char *searchMode)
+CategoryAPI_searchCategories(apiClient_t *apiClient, long accountId, char *keyword, char *appKey, char *categoryId, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_searchCategories_sortField_e sortField, sirqul_iot_platform_searchCategories_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *excludeExternalType, int *minOfferCount, int *searchDepth, char *searchMode)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1588,12 +1568,9 @@ CategoryAPI_searchCategories(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/category/search");
+    char *localVarPath = strdup("/category/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1909,7 +1886,6 @@ CategoryAPI_searchCategories(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2162,7 +2138,7 @@ end:
 // Update a category.
 //
 category_tree_response_t*
-CategoryAPI_updateCategory(apiClient_t *apiClient, double version, long accountId, long categoryId, long parentCategoryId, char *name, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags)
+CategoryAPI_updateCategory(apiClient_t *apiClient, long accountId, long categoryId, long parentCategoryId, char *name, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2176,12 +2152,9 @@ CategoryAPI_updateCategory(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/category/update");
+    char *localVarPath = strdup("/category/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2392,7 +2365,6 @@ CategoryAPI_updateCategory(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

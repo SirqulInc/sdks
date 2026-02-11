@@ -14,7 +14,7 @@
 // Creates a reference for an entity for syncing data between servers.
 //
 activity_response_t*
-ActivityAPI_createEntityReference(apiClient_t *apiClient, double version, entity_reference_t *body)
+ActivityAPI_createEntityReference(apiClient_t *apiClient, entity_reference_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ ActivityAPI_createEntityReference(apiClient_t *apiClient, double version, entity
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/entity/reference");
+    char *localVarPath = strdup("/entity/reference");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -86,7 +83,6 @@ ActivityAPI_createEntityReference(apiClient_t *apiClient, double version, entity
     list_freeList(localVarHeaderType);
     list_freeList(localVarContentType);
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;

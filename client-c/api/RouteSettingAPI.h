@@ -14,7 +14,7 @@
 // Create a new route setting
 //
 route_settings_t*
-RouteSettingAPI_createRouteSettings(apiClient_t *apiClient, double version, route_settings_t *body);
+RouteSettingAPI_createRouteSettings(apiClient_t *apiClient, route_settings_t *body);
 
 
 // Delete Route Setting
@@ -22,7 +22,7 @@ RouteSettingAPI_createRouteSettings(apiClient_t *apiClient, double version, rout
 // Delete an existing route setting
 //
 object_t*
-RouteSettingAPI_deleteRouteSettings(apiClient_t *apiClient, double version, long routeSettingsId);
+RouteSettingAPI_deleteRouteSettings(apiClient_t *apiClient, long routeSettingsId);
 
 
 // Get Route Setting
@@ -30,7 +30,7 @@ RouteSettingAPI_deleteRouteSettings(apiClient_t *apiClient, double version, long
 // Get an existing route settings
 //
 route_settings_t*
-RouteSettingAPI_getRouteSettings(apiClient_t *apiClient, double version, long routeSettingsId);
+RouteSettingAPI_getRouteSettings(apiClient_t *apiClient, long routeSettingsId);
 
 
 // Search Route Settings
@@ -38,7 +38,7 @@ RouteSettingAPI_getRouteSettings(apiClient_t *apiClient, double version, long ro
 // Search for route settings
 //
 list_t*
-RouteSettingAPI_searchRouteSettings(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long hubId, long programId, char *keyword);
+RouteSettingAPI_searchRouteSettings(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long hubId, long programId, char *keyword);
 
 
 // Update Route Setting
@@ -46,6 +46,6 @@ RouteSettingAPI_searchRouteSettings(apiClient_t *apiClient, double version, char
 // Update an existing route setting
 //
 route_settings_t*
-RouteSettingAPI_updateRouteSettings(apiClient_t *apiClient, double version, long routeSettingsId, route_settings_t *body);
+RouteSettingAPI_updateRouteSettings(apiClient_t *apiClient, long routeSettingsId, route_settings_t *body);
 
 

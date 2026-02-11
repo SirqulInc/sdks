@@ -14,7 +14,7 @@
 // Create a new route setting
 //
 route_settings_t*
-RouteSettingAPI_createRouteSettings(apiClient_t *apiClient, double version, route_settings_t *body)
+RouteSettingAPI_createRouteSettings(apiClient_t *apiClient, route_settings_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ RouteSettingAPI_createRouteSettings(apiClient_t *apiClient, double version, rout
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/setting");
+    char *localVarPath = strdup("/route/setting");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -85,7 +82,6 @@ RouteSettingAPI_createRouteSettings(apiClient_t *apiClient, double version, rout
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -103,7 +99,7 @@ end:
 // Delete an existing route setting
 //
 object_t*
-RouteSettingAPI_deleteRouteSettings(apiClient_t *apiClient, double version, long routeSettingsId)
+RouteSettingAPI_deleteRouteSettings(apiClient_t *apiClient, long routeSettingsId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ RouteSettingAPI_deleteRouteSettings(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/setting/{routeSettingsId}");
+    char *localVarPath = strdup("/route/setting/{routeSettingsId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeSettingsId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeSettingsId =  + sizeof(routeSettingsId)+3 + sizeof("{ routeSettingsId }") - 1;
+    long sizeOfPathParams_routeSettingsId = sizeof(routeSettingsId)+3 + sizeof("{ routeSettingsId }") - 1;
     if(routeSettingsId == 0){
         goto end;
     }
@@ -178,7 +171,6 @@ RouteSettingAPI_deleteRouteSettings(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeSettingsId);
     return elementToReturn;
 end:
@@ -192,7 +184,7 @@ end:
 // Get an existing route settings
 //
 route_settings_t*
-RouteSettingAPI_getRouteSettings(apiClient_t *apiClient, double version, long routeSettingsId)
+RouteSettingAPI_getRouteSettings(apiClient_t *apiClient, long routeSettingsId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -206,15 +198,12 @@ RouteSettingAPI_getRouteSettings(apiClient_t *apiClient, double version, long ro
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/setting/{routeSettingsId}");
+    char *localVarPath = strdup("/route/setting/{routeSettingsId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeSettingsId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeSettingsId =  + sizeof(routeSettingsId)+3 + sizeof("{ routeSettingsId }") - 1;
+    long sizeOfPathParams_routeSettingsId = sizeof(routeSettingsId)+3 + sizeof("{ routeSettingsId }") - 1;
     if(routeSettingsId == 0){
         goto end;
     }
@@ -267,7 +256,6 @@ RouteSettingAPI_getRouteSettings(apiClient_t *apiClient, double version, long ro
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeSettingsId);
     return elementToReturn;
 end:
@@ -281,7 +269,7 @@ end:
 // Search for route settings
 //
 list_t*
-RouteSettingAPI_searchRouteSettings(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long hubId, long programId, char *keyword)
+RouteSettingAPI_searchRouteSettings(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long hubId, long programId, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -295,12 +283,9 @@ RouteSettingAPI_searchRouteSettings(apiClient_t *apiClient, double version, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/setting");
+    char *localVarPath = strdup("/route/setting");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -452,7 +437,6 @@ RouteSettingAPI_searchRouteSettings(apiClient_t *apiClient, double version, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_hubId){
         free(keyQuery_hubId);
         keyQuery_hubId = NULL;
@@ -553,7 +537,7 @@ end:
 // Update an existing route setting
 //
 route_settings_t*
-RouteSettingAPI_updateRouteSettings(apiClient_t *apiClient, double version, long routeSettingsId, route_settings_t *body)
+RouteSettingAPI_updateRouteSettings(apiClient_t *apiClient, long routeSettingsId, route_settings_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -567,15 +551,12 @@ RouteSettingAPI_updateRouteSettings(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/setting/{routeSettingsId}");
+    char *localVarPath = strdup("/route/setting/{routeSettingsId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeSettingsId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeSettingsId =  + sizeof(routeSettingsId)+3 + sizeof("{ routeSettingsId }") - 1;
+    long sizeOfPathParams_routeSettingsId = sizeof(routeSettingsId)+3 + sizeof("{ routeSettingsId }") - 1;
     if(routeSettingsId == 0){
         goto end;
     }
@@ -638,7 +619,6 @@ RouteSettingAPI_updateRouteSettings(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeSettingsId);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);

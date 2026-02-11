@@ -13,7 +13,7 @@
 // Get an existing stop
 //
 stop_t*
-StopAPI_getStop(apiClient_t *apiClient, double version, long id);
+StopAPI_getStop(apiClient_t *apiClient, long id);
 
 
 // Update Stop
@@ -21,6 +21,6 @@ StopAPI_getStop(apiClient_t *apiClient, double version, long id);
 // Update an existing stop
 //
 stop_t*
-StopAPI_updateStop(apiClient_t *apiClient, double version, long id, stop_t *body);
+StopAPI_updateStop(apiClient_t *apiClient, long id, stop_t *body);
 
 

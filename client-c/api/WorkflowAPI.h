@@ -13,6 +13,6 @@
 // Runs a published executable workflow
 //
 sirqul_response_t*
-WorkflowAPI_runWorkflow(apiClient_t *apiClient, double version, long accountId, long workflowId, long skuId, int *versionCode, char *parameters);
+WorkflowAPI_runWorkflow(apiClient_t *apiClient, long accountId, long workflowId, long skuId, int *versionCode, char *parameters);
 
 

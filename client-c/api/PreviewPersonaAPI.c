@@ -14,7 +14,7 @@
 // Creates a new persona. If the given params are null those attributes will be override by null.
 //
 preview_persona_response_t*
-PreviewPersonaAPI_createPersona(apiClient_t *apiClient, double version, long accountId, char *title, char *previewAccounts, long date, int *age, char *gender, char *gameExperienceLevel, double latitude, double longitude)
+PreviewPersonaAPI_createPersona(apiClient_t *apiClient, long accountId, char *title, char *previewAccounts, long date, int *age, char *gender, char *gameExperienceLevel, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ PreviewPersonaAPI_createPersona(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/persona/create");
+    char *localVarPath = strdup("/persona/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -192,7 +189,6 @@ PreviewPersonaAPI_createPersona(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -297,7 +293,7 @@ end:
 // Mark the persona for deletion.
 //
 sirqul_response_t*
-PreviewPersonaAPI_deletePersona(apiClient_t *apiClient, double version, long accountId, long personaId)
+PreviewPersonaAPI_deletePersona(apiClient_t *apiClient, long accountId, long personaId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -311,12 +307,9 @@ PreviewPersonaAPI_deletePersona(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/persona/delete");
+    char *localVarPath = strdup("/persona/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -382,7 +375,6 @@ PreviewPersonaAPI_deletePersona(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -411,7 +403,7 @@ end:
 // Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
 //
 preview_persona_response_t*
-PreviewPersonaAPI_getPersonaList(apiClient_t *apiClient, double version, long accountId, long personaId)
+PreviewPersonaAPI_getPersonaList(apiClient_t *apiClient, long accountId, long personaId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -425,12 +417,9 @@ PreviewPersonaAPI_getPersonaList(apiClient_t *apiClient, double version, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/persona/get");
+    char *localVarPath = strdup("/persona/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -496,7 +485,6 @@ PreviewPersonaAPI_getPersonaList(apiClient_t *apiClient, double version, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -525,7 +513,7 @@ end:
 // Search for persona that the account owns by the given account ID.
 //
 preview_persona_response_t*
-PreviewPersonaAPI_searchPersona(apiClient_t *apiClient, double version, long accountId, int *start, int *limit)
+PreviewPersonaAPI_searchPersona(apiClient_t *apiClient, long accountId, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -539,12 +527,9 @@ PreviewPersonaAPI_searchPersona(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/persona/search");
+    char *localVarPath = strdup("/persona/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -624,7 +609,6 @@ PreviewPersonaAPI_searchPersona(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -669,7 +653,7 @@ end:
 // Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
 //
 preview_persona_response_t*
-PreviewPersonaAPI_updatePersona(apiClient_t *apiClient, double version, long accountId, long personaId, char *title, char *previewAccounts, int *active, long date, int *age, char *gender, char *gameExperienceLevel, double latitude, double longitude)
+PreviewPersonaAPI_updatePersona(apiClient_t *apiClient, long accountId, long personaId, char *title, char *previewAccounts, int *active, long date, int *age, char *gender, char *gameExperienceLevel, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -683,12 +667,9 @@ PreviewPersonaAPI_updatePersona(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/persona/update");
+    char *localVarPath = strdup("/persona/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -872,7 +853,6 @@ PreviewPersonaAPI_updatePersona(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

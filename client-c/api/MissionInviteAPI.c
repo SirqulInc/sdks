@@ -14,7 +14,7 @@
 // Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 //
 mission_response_t*
-MissionInviteAPI_createMissionInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long missionId, char *joinCode, int *includeGameData)
+MissionInviteAPI_createMissionInvite(apiClient_t *apiClient, char *deviceId, long accountId, long missionId, char *joinCode, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ MissionInviteAPI_createMissionInvite(apiClient_t *apiClient, double version, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/invite/create");
+    char *localVarPath = strdup("/mission/invite/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -136,7 +133,6 @@ MissionInviteAPI_createMissionInvite(apiClient_t *apiClient, double version, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -201,7 +197,7 @@ end:
 // Update the mission invite status to quit.
 //
 sirqul_response_t*
-MissionInviteAPI_deleteMissionInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long missionId, long missionInviteId, int *includeGameData)
+MissionInviteAPI_deleteMissionInvite(apiClient_t *apiClient, char *deviceId, long accountId, long missionId, long missionInviteId, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -215,12 +211,9 @@ MissionInviteAPI_deleteMissionInvite(apiClient_t *apiClient, double version, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/invite/delete");
+    char *localVarPath = strdup("/mission/invite/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -323,7 +316,6 @@ MissionInviteAPI_deleteMissionInvite(apiClient_t *apiClient, double version, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -384,7 +376,7 @@ end:
 // Get the mission invite. An account can only be invited to a mission one time.
 //
 mission_response_t*
-MissionInviteAPI_getMissionInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long missionId, long missionInviteId, int *includeGameData, char *includeScores)
+MissionInviteAPI_getMissionInvite(apiClient_t *apiClient, char *deviceId, long accountId, long missionId, long missionInviteId, int *includeGameData, char *includeScores)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -398,12 +390,9 @@ MissionInviteAPI_getMissionInvite(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/invite/get");
+    char *localVarPath = strdup("/mission/invite/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -518,7 +507,6 @@ MissionInviteAPI_getMissionInvite(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -591,7 +579,7 @@ end:
 // Get a list of mission invites that the account has.
 //
 list_t*
-MissionInviteAPI_searchMissionInvites(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, char *appVersion, long missionId, char *status, long lastUpdated, int *start, int *limit, char *keyword, char *missionTypes, int *filterByBillable, int *includeGameData)
+MissionInviteAPI_searchMissionInvites(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, char *appVersion, long missionId, char *status, long lastUpdated, int *start, int *limit, char *keyword, char *missionTypes, int *filterByBillable, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -605,12 +593,9 @@ MissionInviteAPI_searchMissionInvites(apiClient_t *apiClient, double version, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/invite/search");
+    char *localVarPath = strdup("/mission/invite/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -822,7 +807,6 @@ MissionInviteAPI_searchMissionInvites(apiClient_t *apiClient, double version, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -979,7 +963,7 @@ end:
 // Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 //
 mission_response_t*
-MissionInviteAPI_updateMissionInvite(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, long missionId, long missionInviteId, long packId, long gameLevelId, char *status, char *permissionableType, long permissionableId, int *includeGameData)
+MissionInviteAPI_updateMissionInvite(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, long missionId, long missionInviteId, long packId, long gameLevelId, char *status, char *permissionableType, long permissionableId, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -993,12 +977,9 @@ MissionInviteAPI_updateMissionInvite(apiClient_t *apiClient, double version, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/invite/update");
+    char *localVarPath = strdup("/mission/invite/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1173,7 +1154,6 @@ MissionInviteAPI_updateMissionInvite(apiClient_t *apiClient, double version, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

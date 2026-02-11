@@ -27,7 +27,7 @@ typedef enum  { sirqul_iot_platform_searchSchedule_RESERVABLETYPE_NULL = 0, sirq
 // Creates a reservation on an offer object
 //
 void
-ReservationAPI_createReservation(apiClient_t *apiClient, double version, char *deviceId, long accountId, long startDate, long endDate, long offerId, long offerLocationId, char *appKey, char *metaData);
+ReservationAPI_createReservation(apiClient_t *apiClient, char *deviceId, long accountId, long startDate, long endDate, long offerId, long offerLocationId, char *appKey, char *metaData);
 
 
 // Delete Reservation
@@ -35,30 +35,30 @@ ReservationAPI_createReservation(apiClient_t *apiClient, double version, char *d
 // Deleted a reservation on a reservation object
 //
 void
-ReservationAPI_deleteReservation(apiClient_t *apiClient, double version, long reservationId, char *deviceId, long accountId);
+ReservationAPI_deleteReservation(apiClient_t *apiClient, long reservationId, char *deviceId, long accountId);
 
 
 // Update Availability
 //
 list_t*
-ReservationAPI_reservableAvailability(apiClient_t *apiClient, double version, long reservableId, sirqul_iot_platform_reservableAvailability_reservableType_e reservableType, char *deviceId, long accountId, char *availability, char *availabilitySummary);
+ReservationAPI_reservableAvailability(apiClient_t *apiClient, long reservableId, sirqul_iot_platform_reservableAvailability_reservableType_e reservableType, char *deviceId, long accountId, char *availability, char *availabilitySummary);
 
 
 // Search Availability
 //
 list_t*
-ReservationAPI_searchAvailability(apiClient_t *apiClient, double version, long reservableId, sirqul_iot_platform_searchAvailability_reservableType_e reservableType, char *deviceId, long accountId, long startDate, long endDate, int *start, int *limit);
+ReservationAPI_searchAvailability(apiClient_t *apiClient, long reservableId, sirqul_iot_platform_searchAvailability_reservableType_e reservableType, char *deviceId, long accountId, long startDate, long endDate, int *start, int *limit);
 
 
 // Search Reservations
 //
 list_t*
-ReservationAPI_searchReservations(apiClient_t *apiClient, double version, char *deviceId, char *appKey, long accountId, long filterAccountId, long reservableId, sirqul_iot_platform_searchReservations_reservableType_e reservableType, char *keyword, long startDate, long endDate, int *start, int *limit);
+ReservationAPI_searchReservations(apiClient_t *apiClient, char *deviceId, char *appKey, long accountId, long filterAccountId, long reservableId, sirqul_iot_platform_searchReservations_reservableType_e reservableType, char *keyword, long startDate, long endDate, int *start, int *limit);
 
 
 // Search Schedule
 //
 list_t*
-ReservationAPI_searchSchedule(apiClient_t *apiClient, double version, long reservableId, sirqul_iot_platform_searchSchedule_reservableType_e reservableType, long startDate, long endDate, char *deviceId, long accountId, int *timeBucketMins);
+ReservationAPI_searchSchedule(apiClient_t *apiClient, long reservableId, sirqul_iot_platform_searchSchedule_reservableType_e reservableType, long startDate, long endDate, char *deviceId, long accountId, int *timeBucketMins);
 
 

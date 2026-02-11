@@ -66,7 +66,7 @@ end:
 // Create a user defined mission.
 //
 mission_response_t*
-MissionAPI_createMission(apiClient_t *apiClient, double version, long accountId, char *title, char *description, char *subType, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, char *missionTask, char *formatType, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *metaData, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius)
+MissionAPI_createMission(apiClient_t *apiClient, long accountId, char *title, char *description, char *subType, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, char *missionTask, char *formatType, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *metaData, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ MissionAPI_createMission(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/create");
+    char *localVarPath = strdup("/mission/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -446,7 +443,6 @@ MissionAPI_createMission(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -743,7 +739,7 @@ end:
 // Delete a mission.
 //
 sirqul_response_t*
-MissionAPI_deleteMission(apiClient_t *apiClient, double version, long accountId, long missionId)
+MissionAPI_deleteMission(apiClient_t *apiClient, long accountId, long missionId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -757,12 +753,9 @@ MissionAPI_deleteMission(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/delete");
+    char *localVarPath = strdup("/mission/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -828,7 +821,6 @@ MissionAPI_deleteMission(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -857,7 +849,7 @@ end:
 // Get a set of ad filtered by the parameters provided.
 //
 mission_response_t*
-MissionAPI_findMissions(apiClient_t *apiClient, double version, char *appKey, char *suffix, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeGameData, int *includeAudiences, int *allocatesTickets, int *randomize, int *targetedAdsOnly, char *missionIds, char *audienceOperator)
+MissionAPI_findMissions(apiClient_t *apiClient, char *appKey, char *suffix, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeGameData, int *includeAudiences, int *allocatesTickets, int *randomize, int *targetedAdsOnly, char *missionIds, char *audienceOperator)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -871,12 +863,9 @@ MissionAPI_findMissions(apiClient_t *apiClient, double version, char *appKey, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/find");
+    char *localVarPath = strdup("/mission/find");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1161,7 +1150,6 @@ MissionAPI_findMissions(apiClient_t *apiClient, double version, char *appKey, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -1386,7 +1374,7 @@ end:
 // Get a mission.
 //
 mission_response_t*
-MissionAPI_getMission(apiClient_t *apiClient, double version, long accountId, long missionId, int *returnCreative)
+MissionAPI_getMission(apiClient_t *apiClient, long accountId, long missionId, int *returnCreative)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1400,12 +1388,9 @@ MissionAPI_getMission(apiClient_t *apiClient, double version, long accountId, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/get");
+    char *localVarPath = strdup("/mission/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1484,7 +1469,6 @@ MissionAPI_getMission(apiClient_t *apiClient, double version, long accountId, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1525,7 +1509,7 @@ end:
 // Create a mission using a source item such as an offer location.
 //
 sirqul_response_t*
-MissionAPI_importMission(apiClient_t *apiClient, double version, long accountId, double latitude, double longitude, char *appKey, char *keyword, int *start, int *limit, sirqul_iot_platform_importMission_adSize_e adSize)
+MissionAPI_importMission(apiClient_t *apiClient, long accountId, double latitude, double longitude, char *appKey, char *keyword, int *start, int *limit, sirqul_iot_platform_importMission_adSize_e adSize)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1539,12 +1523,9 @@ MissionAPI_importMission(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/import");
+    char *localVarPath = strdup("/mission/import");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1693,7 +1674,6 @@ MissionAPI_importMission(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1786,7 +1766,7 @@ end:
 // Searches on pre-defined mission formats
 //
 list_t*
-MissionAPI_searchMissionFormats(apiClient_t *apiClient, double version, int *start, int *limit, int *activeOnly)
+MissionAPI_searchMissionFormats(apiClient_t *apiClient, int *start, int *limit, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1800,12 +1780,9 @@ MissionAPI_searchMissionFormats(apiClient_t *apiClient, double version, int *sta
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/format/search");
+    char *localVarPath = strdup("/mission/format/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1896,7 +1873,6 @@ MissionAPI_searchMissionFormats(apiClient_t *apiClient, double version, int *sta
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_start){
         free(keyQuery_start);
         keyQuery_start = NULL;
@@ -1945,7 +1921,7 @@ end:
 // Get the list missions available to the account.  
 //
 list_t*
-MissionAPI_searchMissions(apiClient_t *apiClient, double version, long accountId, char *keyword, char *subType, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending)
+MissionAPI_searchMissions(apiClient_t *apiClient, long accountId, char *keyword, char *subType, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1959,12 +1935,9 @@ MissionAPI_searchMissions(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/search");
+    char *localVarPath = strdup("/mission/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2154,7 +2127,6 @@ MissionAPI_searchMissions(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2295,7 +2267,7 @@ end:
 // Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 //
 list_t*
-MissionAPI_searchMissionsByBillableEntity(apiClient_t *apiClient, double version, long accountId, char *keyword, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending)
+MissionAPI_searchMissionsByBillableEntity(apiClient_t *apiClient, long accountId, char *keyword, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2309,12 +2281,9 @@ MissionAPI_searchMissionsByBillableEntity(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/searchByBillableEntity");
+    char *localVarPath = strdup("/mission/searchByBillableEntity");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2492,7 +2461,6 @@ MissionAPI_searchMissionsByBillableEntity(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2621,7 +2589,7 @@ end:
 // Update a mission.
 //
 mission_response_t*
-MissionAPI_updateMission(apiClient_t *apiClient, double version, long accountId, long missionId, char *title, char *description, char *subType, char *metaData, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius)
+MissionAPI_updateMission(apiClient_t *apiClient, long accountId, long missionId, char *title, char *description, char *subType, char *metaData, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2635,12 +2603,9 @@ MissionAPI_updateMission(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/mission/update");
+    char *localVarPath = strdup("/mission/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2989,7 +2954,6 @@ MissionAPI_updateMission(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

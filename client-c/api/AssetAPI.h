@@ -19,7 +19,7 @@ typedef enum  { sirqul_iot_platform_assetMorph_ADSIZE_NULL = 0, sirqul_iot_platf
 // Downloads an asset from the server for assets that have been uploaded to the server.
 //
 sirqul_response_t*
-AssetAPI_assetDownload(apiClient_t *apiClient, double version, char *filename);
+AssetAPI_assetDownload(apiClient_t *apiClient, char *filename);
 
 
 // Convert Offer to Creative
@@ -27,7 +27,7 @@ AssetAPI_assetDownload(apiClient_t *apiClient, double version, char *filename);
 // Converts an offer image + text into a creative image.
 //
 asset_short_response_t*
-AssetAPI_assetMorph(apiClient_t *apiClient, double version, long offerId, sirqul_iot_platform_assetMorph_adSize_e adSize, long creativeId, int *width, int *height, char *backgroundSize, char *_template);
+AssetAPI_assetMorph(apiClient_t *apiClient, long offerId, sirqul_iot_platform_assetMorph_adSize_e adSize, long creativeId, int *width, int *height, char *backgroundSize, char *_template);
 
 
 // Create Asset
@@ -35,7 +35,7 @@ AssetAPI_assetMorph(apiClient_t *apiClient, double version, long offerId, sirqul
 // Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 //
 asset_response_t*
-AssetAPI_createAsset(apiClient_t *apiClient, double version, int *returnNulls, char *deviceId, long accountId, long albumId, long collectionId, char *addToDefaultAlbum, int *addToMediaLibrary, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *app, char *appKey, char *searchTags, double latitude, double longitude);
+AssetAPI_createAsset(apiClient_t *apiClient, int *returnNulls, char *deviceId, long accountId, long albumId, long collectionId, char *addToDefaultAlbum, int *addToMediaLibrary, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *app, char *appKey, char *searchTags, double latitude, double longitude);
 
 
 // Delete Asset
@@ -43,7 +43,7 @@ AssetAPI_createAsset(apiClient_t *apiClient, double version, int *returnNulls, c
 // Delete an asset.
 //
 sirqul_response_t*
-AssetAPI_deleteAsset(apiClient_t *apiClient, double version, char *assetId, char *deviceId, long accountId, double latitude, double longitude);
+AssetAPI_deleteAsset(apiClient_t *apiClient, char *assetId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Get Asset
@@ -51,7 +51,7 @@ AssetAPI_deleteAsset(apiClient_t *apiClient, double version, char *assetId, char
 // Gets the full asset response including attached likes and notes.
 //
 asset_full_response_t*
-AssetAPI_getAsset(apiClient_t *apiClient, double version, long assetId, char *deviceId, long accountId, int *noteDescending);
+AssetAPI_getAsset(apiClient_t *apiClient, long assetId, char *deviceId, long accountId, int *noteDescending);
 
 
 // Remove Asset from Collection
@@ -59,7 +59,7 @@ AssetAPI_getAsset(apiClient_t *apiClient, double version, long assetId, char *de
 // Remove assets from collections
 //
 sirqul_response_t*
-AssetAPI_removeAsset(apiClient_t *apiClient, double version, char *assetId, char *deviceId, long accountId, long albumId, long collectionId, int *removeFromDefaultAlbums, double latitude, double longitude);
+AssetAPI_removeAsset(apiClient_t *apiClient, char *assetId, char *deviceId, long accountId, long albumId, long collectionId, int *removeFromDefaultAlbums, double latitude, double longitude);
 
 
 // Search Assets
@@ -67,7 +67,7 @@ AssetAPI_removeAsset(apiClient_t *apiClient, double version, char *assetId, char
 // Searches for assets
 //
 list_t*
-AssetAPI_searchAssets(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *albumIds, char *assetIds, char *appKey, char *mediaType, char *mimeType, char *keyword, int *versionCode, char *versionName, long updatedSince, long updatedBefore, char *sortField, int *descending, int *searchMediaLibrary, int *filterByBillable, int *activeOnly, int *returnApp, int *start, int *limit, char *searchMode, char *assetType, char *approvalStatus, long assignedAccountId);
+AssetAPI_searchAssets(apiClient_t *apiClient, char *deviceId, long accountId, char *albumIds, char *assetIds, char *appKey, char *mediaType, char *mimeType, char *keyword, int *versionCode, char *versionName, long updatedSince, long updatedBefore, char *sortField, int *descending, int *searchMediaLibrary, int *filterByBillable, int *activeOnly, int *returnApp, int *start, int *limit, char *searchMode, char *assetType, char *approvalStatus, long assignedAccountId);
 
 
 // Update Asset
@@ -75,6 +75,6 @@ AssetAPI_searchAssets(apiClient_t *apiClient, double version, char *deviceId, lo
 // Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 //
 sirqul_response_t*
-AssetAPI_updateAsset(apiClient_t *apiClient, double version, long assetId, char *deviceId, long accountId, long albumId, long attachedAssetId, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *searchTags, char *appKey, double latitude, double longitude);
+AssetAPI_updateAsset(apiClient_t *apiClient, long assetId, char *deviceId, long accountId, long albumId, long attachedAssetId, int *versionCode, char *versionName, char *metaData, char *caption, char *assetType, char *approvalStatus, long assignedAccountId, binary_t* media, char *mediaUrl, char *mediaString, char *mediaStringFileName, char *mediaStringContentType, int *mediaHeight, int *mediaWidth, binary_t* attachedMedia, char *attachedMediaUrl, char *attachedMediaString, char *attachedMediaStringFileName, char *attachedMediaStringContentType, int *attachedMediaHeight, int *attachedMediaWidth, char *locationDescription, char *searchTags, char *appKey, double latitude, double longitude);
 
 

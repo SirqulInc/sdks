@@ -222,7 +222,7 @@ end:
 // Create an Album.
 //
 search_response_t*
-AlbumAPI_addAlbumCollection(apiClient_t *apiClient, double version, char *title, int *coverAssetNullable, int *includeCoverInAssetList, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, int *anonymous, char *deviceId, long accountId, char *assetsToAdd, binary_t* media, char *mediaURL, long assetId, binary_t* attachedMedia, char *attachedMediaURL, long startDate, long endDate, char *tags, char *description, char *albumType, long albumTypeId, char *subType, double latitude, double longitude, char *locationDescription, sirqul_iot_platform_addAlbumCollection_visibility_e visibility, char *gameType, char *appKey, char *cellPhone, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *fullAddress, char *metaData, char *categoryIds, char *categoryFilterIds, char *audienceIds, int *includeAllAppUsersAsMembers, int *includeAudiencesAsMembers, char *audienceOperator, sirqul_iot_platform_addAlbumCollection_approvalStatus_e approvalStatus, char *linkedObjectType, long linkedObjectId)
+AlbumAPI_addAlbumCollection(apiClient_t *apiClient, char *title, int *coverAssetNullable, int *includeCoverInAssetList, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, int *anonymous, char *deviceId, long accountId, char *assetsToAdd, binary_t* media, char *mediaURL, long assetId, binary_t* attachedMedia, char *attachedMediaURL, long startDate, long endDate, char *tags, char *description, char *albumType, long albumTypeId, char *subType, double latitude, double longitude, char *locationDescription, sirqul_iot_platform_addAlbumCollection_visibility_e visibility, char *gameType, char *appKey, char *cellPhone, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *fullAddress, char *metaData, char *categoryIds, char *categoryFilterIds, char *audienceIds, int *includeAllAppUsersAsMembers, int *includeAudiencesAsMembers, char *audienceOperator, sirqul_iot_platform_addAlbumCollection_approvalStatus_e approvalStatus, char *linkedObjectType, long linkedObjectId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -236,12 +236,9 @@ AlbumAPI_addAlbumCollection(apiClient_t *apiClient, double version, char *title,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/create");
+    char *localVarPath = strdup("/album/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -854,7 +851,6 @@ AlbumAPI_addAlbumCollection(apiClient_t *apiClient, double version, char *title,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1371,7 +1367,7 @@ end:
 // Add users to an album as participants.
 //
 sirqul_response_t*
-AlbumAPI_addAlbumUsers(apiClient_t *apiClient, double version, long albumId, int *includeFriendGroup, char *deviceId, long accountId, int *read, int *write, int *_delete, int *add, char *connections, char *connectionGroups)
+AlbumAPI_addAlbumUsers(apiClient_t *apiClient, long albumId, int *includeFriendGroup, char *deviceId, long accountId, int *read, int *write, int *_delete, int *add, char *connections, char *connectionGroups)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1385,12 +1381,9 @@ AlbumAPI_addAlbumUsers(apiClient_t *apiClient, double version, long albumId, int
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/user/add");
+    char *localVarPath = strdup("/album/user/add");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1557,7 +1550,6 @@ AlbumAPI_addAlbumUsers(apiClient_t *apiClient, double version, long albumId, int
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1682,7 +1674,7 @@ end:
 // Sets the approval status of an Album.
 //
 sirqul_response_t*
-AlbumAPI_approveAlbum(apiClient_t *apiClient, double version, long albumId, char *deviceId, long accountId, sirqul_iot_platform_approveAlbum_approvalStatus_e approvalStatus, int *verified)
+AlbumAPI_approveAlbum(apiClient_t *apiClient, long albumId, char *deviceId, long accountId, sirqul_iot_platform_approveAlbum_approvalStatus_e approvalStatus, int *verified)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1696,12 +1688,9 @@ AlbumAPI_approveAlbum(apiClient_t *apiClient, double version, long albumId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/approve");
+    char *localVarPath = strdup("/album/approve");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1805,7 +1794,6 @@ AlbumAPI_approveAlbum(apiClient_t *apiClient, double version, long albumId, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1866,7 +1854,7 @@ end:
 // Get an Album.
 //
 album_full_response_t*
-AlbumAPI_getAlbumCollection(apiClient_t *apiClient, double version, int *returnNulls, long albumId, char *deviceId, long accountId, int *likePreviewSize, int *assetPreviewSize, int *notePreviewSize, int *connectionPreviewSize, int *audiencePreviewSize)
+AlbumAPI_getAlbumCollection(apiClient_t *apiClient, int *returnNulls, long albumId, char *deviceId, long accountId, int *likePreviewSize, int *assetPreviewSize, int *notePreviewSize, int *connectionPreviewSize, int *audiencePreviewSize)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1880,12 +1868,9 @@ AlbumAPI_getAlbumCollection(apiClient_t *apiClient, double version, int *returnN
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/get");
+    char *localVarPath = strdup("/album/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2041,7 +2026,6 @@ AlbumAPI_getAlbumCollection(apiClient_t *apiClient, double version, int *returnN
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_returnNulls){
         free(keyQuery_returnNulls);
         keyQuery_returnNulls = NULL;
@@ -2154,7 +2138,7 @@ end:
 //  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
 //
 sirqul_response_t*
-AlbumAPI_leaveAlbum(apiClient_t *apiClient, double version, long albumId, char *deviceId, long accountId)
+AlbumAPI_leaveAlbum(apiClient_t *apiClient, long albumId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2168,12 +2152,9 @@ AlbumAPI_leaveAlbum(apiClient_t *apiClient, double version, long albumId, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/user/leave");
+    char *localVarPath = strdup("/album/user/leave");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2251,7 +2232,6 @@ AlbumAPI_leaveAlbum(apiClient_t *apiClient, double version, long albumId, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2292,7 +2272,7 @@ end:
 // Deletes an Album
 //
 sirqul_response_t*
-AlbumAPI_removeAlbum(apiClient_t *apiClient, double version, long albumId, char *deviceId, long accountId)
+AlbumAPI_removeAlbum(apiClient_t *apiClient, long albumId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2306,12 +2286,9 @@ AlbumAPI_removeAlbum(apiClient_t *apiClient, double version, long albumId, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/delete");
+    char *localVarPath = strdup("/album/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2389,7 +2366,6 @@ AlbumAPI_removeAlbum(apiClient_t *apiClient, double version, long albumId, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2430,7 +2406,7 @@ end:
 // Remove participants of an album.
 //
 sirqul_response_t*
-AlbumAPI_removeAlbumUsers(apiClient_t *apiClient, double version, long albumId, int *removeFriendGroup, char *deviceId, long accountId, char *connections, char *connectionGroups)
+AlbumAPI_removeAlbumUsers(apiClient_t *apiClient, long albumId, int *removeFriendGroup, char *deviceId, long accountId, char *connections, char *connectionGroups)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2444,12 +2420,9 @@ AlbumAPI_removeAlbumUsers(apiClient_t *apiClient, double version, long albumId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/user/delete");
+    char *localVarPath = strdup("/album/user/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2564,7 +2537,6 @@ AlbumAPI_removeAlbumUsers(apiClient_t *apiClient, double version, long albumId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2641,7 +2613,7 @@ end:
 // Searches on Albums.
 //
 list_t*
-AlbumAPI_searchAlbums(apiClient_t *apiClient, double version, char *filter, long albumTypeId, char *subType, int *includeInactive, char *sortField, int *descending, int *start, int *limit, double range, int *includeLiked, int *includeFavorited, int *includePermissions, int *likePreviewSize, int *assetPreviewSize, int *notePreviewSize, int *connectionPreviewSize, int *audiencePreviewSize, char *deviceId, long accountId, long connectionAccountId, long ownerId, char *albumIds, char *excludeAlbumIds, long mediaId, char *keyword, char *albumType, int *limitPerAlbumType, long dateCreated, long updatedSince, long updatedBefore, long createdSince, long createdBefore, long startedSince, long startedBefore, long endedSince, long endedBefore, double latitude, double longitude, char *appKey, char *categoryIds, char *categoryFilterIds, char *audienceIds, char *excludeAudienceIds, int *includeCompletable, int *includeRating, char *searchMode, int *stackSearch, int *stackWindowSize, int *minStackPerPage, char *stackPaginationIdentifier, int *stackDetails, long flagCountMinimum, int *removeFlaggedContent, int *verifiedFilter, char *linkedObjectType, long linkedObjectId, long orderAudienceId, int *ignoreDefaultAppFilter, char *searchExpression, int *generateAlbums)
+AlbumAPI_searchAlbums(apiClient_t *apiClient, char *filter, long albumTypeId, char *subType, int *includeInactive, char *sortField, int *descending, int *start, int *limit, double range, int *includeLiked, int *includeFavorited, int *includePermissions, int *likePreviewSize, int *assetPreviewSize, int *notePreviewSize, int *connectionPreviewSize, int *audiencePreviewSize, char *deviceId, long accountId, long connectionAccountId, long ownerId, char *albumIds, char *excludeAlbumIds, long mediaId, char *keyword, char *albumType, int *limitPerAlbumType, long dateCreated, long updatedSince, long updatedBefore, long createdSince, long createdBefore, long startedSince, long startedBefore, long endedSince, long endedBefore, double latitude, double longitude, char *appKey, char *categoryIds, char *categoryFilterIds, char *audienceIds, char *excludeAudienceIds, int *includeCompletable, int *includeRating, char *searchMode, int *stackSearch, int *stackWindowSize, int *minStackPerPage, char *stackPaginationIdentifier, int *stackDetails, long flagCountMinimum, int *removeFlaggedContent, int *verifiedFilter, char *linkedObjectType, long linkedObjectId, long orderAudienceId, int *ignoreDefaultAppFilter, char *searchExpression, int *generateAlbums)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2655,12 +2627,9 @@ AlbumAPI_searchAlbums(apiClient_t *apiClient, double version, char *filter, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/search");
+    char *localVarPath = strdup("/album/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3467,7 +3436,6 @@ AlbumAPI_searchAlbums(apiClient_t *apiClient, double version, char *filter, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -4120,7 +4088,7 @@ end:
 // Update an Album.
 //
 album_response_t*
-AlbumAPI_updateAlbumCollection(apiClient_t *apiClient, double version, long albumId, char *deviceId, long accountId, char *assetsToAdd, char *assetsToRemove, long assetId, binary_t* media, char *mediaURL, int *active, char *title, long startDate, long endDate, char *tags, char *description, char *albumType, long albumTypeId, char *subType, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, double latitude, double longitude, char *locationDescription, sirqul_iot_platform_updateAlbumCollection_visibility_e visibility, char *cellPhone, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *fullAddress, int *anonymous, char *metaData, char *categoryIds, char *categoryFilterIds, char *audienceIds, char *audienceIdsToAdd, char *audienceIdsToRemove, int *includeAllAppUsersAsMembers, int *includeAudiencesAsMembers, char *audienceOperator, char *linkedObjectType, long linkedObjectId, int *indexNow)
+AlbumAPI_updateAlbumCollection(apiClient_t *apiClient, long albumId, char *deviceId, long accountId, char *assetsToAdd, char *assetsToRemove, long assetId, binary_t* media, char *mediaURL, int *active, char *title, long startDate, long endDate, char *tags, char *description, char *albumType, long albumTypeId, char *subType, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, double latitude, double longitude, char *locationDescription, sirqul_iot_platform_updateAlbumCollection_visibility_e visibility, char *cellPhone, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *fullAddress, int *anonymous, char *metaData, char *categoryIds, char *categoryFilterIds, char *audienceIds, char *audienceIdsToAdd, char *audienceIdsToRemove, int *includeAllAppUsersAsMembers, int *includeAudiencesAsMembers, char *audienceOperator, char *linkedObjectType, long linkedObjectId, int *indexNow)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4134,12 +4102,9 @@ AlbumAPI_updateAlbumCollection(apiClient_t *apiClient, double version, long albu
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/album/update");
+    char *localVarPath = strdup("/album/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4739,7 +4704,6 @@ AlbumAPI_updateAlbumCollection(apiClient_t *apiClient, double version, long albu
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

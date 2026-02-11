@@ -14,7 +14,7 @@
 // Create a Postal Code
 //
 postal_code_response_t*
-PostalCodeAPI_createPostalCode(apiClient_t *apiClient, double version, long accountId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active);
+PostalCodeAPI_createPostalCode(apiClient_t *apiClient, long accountId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active);
 
 
 // Delete Postal Code
@@ -22,7 +22,7 @@ PostalCodeAPI_createPostalCode(apiClient_t *apiClient, double version, long acco
 // Delete a Postal Code
 //
 sirqul_response_t*
-PostalCodeAPI_deletePostalCode(apiClient_t *apiClient, double version, long accountId, long postalCodeId);
+PostalCodeAPI_deletePostalCode(apiClient_t *apiClient, long accountId, long postalCodeId);
 
 
 // Get Postal Code
@@ -30,7 +30,7 @@ PostalCodeAPI_deletePostalCode(apiClient_t *apiClient, double version, long acco
 // Get a Postal Code
 //
 postal_code_response_t*
-PostalCodeAPI_getPostalCode(apiClient_t *apiClient, double version, long postalCodeId);
+PostalCodeAPI_getPostalCode(apiClient_t *apiClient, long postalCodeId);
 
 
 // Search Postal Codes
@@ -38,7 +38,7 @@ PostalCodeAPI_getPostalCode(apiClient_t *apiClient, double version, long postalC
 // Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 //
 list_t*
-PostalCodeAPI_getPostalCodes(apiClient_t *apiClient, double version, char *sortField, int *descending, double latitude, double longitude, char *keyword, double miles, int *start, int *limit);
+PostalCodeAPI_getPostalCodes(apiClient_t *apiClient, char *sortField, int *descending, double latitude, double longitude, char *keyword, double miles, int *start, int *limit);
 
 
 // Update Postal Code
@@ -46,6 +46,6 @@ PostalCodeAPI_getPostalCodes(apiClient_t *apiClient, double version, char *sortF
 // Update a Postal Code
 //
 postal_code_response_t*
-PostalCodeAPI_updatePostalCode(apiClient_t *apiClient, double version, long accountId, long postalCodeId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active);
+PostalCodeAPI_updatePostalCode(apiClient_t *apiClient, long accountId, long postalCodeId, char *code, double latitude, double longitude, char *stateCode, char *city, int *active);
 
 

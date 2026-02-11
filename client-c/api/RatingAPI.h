@@ -30,7 +30,7 @@ typedef enum  { sirqul_iot_platform_searchRatings_SORTFIELD_NULL = 0, sirqul_iot
 // This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
 //
 rating_response_t*
-RatingAPI_createRating(apiClient_t *apiClient, double version, char *ratableType, long ratableId, int *ratingValue, char *deviceId, long accountId, long categoryId, char *display, char *description, char *locationDescription, double latitude, double longitude);
+RatingAPI_createRating(apiClient_t *apiClient, char *ratableType, long ratableId, int *ratingValue, char *deviceId, long accountId, long categoryId, char *display, char *description, char *locationDescription, double latitude, double longitude);
 
 
 // Delete Rating
@@ -38,7 +38,7 @@ RatingAPI_createRating(apiClient_t *apiClient, double version, char *ratableType
 // Sets a rating as deleted.
 //
 sirqul_response_t*
-RatingAPI_deleteRating(apiClient_t *apiClient, double version, long ratingId, char *deviceId, long accountId);
+RatingAPI_deleteRating(apiClient_t *apiClient, long ratingId, char *deviceId, long accountId);
 
 
 // Search Location Rating Indexes
@@ -46,7 +46,7 @@ RatingAPI_deleteRating(apiClient_t *apiClient, double version, long ratingId, ch
 // Search for retailer locations by averages near you.
 //
 list_t*
-RatingAPI_searchLocationRatingIndexes(apiClient_t *apiClient, double version, char *categoryIds, char *keyword, char *locationType, sirqul_iot_platform_searchLocationRatingIndexes_sortField_e sortField, int *descending, int *start, int *limit, double searchRange, double latitude, double longitude, int *returnOverallRating, sirqul_iot_platform_searchLocationRatingIndexes_distanceUnit_e distanceUnit, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters);
+RatingAPI_searchLocationRatingIndexes(apiClient_t *apiClient, char *categoryIds, char *keyword, char *locationType, sirqul_iot_platform_searchLocationRatingIndexes_sortField_e sortField, int *descending, int *start, int *limit, double searchRange, double latitude, double longitude, int *returnOverallRating, sirqul_iot_platform_searchLocationRatingIndexes_distanceUnit_e distanceUnit, int *returnRetailer, int *returnAssets, int *returnOffers, int *returnCategories, int *returnFilters);
 
 
 // Search Rating Indexes
@@ -54,7 +54,7 @@ RatingAPI_searchLocationRatingIndexes(apiClient_t *apiClient, double version, ch
 // Search for ratable items by averages.
 //
 list_t*
-RatingAPI_searchRatingIndexes(apiClient_t *apiClient, double version, sirqul_iot_platform_searchRatingIndexes_ratableType_e ratableType, char *ratableIds, char *categoryIds, char *secondaryType, char *keyword, sirqul_iot_platform_searchRatingIndexes_sortField_e sortField, int *descending, int *start, int *limit, double latitude, double longitude, int *returnRatable, int *returnOverallRating);
+RatingAPI_searchRatingIndexes(apiClient_t *apiClient, sirqul_iot_platform_searchRatingIndexes_ratableType_e ratableType, char *ratableIds, char *categoryIds, char *secondaryType, char *keyword, sirqul_iot_platform_searchRatingIndexes_sortField_e sortField, int *descending, int *start, int *limit, double latitude, double longitude, int *returnRatable, int *returnOverallRating);
 
 
 // Search Ratings
@@ -62,7 +62,7 @@ RatingAPI_searchRatingIndexes(apiClient_t *apiClient, double version, sirqul_iot
 // Search for ratings on a ratable object.
 //
 list_t*
-RatingAPI_searchRatings(apiClient_t *apiClient, double version, char *deviceId, long accountId, long filterAccountId, char *ratableType, long ratableId, char *categoryIds, char *keyword, sirqul_iot_platform_searchRatings_sortField_e sortField, int *descending, int *start, int *limit);
+RatingAPI_searchRatings(apiClient_t *apiClient, char *deviceId, long accountId, long filterAccountId, char *ratableType, long ratableId, char *categoryIds, char *keyword, sirqul_iot_platform_searchRatings_sortField_e sortField, int *descending, int *start, int *limit);
 
 
 // Update Rating
@@ -70,6 +70,6 @@ RatingAPI_searchRatings(apiClient_t *apiClient, double version, char *deviceId, 
 // Update an existing rating. Only the creator of the rating have permission to update.
 //
 rating_response_t*
-RatingAPI_updateRating(apiClient_t *apiClient, double version, long ratingId, char *deviceId, long accountId, int *ratingValue, long categoryId, char *display, char *description, char *locationDescription, double latitude, double longitude);
+RatingAPI_updateRating(apiClient_t *apiClient, long ratingId, char *deviceId, long accountId, int *ratingValue, long categoryId, char *display, char *description, char *locationDescription, double latitude, double longitude);
 
 

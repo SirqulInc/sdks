@@ -14,7 +14,7 @@
 // Enable this ad for preview for this account.
 //
 sirqul_response_t*
-CreativeAPI_addPreview(apiClient_t *apiClient, double version, long accountId, long creativeId)
+CreativeAPI_addPreview(apiClient_t *apiClient, long accountId, long creativeId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ CreativeAPI_addPreview(apiClient_t *apiClient, double version, long accountId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/creative/addpreview");
+    char *localVarPath = strdup("/creative/addpreview");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -99,7 +96,6 @@ CreativeAPI_addPreview(apiClient_t *apiClient, double version, long accountId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -128,7 +124,7 @@ end:
 // Get a set of ad filtered by the parameters provided.
 //
 list_t*
-CreativeAPI_adsFind(apiClient_t *apiClient, double version, char *appKey, int *randomize, int *targetedAdsOnly, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeAudiences, int *allocatesTickets, char *missionIds)
+CreativeAPI_adsFind(apiClient_t *apiClient, char *appKey, int *randomize, int *targetedAdsOnly, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeAudiences, int *allocatesTickets, char *missionIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -142,12 +138,9 @@ CreativeAPI_adsFind(apiClient_t *apiClient, double version, char *appKey, int *r
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ads/find");
+    char *localVarPath = strdup("/ads/find");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -405,7 +398,6 @@ CreativeAPI_adsFind(apiClient_t *apiClient, double version, char *appKey, int *r
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -594,7 +586,7 @@ end:
 // Create a creative
 //
 creative_response_t*
-CreativeAPI_createCreative(apiClient_t *apiClient, double version, long accountId, char *name, int *active, int *waitForAsset, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, long referenceId, char *appVersion, long missionId, long offerId)
+CreativeAPI_createCreative(apiClient_t *apiClient, long accountId, char *name, int *active, int *waitForAsset, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, long referenceId, char *appVersion, long missionId, long offerId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -608,12 +600,9 @@ CreativeAPI_createCreative(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/creative/create");
+    char *localVarPath = strdup("/creative/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -841,7 +830,6 @@ CreativeAPI_createCreative(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1010,7 +998,7 @@ end:
 // Delete a creative
 //
 sirqul_response_t*
-CreativeAPI_deleteCreative(apiClient_t *apiClient, double version, long accountId, long creativeId)
+CreativeAPI_deleteCreative(apiClient_t *apiClient, long accountId, long creativeId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1024,12 +1012,9 @@ CreativeAPI_deleteCreative(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/creative/delete");
+    char *localVarPath = strdup("/creative/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1095,7 +1080,6 @@ CreativeAPI_deleteCreative(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1124,7 +1108,7 @@ end:
 // Get a creative
 //
 creative_response_t*
-CreativeAPI_getCreative(apiClient_t *apiClient, double version, long accountId, long creativeId)
+CreativeAPI_getCreative(apiClient_t *apiClient, long accountId, long creativeId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1138,12 +1122,9 @@ CreativeAPI_getCreative(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/creative/get");
+    char *localVarPath = strdup("/creative/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1209,7 +1190,6 @@ CreativeAPI_getCreative(apiClient_t *apiClient, double version, long accountId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1238,7 +1218,7 @@ end:
 // Get a list of levels for an application, just those the account has permissions to view.
 //
 list_t*
-CreativeAPI_getCreativesByApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, int *start, int *limit, long missionId, char *keyword)
+CreativeAPI_getCreativesByApplication(apiClient_t *apiClient, long accountId, char *appKey, int *start, int *limit, long missionId, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1252,12 +1232,9 @@ CreativeAPI_getCreativesByApplication(apiClient_t *apiClient, double version, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/creative/search");
+    char *localVarPath = strdup("/creative/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1383,7 +1360,6 @@ CreativeAPI_getCreativesByApplication(apiClient_t *apiClient, double version, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1460,7 +1436,7 @@ end:
 // Remove this ad for preview for this account.
 //
 sirqul_response_t*
-CreativeAPI_removePreview(apiClient_t *apiClient, double version, long accountId, long creativeId)
+CreativeAPI_removePreview(apiClient_t *apiClient, long accountId, long creativeId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1474,12 +1450,9 @@ CreativeAPI_removePreview(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/creative/removepreview");
+    char *localVarPath = strdup("/creative/removepreview");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1545,7 +1518,6 @@ CreativeAPI_removePreview(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1574,7 +1546,7 @@ end:
 // Update a creative
 //
 creative_response_t*
-CreativeAPI_updateCreative(apiClient_t *apiClient, double version, long accountId, long creativeId, char *name, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, int *active, long referenceId, char *appVersion, long missionId)
+CreativeAPI_updateCreative(apiClient_t *apiClient, long accountId, long creativeId, char *name, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, int *active, long referenceId, char *appVersion, long missionId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1588,12 +1560,9 @@ CreativeAPI_updateCreative(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/creative/update");
+    char *localVarPath = strdup("/creative/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1808,7 +1777,6 @@ CreativeAPI_updateCreative(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

@@ -14,7 +14,7 @@
 // Create a new location from a real object location.
 //
 sirqul_response_t*
-LocationApiV2API_createLocationV2(apiClient_t *apiClient, double version, location_t *body);
+LocationApiV2API_createLocationV2(apiClient_t *apiClient, location_t *body);
 
 
 // Update an existing location
@@ -22,6 +22,6 @@ LocationApiV2API_createLocationV2(apiClient_t *apiClient, double version, locati
 // Update an existing location
 //
 sirqul_response_t*
-LocationApiV2API_updateLocationV2(apiClient_t *apiClient, double version, long id, location_t *body);
+LocationApiV2API_updateLocationV2(apiClient_t *apiClient, long id, location_t *body);
 
 

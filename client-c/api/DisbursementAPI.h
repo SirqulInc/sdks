@@ -19,7 +19,7 @@ typedef enum  { sirqul_iot_platform_updateDisbursement_PROVIDER_NULL = 0, sirqul
 // Checks the status of a captured disbrusement to see if it has been settled.
 //
 disbursement_response_t*
-DisbursementAPI_checkDisbursements(apiClient_t *apiClient, double version, long disbursementId);
+DisbursementAPI_checkDisbursements(apiClient_t *apiClient, long disbursementId);
 
 
 // Create Disbursement
@@ -27,7 +27,7 @@ DisbursementAPI_checkDisbursements(apiClient_t *apiClient, double version, long 
 // Creates a Disbursement for sending money to a retailer
 //
 disbursement_response_t*
-DisbursementAPI_createDisbursement(apiClient_t *apiClient, double version, long accountId, long receiverAccountId, long originalSenderAccountId, double amount, sirqul_iot_platform_createDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, char *introspectionParams);
+DisbursementAPI_createDisbursement(apiClient_t *apiClient, long accountId, long receiverAccountId, long originalSenderAccountId, double amount, sirqul_iot_platform_createDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, char *introspectionParams);
 
 
 // Get Disbursement
@@ -35,7 +35,7 @@ DisbursementAPI_createDisbursement(apiClient_t *apiClient, double version, long 
 // Get Disbursement details
 //
 disbursement_response_t*
-DisbursementAPI_getDisbursement(apiClient_t *apiClient, double version, long accountId, long disbursementId);
+DisbursementAPI_getDisbursement(apiClient_t *apiClient, long accountId, long disbursementId);
 
 
 // Search Disbursements
@@ -43,7 +43,7 @@ DisbursementAPI_getDisbursement(apiClient_t *apiClient, double version, long acc
 // Search Disbursements
 //
 list_t*
-DisbursementAPI_searchDisbursements(apiClient_t *apiClient, double version, long accountId, long receiverAccountId, char *statuses, char *providers, long beforeDate, long afterDate, int *start, int *limit, int *activeOnly, char *externalId);
+DisbursementAPI_searchDisbursements(apiClient_t *apiClient, long accountId, long receiverAccountId, char *statuses, char *providers, long beforeDate, long afterDate, int *start, int *limit, int *activeOnly, char *externalId);
 
 
 // Update Disbursement
@@ -51,6 +51,6 @@ DisbursementAPI_searchDisbursements(apiClient_t *apiClient, double version, long
 // Update Disbursement
 //
 disbursement_response_t*
-DisbursementAPI_updateDisbursement(apiClient_t *apiClient, double version, long accountId, long disbursementId, double amount, sirqul_iot_platform_updateDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, int *retry, char *introspectionParams);
+DisbursementAPI_updateDisbursement(apiClient_t *apiClient, long accountId, long disbursementId, double amount, sirqul_iot_platform_updateDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, int *retry, char *introspectionParams);
 
 

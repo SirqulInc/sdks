@@ -14,7 +14,7 @@
 // Create following.
 //
 void
-VatomAPI_createFollowing(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_createFollowing(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ VatomAPI_createFollowing(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/rels/following/create");
+    char *localVarPath = strdup("/vatom/me/rels/following/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -101,7 +98,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomParameters){
         free(keyQuery_vatomParameters);
         keyQuery_vatomParameters = NULL;
@@ -130,7 +126,7 @@ end:
 // Create a Vatom space.
 //
 void
-VatomAPI_createSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_createSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -144,12 +140,9 @@ VatomAPI_createSpace(apiClient_t *apiClient, double version, long accountId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/spaces/create");
+    char *localVarPath = strdup("/vatom/b/spaces/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -229,7 +222,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -278,7 +270,7 @@ end:
 // Create a Vatom event.
 //
 void
-VatomAPI_createVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_createVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -292,12 +284,9 @@ VatomAPI_createVatomEvent(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/events/create");
+    char *localVarPath = strdup("/vatom/b/events/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -377,7 +366,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -426,7 +414,7 @@ end:
 // Delete following.
 //
 void
-VatomAPI_deleteFollowing(apiClient_t *apiClient, double version, long accountId, char *vatomRelsKey, int *returnRawResponse)
+VatomAPI_deleteFollowing(apiClient_t *apiClient, long accountId, char *vatomRelsKey, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -440,12 +428,9 @@ VatomAPI_deleteFollowing(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/rels/following/delete");
+    char *localVarPath = strdup("/vatom/me/rels/following/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -513,7 +498,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomRelsKey){
         free(keyQuery_vatomRelsKey);
         keyQuery_vatomRelsKey = NULL;
@@ -542,7 +526,7 @@ end:
 // Reset All Points Balance.
 //
 void
-VatomAPI_deletePointsBalance(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
+VatomAPI_deletePointsBalance(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -556,12 +540,9 @@ VatomAPI_deletePointsBalance(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign/points/delete");
+    char *localVarPath = strdup("/vatom/b/campaign/points/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -641,7 +622,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -690,7 +670,7 @@ end:
 // Delete a Vatom space.
 //
 void
-VatomAPI_deleteSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse)
+VatomAPI_deleteSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -704,12 +684,9 @@ VatomAPI_deleteSpace(apiClient_t *apiClient, double version, long accountId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/spaces/delete");
+    char *localVarPath = strdup("/vatom/b/spaces/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -789,7 +766,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -838,7 +814,7 @@ end:
 // Delete a Vatom event.
 //
 void
-VatomAPI_deleteVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse)
+VatomAPI_deleteVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -852,12 +828,9 @@ VatomAPI_deleteVatomEvent(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/events/delete");
+    char *localVarPath = strdup("/vatom/b/events/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -937,7 +910,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -986,7 +958,7 @@ end:
 // Delete Vatom NFT
 //
 void
-VatomAPI_deleteVatomNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, int *returnRawResponse)
+VatomAPI_deleteVatomNFT(apiClient_t *apiClient, long accountId, char *vatomId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1000,12 +972,9 @@ VatomAPI_deleteVatomNFT(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/vatoms/delete");
+    char *localVarPath = strdup("/vatom/vatoms/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1073,7 +1042,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomId){
         free(keyQuery_vatomId);
         keyQuery_vatomId = NULL;
@@ -1102,7 +1070,7 @@ end:
 // Execute Action on NFT.
 //
 void
-VatomAPI_executeActionOnNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_executeActionOnNFT(apiClient_t *apiClient, long accountId, char *vatomId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1116,12 +1084,9 @@ VatomAPI_executeActionOnNFT(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/vatoms/execute-action");
+    char *localVarPath = strdup("/vatom/vatoms/execute-action");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1201,7 +1166,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomId){
         free(keyQuery_vatomId);
         keyQuery_vatomId = NULL;
@@ -1250,7 +1214,7 @@ end:
 // Search Vatom Geo Map
 //
 void
-VatomAPI_geomapSearch(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_geomapSearch(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1264,12 +1228,9 @@ VatomAPI_geomapSearch(apiClient_t *apiClient, double version, long accountId, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/vatoms/geo-map/search");
+    char *localVarPath = strdup("/vatom/vatoms/geo-map/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1337,7 +1298,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomParameters){
         free(keyQuery_vatomParameters);
         keyQuery_vatomParameters = NULL;
@@ -1366,7 +1326,7 @@ end:
 // Gets the behaviors of a business.
 //
 void
-VatomAPI_getBusinessBehaviors(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse)
+VatomAPI_getBusinessBehaviors(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1380,12 +1340,9 @@ VatomAPI_getBusinessBehaviors(apiClient_t *apiClient, double version, long accou
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/behaviors");
+    char *localVarPath = strdup("/vatom/b/behaviors");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1453,7 +1410,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -1482,7 +1438,7 @@ end:
 // Get the coins for a Businesss.
 //
 void
-VatomAPI_getBusinessCoinsBalance(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse)
+VatomAPI_getBusinessCoinsBalance(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1496,12 +1452,9 @@ VatomAPI_getBusinessCoinsBalance(apiClient_t *apiClient, double version, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/coins/get");
+    char *localVarPath = strdup("/vatom/b/coins/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1569,7 +1522,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -1598,7 +1550,7 @@ end:
 // Get the business ids the logged in user has access to.
 //
 void
-VatomAPI_getBusinessIds(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse)
+VatomAPI_getBusinessIds(apiClient_t *apiClient, long accountId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1612,12 +1564,9 @@ VatomAPI_getBusinessIds(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/businesses");
+    char *localVarPath = strdup("/vatom/me/businesses");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1673,7 +1622,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
 
 }
 
@@ -1682,7 +1630,7 @@ end:
 // Gets the business info tied to this account.
 //
 void
-VatomAPI_getBusinessInfo(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_getBusinessInfo(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1696,12 +1644,9 @@ VatomAPI_getBusinessInfo(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/get");
+    char *localVarPath = strdup("/vatom/b/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1781,7 +1726,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -1830,7 +1774,7 @@ end:
 // Gets the users of a business.
 //
 void
-VatomAPI_getBusinessUsers(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse)
+VatomAPI_getBusinessUsers(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1844,12 +1788,9 @@ VatomAPI_getBusinessUsers(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/users");
+    char *localVarPath = strdup("/vatom/b/users");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1917,7 +1858,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -1946,7 +1886,7 @@ end:
 // Get campaign group entities.
 //
 void
-VatomAPI_getCampaignGroupEntities(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
+VatomAPI_getCampaignGroupEntities(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1960,12 +1900,9 @@ VatomAPI_getCampaignGroupEntities(apiClient_t *apiClient, double version, long a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign-groups/entities");
+    char *localVarPath = strdup("/vatom/b/campaign-groups/entities");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2045,7 +1982,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -2094,7 +2030,7 @@ end:
 // Get campaign group rules.
 //
 void
-VatomAPI_getCampaignGroupRules(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
+VatomAPI_getCampaignGroupRules(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2108,12 +2044,9 @@ VatomAPI_getCampaignGroupRules(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign-groups/rules");
+    char *localVarPath = strdup("/vatom/b/campaign-groups/rules");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2193,7 +2126,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -2242,7 +2174,7 @@ end:
 // Get campaign group stats.
 //
 void
-VatomAPI_getCampaignGroupStats(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
+VatomAPI_getCampaignGroupStats(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2256,12 +2188,9 @@ VatomAPI_getCampaignGroupStats(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign-groups/stats");
+    char *localVarPath = strdup("/vatom/b/campaign-groups/stats");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2341,7 +2270,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -2390,7 +2318,7 @@ end:
 // Gets the info on a campaign.
 //
 void
-VatomAPI_getCampaignInfo(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
+VatomAPI_getCampaignInfo(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2404,12 +2332,9 @@ VatomAPI_getCampaignInfo(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign-groups/get");
+    char *localVarPath = strdup("/vatom/b/campaign-groups/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2489,7 +2414,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -2538,7 +2462,7 @@ end:
 // Gets the guest list of an event.
 //
 void
-VatomAPI_getEventGuestList(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse)
+VatomAPI_getEventGuestList(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2552,12 +2476,9 @@ VatomAPI_getEventGuestList(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/events/guests/get");
+    char *localVarPath = strdup("/vatom/b/events/guests/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2637,7 +2558,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -2686,7 +2606,7 @@ end:
 // Gets the logged in user's Vatom Inventory.
 //
 void
-VatomAPI_getInventory(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_getInventory(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2700,12 +2620,9 @@ VatomAPI_getInventory(apiClient_t *apiClient, double version, long accountId, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/inventory");
+    char *localVarPath = strdup("/vatom/me/inventory");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2773,7 +2690,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomParameters){
         free(keyQuery_vatomParameters);
         keyQuery_vatomParameters = NULL;
@@ -2802,7 +2718,7 @@ end:
 // Get following.
 //
 void
-VatomAPI_getMyFollowing(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse)
+VatomAPI_getMyFollowing(apiClient_t *apiClient, long accountId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2816,12 +2732,9 @@ VatomAPI_getMyFollowing(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/rels/following");
+    char *localVarPath = strdup("/vatom/me/rels/following");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2877,7 +2790,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
 
 }
 
@@ -2886,7 +2798,7 @@ end:
 // Gets the points balance of a Vatom user.
 //
 void
-VatomAPI_getPointsBalance(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse)
+VatomAPI_getPointsBalance(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2900,12 +2812,9 @@ VatomAPI_getPointsBalance(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/u/campaign/points/get");
+    char *localVarPath = strdup("/vatom/u/campaign/points/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2985,7 +2894,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -3034,7 +2942,7 @@ end:
 // Gets the points balance of a Vatom user.
 //
 void
-VatomAPI_getPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse)
+VatomAPI_getPointsBalanceAsBusiness(apiClient_t *apiClient, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3048,12 +2956,9 @@ VatomAPI_getPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign/u/points/get");
+    char *localVarPath = strdup("/vatom/b/campaign/u/points/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3145,7 +3050,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -3214,7 +3118,7 @@ end:
 // Gets the details of a space.
 //
 void
-VatomAPI_getSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse)
+VatomAPI_getSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3228,12 +3132,9 @@ VatomAPI_getSpace(apiClient_t *apiClient, double version, long accountId, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/spaces/get");
+    char *localVarPath = strdup("/vatom/b/spaces/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3313,7 +3214,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -3362,7 +3262,7 @@ end:
 // Get the coins for a user (as a Business).
 //
 void
-VatomAPI_getUserCoinsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, int *returnRawResponse)
+VatomAPI_getUserCoinsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3376,12 +3276,9 @@ VatomAPI_getUserCoinsAsBusiness(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/users/coins/get");
+    char *localVarPath = strdup("/vatom/b/users/coins/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3461,7 +3358,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -3510,7 +3406,7 @@ end:
 // Gets the coins balance for a Vatom User.
 //
 void
-VatomAPI_getUserCoinsBalance(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_getUserCoinsBalance(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3524,12 +3420,9 @@ VatomAPI_getUserCoinsBalance(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/u/coins/get");
+    char *localVarPath = strdup("/vatom/u/coins/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3609,7 +3502,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -3658,7 +3550,7 @@ end:
 // Get user followers.
 //
 void
-VatomAPI_getUserFollowers(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, int *returnRawResponse)
+VatomAPI_getUserFollowers(apiClient_t *apiClient, long accountId, char *vatomUserId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3672,12 +3564,9 @@ VatomAPI_getUserFollowers(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/users/rels/followers");
+    char *localVarPath = strdup("/vatom/users/rels/followers");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3745,7 +3634,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -3774,7 +3662,7 @@ end:
 // Get user following.
 //
 void
-VatomAPI_getUserFollowing(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, int *returnRawResponse)
+VatomAPI_getUserFollowing(apiClient_t *apiClient, long accountId, char *vatomUserId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3788,12 +3676,9 @@ VatomAPI_getUserFollowing(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/users/rels/following");
+    char *localVarPath = strdup("/vatom/users/rels/following");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3861,7 +3746,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -3890,7 +3774,7 @@ end:
 // Get a User's Info.
 //
 void
-VatomAPI_getUserInfo(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, int *returnRawResponse)
+VatomAPI_getUserInfo(apiClient_t *apiClient, long accountId, char *vatomUserId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3904,12 +3788,9 @@ VatomAPI_getUserInfo(apiClient_t *apiClient, double version, long accountId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/user/get");
+    char *localVarPath = strdup("/vatom/user/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3977,7 +3858,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -4006,7 +3886,7 @@ end:
 // Gets the logged in user's profile in Vatom.
 //
 void
-VatomAPI_getUserProfile(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse)
+VatomAPI_getUserProfile(apiClient_t *apiClient, long accountId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4020,12 +3900,9 @@ VatomAPI_getUserProfile(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/get");
+    char *localVarPath = strdup("/vatom/me/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4081,7 +3958,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
 
 }
 
@@ -4090,7 +3966,7 @@ end:
 // Gets the details of a event.
 //
 void
-VatomAPI_getVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse)
+VatomAPI_getVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4104,12 +3980,9 @@ VatomAPI_getVatomEvent(apiClient_t *apiClient, double version, long accountId, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/events/get");
+    char *localVarPath = strdup("/vatom/b/events/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4189,7 +4062,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -4238,7 +4110,7 @@ end:
 // Get Vatom NFT Details
 //
 void
-VatomAPI_getVatomNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, int *returnRawResponse)
+VatomAPI_getVatomNFT(apiClient_t *apiClient, long accountId, char *vatomId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4252,12 +4124,9 @@ VatomAPI_getVatomNFT(apiClient_t *apiClient, double version, long accountId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/vatoms/get");
+    char *localVarPath = strdup("/vatom/vatoms/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4325,7 +4194,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomId){
         free(keyQuery_vatomId);
         keyQuery_vatomId = NULL;
@@ -4354,7 +4222,7 @@ end:
 // Gets the communities tied to a business.
 //
 void
-VatomAPI_listCommunities(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_listCommunities(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4368,12 +4236,9 @@ VatomAPI_listCommunities(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/communities/search");
+    char *localVarPath = strdup("/vatom/b/communities/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4453,7 +4318,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -4502,7 +4366,7 @@ end:
 // Gets the events tied to a business.
 //
 void
-VatomAPI_listEvents(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_listEvents(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4516,12 +4380,9 @@ VatomAPI_listEvents(apiClient_t *apiClient, double version, long accountId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/events/search");
+    char *localVarPath = strdup("/vatom/b/events/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4601,7 +4462,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -4650,7 +4510,7 @@ end:
 // Gets the spaces tied to a business.
 //
 void
-VatomAPI_listSpaces(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_listSpaces(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4664,12 +4524,9 @@ VatomAPI_listSpaces(apiClient_t *apiClient, double version, long accountId, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/spaces/search");
+    char *localVarPath = strdup("/vatom/b/spaces/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4749,7 +4606,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -4798,7 +4654,7 @@ end:
 // Gets the logged in user's Vatom coin transactions.
 //
 void
-VatomAPI_listUserCoinTransactions(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_listUserCoinTransactions(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4812,12 +4668,9 @@ VatomAPI_listUserCoinTransactions(apiClient_t *apiClient, double version, long a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/u/coins/txns/search");
+    char *localVarPath = strdup("/vatom/u/coins/txns/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4897,7 +4750,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -4946,7 +4798,7 @@ end:
 // List coin transactions for a user (as a Business).
 //
 void
-VatomAPI_listUserCoinTransactionsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_listUserCoinTransactionsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4960,12 +4812,9 @@ VatomAPI_listUserCoinTransactionsAsBusiness(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/users/coins/txns/search");
+    char *localVarPath = strdup("/vatom/b/users/coins/txns/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5057,7 +4906,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -5126,7 +4974,7 @@ end:
 // Perform Action on NFT.
 //
 void
-VatomAPI_performActionOnNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, char *vatomAction, char *vatomParameters, int *returnRawResponse)
+VatomAPI_performActionOnNFT(apiClient_t *apiClient, long accountId, char *vatomId, char *vatomAction, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5140,12 +4988,9 @@ VatomAPI_performActionOnNFT(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/vatoms/actions");
+    char *localVarPath = strdup("/vatom/me/vatoms/actions");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5237,7 +5082,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomId){
         free(keyQuery_vatomId);
         keyQuery_vatomId = NULL;
@@ -5306,7 +5150,7 @@ end:
 // Redeem an NFT.
 //
 void
-VatomAPI_redeemNFT(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_redeemNFT(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5320,12 +5164,9 @@ VatomAPI_redeemNFT(apiClient_t *apiClient, double version, long accountId, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/redemptions");
+    char *localVarPath = strdup("/vatom/b/redemptions");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5405,7 +5246,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -5454,7 +5294,7 @@ end:
 // Redeem the coins for a user (as a Business).
 //
 void
-VatomAPI_redeemUserCoinsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_redeemUserCoinsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5468,12 +5308,9 @@ VatomAPI_redeemUserCoinsAsBusiness(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/users/coins/redeem");
+    char *localVarPath = strdup("/vatom/b/users/coins/redeem");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5565,7 +5402,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -5634,7 +5470,7 @@ end:
 // Searches for Vatom businesses.
 //
 void
-VatomAPI_searchBusinesses(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_searchBusinesses(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5648,12 +5484,9 @@ VatomAPI_searchBusinesses(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/search");
+    char *localVarPath = strdup("/vatom/b/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5721,7 +5554,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomParameters){
         free(keyQuery_vatomParameters);
         keyQuery_vatomParameters = NULL;
@@ -5750,7 +5582,7 @@ end:
 // Search campaign groups.
 //
 void
-VatomAPI_searchCampaignGroups(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse)
+VatomAPI_searchCampaignGroups(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5764,12 +5596,9 @@ VatomAPI_searchCampaignGroups(apiClient_t *apiClient, double version, long accou
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign-groups/search");
+    char *localVarPath = strdup("/vatom/b/campaign-groups/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5837,7 +5666,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -5866,7 +5694,7 @@ end:
 // Search User Identities.
 //
 void
-VatomAPI_searchIdentities(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse)
+VatomAPI_searchIdentities(apiClient_t *apiClient, long accountId, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5880,12 +5708,9 @@ VatomAPI_searchIdentities(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/identities/search");
+    char *localVarPath = strdup("/vatom/me/identities/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -5941,7 +5766,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
 
 }
 
@@ -5950,7 +5774,7 @@ end:
 // Searches the logged in user's Vatom Inventory.
 //
 void
-VatomAPI_searchInventory(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_searchInventory(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5964,12 +5788,9 @@ VatomAPI_searchInventory(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/user-inventory/search");
+    char *localVarPath = strdup("/vatom/user-inventory/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -6037,7 +5858,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomParameters){
         free(keyQuery_vatomParameters);
         keyQuery_vatomParameters = NULL;
@@ -6066,7 +5886,7 @@ end:
 // Send an NFT.
 //
 void
-VatomAPI_sendNFT(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_sendNFT(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -6080,12 +5900,9 @@ VatomAPI_sendNFT(apiClient_t *apiClient, double version, long accountId, char *a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaigns/send");
+    char *localVarPath = strdup("/vatom/b/campaigns/send");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -6177,7 +5994,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -6246,7 +6062,7 @@ end:
 // Sets the points balance of a Vatom user.
 //
 void
-VatomAPI_setPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_setPointsBalanceAsBusiness(apiClient_t *apiClient, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -6260,12 +6076,9 @@ VatomAPI_setPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/campaign/u/points/update");
+    char *localVarPath = strdup("/vatom/b/campaign/u/points/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -6369,7 +6182,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -6458,7 +6270,7 @@ end:
 // Transfer coins from Vatom Users.
 //
 void
-VatomAPI_transferUserCoins(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_transferUserCoins(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -6472,12 +6284,9 @@ VatomAPI_transferUserCoins(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/u/coins/transfer");
+    char *localVarPath = strdup("/vatom/u/coins/transfer");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -6557,7 +6366,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -6606,7 +6414,7 @@ end:
 // Fund/update coins for a Businesss.
 //
 void
-VatomAPI_updateBusinessCoins(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_updateBusinessCoins(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -6620,12 +6428,9 @@ VatomAPI_updateBusinessCoins(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/coins/update");
+    char *localVarPath = strdup("/vatom/b/coins/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -6705,7 +6510,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -6754,7 +6558,7 @@ end:
 // Update the guest list of an event.
 //
 void
-VatomAPI_updateEventGuestList(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_updateEventGuestList(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -6768,12 +6572,9 @@ VatomAPI_updateEventGuestList(apiClient_t *apiClient, double version, long accou
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/events/guests/update");
+    char *localVarPath = strdup("/vatom/b/events/guests/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -6865,7 +6666,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -6934,7 +6734,7 @@ end:
 // Update a Vatom space.
 //
 void
-VatomAPI_updateSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomSpaceId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_updateSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomSpaceId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -6948,12 +6748,9 @@ VatomAPI_updateSpace(apiClient_t *apiClient, double version, long accountId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/spaces/update");
+    char *localVarPath = strdup("/vatom/b/spaces/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -7045,7 +6842,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -7114,7 +6910,7 @@ end:
 // Update the coins for a user (as a Business).
 //
 void
-VatomAPI_updateUserCoinsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse)
+VatomAPI_updateUserCoinsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -7128,12 +6924,9 @@ VatomAPI_updateUserCoinsAsBusiness(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/users/coins/update");
+    char *localVarPath = strdup("/vatom/b/users/coins/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -7225,7 +7018,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomUserId){
         free(keyQuery_vatomUserId);
         keyQuery_vatomUserId = NULL;
@@ -7294,7 +7086,7 @@ end:
 // Gets the logged in user's profile in Vatom.
 //
 void
-VatomAPI_updateUserProfile(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_updateUserProfile(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -7308,12 +7100,9 @@ VatomAPI_updateUserProfile(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/me/update");
+    char *localVarPath = strdup("/vatom/me/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -7381,7 +7170,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_vatomParameters){
         free(keyQuery_vatomParameters);
         keyQuery_vatomParameters = NULL;
@@ -7410,7 +7198,7 @@ end:
 // Update a Vatom event.
 //
 void
-VatomAPI_updateVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse)
+VatomAPI_updateVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -7424,12 +7212,9 @@ VatomAPI_updateVatomEvent(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vatom/b/events/update");
+    char *localVarPath = strdup("/vatom/b/events/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -7521,7 +7306,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;

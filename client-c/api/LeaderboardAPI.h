@@ -14,7 +14,7 @@
 // Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 //
 leaderboard_response_t*
-LeaderboardAPI_createLeaderboard(apiClient_t *apiClient, double version, long accountId, char *appKey, char *rankType, char *leaderboardMode, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, char *sortField, char *title, char *description, char *metaData);
+LeaderboardAPI_createLeaderboard(apiClient_t *apiClient, long accountId, char *appKey, char *rankType, char *leaderboardMode, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, char *sortField, char *title, char *description, char *metaData);
 
 
 // Delete the Leader Board
@@ -22,7 +22,7 @@ LeaderboardAPI_createLeaderboard(apiClient_t *apiClient, double version, long ac
 // Removes a leader board id.
 //
 sirqul_response_t*
-LeaderboardAPI_deleteLeaderboard(apiClient_t *apiClient, double version, long leaderboardId, long accountId);
+LeaderboardAPI_deleteLeaderboard(apiClient_t *apiClient, long leaderboardId, long accountId);
 
 
 // Read a leaderboard by id and retrieve the matching ranking list
@@ -30,7 +30,7 @@ LeaderboardAPI_deleteLeaderboard(apiClient_t *apiClient, double version, long le
 // Read a leaderboard by id and retrieve the matching ranking list
 //
 leaderboard_response_t*
-LeaderboardAPI_getLeaderboard(apiClient_t *apiClient, double version, long leaderboardId, long accountId, int *includeFullRankingList);
+LeaderboardAPI_getLeaderboard(apiClient_t *apiClient, long leaderboardId, long accountId, int *includeFullRankingList);
 
 
 // Search leaderboard and retrieve the matching ranking list
@@ -38,7 +38,7 @@ LeaderboardAPI_getLeaderboard(apiClient_t *apiClient, double version, long leade
 // Search leaderboard and retrieve the matching ranking list
 //
 leaderboard_response_t*
-LeaderboardAPI_searchLeaderboards(apiClient_t *apiClient, double version, long accountId, char *appKey, int *globalOnly, char *keyword, char *leaderboardIds, char *rankTypes, char *sortField, int *descending, int *includeInactive, int *includeAppResponse, int *start, int *limit);
+LeaderboardAPI_searchLeaderboards(apiClient_t *apiClient, long accountId, char *appKey, int *globalOnly, char *keyword, char *leaderboardIds, char *rankTypes, char *sortField, int *descending, int *includeInactive, int *includeAppResponse, int *start, int *limit);
 
 
 // Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
@@ -46,6 +46,6 @@ LeaderboardAPI_searchLeaderboards(apiClient_t *apiClient, double version, long a
 // Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 //
 leaderboard_response_t*
-LeaderboardAPI_updateLeaderboard(apiClient_t *apiClient, double version, long leaderboardId, long accountId, char *appKey, char *rankType, char *leaderboardMode, char *sortField, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, int *active, char *title, char *description, char *metaData);
+LeaderboardAPI_updateLeaderboard(apiClient_t *apiClient, long leaderboardId, long accountId, char *appKey, char *rankType, char *leaderboardMode, char *sortField, binary_t* iconMedia, long iconAssetId, binary_t* bannerMedia, long bannerAssetId, int *limitation, int *active, char *title, char *description, char *metaData);
 
 

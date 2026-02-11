@@ -14,7 +14,7 @@
 // Recieve an SMS payload from Twillio to purchase an offer.
 //
 twi_ml_response_t*
-TwilioAPI_smsBuyOffer(apiClient_t *apiClient, double version, char *appKey, char *Body, char *From, char *currencyType)
+TwilioAPI_smsBuyOffer(apiClient_t *apiClient, char *appKey, char *Body, char *From, char *currencyType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,17 +28,14 @@ TwilioAPI_smsBuyOffer(apiClient_t *apiClient, double version, char *appKey, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/sms/buyoffer/{appKey}");
+    char *localVarPath = strdup("/sms/buyoffer/{appKey}");
 
     if(!appKey)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(appKey)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_appKey =  + strlen(appKey)+3 + sizeof("{ appKey }") - 1;
+    long sizeOfPathParams_appKey = strlen(appKey)+3 + sizeof("{ appKey }") - 1;
     if(appKey == NULL) {
         goto end;
     }
@@ -123,7 +120,6 @@ TwilioAPI_smsBuyOffer(apiClient_t *apiClient, double version, char *appKey, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_appKey);
     if(keyQuery_Body){
         free(keyQuery_Body);

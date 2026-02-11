@@ -15,7 +15,7 @@
 // Get the results of the import batch.
 //
 list_t*_t*
-OptimizeAPI_getOptimizationResult(apiClient_t *apiClient, double version, char *batchID, int *start, int *limit);
+OptimizeAPI_getOptimizationResult(apiClient_t *apiClient, char *batchID, int *start, int *limit);
 
 
 // Request Optimization
@@ -23,6 +23,6 @@ OptimizeAPI_getOptimizationResult(apiClient_t *apiClient, double version, char *
 // Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 //
 import_statuses_t*
-OptimizeAPI_requestOptimization(apiClient_t *apiClient, double version, orders_t *body);
+OptimizeAPI_requestOptimization(apiClient_t *apiClient, orders_t *body);
 
 

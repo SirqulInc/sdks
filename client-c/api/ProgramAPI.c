@@ -14,7 +14,7 @@
 // Create a new program
 //
 program_t*
-ProgramAPI_createProgram(apiClient_t *apiClient, double version, program_t *body)
+ProgramAPI_createProgram(apiClient_t *apiClient, program_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ ProgramAPI_createProgram(apiClient_t *apiClient, double version, program_t *body
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/program");
+    char *localVarPath = strdup("/program");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -85,7 +82,6 @@ ProgramAPI_createProgram(apiClient_t *apiClient, double version, program_t *body
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -103,7 +99,7 @@ end:
 // Delete an existing program
 //
 void
-ProgramAPI_deleteProgram(apiClient_t *apiClient, double version, long id)
+ProgramAPI_deleteProgram(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ ProgramAPI_deleteProgram(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/program/{id}");
+    char *localVarPath = strdup("/program/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -167,7 +160,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
 
 }
@@ -177,7 +169,7 @@ end:
 // Get an existing program
 //
 program_t*
-ProgramAPI_getProgram(apiClient_t *apiClient, double version, long id)
+ProgramAPI_getProgram(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -191,15 +183,12 @@ ProgramAPI_getProgram(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/program/{id}");
+    char *localVarPath = strdup("/program/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -252,7 +241,6 @@ ProgramAPI_getProgram(apiClient_t *apiClient, double version, long id)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     return elementToReturn;
 end:
@@ -266,7 +254,7 @@ end:
 // Update an existing program
 //
 program_t*
-ProgramAPI_postProgram(apiClient_t *apiClient, double version, long id, program_t *body)
+ProgramAPI_postProgram(apiClient_t *apiClient, long id, program_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -280,15 +268,12 @@ ProgramAPI_postProgram(apiClient_t *apiClient, double version, long id, program_
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/program/{id}");
+    char *localVarPath = strdup("/program/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -351,7 +336,6 @@ ProgramAPI_postProgram(apiClient_t *apiClient, double version, long id, program_
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -370,7 +354,7 @@ end:
 // Update an existing program
 //
 program_t*
-ProgramAPI_putProgram(apiClient_t *apiClient, double version, long id, program_t *body)
+ProgramAPI_putProgram(apiClient_t *apiClient, long id, program_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -384,15 +368,12 @@ ProgramAPI_putProgram(apiClient_t *apiClient, double version, long id, program_t
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/program/{id}");
+    char *localVarPath = strdup("/program/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -455,7 +436,6 @@ ProgramAPI_putProgram(apiClient_t *apiClient, double version, long id, program_t
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -474,7 +454,7 @@ end:
 // Search for programs
 //
 list_t*
-ProgramAPI_searchPrograms(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword)
+ProgramAPI_searchPrograms(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -488,12 +468,9 @@ ProgramAPI_searchPrograms(apiClient_t *apiClient, double version, char *sortFiel
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/program");
+    char *localVarPath = strdup("/program");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -621,7 +598,6 @@ ProgramAPI_searchPrograms(apiClient_t *apiClient, double version, char *sortFiel
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_keyword){
         free(keyQuery_keyword);
         keyQuery_keyword = NULL;

@@ -170,7 +170,7 @@ end:
 // Batch create tracking legs
 //
 list_t*
-TrackingAPI_batchSaveTracking(apiClient_t *apiClient, double version, char *data, char *deviceId, long accountId, int *generateAccounts, int *updateAccountLocations, char *defaultTag, char *slaveUID)
+TrackingAPI_batchSaveTracking(apiClient_t *apiClient, char *data, char *deviceId, long accountId, int *generateAccounts, int *updateAccountLocations, char *defaultTag, char *slaveUID)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -184,12 +184,9 @@ TrackingAPI_batchSaveTracking(apiClient_t *apiClient, double version, char *data
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/batch/create");
+    char *localVarPath = strdup("/tracking/batch/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -327,7 +324,6 @@ TrackingAPI_batchSaveTracking(apiClient_t *apiClient, double version, char *data
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -420,7 +416,7 @@ end:
 // Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
 //
 predicted_location_response_t*
-TrackingAPI_getPredictedLocations(apiClient_t *apiClient, double version, long accountId, double latitude, double longitude, long dateCheck, char *hourCheck, long threshold, sirqul_iot_platform_getPredictedLocations_distanceUnit_e distanceUnit, double searchRange, sirqul_iot_platform_getPredictedLocations_sortOrder_e sortOrder)
+TrackingAPI_getPredictedLocations(apiClient_t *apiClient, long accountId, double latitude, double longitude, long dateCheck, char *hourCheck, long threshold, sirqul_iot_platform_getPredictedLocations_distanceUnit_e distanceUnit, double searchRange, sirqul_iot_platform_getPredictedLocations_sortOrder_e sortOrder)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -434,12 +430,9 @@ TrackingAPI_getPredictedLocations(apiClient_t *apiClient, double version, long a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/predicted/get");
+    char *localVarPath = strdup("/tracking/predicted/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -603,7 +596,6 @@ TrackingAPI_getPredictedLocations(apiClient_t *apiClient, double version, long a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -692,7 +684,7 @@ end:
 // Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
 //
 list_t*
-TrackingAPI_getPredictedPath(apiClient_t *apiClient, double version, long accountId, long startStepId, long endStepId)
+TrackingAPI_getPredictedPath(apiClient_t *apiClient, long accountId, long startStepId, long endStepId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -706,12 +698,9 @@ TrackingAPI_getPredictedPath(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/path/get");
+    char *localVarPath = strdup("/tracking/path/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -799,7 +788,6 @@ TrackingAPI_getPredictedPath(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -836,7 +824,7 @@ end:
 // Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
 //
 list_t*
-TrackingAPI_getPreferredLocations(apiClient_t *apiClient, double version, long accountId, double latitude, double longitude, long dateCheck, char *hourCheck, char *sortField, int *descending, int *start, int *limit, double searchRange, sirqul_iot_platform_getPreferredLocations_distanceUnit_e distanceUnit)
+TrackingAPI_getPreferredLocations(apiClient_t *apiClient, long accountId, double latitude, double longitude, long dateCheck, char *hourCheck, char *sortField, int *descending, int *start, int *limit, double searchRange, sirqul_iot_platform_getPreferredLocations_distanceUnit_e distanceUnit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -850,12 +838,9 @@ TrackingAPI_getPreferredLocations(apiClient_t *apiClient, double version, long a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/preferred/search");
+    char *localVarPath = strdup("/tracking/preferred/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1055,7 +1040,6 @@ TrackingAPI_getPreferredLocations(apiClient_t *apiClient, double version, long a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1176,7 +1160,7 @@ end:
 // Retrieve tracking data to be able to show where a user has been.
 //
 list_t*
-TrackingAPI_getTrackingLegs(apiClient_t *apiClient, double version, char *deviceId, long accountId, long ownerId, char *trackingDeviceId, long startDate, long endDate, char *tags, int *getLastPoint)
+TrackingAPI_getTrackingLegs(apiClient_t *apiClient, char *deviceId, long accountId, long ownerId, char *trackingDeviceId, long startDate, long endDate, char *tags, int *getLastPoint)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1190,12 +1174,9 @@ TrackingAPI_getTrackingLegs(apiClient_t *apiClient, double version, char *device
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/search");
+    char *localVarPath = strdup("/tracking/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1344,7 +1325,6 @@ TrackingAPI_getTrackingLegs(apiClient_t *apiClient, double version, char *device
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1437,7 +1417,7 @@ end:
 // Send tracking points to be able to generate pathing data
 //
 sirqul_response_t*
-TrackingAPI_saveTrackingLeg(apiClient_t *apiClient, double version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, char *deviceId, long accountId, double distance, long duration, char *steps, char *tags)
+TrackingAPI_saveTrackingLeg(apiClient_t *apiClient, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, char *deviceId, long accountId, double distance, long duration, char *steps, char *tags)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1451,12 +1431,9 @@ TrackingAPI_saveTrackingLeg(apiClient_t *apiClient, double version, double start
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/leg/create");
+    char *localVarPath = strdup("/tracking/leg/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1662,7 +1639,6 @@ TrackingAPI_saveTrackingLeg(apiClient_t *apiClient, double version, double start
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1783,7 +1759,7 @@ end:
 // Send tracking points to be able to generate pathing data
 //
 sirqul_response_t*
-TrackingAPI_saveTrackingStep(apiClient_t *apiClient, double version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, char *deviceId, long accountId, double distance, long duration)
+TrackingAPI_saveTrackingStep(apiClient_t *apiClient, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, char *deviceId, long accountId, double distance, long duration)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1797,12 +1773,9 @@ TrackingAPI_saveTrackingStep(apiClient_t *apiClient, double version, long legId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/step/create");
+    char *localVarPath = strdup("/tracking/step/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1996,7 +1969,6 @@ TrackingAPI_saveTrackingStep(apiClient_t *apiClient, double version, long legId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2101,7 +2073,7 @@ end:
 // Search for all accounts that have tracking legs data by the given constraints.
 //
 list_t*
-TrackingAPI_searchAccountsWithTrackingLegs(apiClient_t *apiClient, double version, long accountId, char *keyword, long startDate, long endDate, char *tags, char *audienceIds, double latitude, double longitude, double range, char *sortField, int *descending, int *start, int *limit, int *activeOnly)
+TrackingAPI_searchAccountsWithTrackingLegs(apiClient_t *apiClient, long accountId, char *keyword, long startDate, long endDate, char *tags, char *audienceIds, double latitude, double longitude, double range, char *sortField, int *descending, int *start, int *limit, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2115,12 +2087,9 @@ TrackingAPI_searchAccountsWithTrackingLegs(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/list");
+    char *localVarPath = strdup("/tracking/list");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2356,7 +2325,6 @@ TrackingAPI_searchAccountsWithTrackingLegs(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2513,7 +2481,7 @@ end:
 // Retrieve tracking data for billable/account scoped queries.
 //
 list_t*
-TrackingAPI_searchTrackingLegs(apiClient_t *apiClient, double version, long accountId, char *appKey, char *trackingDeviceId, long startDate, long endDate, char *tags, int *start, int *limit)
+TrackingAPI_searchTrackingLegs(apiClient_t *apiClient, long accountId, char *appKey, char *trackingDeviceId, long startDate, long endDate, char *tags, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2527,12 +2495,9 @@ TrackingAPI_searchTrackingLegs(apiClient_t *apiClient, double version, long acco
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/tracking/searchByBillable");
+    char *localVarPath = strdup("/tracking/searchByBillable");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2682,7 +2647,6 @@ TrackingAPI_searchTrackingLegs(apiClient_t *apiClient, double version, long acco
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

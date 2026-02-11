@@ -13,7 +13,7 @@
 // Create new cargo type
 //
 cargo_type_t*
-CargoTypeAPI_createCargoType(apiClient_t *apiClient, double version, cargo_type_t *body);
+CargoTypeAPI_createCargoType(apiClient_t *apiClient, cargo_type_t *body);
 
 
 // Delete Cargo Type
@@ -21,7 +21,7 @@ CargoTypeAPI_createCargoType(apiClient_t *apiClient, double version, cargo_type_
 // Delete a type of cargo
 //
 void
-CargoTypeAPI_deleteCargoType(apiClient_t *apiClient, double version, long cargoTypeId);
+CargoTypeAPI_deleteCargoType(apiClient_t *apiClient, long cargoTypeId);
 
 
 // Get Cargo Type
@@ -29,7 +29,7 @@ CargoTypeAPI_deleteCargoType(apiClient_t *apiClient, double version, long cargoT
 // Get an existing cargo type
 //
 cargo_type_t*
-CargoTypeAPI_getCargoType(apiClient_t *apiClient, double version, long cargoTypeId);
+CargoTypeAPI_getCargoType(apiClient_t *apiClient, long cargoTypeId);
 
 
 // Search Cargo Type
@@ -37,7 +37,7 @@ CargoTypeAPI_getCargoType(apiClient_t *apiClient, double version, long cargoType
 // Search for types of cargo
 //
 list_t*
-CargoTypeAPI_searchCargoTypes(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId);
+CargoTypeAPI_searchCargoTypes(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long retailerId, long hubId);
 
 
 // Update Cargo Type
@@ -45,6 +45,6 @@ CargoTypeAPI_searchCargoTypes(apiClient_t *apiClient, double version, char *sort
 // Update an existing cargo type
 //
 cargo_type_t*
-CargoTypeAPI_updateCargoType(apiClient_t *apiClient, double version, long cargoTypeId, cargo_type_t *body);
+CargoTypeAPI_updateCargoType(apiClient_t *apiClient, long cargoTypeId, cargo_type_t *body);
 
 

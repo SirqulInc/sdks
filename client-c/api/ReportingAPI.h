@@ -26,7 +26,7 @@ typedef enum  { sirqul_iot_platform_searchBatch_STATUS_NULL = 0, sirqul_iot_plat
 // Create an entry for the batch for offline report
 //
 report_batch_response_t*
-ReportingAPI_createBatch(apiClient_t *apiClient, double version, long accountId, sirqul_iot_platform_createBatch_status_e status, int *previewLimit, char *appKey, char *endpoint, char *parameters, char *name, long startDate, long endDate, char *description, char *pageUrl);
+ReportingAPI_createBatch(apiClient_t *apiClient, long accountId, sirqul_iot_platform_createBatch_status_e status, int *previewLimit, char *appKey, char *endpoint, char *parameters, char *name, long startDate, long endDate, char *description, char *pageUrl);
 
 
 // Create Offline Report
@@ -34,7 +34,7 @@ ReportingAPI_createBatch(apiClient_t *apiClient, double version, long accountId,
 // Create an entry for the batch for offline report
 //
 report_region_leg_summary_batch_response_t*
-ReportingAPI_createRegionLegSummaryBatch(apiClient_t *apiClient, double version, list_t *body);
+ReportingAPI_createRegionLegSummaryBatch(apiClient_t *apiClient, list_t *body);
 
 
 // Delete Offline Report
@@ -42,7 +42,7 @@ ReportingAPI_createRegionLegSummaryBatch(apiClient_t *apiClient, double version,
 // Deletes a batch report.
 //
 sirqul_response_t*
-ReportingAPI_deleteBatch(apiClient_t *apiClient, double version, long accountId, long batchId);
+ReportingAPI_deleteBatch(apiClient_t *apiClient, long accountId, long batchId);
 
 
 // Get Offline Report
@@ -50,7 +50,7 @@ ReportingAPI_deleteBatch(apiClient_t *apiClient, double version, long accountId,
 // Checks status of batch report.
 //
 report_batch_response_t*
-ReportingAPI_getReportBatch(apiClient_t *apiClient, double version, long accountId, long batchId, int *allResults);
+ReportingAPI_getReportBatch(apiClient_t *apiClient, long accountId, long batchId, int *allResults);
 
 
 // Run Report
@@ -58,7 +58,7 @@ ReportingAPI_getReportBatch(apiClient_t *apiClient, double version, long account
 //  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 //
 report_response_t*
-ReportingAPI_runReport(apiClient_t *apiClient, double version, int *desc, long accountId, char *query, char *parameters, char *order, long start, long limit, sirqul_iot_platform_runReport_responseFormat_e responseFormat);
+ReportingAPI_runReport(apiClient_t *apiClient, int *desc, long accountId, char *query, char *parameters, char *order, long start, long limit, sirqul_iot_platform_runReport_responseFormat_e responseFormat);
 
 
 // Search Offline Reports
@@ -66,6 +66,6 @@ ReportingAPI_runReport(apiClient_t *apiClient, double version, int *desc, long a
 // Retrieves batches for a user..
 //
 list_t*
-ReportingAPI_searchBatch(apiClient_t *apiClient, double version, long accountId, int *start, int *limit, char *names, char *appKey, sirqul_iot_platform_searchBatch_status_e status, int *globalAppSearch, long startDate, long endDate);
+ReportingAPI_searchBatch(apiClient_t *apiClient, long accountId, int *start, int *limit, char *names, char *appKey, sirqul_iot_platform_searchBatch_status_e status, int *globalAppSearch, long startDate, long endDate);
 
 

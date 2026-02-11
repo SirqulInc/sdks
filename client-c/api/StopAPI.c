@@ -14,7 +14,7 @@
 // Get an existing stop
 //
 stop_t*
-StopAPI_getStop(apiClient_t *apiClient, double version, long id)
+StopAPI_getStop(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,15 +28,12 @@ StopAPI_getStop(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/stop/{id}");
+    char *localVarPath = strdup("/stop/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -89,7 +86,6 @@ StopAPI_getStop(apiClient_t *apiClient, double version, long id)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     return elementToReturn;
 end:
@@ -103,7 +99,7 @@ end:
 // Update an existing stop
 //
 stop_t*
-StopAPI_updateStop(apiClient_t *apiClient, double version, long id, stop_t *body)
+StopAPI_updateStop(apiClient_t *apiClient, long id, stop_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ StopAPI_updateStop(apiClient_t *apiClient, double version, long id, stop_t *body
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/stop/{id}");
+    char *localVarPath = strdup("/stop/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -188,7 +181,6 @@ StopAPI_updateStop(apiClient_t *apiClient, double version, long id, stop_t *body
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);

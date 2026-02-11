@@ -12,7 +12,7 @@
 // Create following.
 //
 void
-VatomAPI_createFollowing(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_createFollowing(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse);
 
 
 // Create Vatom Space
@@ -20,7 +20,7 @@ VatomAPI_createFollowing(apiClient_t *apiClient, double version, long accountId,
 // Create a Vatom space.
 //
 void
-VatomAPI_createSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_createSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Create Vatom Event
@@ -28,7 +28,7 @@ VatomAPI_createSpace(apiClient_t *apiClient, double version, long accountId, cha
 // Create a Vatom event.
 //
 void
-VatomAPI_createVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_createVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Delete following
@@ -36,7 +36,7 @@ VatomAPI_createVatomEvent(apiClient_t *apiClient, double version, long accountId
 // Delete following.
 //
 void
-VatomAPI_deleteFollowing(apiClient_t *apiClient, double version, long accountId, char *vatomRelsKey, int *returnRawResponse);
+VatomAPI_deleteFollowing(apiClient_t *apiClient, long accountId, char *vatomRelsKey, int *returnRawResponse);
 
 
 // Reset All Points Balance
@@ -44,7 +44,7 @@ VatomAPI_deleteFollowing(apiClient_t *apiClient, double version, long accountId,
 // Reset All Points Balance.
 //
 void
-VatomAPI_deletePointsBalance(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
+VatomAPI_deletePointsBalance(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
 
 
 // Delete Vatom Space
@@ -52,7 +52,7 @@ VatomAPI_deletePointsBalance(apiClient_t *apiClient, double version, long accoun
 // Delete a Vatom space.
 //
 void
-VatomAPI_deleteSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse);
+VatomAPI_deleteSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse);
 
 
 // Delete Vatom Event
@@ -60,7 +60,7 @@ VatomAPI_deleteSpace(apiClient_t *apiClient, double version, long accountId, cha
 // Delete a Vatom event.
 //
 void
-VatomAPI_deleteVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse);
+VatomAPI_deleteVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse);
 
 
 // Delete Vatom NFT
@@ -68,7 +68,7 @@ VatomAPI_deleteVatomEvent(apiClient_t *apiClient, double version, long accountId
 // Delete Vatom NFT
 //
 void
-VatomAPI_deleteVatomNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, int *returnRawResponse);
+VatomAPI_deleteVatomNFT(apiClient_t *apiClient, long accountId, char *vatomId, int *returnRawResponse);
 
 
 // Execute Action on NFT
@@ -76,7 +76,7 @@ VatomAPI_deleteVatomNFT(apiClient_t *apiClient, double version, long accountId, 
 // Execute Action on NFT.
 //
 void
-VatomAPI_executeActionOnNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_executeActionOnNFT(apiClient_t *apiClient, long accountId, char *vatomId, char *vatomParameters, int *returnRawResponse);
 
 
 // Search Vatom Geo Map
@@ -84,7 +84,7 @@ VatomAPI_executeActionOnNFT(apiClient_t *apiClient, double version, long account
 // Search Vatom Geo Map
 //
 void
-VatomAPI_geomapSearch(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_geomapSearch(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse);
 
 
 // Get Vatom Business Behaviors
@@ -92,7 +92,7 @@ VatomAPI_geomapSearch(apiClient_t *apiClient, double version, long accountId, ch
 // Gets the behaviors of a business.
 //
 void
-VatomAPI_getBusinessBehaviors(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse);
+VatomAPI_getBusinessBehaviors(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse);
 
 
 // Get the coins for a Business
@@ -100,7 +100,7 @@ VatomAPI_getBusinessBehaviors(apiClient_t *apiClient, double version, long accou
 // Get the coins for a Businesss.
 //
 void
-VatomAPI_getBusinessCoinsBalance(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse);
+VatomAPI_getBusinessCoinsBalance(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse);
 
 
 // Get the user business ids
@@ -108,7 +108,7 @@ VatomAPI_getBusinessCoinsBalance(apiClient_t *apiClient, double version, long ac
 // Get the business ids the logged in user has access to.
 //
 void
-VatomAPI_getBusinessIds(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse);
+VatomAPI_getBusinessIds(apiClient_t *apiClient, long accountId, int *returnRawResponse);
 
 
 // Get Vatom Business Info
@@ -116,7 +116,7 @@ VatomAPI_getBusinessIds(apiClient_t *apiClient, double version, long accountId, 
 // Gets the business info tied to this account.
 //
 void
-VatomAPI_getBusinessInfo(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_getBusinessInfo(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Get Vatom Business Users
@@ -124,7 +124,7 @@ VatomAPI_getBusinessInfo(apiClient_t *apiClient, double version, long accountId,
 // Gets the users of a business.
 //
 void
-VatomAPI_getBusinessUsers(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse);
+VatomAPI_getBusinessUsers(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse);
 
 
 // Get Campaign Group Entities
@@ -132,7 +132,7 @@ VatomAPI_getBusinessUsers(apiClient_t *apiClient, double version, long accountId
 // Get campaign group entities.
 //
 void
-VatomAPI_getCampaignGroupEntities(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
+VatomAPI_getCampaignGroupEntities(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
 
 
 // Get Campaign Group Rules
@@ -140,7 +140,7 @@ VatomAPI_getCampaignGroupEntities(apiClient_t *apiClient, double version, long a
 // Get campaign group rules.
 //
 void
-VatomAPI_getCampaignGroupRules(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
+VatomAPI_getCampaignGroupRules(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
 
 
 // Get Campaign Group Stats
@@ -148,7 +148,7 @@ VatomAPI_getCampaignGroupRules(apiClient_t *apiClient, double version, long acco
 // Get campaign group stats.
 //
 void
-VatomAPI_getCampaignGroupStats(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
+VatomAPI_getCampaignGroupStats(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
 
 
 // Get Campaign Info
@@ -156,7 +156,7 @@ VatomAPI_getCampaignGroupStats(apiClient_t *apiClient, double version, long acco
 // Gets the info on a campaign.
 //
 void
-VatomAPI_getCampaignInfo(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
+VatomAPI_getCampaignInfo(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, int *returnRawResponse);
 
 
 // Get Vatom Event Guest List
@@ -164,7 +164,7 @@ VatomAPI_getCampaignInfo(apiClient_t *apiClient, double version, long accountId,
 // Gets the guest list of an event.
 //
 void
-VatomAPI_getEventGuestList(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse);
+VatomAPI_getEventGuestList(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse);
 
 
 // Get Vatom User's Inventory
@@ -172,7 +172,7 @@ VatomAPI_getEventGuestList(apiClient_t *apiClient, double version, long accountI
 // Gets the logged in user's Vatom Inventory.
 //
 void
-VatomAPI_getInventory(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_getInventory(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse);
 
 
 // Get following
@@ -180,7 +180,7 @@ VatomAPI_getInventory(apiClient_t *apiClient, double version, long accountId, ch
 // Get following.
 //
 void
-VatomAPI_getMyFollowing(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse);
+VatomAPI_getMyFollowing(apiClient_t *apiClient, long accountId, int *returnRawResponse);
 
 
 // Get Points Balance
@@ -188,7 +188,7 @@ VatomAPI_getMyFollowing(apiClient_t *apiClient, double version, long accountId, 
 // Gets the points balance of a Vatom user.
 //
 void
-VatomAPI_getPointsBalance(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse);
+VatomAPI_getPointsBalance(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse);
 
 
 // Get Points Balance as Business
@@ -196,7 +196,7 @@ VatomAPI_getPointsBalance(apiClient_t *apiClient, double version, long accountId
 // Gets the points balance of a Vatom user.
 //
 void
-VatomAPI_getPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse);
+VatomAPI_getPointsBalanceAsBusiness(apiClient_t *apiClient, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, int *returnRawResponse);
 
 
 // Get Vatom Space
@@ -204,7 +204,7 @@ VatomAPI_getPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long
 // Gets the details of a space.
 //
 void
-VatomAPI_getSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse);
+VatomAPI_getSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomSpaceId, int *returnRawResponse);
 
 
 // Get the coins for a user (as a Business)
@@ -212,7 +212,7 @@ VatomAPI_getSpace(apiClient_t *apiClient, double version, long accountId, char *
 // Get the coins for a user (as a Business).
 //
 void
-VatomAPI_getUserCoinsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, int *returnRawResponse);
+VatomAPI_getUserCoinsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, int *returnRawResponse);
 
 
 // Gets the coins balance for a Vatom User
@@ -220,7 +220,7 @@ VatomAPI_getUserCoinsAsBusiness(apiClient_t *apiClient, double version, long acc
 // Gets the coins balance for a Vatom User.
 //
 void
-VatomAPI_getUserCoinsBalance(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_getUserCoinsBalance(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse);
 
 
 // Get user followers
@@ -228,7 +228,7 @@ VatomAPI_getUserCoinsBalance(apiClient_t *apiClient, double version, long accoun
 // Get user followers.
 //
 void
-VatomAPI_getUserFollowers(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, int *returnRawResponse);
+VatomAPI_getUserFollowers(apiClient_t *apiClient, long accountId, char *vatomUserId, int *returnRawResponse);
 
 
 // Get user following
@@ -236,7 +236,7 @@ VatomAPI_getUserFollowers(apiClient_t *apiClient, double version, long accountId
 // Get user following.
 //
 void
-VatomAPI_getUserFollowing(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, int *returnRawResponse);
+VatomAPI_getUserFollowing(apiClient_t *apiClient, long accountId, char *vatomUserId, int *returnRawResponse);
 
 
 // Get User Info
@@ -244,7 +244,7 @@ VatomAPI_getUserFollowing(apiClient_t *apiClient, double version, long accountId
 // Get a User's Info.
 //
 void
-VatomAPI_getUserInfo(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, int *returnRawResponse);
+VatomAPI_getUserInfo(apiClient_t *apiClient, long accountId, char *vatomUserId, int *returnRawResponse);
 
 
 // Get Vatom User Profile
@@ -252,7 +252,7 @@ VatomAPI_getUserInfo(apiClient_t *apiClient, double version, long accountId, cha
 // Gets the logged in user's profile in Vatom.
 //
 void
-VatomAPI_getUserProfile(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse);
+VatomAPI_getUserProfile(apiClient_t *apiClient, long accountId, int *returnRawResponse);
 
 
 // Get Vatom Event
@@ -260,7 +260,7 @@ VatomAPI_getUserProfile(apiClient_t *apiClient, double version, long accountId, 
 // Gets the details of a event.
 //
 void
-VatomAPI_getVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse);
+VatomAPI_getVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, int *returnRawResponse);
 
 
 // Get Vatom NFT Details
@@ -268,7 +268,7 @@ VatomAPI_getVatomEvent(apiClient_t *apiClient, double version, long accountId, c
 // Get Vatom NFT Details
 //
 void
-VatomAPI_getVatomNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, int *returnRawResponse);
+VatomAPI_getVatomNFT(apiClient_t *apiClient, long accountId, char *vatomId, int *returnRawResponse);
 
 
 // List Vatom Communities
@@ -276,7 +276,7 @@ VatomAPI_getVatomNFT(apiClient_t *apiClient, double version, long accountId, cha
 // Gets the communities tied to a business.
 //
 void
-VatomAPI_listCommunities(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_listCommunities(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // List Vatom Events
@@ -284,7 +284,7 @@ VatomAPI_listCommunities(apiClient_t *apiClient, double version, long accountId,
 // Gets the events tied to a business.
 //
 void
-VatomAPI_listEvents(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_listEvents(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // List Vatom Spaces
@@ -292,7 +292,7 @@ VatomAPI_listEvents(apiClient_t *apiClient, double version, long accountId, char
 // Gets the spaces tied to a business.
 //
 void
-VatomAPI_listSpaces(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_listSpaces(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // List Coin Transactions for a Vatom User
@@ -300,7 +300,7 @@ VatomAPI_listSpaces(apiClient_t *apiClient, double version, long accountId, char
 // Gets the logged in user's Vatom coin transactions.
 //
 void
-VatomAPI_listUserCoinTransactions(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_listUserCoinTransactions(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse);
 
 
 // List coin transactions for a user (as a Business)
@@ -308,7 +308,7 @@ VatomAPI_listUserCoinTransactions(apiClient_t *apiClient, double version, long a
 // List coin transactions for a user (as a Business).
 //
 void
-VatomAPI_listUserCoinTransactionsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_listUserCoinTransactionsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Perform Action on NFT
@@ -316,7 +316,7 @@ VatomAPI_listUserCoinTransactionsAsBusiness(apiClient_t *apiClient, double versi
 // Perform Action on NFT.
 //
 void
-VatomAPI_performActionOnNFT(apiClient_t *apiClient, double version, long accountId, char *vatomId, char *vatomAction, char *vatomParameters, int *returnRawResponse);
+VatomAPI_performActionOnNFT(apiClient_t *apiClient, long accountId, char *vatomId, char *vatomAction, char *vatomParameters, int *returnRawResponse);
 
 
 // Redeem NFT
@@ -324,7 +324,7 @@ VatomAPI_performActionOnNFT(apiClient_t *apiClient, double version, long account
 // Redeem an NFT.
 //
 void
-VatomAPI_redeemNFT(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_redeemNFT(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Redeem the coins for a user (as a Business)
@@ -332,7 +332,7 @@ VatomAPI_redeemNFT(apiClient_t *apiClient, double version, long accountId, char 
 // Redeem the coins for a user (as a Business).
 //
 void
-VatomAPI_redeemUserCoinsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_redeemUserCoinsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Search for Vatom Businesses
@@ -340,7 +340,7 @@ VatomAPI_redeemUserCoinsAsBusiness(apiClient_t *apiClient, double version, long 
 // Searches for Vatom businesses.
 //
 void
-VatomAPI_searchBusinesses(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_searchBusinesses(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse);
 
 
 // Search Campaign Groups
@@ -348,7 +348,7 @@ VatomAPI_searchBusinesses(apiClient_t *apiClient, double version, long accountId
 // Search campaign groups.
 //
 void
-VatomAPI_searchCampaignGroups(apiClient_t *apiClient, double version, long accountId, char *appKey, int *returnRawResponse);
+VatomAPI_searchCampaignGroups(apiClient_t *apiClient, long accountId, char *appKey, int *returnRawResponse);
 
 
 // Search User Identities
@@ -356,7 +356,7 @@ VatomAPI_searchCampaignGroups(apiClient_t *apiClient, double version, long accou
 // Search User Identities.
 //
 void
-VatomAPI_searchIdentities(apiClient_t *apiClient, double version, long accountId, int *returnRawResponse);
+VatomAPI_searchIdentities(apiClient_t *apiClient, long accountId, int *returnRawResponse);
 
 
 // Search Vatom User's Inventory
@@ -364,7 +364,7 @@ VatomAPI_searchIdentities(apiClient_t *apiClient, double version, long accountId
 // Searches the logged in user's Vatom Inventory.
 //
 void
-VatomAPI_searchInventory(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_searchInventory(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse);
 
 
 // Send NFT
@@ -372,7 +372,7 @@ VatomAPI_searchInventory(apiClient_t *apiClient, double version, long accountId,
 // Send an NFT.
 //
 void
-VatomAPI_sendNFT(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_sendNFT(apiClient_t *apiClient, long accountId, char *appKey, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse);
 
 
 // Set Points Balance as Business
@@ -380,7 +380,7 @@ VatomAPI_sendNFT(apiClient_t *apiClient, double version, long accountId, char *a
 // Sets the points balance of a Vatom user.
 //
 void
-VatomAPI_setPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_setPointsBalanceAsBusiness(apiClient_t *apiClient, long accountId, char *appKey, char *vatomUserId, char *vatomCampaignId, char *vatomParameters, int *returnRawResponse);
 
 
 // Transfer coins from Vatom Users
@@ -388,7 +388,7 @@ VatomAPI_setPointsBalanceAsBusiness(apiClient_t *apiClient, double version, long
 // Transfer coins from Vatom Users.
 //
 void
-VatomAPI_transferUserCoins(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_transferUserCoins(apiClient_t *apiClient, long accountId, char *vatomUserId, char *vatomParameters, int *returnRawResponse);
 
 
 // Fund coins for a Business
@@ -396,7 +396,7 @@ VatomAPI_transferUserCoins(apiClient_t *apiClient, double version, long accountI
 // Fund/update coins for a Businesss.
 //
 void
-VatomAPI_updateBusinessCoins(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_updateBusinessCoins(apiClient_t *apiClient, long accountId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Update Vatom Event Guest List
@@ -404,7 +404,7 @@ VatomAPI_updateBusinessCoins(apiClient_t *apiClient, double version, long accoun
 // Update the guest list of an event.
 //
 void
-VatomAPI_updateEventGuestList(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_updateEventGuestList(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse);
 
 
 // Update Vatom Space
@@ -412,7 +412,7 @@ VatomAPI_updateEventGuestList(apiClient_t *apiClient, double version, long accou
 // Update a Vatom space.
 //
 void
-VatomAPI_updateSpace(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomSpaceId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_updateSpace(apiClient_t *apiClient, long accountId, char *appKey, char *vatomSpaceId, char *vatomParameters, int *returnRawResponse);
 
 
 // Update the coins for a user (as a Business)
@@ -420,7 +420,7 @@ VatomAPI_updateSpace(apiClient_t *apiClient, double version, long accountId, cha
 // Update the coins for a user (as a Business).
 //
 void
-VatomAPI_updateUserCoinsAsBusiness(apiClient_t *apiClient, double version, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse);
+VatomAPI_updateUserCoinsAsBusiness(apiClient_t *apiClient, long accountId, char *vatomUserId, char *appKey, char *vatomParameters, int *returnRawResponse);
 
 
 // Update Vatom User Profile
@@ -428,7 +428,7 @@ VatomAPI_updateUserCoinsAsBusiness(apiClient_t *apiClient, double version, long 
 // Gets the logged in user's profile in Vatom.
 //
 void
-VatomAPI_updateUserProfile(apiClient_t *apiClient, double version, long accountId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_updateUserProfile(apiClient_t *apiClient, long accountId, char *vatomParameters, int *returnRawResponse);
 
 
 // Update Vatom Event
@@ -436,6 +436,6 @@ VatomAPI_updateUserProfile(apiClient_t *apiClient, double version, long accountI
 // Update a Vatom event.
 //
 void
-VatomAPI_updateVatomEvent(apiClient_t *apiClient, double version, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse);
+VatomAPI_updateVatomEvent(apiClient_t *apiClient, long accountId, char *appKey, char *vatomEventId, char *vatomParameters, int *returnRawResponse);
 
 

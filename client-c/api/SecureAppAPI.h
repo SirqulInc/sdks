@@ -33,7 +33,7 @@ typedef enum  { sirqul_iot_platform_updateSecureApplication_BIOMETRICPOSITION2_N
 // Create a secure application record.
 //
 sirqul_response_t*
-SecureAppAPI_createSecureApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, binary_t* keyCert, binary_t* trustStore, char *username, char *password, int *active, sirqul_iot_platform_createSecureApplication_biometricType_e biometricType, sirqul_iot_platform_createSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_createSecureApplication_biometricPosition2_e biometricPosition2);
+SecureAppAPI_createSecureApplication(apiClient_t *apiClient, long accountId, char *appKey, binary_t* keyCert, binary_t* trustStore, char *username, char *password, int *active, sirqul_iot_platform_createSecureApplication_biometricType_e biometricType, sirqul_iot_platform_createSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_createSecureApplication_biometricPosition2_e biometricPosition2);
 
 
 // Delete Secure Application
@@ -41,7 +41,7 @@ SecureAppAPI_createSecureApplication(apiClient_t *apiClient, double version, lon
 // Delete a secure application record.
 //
 sirqul_response_t*
-SecureAppAPI_deleteSecureApplication(apiClient_t *apiClient, double version, long accountId, char *appKey);
+SecureAppAPI_deleteSecureApplication(apiClient_t *apiClient, long accountId, char *appKey);
 
 
 // Login Clear
@@ -49,7 +49,7 @@ SecureAppAPI_deleteSecureApplication(apiClient_t *apiClient, double version, lon
 // Login via Clear.me. Creates a new account if logging in for the first time.
 //
 profile_response_t*
-SecureAppAPI_loginSecure(apiClient_t *apiClient, double version, char *appKey, binary_t* biometricFile, char *deviceId, binary_t* biometricFile2, int *ageRestriction, int *returnProfile, char *responseFilters, double latitude, double longitude);
+SecureAppAPI_loginSecure(apiClient_t *apiClient, char *appKey, binary_t* biometricFile, char *deviceId, binary_t* biometricFile2, int *ageRestriction, int *returnProfile, char *responseFilters, double latitude, double longitude);
 
 
 // Purchase Clear
@@ -57,7 +57,7 @@ SecureAppAPI_loginSecure(apiClient_t *apiClient, double version, char *appKey, b
 // Purchase via Clear.me. Creates a new account if purchasing for the first time.
 //
 profile_response_t*
-SecureAppAPI_purchaseSecure(apiClient_t *apiClient, double version, payment_request_t *body);
+SecureAppAPI_purchaseSecure(apiClient_t *apiClient, payment_request_t *body);
 
 
 // Rest Secure Application
@@ -65,7 +65,7 @@ SecureAppAPI_purchaseSecure(apiClient_t *apiClient, double version, payment_requ
 // Reset a secure application client.
 //
 sirqul_response_t*
-SecureAppAPI_resetSecure(apiClient_t *apiClient, double version, long accountId, char *appKey);
+SecureAppAPI_resetSecure(apiClient_t *apiClient, long accountId, char *appKey);
 
 
 // Update Secure Application
@@ -73,6 +73,6 @@ SecureAppAPI_resetSecure(apiClient_t *apiClient, double version, long accountId,
 // Update a secure application record.
 //
 sirqul_response_t*
-SecureAppAPI_updateSecureApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, int *active, binary_t* keyCert, binary_t* trustStore, char *username, char *password, sirqul_iot_platform_updateSecureApplication_biometricType_e biometricType, sirqul_iot_platform_updateSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_updateSecureApplication_biometricPosition2_e biometricPosition2);
+SecureAppAPI_updateSecureApplication(apiClient_t *apiClient, long accountId, char *appKey, int *active, binary_t* keyCert, binary_t* trustStore, char *username, char *password, sirqul_iot_platform_updateSecureApplication_biometricType_e biometricType, sirqul_iot_platform_updateSecureApplication_biometricPosition_e biometricPosition, sirqul_iot_platform_updateSecureApplication_biometricPosition2_e biometricPosition2);
 
 

@@ -14,7 +14,7 @@
 // Create a question and related answers by the given params.
 //
 question_response_t*
-QuestionAPI_createQuestion(apiClient_t *apiClient, double version, long accountId, char *question, char *answers, int *active, int *allocateTickets, long ticketCount, char *tags, char *videoURL, long assetId, char *ticketType, long points)
+QuestionAPI_createQuestion(apiClient_t *apiClient, long accountId, char *question, char *answers, int *active, int *allocateTickets, long ticketCount, char *tags, char *videoURL, long assetId, char *ticketType, long points)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ QuestionAPI_createQuestion(apiClient_t *apiClient, double version, long accountI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/question/create");
+    char *localVarPath = strdup("/game/question/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -209,7 +206,6 @@ QuestionAPI_createQuestion(apiClient_t *apiClient, double version, long accountI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -338,7 +334,7 @@ end:
 // Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
 //
 sirqul_response_t*
-QuestionAPI_deleteQuestion(apiClient_t *apiClient, double version, long questionId, long accountId)
+QuestionAPI_deleteQuestion(apiClient_t *apiClient, long questionId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -352,12 +348,9 @@ QuestionAPI_deleteQuestion(apiClient_t *apiClient, double version, long question
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/question/delete");
+    char *localVarPath = strdup("/game/question/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -423,7 +416,6 @@ QuestionAPI_deleteQuestion(apiClient_t *apiClient, double version, long question
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_questionId){
         free(keyQuery_questionId);
         keyQuery_questionId = NULL;
@@ -452,7 +444,7 @@ end:
 // Get a question by the given id.
 //
 question_response_t*
-QuestionAPI_getQuestion(apiClient_t *apiClient, double version, long questionId, long accountId)
+QuestionAPI_getQuestion(apiClient_t *apiClient, long questionId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -466,12 +458,9 @@ QuestionAPI_getQuestion(apiClient_t *apiClient, double version, long questionId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/question/get");
+    char *localVarPath = strdup("/game/question/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -537,7 +526,6 @@ QuestionAPI_getQuestion(apiClient_t *apiClient, double version, long questionId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_questionId){
         free(keyQuery_questionId);
         keyQuery_questionId = NULL;
@@ -566,7 +554,7 @@ end:
 // Search for questions by the given params.
 //
 list_t*
-QuestionAPI_searchQuestions(apiClient_t *apiClient, double version, long accountId, char *sortField, int *descending, int *activeOnly, int *start, int *limit, char *keyword)
+QuestionAPI_searchQuestions(apiClient_t *apiClient, long accountId, char *sortField, int *descending, int *activeOnly, int *start, int *limit, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -580,12 +568,9 @@ QuestionAPI_searchQuestions(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/question/search");
+    char *localVarPath = strdup("/game/question/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -725,7 +710,6 @@ QuestionAPI_searchQuestions(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -818,7 +802,7 @@ end:
 // Update a question and related answers.
 //
 question_response_t*
-QuestionAPI_updateQuestion(apiClient_t *apiClient, double version, long questionId, long accountId, long ticketCount, char *question, char *answers, char *tags, char *videoURL, long assetId, int *active, int *allocateTickets, char *ticketType, long points)
+QuestionAPI_updateQuestion(apiClient_t *apiClient, long questionId, long accountId, long ticketCount, char *question, char *answers, char *tags, char *videoURL, long assetId, int *active, int *allocateTickets, char *ticketType, long points)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -832,12 +816,9 @@ QuestionAPI_updateQuestion(apiClient_t *apiClient, double version, long question
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/game/question/update");
+    char *localVarPath = strdup("/game/question/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1025,7 +1006,6 @@ QuestionAPI_updateQuestion(apiClient_t *apiClient, double version, long question
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_questionId){
         free(keyQuery_questionId);
         keyQuery_questionId = NULL;

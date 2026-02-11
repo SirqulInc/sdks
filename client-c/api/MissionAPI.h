@@ -18,7 +18,7 @@ typedef enum  { sirqul_iot_platform_importMission_ADSIZE_NULL = 0, sirqul_iot_pl
 // Create a user defined mission.
 //
 mission_response_t*
-MissionAPI_createMission(apiClient_t *apiClient, double version, long accountId, char *title, char *description, char *subType, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, char *missionTask, char *formatType, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *metaData, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius);
+MissionAPI_createMission(apiClient_t *apiClient, long accountId, char *title, char *description, char *subType, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, char *missionTask, char *formatType, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *metaData, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius);
 
 
 // Delete Mission
@@ -26,7 +26,7 @@ MissionAPI_createMission(apiClient_t *apiClient, double version, long accountId,
 // Delete a mission.
 //
 sirqul_response_t*
-MissionAPI_deleteMission(apiClient_t *apiClient, double version, long accountId, long missionId);
+MissionAPI_deleteMission(apiClient_t *apiClient, long accountId, long missionId);
 
 
 // Find Missions
@@ -34,7 +34,7 @@ MissionAPI_deleteMission(apiClient_t *apiClient, double version, long accountId,
 // Get a set of ad filtered by the parameters provided.
 //
 mission_response_t*
-MissionAPI_findMissions(apiClient_t *apiClient, double version, char *appKey, char *suffix, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeGameData, int *includeAudiences, int *allocatesTickets, int *randomize, int *targetedAdsOnly, char *missionIds, char *audienceOperator);
+MissionAPI_findMissions(apiClient_t *apiClient, char *appKey, char *suffix, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeGameData, int *includeAudiences, int *allocatesTickets, int *randomize, int *targetedAdsOnly, char *missionIds, char *audienceOperator);
 
 
 // Get Mission
@@ -42,7 +42,7 @@ MissionAPI_findMissions(apiClient_t *apiClient, double version, char *appKey, ch
 // Get a mission.
 //
 mission_response_t*
-MissionAPI_getMission(apiClient_t *apiClient, double version, long accountId, long missionId, int *returnCreative);
+MissionAPI_getMission(apiClient_t *apiClient, long accountId, long missionId, int *returnCreative);
 
 
 // Import Mission
@@ -50,7 +50,7 @@ MissionAPI_getMission(apiClient_t *apiClient, double version, long accountId, lo
 // Create a mission using a source item such as an offer location.
 //
 sirqul_response_t*
-MissionAPI_importMission(apiClient_t *apiClient, double version, long accountId, double latitude, double longitude, char *appKey, char *keyword, int *start, int *limit, sirqul_iot_platform_importMission_adSize_e adSize);
+MissionAPI_importMission(apiClient_t *apiClient, long accountId, double latitude, double longitude, char *appKey, char *keyword, int *start, int *limit, sirqul_iot_platform_importMission_adSize_e adSize);
 
 
 // Search Mission Formats
@@ -58,7 +58,7 @@ MissionAPI_importMission(apiClient_t *apiClient, double version, long accountId,
 // Searches on pre-defined mission formats
 //
 list_t*
-MissionAPI_searchMissionFormats(apiClient_t *apiClient, double version, int *start, int *limit, int *activeOnly);
+MissionAPI_searchMissionFormats(apiClient_t *apiClient, int *start, int *limit, int *activeOnly);
 
 
 // Search Missions
@@ -66,7 +66,7 @@ MissionAPI_searchMissionFormats(apiClient_t *apiClient, double version, int *sta
 // Get the list missions available to the account.  
 //
 list_t*
-MissionAPI_searchMissions(apiClient_t *apiClient, double version, long accountId, char *keyword, char *subType, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending);
+MissionAPI_searchMissions(apiClient_t *apiClient, long accountId, char *keyword, char *subType, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending);
 
 
 // Search Missions by Billable Entity
@@ -74,7 +74,7 @@ MissionAPI_searchMissions(apiClient_t *apiClient, double version, long accountId
 // Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 //
 list_t*
-MissionAPI_searchMissionsByBillableEntity(apiClient_t *apiClient, double version, long accountId, char *keyword, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending);
+MissionAPI_searchMissionsByBillableEntity(apiClient_t *apiClient, long accountId, char *keyword, int *start, int *limit, int *includeGameData, int *includeAudiences, int *includeInactive, char *suffix, char *sortField, int *descending);
 
 
 // Update Mission
@@ -82,6 +82,6 @@ MissionAPI_searchMissionsByBillableEntity(apiClient_t *apiClient, double version
 // Update a mission.
 //
 mission_response_t*
-MissionAPI_updateMission(apiClient_t *apiClient, double version, long accountId, long missionId, char *title, char *description, char *subType, char *metaData, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius);
+MissionAPI_updateMission(apiClient_t *apiClient, long accountId, long missionId, char *title, char *description, char *subType, char *metaData, long startDate, long endDate, int *active, char *gameLevelIds, char *creativeIds, char *audienceIds, long offerId, double balance, int *advancedReporting, int *allocateTickets, long ticketCount, char *ticketType, long points, char *applicationIds, char *devices, char *deviceIds, char *deviceVersions, char *locations, char *radius);
 
 

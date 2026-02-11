@@ -14,7 +14,7 @@
 // Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 //
 list_t*
-CarrierAPI_searchCarriers(apiClient_t *apiClient, double version, char *keyword, int *descending, int *start, int *limit, int *activeOnly)
+CarrierAPI_searchCarriers(apiClient_t *apiClient, char *keyword, int *descending, int *start, int *limit, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ CarrierAPI_searchCarriers(apiClient_t *apiClient, double version, char *keyword,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/carrier/search");
+    char *localVarPath = strdup("/carrier/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -149,7 +146,6 @@ CarrierAPI_searchCarriers(apiClient_t *apiClient, double version, char *keyword,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_keyword){
         free(keyQuery_keyword);
         keyQuery_keyword = NULL;

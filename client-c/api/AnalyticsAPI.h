@@ -45,7 +45,7 @@ typedef enum  { sirqul_iot_platform_filteredUsage_RESPONSEFORMAT_NULL = 0, sirqu
 // Get an activity feed by user.
 //
 list_t*
-AnalyticsAPI_activities(apiClient_t *apiClient, double version, int *start, int *limit, long accountId);
+AnalyticsAPI_activities(apiClient_t *apiClient, int *start, int *limit, long accountId);
 
 
 // Get Aggregated Filtered Usage
@@ -53,7 +53,7 @@ AnalyticsAPI_activities(apiClient_t *apiClient, double version, int *start, int 
 // Query analytics to get data used for nested graphs and charts
 //
 chart_data_t*
-AnalyticsAPI_aggregatedFilteredUsage(apiClient_t *apiClient, double version, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, sirqul_iot_platform_aggregatedFilteredUsage_groupByRoot_e groupByRoot, sirqul_iot_platform_aggregatedFilteredUsage_groupBy_e groupBy, sirqul_iot_platform_aggregatedFilteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_aggregatedFilteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_aggregatedFilteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude);
+AnalyticsAPI_aggregatedFilteredUsage(apiClient_t *apiClient, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, sirqul_iot_platform_aggregatedFilteredUsage_groupByRoot_e groupByRoot, sirqul_iot_platform_aggregatedFilteredUsage_groupBy_e groupBy, sirqul_iot_platform_aggregatedFilteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_aggregatedFilteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_aggregatedFilteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude);
 
 
 // Get Filtered Usage
@@ -61,7 +61,7 @@ AnalyticsAPI_aggregatedFilteredUsage(apiClient_t *apiClient, double version, cha
 // Query analytics to get data used for graphs and charts
 //
 chart_data_t*
-AnalyticsAPI_filteredUsage(apiClient_t *apiClient, double version, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, long customId, char *customType, double customValue, double customValue2, long customLong, long customLong2, char *customMessage, char *customMessage2, sirqul_iot_platform_filteredUsage_groupBy_e groupBy, sirqul_iot_platform_filteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_filteredUsage_sumColumn_e sumColumn, sirqul_iot_platform_filteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_filteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude);
+AnalyticsAPI_filteredUsage(apiClient_t *apiClient, char *deviceId, long accountId, long applicationId, char *appKey, long startDate, long endDate, char *deviceType, char *device, char *deviceOS, char *gender, char *ageGroup, char *country, char *state, char *city, char *zip, char *model, char *tag, long userAccountId, char *userAccountDisplay, char *userAccountUsername, long customId, char *customType, double customValue, double customValue2, long customLong, long customLong2, char *customMessage, char *customMessage2, sirqul_iot_platform_filteredUsage_groupBy_e groupBy, sirqul_iot_platform_filteredUsage_distinctCount_e distinctCount, sirqul_iot_platform_filteredUsage_sumColumn_e sumColumn, sirqul_iot_platform_filteredUsage_sortField_e sortField, int *descending, int *hideUnknown, sirqul_iot_platform_filteredUsage_responseFormat_e responseFormat, int *_l, int *limit, double latitude, double longitude);
 
 
 // Create Usage Record
@@ -69,7 +69,7 @@ AnalyticsAPI_filteredUsage(apiClient_t *apiClient, double version, char *deviceI
 // Record an analytic record for a known state within the application.
 //
 sirqul_response_t*
-AnalyticsAPI_usage(apiClient_t *apiClient, double version, char *tag, char *deviceId, long accountId, long applicationId, char *appKey, char *appVersion, char *device, char *deviceType, char *deviceOS, char *model, double latitude, double longitude, long customId, char *customType, long achievementIncrement, char *city, char *state, char *country, char *zip, char *locationDescription, long clientTime, char *errorMessage, char *ip, char *userAgent, int *backgroundEvent, char *customMessage, char *customMessage2, double customValue, double customValue2, long customLong, long customLong2);
+AnalyticsAPI_usage(apiClient_t *apiClient, char *tag, char *deviceId, long accountId, long applicationId, char *appKey, char *appVersion, char *device, char *deviceType, char *deviceOS, char *model, double latitude, double longitude, long customId, char *customType, long achievementIncrement, char *city, char *state, char *country, char *zip, char *locationDescription, long clientTime, char *errorMessage, char *ip, char *userAgent, int *backgroundEvent, char *customMessage, char *customMessage2, double customValue, double customValue2, long customLong, long customLong2);
 
 
 // Create Multiple Usage Records
@@ -77,6 +77,6 @@ AnalyticsAPI_usage(apiClient_t *apiClient, double version, char *tag, char *devi
 // Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 //
 sirqul_response_t*
-AnalyticsAPI_usageBatch(apiClient_t *apiClient, double version, char *appKey, char *device, char *data, char *deviceId, long accountId, char *appVersion, char *deviceType, char *deviceOS, char *model, int *updateRanking, int *returnSummaryResponse);
+AnalyticsAPI_usageBatch(apiClient_t *apiClient, char *appKey, char *device, char *data, char *deviceId, long accountId, char *appVersion, char *deviceType, char *deviceOS, char *model, int *updateRanking, int *returnSummaryResponse);
 
 

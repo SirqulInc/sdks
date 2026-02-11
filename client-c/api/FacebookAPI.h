@@ -14,7 +14,7 @@
 // Gets a user's Facebook token.
 //
 token_response_t*
-FacebookAPI_getToken(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude);
+FacebookAPI_getToken(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Post to Facebook
@@ -22,6 +22,6 @@ FacebookAPI_getToken(apiClient_t *apiClient, double version, char *deviceId, lon
 // Make Facebook posts on behalf of the user.
 //
 sirqul_response_t*
-FacebookAPI_graphInterface(apiClient_t *apiClient, double version, char *event, char *deviceId, long accountId, char *permissionableType, long permissionableId, long assetId, char *gameType, char *appKey, double latitude, double longitude);
+FacebookAPI_graphInterface(apiClient_t *apiClient, char *event, char *deviceId, long accountId, char *permissionableType, long permissionableId, long assetId, char *gameType, char *appKey, double latitude, double longitude);
 
 

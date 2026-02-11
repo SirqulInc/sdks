@@ -14,7 +14,7 @@
 // Gets a user's Facebook token.
 //
 token_response_t*
-FacebookAPI_getToken(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude)
+FacebookAPI_getToken(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ FacebookAPI_getToken(apiClient_t *apiClient, double version, char *deviceId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/facebook/getfbtoken");
+    char *localVarPath = strdup("/facebook/getfbtoken");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -131,7 +128,6 @@ FacebookAPI_getToken(apiClient_t *apiClient, double version, char *deviceId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -180,7 +176,7 @@ end:
 // Make Facebook posts on behalf of the user.
 //
 sirqul_response_t*
-FacebookAPI_graphInterface(apiClient_t *apiClient, double version, char *event, char *deviceId, long accountId, char *permissionableType, long permissionableId, long assetId, char *gameType, char *appKey, double latitude, double longitude)
+FacebookAPI_graphInterface(apiClient_t *apiClient, char *event, char *deviceId, long accountId, char *permissionableType, long permissionableId, long assetId, char *gameType, char *appKey, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -194,12 +190,9 @@ FacebookAPI_graphInterface(apiClient_t *apiClient, double version, char *event, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/facebook/graph");
+    char *localVarPath = strdup("/facebook/graph");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -369,7 +362,6 @@ FacebookAPI_graphInterface(apiClient_t *apiClient, double version, char *event, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

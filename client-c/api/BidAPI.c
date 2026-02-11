@@ -14,7 +14,7 @@
 // Creates a bid on a biddable object
 //
 bid_response_t*
-BidAPI_createBid(apiClient_t *apiClient, double version, char *biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule, char *deviceId, long accountId)
+BidAPI_createBid(apiClient_t *apiClient, char *biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ BidAPI_createBid(apiClient_t *apiClient, double version, char *biddableType, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/bid/create");
+    char *localVarPath = strdup("/bid/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -183,7 +180,6 @@ BidAPI_createBid(apiClient_t *apiClient, double version, char *biddableType, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -272,7 +268,7 @@ end:
 // Deleted a bid on a biddable object
 //
 sirqul_response_t*
-BidAPI_deleteBid(apiClient_t *apiClient, double version, long bidId, char *deviceId, long accountId)
+BidAPI_deleteBid(apiClient_t *apiClient, long bidId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -286,12 +282,9 @@ BidAPI_deleteBid(apiClient_t *apiClient, double version, long bidId, char *devic
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/bid/delete");
+    char *localVarPath = strdup("/bid/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -369,7 +362,6 @@ BidAPI_deleteBid(apiClient_t *apiClient, double version, long bidId, char *devic
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -410,7 +402,7 @@ end:
 // Get the bid details of a biddable object
 //
 bid_response_t*
-BidAPI_getBid(apiClient_t *apiClient, double version, long bidId, char *deviceId, long accountId)
+BidAPI_getBid(apiClient_t *apiClient, long bidId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -424,12 +416,9 @@ BidAPI_getBid(apiClient_t *apiClient, double version, long bidId, char *deviceId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/bid/get");
+    char *localVarPath = strdup("/bid/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -507,7 +496,6 @@ BidAPI_getBid(apiClient_t *apiClient, double version, long bidId, char *deviceId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -548,7 +536,7 @@ end:
 // Updates a bid on a biddable object
 //
 bid_response_t*
-BidAPI_updateBid(apiClient_t *apiClient, double version, long bidId, char *deviceId, long accountId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule)
+BidAPI_updateBid(apiClient_t *apiClient, long bidId, char *deviceId, long accountId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -562,12 +550,9 @@ BidAPI_updateBid(apiClient_t *apiClient, double version, long bidId, char *devic
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/bid/update");
+    char *localVarPath = strdup("/bid/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -705,7 +690,6 @@ BidAPI_updateBid(apiClient_t *apiClient, double version, long bidId, char *devic
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

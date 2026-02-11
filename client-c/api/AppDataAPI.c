@@ -14,7 +14,7 @@
 // Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
 //
 app_response_t*
-AppDataAPI_getAppData(apiClient_t *apiClient, double version, int *start, int *limit, char *deviceId, long accountId, char *gameType, int *includeGameData, char *q, char *keyword, char *sortField, int *descending, int *_i, int *_l, int *gameObjectCount, char *filter, long dateCreated, long ownerId, char *missionIds, char *gameIds, char *packIds, char *gameLevelIds, char *appVersion, int *includeHigherVersionPacks, int *includeHigherVersionLevels, char *responseGroups, char *purchaseType)
+AppDataAPI_getAppData(apiClient_t *apiClient, int *start, int *limit, char *deviceId, long accountId, char *gameType, int *includeGameData, char *q, char *keyword, char *sortField, int *descending, int *_i, int *_l, int *gameObjectCount, char *filter, long dateCreated, long ownerId, char *missionIds, char *gameIds, char *packIds, char *gameLevelIds, char *appVersion, int *includeHigherVersionPacks, int *includeHigherVersionLevels, char *responseGroups, char *purchaseType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ AppDataAPI_getAppData(apiClient_t *apiClient, double version, int *start, int *l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/app/get");
+    char *localVarPath = strdup("/app/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -384,7 +381,6 @@ AppDataAPI_getAppData(apiClient_t *apiClient, double version, int *start, int *l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -685,7 +681,7 @@ end:
 // Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
 //
 app_response_t*
-AppDataAPI_postAppData(apiClient_t *apiClient, double version, char *gameType, int *start, int *limit, char *data, char *deviceId, long accountId, int *includeGameData, char *q, char *keyword, char *sortField, int *descending, int *_i, int *_l, int *gameObjectCount, char *filter, long dateCreated, long ownerId, char *missionIds, char *gameIds, char *packIds, char *gameLevelIds, char *appVersion, int *includeHigherVersionPacks, int *includeHigherVersionLevels, char *responseGroups, char *purchaseType)
+AppDataAPI_postAppData(apiClient_t *apiClient, char *gameType, int *start, int *limit, char *data, char *deviceId, long accountId, int *includeGameData, char *q, char *keyword, char *sortField, int *descending, int *_i, int *_l, int *gameObjectCount, char *filter, long dateCreated, long ownerId, char *missionIds, char *gameIds, char *packIds, char *gameLevelIds, char *appVersion, int *includeHigherVersionPacks, int *includeHigherVersionLevels, char *responseGroups, char *purchaseType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -699,12 +695,9 @@ AppDataAPI_postAppData(apiClient_t *apiClient, double version, char *gameType, i
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/app/post");
+    char *localVarPath = strdup("/app/post");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1067,7 +1060,6 @@ AppDataAPI_postAppData(apiClient_t *apiClient, double version, char *gameType, i
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1380,7 +1372,7 @@ end:
 // Regenerate the app data cache for apps
 //
 sirqul_response_t*
-AppDataAPI_regenAppData(apiClient_t *apiClient, double version, long accountId, char *appKey, char *buildVersion, char *apiVersion)
+AppDataAPI_regenAppData(apiClient_t *apiClient, long accountId, char *appKey, char *buildVersion, char *apiVersion)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1394,12 +1386,9 @@ AppDataAPI_regenAppData(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/app/regen");
+    char *localVarPath = strdup("/app/regen");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1489,7 +1478,6 @@ AppDataAPI_regenAppData(apiClient_t *apiClient, double version, long accountId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

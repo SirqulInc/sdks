@@ -14,7 +14,7 @@
 // Generate images with OpenAI.
 //
 wrapped_proxy_item_response_t*
-OpenAIAPI_imageGeneration(apiClient_t *apiClient, double version, long accountId, char *postBody, int *returnRawResponse)
+OpenAIAPI_imageGeneration(apiClient_t *apiClient, long accountId, char *postBody, int *returnRawResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ OpenAIAPI_imageGeneration(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/openai/v1/images/generations");
+    char *localVarPath = strdup("/openai/v1/images/generations");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -112,7 +109,6 @@ OpenAIAPI_imageGeneration(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

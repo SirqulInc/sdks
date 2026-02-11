@@ -14,7 +14,7 @@
 // Search the weather forcast for the next 5 days
 //
 weather_response_t*
-WeatherAPI_searchWeather(apiClient_t *apiClient, double version, long regionId, double latitude, double longitude, long timezoneOffset)
+WeatherAPI_searchWeather(apiClient_t *apiClient, long regionId, double latitude, double longitude, long timezoneOffset)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ WeatherAPI_searchWeather(apiClient_t *apiClient, double version, long regionId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/weather/search");
+    char *localVarPath = strdup("/weather/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -131,7 +128,6 @@ WeatherAPI_searchWeather(apiClient_t *apiClient, double version, long regionId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_regionId){
         free(keyQuery_regionId);
         keyQuery_regionId = NULL;

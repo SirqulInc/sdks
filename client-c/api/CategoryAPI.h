@@ -27,7 +27,7 @@ typedef enum  { sirqul_iot_platform_searchCategories_RESPONSEGROUP_NULL = 0, sir
 // Search for categories by distance.
 //
 list_t*
-CategoryAPI_categoryDistanceSearch(apiClient_t *apiClient, double version, long accountId, char *keyword, char *appKey, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_categoryDistanceSearch_sortField_e sortField, sirqul_iot_platform_categoryDistanceSearch_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *minOfferCount, double latitude, double longitude, double range);
+CategoryAPI_categoryDistanceSearch(apiClient_t *apiClient, long accountId, char *keyword, char *appKey, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_categoryDistanceSearch_sortField_e sortField, sirqul_iot_platform_categoryDistanceSearch_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *minOfferCount, double latitude, double longitude, double range);
 
 
 // Create Category
@@ -35,7 +35,7 @@ CategoryAPI_categoryDistanceSearch(apiClient_t *apiClient, double version, long 
 // Create a new category.
 //
 category_tree_response_t*
-CategoryAPI_createCategory(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, long parentCategoryId, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags);
+CategoryAPI_createCategory(apiClient_t *apiClient, long accountId, char *name, char *appKey, long parentCategoryId, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags);
 
 
 // Delete Category
@@ -43,7 +43,7 @@ CategoryAPI_createCategory(apiClient_t *apiClient, double version, long accountI
 // Delete a category.
 //
 sirqul_response_t*
-CategoryAPI_deleteCategory(apiClient_t *apiClient, double version, long accountId, long categoryId);
+CategoryAPI_deleteCategory(apiClient_t *apiClient, long accountId, long categoryId);
 
 
 // Duplicate Category
@@ -51,7 +51,7 @@ CategoryAPI_deleteCategory(apiClient_t *apiClient, double version, long accountI
 // Duplicate a category, including all its children.
 //
 category_tree_response_t*
-CategoryAPI_duplicateCategory(apiClient_t *apiClient, double version, long accountId, long categoryId, char *appKey, long parentCategoryId);
+CategoryAPI_duplicateCategory(apiClient_t *apiClient, long accountId, long categoryId, char *appKey, long parentCategoryId);
 
 
 // Get Category
@@ -59,7 +59,7 @@ CategoryAPI_duplicateCategory(apiClient_t *apiClient, double version, long accou
 // Get the details of a specific category. Recursively include all child categories and their children.
 //
 category_tree_response_t*
-CategoryAPI_getCategory(apiClient_t *apiClient, double version, long categoryId, int *returnExternal);
+CategoryAPI_getCategory(apiClient_t *apiClient, long categoryId, int *returnExternal);
 
 
 // Search Categories
@@ -67,7 +67,7 @@ CategoryAPI_getCategory(apiClient_t *apiClient, double version, long categoryId,
 // Search for categories.
 //
 list_t*
-CategoryAPI_searchCategories(apiClient_t *apiClient, double version, long accountId, char *keyword, char *appKey, char *categoryId, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_searchCategories_sortField_e sortField, sirqul_iot_platform_searchCategories_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *excludeExternalType, int *minOfferCount, int *searchDepth, char *searchMode);
+CategoryAPI_searchCategories(apiClient_t *apiClient, long accountId, char *keyword, char *appKey, char *categoryId, char *categoryIds, char *parentCategoryIds, int *rootOnly, sirqul_iot_platform_searchCategories_sortField_e sortField, sirqul_iot_platform_searchCategories_responseGroup_e responseGroup, int *descending, int *start, int *limit, int *activeOnly, int *returnExternal, int *exactMatch, char *type, char *externalType, int *excludeExternalType, int *minOfferCount, int *searchDepth, char *searchMode);
 
 
 // Update Category
@@ -75,6 +75,6 @@ CategoryAPI_searchCategories(apiClient_t *apiClient, double version, long accoun
 // Update a category.
 //
 category_tree_response_t*
-CategoryAPI_updateCategory(apiClient_t *apiClient, double version, long accountId, long categoryId, long parentCategoryId, char *name, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags);
+CategoryAPI_updateCategory(apiClient_t *apiClient, long accountId, long categoryId, long parentCategoryId, char *name, char *description, char *type, long assetId, char *externalId, char *externalType, char *externalCategorySlug, char *sqootSlug, int *active, char *metaData, char *searchTags);
 
 

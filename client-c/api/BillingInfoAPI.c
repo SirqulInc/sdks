@@ -14,7 +14,7 @@
 // Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
 //
 payment_types_response_t*
-BillingInfoAPI_addPaymentMethod(apiClient_t *apiClient, double version, long accountId, long paymentMethodId, char *accountName, char *firstName, char *lastName, char *address, char *city, char *state, char *postalCode, char *country, char *phone, char *creditCardNumber, char *expirationDate, char *ccv, char *accountNumber, char *bankName, char *routingNumber, int *defaultPaymentMethod, char *paymentMethodNickname, char *taxId, char *providerCustomerProfileId, char *providerPaymentProfileId, char *metaData)
+BillingInfoAPI_addPaymentMethod(apiClient_t *apiClient, long accountId, long paymentMethodId, char *accountName, char *firstName, char *lastName, char *address, char *city, char *state, char *postalCode, char *country, char *phone, char *creditCardNumber, char *expirationDate, char *ccv, char *accountNumber, char *bankName, char *routingNumber, int *defaultPaymentMethod, char *paymentMethodNickname, char *taxId, char *providerCustomerProfileId, char *providerPaymentProfileId, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ BillingInfoAPI_addPaymentMethod(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billing/update");
+    char *localVarPath = strdup("/billing/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -352,7 +349,6 @@ BillingInfoAPI_addPaymentMethod(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -633,7 +629,7 @@ end:
 // Add a new method of payment.
 //
 payment_types_response_t*
-BillingInfoAPI_createPaymentMethod(apiClient_t *apiClient, double version, long accountId, char *accountName, char *firstName, char *lastName, char *address, char *city, char *state, char *postalCode, char *country, char *phone, char *creditCardNumber, char *expirationDate, char *ccv, char *accountNumber, char *bankName, char *routingNumber, char *paymentMethodNickname, char *taxId, int *defaultPaymentMethod, char *authToken, char *provider, char *providerCustomerProfileId, char *providerPaymentProfileId, char *metaData, char *appKey)
+BillingInfoAPI_createPaymentMethod(apiClient_t *apiClient, long accountId, char *accountName, char *firstName, char *lastName, char *address, char *city, char *state, char *postalCode, char *country, char *phone, char *creditCardNumber, char *expirationDate, char *ccv, char *accountNumber, char *bankName, char *routingNumber, char *paymentMethodNickname, char *taxId, int *defaultPaymentMethod, char *authToken, char *provider, char *providerCustomerProfileId, char *providerPaymentProfileId, char *metaData, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -647,12 +643,9 @@ BillingInfoAPI_createPaymentMethod(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billing/create");
+    char *localVarPath = strdup("/billing/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -995,7 +988,6 @@ BillingInfoAPI_createPaymentMethod(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1304,7 +1296,7 @@ end:
 // Adds a smart contract.
 //
 payment_types_response_t*
-BillingInfoAPI_createSmartContract(apiClient_t *apiClient, double version, long accountId, char *tokenName, char *tokenSymbol, long paymentMethodId)
+BillingInfoAPI_createSmartContract(apiClient_t *apiClient, long accountId, char *tokenName, char *tokenSymbol, long paymentMethodId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1318,12 +1310,9 @@ BillingInfoAPI_createSmartContract(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billing/crypto/transfer");
+    char *localVarPath = strdup("/billing/crypto/transfer");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1413,7 +1402,6 @@ BillingInfoAPI_createSmartContract(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1466,7 +1454,7 @@ end:
 // Get the cypto balance details for a user
 //
 payment_types_response_t*
-BillingInfoAPI_getCryptoBalance(apiClient_t *apiClient, double version, long accountId, long ownerAccountId, long paymentMethodId)
+BillingInfoAPI_getCryptoBalance(apiClient_t *apiClient, long accountId, long ownerAccountId, long paymentMethodId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1480,12 +1468,9 @@ BillingInfoAPI_getCryptoBalance(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billing/crypto/get");
+    char *localVarPath = strdup("/billing/crypto/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1563,7 +1548,6 @@ BillingInfoAPI_getCryptoBalance(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1600,7 +1584,7 @@ end:
 // Get the details of the user's payment method or their current default method of payment
 //
 payment_types_response_t*
-BillingInfoAPI_getPaymentMethod(apiClient_t *apiClient, double version, long accountId, long paymentMethodId, int *getCurrentBalance)
+BillingInfoAPI_getPaymentMethod(apiClient_t *apiClient, long accountId, long paymentMethodId, int *getCurrentBalance)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1614,12 +1598,9 @@ BillingInfoAPI_getPaymentMethod(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billing/get");
+    char *localVarPath = strdup("/billing/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1698,7 +1679,6 @@ BillingInfoAPI_getPaymentMethod(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1739,7 +1719,7 @@ end:
 // Search the payment methods of an account
 //
 payment_types_response_t*
-BillingInfoAPI_searchPaymentMethod(apiClient_t *apiClient, double version, long accountId, char *provider, char *type, char *keyword, char *sortField, int *descending, int *start, int *limit)
+BillingInfoAPI_searchPaymentMethod(apiClient_t *apiClient, long accountId, char *provider, char *type, char *keyword, char *sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1753,12 +1733,9 @@ BillingInfoAPI_searchPaymentMethod(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billing/search");
+    char *localVarPath = strdup("/billing/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1899,7 +1876,6 @@ BillingInfoAPI_searchPaymentMethod(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

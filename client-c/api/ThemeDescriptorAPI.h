@@ -18,7 +18,7 @@ typedef enum  { sirqul_iot_platform_addOrUpdateThemeDescriptor_VISIBILITY_NULL =
 // Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 //
 theme_descriptor_response_t*
-ThemeDescriptorAPI_addOrUpdateThemeDescriptor(apiClient_t *apiClient, double version, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, sirqul_iot_platform_addOrUpdateThemeDescriptor_visibility_e visibility, int *includeFriendGroup, int *completeWithDefaultValues, char *deviceId, long accountId, char *gameType, long themeDescriptorId, char *title, char *description, char *connectionIdsToAdd, char *connectionGroupIdsToAdd, char *appVersion, char *colorValueJson, char *stringReplacerJson, char *customJsonObjects, binary_t* iconImage, binary_t* sceneAtlasImage, binary_t* bgImage, binary_t* bgSound, char *musicSelection, char *locationDescription, double latitude, double longitude);
+ThemeDescriptorAPI_addOrUpdateThemeDescriptor(apiClient_t *apiClient, int *publicRead, int *publicWrite, int *publicDelete, int *publicAdd, sirqul_iot_platform_addOrUpdateThemeDescriptor_visibility_e visibility, int *includeFriendGroup, int *completeWithDefaultValues, char *deviceId, long accountId, char *gameType, long themeDescriptorId, char *title, char *description, char *connectionIdsToAdd, char *connectionGroupIdsToAdd, char *appVersion, char *colorValueJson, char *stringReplacerJson, char *customJsonObjects, binary_t* iconImage, binary_t* sceneAtlasImage, binary_t* bgImage, binary_t* bgSound, char *musicSelection, char *locationDescription, double latitude, double longitude);
 
 
 // Get Theme
@@ -26,7 +26,7 @@ ThemeDescriptorAPI_addOrUpdateThemeDescriptor(apiClient_t *apiClient, double ver
 // Gets a theme.
 //
 purchase_item_list_response_t*
-ThemeDescriptorAPI_getThemeDescriptor(apiClient_t *apiClient, double version, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude);
+ThemeDescriptorAPI_getThemeDescriptor(apiClient_t *apiClient, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude);
 
 
 // Search Themes
@@ -34,7 +34,7 @@ ThemeDescriptorAPI_getThemeDescriptor(apiClient_t *apiClient, double version, lo
 // Searches for themes.
 //
 purchase_item_list_response_t*
-ThemeDescriptorAPI_getThemeDescriptors(apiClient_t *apiClient, double version, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, char *gameType, char *contestType, long ownerId, char *q, char *keyword, int *_i, int *_l, long dateCreated, char *appVersion, double latitude, double longitude);
+ThemeDescriptorAPI_getThemeDescriptors(apiClient_t *apiClient, char *filter, char *sortField, int *descending, int *start, int *limit, char *deviceId, long accountId, char *gameType, char *contestType, long ownerId, char *q, char *keyword, int *_i, int *_l, long dateCreated, char *appVersion, double latitude, double longitude);
 
 
 // Delete Theme
@@ -42,6 +42,6 @@ ThemeDescriptorAPI_getThemeDescriptors(apiClient_t *apiClient, double version, c
 // Removes a theme.
 //
 sirqul_response_t*
-ThemeDescriptorAPI_removeThemeDescriptor(apiClient_t *apiClient, double version, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude);
+ThemeDescriptorAPI_removeThemeDescriptor(apiClient_t *apiClient, long themeDescriptorId, char *deviceId, long accountId, char *gameType, double latitude, double longitude);
 
 

@@ -118,7 +118,7 @@ end:
 //  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
 //
 offer_response_t*
-EventAPI_attendEvent(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, long listingId, long retailerLocationId, long offerLocationId, long transactionId, int *status, double latitude, double longitude)
+EventAPI_attendEvent(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, long listingId, long retailerLocationId, long offerLocationId, long transactionId, int *status, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -132,12 +132,9 @@ EventAPI_attendEvent(apiClient_t *apiClient, double version, char *deviceId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/event/attend");
+    char *localVarPath = strdup("/event/attend");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -308,7 +305,6 @@ EventAPI_attendEvent(apiClient_t *apiClient, double version, char *deviceId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -413,7 +409,7 @@ end:
 // Create a private event to share with associates.
 //
 offer_response_t*
-EventAPI_createEvent(apiClient_t *apiClient, double version, long accountId, char *title, char *retailerLocationIds, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd, char *metaData)
+EventAPI_createEvent(apiClient_t *apiClient, long accountId, char *title, char *retailerLocationIds, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -427,12 +423,9 @@ EventAPI_createEvent(apiClient_t *apiClient, double version, long accountId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/event/create");
+    char *localVarPath = strdup("/event/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -619,7 +612,6 @@ EventAPI_createEvent(apiClient_t *apiClient, double version, long accountId, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -760,7 +752,7 @@ end:
 // Delete an event that the user has permissions to.
 //
 sirqul_response_t*
-EventAPI_deleteEvent(apiClient_t *apiClient, double version, long accountId, long eventId)
+EventAPI_deleteEvent(apiClient_t *apiClient, long accountId, long eventId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -774,12 +766,9 @@ EventAPI_deleteEvent(apiClient_t *apiClient, double version, long accountId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/event/delete");
+    char *localVarPath = strdup("/event/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -845,7 +834,6 @@ EventAPI_deleteEvent(apiClient_t *apiClient, double version, long accountId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -874,7 +862,7 @@ end:
 // Get an event.
 //
 offer_response_t*
-EventAPI_getEvent(apiClient_t *apiClient, double version, long accountId, long eventId)
+EventAPI_getEvent(apiClient_t *apiClient, long accountId, long eventId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -888,12 +876,9 @@ EventAPI_getEvent(apiClient_t *apiClient, double version, long accountId, long e
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/event/get");
+    char *localVarPath = strdup("/event/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -959,7 +944,6 @@ EventAPI_getEvent(apiClient_t *apiClient, double version, long accountId, long e
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -988,7 +972,7 @@ end:
 // Searches on event type transactions. This can be used to see who is attending an event.
 //
 list_t*
-EventAPI_searchEventTransactions(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, char *keyword, long retailerId, long retailerLocationId, long excludeRetailerLocationId, long listingId, long offerId, long offerLocationId, char *customerAccountIds, char *affiliatedCategoryIds, long startDate, long endDate, char *statuses, sirqul_iot_platform_searchEventTransactions_sortField_e sortField, int *descending, int *start, int *limit)
+EventAPI_searchEventTransactions(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, char *keyword, long retailerId, long retailerLocationId, long excludeRetailerLocationId, long listingId, long offerId, long offerLocationId, char *customerAccountIds, char *affiliatedCategoryIds, long startDate, long endDate, char *statuses, sirqul_iot_platform_searchEventTransactions_sortField_e sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1002,12 +986,9 @@ EventAPI_searchEventTransactions(apiClient_t *apiClient, double version, char *d
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/event/attendance/search");
+    char *localVarPath = strdup("/event/attendance/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1291,7 +1272,6 @@ EventAPI_searchEventTransactions(apiClient_t *apiClient, double version, char *d
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1492,7 +1472,7 @@ end:
 // Searches on events that the account has access to.
 //
 list_t*
-EventAPI_searchEvents(apiClient_t *apiClient, double version, long accountId, char *keyword, int *activeOnly, char *categoryIds, char *filterIds, char *offerAudienceIds, char *transactionAudienceIds, sirqul_iot_platform_searchEvents_sortField_e sortField, int *descending, long startDate, long endDate, int *start, int *limit)
+EventAPI_searchEvents(apiClient_t *apiClient, long accountId, char *keyword, int *activeOnly, char *categoryIds, char *filterIds, char *offerAudienceIds, char *transactionAudienceIds, sirqul_iot_platform_searchEvents_sortField_e sortField, int *descending, long startDate, long endDate, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1506,12 +1486,9 @@ EventAPI_searchEvents(apiClient_t *apiClient, double version, long accountId, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/event/search");
+    char *localVarPath = strdup("/event/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1724,7 +1701,6 @@ EventAPI_searchEvents(apiClient_t *apiClient, double version, long accountId, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1877,7 +1853,7 @@ end:
 // Update a private event to share with associates.
 //
 offer_response_t*
-EventAPI_updateEvent(apiClient_t *apiClient, double version, long accountId, long eventId, char *retailerLocationIds, char *title, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd)
+EventAPI_updateEvent(apiClient_t *apiClient, long accountId, long eventId, char *retailerLocationIds, char *title, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1891,12 +1867,9 @@ EventAPI_updateEvent(apiClient_t *apiClient, double version, long accountId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/event/update");
+    char *localVarPath = strdup("/event/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2083,7 +2056,6 @@ EventAPI_updateEvent(apiClient_t *apiClient, double version, long accountId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

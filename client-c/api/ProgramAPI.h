@@ -13,7 +13,7 @@
 // Create a new program
 //
 program_t*
-ProgramAPI_createProgram(apiClient_t *apiClient, double version, program_t *body);
+ProgramAPI_createProgram(apiClient_t *apiClient, program_t *body);
 
 
 // Delete Program
@@ -21,7 +21,7 @@ ProgramAPI_createProgram(apiClient_t *apiClient, double version, program_t *body
 // Delete an existing program
 //
 void
-ProgramAPI_deleteProgram(apiClient_t *apiClient, double version, long id);
+ProgramAPI_deleteProgram(apiClient_t *apiClient, long id);
 
 
 // Get Program
@@ -29,7 +29,7 @@ ProgramAPI_deleteProgram(apiClient_t *apiClient, double version, long id);
 // Get an existing program
 //
 program_t*
-ProgramAPI_getProgram(apiClient_t *apiClient, double version, long id);
+ProgramAPI_getProgram(apiClient_t *apiClient, long id);
 
 
 // Update Program
@@ -37,7 +37,7 @@ ProgramAPI_getProgram(apiClient_t *apiClient, double version, long id);
 // Update an existing program
 //
 program_t*
-ProgramAPI_postProgram(apiClient_t *apiClient, double version, long id, program_t *body);
+ProgramAPI_postProgram(apiClient_t *apiClient, long id, program_t *body);
 
 
 // Update Program
@@ -45,7 +45,7 @@ ProgramAPI_postProgram(apiClient_t *apiClient, double version, long id, program_
 // Update an existing program
 //
 program_t*
-ProgramAPI_putProgram(apiClient_t *apiClient, double version, long id, program_t *body);
+ProgramAPI_putProgram(apiClient_t *apiClient, long id, program_t *body);
 
 
 // Search Programs
@@ -53,6 +53,6 @@ ProgramAPI_putProgram(apiClient_t *apiClient, double version, long id, program_t
 // Search for programs
 //
 list_t*
-ProgramAPI_searchPrograms(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword);
+ProgramAPI_searchPrograms(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword);
 
 

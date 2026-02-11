@@ -14,6 +14,6 @@
 // Creates a reference for an entity for syncing data between servers.
 //
 activity_response_t*
-ActivityAPI_createEntityReference(apiClient_t *apiClient, double version, entity_reference_t *body);
+ActivityAPI_createEntityReference(apiClient_t *apiClient, entity_reference_t *body);
 
 

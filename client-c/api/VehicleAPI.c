@@ -14,7 +14,7 @@
 // Create new vehicle
 //
 vehicle_t*
-VehicleAPI_createVehicle(apiClient_t *apiClient, double version, char *vehicle, vehicle_t *body)
+VehicleAPI_createVehicle(apiClient_t *apiClient, char *vehicle, vehicle_t *body)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ VehicleAPI_createVehicle(apiClient_t *apiClient, double version, char *vehicle, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle");
+    char *localVarPath = strdup("/vehicle");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -97,7 +94,6 @@ VehicleAPI_createVehicle(apiClient_t *apiClient, double version, char *vehicle, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -127,7 +123,7 @@ end:
 // Delete an existing vehicle
 //
 void
-VehicleAPI_deleteVehicle(apiClient_t *apiClient, double version, long id)
+VehicleAPI_deleteVehicle(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -141,15 +137,12 @@ VehicleAPI_deleteVehicle(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/{id}");
+    char *localVarPath = strdup("/vehicle/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -191,7 +184,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
 
 }
@@ -201,7 +193,7 @@ end:
 // Get an existing vehicle
 //
 vehicle_t*
-VehicleAPI_getVehicle(apiClient_t *apiClient, double version, long id)
+VehicleAPI_getVehicle(apiClient_t *apiClient, long id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -215,15 +207,12 @@ VehicleAPI_getVehicle(apiClient_t *apiClient, double version, long id)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/{id}");
+    char *localVarPath = strdup("/vehicle/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -276,7 +265,6 @@ VehicleAPI_getVehicle(apiClient_t *apiClient, double version, long id)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     return elementToReturn;
 end:
@@ -290,7 +278,7 @@ end:
 // Search for vehicles
 //
 list_t*
-VehicleAPI_searchVehicle(apiClient_t *apiClient, double version, long hubId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword)
+VehicleAPI_searchVehicle(apiClient_t *apiClient, long hubId, char *sortField, int *descending, int *start, int *limit, int *activeOnly, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -304,12 +292,9 @@ VehicleAPI_searchVehicle(apiClient_t *apiClient, double version, long hubId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle");
+    char *localVarPath = strdup("/vehicle");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -449,7 +434,6 @@ VehicleAPI_searchVehicle(apiClient_t *apiClient, double version, long hubId, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_hubId){
         free(keyQuery_hubId);
         keyQuery_hubId = NULL;
@@ -542,7 +526,7 @@ end:
 // Update an existing vehicle
 //
 vehicle_t*
-VehicleAPI_updateVehicle(apiClient_t *apiClient, double version, long id, char *vehicle, vehicle_t *body)
+VehicleAPI_updateVehicle(apiClient_t *apiClient, long id, char *vehicle, vehicle_t *body)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -556,15 +540,12 @@ VehicleAPI_updateVehicle(apiClient_t *apiClient, double version, long id, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/vehicle/{id}");
+    char *localVarPath = strdup("/vehicle/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -639,7 +620,6 @@ VehicleAPI_updateVehicle(apiClient_t *apiClient, double version, long id, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);

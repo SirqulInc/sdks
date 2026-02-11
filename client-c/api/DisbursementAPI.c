@@ -118,7 +118,7 @@ end:
 // Checks the status of a captured disbrusement to see if it has been settled.
 //
 disbursement_response_t*
-DisbursementAPI_checkDisbursements(apiClient_t *apiClient, double version, long disbursementId)
+DisbursementAPI_checkDisbursements(apiClient_t *apiClient, long disbursementId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -132,12 +132,9 @@ DisbursementAPI_checkDisbursements(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/disbursement/check");
+    char *localVarPath = strdup("/disbursement/check");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -191,7 +188,6 @@ DisbursementAPI_checkDisbursements(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_disbursementId){
         free(keyQuery_disbursementId);
         keyQuery_disbursementId = NULL;
@@ -212,7 +208,7 @@ end:
 // Creates a Disbursement for sending money to a retailer
 //
 disbursement_response_t*
-DisbursementAPI_createDisbursement(apiClient_t *apiClient, double version, long accountId, long receiverAccountId, long originalSenderAccountId, double amount, sirqul_iot_platform_createDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, char *introspectionParams)
+DisbursementAPI_createDisbursement(apiClient_t *apiClient, long accountId, long receiverAccountId, long originalSenderAccountId, double amount, sirqul_iot_platform_createDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, char *introspectionParams)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -226,12 +222,9 @@ DisbursementAPI_createDisbursement(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/disbursement/create");
+    char *localVarPath = strdup("/disbursement/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -394,7 +387,6 @@ DisbursementAPI_createDisbursement(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -503,7 +495,7 @@ end:
 // Get Disbursement details
 //
 disbursement_response_t*
-DisbursementAPI_getDisbursement(apiClient_t *apiClient, double version, long accountId, long disbursementId)
+DisbursementAPI_getDisbursement(apiClient_t *apiClient, long accountId, long disbursementId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -517,12 +509,9 @@ DisbursementAPI_getDisbursement(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/disbursement/get");
+    char *localVarPath = strdup("/disbursement/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -588,7 +577,6 @@ DisbursementAPI_getDisbursement(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -617,7 +605,7 @@ end:
 // Search Disbursements
 //
 list_t*
-DisbursementAPI_searchDisbursements(apiClient_t *apiClient, double version, long accountId, long receiverAccountId, char *statuses, char *providers, long beforeDate, long afterDate, int *start, int *limit, int *activeOnly, char *externalId)
+DisbursementAPI_searchDisbursements(apiClient_t *apiClient, long accountId, long receiverAccountId, char *statuses, char *providers, long beforeDate, long afterDate, int *start, int *limit, int *activeOnly, char *externalId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -631,12 +619,9 @@ DisbursementAPI_searchDisbursements(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/disbursement/search");
+    char *localVarPath = strdup("/disbursement/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -811,7 +796,6 @@ DisbursementAPI_searchDisbursements(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -928,7 +912,7 @@ end:
 // Update Disbursement
 //
 disbursement_response_t*
-DisbursementAPI_updateDisbursement(apiClient_t *apiClient, double version, long accountId, long disbursementId, double amount, sirqul_iot_platform_updateDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, int *retry, char *introspectionParams)
+DisbursementAPI_updateDisbursement(apiClient_t *apiClient, long accountId, long disbursementId, double amount, sirqul_iot_platform_updateDisbursement_provider_e provider, long scheduledDate, char *title, char *comment, char *externalId, int *retry, char *introspectionParams)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -942,12 +926,9 @@ DisbursementAPI_updateDisbursement(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/disbursement/update");
+    char *localVarPath = strdup("/disbursement/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1111,7 +1092,6 @@ DisbursementAPI_updateDisbursement(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

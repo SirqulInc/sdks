@@ -66,7 +66,7 @@ end:
 // Create a game level. Currently does NOT support game objects.
 //
 game_level_response_t*
-GameLevelAPI_createGameLevel(apiClient_t *apiClient, double version, long accountId, char *name, char *gameData, char *gameDataSuffix, char *appKey, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData)
+GameLevelAPI_createGameLevel(apiClient_t *apiClient, long accountId, char *name, char *gameData, char *gameDataSuffix, char *appKey, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ GameLevelAPI_createGameLevel(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/create");
+    char *localVarPath = strdup("/level/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -446,7 +443,6 @@ GameLevelAPI_createGameLevel(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -739,7 +735,7 @@ end:
 // Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 //
 sirqul_response_t*
-GameLevelAPI_deleteGameLevel(apiClient_t *apiClient, double version, long accountId, long levelId)
+GameLevelAPI_deleteGameLevel(apiClient_t *apiClient, long accountId, long levelId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -753,12 +749,9 @@ GameLevelAPI_deleteGameLevel(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/delete");
+    char *localVarPath = strdup("/level/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -824,7 +817,6 @@ GameLevelAPI_deleteGameLevel(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -853,7 +845,7 @@ end:
 // Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 //
 game_level_response_t*
-GameLevelAPI_getGameLevel(apiClient_t *apiClient, double version, long accountId, long levelId, int *includeGameData)
+GameLevelAPI_getGameLevel(apiClient_t *apiClient, long accountId, long levelId, int *includeGameData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -867,12 +859,9 @@ GameLevelAPI_getGameLevel(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/get");
+    char *localVarPath = strdup("/level/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -951,7 +940,6 @@ GameLevelAPI_getGameLevel(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -992,7 +980,7 @@ end:
 // Get a list of levels for an application, just those the account has permissions to view.
 //
 game_level_list_response_t*
-GameLevelAPI_getGameLevelsByApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, char *appVersion, int *includeGameData, char *filters)
+GameLevelAPI_getGameLevelsByApplication(apiClient_t *apiClient, long accountId, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, char *appVersion, int *includeGameData, char *filters)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1006,12 +994,9 @@ GameLevelAPI_getGameLevelsByApplication(apiClient_t *apiClient, double version, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/search");
+    char *localVarPath = strdup("/level/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1177,7 +1162,6 @@ GameLevelAPI_getGameLevelsByApplication(apiClient_t *apiClient, double version, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1306,7 +1290,7 @@ end:
 // Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 //
 game_level_response_t*
-GameLevelAPI_getGameLevelsByBillableEntity(apiClient_t *apiClient, double version, long accountId, char *appKey, char *keyword, sirqul_iot_platform_getGameLevelsByBillableEntity_sortField_e sortField, int *descending, int *activeOnly, long start, long limit)
+GameLevelAPI_getGameLevelsByBillableEntity(apiClient_t *apiClient, long accountId, char *appKey, char *keyword, sirqul_iot_platform_getGameLevelsByBillableEntity_sortField_e sortField, int *descending, int *activeOnly, long start, long limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1320,12 +1304,9 @@ GameLevelAPI_getGameLevelsByBillableEntity(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/searchByBillableEntity");
+    char *localVarPath = strdup("/level/searchByBillableEntity");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1466,7 +1447,6 @@ GameLevelAPI_getGameLevelsByBillableEntity(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1559,7 +1539,7 @@ end:
 // Get questions within a level.
 //
 question_response_t*
-GameLevelAPI_getQuestionsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId)
+GameLevelAPI_getQuestionsInLevel(apiClient_t *apiClient, long levelId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1573,12 +1553,9 @@ GameLevelAPI_getQuestionsInLevel(apiClient_t *apiClient, double version, long le
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/questions/get");
+    char *localVarPath = strdup("/level/questions/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1644,7 +1621,6 @@ GameLevelAPI_getQuestionsInLevel(apiClient_t *apiClient, double version, long le
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_levelId){
         free(keyQuery_levelId);
         keyQuery_levelId = NULL;
@@ -1673,7 +1649,7 @@ end:
 // Get words within a level.
 //
 wordz_word_response_t*
-GameLevelAPI_getWordsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId)
+GameLevelAPI_getWordsInLevel(apiClient_t *apiClient, long levelId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1687,12 +1663,9 @@ GameLevelAPI_getWordsInLevel(apiClient_t *apiClient, double version, long levelI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/words/get");
+    char *localVarPath = strdup("/level/words/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1758,7 +1731,6 @@ GameLevelAPI_getWordsInLevel(apiClient_t *apiClient, double version, long levelI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_levelId){
         free(keyQuery_levelId);
         keyQuery_levelId = NULL;
@@ -1787,7 +1759,7 @@ end:
 // Update a game level. Currently does NOT support game objects.
 //
 game_level_response_t*
-GameLevelAPI_updateGameLevel(apiClient_t *apiClient, double version, long accountId, long levelId, char *appKey, char *name, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *gameData, char *gameDataSuffix, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData)
+GameLevelAPI_updateGameLevel(apiClient_t *apiClient, long accountId, long levelId, char *appKey, char *name, char *description, char *difficulty, char *appVersion, long assetImageId, long assetIconId, char *gameData, char *gameDataSuffix, char *visibility, int *friendGroup, char *connectionIds, char *connectionGroupIds, double balance, int *active, int *allocateTickets, long ticketCount, char *ticketType, long points, char *tutorialTitle, char *tutorialMessage, char *tutorialAlignment, long tutorialImageAssetId, long offerId, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1801,12 +1773,9 @@ GameLevelAPI_updateGameLevel(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/update");
+    char *localVarPath = strdup("/level/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2179,7 +2148,6 @@ GameLevelAPI_updateGameLevel(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2480,7 +2448,7 @@ end:
 // Updates a level with question game objects.
 //
 sirqul_response_t*
-GameLevelAPI_updateQuestionsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId, char *questionIds)
+GameLevelAPI_updateQuestionsInLevel(apiClient_t *apiClient, long levelId, long accountId, char *questionIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2494,12 +2462,9 @@ GameLevelAPI_updateQuestionsInLevel(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/questions/update");
+    char *localVarPath = strdup("/level/questions/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2577,7 +2542,6 @@ GameLevelAPI_updateQuestionsInLevel(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_levelId){
         free(keyQuery_levelId);
         keyQuery_levelId = NULL;
@@ -2618,7 +2582,7 @@ end:
 // Updates a level with word game objects.
 //
 sirqul_response_t*
-GameLevelAPI_updateWordsInLevel(apiClient_t *apiClient, double version, long levelId, long accountId, char *wordIds)
+GameLevelAPI_updateWordsInLevel(apiClient_t *apiClient, long levelId, long accountId, char *wordIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2632,12 +2596,9 @@ GameLevelAPI_updateWordsInLevel(apiClient_t *apiClient, double version, long lev
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/level/words/update");
+    char *localVarPath = strdup("/level/words/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2715,7 +2676,6 @@ GameLevelAPI_updateWordsInLevel(apiClient_t *apiClient, double version, long lev
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_levelId){
         free(keyQuery_levelId);
         keyQuery_levelId = NULL;

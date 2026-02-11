@@ -14,7 +14,7 @@
 // reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 //
 billable_entity_response_t*
-BillableEntityAPI_createBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey)
+BillableEntityAPI_createBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ BillableEntityAPI_createBillableEntity(apiClient_t *apiClient, double version, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billable/create");
+    char *localVarPath = strdup("/billable/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -219,7 +216,6 @@ BillableEntityAPI_createBillableEntity(apiClient_t *apiClient, double version, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -372,7 +368,7 @@ end:
 // Mark the billable as deleted
 //
 sirqul_response_t*
-BillableEntityAPI_deleteBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId)
+BillableEntityAPI_deleteBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -386,12 +382,9 @@ BillableEntityAPI_deleteBillableEntity(apiClient_t *apiClient, double version, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billable/delete");
+    char *localVarPath = strdup("/billable/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -457,7 +450,6 @@ BillableEntityAPI_deleteBillableEntity(apiClient_t *apiClient, double version, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -490,7 +482,7 @@ end:
 // Used to determine the associated BillableEntity of an account
 //
 billable_entity_response_t*
-BillableEntityAPI_getBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId, int *includeCounts, int *includePayments)
+BillableEntityAPI_getBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId, int *includeCounts, int *includePayments)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -504,12 +496,9 @@ BillableEntityAPI_getBillableEntity(apiClient_t *apiClient, double version, char
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billable/get");
+    char *localVarPath = strdup("/billable/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -601,7 +590,6 @@ BillableEntityAPI_getBillableEntity(apiClient_t *apiClient, double version, char
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -658,7 +646,7 @@ end:
 // Updates the billable record for an account
 //
 billable_entity_response_t*
-BillableEntityAPI_updateBillableEntity(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey)
+BillableEntityAPI_updateBillableEntity(apiClient_t *apiClient, char *deviceId, long accountId, char *name, char *streetAddress, char *streetAddress2, char *city, char *state, char *postalCode, char *businessPhone, char *businessPhoneExt, char *authorizeNetApiKey, char *authorizeNetTransactionKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -672,12 +660,9 @@ BillableEntityAPI_updateBillableEntity(apiClient_t *apiClient, double version, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/billable/update");
+    char *localVarPath = strdup("/billable/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -863,7 +848,6 @@ BillableEntityAPI_updateBillableEntity(apiClient_t *apiClient, double version, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

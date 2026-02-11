@@ -121,7 +121,7 @@ typedef enum  { sirqul_iot_platform_updateOffer_MEDIATYPE_NULL = 0, sirqul_iot_p
 // Batch update offer locations.
 //
 sirqul_response_t*
-OfferAPI_batchUpdateOfferLocations(apiClient_t *apiClient, double version, char *data, char *deviceId, long accountId);
+OfferAPI_batchUpdateOfferLocations(apiClient_t *apiClient, char *data, char *deviceId, long accountId);
 
 
 // Create Offer
@@ -129,7 +129,7 @@ OfferAPI_batchUpdateOfferLocations(apiClient_t *apiClient, double version, char 
 // Create an offer and assign it to the provided retailer locations.
 //
 retailer_offer_response_t*
-OfferAPI_createOffer(apiClient_t *apiClient, double version, int *includeOfferLocations, char *title, sirqul_iot_platform_createOffer_barcodeType_e barcodeType, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, long ticketPrice, double fullPrice, double discountPrice, sirqul_iot_platform_createOffer_offerType_e offerType, sirqul_iot_platform_createOffer_specialOfferType_e specialOfferType, sirqul_iot_platform_createOffer_offerVisibility_e offerVisibility, int *active, char *deviceId, long accountId, char *tags, long parentOfferId, char *retailerLocationIds, char *offerLocations, char *subTitle, char *details, char *subDetails, char *finePrint, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *externalId, char *ticketsRewardType, long ticketsReward, long activated, long expires, char *ticketPriceType, int *showRemaining, int *showRedeemed, int *replaced, int *featured, char *categoryIds, char *filterIds, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, char *brand, sirqul_iot_platform_createOffer_productType_e productType, sirqul_iot_platform_createOffer_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, char *department, char *features, double minimumPrice, double width, double height, double depth, double weight, sirqul_iot_platform_createOffer_unit_e unit, char *studio, char *parentalRating, long publishDate, long availabilityDate, long sizeId, long listingId, sirqul_iot_platform_createOffer_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, int *rebootTimeHour, int *rebootTimeMinute, int *idleTimeoutInSecond, char *serialNumber, char *udid, char *deviceType, double devicePower, double deviceInterference, char *availability, char *availabilitySummary);
+OfferAPI_createOffer(apiClient_t *apiClient, int *includeOfferLocations, char *title, sirqul_iot_platform_createOffer_barcodeType_e barcodeType, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, long ticketPrice, double fullPrice, double discountPrice, sirqul_iot_platform_createOffer_offerType_e offerType, sirqul_iot_platform_createOffer_specialOfferType_e specialOfferType, sirqul_iot_platform_createOffer_offerVisibility_e offerVisibility, int *active, char *deviceId, long accountId, char *tags, long parentOfferId, char *retailerLocationIds, char *offerLocations, char *subTitle, char *details, char *subDetails, char *finePrint, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *externalId, char *ticketsRewardType, long ticketsReward, long activated, long expires, char *ticketPriceType, int *showRemaining, int *showRedeemed, int *replaced, int *featured, char *categoryIds, char *filterIds, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, char *brand, sirqul_iot_platform_createOffer_productType_e productType, sirqul_iot_platform_createOffer_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, char *department, char *features, double minimumPrice, double width, double height, double depth, double weight, sirqul_iot_platform_createOffer_unit_e unit, char *studio, char *parentalRating, long publishDate, long availabilityDate, long sizeId, long listingId, sirqul_iot_platform_createOffer_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, int *rebootTimeHour, int *rebootTimeMinute, int *idleTimeoutInSecond, char *serialNumber, char *udid, char *deviceType, double devicePower, double deviceInterference, char *availability, char *availabilitySummary);
 
 
 // Delete Offer
@@ -137,7 +137,7 @@ OfferAPI_createOffer(apiClient_t *apiClient, double version, int *includeOfferLo
 // Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
 //
 sirqul_response_t*
-OfferAPI_deleteOffer(apiClient_t *apiClient, double version, long offerId, char *deviceId, long accountId);
+OfferAPI_deleteOffer(apiClient_t *apiClient, long offerId, char *deviceId, long accountId);
 
 
 // Delete Offer Location
@@ -145,7 +145,7 @@ OfferAPI_deleteOffer(apiClient_t *apiClient, double version, long offerId, char 
 // Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
 //
 sirqul_response_t*
-OfferAPI_deleteOfferLocation(apiClient_t *apiClient, double version, long offerLocationId, char *deviceId, long accountId);
+OfferAPI_deleteOfferLocation(apiClient_t *apiClient, long offerLocationId, char *deviceId, long accountId);
 
 
 // Get Offer
@@ -153,7 +153,7 @@ OfferAPI_deleteOfferLocation(apiClient_t *apiClient, double version, long offerL
 // Gets the details of an offer that the user has access to.
 //
 retailer_offer_response_t*
-OfferAPI_getOffer(apiClient_t *apiClient, double version, long offerId, int *includeOfferLocations, char *deviceId, long accountId);
+OfferAPI_getOffer(apiClient_t *apiClient, long offerId, int *includeOfferLocations, char *deviceId, long accountId);
 
 
 // Get Offer
@@ -161,7 +161,7 @@ OfferAPI_getOffer(apiClient_t *apiClient, double version, long offerId, int *inc
 // Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
 //
 offer_response_t*
-OfferAPI_getOfferDetails(apiClient_t *apiClient, double version, char *deviceId, long accountId, long offerId, long offerLocationId, double distance, double latitude, double longitude, int *includeOfferLocations, int *includeRetailerLocations, int *includeChildOffers);
+OfferAPI_getOfferDetails(apiClient_t *apiClient, char *deviceId, long accountId, long offerId, long offerLocationId, double distance, double latitude, double longitude, int *includeOfferLocations, int *includeRetailerLocations, int *includeChildOffers);
 
 
 // Get Offers (Counts)
@@ -169,7 +169,7 @@ OfferAPI_getOfferDetails(apiClient_t *apiClient, double version, char *deviceId,
 // Gets the offer list counts.
 //
 list_count_response_t*
-OfferAPI_getOfferListCounts(apiClient_t *apiClient, double version, double latitude, double longitude, double searchRange, sirqul_iot_platform_getOfferListCounts_distanceUnit_e distanceUnit);
+OfferAPI_getOfferListCounts(apiClient_t *apiClient, double latitude, double longitude, double searchRange, sirqul_iot_platform_getOfferListCounts_distanceUnit_e distanceUnit);
 
 
 // Get Offer Location
@@ -177,7 +177,7 @@ OfferAPI_getOfferListCounts(apiClient_t *apiClient, double version, double latit
 // Gets the offer location by offer location id or udid (of a device)
 //
 offer_short_response_t*
-OfferAPI_getOfferLocation(apiClient_t *apiClient, double version, long offerLocationId, char *udid);
+OfferAPI_getOfferLocation(apiClient_t *apiClient, long offerLocationId, char *udid);
 
 
 // Search Offer Locations
@@ -185,7 +185,7 @@ OfferAPI_getOfferLocation(apiClient_t *apiClient, double version, long offerLoca
 // Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
 //
 list_t*
-OfferAPI_getOfferLocationsForRetailers(apiClient_t *apiClient, double version, sirqul_iot_platform_getOfferLocationsForRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, int *includeRetailerLocation, char *deviceId, long accountId, char *keyword, long retailerId, long retailerLocationId, sirqul_iot_platform_getOfferLocationsForRetailers_offerType_e offerType, sirqul_iot_platform_getOfferLocationsForRetailers_specialOfferType_e specialOfferType, char *barcodeType, char *barcodeEntry, char *isbn, char *asin, sirqul_iot_platform_getOfferLocationsForRetailers_deviceStatus_e deviceStatus, int *needsNotificationSent, long lastNotificationSent);
+OfferAPI_getOfferLocationsForRetailers(apiClient_t *apiClient, sirqul_iot_platform_getOfferLocationsForRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, int *includeRetailerLocation, char *deviceId, long accountId, char *keyword, long retailerId, long retailerLocationId, sirqul_iot_platform_getOfferLocationsForRetailers_offerType_e offerType, sirqul_iot_platform_getOfferLocationsForRetailers_specialOfferType_e specialOfferType, char *barcodeType, char *barcodeEntry, char *isbn, char *asin, sirqul_iot_platform_getOfferLocationsForRetailers_deviceStatus_e deviceStatus, int *needsNotificationSent, long lastNotificationSent);
 
 
 // Search Offers
@@ -193,7 +193,7 @@ OfferAPI_getOfferLocationsForRetailers(apiClient_t *apiClient, double version, s
 // Searches on offers that the account has access to.
 //
 list_t*
-OfferAPI_getOffersForRetailers(apiClient_t *apiClient, double version, sirqul_iot_platform_getOffersForRetailers_offerVisibility_e offerVisibility, sirqul_iot_platform_getOffersForRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *availableOnly, int *activeOnly, int *includeCategories, int *includeFilters, int *includeOfferLocations, char *deviceId, long accountId, char *categoryIds, char *filterIds, char *q, char *keyword, long retailerId, long retailerLocationId, sirqul_iot_platform_getOffersForRetailers_couponType_e couponType, sirqul_iot_platform_getOffersForRetailers_offerType_e offerType, char *offerTypes, sirqul_iot_platform_getOffersForRetailers_specialOfferType_e specialOfferType, int *_i, int *_l, char *barcodeType, char *barcodeEntry, char *isbn, char *asin, sirqul_iot_platform_getOffersForRetailers_deviceStatus_e deviceStatus, int *needsNotificationSent, long lastNotificationSent);
+OfferAPI_getOffersForRetailers(apiClient_t *apiClient, sirqul_iot_platform_getOffersForRetailers_offerVisibility_e offerVisibility, sirqul_iot_platform_getOffersForRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *availableOnly, int *activeOnly, int *includeCategories, int *includeFilters, int *includeOfferLocations, char *deviceId, long accountId, char *categoryIds, char *filterIds, char *q, char *keyword, long retailerId, long retailerLocationId, sirqul_iot_platform_getOffersForRetailers_couponType_e couponType, sirqul_iot_platform_getOffersForRetailers_offerType_e offerType, char *offerTypes, sirqul_iot_platform_getOffersForRetailers_specialOfferType_e specialOfferType, int *_i, int *_l, char *barcodeType, char *barcodeEntry, char *isbn, char *asin, sirqul_iot_platform_getOffersForRetailers_deviceStatus_e deviceStatus, int *needsNotificationSent, long lastNotificationSent);
 
 
 // Update Offer Transaction
@@ -201,7 +201,7 @@ OfferAPI_getOffersForRetailers(apiClient_t *apiClient, double version, sirqul_io
 // Redeems an offer.
 //
 sirqul_response_t*
-OfferAPI_redeemOfferTransaction(apiClient_t *apiClient, double version, long offerTransactionId, int *status, char *deviceId, long accountId, long offerLocationId);
+OfferAPI_redeemOfferTransaction(apiClient_t *apiClient, long offerTransactionId, int *status, char *deviceId, long accountId, long offerLocationId);
 
 
 // Search Offer Transactions
@@ -209,7 +209,7 @@ OfferAPI_redeemOfferTransaction(apiClient_t *apiClient, double version, long off
 // Searches on offer transactions for offers that the account has access to.
 //
 list_t*
-OfferAPI_searchOfferTransactionsForRetailers(apiClient_t *apiClient, double version, sirqul_iot_platform_searchOfferTransactionsForRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *deviceId, long accountId, char *q, char *keyword, long retailerId, long retailerLocationId, long offerId, long offerLocationId, int *redeemed, int *reservationsOnly, sirqul_iot_platform_searchOfferTransactionsForRetailers_couponType_e couponType, sirqul_iot_platform_searchOfferTransactionsForRetailers_offerType_e offerType, sirqul_iot_platform_searchOfferTransactionsForRetailers_specialOfferType_e specialOfferType, char *customerAccountIds, char *categoryIds, long redeemableStartDate, long redeemableEndDate, int *_i, int *_l);
+OfferAPI_searchOfferTransactionsForRetailers(apiClient_t *apiClient, sirqul_iot_platform_searchOfferTransactionsForRetailers_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, char *deviceId, long accountId, char *q, char *keyword, long retailerId, long retailerLocationId, long offerId, long offerLocationId, int *redeemed, int *reservationsOnly, sirqul_iot_platform_searchOfferTransactionsForRetailers_couponType_e couponType, sirqul_iot_platform_searchOfferTransactionsForRetailers_offerType_e offerType, sirqul_iot_platform_searchOfferTransactionsForRetailers_specialOfferType_e specialOfferType, char *customerAccountIds, char *categoryIds, long redeemableStartDate, long redeemableEndDate, int *_i, int *_l);
 
 
 // Search Offers
@@ -217,7 +217,7 @@ OfferAPI_searchOfferTransactionsForRetailers(apiClient_t *apiClient, double vers
 // Searches for offers as a consumer.
 //
 offer_list_response_t*
-OfferAPI_searchOffersForConsumer(apiClient_t *apiClient, double version, double latitude, double longitude, sirqul_iot_platform_searchOffersForConsumer_recommendationType_e recommendationType, long locationId, int *start, int *limit, int *maxRecommendations, sirqul_iot_platform_searchOffersForConsumer_distanceUnit_e distanceUnit, char *appKey, char *deviceId, long accountId, double searchRange, char *tags, char *supportedPostalCodes, char *keyword, char *categories, char *filters, char *offerTypes, char *type, char *sortField, char *recommendOfferIds, char *retailerLocationIds, long offerId, int *includeMission, int *includeCategories, int *includeFilters, int *includeExpired, int *includeFavorite, int *closestOfferOnly, char *searchExpression, sirqul_iot_platform_searchOffersForConsumer_groupBy_e groupBy);
+OfferAPI_searchOffersForConsumer(apiClient_t *apiClient, double latitude, double longitude, sirqul_iot_platform_searchOffersForConsumer_recommendationType_e recommendationType, long locationId, int *start, int *limit, int *maxRecommendations, sirqul_iot_platform_searchOffersForConsumer_distanceUnit_e distanceUnit, char *appKey, char *deviceId, long accountId, double searchRange, char *tags, char *supportedPostalCodes, char *keyword, char *categories, char *filters, char *offerTypes, char *type, char *sortField, char *recommendOfferIds, char *retailerLocationIds, long offerId, int *includeMission, int *includeCategories, int *includeFilters, int *includeExpired, int *includeFavorite, int *closestOfferOnly, char *searchExpression, sirqul_iot_platform_searchOffersForConsumer_groupBy_e groupBy);
 
 
 // Get Offers (Top)
@@ -225,7 +225,7 @@ OfferAPI_searchOffersForConsumer(apiClient_t *apiClient, double version, double 
 // Gets the top active offers.
 //
 offer_list_response_t*
-OfferAPI_topOfferTransactions(apiClient_t *apiClient, double version, int *start, int *limit);
+OfferAPI_topOfferTransactions(apiClient_t *apiClient, int *start, int *limit);
 
 
 // Update Offer
@@ -233,7 +233,7 @@ OfferAPI_topOfferTransactions(apiClient_t *apiClient, double version, int *start
 // Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
 //
 retailer_offer_response_t*
-OfferAPI_updateOffer(apiClient_t *apiClient, double version, long offerId, int *includeOfferLocations, char *deviceId, long accountId, long parentOfferId, char *retailerLocationIds, char *offerLocations, char *tags, char *title, char *subTitle, char *details, char *subDetails, char *finePrint, sirqul_iot_platform_updateOffer_barcodeType_e barcodeType, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *externalId, char *ticketsRewardType, long ticketsReward, long activated, long expires, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, char *ticketPriceType, long ticketPrice, double fullPrice, double discountPrice, int *showRemaining, int *showRedeemed, int *replaced, int *featured, sirqul_iot_platform_updateOffer_offerType_e offerType, sirqul_iot_platform_updateOffer_specialOfferType_e specialOfferType, sirqul_iot_platform_updateOffer_offerVisibility_e offerVisibility, char *categoryIds, char *filterIds, int *active, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, char *brand, sirqul_iot_platform_updateOffer_productType_e productType, sirqul_iot_platform_updateOffer_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, char *department, char *features, double minimumPrice, double width, double height, double depth, double weight, sirqul_iot_platform_updateOffer_unit_e unit, char *studio, char *parentalRating, long publishDate, long availabilityDate, long sizeId, long listingId, sirqul_iot_platform_updateOffer_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, int *rebootTimeHour, int *rebootTimeMinute, int *idleTimeoutInSecond, char *serialNumber, char *udid, char *deviceType, double devicePower, double deviceInterference, char *availability, char *availabilitySummary);
+OfferAPI_updateOffer(apiClient_t *apiClient, long offerId, int *includeOfferLocations, char *deviceId, long accountId, long parentOfferId, char *retailerLocationIds, char *offerLocations, char *tags, char *title, char *subTitle, char *details, char *subDetails, char *finePrint, sirqul_iot_platform_updateOffer_barcodeType_e barcodeType, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *externalId, char *ticketsRewardType, long ticketsReward, long activated, long expires, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, char *ticketPriceType, long ticketPrice, double fullPrice, double discountPrice, int *showRemaining, int *showRedeemed, int *replaced, int *featured, sirqul_iot_platform_updateOffer_offerType_e offerType, sirqul_iot_platform_updateOffer_specialOfferType_e specialOfferType, sirqul_iot_platform_updateOffer_offerVisibility_e offerVisibility, char *categoryIds, char *filterIds, int *active, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, char *brand, sirqul_iot_platform_updateOffer_productType_e productType, sirqul_iot_platform_updateOffer_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, char *department, char *features, double minimumPrice, double width, double height, double depth, double weight, sirqul_iot_platform_updateOffer_unit_e unit, char *studio, char *parentalRating, long publishDate, long availabilityDate, long sizeId, long listingId, sirqul_iot_platform_updateOffer_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, int *rebootTimeHour, int *rebootTimeMinute, int *idleTimeoutInSecond, char *serialNumber, char *udid, char *deviceType, double devicePower, double deviceInterference, char *availability, char *availabilitySummary);
 
 
 // Activate Offer
@@ -241,6 +241,6 @@ OfferAPI_updateOffer(apiClient_t *apiClient, double version, long offerId, int *
 // Sets the activated date on offers. This will make offers visible for consumers.
 //
 sirqul_response_t*
-OfferAPI_updateOfferStatus(apiClient_t *apiClient, double version, char *offerIds, int *active, char *deviceId, long accountId);
+OfferAPI_updateOfferStatus(apiClient_t *apiClient, char *offerIds, int *active, char *deviceId, long accountId);
 
 

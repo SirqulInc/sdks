@@ -66,7 +66,7 @@ end:
 // Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
 //
 sirqul_response_t*
-NoteAPI_batchOperation(apiClient_t *apiClient, double version, long notableId, char *notableType, char *deviceId, long accountId, char *batchOperation)
+NoteAPI_batchOperation(apiClient_t *apiClient, long notableId, char *notableType, char *deviceId, long accountId, char *batchOperation)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ NoteAPI_batchOperation(apiClient_t *apiClient, double version, long notableId, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/note/batch");
+    char *localVarPath = strdup("/note/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -187,7 +184,6 @@ NoteAPI_batchOperation(apiClient_t *apiClient, double version, long notableId, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -252,7 +248,7 @@ end:
 // This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
 //
 note_response_t*
-NoteAPI_createNote(apiClient_t *apiClient, double version, char *comment, char *deviceId, long accountId, char *notableType, long notableId, char *noteType, char *assetIds, char *tags, char *permissionableType, long permissionableId, char *appKey, char *locationDescription, double latitude, double longitude, char *metaData, char *receiverAccountIds, int *returnFullResponse, int *initializeAsset, int *assetReturnNulls, long assetAlbumId, long assetCollectionId, char *assetAddToDefaultAlbum, int *assetAddToMediaLibrary, int *assetVersionCode, char *assetVersionName, char *assetMetaData, char *assetCaption, binary_t* assetMedia, char *assetMediaUrl, char *assetMediaString, char *assetMediaStringFileName, char *assetMediaStringContentType, binary_t* assetAttachedMedia, char *assetAttachedMediaUrl, char *assetAttachedMediaString, char *assetAttachedMediaStringFileName, char *assetAttachedMediaStringContentType, char *assetLocationDescription, char *assetApp, char *assetSearchTags, double assetLatitude, double assetLongitude)
+NoteAPI_createNote(apiClient_t *apiClient, char *comment, char *deviceId, long accountId, char *notableType, long notableId, char *noteType, char *assetIds, char *tags, char *permissionableType, long permissionableId, char *appKey, char *locationDescription, double latitude, double longitude, char *metaData, char *receiverAccountIds, int *returnFullResponse, int *initializeAsset, int *assetReturnNulls, long assetAlbumId, long assetCollectionId, char *assetAddToDefaultAlbum, int *assetAddToMediaLibrary, int *assetVersionCode, char *assetVersionName, char *assetMetaData, char *assetCaption, binary_t* assetMedia, char *assetMediaUrl, char *assetMediaString, char *assetMediaStringFileName, char *assetMediaStringContentType, binary_t* assetAttachedMedia, char *assetAttachedMediaUrl, char *assetAttachedMediaString, char *assetAttachedMediaStringFileName, char *assetAttachedMediaStringContentType, char *assetLocationDescription, char *assetApp, char *assetSearchTags, double assetLatitude, double assetLongitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -266,12 +262,9 @@ NoteAPI_createNote(apiClient_t *apiClient, double version, char *comment, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/note/create");
+    char *localVarPath = strdup("/note/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -834,7 +827,6 @@ NoteAPI_createNote(apiClient_t *apiClient, double version, char *comment, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1307,7 +1299,7 @@ end:
 // Sets a comment (note) as deleted.
 //
 sirqul_response_t*
-NoteAPI_deleteNote(apiClient_t *apiClient, double version, long noteId, char *deviceId, long accountId, double latitude, double longitude, char *appKey)
+NoteAPI_deleteNote(apiClient_t *apiClient, long noteId, char *deviceId, long accountId, double latitude, double longitude, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1321,12 +1313,9 @@ NoteAPI_deleteNote(apiClient_t *apiClient, double version, long noteId, char *de
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/note/delete");
+    char *localVarPath = strdup("/note/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1448,7 +1437,6 @@ NoteAPI_deleteNote(apiClient_t *apiClient, double version, long noteId, char *de
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1517,7 +1505,7 @@ end:
 // Get for a note based on its Id.
 //
 sirqul_response_t*
-NoteAPI_getNote(apiClient_t *apiClient, double version, long noteId, char *deviceId, long accountId, int *returnFullResponse)
+NoteAPI_getNote(apiClient_t *apiClient, long noteId, char *deviceId, long accountId, int *returnFullResponse)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1531,12 +1519,9 @@ NoteAPI_getNote(apiClient_t *apiClient, double version, long noteId, char *devic
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/note/get");
+    char *localVarPath = strdup("/note/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1627,7 +1612,6 @@ NoteAPI_getNote(apiClient_t *apiClient, double version, long noteId, char *devic
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1680,7 +1664,7 @@ end:
 // Search for notes on a notable object.
 //
 list_t*
-NoteAPI_searchNotes(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *notableType, long notableId, char *noteTypes, char *appKey, char *keyword, long flagCountMinimum, int *flagsExceedThreshold, int *includeInactive, sirqul_iot_platform_searchNotes_sortField_e sortField, int *descending, int *returnFullResponse, long updatedSince, long updatedBefore, int *start, int *limit)
+NoteAPI_searchNotes(apiClient_t *apiClient, char *deviceId, long accountId, char *notableType, long notableId, char *noteTypes, char *appKey, char *keyword, long flagCountMinimum, int *flagsExceedThreshold, int *includeInactive, sirqul_iot_platform_searchNotes_sortField_e sortField, int *descending, int *returnFullResponse, long updatedSince, long updatedBefore, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1694,12 +1678,9 @@ NoteAPI_searchNotes(apiClient_t *apiClient, double version, char *deviceId, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/note/search");
+    char *localVarPath = strdup("/note/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1962,7 +1943,6 @@ NoteAPI_searchNotes(apiClient_t *apiClient, double version, char *deviceId, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2155,7 +2135,7 @@ end:
 // Update an existing comment (note). Only the creator of the note have permission to update.
 //
 note_response_t*
-NoteAPI_updateNote(apiClient_t *apiClient, double version, long noteId, char *deviceId, long accountId, char *comment, char *noteType, char *assetIds, char *tags, char *permissionableType, long permissionableId, char *appKey, char *locationDescription, double latitude, double longitude, char *metaData, int *returnFullResponse, int *active, int *updateAsset, int *assetReturnNulls, long assetAlbumId, long assetCollectionId, char *assetAddToDefaultAlbum, int *assetAddToMediaLibrary, int *assetVersionCode, char *assetVersionName, char *assetMetaData, char *assetCaption, binary_t* assetMedia, char *assetMediaUrl, char *assetMediaString, char *assetMediaStringFileName, char *assetMediaStringContentType, binary_t* assetAttachedMedia, char *assetAttachedMediaUrl, char *assetAttachedMediaString, char *assetAttachedMediaStringFileName, char *assetAttachedMediaStringContentType, char *assetLocationDescription, char *assetApp, char *assetSearchTags, double assetLatitude, double assetLongitude)
+NoteAPI_updateNote(apiClient_t *apiClient, long noteId, char *deviceId, long accountId, char *comment, char *noteType, char *assetIds, char *tags, char *permissionableType, long permissionableId, char *appKey, char *locationDescription, double latitude, double longitude, char *metaData, int *returnFullResponse, int *active, int *updateAsset, int *assetReturnNulls, long assetAlbumId, long assetCollectionId, char *assetAddToDefaultAlbum, int *assetAddToMediaLibrary, int *assetVersionCode, char *assetVersionName, char *assetMetaData, char *assetCaption, binary_t* assetMedia, char *assetMediaUrl, char *assetMediaString, char *assetMediaStringFileName, char *assetMediaStringContentType, binary_t* assetAttachedMedia, char *assetAttachedMediaUrl, char *assetAttachedMediaString, char *assetAttachedMediaStringFileName, char *assetAttachedMediaStringContentType, char *assetLocationDescription, char *assetApp, char *assetSearchTags, double assetLatitude, double assetLongitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2169,12 +2149,9 @@ NoteAPI_updateNote(apiClient_t *apiClient, double version, long noteId, char *de
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/note/update");
+    char *localVarPath = strdup("/note/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2730,7 +2707,6 @@ NoteAPI_updateNote(apiClient_t *apiClient, double version, long noteId, char *de
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

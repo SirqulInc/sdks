@@ -14,7 +14,7 @@
 // Processes all supported participant feeds.
 //
 sirqul_response_t*
-ParticipantsAPI_processAllParticipants(apiClient_t *apiClient, double version, long accountId, char *appKey, int *useShortNameAsID)
+ParticipantsAPI_processAllParticipants(apiClient_t *apiClient, long accountId, char *appKey, int *useShortNameAsID)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ ParticipantsAPI_processAllParticipants(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/participant/process/all");
+    char *localVarPath = strdup("/participant/process/all");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -112,7 +109,6 @@ ParticipantsAPI_processAllParticipants(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -157,7 +153,7 @@ end:
 // Processes a participant feed or uploaded file for a specific league.
 //
 sirqul_response_t*
-ParticipantsAPI_processParticipants(apiClient_t *apiClient, double version, long accountId, char *league, char *appKey, int *useShortNameAsID, binary_t* file)
+ParticipantsAPI_processParticipants(apiClient_t *apiClient, long accountId, char *league, char *appKey, int *useShortNameAsID, binary_t* file)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -171,12 +167,9 @@ ParticipantsAPI_processParticipants(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/participant/process");
+    char *localVarPath = strdup("/participant/process");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -279,7 +272,6 @@ ParticipantsAPI_processParticipants(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

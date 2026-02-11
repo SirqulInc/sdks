@@ -14,7 +14,7 @@
 // Creates a bid on a biddable object
 //
 bid_response_t*
-BidAPI_createBid(apiClient_t *apiClient, double version, char *biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule, char *deviceId, long accountId);
+BidAPI_createBid(apiClient_t *apiClient, char *biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule, char *deviceId, long accountId);
 
 
 // Delete Bid
@@ -22,7 +22,7 @@ BidAPI_createBid(apiClient_t *apiClient, double version, char *biddableType, lon
 // Deleted a bid on a biddable object
 //
 sirqul_response_t*
-BidAPI_deleteBid(apiClient_t *apiClient, double version, long bidId, char *deviceId, long accountId);
+BidAPI_deleteBid(apiClient_t *apiClient, long bidId, char *deviceId, long accountId);
 
 
 // Get Bid
@@ -30,7 +30,7 @@ BidAPI_deleteBid(apiClient_t *apiClient, double version, long bidId, char *devic
 // Get the bid details of a biddable object
 //
 bid_response_t*
-BidAPI_getBid(apiClient_t *apiClient, double version, long bidId, char *deviceId, long accountId);
+BidAPI_getBid(apiClient_t *apiClient, long bidId, char *deviceId, long accountId);
 
 
 // Update Bid
@@ -38,6 +38,6 @@ BidAPI_getBid(apiClient_t *apiClient, double version, long bidId, char *deviceId
 // Updates a bid on a biddable object
 //
 bid_response_t*
-BidAPI_updateBid(apiClient_t *apiClient, double version, long bidId, char *deviceId, long accountId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule);
+BidAPI_updateBid(apiClient_t *apiClient, long bidId, char *deviceId, long accountId, double amountPerView, double amountPerAction, double budgetAmount, char *budgetSchedule);
 
 

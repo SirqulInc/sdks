@@ -14,7 +14,7 @@
 // Get historical leaderboard rankings by time-frame.
 //
 rank_full_response_t*
-RankingAPI_getHistoricalRankings(apiClient_t *apiClient, double version, char *appKey, char *rankType, long startDate, long endDate, char *deviceId, long accountId, char *sortField, int *descending, int *start, int *limit)
+RankingAPI_getHistoricalRankings(apiClient_t *apiClient, char *appKey, char *rankType, long startDate, long endDate, char *deviceId, long accountId, char *sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ RankingAPI_getHistoricalRankings(apiClient_t *apiClient, double version, char *a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ranking/historical/search");
+    char *localVarPath = strdup("/ranking/historical/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -198,7 +195,6 @@ RankingAPI_getHistoricalRankings(apiClient_t *apiClient, double version, char *a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -319,7 +315,7 @@ end:
 // Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
 //
 rank_full_response_t*
-RankingAPI_getRankings(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *gameType, char *appKey, char *q, char *keyword, char *rankType, char *leaderboardMode, char *withinAccountIds, int *returnUserRank, long albumId, long audienceId, char *sortField, int *descending, int *_i, int *start, int *_l, int *limit)
+RankingAPI_getRankings(apiClient_t *apiClient, char *deviceId, long accountId, char *gameType, char *appKey, char *q, char *keyword, char *rankType, char *leaderboardMode, char *withinAccountIds, int *returnUserRank, long albumId, long audienceId, char *sortField, int *descending, int *_i, int *start, int *_l, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -333,12 +329,9 @@ RankingAPI_getRankings(apiClient_t *apiClient, double version, char *deviceId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ranking/search");
+    char *localVarPath = strdup("/ranking/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -602,7 +595,6 @@ RankingAPI_getRankings(apiClient_t *apiClient, double version, char *deviceId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -819,7 +811,7 @@ end:
 // Returns the user's ranks for one or more rank types and modes.
 //
 object_t*
-RankingAPI_getUserRank(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, char *rankType, int *returnUserRank, char *leaderboardMode, char *sortField, char *keyword, int *descending, int *start, int *limit)
+RankingAPI_getUserRank(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, char *rankType, int *returnUserRank, char *leaderboardMode, char *sortField, char *keyword, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -833,12 +825,9 @@ RankingAPI_getUserRank(apiClient_t *apiClient, double version, char *deviceId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ranking/personal/ranks");
+    char *localVarPath = strdup("/ranking/personal/ranks");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1016,7 +1005,6 @@ RankingAPI_getUserRank(apiClient_t *apiClient, double version, char *deviceId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1157,7 +1145,7 @@ end:
 // Allows an admin of an application to override a user's scores for a leaderboard.
 //
 sirqul_response_t*
-RankingAPI_overrideUserRank(apiClient_t *apiClient, double version, long accountId, long ownerAccountId, char *appKey, char *rankType, long totalScore, long totalCount, long totalTime, long dailyScore, long dailyCount, long dailyTime, long weeklyScore, long weeklyCount, long weeklyTime, long monthlyScore, long monthlyCount, long monthlyTime, long topScore, long lowestScore, long streakCount, long streakBestCount, long startDate, long endDate)
+RankingAPI_overrideUserRank(apiClient_t *apiClient, long accountId, long ownerAccountId, char *appKey, char *rankType, long totalScore, long totalCount, long totalTime, long dailyScore, long dailyCount, long dailyTime, long weeklyScore, long weeklyCount, long weeklyTime, long monthlyScore, long monthlyCount, long monthlyTime, long topScore, long lowestScore, long streakCount, long streakBestCount, long startDate, long endDate)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1171,12 +1159,9 @@ RankingAPI_overrideUserRank(apiClient_t *apiClient, double version, long account
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ranking/override");
+    char *localVarPath = strdup("/ranking/override");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1482,7 +1467,6 @@ RankingAPI_overrideUserRank(apiClient_t *apiClient, double version, long account
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1679,7 +1663,7 @@ end:
 // Update the rank value 
 //
 sirqul_response_t*
-RankingAPI_updateRankings(apiClient_t *apiClient, double version, long accountId, char *appKey, char *rankType, long increment, long timeIncrement, char *tag, long startDate, long endDate, int *updateGlobal, int *createLeaderboard)
+RankingAPI_updateRankings(apiClient_t *apiClient, long accountId, char *appKey, char *rankType, long increment, long timeIncrement, char *tag, long startDate, long endDate, int *updateGlobal, int *createLeaderboard)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1693,12 +1677,9 @@ RankingAPI_updateRankings(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/ranking/update");
+    char *localVarPath = strdup("/ranking/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1862,7 +1843,6 @@ RankingAPI_updateRankings(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

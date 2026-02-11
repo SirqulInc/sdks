@@ -14,7 +14,7 @@
 // Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 //
 subscription_response_t*
-SubscriptionAPI_createSubscription(apiClient_t *apiClient, double version, long accountId, long planId, char *promoCode)
+SubscriptionAPI_createSubscription(apiClient_t *apiClient, long accountId, long planId, char *promoCode)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ SubscriptionAPI_createSubscription(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/subscription/create");
+    char *localVarPath = strdup("/subscription/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -111,7 +108,6 @@ SubscriptionAPI_createSubscription(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -152,7 +148,7 @@ end:
 // Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 //
 sirqul_response_t*
-SubscriptionAPI_deleteSubscription(apiClient_t *apiClient, double version, long accountId)
+SubscriptionAPI_deleteSubscription(apiClient_t *apiClient, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -166,12 +162,9 @@ SubscriptionAPI_deleteSubscription(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/subscription/delete");
+    char *localVarPath = strdup("/subscription/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -225,7 +218,6 @@ SubscriptionAPI_deleteSubscription(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -246,7 +238,7 @@ end:
 // Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 //
 subscription_response_t*
-SubscriptionAPI_getSubscription(apiClient_t *apiClient, double version, long accountId)
+SubscriptionAPI_getSubscription(apiClient_t *apiClient, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -260,12 +252,9 @@ SubscriptionAPI_getSubscription(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/subscription/get");
+    char *localVarPath = strdup("/subscription/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -319,7 +308,6 @@ SubscriptionAPI_getSubscription(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -340,7 +328,7 @@ end:
 // Get the matched subscription plan
 //
 subscription_plan_response_t*
-SubscriptionAPI_getSubscriptionPlan(apiClient_t *apiClient, double version, long planId)
+SubscriptionAPI_getSubscriptionPlan(apiClient_t *apiClient, long planId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -354,12 +342,9 @@ SubscriptionAPI_getSubscriptionPlan(apiClient_t *apiClient, double version, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/subscription/plan/get");
+    char *localVarPath = strdup("/subscription/plan/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -413,7 +398,6 @@ SubscriptionAPI_getSubscriptionPlan(apiClient_t *apiClient, double version, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_planId){
         free(keyQuery_planId);
         keyQuery_planId = NULL;
@@ -434,7 +418,7 @@ end:
 // Get the matched subscription plan
 //
 list_t*
-SubscriptionAPI_getSubscriptionPlans(apiClient_t *apiClient, double version, int *visible, char *role)
+SubscriptionAPI_getSubscriptionPlans(apiClient_t *apiClient, int *visible, char *role)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -448,12 +432,9 @@ SubscriptionAPI_getSubscriptionPlans(apiClient_t *apiClient, double version, int
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/subscription/plan/list");
+    char *localVarPath = strdup("/subscription/plan/list");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -530,7 +511,6 @@ SubscriptionAPI_getSubscriptionPlans(apiClient_t *apiClient, double version, int
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_visible){
         free(keyQuery_visible);
         keyQuery_visible = NULL;
@@ -567,7 +547,7 @@ end:
 // Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 //
 application_usage_response_t*
-SubscriptionAPI_getSubscriptionUsage(apiClient_t *apiClient, double version, long accountId, long applicationId, long start, long end)
+SubscriptionAPI_getSubscriptionUsage(apiClient_t *apiClient, long accountId, long applicationId, long start, long end)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -581,12 +561,9 @@ SubscriptionAPI_getSubscriptionUsage(apiClient_t *apiClient, double version, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/subscription/usage/get");
+    char *localVarPath = strdup("/subscription/usage/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -676,7 +653,6 @@ SubscriptionAPI_getSubscriptionUsage(apiClient_t *apiClient, double version, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -721,7 +697,7 @@ end:
 // Updates the subscription for the billable entity for an account
 //
 subscription_response_t*
-SubscriptionAPI_updateSubscription(apiClient_t *apiClient, double version, long accountId, long planId, char *promoCode, int *active)
+SubscriptionAPI_updateSubscription(apiClient_t *apiClient, long accountId, long planId, char *promoCode, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -735,12 +711,9 @@ SubscriptionAPI_updateSubscription(apiClient_t *apiClient, double version, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/subscription/update");
+    char *localVarPath = strdup("/subscription/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -831,7 +804,6 @@ SubscriptionAPI_updateSubscription(apiClient_t *apiClient, double version, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

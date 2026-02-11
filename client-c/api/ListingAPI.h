@@ -16,7 +16,7 @@
 // Creates a listing.
 //
 listing_full_response_t*
-ListingAPI_createListing(apiClient_t *apiClient, double version, long accountId, char *name, char *filterIds, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData);
+ListingAPI_createListing(apiClient_t *apiClient, long accountId, char *name, char *filterIds, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData);
 
 
 // Delete Listing
@@ -24,7 +24,7 @@ ListingAPI_createListing(apiClient_t *apiClient, double version, long accountId,
 // Delete a listing.
 //
 sirqul_response_t*
-ListingAPI_deleteListing(apiClient_t *apiClient, double version, long accountId, long listingId);
+ListingAPI_deleteListing(apiClient_t *apiClient, long accountId, long listingId);
 
 
 // Get Listing
@@ -32,7 +32,7 @@ ListingAPI_deleteListing(apiClient_t *apiClient, double version, long accountId,
 // Get a listing by id.
 //
 listing_full_response_t*
-ListingAPI_getListing(apiClient_t *apiClient, double version, long listingId);
+ListingAPI_getListing(apiClient_t *apiClient, long listingId);
 
 
 // Search Listings
@@ -40,7 +40,7 @@ ListingAPI_getListing(apiClient_t *apiClient, double version, long listingId);
 // Search for event listings from the start time to end time
 //
 list_t*
-ListingAPI_searchListing(apiClient_t *apiClient, double version, long accountId, char *keyword, int *start, int *limit, int *activeOnly, double latitude, double longitude, long startDate, long endDate, char *categoryIds, char *filterIds, int *useListingOrderIds, char *externalId, char *externalId2, char *externalGroupId);
+ListingAPI_searchListing(apiClient_t *apiClient, long accountId, char *keyword, int *start, int *limit, int *activeOnly, double latitude, double longitude, long startDate, long endDate, char *categoryIds, char *filterIds, int *useListingOrderIds, char *externalId, char *externalId2, char *externalGroupId);
 
 
 // Summary Listing
@@ -48,7 +48,7 @@ ListingAPI_searchListing(apiClient_t *apiClient, double version, long accountId,
 // Search for a list of summary listings from the start time up to 8 days out.
 //
 list_t*
-ListingAPI_summaryListing(apiClient_t *apiClient, double version, long accountId, long startDate, char *categoryIds, int *daysToInclude, int *useListingOrderIds);
+ListingAPI_summaryListing(apiClient_t *apiClient, long accountId, long startDate, char *categoryIds, int *daysToInclude, int *useListingOrderIds);
 
 
 // Update Listing
@@ -56,6 +56,6 @@ ListingAPI_summaryListing(apiClient_t *apiClient, double version, long accountId
 // Updates a listing.
 //
 listing_full_response_t*
-ListingAPI_updateListing(apiClient_t *apiClient, double version, long accountId, long listingId, char *filterIds, char *name, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData);
+ListingAPI_updateListing(apiClient_t *apiClient, long accountId, long listingId, char *filterIds, char *name, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData);
 
 

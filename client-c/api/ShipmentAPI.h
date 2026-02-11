@@ -13,7 +13,7 @@
 // Remove shipment from route
 //
 void
-ShipmentAPI_cancelShipment(apiClient_t *apiClient, double version, long id);
+ShipmentAPI_cancelShipment(apiClient_t *apiClient, long id);
 
 
 // Create Shipment
@@ -21,7 +21,7 @@ ShipmentAPI_cancelShipment(apiClient_t *apiClient, double version, long id);
 // Create new shipment
 //
 shipment_t*
-ShipmentAPI_createShipment(apiClient_t *apiClient, double version, shipment_t *body);
+ShipmentAPI_createShipment(apiClient_t *apiClient, shipment_t *body);
 
 
 // Delete Shipment
@@ -29,7 +29,7 @@ ShipmentAPI_createShipment(apiClient_t *apiClient, double version, shipment_t *b
 // Delete an existing shipment
 //
 void
-ShipmentAPI_deleteShipment(apiClient_t *apiClient, double version, long id);
+ShipmentAPI_deleteShipment(apiClient_t *apiClient, long id);
 
 
 // Get Shipment
@@ -37,7 +37,7 @@ ShipmentAPI_deleteShipment(apiClient_t *apiClient, double version, long id);
 // Get an existing shipment
 //
 shipment_t*
-ShipmentAPI_getShipment(apiClient_t *apiClient, double version, long id);
+ShipmentAPI_getShipment(apiClient_t *apiClient, long id);
 
 
 // Search Shipments
@@ -45,7 +45,7 @@ ShipmentAPI_getShipment(apiClient_t *apiClient, double version, long id);
 // Search for shipments
 //
 list_t*
-ShipmentAPI_searchShipments(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long ownerId, long riderId, long routeId);
+ShipmentAPI_searchShipments(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, long ownerId, long riderId, long routeId);
 
 
 // Update Shipment
@@ -53,7 +53,7 @@ ShipmentAPI_searchShipments(apiClient_t *apiClient, double version, char *sortFi
 // Update an existing shipment
 //
 shipment_t*
-ShipmentAPI_updateShipment(apiClient_t *apiClient, double version, long id, shipment_t *body);
+ShipmentAPI_updateShipment(apiClient_t *apiClient, long id, shipment_t *body);
 
 
 // Uupdate Shipment Status
@@ -61,6 +61,6 @@ ShipmentAPI_updateShipment(apiClient_t *apiClient, double version, long id, ship
 // Update status of an existing shipment
 //
 void
-ShipmentAPI_updateShipmentStatus(apiClient_t *apiClient, double version, long id, list_t* body);
+ShipmentAPI_updateShipmentStatus(apiClient_t *apiClient, long id, list_t* body);
 
 

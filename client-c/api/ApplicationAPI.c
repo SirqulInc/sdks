@@ -534,7 +534,7 @@ end:
 // Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 //
 application_response_t*
-ApplicationAPI_createApplication(apiClient_t *apiClient, double version, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_createApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_createApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_createApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey)
+ApplicationAPI_createApplication(apiClient_t *apiClient, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_createApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_createApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_createApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -548,12 +548,9 @@ ApplicationAPI_createApplication(apiClient_t *apiClient, double version, char *a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/create");
+    char *localVarPath = strdup("/application/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1585,7 +1582,6 @@ ApplicationAPI_createApplication(apiClient_t *apiClient, double version, char *a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2490,7 +2486,7 @@ end:
 // Creates a new ad placement for an application.
 //
 placement_response_t*
-ApplicationAPI_createApplicationPlacement(apiClient_t *apiClient, double version, char *appKey, sirqul_iot_platform_createApplicationPlacement_size_e size, char *deviceId, long accountId, char *name, char *description, int *height, int *width, int *refreshInterval, long defaultImageId, int *active)
+ApplicationAPI_createApplicationPlacement(apiClient_t *apiClient, char *appKey, sirqul_iot_platform_createApplicationPlacement_size_e size, char *deviceId, long accountId, char *name, char *description, int *height, int *width, int *refreshInterval, long defaultImageId, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2504,12 +2500,9 @@ ApplicationAPI_createApplicationPlacement(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/placement/create");
+    char *localVarPath = strdup("/application/placement/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2688,7 +2681,6 @@ ApplicationAPI_createApplicationPlacement(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2821,7 +2813,7 @@ end:
 // Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 //
 sirqul_response_t*
-ApplicationAPI_deleteApplication(apiClient_t *apiClient, double version, long accountId, char *appKey)
+ApplicationAPI_deleteApplication(apiClient_t *apiClient, long accountId, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2835,12 +2827,9 @@ ApplicationAPI_deleteApplication(apiClient_t *apiClient, double version, long ac
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/delete");
+    char *localVarPath = strdup("/application/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2906,7 +2895,6 @@ ApplicationAPI_deleteApplication(apiClient_t *apiClient, double version, long ac
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2939,7 +2927,7 @@ end:
 // Deletes an ad placement for an application.
 //
 placement_response_t*
-ApplicationAPI_deleteApplicationPlacement(apiClient_t *apiClient, double version, long placementId, char *deviceId, long accountId)
+ApplicationAPI_deleteApplicationPlacement(apiClient_t *apiClient, long placementId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2953,12 +2941,9 @@ ApplicationAPI_deleteApplicationPlacement(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/placement/delete");
+    char *localVarPath = strdup("/application/placement/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3036,7 +3021,6 @@ ApplicationAPI_deleteApplicationPlacement(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -3077,7 +3061,7 @@ end:
 // Get a specific application by appKey
 //
 application_response_t*
-ApplicationAPI_getApplication(apiClient_t *apiClient, double version, char *appKey, long applicationId)
+ApplicationAPI_getApplication(apiClient_t *apiClient, char *appKey, long applicationId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3091,12 +3075,9 @@ ApplicationAPI_getApplication(apiClient_t *apiClient, double version, char *appK
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/get");
+    char *localVarPath = strdup("/application/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3162,7 +3143,6 @@ ApplicationAPI_getApplication(apiClient_t *apiClient, double version, char *appK
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -3195,7 +3175,7 @@ end:
 // Get details of an ad placement
 //
 placement_response_t*
-ApplicationAPI_getApplicationPlacement(apiClient_t *apiClient, double version, long placementId, char *deviceId, long accountId)
+ApplicationAPI_getApplicationPlacement(apiClient_t *apiClient, long placementId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3209,12 +3189,9 @@ ApplicationAPI_getApplicationPlacement(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/placement/get");
+    char *localVarPath = strdup("/application/placement/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3292,7 +3269,6 @@ ApplicationAPI_getApplicationPlacement(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -3333,7 +3309,7 @@ end:
 // Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 //
 sirqul_response_t*
-ApplicationAPI_getApplicationVersions(apiClient_t *apiClient, double version)
+ApplicationAPI_getApplicationVersions(apiClient_t *apiClient)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -3347,12 +3323,9 @@ ApplicationAPI_getApplicationVersions(apiClient_t *apiClient, double version)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/versions");
+    char *localVarPath = strdup("/application/versions");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
     list_addElement(localVarHeaderType,"*/*"); //produces
@@ -3394,7 +3367,6 @@ ApplicationAPI_getApplicationVersions(apiClient_t *apiClient, double version)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     return elementToReturn;
 end:
     free(localVarPath);
@@ -3407,7 +3379,7 @@ end:
 // Get a list of users per application
 //
 account_list_response_t*
-ApplicationAPI_getUniqueUsersByApp(apiClient_t *apiClient, double version, char *appKey, char *q, char *keyword, long since, int *_i, int *start, int *_l, int *limit)
+ApplicationAPI_getUniqueUsersByApp(apiClient_t *apiClient, char *appKey, char *q, char *keyword, long since, int *_i, int *start, int *_l, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3421,12 +3393,9 @@ ApplicationAPI_getUniqueUsersByApp(apiClient_t *apiClient, double version, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/users");
+    char *localVarPath = strdup("/application/users");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3568,7 +3537,6 @@ ApplicationAPI_getUniqueUsersByApp(apiClient_t *apiClient, double version, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_appKey){
         free(keyQuery_appKey);
         keyQuery_appKey = NULL;
@@ -3673,7 +3641,7 @@ end:
 // List active applications matching the criteria (as a consumer)
 //
 list_t*
-ApplicationAPI_listApplications(apiClient_t *apiClient, double version, long accountId, char *q, char *keyword, char *platforms, char *deviceIds, char *deviceVersions, char *categoryIds, sirqul_iot_platform_listApplications_sortField_e sortField, int *hasAds, int *publicNotifications, int *filterBillable, int *filterContentAdmin, int *descending, int *_i, int *start, int *_l, int *limit, char *applicationIds, int *hasObjectStore, int *activeOnly)
+ApplicationAPI_listApplications(apiClient_t *apiClient, long accountId, char *q, char *keyword, char *platforms, char *deviceIds, char *deviceVersions, char *categoryIds, sirqul_iot_platform_listApplications_sortField_e sortField, int *hasAds, int *publicNotifications, int *filterBillable, int *filterContentAdmin, int *descending, int *_i, int *start, int *_l, int *limit, char *applicationIds, int *hasObjectStore, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3687,12 +3655,9 @@ ApplicationAPI_listApplications(apiClient_t *apiClient, double version, long acc
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/list");
+    char *localVarPath = strdup("/application/list");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3996,7 +3961,6 @@ ApplicationAPI_listApplications(apiClient_t *apiClient, double version, long acc
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -4241,7 +4205,7 @@ end:
 // Searches placements for an application.
 //
 list_t*
-ApplicationAPI_searchApplicationPlacement(apiClient_t *apiClient, double version, char *appKey, char *deviceId, long accountId, int *start, int *limit)
+ApplicationAPI_searchApplicationPlacement(apiClient_t *apiClient, char *appKey, char *deviceId, long accountId, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4255,12 +4219,9 @@ ApplicationAPI_searchApplicationPlacement(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/placement/search");
+    char *localVarPath = strdup("/application/placement/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4374,7 +4335,6 @@ ApplicationAPI_searchApplicationPlacement(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -4443,7 +4403,7 @@ end:
 // Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 //
 application_settings_response_t*
-ApplicationAPI_searchApplicationSettings(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionAccountId, char *keyword, char *sortField, int *descending, int *start, int *limit)
+ApplicationAPI_searchApplicationSettings(apiClient_t *apiClient, char *deviceId, long accountId, long connectionAccountId, char *keyword, char *sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4457,12 +4417,9 @@ ApplicationAPI_searchApplicationSettings(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/settings/search");
+    char *localVarPath = strdup("/application/settings/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4603,7 +4560,6 @@ ApplicationAPI_searchApplicationSettings(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -4704,7 +4660,7 @@ end:
 // Search for applications matching the criteria that the logged in user has access to
 //
 list_t*
-ApplicationAPI_searchApplications(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude, char *q, char *keyword, char *qSearchFields, sirqul_iot_platform_searchApplications_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *hasAds, int *publicNotifications, int *activeOnly)
+ApplicationAPI_searchApplications(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude, char *q, char *keyword, char *qSearchFields, sirqul_iot_platform_searchApplications_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *hasAds, int *publicNotifications, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -4718,12 +4674,9 @@ ApplicationAPI_searchApplications(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/search");
+    char *localVarPath = strdup("/application/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -4984,7 +4937,6 @@ ApplicationAPI_searchApplications(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -5173,7 +5125,7 @@ end:
 // Update an application record
 //
 application_response_t*
-ApplicationAPI_updateApplication(apiClient_t *apiClient, double version, char *appKey, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_updateApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_updateApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_updateApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey)
+ApplicationAPI_updateApplication(apiClient_t *apiClient, char *appKey, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_updateApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_updateApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_updateApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -5187,12 +5139,9 @@ ApplicationAPI_updateApplication(apiClient_t *apiClient, double version, char *a
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/update");
+    char *localVarPath = strdup("/application/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -6236,7 +6185,6 @@ ApplicationAPI_updateApplication(apiClient_t *apiClient, double version, char *a
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -7153,7 +7101,7 @@ end:
 // Set the application's active flag to true/false. This effectively activates or deactivates the application.
 //
 sirqul_response_t*
-ApplicationAPI_updateApplicationActive(apiClient_t *apiClient, double version, long accountId, char *appKey, int *active)
+ApplicationAPI_updateApplicationActive(apiClient_t *apiClient, long accountId, char *appKey, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -7167,12 +7115,9 @@ ApplicationAPI_updateApplicationActive(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/active");
+    char *localVarPath = strdup("/application/active");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -7251,7 +7196,6 @@ ApplicationAPI_updateApplicationActive(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -7296,7 +7240,7 @@ end:
 // Updates an ad placement for an application.
 //
 placement_response_t*
-ApplicationAPI_updateApplicationPlacement(apiClient_t *apiClient, double version, long placementId, char *deviceId, long accountId, char *name, char *description, sirqul_iot_platform_updateApplicationPlacement_size_e size, int *height, int *width, int *refreshInterval, long defaultImageId, int *active)
+ApplicationAPI_updateApplicationPlacement(apiClient_t *apiClient, long placementId, char *deviceId, long accountId, char *name, char *description, sirqul_iot_platform_updateApplicationPlacement_size_e size, int *height, int *width, int *refreshInterval, long defaultImageId, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -7310,12 +7254,9 @@ ApplicationAPI_updateApplicationPlacement(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/placement/update");
+    char *localVarPath = strdup("/application/placement/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -7494,7 +7435,6 @@ ApplicationAPI_updateApplicationPlacement(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -7623,7 +7563,7 @@ end:
 // Uploads a certificate for an application that the user has access to.
 //
 sirqul_response_t*
-ApplicationAPI_uploadApplicationCertificate(apiClient_t *apiClient, double version, char *appKey, char *deviceId, long accountId, binary_t* certificate)
+ApplicationAPI_uploadApplicationCertificate(apiClient_t *apiClient, char *appKey, char *deviceId, long accountId, binary_t* certificate)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -7637,12 +7577,9 @@ ApplicationAPI_uploadApplicationCertificate(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/application/certificate/create");
+    char *localVarPath = strdup("/application/certificate/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -7732,7 +7669,6 @@ ApplicationAPI_uploadApplicationCertificate(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

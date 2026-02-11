@@ -14,7 +14,7 @@
 // Approve a route
 //
 route_t*
-RouteAPI_approveRoute(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_approveRoute(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,15 +28,12 @@ RouteAPI_approveRoute(apiClient_t *apiClient, double version, long routeId)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/approve");
+    char *localVarPath = strdup("/route/{routeId}/approve");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -89,7 +86,6 @@ RouteAPI_approveRoute(apiClient_t *apiClient, double version, long routeId)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     return elementToReturn;
 end:
@@ -103,7 +99,7 @@ end:
 // Make an copy of the given route with optional overriding properties
 //
 route_t*
-RouteAPI_copyRoute(apiClient_t *apiClient, double version, long routeId, route_t *body)
+RouteAPI_copyRoute(apiClient_t *apiClient, long routeId, route_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ RouteAPI_copyRoute(apiClient_t *apiClient, double version, long routeId, route_t
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/copy");
+    char *localVarPath = strdup("/route/{routeId}/copy");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -188,7 +181,6 @@ RouteAPI_copyRoute(apiClient_t *apiClient, double version, long routeId, route_t
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -207,7 +199,7 @@ end:
 // Create new route
 //
 route_t*
-RouteAPI_createRoute(apiClient_t *apiClient, double version, route_t *body)
+RouteAPI_createRoute(apiClient_t *apiClient, route_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -221,12 +213,9 @@ RouteAPI_createRoute(apiClient_t *apiClient, double version, route_t *body)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route");
+    char *localVarPath = strdup("/route");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -278,7 +267,6 @@ RouteAPI_createRoute(apiClient_t *apiClient, double version, route_t *body)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -296,7 +284,7 @@ end:
 // Regenerate the directions of a route
 //
 list_t*
-RouteAPI_createRouteDirections(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_createRouteDirections(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -310,15 +298,12 @@ RouteAPI_createRouteDirections(apiClient_t *apiClient, double version, long rout
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/directions");
+    char *localVarPath = strdup("/route/{routeId}/directions");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -381,7 +366,6 @@ RouteAPI_createRouteDirections(apiClient_t *apiClient, double version, long rout
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     return elementToReturn;
 end:
@@ -395,7 +379,7 @@ end:
 // Update the polyline of the requested route
 //
 route_t*
-RouteAPI_createRoutePolyline(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_createRoutePolyline(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -409,15 +393,12 @@ RouteAPI_createRoutePolyline(apiClient_t *apiClient, double version, long routeI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/polyline");
+    char *localVarPath = strdup("/route/{routeId}/polyline");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -470,7 +451,6 @@ RouteAPI_createRoutePolyline(apiClient_t *apiClient, double version, long routeI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     return elementToReturn;
 end:
@@ -484,7 +464,7 @@ end:
 // Delete an existing route
 //
 void
-RouteAPI_deleteRoute(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_deleteRoute(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -498,15 +478,12 @@ RouteAPI_deleteRoute(apiClient_t *apiClient, double version, long routeId)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}");
+    char *localVarPath = strdup("/route/{routeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -548,7 +525,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
 
 }
@@ -558,7 +534,7 @@ end:
 // Disapprove a route
 //
 route_t*
-RouteAPI_disapproveRoute(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_disapproveRoute(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -572,15 +548,12 @@ RouteAPI_disapproveRoute(apiClient_t *apiClient, double version, long routeId)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/disapprove");
+    char *localVarPath = strdup("/route/{routeId}/disapprove");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -633,7 +606,6 @@ RouteAPI_disapproveRoute(apiClient_t *apiClient, double version, long routeId)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     return elementToReturn;
 end:
@@ -647,7 +619,7 @@ end:
 // Get an existing route
 //
 route_t*
-RouteAPI_getRoute(apiClient_t *apiClient, double version, long routeId, int *showInheritedProperties)
+RouteAPI_getRoute(apiClient_t *apiClient, long routeId, int *showInheritedProperties)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -661,15 +633,12 @@ RouteAPI_getRoute(apiClient_t *apiClient, double version, long routeId, int *sho
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}");
+    char *localVarPath = strdup("/route/{routeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -735,7 +704,6 @@ RouteAPI_getRoute(apiClient_t *apiClient, double version, long routeId, int *sho
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     if(keyQuery_showInheritedProperties){
         free(keyQuery_showInheritedProperties);
@@ -761,7 +729,7 @@ end:
 // Get the directions of a route
 //
 list_t*
-RouteAPI_getRouteDirections(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_getRouteDirections(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -775,15 +743,12 @@ RouteAPI_getRouteDirections(apiClient_t *apiClient, double version, long routeId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/directions");
+    char *localVarPath = strdup("/route/{routeId}/directions");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -846,7 +811,6 @@ RouteAPI_getRouteDirections(apiClient_t *apiClient, double version, long routeId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     return elementToReturn;
 end:
@@ -860,7 +824,7 @@ end:
 // Get the shipments on the requested route
 //
 list_t*
-RouteAPI_getRouteShipments(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_getRouteShipments(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -874,15 +838,12 @@ RouteAPI_getRouteShipments(apiClient_t *apiClient, double version, long routeId)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/shipments");
+    char *localVarPath = strdup("/route/{routeId}/shipments");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -945,7 +906,6 @@ RouteAPI_getRouteShipments(apiClient_t *apiClient, double version, long routeId)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     return elementToReturn;
 end:
@@ -959,7 +919,7 @@ end:
 // Get the specific stop on a route
 //
 stop_t*
-RouteAPI_getRouteStop(apiClient_t *apiClient, double version, long routeId, long stopId)
+RouteAPI_getRouteStop(apiClient_t *apiClient, long routeId, long stopId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -973,15 +933,12 @@ RouteAPI_getRouteStop(apiClient_t *apiClient, double version, long routeId, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/stop/{stopId}");
+    char *localVarPath = strdup("/route/{routeId}/stop/{stopId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -995,7 +952,7 @@ RouteAPI_getRouteStop(apiClient_t *apiClient, double version, long routeId, long
 
 
     // Path Params
-    long sizeOfPathParams_stopId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
+    long sizeOfPathParams_stopId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
     if(stopId == 0){
         goto end;
     }
@@ -1048,7 +1005,6 @@ RouteAPI_getRouteStop(apiClient_t *apiClient, double version, long routeId, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     free(localVarToReplace_stopId);
     return elementToReturn;
@@ -1063,7 +1019,7 @@ end:
 // The stops of the route requested
 //
 list_t*
-RouteAPI_getRouteStops(apiClient_t *apiClient, double version, long routeId, int *confirmedOnly)
+RouteAPI_getRouteStops(apiClient_t *apiClient, long routeId, int *confirmedOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1077,15 +1033,12 @@ RouteAPI_getRouteStops(apiClient_t *apiClient, double version, long routeId, int
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/stops");
+    char *localVarPath = strdup("/route/{routeId}/stops");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -1161,7 +1114,6 @@ RouteAPI_getRouteStops(apiClient_t *apiClient, double version, long routeId, int
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     if(keyQuery_confirmedOnly){
         free(keyQuery_confirmedOnly);
@@ -1187,7 +1139,7 @@ end:
 // Get the list of shipments on the requested route at a stop
 //
 list_t*
-RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, double version, long routeId, long stopId)
+RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, long routeId, long stopId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1201,15 +1153,12 @@ RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, double version, long routeId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/stop/{stopId}/shipments");
+    char *localVarPath = strdup("/route/{routeId}/stop/{stopId}/shipments");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -1223,7 +1172,7 @@ RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, double version, long routeId
 
 
     // Path Params
-    long sizeOfPathParams_stopId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
+    long sizeOfPathParams_stopId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
     if(stopId == 0){
         goto end;
     }
@@ -1286,7 +1235,6 @@ RouteAPI_getShipmentsAtStop(apiClient_t *apiClient, double version, long routeId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     free(localVarToReplace_stopId);
     return elementToReturn;
@@ -1301,7 +1249,7 @@ end:
 // Optimize a route. The optimization method based on how the server is configured.
 //
 void
-RouteAPI_optimizeRoute(apiClient_t *apiClient, double version, long routeId)
+RouteAPI_optimizeRoute(apiClient_t *apiClient, long routeId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1315,15 +1263,12 @@ RouteAPI_optimizeRoute(apiClient_t *apiClient, double version, long routeId)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/optimize");
+    char *localVarPath = strdup("/route/{routeId}/optimize");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -1365,7 +1310,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
 
 }
@@ -1375,7 +1319,7 @@ end:
 // Delete a stop on a route
 //
 void
-RouteAPI_removeStop(apiClient_t *apiClient, double version, long routeId, long stopId)
+RouteAPI_removeStop(apiClient_t *apiClient, long routeId, long stopId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1389,15 +1333,12 @@ RouteAPI_removeStop(apiClient_t *apiClient, double version, long routeId, long s
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/stop/{stopId}");
+    char *localVarPath = strdup("/route/{routeId}/stop/{stopId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -1411,7 +1352,7 @@ RouteAPI_removeStop(apiClient_t *apiClient, double version, long routeId, long s
 
 
     // Path Params
-    long sizeOfPathParams_stopId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
+    long sizeOfPathParams_stopId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
     if(stopId == 0){
         goto end;
     }
@@ -1453,7 +1394,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     free(localVarToReplace_stopId);
 
@@ -1464,7 +1404,7 @@ end:
 // Reordering the stops on the route with and update route distance, time, direction, and polyline
 //
 list_t*
-RouteAPI_reorderRouteStopsPatch(apiClient_t *apiClient, double version, long routeId, list_t *body)
+RouteAPI_reorderRouteStopsPatch(apiClient_t *apiClient, long routeId, list_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1478,15 +1418,12 @@ RouteAPI_reorderRouteStopsPatch(apiClient_t *apiClient, double version, long rou
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/stops/reorder");
+    char *localVarPath = strdup("/route/{routeId}/stops/reorder");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -1579,7 +1516,6 @@ RouteAPI_reorderRouteStopsPatch(apiClient_t *apiClient, double version, long rou
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     if (localVarItemJSON_body) {
         cJSON_Delete(localVarItemJSON_body);
@@ -1606,7 +1542,7 @@ end:
 // Reordering the stops on the route with and update route distance, time, direction, and polyline
 //
 list_t*
-RouteAPI_reorderRouteStopsPost(apiClient_t *apiClient, double version, long routeId, list_t *body)
+RouteAPI_reorderRouteStopsPost(apiClient_t *apiClient, long routeId, list_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -1620,15 +1556,12 @@ RouteAPI_reorderRouteStopsPost(apiClient_t *apiClient, double version, long rout
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/stops/reorder");
+    char *localVarPath = strdup("/route/{routeId}/stops/reorder");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -1721,7 +1654,6 @@ RouteAPI_reorderRouteStopsPost(apiClient_t *apiClient, double version, long rout
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     if (localVarItemJSON_body) {
         cJSON_Delete(localVarItemJSON_body);
@@ -1748,7 +1680,7 @@ end:
 // Search for routes.
 //
 list_t*
-RouteAPI_searchRoutes(apiClient_t *apiClient, double version, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *includesEmpty, int *rootOnly, int *showInheritedProperties, long hubId, long programId, long scheduledStart, long scheduledEnd, long updatedStart, long updatedEnd, int *featured, int *seatCount, int *approved, int *started, int *completed, int *valid, long parentId)
+RouteAPI_searchRoutes(apiClient_t *apiClient, char *sortField, int *descending, int *start, int *limit, int *activeOnly, int *includesEmpty, int *rootOnly, int *showInheritedProperties, long hubId, long programId, long scheduledStart, long scheduledEnd, long updatedStart, long updatedEnd, int *featured, int *seatCount, int *approved, int *started, int *completed, int *valid, long parentId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1762,12 +1694,9 @@ RouteAPI_searchRoutes(apiClient_t *apiClient, double version, char *sortField, i
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route");
+    char *localVarPath = strdup("/route");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2084,7 +2013,6 @@ RouteAPI_searchRoutes(apiClient_t *apiClient, double version, char *sortField, i
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_hubId){
         free(keyQuery_hubId);
         keyQuery_hubId = NULL;
@@ -2321,7 +2249,7 @@ end:
 // Update the driver of the route.
 //
 void
-RouteAPI_setDriver(apiClient_t *apiClient, double version, long id, long driverId)
+RouteAPI_setDriver(apiClient_t *apiClient, long id, long driverId)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -2335,15 +2263,12 @@ RouteAPI_setDriver(apiClient_t *apiClient, double version, long id, long driverI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{id}/driver/{driverId}");
+    char *localVarPath = strdup("/route/{id}/driver/{driverId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof(driverId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof(driverId)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof(driverId)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -2357,7 +2282,7 @@ RouteAPI_setDriver(apiClient_t *apiClient, double version, long id, long driverI
 
 
     // Path Params
-    long sizeOfPathParams_driverId =  + sizeof(id)+3 + sizeof(driverId)+3 + sizeof("{ driverId }") - 1;
+    long sizeOfPathParams_driverId = sizeof(id)+3 + sizeof(driverId)+3 + sizeof("{ driverId }") - 1;
     if(driverId == 0){
         goto end;
     }
@@ -2399,7 +2324,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     free(localVarToReplace_driverId);
 
@@ -2410,7 +2334,7 @@ end:
 // Update an existing route
 //
 route_t*
-RouteAPI_updateRoute(apiClient_t *apiClient, double version, long routeId, route_t *body)
+RouteAPI_updateRoute(apiClient_t *apiClient, long routeId, route_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -2424,15 +2348,12 @@ RouteAPI_updateRoute(apiClient_t *apiClient, double version, long routeId, route
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}");
+    char *localVarPath = strdup("/route/{routeId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -2495,7 +2416,6 @@ RouteAPI_updateRoute(apiClient_t *apiClient, double version, long routeId, route
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
@@ -2514,7 +2434,7 @@ end:
 // Update a stop on a specified route
 //
 void
-RouteAPI_updateRouteStop(apiClient_t *apiClient, double version, long routeId, long stopId, stop_t *body)
+RouteAPI_updateRouteStop(apiClient_t *apiClient, long routeId, long stopId, stop_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -2528,15 +2448,12 @@ RouteAPI_updateRouteStop(apiClient_t *apiClient, double version, long routeId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/route/{routeId}/stop/{stopId}");
+    char *localVarPath = strdup("/route/{routeId}/stop/{stopId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_routeId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
+    long sizeOfPathParams_routeId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ routeId }") - 1;
     if(routeId == 0){
         goto end;
     }
@@ -2550,7 +2467,7 @@ RouteAPI_updateRouteStop(apiClient_t *apiClient, double version, long routeId, l
 
 
     // Path Params
-    long sizeOfPathParams_stopId =  + sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
+    long sizeOfPathParams_stopId = sizeof(routeId)+3 + sizeof(stopId)+3 + sizeof("{ stopId }") - 1;
     if(stopId == 0){
         goto end;
     }
@@ -2602,7 +2519,6 @@ end:
     
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_routeId);
     free(localVarToReplace_stopId);
     if (localVarSingleItemJSON_body) {

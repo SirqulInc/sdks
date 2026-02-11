@@ -14,7 +14,7 @@
 // Creates a listing.
 //
 listing_full_response_t*
-ListingAPI_createListing(apiClient_t *apiClient, double version, long accountId, char *name, char *filterIds, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData)
+ListingAPI_createListing(apiClient_t *apiClient, long accountId, char *name, char *filterIds, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ ListingAPI_createListing(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/listing/create");
+    char *localVarPath = strdup("/listing/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -245,7 +242,6 @@ ListingAPI_createListing(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -414,7 +410,7 @@ end:
 // Delete a listing.
 //
 sirqul_response_t*
-ListingAPI_deleteListing(apiClient_t *apiClient, double version, long accountId, long listingId)
+ListingAPI_deleteListing(apiClient_t *apiClient, long accountId, long listingId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -428,12 +424,9 @@ ListingAPI_deleteListing(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/listing/delete");
+    char *localVarPath = strdup("/listing/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -499,7 +492,6 @@ ListingAPI_deleteListing(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -528,7 +520,7 @@ end:
 // Get a listing by id.
 //
 listing_full_response_t*
-ListingAPI_getListing(apiClient_t *apiClient, double version, long listingId)
+ListingAPI_getListing(apiClient_t *apiClient, long listingId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -542,12 +534,9 @@ ListingAPI_getListing(apiClient_t *apiClient, double version, long listingId)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/listing/get");
+    char *localVarPath = strdup("/listing/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -601,7 +590,6 @@ ListingAPI_getListing(apiClient_t *apiClient, double version, long listingId)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_listingId){
         free(keyQuery_listingId);
         keyQuery_listingId = NULL;
@@ -622,7 +610,7 @@ end:
 // Search for event listings from the start time to end time
 //
 list_t*
-ListingAPI_searchListing(apiClient_t *apiClient, double version, long accountId, char *keyword, int *start, int *limit, int *activeOnly, double latitude, double longitude, long startDate, long endDate, char *categoryIds, char *filterIds, int *useListingOrderIds, char *externalId, char *externalId2, char *externalGroupId)
+ListingAPI_searchListing(apiClient_t *apiClient, long accountId, char *keyword, int *start, int *limit, int *activeOnly, double latitude, double longitude, long startDate, long endDate, char *categoryIds, char *filterIds, int *useListingOrderIds, char *externalId, char *externalId2, char *externalGroupId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -636,12 +624,9 @@ ListingAPI_searchListing(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/listing/search");
+    char *localVarPath = strdup("/listing/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -885,7 +870,6 @@ ListingAPI_searchListing(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1058,7 +1042,7 @@ end:
 // Search for a list of summary listings from the start time up to 8 days out.
 //
 list_t*
-ListingAPI_summaryListing(apiClient_t *apiClient, double version, long accountId, long startDate, char *categoryIds, int *daysToInclude, int *useListingOrderIds)
+ListingAPI_summaryListing(apiClient_t *apiClient, long accountId, long startDate, char *categoryIds, int *daysToInclude, int *useListingOrderIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1072,12 +1056,9 @@ ListingAPI_summaryListing(apiClient_t *apiClient, double version, long accountId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/listing/summary");
+    char *localVarPath = strdup("/listing/summary");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1191,7 +1172,6 @@ ListingAPI_summaryListing(apiClient_t *apiClient, double version, long accountId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1256,7 +1236,7 @@ end:
 // Updates a listing.
 //
 listing_full_response_t*
-ListingAPI_updateListing(apiClient_t *apiClient, double version, long accountId, long listingId, char *filterIds, char *name, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData)
+ListingAPI_updateListing(apiClient_t *apiClient, long accountId, long listingId, char *filterIds, char *name, char *description, long start, long end, char *locationName, char *locationDescription, int *isPrivate, char *externalId, char *externalId2, char *externalGroupId, int *active, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1270,12 +1250,9 @@ ListingAPI_updateListing(apiClient_t *apiClient, double version, long accountId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/listing/update");
+    char *localVarPath = strdup("/listing/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1499,7 +1476,6 @@ ListingAPI_updateListing(apiClient_t *apiClient, double version, long accountId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

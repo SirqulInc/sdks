@@ -13,6 +13,6 @@
 // Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 //
 sirqul_response_t*
-RetailerV2API_getRetaokiler(apiClient_t *apiClient, double version, long retailerId, int *activeOnly, char *keyword, char *sortField, long start, long limit);
+RetailerV2API_getRetaokiler(apiClient_t *apiClient, long retailerId, int *activeOnly, char *keyword, char *sortField, long start, long limit);
 
 

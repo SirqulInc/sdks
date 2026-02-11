@@ -14,7 +14,7 @@
 // Get the results of the import batch.
 //
 list_t*_t*
-OptimizeAPI_getOptimizationResult(apiClient_t *apiClient, double version, char *batchID, int *start, int *limit)
+OptimizeAPI_getOptimizationResult(apiClient_t *apiClient, char *batchID, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,17 +28,14 @@ OptimizeAPI_getOptimizationResult(apiClient_t *apiClient, double version, char *
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/optimize/result/{batchID}");
+    char *localVarPath = strdup("/optimize/result/{batchID}");
 
     if(!batchID)
         goto end;
 
 
     // Path Params
-    long sizeOfPathParams_version =  + strlen(batchID)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_batchID =  + strlen(batchID)+3 + sizeof("{ batchID }") - 1;
+    long sizeOfPathParams_batchID = strlen(batchID)+3 + sizeof("{ batchID }") - 1;
     if(batchID == NULL) {
         goto end;
     }
@@ -123,7 +120,6 @@ OptimizeAPI_getOptimizationResult(apiClient_t *apiClient, double version, char *
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_batchID);
     if(keyQuery_start){
         free(keyQuery_start);
@@ -161,7 +157,7 @@ end:
 // Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 //
 import_statuses_t*
-OptimizeAPI_requestOptimization(apiClient_t *apiClient, double version, orders_t *body)
+OptimizeAPI_requestOptimization(apiClient_t *apiClient, orders_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -175,12 +171,9 @@ OptimizeAPI_requestOptimization(apiClient_t *apiClient, double version, orders_t
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/optimize/request");
+    char *localVarPath = strdup("/optimize/request");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -232,7 +225,6 @@ OptimizeAPI_requestOptimization(apiClient_t *apiClient, double version, orders_t
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;

@@ -66,7 +66,7 @@ end:
 // Creates a territory.
 //
 territory_response_t*
-TerritoryAPI_createTerritory(apiClient_t *apiClient, double version, long accountId, char *name, int *active)
+TerritoryAPI_createTerritory(apiClient_t *apiClient, long accountId, char *name, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ TerritoryAPI_createTerritory(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/territory/create");
+    char *localVarPath = strdup("/territory/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -164,7 +161,6 @@ TerritoryAPI_createTerritory(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -209,7 +205,7 @@ end:
 // Deletes a territory.
 //
 sirqul_response_t*
-TerritoryAPI_deleteTerritory(apiClient_t *apiClient, double version, long accountId, long territoryId)
+TerritoryAPI_deleteTerritory(apiClient_t *apiClient, long accountId, long territoryId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -223,12 +219,9 @@ TerritoryAPI_deleteTerritory(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/territory/delete");
+    char *localVarPath = strdup("/territory/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -294,7 +287,6 @@ TerritoryAPI_deleteTerritory(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -323,7 +315,7 @@ end:
 // Get a territory.
 //
 territory_response_t*
-TerritoryAPI_getTerritory(apiClient_t *apiClient, double version, long territoryId)
+TerritoryAPI_getTerritory(apiClient_t *apiClient, long territoryId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -337,12 +329,9 @@ TerritoryAPI_getTerritory(apiClient_t *apiClient, double version, long territory
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/territory/get");
+    char *localVarPath = strdup("/territory/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -396,7 +385,6 @@ TerritoryAPI_getTerritory(apiClient_t *apiClient, double version, long territory
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_territoryId){
         free(keyQuery_territoryId);
         keyQuery_territoryId = NULL;
@@ -417,7 +405,7 @@ end:
 // Searches on territories.
 //
 list_t*
-TerritoryAPI_searchTerritories(apiClient_t *apiClient, double version, sirqul_iot_platform_searchTerritories_sortField_e sortField, int *descending, char *keyword, int *start, int *limit)
+TerritoryAPI_searchTerritories(apiClient_t *apiClient, sirqul_iot_platform_searchTerritories_sortField_e sortField, int *descending, char *keyword, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -431,12 +419,9 @@ TerritoryAPI_searchTerritories(apiClient_t *apiClient, double version, sirqul_io
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/territory/search");
+    char *localVarPath = strdup("/territory/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -552,7 +537,6 @@ TerritoryAPI_searchTerritories(apiClient_t *apiClient, double version, sirqul_io
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_keyword){
         free(keyQuery_keyword);
         keyQuery_keyword = NULL;
@@ -621,7 +605,7 @@ end:
 // Updates a territory.
 //
 territory_response_t*
-TerritoryAPI_updateTerritory(apiClient_t *apiClient, double version, long accountId, long territoryId, char *name, int *active)
+TerritoryAPI_updateTerritory(apiClient_t *apiClient, long accountId, long territoryId, char *name, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -635,12 +619,9 @@ TerritoryAPI_updateTerritory(apiClient_t *apiClient, double version, long accoun
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/territory/update");
+    char *localVarPath = strdup("/territory/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -731,7 +712,6 @@ TerritoryAPI_updateTerritory(apiClient_t *apiClient, double version, long accoun
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

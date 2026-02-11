@@ -22,7 +22,7 @@ typedef enum  { sirqul_iot_platform_searchEvents_SORTFIELD_NULL = 0, sirqul_iot_
 //  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
 //
 offer_response_t*
-EventAPI_attendEvent(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, long listingId, long retailerLocationId, long offerLocationId, long transactionId, int *status, double latitude, double longitude);
+EventAPI_attendEvent(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, long listingId, long retailerLocationId, long offerLocationId, long transactionId, int *status, double latitude, double longitude);
 
 
 // Create Event
@@ -30,7 +30,7 @@ EventAPI_attendEvent(apiClient_t *apiClient, double version, char *deviceId, lon
 // Create a private event to share with associates.
 //
 offer_response_t*
-EventAPI_createEvent(apiClient_t *apiClient, double version, long accountId, char *title, char *retailerLocationIds, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd, char *metaData);
+EventAPI_createEvent(apiClient_t *apiClient, long accountId, char *title, char *retailerLocationIds, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd, char *metaData);
 
 
 // Delete Event
@@ -38,7 +38,7 @@ EventAPI_createEvent(apiClient_t *apiClient, double version, long accountId, cha
 // Delete an event that the user has permissions to.
 //
 sirqul_response_t*
-EventAPI_deleteEvent(apiClient_t *apiClient, double version, long accountId, long eventId);
+EventAPI_deleteEvent(apiClient_t *apiClient, long accountId, long eventId);
 
 
 // Get Event
@@ -46,7 +46,7 @@ EventAPI_deleteEvent(apiClient_t *apiClient, double version, long accountId, lon
 // Get an event.
 //
 offer_response_t*
-EventAPI_getEvent(apiClient_t *apiClient, double version, long accountId, long eventId);
+EventAPI_getEvent(apiClient_t *apiClient, long accountId, long eventId);
 
 
 // Search Event Attendance
@@ -54,7 +54,7 @@ EventAPI_getEvent(apiClient_t *apiClient, double version, long accountId, long e
 // Searches on event type transactions. This can be used to see who is attending an event.
 //
 list_t*
-EventAPI_searchEventTransactions(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, char *keyword, long retailerId, long retailerLocationId, long excludeRetailerLocationId, long listingId, long offerId, long offerLocationId, char *customerAccountIds, char *affiliatedCategoryIds, long startDate, long endDate, char *statuses, sirqul_iot_platform_searchEventTransactions_sortField_e sortField, int *descending, int *start, int *limit);
+EventAPI_searchEventTransactions(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, char *keyword, long retailerId, long retailerLocationId, long excludeRetailerLocationId, long listingId, long offerId, long offerLocationId, char *customerAccountIds, char *affiliatedCategoryIds, long startDate, long endDate, char *statuses, sirqul_iot_platform_searchEventTransactions_sortField_e sortField, int *descending, int *start, int *limit);
 
 
 // Search Events
@@ -62,7 +62,7 @@ EventAPI_searchEventTransactions(apiClient_t *apiClient, double version, char *d
 // Searches on events that the account has access to.
 //
 list_t*
-EventAPI_searchEvents(apiClient_t *apiClient, double version, long accountId, char *keyword, int *activeOnly, char *categoryIds, char *filterIds, char *offerAudienceIds, char *transactionAudienceIds, sirqul_iot_platform_searchEvents_sortField_e sortField, int *descending, long startDate, long endDate, int *start, int *limit);
+EventAPI_searchEvents(apiClient_t *apiClient, long accountId, char *keyword, int *activeOnly, char *categoryIds, char *filterIds, char *offerAudienceIds, char *transactionAudienceIds, sirqul_iot_platform_searchEvents_sortField_e sortField, int *descending, long startDate, long endDate, int *start, int *limit);
 
 
 // Update Event
@@ -70,6 +70,6 @@ EventAPI_searchEvents(apiClient_t *apiClient, double version, long accountId, ch
 // Update a private event to share with associates.
 //
 offer_response_t*
-EventAPI_updateEvent(apiClient_t *apiClient, double version, long accountId, long eventId, char *retailerLocationIds, char *title, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd);
+EventAPI_updateEvent(apiClient_t *apiClient, long accountId, long eventId, char *retailerLocationIds, char *title, char *subTitle, char *details, char *categoryIds, char *filterIds, int *active, long imageAssetId, long redeemableStart, long redeemableEnd);
 
 

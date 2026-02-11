@@ -14,7 +14,7 @@
 // Create dependent of the account
 //
 sirqul_response_t*
-DependentAPI_create(apiClient_t *apiClient, double version, long accountId, account_t *body);
+DependentAPI_create(apiClient_t *apiClient, long accountId, account_t *body);
 
 
 // Get dependent list of an account
@@ -22,7 +22,7 @@ DependentAPI_create(apiClient_t *apiClient, double version, long accountId, acco
 // Get the dependent list of an account
 //
 sirqul_response_t*
-DependentAPI_getDependents(apiClient_t *apiClient, double version, long accountId);
+DependentAPI_getDependents(apiClient_t *apiClient, long accountId);
 
 
 // Delete Dependent
@@ -30,6 +30,6 @@ DependentAPI_getDependents(apiClient_t *apiClient, double version, long accountI
 // Delete the Dependent
 //
 void
-DependentAPI_removeDependent(apiClient_t *apiClient, double version, long accountId, long dependentId);
+DependentAPI_removeDependent(apiClient_t *apiClient, long accountId, long dependentId);
 
 

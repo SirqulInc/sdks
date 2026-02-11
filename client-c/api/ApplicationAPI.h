@@ -48,7 +48,7 @@ typedef enum  { sirqul_iot_platform_updateApplicationPlacement_SIZE_NULL = 0, si
 // Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 //
 application_response_t*
-ApplicationAPI_createApplication(apiClient_t *apiClient, double version, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_createApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_createApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_createApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey);
+ApplicationAPI_createApplication(apiClient_t *apiClient, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_createApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_createApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_createApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey);
 
 
 // Create Ad Placement
@@ -56,7 +56,7 @@ ApplicationAPI_createApplication(apiClient_t *apiClient, double version, char *a
 // Creates a new ad placement for an application.
 //
 placement_response_t*
-ApplicationAPI_createApplicationPlacement(apiClient_t *apiClient, double version, char *appKey, sirqul_iot_platform_createApplicationPlacement_size_e size, char *deviceId, long accountId, char *name, char *description, int *height, int *width, int *refreshInterval, long defaultImageId, int *active);
+ApplicationAPI_createApplicationPlacement(apiClient_t *apiClient, char *appKey, sirqul_iot_platform_createApplicationPlacement_size_e size, char *deviceId, long accountId, char *name, char *description, int *height, int *width, int *refreshInterval, long defaultImageId, int *active);
 
 
 // Delete Application
@@ -64,7 +64,7 @@ ApplicationAPI_createApplicationPlacement(apiClient_t *apiClient, double version
 // Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 //
 sirqul_response_t*
-ApplicationAPI_deleteApplication(apiClient_t *apiClient, double version, long accountId, char *appKey);
+ApplicationAPI_deleteApplication(apiClient_t *apiClient, long accountId, char *appKey);
 
 
 // Delete Ad Placement
@@ -72,7 +72,7 @@ ApplicationAPI_deleteApplication(apiClient_t *apiClient, double version, long ac
 // Deletes an ad placement for an application.
 //
 placement_response_t*
-ApplicationAPI_deleteApplicationPlacement(apiClient_t *apiClient, double version, long placementId, char *deviceId, long accountId);
+ApplicationAPI_deleteApplicationPlacement(apiClient_t *apiClient, long placementId, char *deviceId, long accountId);
 
 
 // Get Application
@@ -80,7 +80,7 @@ ApplicationAPI_deleteApplicationPlacement(apiClient_t *apiClient, double version
 // Get a specific application by appKey
 //
 application_response_t*
-ApplicationAPI_getApplication(apiClient_t *apiClient, double version, char *appKey, long applicationId);
+ApplicationAPI_getApplication(apiClient_t *apiClient, char *appKey, long applicationId);
 
 
 // Get Ad Placement
@@ -88,7 +88,7 @@ ApplicationAPI_getApplication(apiClient_t *apiClient, double version, char *appK
 // Get details of an ad placement
 //
 placement_response_t*
-ApplicationAPI_getApplicationPlacement(apiClient_t *apiClient, double version, long placementId, char *deviceId, long accountId);
+ApplicationAPI_getApplicationPlacement(apiClient_t *apiClient, long placementId, char *deviceId, long accountId);
 
 
 // Get API versions
@@ -96,7 +96,7 @@ ApplicationAPI_getApplicationPlacement(apiClient_t *apiClient, double version, l
 // Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 //
 sirqul_response_t*
-ApplicationAPI_getApplicationVersions(apiClient_t *apiClient, double version);
+ApplicationAPI_getApplicationVersions(apiClient_t *apiClient);
 
 
 // Search Application Users
@@ -104,7 +104,7 @@ ApplicationAPI_getApplicationVersions(apiClient_t *apiClient, double version);
 // Get a list of users per application
 //
 account_list_response_t*
-ApplicationAPI_getUniqueUsersByApp(apiClient_t *apiClient, double version, char *appKey, char *q, char *keyword, long since, int *_i, int *start, int *_l, int *limit);
+ApplicationAPI_getUniqueUsersByApp(apiClient_t *apiClient, char *appKey, char *q, char *keyword, long since, int *_i, int *start, int *_l, int *limit);
 
 
 // List Applications
@@ -112,7 +112,7 @@ ApplicationAPI_getUniqueUsersByApp(apiClient_t *apiClient, double version, char 
 // List active applications matching the criteria (as a consumer)
 //
 list_t*
-ApplicationAPI_listApplications(apiClient_t *apiClient, double version, long accountId, char *q, char *keyword, char *platforms, char *deviceIds, char *deviceVersions, char *categoryIds, sirqul_iot_platform_listApplications_sortField_e sortField, int *hasAds, int *publicNotifications, int *filterBillable, int *filterContentAdmin, int *descending, int *_i, int *start, int *_l, int *limit, char *applicationIds, int *hasObjectStore, int *activeOnly);
+ApplicationAPI_listApplications(apiClient_t *apiClient, long accountId, char *q, char *keyword, char *platforms, char *deviceIds, char *deviceVersions, char *categoryIds, sirqul_iot_platform_listApplications_sortField_e sortField, int *hasAds, int *publicNotifications, int *filterBillable, int *filterContentAdmin, int *descending, int *_i, int *start, int *_l, int *limit, char *applicationIds, int *hasObjectStore, int *activeOnly);
 
 
 // Search for Ad Placements
@@ -120,7 +120,7 @@ ApplicationAPI_listApplications(apiClient_t *apiClient, double version, long acc
 // Searches placements for an application.
 //
 list_t*
-ApplicationAPI_searchApplicationPlacement(apiClient_t *apiClient, double version, char *appKey, char *deviceId, long accountId, int *start, int *limit);
+ApplicationAPI_searchApplicationPlacement(apiClient_t *apiClient, char *appKey, char *deviceId, long accountId, int *start, int *limit);
 
 
 // Search for Application Settings
@@ -128,7 +128,7 @@ ApplicationAPI_searchApplicationPlacement(apiClient_t *apiClient, double version
 // Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 //
 application_settings_response_t*
-ApplicationAPI_searchApplicationSettings(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionAccountId, char *keyword, char *sortField, int *descending, int *start, int *limit);
+ApplicationAPI_searchApplicationSettings(apiClient_t *apiClient, char *deviceId, long accountId, long connectionAccountId, char *keyword, char *sortField, int *descending, int *start, int *limit);
 
 
 // Search Applications
@@ -136,7 +136,7 @@ ApplicationAPI_searchApplicationSettings(apiClient_t *apiClient, double version,
 // Search for applications matching the criteria that the logged in user has access to
 //
 list_t*
-ApplicationAPI_searchApplications(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude, char *q, char *keyword, char *qSearchFields, sirqul_iot_platform_searchApplications_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *hasAds, int *publicNotifications, int *activeOnly);
+ApplicationAPI_searchApplications(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude, char *q, char *keyword, char *qSearchFields, sirqul_iot_platform_searchApplications_sortField_e sortField, int *descending, int *_i, int *start, int *_l, int *limit, int *hasAds, int *publicNotifications, int *activeOnly);
 
 
 // Update Application
@@ -144,7 +144,7 @@ ApplicationAPI_searchApplications(apiClient_t *apiClient, double version, char *
 // Update an application record
 //
 application_response_t*
-ApplicationAPI_updateApplication(apiClient_t *apiClient, double version, char *appKey, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_updateApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_updateApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_updateApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey);
+ApplicationAPI_updateApplication(apiClient_t *apiClient, char *appKey, char *appName, char *deviceId, long accountId, char *about, char *bundleId, long appIconAssetId, long appLogoAssetId, char *facebookAppId, char *facebookAppSecret, char *googleApiKey, int *updateEULADate, char *eulaVersion, char *landingPageUrl, int *showInActivities, char *activityDescription, char *inviteWelcomeText, char *invitePageUrl, char *urlScheme, char *platforms, char *downloadUrls, char *categoryIds, sirqul_iot_platform_updateApplication_scoringType_e scoringType, int *hintCost, int *maxScore, float ticketsPerPoint, int *hasGameData, int *publicNotifications, int *useMatchingAlgorithm, int *globalTickets, float buildVersion, float apiVersion, char *placementName, char *placementDescription, sirqul_iot_platform_updateApplication_placementSize_e placementSize, int *placementHeight, int *placementWidth, int *placementRefreshInterval, int *createObjectStore, int *publicContentApproval, int *productionMode, int *minimumSessionLength, int *sessionGapLength, int *localAdsEnabled, char *sqootApiKey, sirqul_iot_platform_updateApplication_trilatProcessingType_e trilatProcessingType, int *maxSampleSize, double minRSSI, char *modules, int *authorizedCount, char *authorizedServers, char *defaultTimezone, char *smtpPass, char *metaData, char *placementMetaData, int *ipsFloor, int *enableAPNSBadge, int *includeInReport, long defaultAppFilterId, int *enableWelcomeEmail, char *appleAppId, char *appleTeamId, char *appleAuthKeyId, binary_t* appleAuthKey, char *appleIssuerId, char *appStoreKeyId, binary_t* appStoreKey, binary_t* googlePrivateKeyFile, char *authorizeNetApiKey, char *authorizeNetTransactionKey, char *emailSender, char *smtpUser, char *smtpHost, char *vatomBusinessId, char *vatomRestClientId, char *vatomRestSecretKey, char *twilioAccountSID, char *twilioAuthToken, char *twilioSenderPhoneNumber, char *openAISecretKey);
 
 
 // Change Appliation Status
@@ -152,7 +152,7 @@ ApplicationAPI_updateApplication(apiClient_t *apiClient, double version, char *a
 // Set the application's active flag to true/false. This effectively activates or deactivates the application.
 //
 sirqul_response_t*
-ApplicationAPI_updateApplicationActive(apiClient_t *apiClient, double version, long accountId, char *appKey, int *active);
+ApplicationAPI_updateApplicationActive(apiClient_t *apiClient, long accountId, char *appKey, int *active);
 
 
 // Update Ad Placement
@@ -160,7 +160,7 @@ ApplicationAPI_updateApplicationActive(apiClient_t *apiClient, double version, l
 // Updates an ad placement for an application.
 //
 placement_response_t*
-ApplicationAPI_updateApplicationPlacement(apiClient_t *apiClient, double version, long placementId, char *deviceId, long accountId, char *name, char *description, sirqul_iot_platform_updateApplicationPlacement_size_e size, int *height, int *width, int *refreshInterval, long defaultImageId, int *active);
+ApplicationAPI_updateApplicationPlacement(apiClient_t *apiClient, long placementId, char *deviceId, long accountId, char *name, char *description, sirqul_iot_platform_updateApplicationPlacement_size_e size, int *height, int *width, int *refreshInterval, long defaultImageId, int *active);
 
 
 // Create Application Certificate
@@ -168,6 +168,6 @@ ApplicationAPI_updateApplicationPlacement(apiClient_t *apiClient, double version
 // Uploads a certificate for an application that the user has access to.
 //
 sirqul_response_t*
-ApplicationAPI_uploadApplicationCertificate(apiClient_t *apiClient, double version, char *appKey, char *deviceId, long accountId, binary_t* certificate);
+ApplicationAPI_uploadApplicationCertificate(apiClient_t *apiClient, char *appKey, char *deviceId, long accountId, binary_t* certificate);
 
 

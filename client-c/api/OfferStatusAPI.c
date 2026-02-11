@@ -66,7 +66,7 @@ end:
 // Create an offer status record
 //
 offer_transaction_status_response_t*
-OfferStatusAPI_createOfferTransactionStatus(apiClient_t *apiClient, double version, char *name, int *code, char *deviceId, long accountId, double latitude, double longitude, char *description, char *role, int *active, char *applicationIds)
+OfferStatusAPI_createOfferTransactionStatus(apiClient_t *apiClient, char *name, int *code, char *deviceId, long accountId, double latitude, double longitude, char *description, char *role, int *active, char *applicationIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -80,12 +80,9 @@ OfferStatusAPI_createOfferTransactionStatus(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/offer/status/create");
+    char *localVarPath = strdup("/offer/status/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -257,7 +254,6 @@ OfferStatusAPI_createOfferTransactionStatus(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -378,7 +374,7 @@ end:
 // Mark an offer status record as deleted
 //
 sirqul_response_t*
-OfferStatusAPI_deleteOfferTransactionStatus(apiClient_t *apiClient, double version, long statusId, char *deviceId, long accountId, double latitude, double longitude)
+OfferStatusAPI_deleteOfferTransactionStatus(apiClient_t *apiClient, long statusId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -392,12 +388,9 @@ OfferStatusAPI_deleteOfferTransactionStatus(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/offer/status/delete");
+    char *localVarPath = strdup("/offer/status/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -507,7 +500,6 @@ OfferStatusAPI_deleteOfferTransactionStatus(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -564,7 +556,7 @@ end:
 // Get an offer status record
 //
 offer_transaction_status_response_t*
-OfferStatusAPI_getOfferTransactionStatus(apiClient_t *apiClient, double version, long statusId, char *deviceId, long accountId, double latitude, double longitude)
+OfferStatusAPI_getOfferTransactionStatus(apiClient_t *apiClient, long statusId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -578,12 +570,9 @@ OfferStatusAPI_getOfferTransactionStatus(apiClient_t *apiClient, double version,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/offer/status/get");
+    char *localVarPath = strdup("/offer/status/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -693,7 +682,6 @@ OfferStatusAPI_getOfferTransactionStatus(apiClient_t *apiClient, double version,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -750,7 +738,7 @@ end:
 // Search for the available offer statuses
 //
 list_t*
-OfferStatusAPI_searchOfferTransactionStatuses(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude, char *keyword, char *role, char *appKey, sirqul_iot_platform_searchOfferTransactionStatuses_sortField_e sortField, int *descending, int *start, int *limit, int *includeInactive)
+OfferStatusAPI_searchOfferTransactionStatuses(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude, char *keyword, char *role, char *appKey, sirqul_iot_platform_searchOfferTransactionStatuses_sortField_e sortField, int *descending, int *start, int *limit, int *includeInactive)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -764,12 +752,9 @@ OfferStatusAPI_searchOfferTransactionStatuses(apiClient_t *apiClient, double ver
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/offer/status/search");
+    char *localVarPath = strdup("/offer/status/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -978,7 +963,6 @@ OfferStatusAPI_searchOfferTransactionStatuses(apiClient_t *apiClient, double ver
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1119,7 +1103,7 @@ end:
 // Update an offer status record
 //
 offer_transaction_status_response_t*
-OfferStatusAPI_updateOfferTransactionStatus(apiClient_t *apiClient, double version, char *deviceId, long accountId, double latitude, double longitude, long statusId, char *name, char *description, int *code, char *role, int *active, char *applicationIds)
+OfferStatusAPI_updateOfferTransactionStatus(apiClient_t *apiClient, char *deviceId, long accountId, double latitude, double longitude, long statusId, char *name, char *description, int *code, char *role, int *active, char *applicationIds)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1133,12 +1117,9 @@ OfferStatusAPI_updateOfferTransactionStatus(apiClient_t *apiClient, double versi
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/offer/status/update");
+    char *localVarPath = strdup("/offer/status/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1322,7 +1303,6 @@ OfferStatusAPI_updateOfferTransactionStatus(apiClient_t *apiClient, double versi
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

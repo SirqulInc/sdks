@@ -32,7 +32,7 @@ typedef enum  { sirqul_iot_platform_searchPermissionablesFollowingDistance_PERMI
 // Adds a user to a permissionable object.
 //
 sirqul_response_t*
-UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_addUsersToPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, int *read, int *write, int *_delete, int *add, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *pending, int *admin, int *includeFriendGroup, double latitude, double longitude, char *audienceIds);
+UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, sirqul_iot_platform_addUsersToPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, int *read, int *write, int *_delete, int *add, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *pending, int *admin, int *includeFriendGroup, double latitude, double longitude, char *audienceIds);
 
 
 // Approve Permissionable
@@ -40,7 +40,7 @@ UserPermissionsAPI_addUsersToPermissionable(apiClient_t *apiClient, double versi
 // Sets the approval status of a permissionable object.
 //
 sirqul_response_t*
-UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_approvePermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, sirqul_iot_platform_approvePermissionable_approvalStatus_e approvalStatus);
+UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, sirqul_iot_platform_approvePermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, sirqul_iot_platform_approvePermissionable_approvalStatus_e approvalStatus);
 
 
 // Leave
@@ -48,7 +48,7 @@ UserPermissionsAPI_approvePermissionable(apiClient_t *apiClient, double version,
 // Used when the user wants to leave from someone else's permissionable object
 //
 sirqul_response_t*
-UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, double version, char *permissionableType, long permissionableId, char *deviceId, long accountId, double latitude, double longitude);
+UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, char *permissionableType, long permissionableId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Remove User
@@ -56,7 +56,7 @@ UserPermissionsAPI_leaveFromPermissionable(apiClient_t *apiClient, double versio
 // Used to remove someone (assuming they have permission) from a permissionable object
 //
 sirqul_response_t*
-UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, double version, sirqul_iot_platform_removeUsersFromPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *removeFriendGroup, double latitude, double longitude, char *audienceIds);
+UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, sirqul_iot_platform_removeUsersFromPermissionable_permissionableType_e permissionableType, long permissionableId, char *deviceId, long accountId, char *connectionIds, char *connectionAccountIds, char *connectionGroupIds, int *removeFriendGroup, double latitude, double longitude, char *audienceIds);
 
 
 // Search Permissionables
@@ -64,7 +64,7 @@ UserPermissionsAPI_removeUsersFromPermissionable(apiClient_t *apiClient, double 
 // Search on UserPermissions
 //
 list_t*
-UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionables_permissionableType_e permissionableType, long permissionableId, char *keyword, char *sortField, int *descending, int *pending, int *admin, int *start, int *limit);
+UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionables_permissionableType_e permissionableType, long permissionableId, char *keyword, char *sortField, int *descending, int *pending, int *admin, int *start, int *limit);
 
 
 // Search Permissionables by Distnace
@@ -72,6 +72,6 @@ UserPermissionsAPI_searchPermissionables(apiClient_t *apiClient, double version,
 // Search on UserPermissions by distance
 //
 list_t*
-UserPermissionsAPI_searchPermissionablesFollowingDistance(apiClient_t *apiClient, double version, double latitude, double longitude, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionablesFollowingDistance_permissionableType_e permissionableType, long permissionableId, double searchRange, char *keyword, int *pending, int *admin, int *start, int *limit);
+UserPermissionsAPI_searchPermissionablesFollowingDistance(apiClient_t *apiClient, double latitude, double longitude, char *deviceId, long accountId, long connectionAccountId, char *connectionAccountIds, sirqul_iot_platform_searchPermissionablesFollowingDistance_permissionableType_e permissionableType, long permissionableId, double searchRange, char *keyword, int *pending, int *admin, int *start, int *limit);
 
 

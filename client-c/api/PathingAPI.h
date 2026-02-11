@@ -16,6 +16,6 @@ typedef enum  { sirqul_iot_platform_computePath_UNITS_NULL = 0, sirqul_iot_platf
 // Calculates the shortest path from point to point on a grid
 //
 pathing_response_t*
-PathingAPI_computePath(apiClient_t *apiClient, double version, char *data, sirqul_iot_platform_computePath_units_e units, int *reducePath, int *directions);
+PathingAPI_computePath(apiClient_t *apiClient, char *data, sirqul_iot_platform_computePath_units_e units, int *reducePath, int *directions);
 
 

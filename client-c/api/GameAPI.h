@@ -14,7 +14,7 @@
 // Create a Game.
 //
 game_response_t*
-GameAPI_createGame(apiClient_t *apiClient, double version, long accountId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData);
+GameAPI_createGame(apiClient_t *apiClient, long accountId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData);
 
 
 // Delete a Game
@@ -22,7 +22,7 @@ GameAPI_createGame(apiClient_t *apiClient, double version, long accountId, char 
 // Delete a game.
 //
 sirqul_response_t*
-GameAPI_deleteGame(apiClient_t *apiClient, double version, long accountId, long gameId);
+GameAPI_deleteGame(apiClient_t *apiClient, long accountId, long gameId);
 
 
 // Get a Game by id
@@ -30,7 +30,7 @@ GameAPI_deleteGame(apiClient_t *apiClient, double version, long accountId, long 
 // Get a Game by id.
 //
 game_response_t*
-GameAPI_getGame(apiClient_t *apiClient, double version, long accountId, long gameId, int *includeGameData);
+GameAPI_getGame(apiClient_t *apiClient, long accountId, long gameId, int *includeGameData);
 
 
 // Search a Game
@@ -38,7 +38,7 @@ GameAPI_getGame(apiClient_t *apiClient, double version, long accountId, long gam
 // Get a list of games for an application, just those the account has permissions to view.
 //
 game_response_t*
-GameAPI_searchGames(apiClient_t *apiClient, double version, long accountId, char *appKey, int *start, int *limit, char *keyword, char *appVersion, int *includeGameData, int *includeInactive);
+GameAPI_searchGames(apiClient_t *apiClient, long accountId, char *appKey, int *start, int *limit, char *keyword, char *appVersion, int *includeGameData, int *includeInactive);
 
 
 // Update a Game
@@ -46,6 +46,6 @@ GameAPI_searchGames(apiClient_t *apiClient, double version, long accountId, char
 // Update a Game
 //
 game_response_t*
-GameAPI_updateGame(apiClient_t *apiClient, double version, long accountId, long gameId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData);
+GameAPI_updateGame(apiClient_t *apiClient, long accountId, long gameId, char *appKey, char *title, char *description, char *metaData, char *packIds, int *includeGameData);
 
 

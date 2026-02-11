@@ -14,7 +14,7 @@
 // Create a new location from a real object location.
 //
 sirqul_response_t*
-LocationApiV2API_createLocationV2(apiClient_t *apiClient, double version, location_t *body)
+LocationApiV2API_createLocationV2(apiClient_t *apiClient, location_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ LocationApiV2API_createLocationV2(apiClient_t *apiClient, double version, locati
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location");
+    char *localVarPath = strdup("/location");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -85,7 +82,6 @@ LocationApiV2API_createLocationV2(apiClient_t *apiClient, double version, locati
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -103,7 +99,7 @@ end:
 // Update an existing location
 //
 sirqul_response_t*
-LocationApiV2API_updateLocationV2(apiClient_t *apiClient, double version, long id, location_t *body)
+LocationApiV2API_updateLocationV2(apiClient_t *apiClient, long id, location_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -117,15 +113,12 @@ LocationApiV2API_updateLocationV2(apiClient_t *apiClient, double version, long i
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location/{id}");
+    char *localVarPath = strdup("/location/{id}");
 
 
 
     // Path Params
-    long sizeOfPathParams_version =  + sizeof(id)+3 + sizeof("{ version }") - 1;
-
-    // Path Params
-    long sizeOfPathParams_id =  + sizeof(id)+3 + sizeof("{ id }") - 1;
+    long sizeOfPathParams_id = sizeof(id)+3 + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -188,7 +181,6 @@ LocationApiV2API_updateLocationV2(apiClient_t *apiClient, double version, long i
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     free(localVarToReplace_id);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);

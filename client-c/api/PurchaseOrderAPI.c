@@ -170,7 +170,7 @@ end:
 // Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
 //
 order_response_t*
-PurchaseOrderAPI_createOrder(apiClient_t *apiClient, double version, char *appKey, char *cart, char *deviceId, long accountId, char *description, sirqul_iot_platform_createOrder_currencyType_e currencyType, long paymentMethodId, char *externalOrderId, char *externalPaymentId, char *remoteRefType, long externalDate, char *promoCode)
+PurchaseOrderAPI_createOrder(apiClient_t *apiClient, char *appKey, char *cart, char *deviceId, long accountId, char *description, sirqul_iot_platform_createOrder_currencyType_e currencyType, long paymentMethodId, char *externalOrderId, char *externalPaymentId, char *remoteRefType, long externalDate, char *promoCode)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -184,12 +184,9 @@ PurchaseOrderAPI_createOrder(apiClient_t *apiClient, double version, char *appKe
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/order/create");
+    char *localVarPath = strdup("/order/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -376,7 +373,6 @@ PurchaseOrderAPI_createOrder(apiClient_t *apiClient, double version, char *appKe
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -517,7 +513,7 @@ end:
 // Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 //
 sirqul_response_t*
-PurchaseOrderAPI_deleteOrder(apiClient_t *apiClient, double version, long orderId, char *deviceId, long accountId)
+PurchaseOrderAPI_deleteOrder(apiClient_t *apiClient, long orderId, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -531,12 +527,9 @@ PurchaseOrderAPI_deleteOrder(apiClient_t *apiClient, double version, long orderI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/order/delete");
+    char *localVarPath = strdup("/order/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -614,7 +607,6 @@ PurchaseOrderAPI_deleteOrder(apiClient_t *apiClient, double version, long orderI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -655,7 +647,7 @@ end:
 // Get an order record
 //
 order_response_t*
-PurchaseOrderAPI_getOrder(apiClient_t *apiClient, double version, char *deviceId, long accountId, long orderId, char *externalOrderId)
+PurchaseOrderAPI_getOrder(apiClient_t *apiClient, char *deviceId, long accountId, long orderId, char *externalOrderId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -669,12 +661,9 @@ PurchaseOrderAPI_getOrder(apiClient_t *apiClient, double version, char *deviceId
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/order/get");
+    char *localVarPath = strdup("/order/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -764,7 +753,6 @@ PurchaseOrderAPI_getOrder(apiClient_t *apiClient, double version, char *deviceId
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -817,7 +805,7 @@ end:
 // Previews a purchase to see the total cost before making it.
 //
 order_response_t*
-PurchaseOrderAPI_previewOrder(apiClient_t *apiClient, double version, char *appKey, char *cart, char *deviceId, long accountId, char *description, sirqul_iot_platform_previewOrder_currencyType_e currencyType, long paymentMethodId, char *externalOrderId, char *externalPaymentId, char *remoteRefType, long externalDate, char *promoCode)
+PurchaseOrderAPI_previewOrder(apiClient_t *apiClient, char *appKey, char *cart, char *deviceId, long accountId, char *description, sirqul_iot_platform_previewOrder_currencyType_e currencyType, long paymentMethodId, char *externalOrderId, char *externalPaymentId, char *remoteRefType, long externalDate, char *promoCode)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -831,12 +819,9 @@ PurchaseOrderAPI_previewOrder(apiClient_t *apiClient, double version, char *appK
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/order/preview");
+    char *localVarPath = strdup("/order/preview");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1023,7 +1008,6 @@ PurchaseOrderAPI_previewOrder(apiClient_t *apiClient, double version, char *appK
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1164,7 +1148,7 @@ end:
 // Search on active orders by customer
 //
 list_t*
-PurchaseOrderAPI_searchOrders(apiClient_t *apiClient, double version, char *appKey, char *deviceId, long accountId, int *start, int *limit, int *descending, int *activeOnly, int *ignoreCustomerFilter, char *orderItemTypes, char *orderItemIds, char *orderCustomTypes, char *orderCustomIds, char *sortField, char *offerTypes, char *specialOfferTypes, char *categoryIds, char *filterIds, char *offerAudienceIds, char *transactionAudienceIds, char *offerIds, char *offerLocationIds, char *retailerIds, char *retailerLocationIds, char *statuses, char *keyword, long redeemableStartDate, long redeemableEndDate, long startedSince, long startedBefore, long endedSince, long endedBefore)
+PurchaseOrderAPI_searchOrders(apiClient_t *apiClient, char *appKey, char *deviceId, long accountId, int *start, int *limit, int *descending, int *activeOnly, int *ignoreCustomerFilter, char *orderItemTypes, char *orderItemIds, char *orderCustomTypes, char *orderCustomIds, char *sortField, char *offerTypes, char *specialOfferTypes, char *categoryIds, char *filterIds, char *offerAudienceIds, char *transactionAudienceIds, char *offerIds, char *offerLocationIds, char *retailerIds, char *retailerLocationIds, char *statuses, char *keyword, long redeemableStartDate, long redeemableEndDate, long startedSince, long startedBefore, long endedSince, long endedBefore)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1178,12 +1162,9 @@ PurchaseOrderAPI_searchOrders(apiClient_t *apiClient, double version, char *appK
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/order/search");
+    char *localVarPath = strdup("/order/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1612,7 +1593,6 @@ PurchaseOrderAPI_searchOrders(apiClient_t *apiClient, double version, char *appK
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1969,7 +1949,7 @@ end:
 // Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
 //
 order_response_t*
-PurchaseOrderAPI_updateOrder(apiClient_t *apiClient, double version, long orderId, char *appKey, char *cart, char *deviceId, long accountId, long paymentTransactionId, char *description, sirqul_iot_platform_updateOrder_currencyType_e currencyType, long paymentMethodId, char *externalPaymentId, long externalDate)
+PurchaseOrderAPI_updateOrder(apiClient_t *apiClient, long orderId, char *appKey, char *cart, char *deviceId, long accountId, long paymentTransactionId, char *description, sirqul_iot_platform_updateOrder_currencyType_e currencyType, long paymentMethodId, char *externalPaymentId, long externalDate)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1983,12 +1963,9 @@ PurchaseOrderAPI_updateOrder(apiClient_t *apiClient, double version, long orderI
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/order/update");
+    char *localVarPath = strdup("/order/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2163,7 +2140,6 @@ PurchaseOrderAPI_updateOrder(apiClient_t *apiClient, double version, long orderI
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

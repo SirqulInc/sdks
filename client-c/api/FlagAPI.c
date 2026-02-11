@@ -14,7 +14,7 @@
 // Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 //
 sirqul_response_t*
-FlagAPI_createFlag(apiClient_t *apiClient, double version, char *flagableType, long flagableId, char *deviceId, long accountId, char *flagDescription, double latitude, double longitude)
+FlagAPI_createFlag(apiClient_t *apiClient, char *flagableType, long flagableId, char *deviceId, long accountId, char *flagDescription, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ FlagAPI_createFlag(apiClient_t *apiClient, double version, char *flagableType, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/flag/create");
+    char *localVarPath = strdup("/flag/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -167,7 +164,6 @@ FlagAPI_createFlag(apiClient_t *apiClient, double version, char *flagableType, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -248,7 +244,7 @@ end:
 // Deletes a flag.
 //
 sirqul_response_t*
-FlagAPI_deleteFlag(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *itemBeingFlaggedType, long itemBeingFlaggedId, char *flagableType, long flagableId)
+FlagAPI_deleteFlag(apiClient_t *apiClient, char *deviceId, long accountId, char *itemBeingFlaggedType, long itemBeingFlaggedId, char *flagableType, long flagableId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -262,12 +258,9 @@ FlagAPI_deleteFlag(apiClient_t *apiClient, double version, char *deviceId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/flag/delete");
+    char *localVarPath = strdup("/flag/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -381,7 +374,6 @@ FlagAPI_deleteFlag(apiClient_t *apiClient, double version, char *deviceId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -454,7 +446,7 @@ end:
 // Gets the details on whether the user has flagged a particular flagable object.
 //
 flag_response_t*
-FlagAPI_getFlag(apiClient_t *apiClient, double version, char *flagableType, long flagableId, char *deviceId, long accountId, double latitude, double longitude)
+FlagAPI_getFlag(apiClient_t *apiClient, char *flagableType, long flagableId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -468,12 +460,9 @@ FlagAPI_getFlag(apiClient_t *apiClient, double version, char *flagableType, long
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/flag/get");
+    char *localVarPath = strdup("/flag/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -595,7 +584,6 @@ FlagAPI_getFlag(apiClient_t *apiClient, double version, char *flagableType, long
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -664,7 +652,7 @@ end:
 // Get the flag threshold value on an object type for a particular application.
 //
 count_response_t*
-FlagAPI_getFlagThreshold(apiClient_t *apiClient, double version, char *itemBeingFlaggedType, char *appKey)
+FlagAPI_getFlagThreshold(apiClient_t *apiClient, char *itemBeingFlaggedType, char *appKey)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -678,12 +666,9 @@ FlagAPI_getFlagThreshold(apiClient_t *apiClient, double version, char *itemBeing
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/flag/threshold/get");
+    char *localVarPath = strdup("/flag/threshold/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -749,7 +734,6 @@ FlagAPI_getFlagThreshold(apiClient_t *apiClient, double version, char *itemBeing
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_itemBeingFlaggedType){
         free(keyQuery_itemBeingFlaggedType);
         keyQuery_itemBeingFlaggedType = NULL;
@@ -786,7 +770,7 @@ end:
 // Update the flag threshold on an object type for a particular application.
 //
 count_response_t*
-FlagAPI_updateFlagThreshold(apiClient_t *apiClient, double version, char *itemBeingFlaggedType, long threshold, char *appKey, char *deviceId, long accountId)
+FlagAPI_updateFlagThreshold(apiClient_t *apiClient, char *itemBeingFlaggedType, long threshold, char *appKey, char *deviceId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -800,12 +784,9 @@ FlagAPI_updateFlagThreshold(apiClient_t *apiClient, double version, char *itemBe
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/flag/threshold/update");
+    char *localVarPath = strdup("/flag/threshold/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -907,7 +888,6 @@ FlagAPI_updateFlagThreshold(apiClient_t *apiClient, double version, char *itemBe
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

@@ -118,7 +118,7 @@ end:
 // Create a filter
 //
 filter_tree_response_t*
-FilterAPI_createFilter(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, long parentFilterId, char *description, char *externalId, char *externalType, int *active, char *metaData)
+FilterAPI_createFilter(apiClient_t *apiClient, long accountId, char *name, char *appKey, long parentFilterId, char *description, char *externalId, char *externalType, int *active, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -132,12 +132,9 @@ FilterAPI_createFilter(apiClient_t *apiClient, double version, long accountId, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/filter/create");
+    char *localVarPath = strdup("/filter/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -288,7 +285,6 @@ FilterAPI_createFilter(apiClient_t *apiClient, double version, long accountId, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -401,7 +397,7 @@ end:
 // Delete a filter.
 //
 sirqul_response_t*
-FilterAPI_deleteFilter(apiClient_t *apiClient, double version, long accountId, long filterId)
+FilterAPI_deleteFilter(apiClient_t *apiClient, long accountId, long filterId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -415,12 +411,9 @@ FilterAPI_deleteFilter(apiClient_t *apiClient, double version, long accountId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/filter/delete");
+    char *localVarPath = strdup("/filter/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -486,7 +479,6 @@ FilterAPI_deleteFilter(apiClient_t *apiClient, double version, long accountId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -515,7 +507,7 @@ end:
 // Get the details of a specific filter. Recursively include all child filters and their children.
 //
 filter_tree_response_t*
-FilterAPI_getFilter(apiClient_t *apiClient, double version, long filterId)
+FilterAPI_getFilter(apiClient_t *apiClient, long filterId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -529,12 +521,9 @@ FilterAPI_getFilter(apiClient_t *apiClient, double version, long filterId)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/filter/get");
+    char *localVarPath = strdup("/filter/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -588,7 +577,6 @@ FilterAPI_getFilter(apiClient_t *apiClient, double version, long filterId)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_filterId){
         free(keyQuery_filterId);
         keyQuery_filterId = NULL;
@@ -609,7 +597,7 @@ end:
 // Search for filters.
 //
 list_t*
-FilterAPI_searchFilters(apiClient_t *apiClient, double version, long accountId, char *keyword, char *appKey, sirqul_iot_platform_searchFilters_responseGroup_e responseGroup, int *rootOnly, sirqul_iot_platform_searchFilters_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly)
+FilterAPI_searchFilters(apiClient_t *apiClient, long accountId, char *keyword, char *appKey, sirqul_iot_platform_searchFilters_responseGroup_e responseGroup, int *rootOnly, sirqul_iot_platform_searchFilters_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -623,12 +611,9 @@ FilterAPI_searchFilters(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/filter/search");
+    char *localVarPath = strdup("/filter/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -807,7 +792,6 @@ FilterAPI_searchFilters(apiClient_t *apiClient, double version, long accountId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -928,7 +912,7 @@ end:
 // Update a filter.
 //
 filter_tree_response_t*
-FilterAPI_updateFilter(apiClient_t *apiClient, double version, long accountId, long filterId, long parentFilterId, char *name, char *description, char *externalId, char *externalType, int *active, char *metaData)
+FilterAPI_updateFilter(apiClient_t *apiClient, long accountId, long filterId, long parentFilterId, char *name, char *description, char *externalId, char *externalType, int *active, char *metaData)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -942,12 +926,9 @@ FilterAPI_updateFilter(apiClient_t *apiClient, double version, long accountId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/filter/update");
+    char *localVarPath = strdup("/filter/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1098,7 +1079,6 @@ FilterAPI_updateFilter(apiClient_t *apiClient, double version, long accountId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

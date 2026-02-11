@@ -20,7 +20,7 @@ typedef enum  { sirqul_iot_platform_updateTask_VISIBILITY_NULL = 0, sirqul_iot_p
 // Create a Task
 //
 task_response_t*
-TaskAPI_createTask(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_createTask_visibility_e visibility, int *active);
+TaskAPI_createTask(apiClient_t *apiClient, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_createTask_visibility_e visibility, int *active);
 
 
 // Delete Task
@@ -28,7 +28,7 @@ TaskAPI_createTask(apiClient_t *apiClient, double version, long accountId, char 
 // Delete a Task
 //
 sirqul_response_t*
-TaskAPI_deleteTask(apiClient_t *apiClient, double version, long accountId, long taskId);
+TaskAPI_deleteTask(apiClient_t *apiClient, long accountId, long taskId);
 
 
 // Get Task
@@ -36,7 +36,7 @@ TaskAPI_deleteTask(apiClient_t *apiClient, double version, long accountId, long 
 // Get a Task
 //
 task_response_t*
-TaskAPI_getTask(apiClient_t *apiClient, double version, long accountId, long taskId);
+TaskAPI_getTask(apiClient_t *apiClient, long accountId, long taskId);
 
 
 // Search Tasks
@@ -44,7 +44,7 @@ TaskAPI_getTask(apiClient_t *apiClient, double version, long accountId, long tas
 // Search on Tasks
 //
 list_t*
-TaskAPI_searchTasks(apiClient_t *apiClient, double version, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly);
+TaskAPI_searchTasks(apiClient_t *apiClient, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly);
 
 
 // Update Task
@@ -52,6 +52,6 @@ TaskAPI_searchTasks(apiClient_t *apiClient, double version, long accountId, char
 // Update a Task
 //
 task_response_t*
-TaskAPI_updateTask(apiClient_t *apiClient, double version, long taskId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_updateTask_visibility_e visibility, int *active);
+TaskAPI_updateTask(apiClient_t *apiClient, long taskId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, sirqul_iot_platform_updateTask_visibility_e visibility, int *active);
 
 

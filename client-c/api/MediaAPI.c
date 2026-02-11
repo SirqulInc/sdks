@@ -586,7 +586,7 @@ end:
 // Create a media offering.
 //
 media_offer_response_t*
-MediaAPI_createMedia(apiClient_t *apiClient, double version, long accountId, char *title, sirqul_iot_platform_createMedia_barcodeType_e barcodeType, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, long ticketPrice, double fullPrice, double discountPrice, sirqul_iot_platform_createMedia_specialOfferType_e specialOfferType, sirqul_iot_platform_createMedia_offerVisibility_e offerVisibility, int *active, char *retailerLocationIds, char *subTitle, char *details, char *subDetails, char *finePrint, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *ticketsRewardType, long ticketsReward, long activated, long expires, char *ticketPriceType, int *showRemaining, int *showRedeemed, int *replaced, int *featured, char *categoryIds, char *filterIds, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, sirqul_iot_platform_createMedia_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, char *parentalRating, long availabilityDate, sirqul_iot_platform_createMedia_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, char *availability, char *availabilitySummary)
+MediaAPI_createMedia(apiClient_t *apiClient, long accountId, char *title, sirqul_iot_platform_createMedia_barcodeType_e barcodeType, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, long ticketPrice, double fullPrice, double discountPrice, sirqul_iot_platform_createMedia_specialOfferType_e specialOfferType, sirqul_iot_platform_createMedia_offerVisibility_e offerVisibility, int *active, char *retailerLocationIds, char *subTitle, char *details, char *subDetails, char *finePrint, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *ticketsRewardType, long ticketsReward, long activated, long expires, char *ticketPriceType, int *showRemaining, int *showRedeemed, int *replaced, int *featured, char *categoryIds, char *filterIds, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, sirqul_iot_platform_createMedia_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, char *parentalRating, long availabilityDate, sirqul_iot_platform_createMedia_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, char *availability, char *availabilitySummary)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -600,12 +600,9 @@ MediaAPI_createMedia(apiClient_t *apiClient, double version, long accountId, cha
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/media/create");
+    char *localVarPath = strdup("/media/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1356,7 +1353,6 @@ MediaAPI_createMedia(apiClient_t *apiClient, double version, long accountId, cha
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1961,7 +1957,7 @@ end:
 // Delete a media offering that the user has permissions to.
 //
 sirqul_response_t*
-MediaAPI_deleteMedia(apiClient_t *apiClient, double version, long accountId, long mediaId)
+MediaAPI_deleteMedia(apiClient_t *apiClient, long accountId, long mediaId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1975,12 +1971,9 @@ MediaAPI_deleteMedia(apiClient_t *apiClient, double version, long accountId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/media/delete");
+    char *localVarPath = strdup("/media/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2046,7 +2039,6 @@ MediaAPI_deleteMedia(apiClient_t *apiClient, double version, long accountId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2075,7 +2067,7 @@ end:
 // Get a media offering.
 //
 media_offer_response_t*
-MediaAPI_getMedia(apiClient_t *apiClient, double version, long accountId, long mediaId)
+MediaAPI_getMedia(apiClient_t *apiClient, long accountId, long mediaId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2089,12 +2081,9 @@ MediaAPI_getMedia(apiClient_t *apiClient, double version, long accountId, long m
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/media/get");
+    char *localVarPath = strdup("/media/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2160,7 +2149,6 @@ MediaAPI_getMedia(apiClient_t *apiClient, double version, long accountId, long m
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2189,7 +2177,7 @@ end:
 // Searches on events that the account has access to.
 //
 list_t*
-MediaAPI_searchMedia(apiClient_t *apiClient, double version, long accountId, int *activeOnly, sirqul_iot_platform_searchMedia_sortField_e sortField, int *descending, char *keyword, char *categoryIds, char *filterIds, int *start, int *limit)
+MediaAPI_searchMedia(apiClient_t *apiClient, long accountId, int *activeOnly, sirqul_iot_platform_searchMedia_sortField_e sortField, int *descending, char *keyword, char *categoryIds, char *filterIds, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2203,12 +2191,9 @@ MediaAPI_searchMedia(apiClient_t *apiClient, double version, long accountId, int
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/media/search");
+    char *localVarPath = strdup("/media/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2373,7 +2358,6 @@ MediaAPI_searchMedia(apiClient_t *apiClient, double version, long accountId, int
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2486,7 +2470,7 @@ end:
 // Update a media offering.
 //
 media_offer_response_t*
-MediaAPI_updateMedia(apiClient_t *apiClient, double version, long accountId, long mediaId, char *retailerLocationIds, char *offerLocations, char *title, char *subTitle, char *details, char *subDetails, char *finePrint, sirqul_iot_platform_updateMedia_barcodeType_e barcodeType, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *ticketsRewardType, long ticketsReward, long activated, long expires, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, char *ticketPriceType, long ticketPrice, double fullPrice, double discountPrice, int *showRemaining, int *showRedeemed, int *replaced, int *featured, sirqul_iot_platform_updateMedia_specialOfferType_e specialOfferType, sirqul_iot_platform_updateMedia_offerVisibility_e offerVisibility, char *categoryIds, char *filterIds, int *active, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, sirqul_iot_platform_updateMedia_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, long availabilityDate, char *parentalRating, sirqul_iot_platform_updateMedia_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, char *availability, char *availabilitySummary)
+MediaAPI_updateMedia(apiClient_t *apiClient, long accountId, long mediaId, char *retailerLocationIds, char *offerLocations, char *title, char *subTitle, char *details, char *subDetails, char *finePrint, sirqul_iot_platform_updateMedia_barcodeType_e barcodeType, char *barcodeEntry, char *externalRedeemOptions, char *externalUrl, char *ticketsRewardType, long ticketsReward, long activated, long expires, int *noExpiration, int *availableLimit, int *availableLimitPerUser, int *addedLimit, int *viewLimit, int *maxPrints, char *ticketPriceType, long ticketPrice, double fullPrice, double discountPrice, int *showRemaining, int *showRedeemed, int *replaced, int *featured, sirqul_iot_platform_updateMedia_specialOfferType_e specialOfferType, sirqul_iot_platform_updateMedia_offerVisibility_e offerVisibility, char *categoryIds, char *filterIds, int *active, long barcodeAssetId, long imageAssetId, long imageAssetId1, long imageAssetId2, long imageAssetId3, long imageAssetId4, long imageAssetId5, char *publisher, long redeemableStart, long redeemableEnd, sirqul_iot_platform_updateMedia_conditionType_e conditionType, char *isbn, char *asin, char *catalogNumbers, long availabilityDate, char *parentalRating, sirqul_iot_platform_updateMedia_mediaType_e mediaType, int *duration, char *author, long releaseDate, char *collectionIds, char *availability, char *availabilitySummary)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2500,12 +2484,9 @@ MediaAPI_updateMedia(apiClient_t *apiClient, double version, long accountId, lon
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/media/update");
+    char *localVarPath = strdup("/media/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3280,7 +3261,6 @@ MediaAPI_updateMedia(apiClient_t *apiClient, double version, long accountId, lon
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

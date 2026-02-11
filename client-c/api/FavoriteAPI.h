@@ -19,7 +19,7 @@ typedef enum  { sirqul_iot_platform_searchFavorites_SORTFIELD_NULL = 0, sirqul_i
 // Adds an offer, offer location, retailer location, or category to your favorites.
 //
 wrapped_response_t*
-FavoriteAPI_addFavorite(apiClient_t *apiClient, double version, long favoritableId, char *favoritableType, char *deviceId, long accountId, double latitude, double longitude);
+FavoriteAPI_addFavorite(apiClient_t *apiClient, long favoritableId, char *favoritableType, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Delete Favorite
@@ -27,7 +27,7 @@ FavoriteAPI_addFavorite(apiClient_t *apiClient, double version, long favoritable
 // Removes a favorited item from the user's favorites list.
 //
 sirqul_response_t*
-FavoriteAPI_deleteFavorite(apiClient_t *apiClient, double version, char *deviceId, long accountId, long favoriteId, long favoritableId, char *favoritableType);
+FavoriteAPI_deleteFavorite(apiClient_t *apiClient, char *deviceId, long accountId, long favoriteId, long favoritableId, char *favoritableType);
 
 
 // Get Favorite
@@ -35,7 +35,7 @@ FavoriteAPI_deleteFavorite(apiClient_t *apiClient, double version, char *deviceI
 // Retrieves a single favorited item.
 //
 wrapped_response_t*
-FavoriteAPI_getFavorite(apiClient_t *apiClient, double version, long favoriteId, char *deviceId, long accountId, double latitude, double longitude);
+FavoriteAPI_getFavorite(apiClient_t *apiClient, long favoriteId, char *deviceId, long accountId, double latitude, double longitude);
 
 
 // Search Favorites
@@ -43,7 +43,7 @@ FavoriteAPI_getFavorite(apiClient_t *apiClient, double version, long favoriteId,
 // Searches on the user's favorites.
 //
 search_response_t*
-FavoriteAPI_searchFavorites(apiClient_t *apiClient, double version, char *favoritableType, sirqul_iot_platform_searchFavorites_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, int *returnFullResponse, char *deviceId, long accountId, long connectionAccountId, char *secondaryType, char *keyword, double latitude, double longitude);
+FavoriteAPI_searchFavorites(apiClient_t *apiClient, char *favoritableType, sirqul_iot_platform_searchFavorites_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly, int *returnFullResponse, char *deviceId, long accountId, long connectionAccountId, char *secondaryType, char *keyword, double latitude, double longitude);
 
 
 // Who has Favorited
@@ -51,6 +51,6 @@ FavoriteAPI_searchFavorites(apiClient_t *apiClient, double version, char *favori
 // Searches for everyone that has favorited an item
 //
 list_t*
-FavoriteAPI_whoHasFavorited(apiClient_t *apiClient, double version, long favoritableId, char *favoritableType, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword);
+FavoriteAPI_whoHasFavorited(apiClient_t *apiClient, long favoritableId, char *favoritableType, int *start, int *limit, char *deviceId, long accountId, double latitude, double longitude, char *keyword);
 
 

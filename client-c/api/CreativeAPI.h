@@ -15,7 +15,7 @@
 // Enable this ad for preview for this account.
 //
 sirqul_response_t*
-CreativeAPI_addPreview(apiClient_t *apiClient, double version, long accountId, long creativeId);
+CreativeAPI_addPreview(apiClient_t *apiClient, long accountId, long creativeId);
 
 
 // Find Missions
@@ -23,7 +23,7 @@ CreativeAPI_addPreview(apiClient_t *apiClient, double version, long accountId, l
 // Get a set of ad filtered by the parameters provided.
 //
 list_t*
-CreativeAPI_adsFind(apiClient_t *apiClient, double version, char *appKey, int *randomize, int *targetedAdsOnly, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeAudiences, int *allocatesTickets, char *missionIds);
+CreativeAPI_adsFind(apiClient_t *apiClient, char *appKey, int *randomize, int *targetedAdsOnly, char *type, long accountId, char *appVersion, double latitude, double longitude, char *device, long deviceIdentifier, char *deviceVersion, int *start, int *limit, int *includeAudiences, int *allocatesTickets, char *missionIds);
 
 
 // Create Creative
@@ -31,7 +31,7 @@ CreativeAPI_adsFind(apiClient_t *apiClient, double version, char *appKey, int *r
 // Create a creative
 //
 creative_response_t*
-CreativeAPI_createCreative(apiClient_t *apiClient, double version, long accountId, char *name, int *active, int *waitForAsset, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, long referenceId, char *appVersion, long missionId, long offerId);
+CreativeAPI_createCreative(apiClient_t *apiClient, long accountId, char *name, int *active, int *waitForAsset, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, long referenceId, char *appVersion, long missionId, long offerId);
 
 
 // Delete Creative
@@ -39,7 +39,7 @@ CreativeAPI_createCreative(apiClient_t *apiClient, double version, long accountI
 // Delete a creative
 //
 sirqul_response_t*
-CreativeAPI_deleteCreative(apiClient_t *apiClient, double version, long accountId, long creativeId);
+CreativeAPI_deleteCreative(apiClient_t *apiClient, long accountId, long creativeId);
 
 
 // Get Creative
@@ -47,7 +47,7 @@ CreativeAPI_deleteCreative(apiClient_t *apiClient, double version, long accountI
 // Get a creative
 //
 creative_response_t*
-CreativeAPI_getCreative(apiClient_t *apiClient, double version, long accountId, long creativeId);
+CreativeAPI_getCreative(apiClient_t *apiClient, long accountId, long creativeId);
 
 
 // Search Creatives
@@ -55,7 +55,7 @@ CreativeAPI_getCreative(apiClient_t *apiClient, double version, long accountId, 
 // Get a list of levels for an application, just those the account has permissions to view.
 //
 list_t*
-CreativeAPI_getCreativesByApplication(apiClient_t *apiClient, double version, long accountId, char *appKey, int *start, int *limit, long missionId, char *keyword);
+CreativeAPI_getCreativesByApplication(apiClient_t *apiClient, long accountId, char *appKey, int *start, int *limit, long missionId, char *keyword);
 
 
 // Remove Preview
@@ -63,7 +63,7 @@ CreativeAPI_getCreativesByApplication(apiClient_t *apiClient, double version, lo
 // Remove this ad for preview for this account.
 //
 sirqul_response_t*
-CreativeAPI_removePreview(apiClient_t *apiClient, double version, long accountId, long creativeId);
+CreativeAPI_removePreview(apiClient_t *apiClient, long accountId, long creativeId);
 
 
 // Update Creative
@@ -71,6 +71,6 @@ CreativeAPI_removePreview(apiClient_t *apiClient, double version, long accountId
 // Update a creative
 //
 creative_response_t*
-CreativeAPI_updateCreative(apiClient_t *apiClient, double version, long accountId, long creativeId, char *name, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, int *active, long referenceId, char *appVersion, long missionId);
+CreativeAPI_updateCreative(apiClient_t *apiClient, long accountId, long creativeId, char *name, char *description, long assetImageId, char *action, char *data, char *suffix, char *type, double balance, int *active, long referenceId, char *appVersion, long missionId);
 
 

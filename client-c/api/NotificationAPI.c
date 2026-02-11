@@ -118,7 +118,7 @@ end:
 // Create a notification template. Developers will only be able to create notification templates for their own applications.
 //
 notification_template_response_t*
-NotificationAPI_createNotificationTemplate(apiClient_t *apiClient, double version, long accountId, char *conduit, char *title, char *body, char *appKey, char *event, char *tags)
+NotificationAPI_createNotificationTemplate(apiClient_t *apiClient, long accountId, char *conduit, char *title, char *body, char *appKey, char *event, char *tags)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -132,12 +132,9 @@ NotificationAPI_createNotificationTemplate(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/template/create");
+    char *localVarPath = strdup("/notification/template/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -263,7 +260,6 @@ NotificationAPI_createNotificationTemplate(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -356,7 +352,7 @@ end:
 // Create or update blocked notification settings
 //
 blocked_notification_response_t*
-NotificationAPI_createOrUpdateBlockedNotifications(apiClient_t *apiClient, double version, char *appKey, char *data, long accountId)
+NotificationAPI_createOrUpdateBlockedNotifications(apiClient_t *apiClient, char *appKey, char *data, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -370,12 +366,9 @@ NotificationAPI_createOrUpdateBlockedNotifications(apiClient_t *apiClient, doubl
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/blocked/batch");
+    char *localVarPath = strdup("/notification/blocked/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -453,7 +446,6 @@ NotificationAPI_createOrUpdateBlockedNotifications(apiClient_t *apiClient, doubl
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -498,7 +490,7 @@ end:
 // Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
 //
 notification_template_response_t*
-NotificationAPI_deleteNotificationTemplate(apiClient_t *apiClient, double version, long accountId, long notificationTemplateId)
+NotificationAPI_deleteNotificationTemplate(apiClient_t *apiClient, long accountId, long notificationTemplateId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -512,12 +504,9 @@ NotificationAPI_deleteNotificationTemplate(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/template/delete");
+    char *localVarPath = strdup("/notification/template/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -583,7 +572,6 @@ NotificationAPI_deleteNotificationTemplate(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -612,7 +600,7 @@ end:
 // Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
 //
 notification_template_response_t*
-NotificationAPI_getNotificationTemplate(apiClient_t *apiClient, double version, long accountId, long notificationTemplateId)
+NotificationAPI_getNotificationTemplate(apiClient_t *apiClient, long accountId, long notificationTemplateId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -626,12 +614,9 @@ NotificationAPI_getNotificationTemplate(apiClient_t *apiClient, double version, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/template/get");
+    char *localVarPath = strdup("/notification/template/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -697,7 +682,6 @@ NotificationAPI_getNotificationTemplate(apiClient_t *apiClient, double version, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -726,7 +710,7 @@ end:
 // Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
 //
 notification_message_list_response_t*
-NotificationAPI_getNotifications(apiClient_t *apiClient, double version, char *deviceId, long accountId, long connectionAccountId, char *appKey, char *eventType, char *contentIds, char *contentTypes, char *parentIds, char *parentTypes, char *actionCategory, char *conduits, char *keyword, int *returnReadMessages, int *markAsRead, long fromDate, double latitude, double longitude, int *returnSent, int *ignoreFlagged, int *start, int *limit)
+NotificationAPI_getNotifications(apiClient_t *apiClient, char *deviceId, long accountId, long connectionAccountId, char *appKey, char *eventType, char *contentIds, char *contentTypes, char *parentIds, char *parentTypes, char *actionCategory, char *conduits, char *keyword, int *returnReadMessages, int *markAsRead, long fromDate, double latitude, double longitude, int *returnSent, int *ignoreFlagged, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -740,12 +724,9 @@ NotificationAPI_getNotifications(apiClient_t *apiClient, double version, char *d
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/search");
+    char *localVarPath = strdup("/notification/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1053,7 +1034,6 @@ NotificationAPI_getNotifications(apiClient_t *apiClient, double version, char *d
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1298,7 +1278,7 @@ end:
 // Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
 //
 sirqul_response_t*
-NotificationAPI_registerNotificationToken(apiClient_t *apiClient, double version, char *token, sirqul_iot_platform_registerNotificationToken_pushType_e pushType, char *deviceId, long accountId, char *environment, char *appKey, char *gameType, int *active, double latitude, double longitude)
+NotificationAPI_registerNotificationToken(apiClient_t *apiClient, char *token, sirqul_iot_platform_registerNotificationToken_pushType_e pushType, char *deviceId, long accountId, char *environment, char *appKey, char *gameType, int *active, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1312,12 +1292,9 @@ NotificationAPI_registerNotificationToken(apiClient_t *apiClient, double version
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/token");
+    char *localVarPath = strdup("/notification/token");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1489,7 +1466,6 @@ NotificationAPI_registerNotificationToken(apiClient_t *apiClient, double version
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -1606,7 +1582,7 @@ end:
 // Search on the user's blocked notification settings
 //
 blocked_notification_response_t*
-NotificationAPI_searchBlockedNotifications(apiClient_t *apiClient, double version, char *appKey, long accountId, char *searchTags, char *events, char *conduits, char *customTypes, char *contentTypes, char *contentIds, char *sortField, int *descending, int *start, int *limit)
+NotificationAPI_searchBlockedNotifications(apiClient_t *apiClient, char *appKey, long accountId, char *searchTags, char *events, char *conduits, char *customTypes, char *contentTypes, char *contentIds, char *sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1620,12 +1596,9 @@ NotificationAPI_searchBlockedNotifications(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/blocked/search");
+    char *localVarPath = strdup("/notification/blocked/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1814,7 +1787,6 @@ NotificationAPI_searchBlockedNotifications(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1967,7 +1939,7 @@ end:
 // Search for notification templates on owned applications.
 //
 notification_template_response_t*
-NotificationAPI_searchNotificationTemplate(apiClient_t *apiClient, double version, long accountId, char *sortField, int *descending, int *start, int *limit, char *appKey, char *event, char *conduit, int *globalOnly, int *reservedOnly, char *keyword)
+NotificationAPI_searchNotificationTemplate(apiClient_t *apiClient, long accountId, char *sortField, int *descending, int *start, int *limit, char *appKey, char *event, char *conduit, int *globalOnly, int *reservedOnly, char *keyword)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1981,12 +1953,9 @@ NotificationAPI_searchNotificationTemplate(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/template/search");
+    char *localVarPath = strdup("/notification/template/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2165,7 +2134,6 @@ NotificationAPI_searchNotificationTemplate(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -2306,7 +2274,7 @@ end:
 // Search for application users to send notifications.
 //
 list_t*
-NotificationAPI_searchRecipients(apiClient_t *apiClient, double version, sirqul_iot_platform_searchRecipients_sortField_e sortField, char *deviceId, long accountId, char *appKey, char *conduit, char *keyword, long audienceId, char *audienceIds, char *connectionGroupIds, char *recipientAccountIds, int *descending, int *start, int *limit)
+NotificationAPI_searchRecipients(apiClient_t *apiClient, sirqul_iot_platform_searchRecipients_sortField_e sortField, char *deviceId, long accountId, char *appKey, char *conduit, char *keyword, long audienceId, char *audienceIds, char *connectionGroupIds, char *recipientAccountIds, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2320,12 +2288,9 @@ NotificationAPI_searchRecipients(apiClient_t *apiClient, double version, sirqul_
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/recipient/search");
+    char *localVarPath = strdup("/notification/recipient/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2537,7 +2502,6 @@ NotificationAPI_searchRecipients(apiClient_t *apiClient, double version, sirqul_
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -2694,7 +2658,7 @@ end:
 // Search for application users to send notifications (count/grouped variant).
 //
 notification_recipient_response_list_response_t*
-NotificationAPI_searchRecipientsCount(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, char *conduit, char *keyword, long audienceId, char *audienceIds, char *connectionGroupIds, char *sortField, int *descending, int *start, int *limit)
+NotificationAPI_searchRecipientsCount(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, char *conduit, char *keyword, long audienceId, char *audienceIds, char *connectionGroupIds, char *sortField, int *descending, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -2708,12 +2672,9 @@ NotificationAPI_searchRecipientsCount(apiClient_t *apiClient, double version, ch
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/recipient/search/count");
+    char *localVarPath = strdup("/notification/recipient/search/count");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2902,7 +2863,6 @@ NotificationAPI_searchRecipientsCount(apiClient_t *apiClient, double version, ch
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -3051,7 +3011,7 @@ end:
 // Send notifications to all users of an application. Only someone with permissions to the application can do this.
 //
 sirqul_response_t*
-NotificationAPI_sendBatchNotifications(apiClient_t *apiClient, double version, long accountId, char *appKey, char *customMessage, char *conduit, long contentId, char *contentName, char *contentType, long parentId, char *parentType)
+NotificationAPI_sendBatchNotifications(apiClient_t *apiClient, long accountId, char *appKey, char *customMessage, char *conduit, long contentId, char *contentName, char *contentType, long parentId, char *parentType)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3065,12 +3025,9 @@ NotificationAPI_sendBatchNotifications(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/batch");
+    char *localVarPath = strdup("/notification/batch");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3220,7 +3177,6 @@ NotificationAPI_sendBatchNotifications(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -3329,7 +3285,7 @@ end:
 // Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
 //
 sirqul_response_t*
-NotificationAPI_sendCustomNotifications(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *receiverAccountIds, int *includeFriendGroup, char *appKey, char *gameType, char *conduit, long contentId, char *contentName, char *contentType, long parentId, char *parentType, char *actionCategory, char *subject, char *customMessage, int *friendOnlyAPNS, double latitude, double longitude)
+NotificationAPI_sendCustomNotifications(apiClient_t *apiClient, char *deviceId, long accountId, char *receiverAccountIds, int *includeFriendGroup, char *appKey, char *gameType, char *conduit, long contentId, char *contentName, char *contentType, long parentId, char *parentType, char *actionCategory, char *subject, char *customMessage, int *friendOnlyAPNS, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3343,12 +3299,9 @@ NotificationAPI_sendCustomNotifications(apiClient_t *apiClient, double version, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/custom");
+    char *localVarPath = strdup("/notification/custom");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3616,7 +3569,6 @@ NotificationAPI_sendCustomNotifications(apiClient_t *apiClient, double version, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -3825,7 +3777,7 @@ end:
 // Update a notification template. Developers will only be able to update notification templates for their own applications.
 //
 notification_template_response_t*
-NotificationAPI_updateNotificationTemplate(apiClient_t *apiClient, double version, long accountId, long notificationTemplateId, char *title, char *body, char *tags)
+NotificationAPI_updateNotificationTemplate(apiClient_t *apiClient, long accountId, long notificationTemplateId, char *title, char *body, char *tags)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -3839,12 +3791,9 @@ NotificationAPI_updateNotificationTemplate(apiClient_t *apiClient, double versio
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/notification/template/update");
+    char *localVarPath = strdup("/notification/template/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -3946,7 +3895,6 @@ NotificationAPI_updateNotificationTemplate(apiClient_t *apiClient, double versio
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

@@ -326,7 +326,7 @@ end:
 // Create a region.
 //
 region_response_t*
-RegionAPI_createRegion(apiClient_t *apiClient, double version, long accountId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_createRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active)
+RegionAPI_createRegion(apiClient_t *apiClient, long accountId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_createRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -340,12 +340,9 @@ RegionAPI_createRegion(apiClient_t *apiClient, double version, long accountId, c
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/region/create");
+    char *localVarPath = strdup("/region/create");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -651,7 +648,6 @@ RegionAPI_createRegion(apiClient_t *apiClient, double version, long accountId, c
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -888,7 +884,7 @@ end:
 // Delete a region.
 //
 region_response_t*
-RegionAPI_deleteRegion(apiClient_t *apiClient, double version, long accountId, long regionId)
+RegionAPI_deleteRegion(apiClient_t *apiClient, long accountId, long regionId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -902,12 +898,9 @@ RegionAPI_deleteRegion(apiClient_t *apiClient, double version, long accountId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/region/delete");
+    char *localVarPath = strdup("/region/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -973,7 +966,6 @@ RegionAPI_deleteRegion(apiClient_t *apiClient, double version, long accountId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1002,7 +994,7 @@ end:
 // Get a region.
 //
 region_response_t*
-RegionAPI_getRegion(apiClient_t *apiClient, double version, long regionId, long accountId)
+RegionAPI_getRegion(apiClient_t *apiClient, long regionId, long accountId)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1016,12 +1008,9 @@ RegionAPI_getRegion(apiClient_t *apiClient, double version, long regionId, long 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/region/get");
+    char *localVarPath = strdup("/region/get");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1087,7 +1076,6 @@ RegionAPI_getRegion(apiClient_t *apiClient, double version, long regionId, long 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1116,7 +1104,7 @@ end:
 // Get the list of regions.
 //
 list_t*
-RegionAPI_searchRegions(apiClient_t *apiClient, double version, long accountId, char *query, char *keyword, double latitude, double longitude, double range, sirqul_iot_platform_searchRegions_regionClass_e regionClass, sirqul_iot_platform_searchRegions_visibility_e visibility, sirqul_iot_platform_searchRegions_searchMode_e searchMode, sirqul_iot_platform_searchRegions_sortField_e sortField, int *descending, int *includeParent, int *includeChildren, int *includePostalCodes, char *categoryIds, char *filterIds, int *versionCode, int *activeOnly, int *showDeleted, long lastUpdatedSince, int *start, int *limit)
+RegionAPI_searchRegions(apiClient_t *apiClient, long accountId, char *query, char *keyword, double latitude, double longitude, double range, sirqul_iot_platform_searchRegions_regionClass_e regionClass, sirqul_iot_platform_searchRegions_visibility_e visibility, sirqul_iot_platform_searchRegions_searchMode_e searchMode, sirqul_iot_platform_searchRegions_sortField_e sortField, int *descending, int *includeParent, int *includeChildren, int *includePostalCodes, char *categoryIds, char *filterIds, int *versionCode, int *activeOnly, int *showDeleted, long lastUpdatedSince, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1130,12 +1118,9 @@ RegionAPI_searchRegions(apiClient_t *apiClient, double version, long accountId, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/region/search");
+    char *localVarPath = strdup("/region/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -1476,7 +1461,6 @@ RegionAPI_searchRegions(apiClient_t *apiClient, double version, long accountId, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -1717,7 +1701,7 @@ end:
 // Update a region.
 //
 region_response_t*
-RegionAPI_updateRegion(apiClient_t *apiClient, double version, long accountId, long regionId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_updateRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active, int *clearLists)
+RegionAPI_updateRegion(apiClient_t *apiClient, long accountId, long regionId, char *regionClass, char *shortName, char *fullName, char *parentIds, char *childrenIds, char *postalCodeIds, char *locations, long retailerLocationId, sirqul_iot_platform_updateRegion_visibility_e visibility, char *categoryIds, char *filterIds, long start, long end, char *polygon, char *metaData, double latitude, double longitude, int *versionCode, int *root, int *active, int *clearLists)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -1731,12 +1715,9 @@ RegionAPI_updateRegion(apiClient_t *apiClient, double version, long accountId, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/region/update");
+    char *localVarPath = strdup("/region/update");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -2067,7 +2048,6 @@ RegionAPI_updateRegion(apiClient_t *apiClient, double version, long accountId, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;

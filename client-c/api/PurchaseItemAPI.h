@@ -30,7 +30,7 @@ typedef enum  { sirqul_iot_platform_updatePurchaseItem_SERVICEACTION_NULL = 0, s
 // Creates a purchase item for in app purchases
 //
 purchase_item_full_response_t*
-PurchaseItemAPI_createPurchaseItem(apiClient_t *apiClient, double version, char *appKey, char *name, sirqul_iot_platform_createPurchaseItem_purchaseType_e purchaseType, char *deviceId, long accountId, char *description, int *tickets, float price, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_createPurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *allocateTickets, char *ticketType, long points, long offerLocationId);
+PurchaseItemAPI_createPurchaseItem(apiClient_t *apiClient, char *appKey, char *name, sirqul_iot_platform_createPurchaseItem_purchaseType_e purchaseType, char *deviceId, long accountId, char *description, int *tickets, float price, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_createPurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *allocateTickets, char *ticketType, long points, long offerLocationId);
 
 
 // Delete Purchase
@@ -38,7 +38,7 @@ PurchaseItemAPI_createPurchaseItem(apiClient_t *apiClient, double version, char 
 // Marks the purchase item as deleted
 //
 sirqul_response_t*
-PurchaseItemAPI_deletePurchaseItem(apiClient_t *apiClient, double version, long purchaseItemId, char *deviceId, long accountId);
+PurchaseItemAPI_deletePurchaseItem(apiClient_t *apiClient, long purchaseItemId, char *deviceId, long accountId);
 
 
 // Get Purchase
@@ -46,7 +46,7 @@ PurchaseItemAPI_deletePurchaseItem(apiClient_t *apiClient, double version, long 
 // Get detailed information about a purchase item
 //
 purchase_item_full_response_t*
-PurchaseItemAPI_getPurchaseItem(apiClient_t *apiClient, double version, long purchaseItemId, char *deviceId, long accountId);
+PurchaseItemAPI_getPurchaseItem(apiClient_t *apiClient, long purchaseItemId, char *deviceId, long accountId);
 
 
 // Search Purchases
@@ -54,7 +54,7 @@ PurchaseItemAPI_getPurchaseItem(apiClient_t *apiClient, double version, long pur
 // Search for purchasable items from the system
 //
 list_t*
-PurchaseItemAPI_searchPurchaseItems(apiClient_t *apiClient, double version, char *deviceId, long accountId, char *appKey, int *filterByBillable, char *purchaseType, char *serviceAction, char *keyword, sirqul_iot_platform_searchPurchaseItems_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly);
+PurchaseItemAPI_searchPurchaseItems(apiClient_t *apiClient, char *deviceId, long accountId, char *appKey, int *filterByBillable, char *purchaseType, char *serviceAction, char *keyword, sirqul_iot_platform_searchPurchaseItems_sortField_e sortField, int *descending, int *start, int *limit, int *activeOnly);
 
 
 // Update Purchase
@@ -62,6 +62,6 @@ PurchaseItemAPI_searchPurchaseItems(apiClient_t *apiClient, double version, char
 // Updates a purchase item for in app purchases
 //
 purchase_item_full_response_t*
-PurchaseItemAPI_updatePurchaseItem(apiClient_t *apiClient, double version, long purchaseItemId, char *deviceId, long accountId, char *name, char *description, int *tickets, float price, sirqul_iot_platform_updatePurchaseItem_purchaseType_e purchaseType, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_updatePurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *active, int *allocateTickets, char *ticketType, long points, long offerLocationId);
+PurchaseItemAPI_updatePurchaseItem(apiClient_t *apiClient, long purchaseItemId, char *deviceId, long accountId, char *name, char *description, int *tickets, float price, sirqul_iot_platform_updatePurchaseItem_purchaseType_e purchaseType, char *purchaseCode, char *secretKey, int *purchaseLimit, sirqul_iot_platform_updatePurchaseItem_serviceAction_e serviceAction, long coverAssetId, long promoAssetId, int *giftable, int *assetable, int *active, int *allocateTickets, char *ticketType, long points, long offerLocationId);
 
 

@@ -20,7 +20,7 @@ typedef enum  { sirqul_iot_platform_updateTrigger_VISIBILITY_NULL = 0, sirqul_io
 // Create a trigger
 //
 trigger_response_t*
-TriggerAPI_createTrigger(apiClient_t *apiClient, double version, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_createTrigger_visibility_e visibility, int *active);
+TriggerAPI_createTrigger(apiClient_t *apiClient, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_createTrigger_visibility_e visibility, int *active);
 
 
 // Delete Trigger
@@ -28,7 +28,7 @@ TriggerAPI_createTrigger(apiClient_t *apiClient, double version, long accountId,
 // Mark a trigger as deleted.
 //
 sirqul_response_t*
-TriggerAPI_deleteTrigger(apiClient_t *apiClient, double version, long accountId, long triggerId);
+TriggerAPI_deleteTrigger(apiClient_t *apiClient, long accountId, long triggerId);
 
 
 // Get Trigger
@@ -36,7 +36,7 @@ TriggerAPI_deleteTrigger(apiClient_t *apiClient, double version, long accountId,
 // Get a trigger
 //
 trigger_response_t*
-TriggerAPI_getTrigger(apiClient_t *apiClient, double version, long accountId, long triggerId);
+TriggerAPI_getTrigger(apiClient_t *apiClient, long accountId, long triggerId);
 
 
 // Search Triggers
@@ -44,7 +44,7 @@ TriggerAPI_getTrigger(apiClient_t *apiClient, double version, long accountId, lo
 // Search for triggers
 //
 list_t*
-TriggerAPI_searchTriggers(apiClient_t *apiClient, double version, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly);
+TriggerAPI_searchTriggers(apiClient_t *apiClient, long accountId, char *groupingId, char *filter, char *statuses, char *templateTypes, char *appKey, char *keyword, char *sortField, int *descending, int *start, int *limit, int *activeOnly);
 
 
 // Update Trigger
@@ -52,6 +52,6 @@ TriggerAPI_searchTriggers(apiClient_t *apiClient, double version, long accountId
 // Update a trigger
 //
 trigger_response_t*
-TriggerAPI_updateTrigger(apiClient_t *apiClient, double version, long triggerId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_updateTrigger_visibility_e visibility, int *active);
+TriggerAPI_updateTrigger(apiClient_t *apiClient, long triggerId, long accountId, char *name, char *appKey, char *groupingId, char *endpointURL, char *payload, long scheduledDate, long startDate, long endDate, char *cronExpression, char *conditionalInput, sirqul_iot_platform_updateTrigger_visibility_e visibility, int *active);
 
 

@@ -14,7 +14,7 @@
 // Creates trilateration samples for a source device (i.e. a router).
 //
 sirqul_response_t*
-LocationAPI_cacheTrilaterationData(apiClient_t *apiClient, double version, char *udid, long sourceTime, int *minimumSampleSize, char *data, binary_t* dataFile)
+LocationAPI_cacheTrilaterationData(apiClient_t *apiClient, char *udid, long sourceTime, int *minimumSampleSize, char *data, binary_t* dataFile)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ LocationAPI_cacheTrilaterationData(apiClient_t *apiClient, double version, char 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location/trilaterate/cache");
+    char *localVarPath = strdup("/location/trilaterate/cache");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -136,7 +133,6 @@ LocationAPI_cacheTrilaterationData(apiClient_t *apiClient, double version, char 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_udid){
         free(keyQuery_udid);
         keyQuery_udid = NULL;
@@ -201,7 +197,7 @@ end:
 // Creates trilateration samples for a source device (i.e. a router).
 //
 sirqul_response_t*
-LocationAPI_cacheTrilaterationDataGzip(apiClient_t *apiClient, double version, trilat_cache_request_t *body)
+LocationAPI_cacheTrilaterationDataGzip(apiClient_t *apiClient, trilat_cache_request_t *body)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -215,12 +211,9 @@ LocationAPI_cacheTrilaterationDataGzip(apiClient_t *apiClient, double version, t
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location/trilaterate/cache/submit");
+    char *localVarPath = strdup("/location/trilaterate/cache/submit");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -272,7 +265,6 @@ LocationAPI_cacheTrilaterationDataGzip(apiClient_t *apiClient, double version, t
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if (localVarSingleItemJSON_body) {
         cJSON_Delete(localVarSingleItemJSON_body);
         localVarSingleItemJSON_body = NULL;
@@ -290,7 +282,7 @@ end:
 // Get location information based on an IP address.
 //
 coords_response_t*
-LocationAPI_getLocationByIp(apiClient_t *apiClient, double version, char *ip)
+LocationAPI_getLocationByIp(apiClient_t *apiClient, char *ip)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -304,12 +296,9 @@ LocationAPI_getLocationByIp(apiClient_t *apiClient, double version, char *ip)
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location/ip");
+    char *localVarPath = strdup("/location/ip");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -363,7 +352,6 @@ LocationAPI_getLocationByIp(apiClient_t *apiClient, double version, char *ip)
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_ip){
         free(keyQuery_ip);
         keyQuery_ip = NULL;
@@ -388,7 +376,7 @@ end:
 // Send in device data and calculate a position based on signal strengths.
 //
 geo_point_response_t*
-LocationAPI_getLocationByTrilateration(apiClient_t *apiClient, double version, long accountId, double latitude, double longitude, char *data, char *responseFilters)
+LocationAPI_getLocationByTrilateration(apiClient_t *apiClient, long accountId, double latitude, double longitude, char *data, char *responseFilters)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -402,12 +390,9 @@ LocationAPI_getLocationByTrilateration(apiClient_t *apiClient, double version, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/account/location/trilaterate");
+    char *localVarPath = strdup("/account/location/trilaterate");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -517,7 +502,6 @@ LocationAPI_getLocationByTrilateration(apiClient_t *apiClient, double version, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_accountId){
         free(keyQuery_accountId);
         keyQuery_accountId = NULL;
@@ -578,7 +562,7 @@ end:
 // Searches geographic locations by proximity via address or keyword.
 //
 location_search_response_t*
-LocationAPI_getLocations(apiClient_t *apiClient, double version, char *deviceId, long accountId, double currentlatitude, double currentlongitude, double currentLatitude, double currentLongitude, char *query, char *zipcode, char *zipCode, double selectedMaplatitude, double selectedMaplongitude, double selectedMapLatitude, double selectedMapLongitude, double searchRange, int *useGeocode, int *_i, int *start, int *_l, int *limit)
+LocationAPI_getLocations(apiClient_t *apiClient, char *deviceId, long accountId, double currentlatitude, double currentlongitude, double currentLatitude, double currentLongitude, char *query, char *zipcode, char *zipCode, double selectedMaplatitude, double selectedMaplongitude, double selectedMapLatitude, double selectedMapLongitude, double searchRange, int *useGeocode, int *_i, int *start, int *_l, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -592,12 +576,9 @@ LocationAPI_getLocations(apiClient_t *apiClient, double version, char *deviceId,
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/location/search");
+    char *localVarPath = strdup("/location/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -908,7 +889,6 @@ LocationAPI_getLocations(apiClient_t *apiClient, double version, char *deviceId,
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;

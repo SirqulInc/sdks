@@ -13,6 +13,6 @@
 // Search the weather forcast for the next 5 days
 //
 weather_response_t*
-WeatherAPI_searchWeather(apiClient_t *apiClient, double version, long regionId, double latitude, double longitude, long timezoneOffset);
+WeatherAPI_searchWeather(apiClient_t *apiClient, long regionId, double latitude, double longitude, long timezoneOffset);
 
 

@@ -14,7 +14,7 @@
 // Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
 //
 likable_response_t*
-LikeAPI_registerLike(apiClient_t *apiClient, double version, char *likableType, long likableId, char *deviceId, long accountId, char *permissionableType, long permissionableId, int *like, char *app, char *gameType, char *appKey, double latitude, double longitude)
+LikeAPI_registerLike(apiClient_t *apiClient, char *likableType, long likableId, char *deviceId, long accountId, char *permissionableType, long permissionableId, int *like, char *app, char *gameType, char *appKey, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -28,12 +28,9 @@ LikeAPI_registerLike(apiClient_t *apiClient, double version, char *likableType, 
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/like");
+    char *localVarPath = strdup("/like");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -228,7 +225,6 @@ LikeAPI_registerLike(apiClient_t *apiClient, double version, char *likableType, 
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -365,7 +361,7 @@ end:
 // Removes a like. This will make the user \"neutral\".
 //
 likable_response_t*
-LikeAPI_removeLike(apiClient_t *apiClient, double version, char *likableType, long likableId, char *deviceId, long accountId, double latitude, double longitude)
+LikeAPI_removeLike(apiClient_t *apiClient, char *likableType, long likableId, char *deviceId, long accountId, double latitude, double longitude)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -379,12 +375,9 @@ LikeAPI_removeLike(apiClient_t *apiClient, double version, char *likableType, lo
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/like/delete");
+    char *localVarPath = strdup("/like/delete");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -506,7 +499,6 @@ LikeAPI_removeLike(apiClient_t *apiClient, double version, char *likableType, lo
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
@@ -575,7 +567,7 @@ end:
 // Search for likes on a likable object.
 //
 search_response_t*
-LikeAPI_searchLikes(apiClient_t *apiClient, double version, char *likableType, long likableId, char *deviceId, long accountId, char *connectionAccountIds, char *sortField, int *descending, long updatedSince, long updatedBefore, int *start, int *limit)
+LikeAPI_searchLikes(apiClient_t *apiClient, char *likableType, long likableId, char *deviceId, long accountId, char *connectionAccountIds, char *sortField, int *descending, long updatedSince, long updatedBefore, int *start, int *limit)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -589,12 +581,9 @@ LikeAPI_searchLikes(apiClient_t *apiClient, double version, char *likableType, l
     apiClient->response_code = 0;
 
     // create the path
-    char *localVarPath = strdup("/api/{version}/like/search");
+    char *localVarPath = strdup("/like/search");
 
 
-
-    // Path Params
-    long sizeOfPathParams_version =  + sizeof("{ version }") - 1;
 
 
 
@@ -771,7 +760,6 @@ LikeAPI_searchLikes(apiClient_t *apiClient, double version, char *likableType, l
     list_freeList(localVarHeaderType);
     
     free(localVarPath);
-    free(localVarToReplace_version);
     if(keyQuery_deviceId){
         free(keyQuery_deviceId);
         keyQuery_deviceId = NULL;
