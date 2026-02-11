@@ -53,7 +53,6 @@ sub new {
 #
 # Create Reservation
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $start_date The start date (optional)
@@ -64,11 +63,6 @@ sub new {
 # @param string $meta_data External custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -121,13 +115,8 @@ sub new {
 sub create_reservation {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_reservation");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/reservation/create';
+    my $_resource_path = '/reservation/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -181,13 +170,6 @@ sub create_reservation {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -204,17 +186,11 @@ sub create_reservation {
 #
 # Delete Reservation
 #
-# @param double $version  (required)
 # @param int $reservation_id The reservation id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'reservation_id' => {
         data_type => 'int',
         description => 'The reservation id',
@@ -242,18 +218,13 @@ sub create_reservation {
 sub delete_reservation {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_reservation");
-    }
-
     # verify the required parameter 'reservation_id' is set
     unless (exists $args{'reservation_id'}) {
       croak("Missing the required parameter 'reservation_id' when calling delete_reservation");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/reservation/delete';
+    my $_resource_path = '/reservation/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -282,13 +253,6 @@ sub delete_reservation {
         $query_params->{'reservationId'} = $self->{api_client}->to_query_value($args{'reservation_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -305,7 +269,6 @@ sub delete_reservation {
 #
 # Update Availability
 #
-# @param double $version  (required)
 # @param int $reservable_id the id of the reservation (required)
 # @param string $reservable_type the type of reservation (required)
 # @param string $device_id the device id of the reservation (optional)
@@ -314,11 +277,6 @@ sub delete_reservation {
 # @param string $availability_summary Availability Summary (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'reservable_id' => {
         data_type => 'int',
         description => 'the id of the reservation',
@@ -361,11 +319,6 @@ sub delete_reservation {
 sub reservable_availability {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling reservable_availability");
-    }
-
     # verify the required parameter 'reservable_id' is set
     unless (exists $args{'reservable_id'}) {
       croak("Missing the required parameter 'reservable_id' when calling reservable_availability");
@@ -377,7 +330,7 @@ sub reservable_availability {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/reservable/availability/update';
+    my $_resource_path = '/reservable/availability/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -421,13 +374,6 @@ sub reservable_availability {
         $query_params->{'availabilitySummary'} = $self->{api_client}->to_query_value($args{'availability_summary'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -448,7 +394,6 @@ sub reservable_availability {
 #
 # Search Availability
 #
-# @param double $version  (required)
 # @param int $reservable_id the id of the reservation (required)
 # @param string $reservable_type the reservable type (required)
 # @param string $device_id the device ID that the reservation is on (optional)
@@ -459,11 +404,6 @@ sub reservable_availability {
 # @param int $limit the limit of the index and/or pagination (optional, default to 100)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'reservable_id' => {
         data_type => 'int',
         description => 'the id of the reservation',
@@ -516,11 +456,6 @@ sub reservable_availability {
 sub search_availability {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_availability");
-    }
-
     # verify the required parameter 'reservable_id' is set
     unless (exists $args{'reservable_id'}) {
       croak("Missing the required parameter 'reservable_id' when calling search_availability");
@@ -532,7 +467,7 @@ sub search_availability {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/reservable/availability/search';
+    my $_resource_path = '/reservable/availability/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -586,13 +521,6 @@ sub search_availability {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -613,7 +541,6 @@ sub search_availability {
 #
 # Search Reservations
 #
-# @param double $version  (required)
 # @param string $device_id Device Id (optional)
 # @param string $app_key Appilcation Key (optional)
 # @param int $account_id the id of the logged in user (optional)
@@ -627,11 +554,6 @@ sub search_availability {
 # @param int $limit the limit of the index and/or pagination (optional, default to 100)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'Device Id',
@@ -699,13 +621,8 @@ sub search_availability {
 sub search_reservations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_reservations");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/reservation/search';
+    my $_resource_path = '/reservation/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -774,13 +691,6 @@ sub search_reservations {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -801,7 +711,6 @@ sub search_reservations {
 #
 # Search Schedule
 #
-# @param double $version  (required)
 # @param int $reservable_id the id of the reservation (required)
 # @param string $reservable_type the reservation type (required)
 # @param int $start_date the start date of the reservation (required)
@@ -811,11 +720,6 @@ sub search_reservations {
 # @param int $time_bucket_mins the length of time in minutes to search on for reservation (optional, default to 30)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'reservable_id' => {
         data_type => 'int',
         description => 'the id of the reservation',
@@ -863,11 +767,6 @@ sub search_reservations {
 sub search_schedule {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_schedule");
-    }
-
     # verify the required parameter 'reservable_id' is set
     unless (exists $args{'reservable_id'}) {
       croak("Missing the required parameter 'reservable_id' when calling search_schedule");
@@ -889,7 +788,7 @@ sub search_schedule {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/reservable/schedule/search';
+    my $_resource_path = '/reservable/schedule/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -936,13 +835,6 @@ sub search_schedule {
     # query params
     if ( exists $args{'time_bucket_mins'}) {
         $query_params->{'timeBucketMins'} = $self->{api_client}->to_query_value($args{'time_bucket_mins'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

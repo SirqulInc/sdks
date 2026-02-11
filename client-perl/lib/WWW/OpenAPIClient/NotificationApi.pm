@@ -53,7 +53,6 @@ sub new {
 #
 # Create Notification Template
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user. (required)
 # @param string $conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
 # @param string $title title of the notification template (required)
@@ -63,11 +62,6 @@ sub new {
 # @param string $tags tags associated with the note template (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user.',
@@ -115,11 +109,6 @@ sub new {
 sub create_notification_template {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_notification_template");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_notification_template");
@@ -141,7 +130,7 @@ sub create_notification_template {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/template/create';
+    my $_resource_path = '/notification/template/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -190,13 +179,6 @@ sub create_notification_template {
         $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -217,17 +199,11 @@ sub create_notification_template {
 #
 # Create or update blocked notification settings
 #
-# @param double $version  (required)
 # @param string $app_key The application key (required)
 # @param string $data batch data payload (application specific) (required)
 # @param int $account_id the account id of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key',
@@ -255,11 +231,6 @@ sub create_notification_template {
 sub create_or_update_blocked_notifications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_or_update_blocked_notifications");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling create_or_update_blocked_notifications");
@@ -271,7 +242,7 @@ sub create_or_update_blocked_notifications {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/blocked/batch';
+    my $_resource_path = '/notification/blocked/batch';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -300,13 +271,6 @@ sub create_or_update_blocked_notifications {
         $query_params->{'data'} = $self->{api_client}->to_query_value($args{'data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -327,16 +291,10 @@ sub create_or_update_blocked_notifications {
 #
 # Delete Notification Template
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param int $notification_template_id the id of the notification template to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -359,11 +317,6 @@ sub create_or_update_blocked_notifications {
 sub delete_notification_template {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_notification_template");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_notification_template");
@@ -375,7 +328,7 @@ sub delete_notification_template {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/template/delete';
+    my $_resource_path = '/notification/template/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -399,13 +352,6 @@ sub delete_notification_template {
         $query_params->{'notificationTemplateId'} = $self->{api_client}->to_query_value($args{'notification_template_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -426,16 +372,10 @@ sub delete_notification_template {
 #
 # Get Notification Template
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account (required)
 # @param int $notification_template_id the id of the notification template to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account',
@@ -458,11 +398,6 @@ sub delete_notification_template {
 sub get_notification_template {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_notification_template");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_notification_template");
@@ -474,7 +409,7 @@ sub get_notification_template {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/template/get';
+    my $_resource_path = '/notification/template/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -498,13 +433,6 @@ sub get_notification_template {
         $query_params->{'notificationTemplateId'} = $self->{api_client}->to_query_value($args{'notification_template_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -525,7 +453,6 @@ sub get_notification_template {
 #
 # Get Notifications
 #
-# @param double $version  (required)
 # @param string $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param int $connection_account_id the account id used to view another person&#39;s notifications (optional)
@@ -549,11 +476,6 @@ sub get_notification_template {
 # @param int $limit limit of the pagination (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the unique id of the device making the request (deviceId or accountId required)',
@@ -671,13 +593,8 @@ sub get_notification_template {
 sub get_notifications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_notifications");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/search';
+    my $_resource_path = '/notification/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -796,13 +713,6 @@ sub get_notifications {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -823,7 +733,6 @@ sub get_notifications {
 #
 # Register Notification Token
 #
-# @param double $version  (required)
 # @param string $token A token that is generated by the device to sign requests for the notification service providers (required)
 # @param string $push_type The type of push notification. Possible values include: APNS, GCM (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -836,11 +745,6 @@ sub get_notifications {
 # @param double $longitude Longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'token' => {
         data_type => 'string',
         description => 'A token that is generated by the device to sign requests for the notification service providers',
@@ -903,11 +807,6 @@ sub get_notifications {
 sub register_notification_token {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling register_notification_token");
-    }
-
     # verify the required parameter 'token' is set
     unless (exists $args{'token'}) {
       croak("Missing the required parameter 'token' when calling register_notification_token");
@@ -919,7 +818,7 @@ sub register_notification_token {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/token';
+    my $_resource_path = '/notification/token';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -983,13 +882,6 @@ sub register_notification_token {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1010,7 +902,6 @@ sub register_notification_token {
 #
 # Search on the user's blocked notification settings
 #
-# @param double $version  (required)
 # @param string $app_key The application key (required)
 # @param int $account_id the account id of the user (optional)
 # @param string $search_tags search tags to filter results (optional)
@@ -1025,11 +916,6 @@ sub register_notification_token {
 # @param int $limit limit of the pagination (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key',
@@ -1102,18 +988,13 @@ sub register_notification_token {
 sub search_blocked_notifications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_blocked_notifications");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling search_blocked_notifications");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/blocked/search';
+    my $_resource_path = '/notification/blocked/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1187,13 +1068,6 @@ sub search_blocked_notifications {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1214,7 +1088,6 @@ sub search_blocked_notifications {
 #
 # Search Notification Templates
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user. (required)
 # @param string $sort_field Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
 # @param boolean $descending Specified whether the results are returned in descending or ascending order. (required)
@@ -1228,11 +1101,6 @@ sub search_blocked_notifications {
 # @param string $keyword Filter results by keyword on the title, tags. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user.',
@@ -1300,11 +1168,6 @@ sub search_blocked_notifications {
 sub search_notification_template {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_notification_template");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_notification_template");
@@ -1331,7 +1194,7 @@ sub search_notification_template {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/template/search';
+    my $_resource_path = '/notification/template/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1400,13 +1263,6 @@ sub search_notification_template {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1427,7 +1283,6 @@ sub search_notification_template {
 #
 # Search for Recipients
 #
-# @param double $version  (required)
 # @param string $sort_field The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
 # @param string $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1443,11 +1298,6 @@ sub search_notification_template {
 # @param int $limit limit of the pagination (hard limit of 1000) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}',
@@ -1525,18 +1375,13 @@ sub search_notification_template {
 sub search_recipients {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_recipients");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_recipients");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/recipient/search';
+    my $_resource_path = '/notification/recipient/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1615,13 +1460,6 @@ sub search_recipients {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1642,7 +1480,6 @@ sub search_recipients {
 #
 # Search for Recipients (Counts/Grouped)
 #
-# @param double $version  (required)
 # @param string $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param string $app_key filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -1657,11 +1494,6 @@ sub search_recipients {
 # @param int $limit limit of the pagination (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the unique id of the device making the request (deviceId or accountId required)',
@@ -1734,13 +1566,8 @@ sub search_recipients {
 sub search_recipients_count {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_recipients_count");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/recipient/search/count';
+    my $_resource_path = '/notification/recipient/search/count';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1814,13 +1641,6 @@ sub search_recipients_count {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1841,7 +1661,6 @@ sub search_recipients_count {
 #
 # Send Batch Notifications
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the application owner/manager (required)
 # @param string $app_key The application key for updating an existing application (required)
 # @param string $custom_message Message string that will be displayed in on the notification (required)
@@ -1853,11 +1672,6 @@ sub search_recipients_count {
 # @param string $parent_type Default notification pay-load field (usage is dependent on the app and the type of event) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the application owner/manager',
@@ -1915,11 +1729,6 @@ sub search_recipients_count {
 sub send_batch_notifications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling send_batch_notifications");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling send_batch_notifications");
@@ -1936,7 +1745,7 @@ sub send_batch_notifications {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/batch';
+    my $_resource_path = '/notification/batch';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1995,13 +1804,6 @@ sub send_batch_notifications {
         $query_params->{'parentType'} = $self->{api_client}->to_query_value($args{'parent_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2022,7 +1824,6 @@ sub send_batch_notifications {
 #
 # Send Custom Notifications
 #
-# @param double $version  (required)
 # @param string $device_id the unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param string $receiver_account_ids comma separated list of account IDs that will receive the notification (optional)
@@ -2043,11 +1844,6 @@ sub send_batch_notifications {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the unique id of the device making the request (deviceId or accountId required)',
@@ -2150,13 +1946,8 @@ sub send_batch_notifications {
 sub send_custom_notifications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling send_custom_notifications");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/custom';
+    my $_resource_path = '/notification/custom';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2260,13 +2051,6 @@ sub send_custom_notifications {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2287,7 +2071,6 @@ sub send_custom_notifications {
 #
 # Update Notification Template
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user. (required)
 # @param int $notification_template_id The notification template ID to update. (required)
 # @param string $title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -2295,11 +2078,6 @@ sub send_custom_notifications {
 # @param string $tags The search tags on the template used during search queries. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user.',
@@ -2337,11 +2115,6 @@ sub send_custom_notifications {
 sub update_notification_template {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_notification_template");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_notification_template");
@@ -2353,7 +2126,7 @@ sub update_notification_template {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/template/update';
+    my $_resource_path = '/notification/template/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2390,13 +2163,6 @@ sub update_notification_template {
     # query params
     if ( exists $args{'tags'}) {
         $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

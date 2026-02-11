@@ -53,18 +53,12 @@ sub new {
 #
 # Buy Offer by SMS
 #
-# @param double $version  (required)
 # @param string $app_key the application key (required)
 # @param string $body the message of the text (required)
 # @param string $from the sender of the sms (required)
 # @param string $currency_type the type of currency (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'the application key',
@@ -97,11 +91,6 @@ sub new {
 sub sms_buy_offer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling sms_buy_offer");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling sms_buy_offer");
@@ -123,7 +112,7 @@ sub sms_buy_offer {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/sms/buyoffer/{appKey}';
+    my $_resource_path = '/sms/buyoffer/{appKey}';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -150,13 +139,6 @@ sub sms_buy_offer {
     # query params
     if ( exists $args{'currency_type'}) {
         $query_params->{'currencyType'} = $self->{api_client}->to_query_value($args{'currency_type'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params

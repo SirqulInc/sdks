@@ -53,7 +53,6 @@ sub new {
 #
 # Create Favorite
 #
-# @param double $version  (required)
 # @param int $favoritable_id The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
 # @param string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
 # @param string $device_id The unique ID given by the device (deviceId or accountId required) (optional)
@@ -62,11 +61,6 @@ sub new {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'favoritable_id' => {
         data_type => 'int',
         description => 'The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}',
@@ -109,11 +103,6 @@ sub new {
 sub add_favorite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_favorite");
-    }
-
     # verify the required parameter 'favoritable_id' is set
     unless (exists $args{'favoritable_id'}) {
       croak("Missing the required parameter 'favoritable_id' when calling add_favorite");
@@ -125,7 +114,7 @@ sub add_favorite {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/favorite/create';
+    my $_resource_path = '/favorite/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -169,13 +158,6 @@ sub add_favorite {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -196,7 +178,6 @@ sub add_favorite {
 #
 # Delete Favorite
 #
-# @param double $version  (required)
 # @param string $device_id The unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id The account ID of the user (deviceId or accountId required) (optional)
 # @param int $favorite_id The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -204,11 +185,6 @@ sub add_favorite {
 # @param string $favoritable_type The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique ID given by the device (deviceId or accountId required)',
@@ -246,13 +222,8 @@ sub add_favorite {
 sub delete_favorite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_favorite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/favorite/delete';
+    my $_resource_path = '/favorite/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -291,13 +262,6 @@ sub delete_favorite {
         $query_params->{'favoritableType'} = $self->{api_client}->to_query_value($args{'favoritable_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -318,7 +282,6 @@ sub delete_favorite {
 #
 # Get Favorite
 #
-# @param double $version  (required)
 # @param int $favorite_id The ID of the favorite reference record (required)
 # @param string $device_id The unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -326,11 +289,6 @@ sub delete_favorite {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'favorite_id' => {
         data_type => 'int',
         description => 'The ID of the favorite reference record',
@@ -368,18 +326,13 @@ sub delete_favorite {
 sub get_favorite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_favorite");
-    }
-
     # verify the required parameter 'favorite_id' is set
     unless (exists $args{'favorite_id'}) {
       croak("Missing the required parameter 'favorite_id' when calling get_favorite");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/favorite/get';
+    my $_resource_path = '/favorite/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -418,13 +371,6 @@ sub get_favorite {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -445,7 +391,6 @@ sub get_favorite {
 #
 # Search Favorites
 #
-# @param double $version  (required)
 # @param string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
 # @param string $sort_field Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
 # @param boolean $descending Determines whether the results are in descending order (required)
@@ -462,11 +407,6 @@ sub get_favorite {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'favoritable_type' => {
         data_type => 'string',
         description => 'The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}',
@@ -549,11 +489,6 @@ sub get_favorite {
 sub search_favorites {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_favorites");
-    }
-
     # verify the required parameter 'favoritable_type' is set
     unless (exists $args{'favoritable_type'}) {
       croak("Missing the required parameter 'favoritable_type' when calling search_favorites");
@@ -590,7 +525,7 @@ sub search_favorites {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/favorite/search';
+    my $_resource_path = '/favorite/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -674,13 +609,6 @@ sub search_favorites {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -701,7 +629,6 @@ sub search_favorites {
 #
 # Who has Favorited
 #
-# @param double $version  (required)
 # @param int $favoritable_id The ID of the favoritableType to search on (required)
 # @param string $favoritable_type The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
 # @param int $start The start index for pagination (required)
@@ -713,11 +640,6 @@ sub search_favorites {
 # @param string $keyword The keyword to limit that account list (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'favoritable_id' => {
         data_type => 'int',
         description => 'The ID of the favoritableType to search on',
@@ -775,11 +697,6 @@ sub search_favorites {
 sub who_has_favorited {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling who_has_favorited");
-    }
-
     # verify the required parameter 'favoritable_id' is set
     unless (exists $args{'favoritable_id'}) {
       croak("Missing the required parameter 'favoritable_id' when calling who_has_favorited");
@@ -801,7 +718,7 @@ sub who_has_favorited {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/favorite/whois';
+    my $_resource_path = '/favorite/whois';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -858,13 +775,6 @@ sub who_has_favorited {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

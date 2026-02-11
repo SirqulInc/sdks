@@ -53,18 +53,12 @@ sub new {
 #
 # Calculate Path
 #
-# @param double $version  (required)
 # @param string $data the data to with start, end point and exclusion points (required)
 # @param string $units the system of measurement for directions: {METRIC, IMPERIAL} (required)
 # @param boolean $reduce_path determines whether to reduce the path to go in diagonal lines (required)
 # @param boolean $directions determines whether to return text directions (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'data' => {
         data_type => 'string',
         description => 'the data to with start, end point and exclusion points',
@@ -97,11 +91,6 @@ sub new {
 sub compute_path {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling compute_path");
-    }
-
     # verify the required parameter 'data' is set
     unless (exists $args{'data'}) {
       croak("Missing the required parameter 'data' when calling compute_path");
@@ -123,7 +112,7 @@ sub compute_path {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/pathing/compute';
+    my $_resource_path = '/pathing/compute';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -155,13 +144,6 @@ sub compute_path {
     # query params
     if ( exists $args{'directions'}) {
         $query_params->{'directions'} = $self->{api_client}->to_query_value($args{'directions'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

@@ -53,7 +53,6 @@ sub new {
 #
 # Add User
 #
-# @param double $version  (required)
 # @param string $permissionable_type the permissionable type of the object (required)
 # @param int $permissionable_id the id of the permissionable object (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -73,11 +72,6 @@ sub new {
 # @param string $audience_ids comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'permissionable_type' => {
         data_type => 'string',
         description => 'the permissionable type of the object',
@@ -175,11 +169,6 @@ sub new {
 sub add_users_to_permissionable {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_users_to_permissionable");
-    }
-
     # verify the required parameter 'permissionable_type' is set
     unless (exists $args{'permissionable_type'}) {
       croak("Missing the required parameter 'permissionable_type' when calling add_users_to_permissionable");
@@ -191,7 +180,7 @@ sub add_users_to_permissionable {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/permissions/add';
+    my $_resource_path = '/consumer/permissions/add';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -290,13 +279,6 @@ sub add_users_to_permissionable {
         $query_params->{'audienceIds'} = $self->{api_client}->to_query_value($args{'audience_ids'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -317,7 +299,6 @@ sub add_users_to_permissionable {
 #
 # Approve Permissionable
 #
-# @param double $version  (required)
 # @param string $permissionable_type The permissionable type of the object (required)
 # @param int $permissionable_id The id of the permissionable object (required)
 # @param string $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -325,11 +306,6 @@ sub add_users_to_permissionable {
 # @param string $approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to 'APPROVED')
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'permissionable_type' => {
         data_type => 'string',
         description => 'The permissionable type of the object',
@@ -367,11 +343,6 @@ sub add_users_to_permissionable {
 sub approve_permissionable {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling approve_permissionable");
-    }
-
     # verify the required parameter 'permissionable_type' is set
     unless (exists $args{'permissionable_type'}) {
       croak("Missing the required parameter 'permissionable_type' when calling approve_permissionable");
@@ -383,7 +354,7 @@ sub approve_permissionable {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/permissionable/approve';
+    my $_resource_path = '/permissionable/approve';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -422,13 +393,6 @@ sub approve_permissionable {
         $query_params->{'approvalStatus'} = $self->{api_client}->to_query_value($args{'approval_status'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -449,7 +413,6 @@ sub approve_permissionable {
 #
 # Leave
 #
-# @param double $version  (required)
 # @param string $permissionable_type the permissionable type PermissionableType (required)
 # @param int $permissionable_id the id of the permissionable object (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -458,11 +421,6 @@ sub approve_permissionable {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'permissionable_type' => {
         data_type => 'string',
         description => 'the permissionable type PermissionableType',
@@ -505,11 +463,6 @@ sub approve_permissionable {
 sub leave_from_permissionable {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling leave_from_permissionable");
-    }
-
     # verify the required parameter 'permissionable_type' is set
     unless (exists $args{'permissionable_type'}) {
       croak("Missing the required parameter 'permissionable_type' when calling leave_from_permissionable");
@@ -521,7 +474,7 @@ sub leave_from_permissionable {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/permissions/leave';
+    my $_resource_path = '/consumer/permissions/leave';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -565,13 +518,6 @@ sub leave_from_permissionable {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -592,7 +538,6 @@ sub leave_from_permissionable {
 #
 # Remove User
 #
-# @param double $version  (required)
 # @param string $permissionable_type the permissionable type of the object (required)
 # @param int $permissionable_id the id of the permissionable object (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -606,11 +551,6 @@ sub leave_from_permissionable {
 # @param string $audience_ids comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'permissionable_type' => {
         data_type => 'string',
         description => 'the permissionable type of the object',
@@ -678,11 +618,6 @@ sub leave_from_permissionable {
 sub remove_users_from_permissionable {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_users_from_permissionable");
-    }
-
     # verify the required parameter 'permissionable_type' is set
     unless (exists $args{'permissionable_type'}) {
       croak("Missing the required parameter 'permissionable_type' when calling remove_users_from_permissionable");
@@ -694,7 +629,7 @@ sub remove_users_from_permissionable {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/permissions/remove';
+    my $_resource_path = '/consumer/permissions/remove';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -763,13 +698,6 @@ sub remove_users_from_permissionable {
         $query_params->{'audienceIds'} = $self->{api_client}->to_query_value($args{'audience_ids'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -790,7 +718,6 @@ sub remove_users_from_permissionable {
 #
 # Search Permissionables
 #
-# @param double $version  (required)
 # @param string $device_id A unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id The account ID of the user (deviceId or accountId required) (optional)
 # @param int $connection_account_id Filter results for a specific user account (optional)
@@ -806,11 +733,6 @@ sub remove_users_from_permissionable {
 # @param int $limit the limit for pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'A unique ID given by the device (deviceId or accountId required)',
@@ -888,13 +810,8 @@ sub remove_users_from_permissionable {
 sub search_permissionables {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_permissionables");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/permissions/search';
+    my $_resource_path = '/permissions/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -973,13 +890,6 @@ sub search_permissionables {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1000,7 +910,6 @@ sub search_permissionables {
 #
 # Search Permissionables by Distnace
 #
-# @param double $version  (required)
 # @param double $latitude The latitude of the current account (required)
 # @param double $longitude The longitude of the current account (required)
 # @param string $device_id A unique ID given by the device (deviceId or accountId required) (optional)
@@ -1017,11 +926,6 @@ sub search_permissionables {
 # @param int $limit The limit for pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'latitude' => {
         data_type => 'double',
         description => 'The latitude of the current account',
@@ -1104,11 +1008,6 @@ sub search_permissionables {
 sub search_permissionables_following_distance {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_permissionables_following_distance");
-    }
-
     # verify the required parameter 'latitude' is set
     unless (exists $args{'latitude'}) {
       croak("Missing the required parameter 'latitude' when calling search_permissionables_following_distance");
@@ -1120,7 +1019,7 @@ sub search_permissionables_following_distance {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/permissions/distancesearch';
+    my $_resource_path = '/permissions/distancesearch';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1202,13 +1101,6 @@ sub search_permissionables_following_distance {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

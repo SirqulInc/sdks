@@ -53,7 +53,6 @@ sub new {
 #
 # Create Billable
 #
-# @param double $version  (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 # @param string $name The name of the entity responsible for billing  (optional)
@@ -68,11 +67,6 @@ sub new {
 # @param string $authorize_net_transaction_key Authorize Net Transaction Key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique device identifier that made the request (either deviceId or accountId must be used)',
@@ -145,13 +139,8 @@ sub new {
 sub create_billable_entity {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_billable_entity");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/billable/create';
+    my $_resource_path = '/billable/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -225,13 +214,6 @@ sub create_billable_entity {
         $query_params->{'authorizeNetTransactionKey'} = $self->{api_client}->to_query_value($args{'authorize_net_transaction_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -252,16 +234,10 @@ sub create_billable_entity {
 #
 # Delete Billable
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account used to perform the delete, must have rights to edit the billable entity. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -284,13 +260,8 @@ sub create_billable_entity {
 sub delete_billable_entity {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_billable_entity");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/billable/delete';
+    my $_resource_path = '/billable/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -314,13 +285,6 @@ sub delete_billable_entity {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -341,18 +305,12 @@ sub delete_billable_entity {
 #
 # Get Billable
 #
-# @param double $version  (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 # @param boolean $include_counts Determines whether to include the retailer dash board counts into the response (optional, default to false)
 # @param boolean $include_payments Whether to enable payments or not (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique device identifier that made the request (either deviceId or accountId must be used)',
@@ -385,13 +343,8 @@ sub delete_billable_entity {
 sub get_billable_entity {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_billable_entity");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/billable/get';
+    my $_resource_path = '/billable/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -425,13 +378,6 @@ sub get_billable_entity {
         $query_params->{'includePayments'} = $self->{api_client}->to_query_value($args{'include_payments'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -452,7 +398,6 @@ sub get_billable_entity {
 #
 # Update Billable
 #
-# @param double $version  (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
 # @param string $name The name of the entity responsible for billing  (optional)
@@ -467,11 +412,6 @@ sub get_billable_entity {
 # @param string $authorize_net_transaction_key Authorize Net Transaction Key of the billable entity (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique device identifier that made the request (either deviceId or accountId must be used)',
@@ -544,13 +484,8 @@ sub get_billable_entity {
 sub update_billable_entity {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_billable_entity");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/billable/update';
+    my $_resource_path = '/billable/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -622,13 +557,6 @@ sub update_billable_entity {
     # query params
     if ( exists $args{'authorize_net_transaction_key'}) {
         $query_params->{'authorizeNetTransactionKey'} = $self->{api_client}->to_query_value($args{'authorize_net_transaction_key'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

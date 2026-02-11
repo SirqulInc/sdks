@@ -53,15 +53,9 @@ sub new {
 #
 # Create Route Setting
 #
-# @param double $version  (required)
 # @param RouteSettings $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'RouteSettings',
         description => '',
@@ -79,13 +73,8 @@ sub new {
 sub create_route_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_route_settings");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/route/setting';
+    my $_resource_path = '/route/setting';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -98,13 +87,6 @@ sub create_route_settings {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -131,15 +113,9 @@ sub create_route_settings {
 #
 # Delete Route Setting
 #
-# @param double $version  (required)
 # @param int $route_settings_id the id of the route setting to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'route_settings_id' => {
         data_type => 'int',
         description => 'the id of the route setting to delete',
@@ -157,18 +133,13 @@ sub create_route_settings {
 sub delete_route_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_route_settings");
-    }
-
     # verify the required parameter 'route_settings_id' is set
     unless (exists $args{'route_settings_id'}) {
       croak("Missing the required parameter 'route_settings_id' when calling delete_route_settings");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/route/setting/{routeSettingsId}';
+    my $_resource_path = '/route/setting/{routeSettingsId}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -181,13 +152,6 @@ sub delete_route_settings {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'route_settings_id'}) {
@@ -216,15 +180,9 @@ sub delete_route_settings {
 #
 # Get Route Setting
 #
-# @param double $version  (required)
 # @param int $route_settings_id the id of the route settings to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'route_settings_id' => {
         data_type => 'int',
         description => 'the id of the route settings to get',
@@ -242,18 +200,13 @@ sub delete_route_settings {
 sub get_route_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_route_settings");
-    }
-
     # verify the required parameter 'route_settings_id' is set
     unless (exists $args{'route_settings_id'}) {
       croak("Missing the required parameter 'route_settings_id' when calling get_route_settings");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/route/setting/{routeSettingsId}';
+    my $_resource_path = '/route/setting/{routeSettingsId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -266,13 +219,6 @@ sub get_route_settings {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'route_settings_id'}) {
@@ -301,7 +247,6 @@ sub get_route_settings {
 #
 # Search Route Settings
 #
-# @param double $version  (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
 # @param int $start The start index for pagination (required)
@@ -312,11 +257,6 @@ sub get_route_settings {
 # @param string $keyword The keyword to search for the route (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'The field to sort by',
@@ -369,11 +309,6 @@ sub get_route_settings {
 sub search_route_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_route_settings");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_route_settings");
@@ -400,7 +335,7 @@ sub search_route_settings {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/route/setting';
+    my $_resource_path = '/route/setting';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -454,13 +389,6 @@ sub search_route_settings {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -481,16 +409,10 @@ sub search_route_settings {
 #
 # Update Route Setting
 #
-# @param double $version  (required)
 # @param int $route_settings_id the id of the route settings to update (required)
 # @param RouteSettings $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'route_settings_id' => {
         data_type => 'int',
         description => 'the id of the route settings to update',
@@ -513,18 +435,13 @@ sub search_route_settings {
 sub update_route_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_route_settings");
-    }
-
     # verify the required parameter 'route_settings_id' is set
     unless (exists $args{'route_settings_id'}) {
       croak("Missing the required parameter 'route_settings_id' when calling update_route_settings");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/route/setting/{routeSettingsId}';
+    my $_resource_path = '/route/setting/{routeSettingsId}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -537,13 +454,6 @@ sub update_route_settings {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'route_settings_id'}) {

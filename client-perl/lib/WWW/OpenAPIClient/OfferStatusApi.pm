@@ -53,7 +53,6 @@ sub new {
 #
 # Create Offer Status
 #
-# @param double $version  (required)
 # @param string $name The name of the status (required)
 # @param int $code The status code, must be unique  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
@@ -66,11 +65,6 @@ sub new {
 # @param string $application_ids The applications to associate the status with, if null then for all. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'name' => {
         data_type => 'string',
         description => 'The name of the status',
@@ -133,11 +127,6 @@ sub new {
 sub create_offer_transaction_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_offer_transaction_status");
-    }
-
     # verify the required parameter 'name' is set
     unless (exists $args{'name'}) {
       croak("Missing the required parameter 'name' when calling create_offer_transaction_status");
@@ -149,7 +138,7 @@ sub create_offer_transaction_status {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/status/create';
+    my $_resource_path = '/offer/status/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -213,13 +202,6 @@ sub create_offer_transaction_status {
         $query_params->{'applicationIds'} = $self->{api_client}->to_query_value($args{'application_ids'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -240,7 +222,6 @@ sub create_offer_transaction_status {
 #
 # Delete Offer Status
 #
-# @param double $version  (required)
 # @param int $status_id The id of the record to delete (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -248,11 +229,6 @@ sub create_offer_transaction_status {
 # @param double $longitude Used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'status_id' => {
         data_type => 'int',
         description => 'The id of the record to delete',
@@ -290,18 +266,13 @@ sub create_offer_transaction_status {
 sub delete_offer_transaction_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_offer_transaction_status");
-    }
-
     # verify the required parameter 'status_id' is set
     unless (exists $args{'status_id'}) {
       croak("Missing the required parameter 'status_id' when calling delete_offer_transaction_status");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/status/delete';
+    my $_resource_path = '/offer/status/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -340,13 +311,6 @@ sub delete_offer_transaction_status {
         $query_params->{'statusId'} = $self->{api_client}->to_query_value($args{'status_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -367,7 +331,6 @@ sub delete_offer_transaction_status {
 #
 # Get Offer Status
 #
-# @param double $version  (required)
 # @param int $status_id The id of the record to get  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -375,11 +338,6 @@ sub delete_offer_transaction_status {
 # @param double $longitude Used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'status_id' => {
         data_type => 'int',
         description => 'The id of the record to get ',
@@ -417,18 +375,13 @@ sub delete_offer_transaction_status {
 sub get_offer_transaction_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offer_transaction_status");
-    }
-
     # verify the required parameter 'status_id' is set
     unless (exists $args{'status_id'}) {
       croak("Missing the required parameter 'status_id' when calling get_offer_transaction_status");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/status/get';
+    my $_resource_path = '/offer/status/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -467,13 +420,6 @@ sub get_offer_transaction_status {
         $query_params->{'statusId'} = $self->{api_client}->to_query_value($args{'status_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -494,7 +440,6 @@ sub get_offer_transaction_status {
 #
 # Search Offer Status
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param double $latitude Used to update the user&#39;s current location (optional)
@@ -509,11 +454,6 @@ sub get_offer_transaction_status {
 # @param boolean $include_inactive If true include inactive items (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -586,13 +526,8 @@ sub get_offer_transaction_status {
 sub search_offer_transaction_statuses {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_offer_transaction_statuses");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/status/search';
+    my $_resource_path = '/offer/status/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -666,13 +601,6 @@ sub search_offer_transaction_statuses {
         $query_params->{'includeInactive'} = $self->{api_client}->to_query_value($args{'include_inactive'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -693,7 +621,6 @@ sub search_offer_transaction_statuses {
 #
 # Update Offer Status
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param double $latitude Used to update the user&#39;s current location (optional)
@@ -707,11 +634,6 @@ sub search_offer_transaction_statuses {
 # @param string $application_ids The applications to associate the status with, if null then for all. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -779,13 +701,8 @@ sub search_offer_transaction_statuses {
 sub update_offer_transaction_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_offer_transaction_status");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/status/update';
+    my $_resource_path = '/offer/status/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -852,13 +769,6 @@ sub update_offer_transaction_status {
     # query params
     if ( exists $args{'application_ids'}) {
         $query_params->{'applicationIds'} = $self->{api_client}->to_query_value($args{'application_ids'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

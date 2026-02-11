@@ -53,7 +53,6 @@ sub new {
 #
 # Batch Note Operation
 #
-# @param double $version  (required)
 # @param int $notable_id The id of the notable object the batch operation will affect (required)
 # @param string $notable_type The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
@@ -61,11 +60,6 @@ sub new {
 # @param string $batch_operation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'notable_id' => {
         data_type => 'int',
         description => 'The id of the notable object the batch operation will affect',
@@ -103,11 +97,6 @@ sub new {
 sub batch_operation {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling batch_operation");
-    }
-
     # verify the required parameter 'notable_id' is set
     unless (exists $args{'notable_id'}) {
       croak("Missing the required parameter 'notable_id' when calling batch_operation");
@@ -119,7 +108,7 @@ sub batch_operation {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/note/batch';
+    my $_resource_path = '/note/batch';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -158,13 +147,6 @@ sub batch_operation {
         $query_params->{'batchOperation'} = $self->{api_client}->to_query_value($args{'batch_operation'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -185,7 +167,6 @@ sub batch_operation {
 #
 # Create Note
 #
-# @param double $version  (required)
 # @param string $comment The message the user wishes to leave a comment on (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -230,11 +211,6 @@ sub batch_operation {
 # @param double $asset_longitude the longitude of the asset (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'comment' => {
         data_type => 'string',
         description => 'The message the user wishes to leave a comment on',
@@ -457,18 +433,13 @@ sub batch_operation {
 sub create_note {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_note");
-    }
-
     # verify the required parameter 'comment' is set
     unless (exists $args{'comment'}) {
       croak("Missing the required parameter 'comment' when calling create_note");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/note/create';
+    my $_resource_path = '/note/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -692,13 +663,6 @@ sub create_note {
         $query_params->{'assetLongitude'} = $self->{api_client}->to_query_value($args{'asset_longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -719,7 +683,6 @@ sub create_note {
 #
 # Delete Note
 #
-# @param double $version  (required)
 # @param int $note_id The ID of the note to delete (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -728,11 +691,6 @@ sub create_note {
 # @param string $app_key The application key used to identify the application (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'note_id' => {
         data_type => 'int',
         description => 'The ID of the note to delete',
@@ -775,18 +733,13 @@ sub create_note {
 sub delete_note {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_note");
-    }
-
     # verify the required parameter 'note_id' is set
     unless (exists $args{'note_id'}) {
       croak("Missing the required parameter 'note_id' when calling delete_note");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/note/delete';
+    my $_resource_path = '/note/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -830,13 +783,6 @@ sub delete_note {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -857,18 +803,12 @@ sub delete_note {
 #
 # Get Note
 #
-# @param double $version  (required)
 # @param int $note_id the id of the note to get (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 # @param boolean $return_full_response Determines whether to return the NoteFullResponse for the item (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'note_id' => {
         data_type => 'int',
         description => 'the id of the note to get',
@@ -901,18 +841,13 @@ sub delete_note {
 sub get_note {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_note");
-    }
-
     # verify the required parameter 'note_id' is set
     unless (exists $args{'note_id'}) {
       croak("Missing the required parameter 'note_id' when calling get_note");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/note/get';
+    my $_resource_path = '/note/get';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -946,13 +881,6 @@ sub get_note {
         $query_params->{'noteId'} = $self->{api_client}->to_query_value($args{'note_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -973,7 +901,6 @@ sub get_note {
 #
 # Search Notes
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $notable_type The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -993,11 +920,6 @@ sub get_note {
 # @param int $limit The number of records to return (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -1095,13 +1017,8 @@ sub get_note {
 sub search_notes {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_notes");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/note/search';
+    my $_resource_path = '/note/search';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1200,13 +1117,6 @@ sub search_notes {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1227,7 +1137,6 @@ sub search_notes {
 #
 # Update Note
 #
-# @param double $version  (required)
 # @param int $note_id The id of the note, used when editing a comment (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1271,11 +1180,6 @@ sub search_notes {
 # @param double $asset_longitude the longitude of the asset (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'note_id' => {
         data_type => 'int',
         description => 'The id of the note, used when editing a comment',
@@ -1493,18 +1397,13 @@ sub search_notes {
 sub update_note {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_note");
-    }
-
     # verify the required parameter 'note_id' is set
     unless (exists $args{'note_id'}) {
       croak("Missing the required parameter 'note_id' when calling update_note");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/note/update';
+    my $_resource_path = '/note/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1721,13 +1620,6 @@ sub update_note {
     # query params
     if ( exists $args{'asset_longitude'}) {
         $query_params->{'assetLongitude'} = $self->{api_client}->to_query_value($args{'asset_longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

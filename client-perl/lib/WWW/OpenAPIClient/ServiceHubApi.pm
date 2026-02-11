@@ -53,15 +53,9 @@ sub new {
 #
 # Create Service Hub
 #
-# @param double $version  (required)
 # @param ServiceHub $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'ServiceHub',
         description => '',
@@ -79,13 +73,8 @@ sub new {
 sub create_service_hub {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_service_hub");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/hub';
+    my $_resource_path = '/hub';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -98,13 +87,6 @@ sub create_service_hub {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -131,15 +113,9 @@ sub create_service_hub {
 #
 # Delete Service Hub
 #
-# @param double $version  (required)
 # @param int $id the id of the service hub to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the service hub to delete',
@@ -157,18 +133,13 @@ sub create_service_hub {
 sub delete_service_hub {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_service_hub");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling delete_service_hub");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/hub/{id}';
+    my $_resource_path = '/hub/{id}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -181,13 +152,6 @@ sub delete_service_hub {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -212,15 +176,9 @@ sub delete_service_hub {
 #
 # Get Service Hub
 #
-# @param double $version  (required)
 # @param int $id the id of the service hub to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the service hub to get',
@@ -238,18 +196,13 @@ sub delete_service_hub {
 sub get_service_hub {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_service_hub");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling get_service_hub");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/hub/{id}';
+    my $_resource_path = '/hub/{id}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -262,13 +215,6 @@ sub get_service_hub {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -297,16 +243,10 @@ sub get_service_hub {
 #
 # Update Service Hub
 #
-# @param double $version  (required)
 # @param int $id the id of the service hub (required)
 # @param ServiceHub $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the service hub',
@@ -329,18 +269,13 @@ sub get_service_hub {
 sub post_service_hub {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling post_service_hub");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling post_service_hub");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/hub/{id}';
+    my $_resource_path = '/hub/{id}';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -353,13 +288,6 @@ sub post_service_hub {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -393,16 +321,10 @@ sub post_service_hub {
 #
 # Update Service Hub
 #
-# @param double $version  (required)
 # @param int $id the id of the service hub (required)
 # @param ServiceHub $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the service hub',
@@ -425,18 +347,13 @@ sub post_service_hub {
 sub put_service_hub {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling put_service_hub");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling put_service_hub");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/hub/{id}';
+    my $_resource_path = '/hub/{id}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -449,13 +366,6 @@ sub put_service_hub {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -489,7 +399,6 @@ sub put_service_hub {
 #
 # Search Service Hubs
 #
-# @param double $version  (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
 # @param int $start The start index for pagination (required)
@@ -499,11 +408,6 @@ sub put_service_hub {
 # @param int $retailer_id The retailer belongs to (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'The field to sort by',
@@ -551,11 +455,6 @@ sub put_service_hub {
 sub search_service_hubs {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_service_hubs");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_service_hubs");
@@ -582,7 +481,7 @@ sub search_service_hubs {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/hub';
+    my $_resource_path = '/hub';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -629,13 +528,6 @@ sub search_service_hubs {
     # query params
     if ( exists $args{'active_only'}) {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

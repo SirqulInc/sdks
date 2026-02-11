@@ -53,15 +53,9 @@ sub new {
 #
 # Get Stop
 #
-# @param double $version  (required)
 # @param int $id the id of the stop to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the stop to get',
@@ -79,18 +73,13 @@ sub new {
 sub get_stop {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_stop");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling get_stop");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/stop/{id}';
+    my $_resource_path = '/stop/{id}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -103,13 +92,6 @@ sub get_stop {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -138,16 +120,10 @@ sub get_stop {
 #
 # Update Stop
 #
-# @param double $version  (required)
 # @param int $id the id of the stop to update (required)
 # @param Stop $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the stop to update',
@@ -170,18 +146,13 @@ sub get_stop {
 sub update_stop {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_stop");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_stop");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/stop/{id}';
+    my $_resource_path = '/stop/{id}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -194,13 +165,6 @@ sub update_stop {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {

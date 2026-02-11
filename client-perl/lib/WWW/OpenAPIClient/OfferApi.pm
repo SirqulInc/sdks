@@ -53,17 +53,11 @@ sub new {
 #
 # Update Offer Locations
 #
-# @param double $version  (required)
 # @param string $data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'data' => {
         data_type => 'string',
         description => 'JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; ',
@@ -91,18 +85,13 @@ sub new {
 sub batch_update_offer_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling batch_update_offer_locations");
-    }
-
     # verify the required parameter 'data' is set
     unless (exists $args{'data'}) {
       croak("Missing the required parameter 'data' when calling batch_update_offer_locations");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/location/batchUpdate';
+    my $_resource_path = '/retailer/offer/location/batchUpdate';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -131,13 +120,6 @@ sub batch_update_offer_locations {
         $query_params->{'data'} = $self->{api_client}->to_query_value($args{'data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -158,7 +140,6 @@ sub batch_update_offer_locations {
 #
 # Create Offer
 #
-# @param double $version  (required)
 # @param boolean $include_offer_locations If true return all the offer locations associated with the offer (required)
 # @param string $title The title (255 char limit) (required)
 # @param string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -247,11 +228,6 @@ sub batch_update_offer_locations {
 # @param string $availability_summary  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'include_offer_locations' => {
         data_type => 'boolean',
         description => 'If true return all the offer locations associated with the offer',
@@ -694,11 +670,6 @@ sub batch_update_offer_locations {
 sub create_offer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_offer");
-    }
-
     # verify the required parameter 'include_offer_locations' is set
     unless (exists $args{'include_offer_locations'}) {
       croak("Missing the required parameter 'include_offer_locations' when calling create_offer");
@@ -780,7 +751,7 @@ sub create_offer {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/create';
+    my $_resource_path = '/retailer/offer/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1224,13 +1195,6 @@ sub create_offer {
         $query_params->{'availabilitySummary'} = $self->{api_client}->to_query_value($args{'availability_summary'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1251,17 +1215,11 @@ sub create_offer {
 #
 # Delete Offer
 #
-# @param double $version  (required)
 # @param int $offer_id The ID of the offer to be deleted (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account used to perform the delete, must have rights to edit the offer. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_id' => {
         data_type => 'int',
         description => 'The ID of the offer to be deleted',
@@ -1289,18 +1247,13 @@ sub create_offer {
 sub delete_offer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_offer");
-    }
-
     # verify the required parameter 'offer_id' is set
     unless (exists $args{'offer_id'}) {
       croak("Missing the required parameter 'offer_id' when calling delete_offer");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/delete';
+    my $_resource_path = '/retailer/offer/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1329,13 +1282,6 @@ sub delete_offer {
         $query_params->{'offerId'} = $self->{api_client}->to_query_value($args{'offer_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1356,17 +1302,11 @@ sub delete_offer {
 #
 # Delete Offer Location
 #
-# @param double $version  (required)
 # @param int $offer_location_id The ID of the offer location to be deleted (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account used to perform the delete, must have rights to edit the offer location. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_location_id' => {
         data_type => 'int',
         description => 'The ID of the offer location to be deleted',
@@ -1394,18 +1334,13 @@ sub delete_offer {
 sub delete_offer_location {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_offer_location");
-    }
-
     # verify the required parameter 'offer_location_id' is set
     unless (exists $args{'offer_location_id'}) {
       croak("Missing the required parameter 'offer_location_id' when calling delete_offer_location");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/location/delete';
+    my $_resource_path = '/retailer/offer/location/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1434,13 +1369,6 @@ sub delete_offer_location {
         $query_params->{'offerLocationId'} = $self->{api_client}->to_query_value($args{'offer_location_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1461,18 +1389,12 @@ sub delete_offer_location {
 #
 # Get Offer
 #
-# @param double $version  (required)
 # @param int $offer_id The id of the offer (required)
 # @param boolean $include_offer_locations  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_id' => {
         data_type => 'int',
         description => 'The id of the offer',
@@ -1505,11 +1427,6 @@ sub delete_offer_location {
 sub get_offer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offer");
-    }
-
     # verify the required parameter 'offer_id' is set
     unless (exists $args{'offer_id'}) {
       croak("Missing the required parameter 'offer_id' when calling get_offer");
@@ -1521,7 +1438,7 @@ sub get_offer {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/get';
+    my $_resource_path = '/retailer/offer/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1555,13 +1472,6 @@ sub get_offer {
         $query_params->{'includeOfferLocations'} = $self->{api_client}->to_query_value($args{'include_offer_locations'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1582,7 +1492,6 @@ sub get_offer {
 #
 # Get Offer
 #
-# @param double $version  (required)
 # @param string $device_id The device id for returning account information (i.e. favorites) (optional)
 # @param int $account_id The account id for returning account information (i.e. favorites) (optional)
 # @param int $offer_id The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1595,11 +1504,6 @@ sub get_offer {
 # @param boolean $include_child_offers Determines whether to include child offers in the response (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id for returning account information (i.e. favorites)',
@@ -1662,13 +1566,8 @@ sub get_offer {
 sub get_offer_details {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offer_details");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/get';
+    my $_resource_path = '/offer/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1732,13 +1631,6 @@ sub get_offer_details {
         $query_params->{'includeChildOffers'} = $self->{api_client}->to_query_value($args{'include_child_offers'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1759,18 +1651,12 @@ sub get_offer_details {
 #
 # Get Offers (Counts)
 #
-# @param double $version  (required)
 # @param double $latitude The latitude of where the search will center at (required)
 # @param double $longitude The longitude of where the search will center at (required)
 # @param double $search_range The range of the search (optional, default to 5)
 # @param string $distance_unit The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to 'MILES')
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'latitude' => {
         data_type => 'double',
         description => 'The latitude of where the search will center at',
@@ -1803,11 +1689,6 @@ sub get_offer_details {
 sub get_offer_list_counts {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offer_list_counts");
-    }
-
     # verify the required parameter 'latitude' is set
     unless (exists $args{'latitude'}) {
       croak("Missing the required parameter 'latitude' when calling get_offer_list_counts");
@@ -1819,7 +1700,7 @@ sub get_offer_list_counts {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/lists/count';
+    my $_resource_path = '/offer/lists/count';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1853,13 +1734,6 @@ sub get_offer_list_counts {
         $query_params->{'distanceUnit'} = $self->{api_client}->to_query_value($args{'distance_unit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1880,16 +1754,10 @@ sub get_offer_list_counts {
 #
 # Get Offer Location
 #
-# @param double $version  (required)
 # @param int $offer_location_id the id of the offer location to get (optional)
 # @param string $udid the UDID of the device (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_location_id' => {
         data_type => 'int',
         description => 'the id of the offer location to get',
@@ -1912,13 +1780,8 @@ sub get_offer_list_counts {
 sub get_offer_location {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offer_location");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/location/get';
+    my $_resource_path = '/offer/location/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1942,13 +1805,6 @@ sub get_offer_location {
         $query_params->{'udid'} = $self->{api_client}->to_query_value($args{'udid'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1969,7 +1825,6 @@ sub get_offer_location {
 #
 # Search Offer Locations
 #
-# @param double $version  (required)
 # @param string $sort_field The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
 # @param boolean $descending The order to return the results. Default is false, which will return the results in ascending order. (required)
 # @param int $start The index into the record set to start with. Default is 0. (required)
@@ -1992,11 +1847,6 @@ sub get_offer_location {
 # @param int $last_notification_sent  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}',
@@ -2109,11 +1959,6 @@ sub get_offer_location {
 sub get_offer_locations_for_retailers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offer_locations_for_retailers");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling get_offer_locations_for_retailers");
@@ -2145,7 +1990,7 @@ sub get_offer_locations_for_retailers {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/location/search';
+    my $_resource_path = '/retailer/offer/location/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2259,13 +2104,6 @@ sub get_offer_locations_for_retailers {
         $query_params->{'lastNotificationSent'} = $self->{api_client}->to_query_value($args{'last_notification_sent'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2286,7 +2124,6 @@ sub get_offer_locations_for_retailers {
 #
 # Search Offers
 #
-# @param double $version  (required)
 # @param string $offer_visibility  (required)
 # @param string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
 # @param boolean $descending The order to return the search results (required)
@@ -2320,11 +2157,6 @@ sub get_offer_locations_for_retailers {
 # @param int $last_notification_sent  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_visibility' => {
         data_type => 'string',
         description => '',
@@ -2492,11 +2324,6 @@ sub get_offer_locations_for_retailers {
 sub get_offers_for_retailers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offers_for_retailers");
-    }
-
     # verify the required parameter 'offer_visibility' is set
     unless (exists $args{'offer_visibility'}) {
       croak("Missing the required parameter 'offer_visibility' when calling get_offers_for_retailers");
@@ -2548,7 +2375,7 @@ sub get_offers_for_retailers {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/search';
+    my $_resource_path = '/retailer/offer/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2717,13 +2544,6 @@ sub get_offers_for_retailers {
         $query_params->{'lastNotificationSent'} = $self->{api_client}->to_query_value($args{'last_notification_sent'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2744,7 +2564,6 @@ sub get_offers_for_retailers {
 #
 # Update Offer Transaction
 #
-# @param double $version  (required)
 # @param int $offer_transaction_id the OfferTransaction ID of the transaction being redeemed (required)
 # @param int $status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -2752,11 +2571,6 @@ sub get_offers_for_retailers {
 # @param int $offer_location_id the OfferLocation ID where the offer is being redeemed (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_transaction_id' => {
         data_type => 'int',
         description => 'the OfferTransaction ID of the transaction being redeemed',
@@ -2794,11 +2608,6 @@ sub get_offers_for_retailers {
 sub redeem_offer_transaction {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling redeem_offer_transaction");
-    }
-
     # verify the required parameter 'offer_transaction_id' is set
     unless (exists $args{'offer_transaction_id'}) {
       croak("Missing the required parameter 'offer_transaction_id' when calling redeem_offer_transaction");
@@ -2810,7 +2619,7 @@ sub redeem_offer_transaction {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/transaction/update';
+    my $_resource_path = '/retailer/offer/transaction/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2849,13 +2658,6 @@ sub redeem_offer_transaction {
         $query_params->{'status'} = $self->{api_client}->to_query_value($args{'status'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2876,7 +2678,6 @@ sub redeem_offer_transaction {
 #
 # Search Offer Transactions
 #
-# @param double $version  (required)
 # @param string $sort_field Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
 # @param boolean $descending Determines whether the results are in descending order (required)
 # @param int $start The start index for pagination (required)
@@ -2903,11 +2704,6 @@ sub redeem_offer_transaction {
 # @param int $_l This parameter is deprecated. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}',
@@ -3040,11 +2836,6 @@ sub redeem_offer_transaction {
 sub search_offer_transactions_for_retailers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_offer_transactions_for_retailers");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_offer_transactions_for_retailers");
@@ -3071,7 +2862,7 @@ sub search_offer_transactions_for_retailers {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/transaction/search';
+    my $_resource_path = '/retailer/offer/transaction/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3205,13 +2996,6 @@ sub search_offer_transactions_for_retailers {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3232,7 +3016,6 @@ sub search_offer_transactions_for_retailers {
 #
 # Search Offers
 #
-# @param double $version  (required)
 # @param double $latitude The latitude of where the search will center at (required)
 # @param double $longitude The longitude of where the search will center at (required)
 # @param string $recommendation_type The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -3266,11 +3049,6 @@ sub search_offer_transactions_for_retailers {
 # @param string $group_by groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'latitude' => {
         data_type => 'double',
         description => 'The latitude of where the search will center at',
@@ -3438,11 +3216,6 @@ sub search_offer_transactions_for_retailers {
 sub search_offers_for_consumer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_offers_for_consumer");
-    }
-
     # verify the required parameter 'latitude' is set
     unless (exists $args{'latitude'}) {
       croak("Missing the required parameter 'latitude' when calling search_offers_for_consumer");
@@ -3484,7 +3257,7 @@ sub search_offers_for_consumer {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/lists';
+    my $_resource_path = '/offer/lists';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3653,13 +3426,6 @@ sub search_offers_for_consumer {
         $query_params->{'groupBy'} = $self->{api_client}->to_query_value($args{'group_by'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3680,16 +3446,10 @@ sub search_offers_for_consumer {
 #
 # Get Offers (Top)
 #
-# @param double $version  (required)
 # @param int $start The index into the record set to start with. Default is 0. (optional, default to 0)
 # @param int $limit The total number of record to return. Default id 20. (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'start' => {
         data_type => 'int',
         description => 'The index into the record set to start with. Default is 0.',
@@ -3712,13 +3472,8 @@ sub search_offers_for_consumer {
 sub top_offer_transactions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling top_offer_transactions");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/offer/top';
+    my $_resource_path = '/offer/top';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3742,13 +3497,6 @@ sub top_offer_transactions {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3769,7 +3517,6 @@ sub top_offer_transactions {
 #
 # Update Offer
 #
-# @param double $version  (required)
 # @param int $offer_id The offer to update (required)
 # @param boolean $include_offer_locations If true return all the offer locations associated with the offer (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
@@ -3859,11 +3606,6 @@ sub top_offer_transactions {
 # @param string $availability_summary  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_id' => {
         data_type => 'int',
         description => 'The offer to update',
@@ -4311,11 +4053,6 @@ sub top_offer_transactions {
 sub update_offer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_offer");
-    }
-
     # verify the required parameter 'offer_id' is set
     unless (exists $args{'offer_id'}) {
       croak("Missing the required parameter 'offer_id' when calling update_offer");
@@ -4327,7 +4064,7 @@ sub update_offer {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/update';
+    my $_resource_path = '/retailer/offer/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4776,13 +4513,6 @@ sub update_offer {
         $query_params->{'availabilitySummary'} = $self->{api_client}->to_query_value($args{'availability_summary'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4803,18 +4533,12 @@ sub update_offer {
 #
 # Activate Offer
 #
-# @param double $version  (required)
 # @param string $offer_ids Comma separated list of offer ids (required)
 # @param boolean $active Determines whether to make the offer active as well (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account used to perform the activation, must have rights to edit the offer. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_ids' => {
         data_type => 'string',
         description => 'Comma separated list of offer ids',
@@ -4847,11 +4571,6 @@ sub update_offer {
 sub update_offer_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_offer_status");
-    }
-
     # verify the required parameter 'offer_ids' is set
     unless (exists $args{'offer_ids'}) {
       croak("Missing the required parameter 'offer_ids' when calling update_offer_status");
@@ -4863,7 +4582,7 @@ sub update_offer_status {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/offer/status';
+    my $_resource_path = '/retailer/offer/status';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4895,13 +4614,6 @@ sub update_offer_status {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

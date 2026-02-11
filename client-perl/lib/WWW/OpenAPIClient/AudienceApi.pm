@@ -53,7 +53,6 @@ sub new {
 #
 # Create Audience
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the audience (required)
 # @param string $description The description of the audience (optional)
@@ -85,11 +84,6 @@ sub new {
 # @param boolean $unique_name If true, makes sure the audience name is unique (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -247,11 +241,6 @@ sub new {
 sub create_audience {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_audience");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_audience");
@@ -263,7 +252,7 @@ sub create_audience {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/create';
+    my $_resource_path = '/audience/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -422,13 +411,6 @@ sub create_audience {
         $query_params->{'uniqueName'} = $self->{api_client}->to_query_value($args{'unique_name'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -449,16 +431,10 @@ sub create_audience {
 #
 # Delete Audience
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $audience_id The id of the audience to delete. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -481,11 +457,6 @@ sub create_audience {
 sub delete_audience {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_audience");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_audience");
@@ -497,7 +468,7 @@ sub delete_audience {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/delete';
+    my $_resource_path = '/audience/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -521,13 +492,6 @@ sub delete_audience {
         $query_params->{'audienceId'} = $self->{api_client}->to_query_value($args{'audience_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -548,14 +512,8 @@ sub delete_audience {
 #
 # Get Age Groups
 #
-# @param double $version  (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     };
     __PACKAGE__->method_documentation->{ 'get_age_groups' } = {
         summary => 'Get Age Groups',
@@ -568,13 +526,8 @@ sub delete_audience {
 sub get_age_groups {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_age_groups");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/ageGroups';
+    my $_resource_path = '/audience/ageGroups';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -587,13 +540,6 @@ sub get_age_groups {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # authentication setting, if any
@@ -615,7 +561,6 @@ sub get_age_groups {
 #
 # Get Audience
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $audience_id The id of the audience to return. (required)
 # @param string $app_key The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -624,11 +569,6 @@ sub get_age_groups {
 # @param string $album_types_for_count (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -671,11 +611,6 @@ sub get_age_groups {
 sub get_audience {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_audience");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_audience");
@@ -687,7 +622,7 @@ sub get_audience {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/get';
+    my $_resource_path = '/audience/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -731,13 +666,6 @@ sub get_audience {
         $query_params->{'albumTypesForCount'} = $self->{api_client}->to_query_value($args{'album_types_for_count'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -758,7 +686,6 @@ sub get_audience {
 #
 # Search Audiences
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (optional)
 # @param string $album_ids Comma separated list of album IDs to filter results with (optional)
 # @param string $keyword The keyword used to search (optional)
@@ -780,11 +707,6 @@ sub get_audience {
 # @param string $album_types_for_count (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -892,13 +814,8 @@ sub get_audience {
 sub get_audience_list {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_audience_list");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/search';
+    my $_resource_path = '/audience/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1007,13 +924,6 @@ sub get_audience_list {
         $query_params->{'albumTypesForCount'} = $self->{api_client}->to_query_value($args{'album_types_for_count'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1034,15 +944,9 @@ sub get_audience_list {
 #
 # Get Devices
 #
-# @param double $version  (required)
 # @param boolean $include_inactive If true return inactive record as well. default is false. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'include_inactive' => {
         data_type => 'boolean',
         description => 'If true return inactive record as well. default is false.',
@@ -1060,18 +964,13 @@ sub get_audience_list {
 sub get_devices {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_devices");
-    }
-
     # verify the required parameter 'include_inactive' is set
     unless (exists $args{'include_inactive'}) {
       croak("Missing the required parameter 'include_inactive' when calling get_devices");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/devices';
+    my $_resource_path = '/audience/devices';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1088,13 +987,6 @@ sub get_devices {
     # query params
     if ( exists $args{'include_inactive'}) {
         $query_params->{'includeInactive'} = $self->{api_client}->to_query_value($args{'include_inactive'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -1117,14 +1009,8 @@ sub get_devices {
 #
 # Get Experiences
 #
-# @param double $version  (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     };
     __PACKAGE__->method_documentation->{ 'get_experiences' } = {
         summary => 'Get Experiences',
@@ -1137,13 +1023,8 @@ sub get_devices {
 sub get_experiences {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_experiences");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/experiences';
+    my $_resource_path = '/audience/experiences';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1156,13 +1037,6 @@ sub get_experiences {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # authentication setting, if any
@@ -1184,16 +1058,10 @@ sub get_experiences {
 #
 # Get GroupedAudiences
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $audience_grouping_id The audience grouping id to return. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1216,11 +1084,6 @@ sub get_experiences {
 sub get_grouped_audiences {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_grouped_audiences");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_grouped_audiences");
@@ -1232,7 +1095,7 @@ sub get_grouped_audiences {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/grouped/get';
+    my $_resource_path = '/audience/grouped/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1256,13 +1119,6 @@ sub get_grouped_audiences {
         $query_params->{'audienceGroupingId'} = $self->{api_client}->to_query_value($args{'audience_grouping_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1283,17 +1139,11 @@ sub get_grouped_audiences {
 #
 # List Suggestions by Audience
 #
-# @param double $version  (required)
 # @param int $account_id The account to match offers for. (required)
 # @param int $limit the limit of the index (required)
 # @param string $suggestion_type the type of suggestion (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account to match offers for.',
@@ -1321,11 +1171,6 @@ sub get_grouped_audiences {
 sub list_by_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_by_account");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_by_account");
@@ -1342,7 +1187,7 @@ sub list_by_account {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/suggestion/list';
+    my $_resource_path = '/audience/suggestion/list';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1371,13 +1216,6 @@ sub list_by_account {
         $query_params->{'suggestionType'} = $self->{api_client}->to_query_value($args{'suggestion_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1398,7 +1236,6 @@ sub list_by_account {
 #
 # List Offers by Audience
 #
-# @param double $version  (required)
 # @param int $limit this is the limit of the index (required)
 # @param string $gender this is the gender to list offers by (optional)
 # @param int $age this is the age to list offers by (optional)
@@ -1407,11 +1244,6 @@ sub list_by_account {
 # @param double $longitude this is the longitude to list offers by (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'limit' => {
         data_type => 'int',
         description => 'this is the limit of the index',
@@ -1454,18 +1286,13 @@ sub list_by_account {
 sub list_by_audience {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_by_audience");
-    }
-
     # verify the required parameter 'limit' is set
     unless (exists $args{'limit'}) {
       croak("Missing the required parameter 'limit' when calling list_by_audience");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/suggestion/offersByAudience';
+    my $_resource_path = '/audience/suggestion/offersByAudience';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1509,13 +1336,6 @@ sub list_by_audience {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1536,17 +1356,11 @@ sub list_by_audience {
 #
 # List Sent Suggestions 
 #
-# @param double $version  (required)
 # @param int $account_id The account to match offers for. (required)
 # @param int $timeframe The timeframe in seconds of the latest suggestions (required)
 # @param string $suggestion_type The type of trigger suggestions to return (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account to match offers for.',
@@ -1574,11 +1388,6 @@ sub list_by_audience {
 sub list_lastest_by_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_lastest_by_account");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_lastest_by_account");
@@ -1595,7 +1404,7 @@ sub list_lastest_by_account {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/suggestion/latest';
+    my $_resource_path = '/audience/suggestion/latest';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1624,13 +1433,6 @@ sub list_lastest_by_account {
         $query_params->{'suggestionType'} = $self->{api_client}->to_query_value($args{'suggestion_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1651,17 +1453,11 @@ sub list_lastest_by_account {
 #
 # Send Suggestions
 #
-# @param double $version  (required)
 # @param int $account_id The account to match offers for. (required)
 # @param double $latitude the latitude (required)
 # @param double $longitude the longitude (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account to match offers for.',
@@ -1689,11 +1485,6 @@ sub list_lastest_by_account {
 sub send_by_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling send_by_account");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling send_by_account");
@@ -1710,7 +1501,7 @@ sub send_by_account {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/suggestion/send';
+    my $_resource_path = '/audience/suggestion/send';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1739,13 +1530,6 @@ sub send_by_account {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1766,7 +1550,6 @@ sub send_by_account {
 #
 # Update Audience
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $audience_id The id of the audience to update. (required)
 # @param string $name The name of the audience (optional)
@@ -1800,11 +1583,6 @@ sub send_by_account {
 # @param boolean $unique_name If true, makes sure the audience name is unique (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1972,11 +1750,6 @@ sub send_by_account {
 sub update_audience {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_audience");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_audience");
@@ -1988,7 +1761,7 @@ sub update_audience {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/audience/update';
+    my $_resource_path = '/audience/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2155,13 +1928,6 @@ sub update_audience {
     # query params
     if ( exists $args{'unique_name'}) {
         $query_params->{'uniqueName'} = $self->{api_client}->to_query_value($args{'unique_name'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

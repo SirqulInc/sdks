@@ -53,15 +53,9 @@ sub new {
 #
 # Create Shipment Batch
 #
-# @param double $version  (required)
 # @param ShipmentBatch $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'ShipmentBatch',
         description => '',
@@ -79,13 +73,8 @@ sub new {
 sub create_shipment_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_shipment_batch");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/batch';
+    my $_resource_path = '/shipment/batch';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -98,13 +87,6 @@ sub create_shipment_batch {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -131,15 +113,9 @@ sub create_shipment_batch {
 #
 # Delete Shipment Batch
 #
-# @param double $version  (required)
 # @param int $batch_id the id of the shipment batch to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'batch_id' => {
         data_type => 'int',
         description => 'the id of the shipment batch to delete',
@@ -157,18 +133,13 @@ sub create_shipment_batch {
 sub delete_shipment_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_shipment_batch");
-    }
-
     # verify the required parameter 'batch_id' is set
     unless (exists $args{'batch_id'}) {
       croak("Missing the required parameter 'batch_id' when calling delete_shipment_batch");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/batch/{batchId}';
+    my $_resource_path = '/shipment/batch/{batchId}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -181,13 +152,6 @@ sub delete_shipment_batch {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'batch_id'}) {
@@ -212,15 +176,9 @@ sub delete_shipment_batch {
 #
 # Get Shipment Batch
 #
-# @param double $version  (required)
 # @param int $batch_id the id of the shipment batch to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'batch_id' => {
         data_type => 'int',
         description => 'the id of the shipment batch to get',
@@ -238,18 +196,13 @@ sub delete_shipment_batch {
 sub get_shipment_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_shipment_batch");
-    }
-
     # verify the required parameter 'batch_id' is set
     unless (exists $args{'batch_id'}) {
       croak("Missing the required parameter 'batch_id' when calling get_shipment_batch");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/batch/{batchId}';
+    my $_resource_path = '/shipment/batch/{batchId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -262,13 +215,6 @@ sub get_shipment_batch {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'batch_id'}) {
@@ -297,7 +243,6 @@ sub get_shipment_batch {
 #
 # Get Shipment Batch Status
 #
-# @param double $version  (required)
 # @param int $batch_id The id of the requested shipment batch (required)
 # @param int $account_id the id of the logged in user (required)
 # @param string $sort_field The field to sort by (required)
@@ -312,11 +257,6 @@ sub get_shipment_batch {
 # @param string $keyword The keyword to search for (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'batch_id' => {
         data_type => 'int',
         description => 'The id of the requested shipment batch',
@@ -389,11 +329,6 @@ sub get_shipment_batch {
 sub get_shipment_batch_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_shipment_batch_status");
-    }
-
     # verify the required parameter 'batch_id' is set
     unless (exists $args{'batch_id'}) {
       croak("Missing the required parameter 'batch_id' when calling get_shipment_batch_status");
@@ -425,7 +360,7 @@ sub get_shipment_batch_status {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/batch/{batchId}/status';
+    my $_resource_path = '/shipment/batch/{batchId}/status';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -495,13 +430,6 @@ sub get_shipment_batch_status {
     }
 
     # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
-    # path params
     if ( exists $args{'batch_id'}) {
         my $_base_variable = "{" . "batchId" . "}";
         my $_base_value = $self->{api_client}->to_path_value($args{'batch_id'});
@@ -528,7 +456,6 @@ sub get_shipment_batch_status {
 #
 # Search Shipment Batch
 #
-# @param double $version  (required)
 # @param int $hub_id The associated service hub (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -536,11 +463,6 @@ sub get_shipment_batch_status {
 # @param int $limit The limit for pagination (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'hub_id' => {
         data_type => 'int',
         description => 'The associated service hub',
@@ -578,11 +500,6 @@ sub get_shipment_batch_status {
 sub search_shipment_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_shipment_batch");
-    }
-
     # verify the required parameter 'hub_id' is set
     unless (exists $args{'hub_id'}) {
       croak("Missing the required parameter 'hub_id' when calling search_shipment_batch");
@@ -609,7 +526,7 @@ sub search_shipment_batch {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/batch';
+    my $_resource_path = '/shipment/batch';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -646,13 +563,6 @@ sub search_shipment_batch {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

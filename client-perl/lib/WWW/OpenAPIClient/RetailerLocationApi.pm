@@ -53,7 +53,6 @@ sub new {
 #
 # Create Retailer Location (Consumer)
 #
-# @param double $version  (required)
 # @param string $app_key the application key (required)
 # @param string $name The name of the retailer location (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
@@ -85,11 +84,6 @@ sub new {
 # @param double $longitude The longitude to center the search on (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'the application key',
@@ -247,11 +241,6 @@ sub new {
 sub create_retailer_location_consumer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_retailer_location_consumer");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling create_retailer_location_consumer");
@@ -263,7 +252,7 @@ sub create_retailer_location_consumer {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/location/create';
+    my $_resource_path = '/location/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -422,13 +411,6 @@ sub create_retailer_location_consumer {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -449,7 +431,6 @@ sub create_retailer_location_consumer {
 #
 # Create Retailer Location
 #
-# @param double $version  (required)
 # @param int $retailer_id The ID of the retailer (required)
 # @param string $name The name of the retailer location (required)
 # @param string $street_address The street address of the retailer location (required)
@@ -491,11 +472,6 @@ sub create_retailer_location_consumer {
 # @param string $response_includes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'retailer_id' => {
         data_type => 'int',
         description => 'The ID of the retailer',
@@ -703,11 +679,6 @@ sub create_retailer_location_consumer {
 sub create_retailer_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_retailer_locations");
-    }
-
     # verify the required parameter 'retailer_id' is set
     unless (exists $args{'retailer_id'}) {
       croak("Missing the required parameter 'retailer_id' when calling create_retailer_locations");
@@ -739,7 +710,7 @@ sub create_retailer_locations {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/location/create';
+    my $_resource_path = '/retailer/location/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -948,13 +919,6 @@ sub create_retailer_locations {
         $query_params->{'responseIncludes'} = $self->{api_client}->to_query_value($args{'response_includes'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -975,17 +939,11 @@ sub create_retailer_locations {
 #
 # Delete Retailer Location
 #
-# @param double $version  (required)
 # @param string $device_id the device id (optional)
 # @param int $account_id the id of the logged in user (optional)
 # @param int $retailer_location_id the id of the retailer location to delete (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id',
@@ -1013,13 +971,8 @@ sub create_retailer_locations {
 sub delete_retailer_location {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_retailer_location");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/location/delete';
+    my $_resource_path = '/retailer/location/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1048,13 +1001,6 @@ sub delete_retailer_location {
         $query_params->{'retailerLocationId'} = $self->{api_client}->to_query_value($args{'retailer_location_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1075,18 +1021,12 @@ sub delete_retailer_location {
 #
 # Get Retailer Location
 #
-# @param double $version  (required)
 # @param int $retailer_location_id The ID of the retailer location (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $retailer_location_token the unique token of the retailer location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'retailer_location_id' => {
         data_type => 'int',
         description => 'The ID of the retailer location',
@@ -1119,18 +1059,13 @@ sub delete_retailer_location {
 sub get_retailer_location {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_retailer_location");
-    }
-
     # verify the required parameter 'retailer_location_id' is set
     unless (exists $args{'retailer_location_id'}) {
       croak("Missing the required parameter 'retailer_location_id' when calling get_retailer_location");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/location/get';
+    my $_resource_path = '/retailer/location/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1164,13 +1099,6 @@ sub get_retailer_location {
         $query_params->{'retailerLocationToken'} = $self->{api_client}->to_query_value($args{'retailer_location_token'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1191,17 +1119,11 @@ sub get_retailer_location {
 #
 # Get Retailer Location (Consumer)
 #
-# @param double $version  (required)
 # @param int $retailer_location_id The retailer location id (required)
 # @param string $device_id The device id for returning account information (i.e. favorites) (optional)
 # @param int $account_id The account id for returning account information (i.e. favorites) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'retailer_location_id' => {
         data_type => 'int',
         description => 'The retailer location id',
@@ -1229,18 +1151,13 @@ sub get_retailer_location {
 sub get_retailer_location_consumer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_retailer_location_consumer");
-    }
-
     # verify the required parameter 'retailer_location_id' is set
     unless (exists $args{'retailer_location_id'}) {
       croak("Missing the required parameter 'retailer_location_id' when calling get_retailer_location_consumer");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/location/get';
+    my $_resource_path = '/location/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1269,13 +1186,6 @@ sub get_retailer_location_consumer {
         $query_params->{'retailerLocationId'} = $self->{api_client}->to_query_value($args{'retailer_location_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1296,7 +1206,6 @@ sub get_retailer_location_consumer {
 #
 # Distance Search Retailer Locations (Indexed)
 #
-# @param double $version  (required)
 # @param double $latitude The latitude to center the search on (required)
 # @param double $longitude The longitude to center the search on (required)
 # @param double $search_range The search range in the distanceUnit specified; default is MILES. (required)
@@ -1333,11 +1242,6 @@ sub get_retailer_location_consumer {
 # @param boolean $include_rating Include rating info in response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'latitude' => {
         data_type => 'double',
         description => 'The latitude to center the search on',
@@ -1520,11 +1424,6 @@ sub get_retailer_location_consumer {
 sub indexed_retailer_location_distance_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling indexed_retailer_location_distance_search");
-    }
-
     # verify the required parameter 'latitude' is set
     unless (exists $args{'latitude'}) {
       croak("Missing the required parameter 'latitude' when calling indexed_retailer_location_distance_search");
@@ -1551,7 +1450,7 @@ sub indexed_retailer_location_distance_search {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/location/idistancesearch';
+    my $_resource_path = '/retailer/location/idistancesearch';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1735,13 +1634,6 @@ sub indexed_retailer_location_distance_search {
         $query_params->{'includeRating'} = $self->{api_client}->to_query_value($args{'include_rating'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1762,7 +1654,6 @@ sub indexed_retailer_location_distance_search {
 #
 # Keyword Search Retailer Locations (Indexed)
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (optional)
 # @param int $start The start index for pagination (optional)
 # @param int $limit The limit for pagination (optional)
@@ -1793,11 +1684,6 @@ sub indexed_retailer_location_distance_search {
 # @param boolean $include_rating Include rating info in response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -1950,13 +1836,8 @@ sub indexed_retailer_location_distance_search {
 sub indexed_retailer_location_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling indexed_retailer_location_search");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/location/isearch';
+    my $_resource_path = '/retailer/location/isearch';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2110,13 +1991,6 @@ sub indexed_retailer_location_search {
         $query_params->{'includeRating'} = $self->{api_client}->to_query_value($args{'include_rating'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2137,7 +2011,6 @@ sub indexed_retailer_location_search {
 #
 # Search Retailer Locations (Owned)
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $q This parameter is deprecated. (optional)
@@ -2165,11 +2038,6 @@ sub indexed_retailer_location_search {
 # @param boolean $include_rating Include rating info in response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -2307,13 +2175,8 @@ sub indexed_retailer_location_search {
 sub search_retailer_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_retailer_locations");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/location/search';
+    my $_resource_path = '/retailer/location/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2452,13 +2315,6 @@ sub search_retailer_locations {
         $query_params->{'includeRating'} = $self->{api_client}->to_query_value($args{'include_rating'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2479,7 +2335,6 @@ sub search_retailer_locations {
 #
 # Update Retailer Location
 #
-# @param double $version  (required)
 # @param int $retailer_location_id The ID of the retailer location (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2523,11 +2378,6 @@ sub search_retailer_locations {
 # @param string $tags Custom string field for doing full-text searches (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'retailer_location_id' => {
         data_type => 'int',
         description => 'The ID of the retailer location',
@@ -2745,18 +2595,13 @@ sub search_retailer_locations {
 sub update_retailer_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_retailer_locations");
-    }
-
     # verify the required parameter 'retailer_location_id' is set
     unless (exists $args{'retailer_location_id'}) {
       croak("Missing the required parameter 'retailer_location_id' when calling update_retailer_locations");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/location/update';
+    my $_resource_path = '/retailer/location/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2973,13 +2818,6 @@ sub update_retailer_locations {
     # query params
     if ( exists $args{'tags'}) {
         $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

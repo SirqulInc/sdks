@@ -53,7 +53,6 @@ sub new {
 #
 # Run Workflow
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user (required)
 # @param int $workflow_id the workflow to run (required)
 # @param int $sku_id this runs a particular sku on the workflow (optional)
@@ -61,11 +60,6 @@ sub new {
 # @param string $parameters Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user',
@@ -103,11 +97,6 @@ sub new {
 sub run_workflow {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling run_workflow");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling run_workflow");
@@ -119,7 +108,7 @@ sub run_workflow {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/workflow/run';
+    my $_resource_path = '/workflow/run';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -156,13 +145,6 @@ sub run_workflow {
     # query params
     if ( exists $args{'parameters'}) {
         $query_params->{'parameters'} = $self->{api_client}->to_query_value($args{'parameters'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

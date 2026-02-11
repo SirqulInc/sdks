@@ -53,7 +53,6 @@ sub new {
 #
 # Create Word
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $word The text of the word. (required)
 # @param string $definition The definition of the word. (required)
@@ -65,11 +64,6 @@ sub new {
 # @param int $points The number of points to award for completing a mission (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -127,11 +121,6 @@ sub new {
 sub create_word {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_word");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_word");
@@ -163,7 +152,7 @@ sub create_word {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/word/create';
+    my $_resource_path = '/game/word/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -222,13 +211,6 @@ sub create_word {
         $query_params->{'points'} = $self->{api_client}->to_query_value($args{'points'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -249,16 +231,10 @@ sub create_word {
 #
 # Delete Word
 #
-# @param double $version  (required)
 # @param int $word_id The id of the word to delete. (required)
 # @param int $account_id The account vor validating permission (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'word_id' => {
         data_type => 'int',
         description => 'The id of the word to delete.',
@@ -281,11 +257,6 @@ sub create_word {
 sub delete_word {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_word");
-    }
-
     # verify the required parameter 'word_id' is set
     unless (exists $args{'word_id'}) {
       croak("Missing the required parameter 'word_id' when calling delete_word");
@@ -297,7 +268,7 @@ sub delete_word {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/word/delete';
+    my $_resource_path = '/game/word/delete';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -321,13 +292,6 @@ sub delete_word {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -348,16 +312,10 @@ sub delete_word {
 #
 # Get Word
 #
-# @param double $version  (required)
 # @param int $word_id The id of the word to get. (required)
 # @param int $account_id The logged in user. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'word_id' => {
         data_type => 'int',
         description => 'The id of the word to get.',
@@ -380,11 +338,6 @@ sub delete_word {
 sub get_word {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_word");
-    }
-
     # verify the required parameter 'word_id' is set
     unless (exists $args{'word_id'}) {
       croak("Missing the required parameter 'word_id' when calling get_word");
@@ -396,7 +349,7 @@ sub get_word {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/word/get';
+    my $_resource_path = '/game/word/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -420,13 +373,6 @@ sub get_word {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -447,7 +393,6 @@ sub get_word {
 #
 # Search Words
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $sort_field The column to sort the search on (required)
 # @param boolean $descending The order to return the search results (required)
@@ -457,11 +402,6 @@ sub get_word {
 # @param string $keyword The keyword for searching words with matching definition or word text. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -509,11 +449,6 @@ sub get_word {
 sub get_words {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_words");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_words");
@@ -545,7 +480,7 @@ sub get_words {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/word/search';
+    my $_resource_path = '/game/word/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -594,13 +529,6 @@ sub get_words {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -621,7 +549,6 @@ sub get_words {
 #
 # Update Word
 #
-# @param double $version  (required)
 # @param int $word_id The id of the word to update. (required)
 # @param int $account_id The logged in user. (required)
 # @param int $ticket_count The number of tickets to reward (required)
@@ -634,11 +561,6 @@ sub get_words {
 # @param int $points The number of points to award for completing a mission (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'word_id' => {
         data_type => 'int',
         description => 'The id of the word to update.',
@@ -701,11 +623,6 @@ sub get_words {
 sub update_word {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_word");
-    }
-
     # verify the required parameter 'word_id' is set
     unless (exists $args{'word_id'}) {
       croak("Missing the required parameter 'word_id' when calling update_word");
@@ -722,7 +639,7 @@ sub update_word {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/word/update';
+    my $_resource_path = '/game/word/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -784,13 +701,6 @@ sub update_word {
     # query params
     if ( exists $args{'points'}) {
         $query_params->{'points'} = $self->{api_client}->to_query_value($args{'points'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

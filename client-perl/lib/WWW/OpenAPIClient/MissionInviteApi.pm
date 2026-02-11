@@ -53,7 +53,6 @@ sub new {
 #
 # Create Mission Invite
 #
-# @param double $version  (required)
 # @param string $device_id the device id (deviceId or accountId required). (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required). (optional)
 # @param int $mission_id The mission to find the invite for. (optional)
@@ -61,11 +60,6 @@ sub new {
 # @param boolean $include_game_data Include the game level data with the mission. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id (deviceId or accountId required).',
@@ -103,13 +97,8 @@ sub new {
 sub create_mission_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_mission_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/invite/create';
+    my $_resource_path = '/mission/invite/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -148,13 +137,6 @@ sub create_mission_invite {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -175,7 +157,6 @@ sub create_mission_invite {
 #
 # Delete Mission Invite
 #
-# @param double $version  (required)
 # @param string $device_id the device id (deviceId or accountId required). (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required). (optional)
 # @param int $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -183,11 +164,6 @@ sub create_mission_invite {
 # @param boolean $include_game_data Include the game level data with the mission. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id (deviceId or accountId required).',
@@ -225,13 +201,8 @@ sub create_mission_invite {
 sub delete_mission_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_mission_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/invite/delete';
+    my $_resource_path = '/mission/invite/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -270,13 +241,6 @@ sub delete_mission_invite {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -297,7 +261,6 @@ sub delete_mission_invite {
 #
 # Get Mission Invite
 #
-# @param double $version  (required)
 # @param string $device_id the device id (deviceId or accountId required). (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required). (optional)
 # @param int $mission_id The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -306,11 +269,6 @@ sub delete_mission_invite {
 # @param string $include_scores include the scores with the mission (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id (deviceId or accountId required).',
@@ -353,13 +311,8 @@ sub delete_mission_invite {
 sub get_mission_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_mission_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/invite/get';
+    my $_resource_path = '/mission/invite/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -403,13 +356,6 @@ sub get_mission_invite {
         $query_params->{'includeScores'} = $self->{api_client}->to_query_value($args{'include_scores'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -430,7 +376,6 @@ sub get_mission_invite {
 #
 # Search Mission Invites
 #
-# @param double $version  (required)
 # @param string $device_id the device id (deviceId or accountId required). (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required). (optional)
 # @param string $app_key the app to retrieve the data for, use your application key. (optional)
@@ -446,11 +391,6 @@ sub get_mission_invite {
 # @param boolean $include_game_data Include the game level data with the mission. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id (deviceId or accountId required).',
@@ -528,13 +468,8 @@ sub get_mission_invite {
 sub search_mission_invites {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_mission_invites");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/invite/search';
+    my $_resource_path = '/mission/invite/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -613,13 +548,6 @@ sub search_mission_invites {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -640,7 +568,6 @@ sub search_mission_invites {
 #
 # Update Mission Invite
 #
-# @param double $version  (required)
 # @param string $device_id the device id (deviceId or accountId required). (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required). (optional)
 # @param string $app_key the application key (optional)
@@ -654,11 +581,6 @@ sub search_mission_invites {
 # @param boolean $include_game_data Include the game level data with the mission. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id (deviceId or accountId required).',
@@ -726,13 +648,8 @@ sub search_mission_invites {
 sub update_mission_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_mission_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/invite/update';
+    my $_resource_path = '/mission/invite/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -799,13 +716,6 @@ sub update_mission_invite {
     # query params
     if ( exists $args{'include_game_data'}) {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

@@ -53,15 +53,9 @@ sub new {
 #
 # Cancel Shipment
 #
-# @param double $version  (required)
 # @param int $id the id of the shipment to cancel (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the shipment to cancel',
@@ -79,18 +73,13 @@ sub new {
 sub cancel_shipment {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling cancel_shipment");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling cancel_shipment");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/{id}/cancel';
+    my $_resource_path = '/shipment/{id}/cancel';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -103,13 +92,6 @@ sub cancel_shipment {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -134,15 +116,9 @@ sub cancel_shipment {
 #
 # Create Shipment
 #
-# @param double $version  (required)
 # @param Shipment $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'Shipment',
         description => '',
@@ -160,13 +136,8 @@ sub cancel_shipment {
 sub create_shipment {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_shipment");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment';
+    my $_resource_path = '/shipment';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -179,13 +150,6 @@ sub create_shipment {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -212,15 +176,9 @@ sub create_shipment {
 #
 # Delete Shipment
 #
-# @param double $version  (required)
 # @param int $id the id of the shipment to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the shipment to delete',
@@ -238,18 +196,13 @@ sub create_shipment {
 sub delete_shipment {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_shipment");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling delete_shipment");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/{id}';
+    my $_resource_path = '/shipment/{id}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -262,13 +215,6 @@ sub delete_shipment {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -293,15 +239,9 @@ sub delete_shipment {
 #
 # Get Shipment
 #
-# @param double $version  (required)
 # @param int $id the id of the shipment to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the shipment to get',
@@ -319,18 +259,13 @@ sub delete_shipment {
 sub get_shipment {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_shipment");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling get_shipment");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/{id}';
+    my $_resource_path = '/shipment/{id}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -343,13 +278,6 @@ sub get_shipment {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -378,7 +306,6 @@ sub get_shipment {
 #
 # Search Shipments
 #
-# @param double $version  (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
 # @param int $start The start index for pagination (required)
@@ -389,11 +316,6 @@ sub get_shipment {
 # @param int $route_id The route associate to this shipment (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'The field to sort by',
@@ -446,11 +368,6 @@ sub get_shipment {
 sub search_shipments {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_shipments");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_shipments");
@@ -477,7 +394,7 @@ sub search_shipments {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment';
+    my $_resource_path = '/shipment';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -531,13 +448,6 @@ sub search_shipments {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -558,16 +468,10 @@ sub search_shipments {
 #
 # Update Shipment
 #
-# @param double $version  (required)
 # @param int $id the id of the shipment to update (required)
 # @param Shipment $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the shipment to update',
@@ -590,18 +494,13 @@ sub search_shipments {
 sub update_shipment {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_shipment");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_shipment");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/{id}';
+    my $_resource_path = '/shipment/{id}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -614,13 +513,6 @@ sub update_shipment {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -654,16 +546,10 @@ sub update_shipment {
 #
 # Uupdate Shipment Status
 #
-# @param double $version  (required)
 # @param int $id the id of the shipment to update status (required)
 # @param HASH[string,boolean] $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the shipment to update status',
@@ -686,18 +572,13 @@ sub update_shipment {
 sub update_shipment_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_shipment_status");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_shipment_status");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/shipment/{id}/status';
+    my $_resource_path = '/shipment/{id}/status';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -710,13 +591,6 @@ sub update_shipment_status {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {

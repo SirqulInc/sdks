@@ -53,17 +53,11 @@ sub new {
 #
 # Get User Activity
 #
-# @param double $version  (required)
 # @param int $start The start of the pagination (required)
 # @param int $limit The limit of the pagination (required)
 # @param int $account_id the account id of the user (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'start' => {
         data_type => 'int',
         description => 'The start of the pagination',
@@ -91,11 +85,6 @@ sub new {
 sub activities {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling activities");
-    }
-
     # verify the required parameter 'start' is set
     unless (exists $args{'start'}) {
       croak("Missing the required parameter 'start' when calling activities");
@@ -112,7 +101,7 @@ sub activities {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/analytics/useractivity';
+    my $_resource_path = '/analytics/useractivity';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -141,13 +130,6 @@ sub activities {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -168,7 +150,6 @@ sub activities {
 #
 # Get Aggregated Filtered Usage
 #
-# @param double $version  (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $application_id This parameter is deprecated. (optional)
@@ -202,11 +183,6 @@ sub activities {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique id of the device making the request (deviceId or accountId required)',
@@ -374,13 +350,8 @@ sub activities {
 sub aggregated_filtered_usage {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling aggregated_filtered_usage");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/analytics/aggregatedFilteredUsage';
+    my $_resource_path = '/analytics/aggregatedFilteredUsage';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -549,13 +520,6 @@ sub aggregated_filtered_usage {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -576,7 +540,6 @@ sub aggregated_filtered_usage {
 #
 # Get Filtered Usage
 #
-# @param double $version  (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $application_id This parameter is deprecated. (optional)
@@ -618,11 +581,6 @@ sub aggregated_filtered_usage {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique id of the device making the request (deviceId or accountId required)',
@@ -830,13 +788,8 @@ sub aggregated_filtered_usage {
 sub filtered_usage {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling filtered_usage");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/analytics/filteredUsage';
+    my $_resource_path = '/analytics/filteredUsage';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1045,13 +998,6 @@ sub filtered_usage {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1072,7 +1018,6 @@ sub filtered_usage {
 #
 # Create Usage Record
 #
-# @param double $version  (required)
 # @param string $tag The tag to apply: the name of the action or thing being logged. (required)
 # @param string $device_id The client deviceID (optional)
 # @param int $account_id The logged in user ID (optional)
@@ -1106,11 +1051,6 @@ sub filtered_usage {
 # @param int $custom_long2 a custom long value for the usage record (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'tag' => {
         data_type => 'string',
         description => 'The tag to apply: the name of the action or thing being logged.',
@@ -1278,18 +1218,13 @@ sub filtered_usage {
 sub usage {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling usage");
-    }
-
     # verify the required parameter 'tag' is set
     unless (exists $args{'tag'}) {
       croak("Missing the required parameter 'tag' when calling usage");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/analytics/usage';
+    my $_resource_path = '/analytics/usage';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1458,13 +1393,6 @@ sub usage {
         $query_params->{'customLong2'} = $self->{api_client}->to_query_value($args{'custom_long2'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1485,7 +1413,6 @@ sub usage {
 #
 # Create Multiple Usage Records
 #
-# @param double $version  (required)
 # @param string $app_key The application key unique to each application. (required)
 # @param string $device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
 # @param string $data The analytic data AnalyticListResponse (required)
@@ -1499,11 +1426,6 @@ sub usage {
 # @param boolean $return_summary_response Returns a summary response of the achievements that have been completed due to the analytics (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key unique to each application.',
@@ -1571,11 +1493,6 @@ sub usage {
 sub usage_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling usage_batch");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling usage_batch");
@@ -1592,7 +1509,7 @@ sub usage_batch {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/analytics/usage/batch';
+    my $_resource_path = '/analytics/usage/batch';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1659,13 +1576,6 @@ sub usage_batch {
     # query params
     if ( exists $args{'return_summary_response'}) {
         $query_params->{'returnSummaryResponse'} = $self->{api_client}->to_query_value($args{'return_summary_response'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

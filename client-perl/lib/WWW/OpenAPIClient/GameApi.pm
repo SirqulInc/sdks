@@ -53,7 +53,6 @@ sub new {
 #
 # Create a Game
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (optional)
 # @param string $app_key The game application key to save the level for. (optional)
 # @param string $title Title of the game. (optional)
@@ -63,11 +62,6 @@ sub new {
 # @param boolean $include_game_data Show more details in response. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -115,13 +109,8 @@ sub new {
 sub create_game {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_game");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/game/create';
+    my $_resource_path = '/game/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -170,13 +159,6 @@ sub create_game {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -197,16 +179,10 @@ sub create_game {
 #
 # Delete a Game
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $game_id the updating game&#39;s id. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -229,11 +205,6 @@ sub create_game {
 sub delete_game {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_game");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_game");
@@ -245,7 +216,7 @@ sub delete_game {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/delete';
+    my $_resource_path = '/game/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -269,13 +240,6 @@ sub delete_game {
         $query_params->{'gameId'} = $self->{api_client}->to_query_value($args{'game_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -296,17 +260,11 @@ sub delete_game {
 #
 # Get a Game by id
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $game_id the updating game&#39;s id. (required)
 # @param boolean $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -334,11 +292,6 @@ sub delete_game {
 sub get_game {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_game");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_game");
@@ -350,7 +303,7 @@ sub get_game {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/get';
+    my $_resource_path = '/game/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -379,13 +332,6 @@ sub get_game {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -406,7 +352,6 @@ sub get_game {
 #
 # Search a Game
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key the application key (required)
 # @param int $start Start the result set at some index. (required)
@@ -417,11 +362,6 @@ sub get_game {
 # @param boolean $include_inactive more details in response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -474,11 +414,6 @@ sub get_game {
 sub search_games {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_games");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_games");
@@ -500,7 +435,7 @@ sub search_games {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/search';
+    my $_resource_path = '/game/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -554,13 +489,6 @@ sub search_games {
         $query_params->{'includeInactive'} = $self->{api_client}->to_query_value($args{'include_inactive'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -581,7 +509,6 @@ sub search_games {
 #
 # Update a Game
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (optional)
 # @param int $game_id the updating game&#39;s id (optional)
 # @param string $app_key The game application key to save the level for. (optional)
@@ -592,11 +519,6 @@ sub search_games {
 # @param boolean $include_game_data show more details in response. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -649,13 +571,8 @@ sub search_games {
 sub update_game {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_game");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/game/update';
+    my $_resource_path = '/game/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -707,13 +624,6 @@ sub update_game {
     # query params
     if ( exists $args{'include_game_data'}) {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

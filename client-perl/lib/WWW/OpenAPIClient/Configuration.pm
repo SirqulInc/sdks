@@ -84,7 +84,7 @@ String. The OAuth access token.
 
 String. The base URL of the API
 
-default: http://localhost
+default: https://dev.sirqul.com/api/3.18
 
 =back
 
@@ -110,7 +110,7 @@ sub new {
     $p{access_token} //= '';
 
     # base_url
-    $p{base_url} //= 'http://localhost';
+    $p{base_url} //= 'https://dev.sirqul.com/api/3.18';
 
     return bless \%p => $self;
 }

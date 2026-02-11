@@ -53,7 +53,6 @@ sub new {
 #
 # Create Media
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param string $title The title (255 char limit) (required)
 # @param string $barcode_type The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -113,11 +112,6 @@ sub new {
 # @param string $availability_summary ability to assign when the media expires (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -415,11 +409,6 @@ sub new {
 sub create_media {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_media");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_media");
@@ -496,7 +485,7 @@ sub create_media {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/media/create';
+    my $_resource_path = '/media/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -795,13 +784,6 @@ sub create_media {
         $query_params->{'availabilitySummary'} = $self->{api_client}->to_query_value($args{'availability_summary'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -822,16 +804,10 @@ sub create_media {
 #
 # Delete Media
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $media_id the ID of the media to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -854,11 +830,6 @@ sub create_media {
 sub delete_media {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_media");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_media");
@@ -870,7 +841,7 @@ sub delete_media {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/media/delete';
+    my $_resource_path = '/media/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -894,13 +865,6 @@ sub delete_media {
         $query_params->{'mediaId'} = $self->{api_client}->to_query_value($args{'media_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -921,16 +885,10 @@ sub delete_media {
 #
 # Media Get
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $media_id the id of the media to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -953,11 +911,6 @@ sub delete_media {
 sub get_media {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_media");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_media");
@@ -969,7 +922,7 @@ sub get_media {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/media/get';
+    my $_resource_path = '/media/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -993,13 +946,6 @@ sub get_media {
         $query_params->{'mediaId'} = $self->{api_client}->to_query_value($args{'media_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1020,7 +966,6 @@ sub get_media {
 #
 # Search Media
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param boolean $active_only Return only active results (required)
 # @param string $sort_field The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -1032,11 +977,6 @@ sub get_media {
 # @param int $limit The number of records to return (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1094,11 +1034,6 @@ sub get_media {
 sub search_media {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_media");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_media");
@@ -1120,7 +1055,7 @@ sub search_media {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/media/search';
+    my $_resource_path = '/media/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1179,13 +1114,6 @@ sub search_media {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1206,7 +1134,6 @@ sub search_media {
 #
 # Update Media
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
 # @param int $media_id  (required)
 # @param string $retailer_location_ids Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1268,11 +1195,6 @@ sub search_media {
 # @param string $availability_summary  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)',
@@ -1580,11 +1502,6 @@ sub search_media {
 sub update_media {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_media");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_media");
@@ -1596,7 +1513,7 @@ sub update_media {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/media/update';
+    my $_resource_path = '/media/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1903,13 +1820,6 @@ sub update_media {
     # query params
     if ( exists $args{'availability_summary'}) {
         $query_params->{'availabilitySummary'} = $self->{api_client}->to_query_value($args{'availability_summary'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

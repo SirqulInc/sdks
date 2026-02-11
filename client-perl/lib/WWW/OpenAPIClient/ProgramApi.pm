@@ -53,15 +53,9 @@ sub new {
 #
 # Create Program
 #
-# @param double $version  (required)
 # @param Program $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'Program',
         description => '',
@@ -79,13 +73,8 @@ sub new {
 sub create_program {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_program");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/program';
+    my $_resource_path = '/program';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -98,13 +87,6 @@ sub create_program {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -131,15 +113,9 @@ sub create_program {
 #
 # Delete Program
 #
-# @param double $version  (required)
 # @param int $id the id of the program (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the program',
@@ -157,18 +133,13 @@ sub create_program {
 sub delete_program {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_program");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling delete_program");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/program/{id}';
+    my $_resource_path = '/program/{id}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -181,13 +152,6 @@ sub delete_program {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -212,15 +176,9 @@ sub delete_program {
 #
 # Get Program
 #
-# @param double $version  (required)
 # @param int $id the id of the program (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the program',
@@ -238,18 +196,13 @@ sub delete_program {
 sub get_program {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_program");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling get_program");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/program/{id}';
+    my $_resource_path = '/program/{id}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -262,13 +215,6 @@ sub get_program {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -297,16 +243,10 @@ sub get_program {
 #
 # Update Program
 #
-# @param double $version  (required)
 # @param int $id the id of the program (required)
 # @param Program $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the program',
@@ -329,18 +269,13 @@ sub get_program {
 sub post_program {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling post_program");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling post_program");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/program/{id}';
+    my $_resource_path = '/program/{id}';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -353,13 +288,6 @@ sub post_program {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -393,16 +321,10 @@ sub post_program {
 #
 # Update Program
 #
-# @param double $version  (required)
 # @param int $id the id of the program (required)
 # @param Program $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the program',
@@ -425,18 +347,13 @@ sub post_program {
 sub put_program {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling put_program");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling put_program");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/program/{id}';
+    my $_resource_path = '/program/{id}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -449,13 +366,6 @@ sub put_program {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -489,7 +399,6 @@ sub put_program {
 #
 # Search Programs
 #
-# @param double $version  (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
 # @param int $start The start index for pagination (required)
@@ -498,11 +407,6 @@ sub put_program {
 # @param string $keyword The keyword to filter results by (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'The field to sort by',
@@ -545,11 +449,6 @@ sub put_program {
 sub search_programs {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_programs");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_programs");
@@ -576,7 +475,7 @@ sub search_programs {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/program';
+    my $_resource_path = '/program';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -618,13 +517,6 @@ sub search_programs {
     # query params
     if ( exists $args{'active_only'}) {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

@@ -53,7 +53,6 @@ sub new {
 #
 # Detail Status
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $batch_id the id of the batch (required)
 # @param string $response_group The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -61,11 +60,6 @@ sub new {
 # @param int $limit the limit of the pagination (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -103,11 +97,6 @@ sub new {
 sub get_status_csv {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_status_csv");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_status_csv");
@@ -134,7 +123,7 @@ sub get_status_csv {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/csvimport/batch/status/details';
+    my $_resource_path = '/csvimport/batch/status/details';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -173,13 +162,6 @@ sub get_status_csv {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -200,17 +182,11 @@ sub get_status_csv {
 #
 # Search Status
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account (required)
 # @param int $start the start of the pagination (required)
 # @param int $limit the limit of the pagination (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account',
@@ -238,11 +214,6 @@ sub get_status_csv {
 sub list_status_csv {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_status_csv");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_status_csv");
@@ -259,7 +230,7 @@ sub list_status_csv {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/csvimport/batch/list';
+    my $_resource_path = '/csvimport/batch/list';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -288,13 +259,6 @@ sub list_status_csv {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -315,16 +279,10 @@ sub list_status_csv {
 #
 # Batch Status
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account (required)
 # @param int $batch_id the id of the batch to get its status (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account',
@@ -347,11 +305,6 @@ sub list_status_csv {
 sub status_csv {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling status_csv");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling status_csv");
@@ -363,7 +316,7 @@ sub status_csv {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/csvimport/batch/status';
+    my $_resource_path = '/csvimport/batch/status';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -387,13 +340,6 @@ sub status_csv {
         $query_params->{'batchId'} = $self->{api_client}->to_query_value($args{'batch_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -414,7 +360,6 @@ sub status_csv {
 #
 # Upload CSV
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account (required)
 # @param string $upload_type the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
 # @param string $import_file the import file to reference (required)
@@ -422,11 +367,6 @@ sub status_csv {
 # @param string $app_key the application key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account',
@@ -464,11 +404,6 @@ sub status_csv {
 sub upload_csv {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling upload_csv");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling upload_csv");
@@ -490,7 +425,7 @@ sub upload_csv {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/csvimport/upload';
+    my $_resource_path = '/csvimport/upload';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -527,13 +462,6 @@ sub upload_csv {
     # query params
     if ( exists $args{'file_format'}) {
         $query_params->{'fileFormat'} = $self->{api_client}->to_query_value($args{'file_format'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

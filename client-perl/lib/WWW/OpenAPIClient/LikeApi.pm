@@ -53,7 +53,6 @@ sub new {
 #
 # Create Like
 #
-# @param double $version  (required)
 # @param string $likable_type The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
 # @param int $likable_id The id of the likable object (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -68,11 +67,6 @@ sub new {
 # @param double $longitude The current location of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'likable_type' => {
         data_type => 'string',
         description => 'The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}',
@@ -145,11 +139,6 @@ sub new {
 sub register_like {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling register_like");
-    }
-
     # verify the required parameter 'likable_type' is set
     unless (exists $args{'likable_type'}) {
       croak("Missing the required parameter 'likable_type' when calling register_like");
@@ -161,7 +150,7 @@ sub register_like {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/like';
+    my $_resource_path = '/like';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -235,13 +224,6 @@ sub register_like {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -262,7 +244,6 @@ sub register_like {
 #
 # Delete Like
 #
-# @param double $version  (required)
 # @param string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
 # @param int $likable_id The id of the likable object (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -271,11 +252,6 @@ sub register_like {
 # @param double $longitude The current location of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'likable_type' => {
         data_type => 'string',
         description => 'The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}',
@@ -318,11 +294,6 @@ sub register_like {
 sub remove_like {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_like");
-    }
-
     # verify the required parameter 'likable_type' is set
     unless (exists $args{'likable_type'}) {
       croak("Missing the required parameter 'likable_type' when calling remove_like");
@@ -334,7 +305,7 @@ sub remove_like {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/like/delete';
+    my $_resource_path = '/like/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -378,13 +349,6 @@ sub remove_like {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -405,7 +369,6 @@ sub remove_like {
 #
 # Search Likes
 #
-# @param double $version  (required)
 # @param string $likable_type The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
 # @param int $likable_id The id of the likable object (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -419,11 +382,6 @@ sub remove_like {
 # @param int $limit the limit for pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'likable_type' => {
         data_type => 'string',
         description => 'The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}',
@@ -491,11 +449,6 @@ sub remove_like {
 sub search_likes {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_likes");
-    }
-
     # verify the required parameter 'likable_type' is set
     unless (exists $args{'likable_type'}) {
       croak("Missing the required parameter 'likable_type' when calling search_likes");
@@ -507,7 +460,7 @@ sub search_likes {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/like/search';
+    my $_resource_path = '/like/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -574,13 +527,6 @@ sub search_likes {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

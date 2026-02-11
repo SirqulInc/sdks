@@ -53,7 +53,6 @@ sub new {
 #
 # Create Album
 #
-# @param double $version  (required)
 # @param string $title the title of the album (required)
 # @param boolean $cover_asset_nullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
 # @param boolean $include_cover_in_asset_list determines whether the cover image should be added to the album asset list (required)
@@ -102,11 +101,6 @@ sub new {
 # @param int $linked_object_id sets a linked object id so that it can be returned as part of the album response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'title' => {
         data_type => 'string',
         description => 'the title of the album',
@@ -349,11 +343,6 @@ sub new {
 sub add_album_collection {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_album_collection");
-    }
-
     # verify the required parameter 'title' is set
     unless (exists $args{'title'}) {
       croak("Missing the required parameter 'title' when calling add_album_collection");
@@ -395,7 +384,7 @@ sub add_album_collection {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/create';
+    my $_resource_path = '/album/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -639,13 +628,6 @@ sub add_album_collection {
         $query_params->{'linkedObjectId'} = $self->{api_client}->to_query_value($args{'linked_object_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -666,7 +648,6 @@ sub add_album_collection {
 #
 # Add Album Users
 #
-# @param double $version  (required)
 # @param int $album_id the album ID (required)
 # @param boolean $include_friend_group determines whether to include all friends as participants (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -679,11 +660,6 @@ sub add_album_collection {
 # @param string $connection_groups comma separated list of connection group IDs (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_id' => {
         data_type => 'int',
         description => 'the album ID',
@@ -746,11 +722,6 @@ sub add_album_collection {
 sub add_album_users {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_album_users");
-    }
-
     # verify the required parameter 'album_id' is set
     unless (exists $args{'album_id'}) {
       croak("Missing the required parameter 'album_id' when calling add_album_users");
@@ -762,7 +733,7 @@ sub add_album_users {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/user/add';
+    my $_resource_path = '/album/user/add';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -826,13 +797,6 @@ sub add_album_users {
         $query_params->{'includeFriendGroup'} = $self->{api_client}->to_query_value($args{'include_friend_group'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -853,7 +817,6 @@ sub add_album_users {
 #
 # Approve Album
 #
-# @param double $version  (required)
 # @param int $album_id The ID of the album (required)
 # @param string $device_id A unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id The account ID of the user (deviceId or accountId required) (optional)
@@ -861,11 +824,6 @@ sub add_album_users {
 # @param boolean $verified Sets whether the album should be marked as \&quot;verified\&quot; (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_id' => {
         data_type => 'int',
         description => 'The ID of the album',
@@ -903,18 +861,13 @@ sub add_album_users {
 sub approve_album {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling approve_album");
-    }
-
     # verify the required parameter 'album_id' is set
     unless (exists $args{'album_id'}) {
       croak("Missing the required parameter 'album_id' when calling approve_album");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/approve';
+    my $_resource_path = '/album/approve';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -953,13 +906,6 @@ sub approve_album {
         $query_params->{'verified'} = $self->{api_client}->to_query_value($args{'verified'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -980,7 +926,6 @@ sub approve_album {
 #
 #  Get Album
 #
-# @param double $version  (required)
 # @param boolean $return_nulls This parameter is deprecated. (required)
 # @param int $album_id the album to look up (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -992,11 +937,6 @@ sub approve_album {
 # @param int $audience_preview_size returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'This parameter is deprecated.',
@@ -1054,11 +994,6 @@ sub approve_album {
 sub get_album_collection {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_album_collection");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling get_album_collection");
@@ -1070,7 +1005,7 @@ sub get_album_collection {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/get';
+    my $_resource_path = '/album/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1129,13 +1064,6 @@ sub get_album_collection {
         $query_params->{'audiencePreviewSize'} = $self->{api_client}->to_query_value($args{'audience_preview_size'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1156,17 +1084,11 @@ sub get_album_collection {
 #
 # Leave Album
 #
-# @param double $version  (required)
 # @param int $album_id the album ID (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_id' => {
         data_type => 'int',
         description => 'the album ID',
@@ -1194,18 +1116,13 @@ sub get_album_collection {
 sub leave_album {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling leave_album");
-    }
-
     # verify the required parameter 'album_id' is set
     unless (exists $args{'album_id'}) {
       croak("Missing the required parameter 'album_id' when calling leave_album");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/user/leave';
+    my $_resource_path = '/album/user/leave';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1234,13 +1151,6 @@ sub leave_album {
         $query_params->{'albumId'} = $self->{api_client}->to_query_value($args{'album_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1261,17 +1171,11 @@ sub leave_album {
 #
 # Delete Album
 #
-# @param double $version  (required)
 # @param int $album_id the album ID to delete (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_id' => {
         data_type => 'int',
         description => 'the album ID to delete',
@@ -1299,18 +1203,13 @@ sub leave_album {
 sub remove_album {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_album");
-    }
-
     # verify the required parameter 'album_id' is set
     unless (exists $args{'album_id'}) {
       croak("Missing the required parameter 'album_id' when calling remove_album");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/delete';
+    my $_resource_path = '/album/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1339,13 +1238,6 @@ sub remove_album {
         $query_params->{'albumId'} = $self->{api_client}->to_query_value($args{'album_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1366,7 +1258,6 @@ sub remove_album {
 #
 # Remove Album Users
 #
-# @param double $version  (required)
 # @param int $album_id the album ID (required)
 # @param boolean $remove_friend_group remove friend group (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1375,11 +1266,6 @@ sub remove_album {
 # @param string $connection_groups comma separated list of connection group IDs (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_id' => {
         data_type => 'int',
         description => 'the album ID',
@@ -1422,11 +1308,6 @@ sub remove_album {
 sub remove_album_users {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_album_users");
-    }
-
     # verify the required parameter 'album_id' is set
     unless (exists $args{'album_id'}) {
       croak("Missing the required parameter 'album_id' when calling remove_album_users");
@@ -1438,7 +1319,7 @@ sub remove_album_users {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/user/delete';
+    my $_resource_path = '/album/user/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1482,13 +1363,6 @@ sub remove_album_users {
         $query_params->{'removeFriendGroup'} = $self->{api_client}->to_query_value($args{'remove_friend_group'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1509,7 +1383,6 @@ sub remove_album_users {
 #
 # Search Albums
 #
-# @param double $version  (required)
 # @param string $filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
 # @param int $album_type_id id of custom albumType (required)
 # @param string $sub_type filter albums with this album sub type (required)
@@ -1572,11 +1445,6 @@ sub remove_album_users {
 # @param boolean $generate_albums If true and results are empty, attempt to generate albums via templates (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'filter' => {
         data_type => 'string',
         description => 'a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. ',
@@ -1889,11 +1757,6 @@ sub remove_album_users {
 sub search_albums {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_albums");
-    }
-
     # verify the required parameter 'filter' is set
     unless (exists $args{'filter'}) {
       croak("Missing the required parameter 'filter' when calling search_albums");
@@ -1980,7 +1843,7 @@ sub search_albums {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/search';
+    my $_resource_path = '/album/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2294,13 +2157,6 @@ sub search_albums {
         $query_params->{'generateAlbums'} = $self->{api_client}->to_query_value($args{'generate_albums'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2321,7 +2177,6 @@ sub search_albums {
 #
 # Update Album
 #
-# @param double $version  (required)
 # @param int $album_id the ID of the album to update (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -2369,11 +2224,6 @@ sub search_albums {
 # @param boolean $index_now determines whether the album should be indexed immediately (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_id' => {
         data_type => 'int',
         description => 'the ID of the album to update',
@@ -2611,18 +2461,13 @@ sub search_albums {
 sub update_album_collection {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_album_collection");
-    }
-
     # verify the required parameter 'album_id' is set
     unless (exists $args{'album_id'}) {
       croak("Missing the required parameter 'album_id' when calling update_album_collection");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/album/update';
+    my $_resource_path = '/album/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2859,13 +2704,6 @@ sub update_album_collection {
     # query params
     if ( exists $args{'index_now'}) {
         $query_params->{'indexNow'} = $self->{api_client}->to_query_value($args{'index_now'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

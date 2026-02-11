@@ -53,15 +53,9 @@ sub new {
 #
 # Create Cargo Type
 #
-# @param double $version  (required)
 # @param CargoType $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'CargoType',
         description => '',
@@ -79,13 +73,8 @@ sub new {
 sub create_cargo_type {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_cargo_type");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/type';
+    my $_resource_path = '/cargo/type';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -98,13 +87,6 @@ sub create_cargo_type {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -131,15 +113,9 @@ sub create_cargo_type {
 #
 # Delete Cargo Type
 #
-# @param double $version  (required)
 # @param int $cargo_type_id the ID of the cargo type (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'cargo_type_id' => {
         data_type => 'int',
         description => 'the ID of the cargo type',
@@ -157,18 +133,13 @@ sub create_cargo_type {
 sub delete_cargo_type {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_cargo_type");
-    }
-
     # verify the required parameter 'cargo_type_id' is set
     unless (exists $args{'cargo_type_id'}) {
       croak("Missing the required parameter 'cargo_type_id' when calling delete_cargo_type");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/type/{cargoTypeId}';
+    my $_resource_path = '/cargo/type/{cargoTypeId}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -181,13 +152,6 @@ sub delete_cargo_type {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'cargo_type_id'}) {
@@ -212,15 +176,9 @@ sub delete_cargo_type {
 #
 # Get Cargo Type
 #
-# @param double $version  (required)
 # @param int $cargo_type_id the cargo type ID (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'cargo_type_id' => {
         data_type => 'int',
         description => 'the cargo type ID',
@@ -238,18 +196,13 @@ sub delete_cargo_type {
 sub get_cargo_type {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_cargo_type");
-    }
-
     # verify the required parameter 'cargo_type_id' is set
     unless (exists $args{'cargo_type_id'}) {
       croak("Missing the required parameter 'cargo_type_id' when calling get_cargo_type");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/type/{cargoTypeId}';
+    my $_resource_path = '/cargo/type/{cargoTypeId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -262,13 +215,6 @@ sub get_cargo_type {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'cargo_type_id'}) {
@@ -297,7 +243,6 @@ sub get_cargo_type {
 #
 # Search Cargo Type
 #
-# @param double $version  (required)
 # @param string $sort_field the sort field to use for the cargo type (required)
 # @param boolean $descending if the cargo type should be should be in descending order (required)
 # @param int $start the start of the search (required)
@@ -307,11 +252,6 @@ sub get_cargo_type {
 # @param int $hub_id the ID of the hub (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'the sort field to use for the cargo type',
@@ -359,11 +299,6 @@ sub get_cargo_type {
 sub search_cargo_types {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_cargo_types");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_cargo_types");
@@ -390,7 +325,7 @@ sub search_cargo_types {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/type';
+    my $_resource_path = '/cargo/type';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -439,13 +374,6 @@ sub search_cargo_types {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -466,16 +394,10 @@ sub search_cargo_types {
 #
 # Update Cargo Type
 #
-# @param double $version  (required)
 # @param int $cargo_type_id the ID of the cargo type (required)
 # @param CargoType $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'cargo_type_id' => {
         data_type => 'int',
         description => 'the ID of the cargo type',
@@ -498,18 +420,13 @@ sub search_cargo_types {
 sub update_cargo_type {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_cargo_type");
-    }
-
     # verify the required parameter 'cargo_type_id' is set
     unless (exists $args{'cargo_type_id'}) {
       croak("Missing the required parameter 'cargo_type_id' when calling update_cargo_type");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/type/{cargoTypeId}';
+    my $_resource_path = '/cargo/type/{cargoTypeId}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -522,13 +439,6 @@ sub update_cargo_type {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'cargo_type_id'}) {

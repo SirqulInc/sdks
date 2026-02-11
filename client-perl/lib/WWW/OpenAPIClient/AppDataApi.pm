@@ -53,7 +53,6 @@ sub new {
 #
 # Get App Data
 #
-# @param double $version  (required)
 # @param int $start start the search results at a record. (required)
 # @param int $limit limit the search results to some number. (required)
 # @param string $device_id the device id (deviceId or accountId required). (optional)
@@ -81,11 +80,6 @@ sub new {
 # @param string $purchase_type the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'start' => {
         data_type => 'int',
         description => 'start the search results at a record.',
@@ -223,11 +217,6 @@ sub new {
 sub get_app_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_app_data");
-    }
-
     # verify the required parameter 'start' is set
     unless (exists $args{'start'}) {
       croak("Missing the required parameter 'start' when calling get_app_data");
@@ -239,7 +228,7 @@ sub get_app_data {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/app/get';
+    my $_resource_path = '/app/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -378,13 +367,6 @@ sub get_app_data {
         $query_params->{'purchaseType'} = $self->{api_client}->to_query_value($args{'purchase_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -405,7 +387,6 @@ sub get_app_data {
 #
 # Create App Data
 #
-# @param double $version  (required)
 # @param string $game_type the game to retrieve the data for, use your application key. (required)
 # @param int $start start the search results at a record. (required)
 # @param int $limit limit the search results to some number. (required)
@@ -434,11 +415,6 @@ sub get_app_data {
 # @param string $purchase_type the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'game_type' => {
         data_type => 'string',
         description => 'the game to retrieve the data for, use your application key.',
@@ -581,11 +557,6 @@ sub get_app_data {
 sub post_app_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling post_app_data");
-    }
-
     # verify the required parameter 'game_type' is set
     unless (exists $args{'game_type'}) {
       croak("Missing the required parameter 'game_type' when calling post_app_data");
@@ -607,7 +578,7 @@ sub post_app_data {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/app/post';
+    my $_resource_path = '/app/post';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -751,13 +722,6 @@ sub post_app_data {
         $query_params->{'data'} = $self->{api_client}->to_query_value($args{'data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -778,18 +742,12 @@ sub post_app_data {
 #
 # Regenerate App Data
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (optional)
 # @param string $app_key process a specific application, if null process all apps with caches (optional)
 # @param string $build_version create a specific version, if null use current version. Be careful if processing all (optional)
 # @param string $api_version create a specific version, if null use current version. Be careful if processing all (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -822,13 +780,8 @@ sub post_app_data {
 sub regen_app_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling regen_app_data");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/app/regen';
+    my $_resource_path = '/app/regen';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -860,13 +813,6 @@ sub regen_app_data {
     # query params
     if ( exists $args{'api_version'}) {
         $query_params->{'apiVersion'} = $self->{api_client}->to_query_value($args{'api_version'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

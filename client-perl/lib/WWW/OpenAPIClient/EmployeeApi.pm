@@ -53,18 +53,12 @@ sub new {
 #
 # Assign Employee
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param int $manager_account_id The account id of the manager to assign under (required)
 # @param int $employee_account_id The account id of the user to be assigned as employee (required)
 # @param string $role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -97,11 +91,6 @@ sub new {
 sub assign_employee {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assign_employee");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assign_employee");
@@ -118,7 +107,7 @@ sub assign_employee {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/assign';
+    my $_resource_path = '/employee/assign';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -152,13 +141,6 @@ sub assign_employee {
         $query_params->{'role'} = $self->{api_client}->to_query_value($args{'role'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -179,18 +161,12 @@ sub assign_employee {
 #
 # Assign Employee to Location
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param int $retailer_location_id The retailer location to apply the change to (required)
 # @param int $employee_account_id The account id of the user to apply the change to (optional)
 # @param boolean $assign If true (default) assign to the location, otherwise remove from the retailer (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -223,11 +199,6 @@ sub assign_employee {
 sub assign_to_location_employee {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assign_to_location_employee");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assign_to_location_employee");
@@ -239,7 +210,7 @@ sub assign_to_location_employee {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/assignToLocation';
+    my $_resource_path = '/employee/assignToLocation';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -273,13 +244,6 @@ sub assign_to_location_employee {
         $query_params->{'assign'} = $self->{api_client}->to_query_value($args{'assign'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -300,7 +264,6 @@ sub assign_to_location_employee {
 #
 # Create Employee
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param int $manager_account_id The account id of the manager to assign under (required)
 # @param string $username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -333,11 +296,6 @@ sub assign_to_location_employee {
 # @param string $assigned_device_id The device id to assign to the user (used for IPS beacon tracking) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -500,11 +458,6 @@ sub assign_to_location_employee {
 sub create_employee {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_employee");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_employee");
@@ -526,7 +479,7 @@ sub create_employee {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/create';
+    my $_resource_path = '/employee/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -690,13 +643,6 @@ sub create_employee {
         $query_params->{'assignedDeviceId'} = $self->{api_client}->to_query_value($args{'assigned_device_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -717,16 +663,10 @@ sub create_employee {
 #
 # Delete Employee
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $employee_account_id the id of the employee to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -749,11 +689,6 @@ sub create_employee {
 sub delete_employee {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_employee");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_employee");
@@ -765,7 +700,7 @@ sub delete_employee {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/delete';
+    my $_resource_path = '/employee/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -789,13 +724,6 @@ sub delete_employee {
         $query_params->{'employeeAccountId'} = $self->{api_client}->to_query_value($args{'employee_account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -816,17 +744,11 @@ sub delete_employee {
 #
 # Get Employee
 #
-# @param double $version  (required)
 # @param int $account_id the id of logged in user (required)
 # @param int $employee_account_id the id of the employee account to get (required)
 # @param string $settings_app_key Determines whether to return the application settings for the employee for a particular application (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of logged in user',
@@ -854,11 +776,6 @@ sub delete_employee {
 sub get_employee {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_employee");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_employee");
@@ -870,7 +787,7 @@ sub get_employee {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/get';
+    my $_resource_path = '/employee/get';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -899,13 +816,6 @@ sub get_employee {
         $query_params->{'settingsAppKey'} = $self->{api_client}->to_query_value($args{'settings_app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -926,7 +836,6 @@ sub get_employee {
 #
 # Search Employees
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param string $role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
 # @param int $retailer_id Filters employees by retailer (optional)
@@ -946,11 +855,6 @@ sub get_employee {
 # @param string $query Legacy/reporting query parameter used for formatting employee responses (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -1048,18 +952,13 @@ sub get_employee {
 sub search_employees {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_employees");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_employees");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/search';
+    my $_resource_path = '/employee/search';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1158,13 +1057,6 @@ sub search_employees {
         $query_params->{'query'} = $self->{api_client}->to_query_value($args{'query'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1185,16 +1077,10 @@ sub search_employees {
 #
 # Unassign Employee
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param int $employee_account_id The account id of the user to be unassigned (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -1217,11 +1103,6 @@ sub search_employees {
 sub unassign_employee {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling unassign_employee");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling unassign_employee");
@@ -1233,7 +1114,7 @@ sub unassign_employee {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/unassign';
+    my $_resource_path = '/employee/unassign';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1257,13 +1138,6 @@ sub unassign_employee {
         $query_params->{'employeeAccountId'} = $self->{api_client}->to_query_value($args{'employee_account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1284,7 +1158,6 @@ sub unassign_employee {
 #
 # Update Employee
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param int $employee_account_id the id of the employee account (required)
 # @param int $manager_account_id The account id of the manager to assign under (optional)
@@ -1317,11 +1190,6 @@ sub unassign_employee {
 # @param string $assigned_device_id The device id to assign to the user (used for IPS beacon tracking) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -1484,11 +1352,6 @@ sub unassign_employee {
 sub update_employee {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_employee");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_employee");
@@ -1500,7 +1363,7 @@ sub update_employee {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/employee/update';
+    my $_resource_path = '/employee/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1662,13 +1525,6 @@ sub update_employee {
     # query params
     if ( exists $args{'assigned_device_id'}) {
         $query_params->{'assignedDeviceId'} = $self->{api_client}->to_query_value($args{'assigned_device_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

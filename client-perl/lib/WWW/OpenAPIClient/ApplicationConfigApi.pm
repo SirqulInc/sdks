@@ -53,7 +53,6 @@ sub new {
 #
 # Create AppConfig
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user (required)
 # @param string $app_key The application key that the newly created applicationConfig will be associated to (required)
 # @param string $config_version The application configuration, has to be unique within the application (required)
@@ -63,11 +62,6 @@ sub new {
 # @param string $udid The device udid for device specific configurations (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user',
@@ -115,11 +109,6 @@ sub new {
 sub create_application_config {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_application_config");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_application_config");
@@ -141,7 +130,7 @@ sub create_application_config {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/appconfig/create';
+    my $_resource_path = '/appconfig/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -190,13 +179,6 @@ sub create_application_config {
         $query_params->{'udid'} = $self->{api_client}->to_query_value($args{'udid'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -217,16 +199,10 @@ sub create_application_config {
 #
 # Delete AppConfig
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user (required)
 # @param int $config_id The config ID of the application configuration to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user',
@@ -249,11 +225,6 @@ sub create_application_config {
 sub delete_application_config {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_application_config");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_application_config");
@@ -265,7 +236,7 @@ sub delete_application_config {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/appconfig/delete';
+    my $_resource_path = '/appconfig/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -289,13 +260,6 @@ sub delete_application_config {
         $query_params->{'configId'} = $self->{api_client}->to_query_value($args{'config_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -316,16 +280,10 @@ sub delete_application_config {
 #
 # Get AppConfig
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user (required)
 # @param int $config_id The config ID of the application configuration (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user',
@@ -348,11 +306,6 @@ sub delete_application_config {
 sub get_application_config {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_application_config");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_application_config");
@@ -364,7 +317,7 @@ sub get_application_config {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/appconfig/get';
+    my $_resource_path = '/appconfig/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -388,13 +341,6 @@ sub get_application_config {
         $query_params->{'configId'} = $self->{api_client}->to_query_value($args{'config_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -415,7 +361,6 @@ sub get_application_config {
 #
 # Get AppConfig by Version
 #
-# @param double $version  (required)
 # @param string $app_key The application key (required)
 # @param string $config_version The version of the application configuration (required)
 # @param int $retailer_id Only returns the config that matches the given retailer (optional)
@@ -424,11 +369,6 @@ sub get_application_config {
 # @param boolean $allow_older_versions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key',
@@ -471,11 +411,6 @@ sub get_application_config {
 sub get_application_config_by_config_version {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_application_config_by_config_version");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling get_application_config_by_config_version");
@@ -487,7 +422,7 @@ sub get_application_config_by_config_version {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/appconfig/getbyversion';
+    my $_resource_path = '/appconfig/getbyversion';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -531,13 +466,6 @@ sub get_application_config_by_config_version {
         $query_params->{'allowOlderVersions'} = $self->{api_client}->to_query_value($args{'allow_older_versions'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -558,7 +486,6 @@ sub get_application_config_by_config_version {
 #
 # Search AppConfigs
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user (required)
 # @param string $app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
 # @param int $retailer_id Only returns the configs that matches the given retailer (optional)
@@ -571,11 +498,6 @@ sub get_application_config_by_config_version {
 # @param int $limit The limit for pagination (There is a hard limit of 100) (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user',
@@ -638,18 +560,13 @@ sub get_application_config_by_config_version {
 sub search_application_config {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_application_config");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_application_config");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/appconfig/search';
+    my $_resource_path = '/appconfig/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -713,13 +630,6 @@ sub search_application_config {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -740,7 +650,6 @@ sub search_application_config {
 #
 # Update AppConfig
 #
-# @param double $version  (required)
 # @param int $account_id The account ID of the user (required)
 # @param int $config_id The config ID of the application configuration to update (required)
 # @param string $app_key The application key that the updated applicationConfig will be associated to (optional)
@@ -751,11 +660,6 @@ sub search_application_config {
 # @param string $udid The device udid for device specific configurations (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account ID of the user',
@@ -808,11 +712,6 @@ sub search_application_config {
 sub update_application_config {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_application_config");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_application_config");
@@ -824,7 +723,7 @@ sub update_application_config {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/appconfig/update';
+    my $_resource_path = '/appconfig/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -876,13 +775,6 @@ sub update_application_config {
     # query params
     if ( exists $args{'udid'}) {
         $query_params->{'udid'} = $self->{api_client}->to_query_value($args{'udid'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

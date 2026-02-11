@@ -53,7 +53,6 @@ sub new {
 #
 # Attend Event
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id (deviceId or accountId required) (optional)
 # @param string $app_key The application of where to send notifications about the attend action (optional)
@@ -66,11 +65,6 @@ sub new {
 # @param double $longitude The location of the status update (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -133,13 +127,8 @@ sub new {
 sub attend_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling attend_event");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/event/attend';
+    my $_resource_path = '/event/attend';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -203,13 +192,6 @@ sub attend_event {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -230,7 +212,6 @@ sub attend_event {
 #
 # Create Event
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $title The event title (required)
 # @param string $retailer_location_ids The retailer location to have the event at (optional)
@@ -245,11 +226,6 @@ sub attend_event {
 # @param string $meta_data external custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -322,11 +298,6 @@ sub attend_event {
 sub create_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_event");
@@ -338,7 +309,7 @@ sub create_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/event/create';
+    my $_resource_path = '/event/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -412,13 +383,6 @@ sub create_event {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -439,16 +403,10 @@ sub create_event {
 #
 # Delete Event
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $event_id the id of the event to update (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -471,11 +429,6 @@ sub create_event {
 sub delete_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_event");
@@ -487,7 +440,7 @@ sub delete_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/event/delete';
+    my $_resource_path = '/event/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -511,13 +464,6 @@ sub delete_event {
         $query_params->{'eventId'} = $self->{api_client}->to_query_value($args{'event_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -538,16 +484,10 @@ sub delete_event {
 #
 # Get Event
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $event_id The id of the event to return (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -570,11 +510,6 @@ sub delete_event {
 sub get_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_event");
@@ -586,7 +521,7 @@ sub get_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/event/get';
+    my $_resource_path = '/event/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -610,13 +545,6 @@ sub get_event {
         $query_params->{'eventId'} = $self->{api_client}->to_query_value($args{'event_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -637,7 +565,6 @@ sub get_event {
 #
 # Search Event Attendance
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $app_key The application key (optional)
@@ -659,11 +586,6 @@ sub get_event {
 # @param int $limit The limit for pagination (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -771,13 +693,8 @@ sub get_event {
 sub search_event_transactions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_event_transactions");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/event/attendance/search';
+    my $_resource_path = '/event/attendance/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -886,13 +803,6 @@ sub search_event_transactions {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -913,7 +823,6 @@ sub search_event_transactions {
 #
 # Search Events
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $keyword The keyword used to search (optional)
 # @param boolean $active_only Return only active results (optional)
@@ -929,11 +838,6 @@ sub search_event_transactions {
 # @param int $limit The number of records to return (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1011,18 +915,13 @@ sub search_event_transactions {
 sub search_events {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_events");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_events");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/event/search';
+    my $_resource_path = '/event/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1101,13 +1000,6 @@ sub search_events {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1128,7 +1020,6 @@ sub search_events {
 #
 # Update Event
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $event_id The id of the event to update (required)
 # @param string $retailer_location_ids The retailer location to have the event at (optional)
@@ -1143,11 +1034,6 @@ sub search_events {
 # @param int $redeemable_end The event end date/time (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1220,11 +1106,6 @@ sub search_events {
 sub update_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_event");
@@ -1236,7 +1117,7 @@ sub update_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/event/update';
+    my $_resource_path = '/event/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1308,13 +1189,6 @@ sub update_event {
     # query params
     if ( exists $args{'redeemable_end'}) {
         $query_params->{'redeemableEnd'} = $self->{api_client}->to_query_value($args{'redeemable_end'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

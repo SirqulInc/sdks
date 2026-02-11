@@ -53,7 +53,6 @@ sub new {
 #
 # Create Field
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param string $app_key The application key for updating an existing application (required)
 # @param string $object_name The name of the object to add the field to (required)
@@ -61,11 +60,6 @@ sub new {
 # @param string $field_type field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -103,11 +97,6 @@ sub new {
 sub add_field {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_field");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling add_field");
@@ -134,7 +123,7 @@ sub add_field {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/field/add';
+    my $_resource_path = '/object/field/add';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -173,13 +162,6 @@ sub add_field {
         $query_params->{'fieldType'} = $self->{api_client}->to_query_value($args{'field_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -200,17 +182,11 @@ sub add_field {
 #
 # Create Data
 #
-# @param double $version  (required)
 # @param string $object_name the name of the object to create data for (required)
 # @param int $account_id the account id (optional)
 # @param string $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'object_name' => {
         data_type => 'string',
         description => 'the name of the object to create data for',
@@ -238,18 +214,13 @@ sub add_field {
 sub create_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_data");
-    }
-
     # verify the required parameter 'object_name' is set
     unless (exists $args{'object_name'}) {
       croak("Missing the required parameter 'object_name' when calling create_data");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/data/{objectName}';
+    my $_resource_path = '/object/data/{objectName}';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -266,13 +237,6 @@ sub create_data {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -307,17 +271,11 @@ sub create_data {
 #
 # Create Object
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param string $app_key The application key for updating an existing application (required)
 # @param string $object_name The name of the object to create (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -345,11 +303,6 @@ sub create_data {
 sub create_object {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_object");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_object");
@@ -366,7 +319,7 @@ sub create_object {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/create';
+    my $_resource_path = '/object/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -395,13 +348,6 @@ sub create_object {
         $query_params->{'objectName'} = $self->{api_client}->to_query_value($args{'object_name'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -422,17 +368,11 @@ sub create_object {
 #
 # Delete Data
 #
-# @param double $version  (required)
 # @param string $object_name The name of the object to search upon (required)
 # @param string $object_id objectId The id of the record to return (required)
 # @param int $account_id The account id of the logged in user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'object_name' => {
         data_type => 'string',
         description => 'The name of the object to search upon',
@@ -460,11 +400,6 @@ sub create_object {
 sub delete_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_data");
-    }
-
     # verify the required parameter 'object_name' is set
     unless (exists $args{'object_name'}) {
       croak("Missing the required parameter 'object_name' when calling delete_data");
@@ -476,7 +411,7 @@ sub delete_data {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/data/{objectName}/{objectId}';
+    my $_resource_path = '/object/data/{objectName}/{objectId}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -493,13 +428,6 @@ sub delete_data {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -536,18 +464,12 @@ sub delete_data {
 #
 # Delete Field
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param string $app_key The application key for updating an existing application (required)
 # @param string $object_name The name of the object to remove the field from (required)
 # @param string $field_name field name The name of the field to remove. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -580,11 +502,6 @@ sub delete_data {
 sub delete_field {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_field");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_field");
@@ -606,7 +523,7 @@ sub delete_field {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/field/delete';
+    my $_resource_path = '/object/field/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -640,13 +557,6 @@ sub delete_field {
         $query_params->{'fieldName'} = $self->{api_client}->to_query_value($args{'field_name'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -667,17 +577,11 @@ sub delete_field {
 #
 # Delete Object
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param string $app_key the application key (required)
 # @param string $object_name the name of the object to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -705,11 +609,6 @@ sub delete_field {
 sub delete_object {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_object");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_object");
@@ -726,7 +625,7 @@ sub delete_object {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/delete';
+    my $_resource_path = '/object/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -755,13 +654,6 @@ sub delete_object {
         $query_params->{'objectName'} = $self->{api_client}->to_query_value($args{'object_name'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -782,18 +674,12 @@ sub delete_object {
 #
 # Get Data
 #
-# @param double $version  (required)
 # @param string $object_name The name of the object to search upon (required)
 # @param string $object_id objectId The id of the record to return (required)
 # @param int $account_id The account id of the logged in user (optional)
 # @param string $include  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'object_name' => {
         data_type => 'string',
         description => 'The name of the object to search upon',
@@ -826,11 +712,6 @@ sub delete_object {
 sub get_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_data");
-    }
-
     # verify the required parameter 'object_name' is set
     unless (exists $args{'object_name'}) {
       croak("Missing the required parameter 'object_name' when calling get_data");
@@ -842,7 +723,7 @@ sub get_data {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/data/{objectName}/{objectId}';
+    my $_resource_path = '/object/data/{objectName}/{objectId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -864,13 +745,6 @@ sub get_data {
     # query params
     if ( exists $args{'include'}) {
         $query_params->{'include'} = $self->{api_client}->to_query_value($args{'include'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -907,17 +781,11 @@ sub get_data {
 #
 # Get Object
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param string $app_key The application key for updating an existing application (required)
 # @param string $object_name The name of the object to get the definition for (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -945,11 +813,6 @@ sub get_data {
 sub get_object {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_object");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_object");
@@ -966,7 +829,7 @@ sub get_object {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/get';
+    my $_resource_path = '/object/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -995,13 +858,6 @@ sub get_object {
         $query_params->{'objectName'} = $self->{api_client}->to_query_value($args{'object_name'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1022,7 +878,6 @@ sub get_object {
 #
 # Search Data
 #
-# @param double $version  (required)
 # @param string $object_name The name of the object to search upon (required)
 # @param boolean $count If true just return the record count of the search. False (default) will return the actual records (required)
 # @param int $start The start of the pagination (required)
@@ -1033,11 +888,6 @@ sub get_object {
 # @param string $include  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'object_name' => {
         data_type => 'string',
         description => 'The name of the object to search upon',
@@ -1090,11 +940,6 @@ sub get_object {
 sub search_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_data");
-    }
-
     # verify the required parameter 'object_name' is set
     unless (exists $args{'object_name'}) {
       croak("Missing the required parameter 'object_name' when calling search_data");
@@ -1116,7 +961,7 @@ sub search_data {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/data/{objectName}';
+    my $_resource_path = '/object/data/{objectName}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1166,13 +1011,6 @@ sub search_data {
     }
 
     # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
-    # path params
     if ( exists $args{'object_name'}) {
         my $_base_variable = "{" . "objectName" . "}";
         my $_base_value = $self->{api_client}->to_path_value($args{'object_name'});
@@ -1199,7 +1037,6 @@ sub search_data {
 #
 # Search Objects
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the logged in user (required)
 # @param string $app_key The application key for updating an existing application (required)
 # @param int $start The start of the pagination (required)
@@ -1207,11 +1044,6 @@ sub search_data {
 # @param string $keyword The name of the object(s) to search for, can be a partial match (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the logged in user',
@@ -1249,11 +1081,6 @@ sub search_data {
 sub search_object {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_object");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_object");
@@ -1275,7 +1102,7 @@ sub search_object {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/search';
+    my $_resource_path = '/object/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1314,13 +1141,6 @@ sub search_object {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1341,18 +1161,12 @@ sub search_object {
 #
 # Update Data
 #
-# @param double $version  (required)
 # @param string $object_name The name of the object to search upon (required)
 # @param string $object_id objectId The id of the record to return (required)
 # @param int $account_id The account id of the logged in user (optional)
 # @param string $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'object_name' => {
         data_type => 'string',
         description => 'The name of the object to search upon',
@@ -1385,11 +1199,6 @@ sub search_object {
 sub update_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_data");
-    }
-
     # verify the required parameter 'object_name' is set
     unless (exists $args{'object_name'}) {
       croak("Missing the required parameter 'object_name' when calling update_data");
@@ -1401,7 +1210,7 @@ sub update_data {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/object/data/{objectName}/{objectId}';
+    my $_resource_path = '/object/data/{objectName}/{objectId}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -1418,13 +1227,6 @@ sub update_data {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params

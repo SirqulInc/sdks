@@ -53,7 +53,6 @@ sub new {
 #
 # Create Rating
 #
-# @param double $version  (required)
 # @param string $ratable_type The ratable object type {RETAILER_LOCATION} (required)
 # @param int $ratable_id The id of the ratable object (required)
 # @param int $rating_value The integer value of 0-100 (required)
@@ -67,11 +66,6 @@ sub new {
 # @param double $longitude The current location of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'ratable_type' => {
         data_type => 'string',
         description => 'The ratable object type {RETAILER_LOCATION}',
@@ -139,11 +133,6 @@ sub new {
 sub create_rating {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_rating");
-    }
-
     # verify the required parameter 'ratable_type' is set
     unless (exists $args{'ratable_type'}) {
       croak("Missing the required parameter 'ratable_type' when calling create_rating");
@@ -160,7 +149,7 @@ sub create_rating {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/rating/create';
+    my $_resource_path = '/rating/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -229,13 +218,6 @@ sub create_rating {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -256,17 +238,11 @@ sub create_rating {
 #
 # Delete Rating
 #
-# @param double $version  (required)
 # @param int $rating_id The ID of the rating to delete (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'rating_id' => {
         data_type => 'int',
         description => 'The ID of the rating to delete',
@@ -294,18 +270,13 @@ sub create_rating {
 sub delete_rating {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_rating");
-    }
-
     # verify the required parameter 'rating_id' is set
     unless (exists $args{'rating_id'}) {
       croak("Missing the required parameter 'rating_id' when calling delete_rating");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/rating/delete';
+    my $_resource_path = '/rating/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -334,13 +305,6 @@ sub delete_rating {
         $query_params->{'ratingId'} = $self->{api_client}->to_query_value($args{'rating_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -361,7 +325,6 @@ sub delete_rating {
 #
 # Search Location Rating Indexes
 #
-# @param double $version  (required)
 # @param string $category_ids Comma separated list of category ids to filter the results by (optional)
 # @param string $keyword The keyword used to search (optional)
 # @param string $location_type The type of location to filter the results by (optional)
@@ -381,11 +344,6 @@ sub delete_rating {
 # @param boolean $return_filters whether to return the filters or not (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'category_ids' => {
         data_type => 'string',
         description => 'Comma separated list of category ids to filter the results by',
@@ -483,13 +441,8 @@ sub delete_rating {
 sub search_location_rating_indexes {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_location_rating_indexes");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/location/rating/index/search';
+    my $_resource_path = '/location/rating/index/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -588,13 +541,6 @@ sub search_location_rating_indexes {
         $query_params->{'returnFilters'} = $self->{api_client}->to_query_value($args{'return_filters'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -615,7 +561,6 @@ sub search_location_rating_indexes {
 #
 # Search Rating Indexes
 #
-# @param double $version  (required)
 # @param string $ratable_type Filter results by a ratable type {RETAILER_LOCATION} (required)
 # @param string $ratable_ids Comma separated list of ratable ids to filter the resuts by (optional)
 # @param string $category_ids Comma separated list of category ids to filter the results by (optional)
@@ -631,11 +576,6 @@ sub search_location_rating_indexes {
 # @param boolean $return_overall_rating Determines whether to return the overall rating record instead (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'ratable_type' => {
         data_type => 'string',
         description => 'Filter results by a ratable type {RETAILER_LOCATION}',
@@ -713,18 +653,13 @@ sub search_location_rating_indexes {
 sub search_rating_indexes {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_rating_indexes");
-    }
-
     # verify the required parameter 'ratable_type' is set
     unless (exists $args{'ratable_type'}) {
       croak("Missing the required parameter 'ratable_type' when calling search_rating_indexes");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/rating/index/search';
+    my $_resource_path = '/rating/index/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -803,13 +738,6 @@ sub search_rating_indexes {
         $query_params->{'returnOverallRating'} = $self->{api_client}->to_query_value($args{'return_overall_rating'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -830,7 +758,6 @@ sub search_rating_indexes {
 #
 # Search Ratings
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $filter_account_id Filter results for a particular account (optional)
@@ -844,11 +771,6 @@ sub search_rating_indexes {
 # @param int $limit The number of records to return (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -916,13 +838,8 @@ sub search_rating_indexes {
 sub search_ratings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_ratings");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/rating/search';
+    my $_resource_path = '/rating/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -991,13 +908,6 @@ sub search_ratings {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1018,7 +928,6 @@ sub search_ratings {
 #
 # Update Rating
 #
-# @param double $version  (required)
 # @param int $rating_id The id of the rating (Note: this is not the ratable object id) (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1031,11 +940,6 @@ sub search_ratings {
 # @param double $longitude The current location of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'rating_id' => {
         data_type => 'int',
         description => 'The id of the rating (Note: this is not the ratable object id)',
@@ -1098,18 +1002,13 @@ sub search_ratings {
 sub update_rating {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_rating");
-    }
-
     # verify the required parameter 'rating_id' is set
     unless (exists $args{'rating_id'}) {
       croak("Missing the required parameter 'rating_id' when calling update_rating");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/rating/update';
+    my $_resource_path = '/rating/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1171,13 +1070,6 @@ sub update_rating {
     # query params
     if ( exists $args{'longitude'}) {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

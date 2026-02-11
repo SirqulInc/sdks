@@ -53,7 +53,6 @@ sub new {
 #
 # Create Retailer
 #
-# @param double $version  (required)
 # @param string $name The name of the retailer (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -89,11 +88,6 @@ sub new {
 # @param string $response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'name' => {
         data_type => 'string',
         description => 'The name of the retailer',
@@ -271,18 +265,13 @@ sub new {
 sub create_retailer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_retailer");
-    }
-
     # verify the required parameter 'name' is set
     unless (exists $args{'name'}) {
       croak("Missing the required parameter 'name' when calling create_retailer");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/create';
+    my $_resource_path = '/retailer/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -461,13 +450,6 @@ sub create_retailer {
         $query_params->{'responseFormat'} = $self->{api_client}->to_query_value($args{'response_format'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -488,17 +470,11 @@ sub create_retailer {
 #
 # Delete Retailer
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account used to perform the delete, must have rights to edit the retailer. (optional)
 # @param int $retailer_id The ID of the retailer to be deleted (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -526,13 +502,8 @@ sub create_retailer {
 sub delete_retailer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_retailer");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/delete';
+    my $_resource_path = '/retailer/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -561,13 +532,6 @@ sub delete_retailer {
         $query_params->{'retailerId'} = $self->{api_client}->to_query_value($args{'retailer_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -588,18 +552,12 @@ sub delete_retailer {
 #
 # Get Retailer
 #
-# @param double $version  (required)
 # @param int $retailer_id the ID of the retailer (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param boolean $include_counts Determines whether to include counts in the response (default true) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'retailer_id' => {
         data_type => 'int',
         description => 'the ID of the retailer',
@@ -632,18 +590,13 @@ sub delete_retailer {
 sub get_retailer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_retailer");
-    }
-
     # verify the required parameter 'retailer_id' is set
     unless (exists $args{'retailer_id'}) {
       croak("Missing the required parameter 'retailer_id' when calling get_retailer");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/get';
+    my $_resource_path = '/retailer/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -677,13 +630,6 @@ sub get_retailer {
         $query_params->{'includeCounts'} = $self->{api_client}->to_query_value($args{'include_counts'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -704,7 +650,6 @@ sub get_retailer {
 #
 # Search Retailers
 #
-# @param double $version  (required)
 # @param string $visibility  (required)
 # @param string $sort_field The column to sort the search on (required)
 # @param boolean $descending The order to return the search results (required)
@@ -721,11 +666,6 @@ sub get_retailer {
 # @param int $_l This parameter is deprecated. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'visibility' => {
         data_type => 'string',
         description => '',
@@ -808,11 +748,6 @@ sub get_retailer {
 sub get_retailers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_retailers");
-    }
-
     # verify the required parameter 'visibility' is set
     unless (exists $args{'visibility'}) {
       croak("Missing the required parameter 'visibility' when calling get_retailers");
@@ -844,7 +779,7 @@ sub get_retailers {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/search';
+    my $_resource_path = '/retailer/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -928,13 +863,6 @@ sub get_retailers {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -955,7 +883,6 @@ sub get_retailers {
 #
 # Login Retailer
 #
-# @param double $version  (required)
 # @param string $username the user&#39;s email address they used to sign-up (required)
 # @param string $password the password (required)
 # @param string $device_id the device id (optional) (optional)
@@ -964,11 +891,6 @@ sub get_retailers {
 # @param string $app_key the application key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'username' => {
         data_type => 'string',
         description => 'the user&#39;s email address they used to sign-up',
@@ -1011,11 +933,6 @@ sub get_retailers {
 sub retailer_login_check {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling retailer_login_check");
-    }
-
     # verify the required parameter 'username' is set
     unless (exists $args{'username'}) {
       croak("Missing the required parameter 'username' when calling retailer_login_check");
@@ -1027,7 +944,7 @@ sub retailer_login_check {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/login';
+    my $_resource_path = '/retailer/login';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1071,13 +988,6 @@ sub retailer_login_check {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1098,7 +1008,6 @@ sub retailer_login_check {
 #
 # Update Retailer
 #
-# @param double $version  (required)
 # @param int $retailer_id The ID of the retailer to update (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -1133,11 +1042,6 @@ sub retailer_login_check {
 # @param string $response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'retailer_id' => {
         data_type => 'int',
         description => 'The ID of the retailer to update',
@@ -1310,18 +1214,13 @@ sub retailer_login_check {
 sub update_retailer {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_retailer");
-    }
-
     # verify the required parameter 'retailer_id' is set
     unless (exists $args{'retailer_id'}) {
       croak("Missing the required parameter 'retailer_id' when calling update_retailer");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/retailer/update';
+    my $_resource_path = '/retailer/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1493,13 +1392,6 @@ sub update_retailer {
     # query params
     if ( exists $args{'response_format'}) {
         $query_params->{'responseFormat'} = $self->{api_client}->to_query_value($args{'response_format'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

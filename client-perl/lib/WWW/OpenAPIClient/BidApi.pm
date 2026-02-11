@@ -53,7 +53,6 @@ sub new {
 #
 # Create Bid
 #
-# @param double $version  (required)
 # @param string $biddable_type A biddable object type. Possible values include: CREATIVE (ads). (required)
 # @param int $biddable_id The id of the biddable object (required)
 # @param double $amount_per_view The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -64,11 +63,6 @@ sub new {
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'biddable_type' => {
         data_type => 'string',
         description => 'A biddable object type. Possible values include: CREATIVE (ads).',
@@ -121,11 +115,6 @@ sub new {
 sub create_bid {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_bid");
-    }
-
     # verify the required parameter 'biddable_type' is set
     unless (exists $args{'biddable_type'}) {
       croak("Missing the required parameter 'biddable_type' when calling create_bid");
@@ -157,7 +146,7 @@ sub create_bid {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/bid/create';
+    my $_resource_path = '/bid/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -211,13 +200,6 @@ sub create_bid {
         $query_params->{'budgetSchedule'} = $self->{api_client}->to_query_value($args{'budget_schedule'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -238,17 +220,11 @@ sub create_bid {
 #
 # Delete Bid
 #
-# @param double $version  (required)
 # @param int $bid_id The bid id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'bid_id' => {
         data_type => 'int',
         description => 'The bid id',
@@ -276,18 +252,13 @@ sub create_bid {
 sub delete_bid {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_bid");
-    }
-
     # verify the required parameter 'bid_id' is set
     unless (exists $args{'bid_id'}) {
       croak("Missing the required parameter 'bid_id' when calling delete_bid");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/bid/delete';
+    my $_resource_path = '/bid/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -316,13 +287,6 @@ sub delete_bid {
         $query_params->{'bidId'} = $self->{api_client}->to_query_value($args{'bid_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -343,17 +307,11 @@ sub delete_bid {
 #
 # Get Bid
 #
-# @param double $version  (required)
 # @param int $bid_id The bid id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'bid_id' => {
         data_type => 'int',
         description => 'The bid id',
@@ -381,18 +339,13 @@ sub delete_bid {
 sub get_bid {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_bid");
-    }
-
     # verify the required parameter 'bid_id' is set
     unless (exists $args{'bid_id'}) {
       croak("Missing the required parameter 'bid_id' when calling get_bid");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/bid/get';
+    my $_resource_path = '/bid/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -421,13 +374,6 @@ sub get_bid {
         $query_params->{'bidId'} = $self->{api_client}->to_query_value($args{'bid_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -448,7 +394,6 @@ sub get_bid {
 #
 # Update Bid
 #
-# @param double $version  (required)
 # @param int $bid_id The bid id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -458,11 +403,6 @@ sub get_bid {
 # @param string $budget_schedule The schedule for when the allocated budget amount is reset (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'bid_id' => {
         data_type => 'int',
         description => 'The bid id',
@@ -510,18 +450,13 @@ sub get_bid {
 sub update_bid {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_bid");
-    }
-
     # verify the required parameter 'bid_id' is set
     unless (exists $args{'bid_id'}) {
       croak("Missing the required parameter 'bid_id' when calling update_bid");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/bid/update';
+    my $_resource_path = '/bid/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -568,13 +503,6 @@ sub update_bid {
     # query params
     if ( exists $args{'budget_schedule'}) {
         $query_params->{'budgetSchedule'} = $self->{api_client}->to_query_value($args{'budget_schedule'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

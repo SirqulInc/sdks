@@ -53,16 +53,10 @@ sub new {
 #
 # Create Dependent
 #
-# @param double $version  (required)
 # @param int $account_id the id of the parent account to create a dependent for (required)
 # @param Account $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the parent account to create a dependent for',
@@ -85,18 +79,13 @@ sub new {
 sub create {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/dependent/{accountId}';
+    my $_resource_path = '/cargo/dependent/{accountId}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -109,13 +98,6 @@ sub create {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'account_id'}) {
@@ -149,15 +131,9 @@ sub create {
 #
 # Get dependent list of an account
 #
-# @param double $version  (required)
 # @param int $account_id the id of the parent account to get a list of dependents (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the parent account to get a list of dependents',
@@ -175,18 +151,13 @@ sub create {
 sub get_dependents {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_dependents");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_dependents");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/dependent/{accountId}';
+    my $_resource_path = '/cargo/dependent/{accountId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -199,13 +170,6 @@ sub get_dependents {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'account_id'}) {
@@ -234,16 +198,10 @@ sub get_dependents {
 #
 # Delete Dependent
 #
-# @param double $version  (required)
 # @param int $account_id the id of the parent account tied to the dependent (required)
 # @param int $dependent_id the id of the dependent to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the parent account tied to the dependent',
@@ -266,11 +224,6 @@ sub get_dependents {
 sub remove_dependent {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_dependent");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling remove_dependent");
@@ -282,7 +235,7 @@ sub remove_dependent {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/cargo/dependent/{accountId}';
+    my $_resource_path = '/cargo/dependent/{accountId}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -295,13 +248,6 @@ sub remove_dependent {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'account_id'}) {

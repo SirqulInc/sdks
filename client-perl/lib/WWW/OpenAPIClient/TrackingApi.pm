@@ -53,7 +53,6 @@ sub new {
 #
 # Create Batch Tracking
 #
-# @param double $version  (required)
 # @param string $data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -63,11 +62,6 @@ sub new {
 # @param string $slave_uid  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'data' => {
         data_type => 'string',
         description => 'JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; ',
@@ -115,18 +109,13 @@ sub new {
 sub batch_save_tracking {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling batch_save_tracking");
-    }
-
     # verify the required parameter 'data' is set
     unless (exists $args{'data'}) {
       croak("Missing the required parameter 'data' when calling batch_save_tracking");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/batch/create';
+    my $_resource_path = '/tracking/batch/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -175,13 +164,6 @@ sub batch_save_tracking {
         $query_params->{'slaveUID'} = $self->{api_client}->to_query_value($args{'slave_uid'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -202,7 +184,6 @@ sub batch_save_tracking {
 #
 # Get Predicted Locations
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the customer (required)
 # @param double $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
 # @param double $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -214,11 +195,6 @@ sub batch_save_tracking {
 # @param string $sort_order The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to 'MATCHES')
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the customer',
@@ -276,18 +252,13 @@ sub batch_save_tracking {
 sub get_predicted_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_predicted_locations");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_predicted_locations");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/predicted/get';
+    my $_resource_path = '/tracking/predicted/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -346,13 +317,6 @@ sub get_predicted_locations {
         $query_params->{'sortOrder'} = $self->{api_client}->to_query_value($args{'sort_order'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -373,17 +337,11 @@ sub get_predicted_locations {
 #
 # Get Tracking Path
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the customer (required)
 # @param int $start_step_id The stepId to begin from (required)
 # @param int $end_step_id The stepId to end with (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the customer',
@@ -411,11 +369,6 @@ sub get_predicted_locations {
 sub get_predicted_path {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_predicted_path");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_predicted_path");
@@ -432,7 +385,7 @@ sub get_predicted_path {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/path/get';
+    my $_resource_path = '/tracking/path/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -461,13 +414,6 @@ sub get_predicted_path {
         $query_params->{'endStepId'} = $self->{api_client}->to_query_value($args{'end_step_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -488,7 +434,6 @@ sub get_predicted_path {
 #
 # Search Preferred Locations
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the customer (required)
 # @param double $latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
 # @param double $longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -502,11 +447,6 @@ sub get_predicted_path {
 # @param string $distance_unit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to 'MILES')
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the customer',
@@ -574,18 +514,13 @@ sub get_predicted_path {
 sub get_preferred_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_preferred_locations");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_preferred_locations");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/preferred/search';
+    my $_resource_path = '/tracking/preferred/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -654,13 +589,6 @@ sub get_preferred_locations {
         $query_params->{'distanceUnit'} = $self->{api_client}->to_query_value($args{'distance_unit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -681,7 +609,6 @@ sub get_preferred_locations {
 #
 # Search Tracking
 #
-# @param double $version  (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param int $owner_id the account id of the person the user wants to tracking data for (optional)
@@ -692,11 +619,6 @@ sub get_preferred_locations {
 # @param boolean $get_last_point gets the last known location of the user (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id (deviceId or accountId required)',
@@ -749,13 +671,8 @@ sub get_preferred_locations {
 sub get_tracking_legs {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_tracking_legs");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/search';
+    my $_resource_path = '/tracking/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -809,13 +726,6 @@ sub get_tracking_legs {
         $query_params->{'getLastPoint'} = $self->{api_client}->to_query_value($args{'get_last_point'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -836,7 +746,6 @@ sub get_tracking_legs {
 #
 # Create Tracking Leg
 #
-# @param double $version  (required)
 # @param double $start_lat the latitude of the first point (required)
 # @param double $start_lng the longitude of the first point (required)
 # @param int $start_date the start date (in UTC milliseconds) of the first point (required)
@@ -851,11 +760,6 @@ sub get_tracking_legs {
 # @param string $tags name the leg for searching (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'start_lat' => {
         data_type => 'double',
         description => 'the latitude of the first point',
@@ -928,11 +832,6 @@ sub get_tracking_legs {
 sub save_tracking_leg {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling save_tracking_leg");
-    }
-
     # verify the required parameter 'start_lat' is set
     unless (exists $args{'start_lat'}) {
       croak("Missing the required parameter 'start_lat' when calling save_tracking_leg");
@@ -964,7 +863,7 @@ sub save_tracking_leg {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/leg/create';
+    my $_resource_path = '/tracking/leg/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1038,13 +937,6 @@ sub save_tracking_leg {
         $query_params->{'tags'} = $self->{api_client}->to_query_value($args{'tags'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1065,7 +957,6 @@ sub save_tracking_leg {
 #
 # Create Tracking Step
 #
-# @param double $version  (required)
 # @param int $leg_id the leg to add the step to (required)
 # @param double $start_lat the latitude of the first point (required)
 # @param double $start_lng the longitude of the first point (required)
@@ -1079,11 +970,6 @@ sub save_tracking_leg {
 # @param int $duration the total duration (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'leg_id' => {
         data_type => 'int',
         description => 'the leg to add the step to',
@@ -1151,11 +1037,6 @@ sub save_tracking_leg {
 sub save_tracking_step {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling save_tracking_step");
-    }
-
     # verify the required parameter 'leg_id' is set
     unless (exists $args{'leg_id'}) {
       croak("Missing the required parameter 'leg_id' when calling save_tracking_step");
@@ -1192,7 +1073,7 @@ sub save_tracking_step {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/step/create';
+    my $_resource_path = '/tracking/step/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1261,13 +1142,6 @@ sub save_tracking_step {
         $query_params->{'endDate'} = $self->{api_client}->to_query_value($args{'end_date'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1288,7 +1162,6 @@ sub save_tracking_step {
 #
 # List Tracking
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param string $keyword Used for LIKE search of first or last name on the acocunt (optional)
 # @param int $start_date Range to begin in UTC milliseconds (optional)
@@ -1305,11 +1178,6 @@ sub save_tracking_step {
 # @param boolean $active_only Determines whether to return only active results. Default is false. (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -1392,18 +1260,13 @@ sub save_tracking_step {
 sub search_accounts_with_tracking_legs {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_accounts_with_tracking_legs");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_accounts_with_tracking_legs");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/list';
+    my $_resource_path = '/tracking/list';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1487,13 +1350,6 @@ sub search_accounts_with_tracking_legs {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1514,7 +1370,6 @@ sub search_accounts_with_tracking_legs {
 #
 # Search Tracking (Billable)
 #
-# @param double $version  (required)
 # @param int $account_id The account id to search tracking for (required)
 # @param string $app_key The application key (required)
 # @param string $tracking_device_id The id of the tracking device (optional)
@@ -1525,11 +1380,6 @@ sub search_accounts_with_tracking_legs {
 # @param int $limit The limit for pagination (optional, default to 100)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id to search tracking for',
@@ -1582,11 +1432,6 @@ sub search_accounts_with_tracking_legs {
 sub search_tracking_legs {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_tracking_legs");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_tracking_legs");
@@ -1598,7 +1443,7 @@ sub search_tracking_legs {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tracking/searchByBillable';
+    my $_resource_path = '/tracking/searchByBillable';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1650,13 +1495,6 @@ sub search_tracking_legs {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

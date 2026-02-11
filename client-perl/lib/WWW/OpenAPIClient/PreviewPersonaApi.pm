@@ -53,7 +53,6 @@ sub new {
 #
 # Create Persona
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user (required)
 # @param string $title the title of the persona (required)
 # @param string $preview_accounts the accounts that are able to preview from this persona (optional)
@@ -65,11 +64,6 @@ sub new {
 # @param double $longitude the specified longitude of the persona (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user',
@@ -127,11 +121,6 @@ sub new {
 sub create_persona {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_persona");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_persona");
@@ -143,7 +132,7 @@ sub create_persona {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/persona/create';
+    my $_resource_path = '/persona/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -202,13 +191,6 @@ sub create_persona {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -229,16 +211,10 @@ sub create_persona {
 #
 # Delete Persona
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param int $persona_id the id of the persona to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -261,11 +237,6 @@ sub create_persona {
 sub delete_persona {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_persona");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_persona");
@@ -277,7 +248,7 @@ sub delete_persona {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/persona/delete';
+    my $_resource_path = '/persona/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -301,13 +272,6 @@ sub delete_persona {
         $query_params->{'personaId'} = $self->{api_client}->to_query_value($args{'persona_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -328,16 +292,10 @@ sub delete_persona {
 #
 # Get Persona
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user (required)
 # @param int $persona_id the persona ID of the persona (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user',
@@ -360,11 +318,6 @@ sub delete_persona {
 sub get_persona_list {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_persona_list");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_persona_list");
@@ -376,7 +329,7 @@ sub get_persona_list {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/persona/get';
+    my $_resource_path = '/persona/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -400,13 +353,6 @@ sub get_persona_list {
         $query_params->{'personaId'} = $self->{api_client}->to_query_value($args{'persona_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -427,17 +373,11 @@ sub get_persona_list {
 #
 # Search Personas
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user (required)
 # @param int $start the start index for pagination (required)
 # @param int $limit the limit for pagination (There is a hard limit of 100) (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user',
@@ -465,11 +405,6 @@ sub get_persona_list {
 sub search_persona {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_persona");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_persona");
@@ -486,7 +421,7 @@ sub search_persona {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/persona/search';
+    my $_resource_path = '/persona/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -515,13 +450,6 @@ sub search_persona {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -542,7 +470,6 @@ sub search_persona {
 #
 # Update Persona
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user (required)
 # @param int $persona_id the persona ID of the persona to update (required)
 # @param string $title the title of the persona (optional)
@@ -556,11 +483,6 @@ sub search_persona {
 # @param double $longitude the specified longitude of the persona (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user',
@@ -628,11 +550,6 @@ sub search_persona {
 sub update_persona {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_persona");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_persona");
@@ -644,7 +561,7 @@ sub update_persona {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/persona/update';
+    my $_resource_path = '/persona/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -711,13 +628,6 @@ sub update_persona {
     # query params
     if ( exists $args{'longitude'}) {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

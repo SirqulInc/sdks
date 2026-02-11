@@ -49,11 +49,10 @@ sub new {
 
 
 #
-# api_version_achievement_tier_search_post
+# achievement_tier_search_post
 #
 # Searches an Achievement Tier
 #
-# @param double $version  (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param string $app_key the application key (optional)
@@ -67,11 +66,6 @@ sub new {
 # @param int $limit the limit for pagination (has a hard limit of 1000) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique id given by the device (deviceId or accountId required)',
@@ -128,7 +122,7 @@ sub new {
         required => '0',
     },
     };
-    __PACKAGE__->method_documentation->{ 'api_version_achievement_tier_search_post' } = {
+    __PACKAGE__->method_documentation->{ 'achievement_tier_search_post' } = {
         summary => 'Searches an Achievement Tier',
         params => $params,
         returns => 'AchievementTierResponse',
@@ -136,16 +130,11 @@ sub new {
 }
 # @return AchievementTierResponse
 #
-sub api_version_achievement_tier_search_post {
+sub achievement_tier_search_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling api_version_achievement_tier_search_post");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/tier/search';
+    my $_resource_path = '/achievement/tier/search';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -214,13 +203,6 @@ sub api_version_achievement_tier_search_post {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -241,7 +223,6 @@ sub api_version_achievement_tier_search_post {
 #
 # Create Achievement
 #
-# @param double $version  (required)
 # @param string $app_key the application key the achievement is for (required)
 # @param string $title the title of the achievement (255 character limit) (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -257,11 +238,6 @@ sub api_version_achievement_tier_search_post {
 # @param string $trigger_definition if provided will define what triggers to run after a tier is completed (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'the application key the achievement is for',
@@ -339,11 +315,6 @@ sub api_version_achievement_tier_search_post {
 sub create_achievement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_achievement");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling create_achievement");
@@ -355,7 +326,7 @@ sub create_achievement {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/create';
+    my $_resource_path = '/achievement/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -434,13 +405,6 @@ sub create_achievement {
         $query_params->{'triggerDefinition'} = $self->{api_client}->to_query_value($args{'trigger_definition'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -461,7 +425,6 @@ sub create_achievement {
 #
 # Create Achievement Tier
 #
-# @param double $version  (required)
 # @param int $achievement_id the achievement id for adding a new tier (required)
 # @param boolean $score_all_instances score all instances (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
@@ -478,11 +441,6 @@ sub create_achievement {
 # @param int $game_object_id The ID of the game object to associate with the achievement (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'achievement_id' => {
         data_type => 'int',
         description => 'the achievement id for adding a new tier',
@@ -565,11 +523,6 @@ sub create_achievement {
 sub create_achievement_tier {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_achievement_tier");
-    }
-
     # verify the required parameter 'achievement_id' is set
     unless (exists $args{'achievement_id'}) {
       croak("Missing the required parameter 'achievement_id' when calling create_achievement_tier");
@@ -581,7 +534,7 @@ sub create_achievement_tier {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/tier/create';
+    my $_resource_path = '/achievement/tier/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -665,13 +618,6 @@ sub create_achievement_tier {
         $query_params->{'scoreAllInstances'} = $self->{api_client}->to_query_value($args{'score_all_instances'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -692,16 +638,10 @@ sub create_achievement_tier {
 #
 # Delete Achievement
 #
-# @param double $version  (required)
 # @param int $achievement_id The ID of the achievement (required)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'achievement_id' => {
         data_type => 'int',
         description => 'The ID of the achievement',
@@ -724,18 +664,13 @@ sub create_achievement_tier {
 sub delete_achievement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_achievement");
-    }
-
     # verify the required parameter 'achievement_id' is set
     unless (exists $args{'achievement_id'}) {
       croak("Missing the required parameter 'achievement_id' when calling delete_achievement");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/delete';
+    my $_resource_path = '/achievement/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -759,13 +694,6 @@ sub delete_achievement {
         $query_params->{'achievementId'} = $self->{api_client}->to_query_value($args{'achievement_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -786,16 +714,10 @@ sub delete_achievement {
 #
 # Delete Achievement Tier
 #
-# @param double $version  (required)
 # @param int $achievement_tier_id the achievement id for deletion (required)
 # @param int $account_id the account id of the user (deviceId or accountId required). (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'achievement_tier_id' => {
         data_type => 'int',
         description => 'the achievement id for deletion',
@@ -818,18 +740,13 @@ sub delete_achievement {
 sub delete_achievement_tier {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_achievement_tier");
-    }
-
     # verify the required parameter 'achievement_tier_id' is set
     unless (exists $args{'achievement_tier_id'}) {
       croak("Missing the required parameter 'achievement_tier_id' when calling delete_achievement_tier");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/tier/delete';
+    my $_resource_path = '/achievement/tier/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -853,13 +770,6 @@ sub delete_achievement_tier {
         $query_params->{'achievementTierId'} = $self->{api_client}->to_query_value($args{'achievement_tier_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -880,18 +790,12 @@ sub delete_achievement_tier {
 #
 # Get Achievement
 #
-# @param double $version  (required)
 # @param int $achievement_id The ID of the achievement (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param string $achievement_type achievementType (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'achievement_id' => {
         data_type => 'int',
         description => 'The ID of the achievement',
@@ -924,18 +828,13 @@ sub delete_achievement_tier {
 sub get_achievement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_achievement");
-    }
-
     # verify the required parameter 'achievement_id' is set
     unless (exists $args{'achievement_id'}) {
       croak("Missing the required parameter 'achievement_id' when calling get_achievement");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/get';
+    my $_resource_path = '/achievement/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -969,13 +868,6 @@ sub get_achievement {
         $query_params->{'achievementType'} = $self->{api_client}->to_query_value($args{'achievement_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -996,16 +888,10 @@ sub get_achievement {
 #
 # Gets an achievement tier
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (deviceId or accountId required) (required)
 # @param int $achievement_tier_id the achievement tier id that is being retrieved (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user (deviceId or accountId required)',
@@ -1028,11 +914,6 @@ sub get_achievement {
 sub get_achievement_tier {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_achievement_tier");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_achievement_tier");
@@ -1044,7 +925,7 @@ sub get_achievement_tier {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/tier/get';
+    my $_resource_path = '/achievement/tier/get';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1068,13 +949,6 @@ sub get_achievement_tier {
         $query_params->{'achievementTierId'} = $self->{api_client}->to_query_value($args{'achievement_tier_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1095,7 +969,6 @@ sub get_achievement_tier {
 #
 # Get Achievement Progress
 #
-# @param double $version  (required)
 # @param boolean $return_nulls determines whether to return null fields in the response (required)
 # @param string $app_key the application key for filtering results by application (required)
 # @param boolean $include_undiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -1109,11 +982,6 @@ sub get_achievement_tier {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'determines whether to return null fields in the response',
@@ -1181,11 +1049,6 @@ sub get_achievement_tier {
 sub get_user_achievements {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_achievements");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling get_user_achievements");
@@ -1202,7 +1065,7 @@ sub get_user_achievements {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/progress/get';
+    my $_resource_path = '/achievement/progress/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1271,13 +1134,6 @@ sub get_user_achievements {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1298,15 +1154,9 @@ sub get_user_achievements {
 #
 # List Achievement Tags
 #
-# @param double $version  (required)
 # @param string $app_key filter results by application key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'filter results by application key',
@@ -1324,13 +1174,8 @@ sub get_user_achievements {
 sub list_achievement_tags {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_achievement_tags");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/tag/list';
+    my $_resource_path = '/achievement/tag/list';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1347,13 +1192,6 @@ sub list_achievement_tags {
     # query params
     if ( exists $args{'app_key'}) {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -1376,7 +1214,6 @@ sub list_achievement_tags {
 #
 # List Achievements
 #
-# @param double $version  (required)
 # @param string $sort_field the field to sort by. See AchievementApiMap (required)
 # @param boolean $descending determines whether the sorted list is in descending or ascending order (required)
 # @param int $start the start index for pagination (required)
@@ -1390,11 +1227,6 @@ sub list_achievement_tags {
 # @param string $rank_type filter results by the rankType (these are exact case sensitive matches) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'the field to sort by. See AchievementApiMap',
@@ -1462,11 +1294,6 @@ sub list_achievement_tags {
 sub list_achievements {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_achievements");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling list_achievements");
@@ -1493,7 +1320,7 @@ sub list_achievements {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/list';
+    my $_resource_path = '/achievement/list';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1562,13 +1389,6 @@ sub list_achievements {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1589,7 +1409,6 @@ sub list_achievements {
 #
 # Search Achievements
 #
-# @param double $version  (required)
 # @param string $app_key the application key (required)
 # @param string $sort_field the field to sort by. See AchievementApiMap (required)
 # @param boolean $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1604,11 +1423,6 @@ sub list_achievements {
 # @param string $rank_type filter results by the rankType (these are exact case sensitive matches) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'the application key',
@@ -1681,11 +1495,6 @@ sub list_achievements {
 sub search_achievements {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_achievements");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling search_achievements");
@@ -1722,7 +1531,7 @@ sub search_achievements {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/search';
+    my $_resource_path = '/achievement/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1796,13 +1605,6 @@ sub search_achievements {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1823,7 +1625,6 @@ sub search_achievements {
 #
 # Update Achievement
 #
-# @param double $version  (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param int $achievement_id the achievement ID for updating an existing achievement (optional)
@@ -1841,11 +1642,6 @@ sub search_achievements {
 # @param string $trigger_definition if provided will define what triggers to run after a tier is completed (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique id given by the device (deviceId or accountId required)',
@@ -1933,13 +1729,8 @@ sub search_achievements {
 sub update_achievement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_achievement");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/update';
+    my $_resource_path = '/achievement/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2028,13 +1819,6 @@ sub update_achievement {
         $query_params->{'triggerDefinition'} = $self->{api_client}->to_query_value($args{'trigger_definition'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2055,7 +1839,6 @@ sub update_achievement {
 #
 # Update Achievement Tier
 #
-# @param double $version  (required)
 # @param int $achievement_tier_id the achievement tier id for updating (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2072,11 +1855,6 @@ sub update_achievement {
 # @param boolean $score_all_instances score all instances (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'achievement_tier_id' => {
         data_type => 'int',
         description => 'the achievement tier id for updating',
@@ -2159,18 +1937,13 @@ sub update_achievement {
 sub update_achievement_tier {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_achievement_tier");
-    }
-
     # verify the required parameter 'achievement_tier_id' is set
     unless (exists $args{'achievement_tier_id'}) {
       croak("Missing the required parameter 'achievement_tier_id' when calling update_achievement_tier");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/tier/update';
+    my $_resource_path = '/achievement/tier/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2254,13 +2027,6 @@ sub update_achievement_tier {
         $query_params->{'scoreAllInstances'} = $self->{api_client}->to_query_value($args{'score_all_instances'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2281,7 +2047,6 @@ sub update_achievement_tier {
 #
 # Update Achievement Progress
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param int $achievement_id the achievement id (achievementId or tag required) (optional)
 # @param string $tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -2292,11 +2057,6 @@ sub update_achievement_tier {
 # @param boolean $return_progress determines whether to return the achievement progress response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -2349,18 +2109,13 @@ sub update_achievement_tier {
 sub update_user_achievement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_user_achievement");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_user_achievement");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/achievement/progress/update';
+    my $_resource_path = '/achievement/progress/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2412,13 +2167,6 @@ sub update_user_achievement {
     # query params
     if ( exists $args{'return_progress'}) {
         $query_params->{'returnProgress'} = $self->{api_client}->to_query_value($args{'return_progress'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

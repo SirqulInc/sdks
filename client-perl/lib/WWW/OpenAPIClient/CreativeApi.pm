@@ -53,16 +53,10 @@ sub new {
 #
 # Add Preview
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account (required)
 # @param int $creative_id The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account',
@@ -85,11 +79,6 @@ sub new {
 sub add_preview {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_preview");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling add_preview");
@@ -101,7 +90,7 @@ sub add_preview {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/creative/addpreview';
+    my $_resource_path = '/creative/addpreview';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -125,13 +114,6 @@ sub add_preview {
         $query_params->{'creativeId'} = $self->{api_client}->to_query_value($args{'creative_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -152,7 +134,6 @@ sub add_preview {
 #
 # Find Missions
 #
-# @param double $version  (required)
 # @param string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
 # @param boolean $randomize return a random set of results, default is true. If false returns in nature order. (required)
 # @param boolean $targeted_ads_only return only ads targets to the specific app, no global ads. (required)
@@ -171,11 +152,6 @@ sub add_preview {
 # @param string $mission_ids return only ads from the specified campaigns. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.',
@@ -268,11 +244,6 @@ sub add_preview {
 sub ads_find {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling ads_find");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling ads_find");
@@ -289,7 +260,7 @@ sub ads_find {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/ads/find';
+    my $_resource_path = '/ads/find';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -383,13 +354,6 @@ sub ads_find {
         $query_params->{'missionIds'} = $self->{api_client}->to_query_value($args{'mission_ids'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -410,7 +374,6 @@ sub ads_find {
 #
 # Create Creative
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the level. (required)
 # @param boolean $active If true set the game level as active. Default is false. (required)
@@ -428,11 +391,6 @@ sub ads_find {
 # @param int $offer_id the id of the offer (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -520,11 +478,6 @@ sub ads_find {
 sub create_creative {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_creative");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_creative");
@@ -546,7 +499,7 @@ sub create_creative {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/creative/create';
+    my $_resource_path = '/creative/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -635,13 +588,6 @@ sub create_creative {
         $query_params->{'waitForAsset'} = $self->{api_client}->to_query_value($args{'wait_for_asset'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -662,16 +608,10 @@ sub create_creative {
 #
 # Delete Creative
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $creative_id the id of the creative to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -694,11 +634,6 @@ sub create_creative {
 sub delete_creative {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_creative");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_creative");
@@ -710,7 +645,7 @@ sub delete_creative {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/creative/delete';
+    my $_resource_path = '/creative/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -734,13 +669,6 @@ sub delete_creative {
         $query_params->{'creativeId'} = $self->{api_client}->to_query_value($args{'creative_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -761,16 +689,10 @@ sub delete_creative {
 #
 # Get Creative
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $creative_id the ID of the creative to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -793,11 +715,6 @@ sub delete_creative {
 sub get_creative {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_creative");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_creative");
@@ -809,7 +726,7 @@ sub get_creative {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/creative/get';
+    my $_resource_path = '/creative/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -833,13 +750,6 @@ sub get_creative {
         $query_params->{'creativeId'} = $self->{api_client}->to_query_value($args{'creative_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -860,7 +770,6 @@ sub get_creative {
 #
 # Search Creatives
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key the application key (required)
 # @param int $start Start the result set at some index. (required)
@@ -869,11 +778,6 @@ sub get_creative {
 # @param string $keyword Match the keyword to the owner name or level name. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -916,11 +820,6 @@ sub get_creative {
 sub get_creatives_by_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_creatives_by_application");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_creatives_by_application");
@@ -942,7 +841,7 @@ sub get_creatives_by_application {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/creative/search';
+    my $_resource_path = '/creative/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -986,13 +885,6 @@ sub get_creatives_by_application {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1013,16 +905,10 @@ sub get_creatives_by_application {
 #
 # Remove Preview
 #
-# @param double $version  (required)
 # @param int $account_id the ID of the logged in user (required)
 # @param int $creative_id the ID of the creative to remove preview (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the ID of the logged in user',
@@ -1045,11 +931,6 @@ sub get_creatives_by_application {
 sub remove_preview {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_preview");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling remove_preview");
@@ -1061,7 +942,7 @@ sub remove_preview {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/creative/removepreview';
+    my $_resource_path = '/creative/removepreview';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1085,13 +966,6 @@ sub remove_preview {
         $query_params->{'creativeId'} = $self->{api_client}->to_query_value($args{'creative_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1112,7 +986,6 @@ sub remove_preview {
 #
 # Update Creative
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $creative_id the creative Id to upate. (required)
 # @param string $name The name of the level. (optional)
@@ -1129,11 +1002,6 @@ sub remove_preview {
 # @param int $mission_id Assign the creative to a campaign for timing and audience matching. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1216,11 +1084,6 @@ sub remove_preview {
 sub update_creative {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_creative");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_creative");
@@ -1232,7 +1095,7 @@ sub update_creative {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/creative/update';
+    my $_resource_path = '/creative/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1314,13 +1177,6 @@ sub update_creative {
     # query params
     if ( exists $args{'mission_id'}) {
         $query_params->{'missionId'} = $self->{api_client}->to_query_value($args{'mission_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

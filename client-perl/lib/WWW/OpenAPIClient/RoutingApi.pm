@@ -53,15 +53,9 @@ sub new {
 #
 # Compute Route
 #
-# @param double $version  (required)
 # @param string $data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'data' => {
         data_type => 'string',
         description => 'Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest',
@@ -79,18 +73,13 @@ sub new {
 sub compute_routing {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling compute_routing");
-    }
-
     # verify the required parameter 'data' is set
     unless (exists $args{'data'}) {
       croak("Missing the required parameter 'data' when calling compute_routing");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/routing/compute';
+    my $_resource_path = '/routing/compute';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -107,13 +96,6 @@ sub compute_routing {
     # query params
     if ( exists $args{'data'}) {
         $query_params->{'data'} = $self->{api_client}->to_query_value($args{'data'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

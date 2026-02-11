@@ -53,7 +53,6 @@ sub new {
 #
 # Create/Update Theme
 #
-# @param double $version  (required)
 # @param boolean $public_read determines whether the theme&#39;s participants have read permissions (required)
 # @param boolean $public_write determines whether the theme&#39;s participants have write permissions (required)
 # @param boolean $public_delete determines whether the theme&#39;s participants have delete permissions (required)
@@ -83,11 +82,6 @@ sub new {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'public_read' => {
         data_type => 'boolean',
         description => 'determines whether the theme&#39;s participants have read permissions',
@@ -235,11 +229,6 @@ sub new {
 sub add_or_update_theme_descriptor {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_or_update_theme_descriptor");
-    }
-
     # verify the required parameter 'public_read' is set
     unless (exists $args{'public_read'}) {
       croak("Missing the required parameter 'public_read' when calling add_or_update_theme_descriptor");
@@ -276,7 +265,7 @@ sub add_or_update_theme_descriptor {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/theme';
+    my $_resource_path = '/consumer/theme';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -425,13 +414,6 @@ sub add_or_update_theme_descriptor {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -452,7 +434,6 @@ sub add_or_update_theme_descriptor {
 #
 # Get Theme
 #
-# @param double $version  (required)
 # @param int $theme_descriptor_id the theme id (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -461,11 +442,6 @@ sub add_or_update_theme_descriptor {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'theme_descriptor_id' => {
         data_type => 'int',
         description => 'the theme id',
@@ -508,18 +484,13 @@ sub add_or_update_theme_descriptor {
 sub get_theme_descriptor {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_theme_descriptor");
-    }
-
     # verify the required parameter 'theme_descriptor_id' is set
     unless (exists $args{'theme_descriptor_id'}) {
       croak("Missing the required parameter 'theme_descriptor_id' when calling get_theme_descriptor");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/theme/get';
+    my $_resource_path = '/consumer/theme/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -563,13 +534,6 @@ sub get_theme_descriptor {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -590,7 +554,6 @@ sub get_theme_descriptor {
 #
 # Search Themes
 #
-# @param double $version  (required)
 # @param string $filter a comma separated list of Ownership (required)
 # @param string $sort_field the field to sort by. See ThemeDescriptorApiMap (required)
 # @param boolean $descending determines whether the sorted list is in descending or ascending order (required)
@@ -611,11 +574,6 @@ sub get_theme_descriptor {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'filter' => {
         data_type => 'string',
         description => 'a comma separated list of Ownership',
@@ -718,11 +676,6 @@ sub get_theme_descriptor {
 sub get_theme_descriptors {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_theme_descriptors");
-    }
-
     # verify the required parameter 'filter' is set
     unless (exists $args{'filter'}) {
       croak("Missing the required parameter 'filter' when calling get_theme_descriptors");
@@ -749,7 +702,7 @@ sub get_theme_descriptors {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/theme/search';
+    my $_resource_path = '/consumer/theme/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -853,13 +806,6 @@ sub get_theme_descriptors {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -880,7 +826,6 @@ sub get_theme_descriptors {
 #
 # Delete Theme
 #
-# @param double $version  (required)
 # @param int $theme_descriptor_id the theme id to remove (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -889,11 +834,6 @@ sub get_theme_descriptors {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'theme_descriptor_id' => {
         data_type => 'int',
         description => 'the theme id to remove',
@@ -936,18 +876,13 @@ sub get_theme_descriptors {
 sub remove_theme_descriptor {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_theme_descriptor");
-    }
-
     # verify the required parameter 'theme_descriptor_id' is set
     unless (exists $args{'theme_descriptor_id'}) {
       croak("Missing the required parameter 'theme_descriptor_id' when calling remove_theme_descriptor");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/theme/remove';
+    my $_resource_path = '/consumer/theme/remove';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -989,13 +924,6 @@ sub remove_theme_descriptor {
     # query params
     if ( exists $args{'longitude'}) {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

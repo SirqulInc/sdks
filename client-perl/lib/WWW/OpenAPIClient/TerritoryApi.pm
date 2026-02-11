@@ -53,17 +53,11 @@ sub new {
 #
 # Create Territory
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the territory (required)
 # @param boolean $active If true set the game level as active. Default is true. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -91,11 +85,6 @@ sub new {
 sub create_territory {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_territory");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_territory");
@@ -107,7 +96,7 @@ sub create_territory {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/territory/create';
+    my $_resource_path = '/territory/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -136,13 +125,6 @@ sub create_territory {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -163,16 +145,10 @@ sub create_territory {
 #
 # Delete Territory
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $territory_id the id of the territory to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -195,11 +171,6 @@ sub create_territory {
 sub delete_territory {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_territory");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_territory");
@@ -211,7 +182,7 @@ sub delete_territory {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/territory/delete';
+    my $_resource_path = '/territory/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -235,13 +206,6 @@ sub delete_territory {
         $query_params->{'territoryId'} = $self->{api_client}->to_query_value($args{'territory_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -262,15 +226,9 @@ sub delete_territory {
 #
 # Get Territory
 #
-# @param double $version  (required)
 # @param int $territory_id the id of the territory to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'territory_id' => {
         data_type => 'int',
         description => 'the id of the territory to get',
@@ -288,18 +246,13 @@ sub delete_territory {
 sub get_territory {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_territory");
-    }
-
     # verify the required parameter 'territory_id' is set
     unless (exists $args{'territory_id'}) {
       croak("Missing the required parameter 'territory_id' when calling get_territory");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/territory/get';
+    my $_resource_path = '/territory/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -316,13 +269,6 @@ sub get_territory {
     # query params
     if ( exists $args{'territory_id'}) {
         $query_params->{'territoryId'} = $self->{api_client}->to_query_value($args{'territory_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -345,7 +291,6 @@ sub get_territory {
 #
 # Search Territories
 #
-# @param double $version  (required)
 # @param string $sort_field the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
 # @param boolean $descending determines whether the sorted list is in descending or ascending order (required)
 # @param string $keyword Return results that match this keyword. (optional)
@@ -353,11 +298,6 @@ sub get_territory {
 # @param int $limit The limit for pagination (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME',
@@ -395,11 +335,6 @@ sub get_territory {
 sub search_territories {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_territories");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling search_territories");
@@ -411,7 +346,7 @@ sub search_territories {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/territory/search';
+    my $_resource_path = '/territory/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -450,13 +385,6 @@ sub search_territories {
         $query_params->{'descending'} = $self->{api_client}->to_query_value($args{'descending'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -477,18 +405,12 @@ sub search_territories {
 #
 # Update Territory
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $territory_id the id of the territory to update (required)
 # @param string $name The name of the territory (optional)
 # @param boolean $active If true set the game level as active. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -521,11 +443,6 @@ sub search_territories {
 sub update_territory {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_territory");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_territory");
@@ -537,7 +454,7 @@ sub update_territory {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/territory/update';
+    my $_resource_path = '/territory/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -569,13 +486,6 @@ sub update_territory {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

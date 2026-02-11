@@ -53,7 +53,6 @@ sub new {
 #
 # Add Movie
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $movie_name Movie Name (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -63,11 +62,6 @@ sub new {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -115,11 +109,6 @@ sub new {
 sub add_movie {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_movie");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling add_movie");
@@ -131,7 +120,7 @@ sub add_movie {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/addMovie';
+    my $_resource_path = '/orson/ai/addMovie';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -180,13 +169,6 @@ sub add_movie {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -207,7 +189,6 @@ sub add_movie {
 #
 # Search Docs
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $doc Doc (required)
 # @param boolean $return_topics Return Topics (optional)
@@ -215,11 +196,6 @@ sub add_movie {
 # @param int $offset Offset (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -257,11 +233,6 @@ sub add_movie {
 sub ai_docs {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling ai_docs");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling ai_docs");
@@ -273,7 +244,7 @@ sub ai_docs {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/docs';
+    my $_resource_path = '/orson/ai/docs';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -312,13 +283,6 @@ sub ai_docs {
         $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -339,7 +303,6 @@ sub ai_docs {
 #
 # Find images
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $text Text (required)
 # @param string $parse_flag Parse Flag (optional)
@@ -347,11 +310,6 @@ sub ai_docs {
 # @param string $size Size (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -389,11 +347,6 @@ sub ai_docs {
 sub ai_find_images {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling ai_find_images");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling ai_find_images");
@@ -405,7 +358,7 @@ sub ai_find_images {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/img';
+    my $_resource_path = '/orson/ai/img';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -444,13 +397,6 @@ sub ai_find_images {
         $query_params->{'size'} = $self->{api_client}->to_query_value($args{'size'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -471,7 +417,6 @@ sub ai_find_images {
 #
 # Search Tags
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $tags Tags (required)
 # @param string $conditional Conditional (optional)
@@ -479,11 +424,6 @@ sub ai_find_images {
 # @param int $offset Offset (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -521,11 +461,6 @@ sub ai_find_images {
 sub ai_tags {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling ai_tags");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling ai_tags");
@@ -537,7 +472,7 @@ sub ai_tags {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/tags';
+    my $_resource_path = '/orson/ai/tags';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -576,13 +511,6 @@ sub ai_tags {
         $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -603,7 +531,6 @@ sub ai_tags {
 #
 # Search Text
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $terms Terms (required)
 # @param string $conditional Conditional (optional)
@@ -611,11 +538,6 @@ sub ai_tags {
 # @param int $offset Offset (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -653,11 +575,6 @@ sub ai_tags {
 sub ai_text {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling ai_text");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling ai_text");
@@ -669,7 +586,7 @@ sub ai_text {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/text';
+    my $_resource_path = '/orson/ai/text';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -708,13 +625,6 @@ sub ai_text {
         $query_params->{'offset'} = $self->{api_client}->to_query_value($args{'offset'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -735,7 +645,6 @@ sub ai_text {
 #
 # Batch Analysis
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
 # @param int $limit The number of topics to return (optional)
@@ -745,11 +654,6 @@ sub ai_text {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -797,18 +701,13 @@ sub ai_text {
 sub batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling batch");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling batch");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/batch';
+    my $_resource_path = '/orson/ai/batch';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -857,13 +756,6 @@ sub batch {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -884,16 +776,10 @@ sub batch {
 #
 # Creates an instant episode
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $data Request Data String (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -916,11 +802,6 @@ sub batch {
 sub create_instant_episode {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_instant_episode");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_instant_episode");
@@ -932,7 +813,7 @@ sub create_instant_episode {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/stories/episodes/instant';
+    my $_resource_path = '/orson/stories/episodes/instant';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -956,13 +837,6 @@ sub create_instant_episode {
         $query_params->{'data'} = $self->{api_client}->to_query_value($args{'data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -983,7 +857,6 @@ sub create_instant_episode {
 #
 # Create VoiceCanvas images
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -995,11 +868,6 @@ sub create_instant_episode {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1057,11 +925,6 @@ sub create_instant_episode {
 sub create_voice_canvas {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_voice_canvas");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_voice_canvas");
@@ -1073,7 +936,7 @@ sub create_voice_canvas {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/voiceCanvas';
+    my $_resource_path = '/orson/ai/voiceCanvas';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1132,13 +995,6 @@ sub create_voice_canvas {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1159,7 +1015,6 @@ sub create_voice_canvas {
 #
 # Detect emotions
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
 # @param string $file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -1167,11 +1022,6 @@ sub create_voice_canvas {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1209,18 +1059,13 @@ sub create_voice_canvas {
 sub emotion {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling emotion");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling emotion");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/emotion';
+    my $_resource_path = '/orson/ai/emotion';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1259,13 +1104,6 @@ sub emotion {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1286,16 +1124,10 @@ sub emotion {
 #
 # Get Add Movie Result
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -1318,11 +1150,6 @@ sub emotion {
 sub get_add_movie_result {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_add_movie_result");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_add_movie_result");
@@ -1334,7 +1161,7 @@ sub get_add_movie_result {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/addMovie/{requestId}';
+    my $_resource_path = '/orson/ai/addMovie/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1351,13 +1178,6 @@ sub get_add_movie_result {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -1387,16 +1207,10 @@ sub get_add_movie_result {
 #
 # Get Batch Analysis Results
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -1419,11 +1233,6 @@ sub get_add_movie_result {
 sub get_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_batch");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_batch");
@@ -1435,7 +1244,7 @@ sub get_batch {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/batch/{requestId}';
+    my $_resource_path = '/orson/ai/batch/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1452,13 +1261,6 @@ sub get_batch {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -1488,16 +1290,10 @@ sub get_batch {
 #
 # Get Emotion Results
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -1520,11 +1316,6 @@ sub get_batch {
 sub get_emotion {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_emotion");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_emotion");
@@ -1536,7 +1327,7 @@ sub get_emotion {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/emotion/{requestId}';
+    my $_resource_path = '/orson/ai/emotion/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1553,13 +1344,6 @@ sub get_emotion {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -1589,16 +1373,10 @@ sub get_emotion {
 #
 # Check episode status
 #
-# @param double $version  (required)
 # @param int $episode_id Episode ID (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'episode_id' => {
         data_type => 'int',
         description => 'Episode ID',
@@ -1621,11 +1399,6 @@ sub get_emotion {
 sub get_episode_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_episode_status");
-    }
-
     # verify the required parameter 'episode_id' is set
     unless (exists $args{'episode_id'}) {
       croak("Missing the required parameter 'episode_id' when calling get_episode_status");
@@ -1637,7 +1410,7 @@ sub get_episode_status {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/stories/episodes/{episodeId}/status';
+    my $_resource_path = '/orson/stories/episodes/{episodeId}/status';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1654,13 +1427,6 @@ sub get_episode_status {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -1690,16 +1456,10 @@ sub get_episode_status {
 #
 # Check episode status
 #
-# @param double $version  (required)
 # @param string $render_id Render ID (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'render_id' => {
         data_type => 'string',
         description => 'Render ID',
@@ -1722,11 +1482,6 @@ sub get_episode_status {
 sub get_render_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_render_status");
-    }
-
     # verify the required parameter 'render_id' is set
     unless (exists $args{'render_id'}) {
       croak("Missing the required parameter 'render_id' when calling get_render_status");
@@ -1738,7 +1493,7 @@ sub get_render_status {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/stories/renders/{renderId}/status';
+    my $_resource_path = '/orson/stories/renders/{renderId}/status';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1755,13 +1510,6 @@ sub get_render_status {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -1791,16 +1539,10 @@ sub get_render_status {
 #
 # Get Speach to Text Result
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -1823,11 +1565,6 @@ sub get_render_status {
 sub get_stt {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_stt");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_stt");
@@ -1839,7 +1576,7 @@ sub get_stt {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/stt/{requestId}';
+    my $_resource_path = '/orson/ai/stt/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1856,13 +1593,6 @@ sub get_stt {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -1892,16 +1622,10 @@ sub get_stt {
 #
 # Get TechTune Results
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -1924,11 +1648,6 @@ sub get_stt {
 sub get_tech_tune {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_tech_tune");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_tech_tune");
@@ -1940,7 +1659,7 @@ sub get_tech_tune {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/techTune/{requestId}';
+    my $_resource_path = '/orson/ai/techTune/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1957,13 +1676,6 @@ sub get_tech_tune {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -1993,16 +1705,10 @@ sub get_tech_tune {
 #
 # Get Topics
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -2025,11 +1731,6 @@ sub get_tech_tune {
 sub get_topics {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_topics");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_topics");
@@ -2041,7 +1742,7 @@ sub get_topics {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/topics/{requestId}';
+    my $_resource_path = '/orson/ai/topics/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2058,13 +1759,6 @@ sub get_topics {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -2094,16 +1788,10 @@ sub get_topics {
 #
 # Get Text to Speach Result
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -2126,11 +1814,6 @@ sub get_topics {
 sub get_tts {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_tts");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_tts");
@@ -2142,7 +1825,7 @@ sub get_tts {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/tts/{requestId}';
+    my $_resource_path = '/orson/ai/tts/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2159,13 +1842,6 @@ sub get_tts {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -2195,16 +1871,10 @@ sub get_tts {
 #
 # Get VoiceCanvas images
 #
-# @param double $version  (required)
 # @param string $request_id Orson Request Id (required)
 # @param int $account_id Sirqul Account Id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'request_id' => {
         data_type => 'string',
         description => 'Orson Request Id',
@@ -2227,11 +1897,6 @@ sub get_tts {
 sub get_voice_canvas {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_voice_canvas");
-    }
-
     # verify the required parameter 'request_id' is set
     unless (exists $args{'request_id'}) {
       croak("Missing the required parameter 'request_id' when calling get_voice_canvas");
@@ -2243,7 +1908,7 @@ sub get_voice_canvas {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/voiceCanvas/{requestId}';
+    my $_resource_path = '/orson/ai/voiceCanvas/{requestId}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2260,13 +1925,6 @@ sub get_voice_canvas {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -2296,16 +1954,10 @@ sub get_voice_canvas {
 #
 # Starts a StoryStitch video render
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $data Request Data String (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2328,11 +1980,6 @@ sub get_voice_canvas {
 sub start_video_render {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling start_video_render");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling start_video_render");
@@ -2344,7 +1991,7 @@ sub start_video_render {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/stories/renders';
+    my $_resource_path = '/orson/stories/renders';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2368,13 +2015,6 @@ sub start_video_render {
         $query_params->{'data'} = $self->{api_client}->to_query_value($args{'data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2395,7 +2035,6 @@ sub start_video_render {
 #
 # Speach to Text
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
 # @param string $source_language Source Language (optional)
@@ -2405,11 +2044,6 @@ sub start_video_render {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2457,18 +2091,13 @@ sub start_video_render {
 sub stt {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling stt");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling stt");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/stt';
+    my $_resource_path = '/orson/ai/stt';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2517,13 +2146,6 @@ sub stt {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2544,7 +2166,6 @@ sub stt {
 #
 # Summarize Topics
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
 # @param string $doc The text to get topics for. (optional)
@@ -2555,11 +2176,6 @@ sub stt {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2612,18 +2228,13 @@ sub stt {
 sub summarize_topics {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling summarize_topics");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling summarize_topics");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/topics';
+    my $_resource_path = '/orson/ai/topics';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2677,13 +2288,6 @@ sub summarize_topics {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2704,7 +2308,6 @@ sub summarize_topics {
 #
 # Detect Technical Issues
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param int $num_faces_expected Number of expected faces (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -2713,11 +2316,6 @@ sub summarize_topics {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2760,11 +2358,6 @@ sub summarize_topics {
 sub tech_tune {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling tech_tune");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling tech_tune");
@@ -2776,7 +2369,7 @@ sub tech_tune {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/techTune';
+    my $_resource_path = '/orson/ai/techTune';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2820,13 +2413,6 @@ sub tech_tune {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2847,7 +2433,6 @@ sub tech_tune {
 #
 # Text to Speach
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $text Text (required)
 # @param string $third_party_account_id A third-party account id that is meaningful to your systems (optional)
@@ -2856,11 +2441,6 @@ sub tech_tune {
 # @param string $callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2903,11 +2483,6 @@ sub tech_tune {
 sub tts {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling tts");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling tts");
@@ -2919,7 +2494,7 @@ sub tts {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/orson/ai/tts';
+    my $_resource_path = '/orson/ai/tts';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2961,13 +2536,6 @@ sub tts {
     # query params
     if ( exists $args{'callback'}) {
         $query_params->{'callback'} = $self->{api_client}->to_query_value($args{'callback'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

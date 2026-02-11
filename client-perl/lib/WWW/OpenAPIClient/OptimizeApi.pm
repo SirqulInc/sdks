@@ -53,17 +53,11 @@ sub new {
 #
 # Get Optimization Result
 #
-# @param double $version  (required)
 # @param string $batch_id The batchID for getting the import status of. (required)
 # @param int $start The start index for pagination (required)
 # @param int $limit The limit for pagination (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'batch_id' => {
         data_type => 'string',
         description => 'The batchID for getting the import status of.',
@@ -91,11 +85,6 @@ sub new {
 sub get_optimization_result {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_optimization_result");
-    }
-
     # verify the required parameter 'batch_id' is set
     unless (exists $args{'batch_id'}) {
       croak("Missing the required parameter 'batch_id' when calling get_optimization_result");
@@ -112,7 +101,7 @@ sub get_optimization_result {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/optimize/result/{batchID}';
+    my $_resource_path = '/optimize/result/{batchID}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -134,13 +123,6 @@ sub get_optimization_result {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -170,15 +152,9 @@ sub get_optimization_result {
 #
 # Request Optimization
 #
-# @param double $version  (required)
 # @param Orders $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'Orders',
         description => '',
@@ -196,13 +172,8 @@ sub get_optimization_result {
 sub request_optimization {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling request_optimization");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/optimize/request';
+    my $_resource_path = '/optimize/request';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -215,13 +186,6 @@ sub request_optimization {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params

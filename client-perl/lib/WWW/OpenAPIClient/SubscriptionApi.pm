@@ -53,17 +53,11 @@ sub new {
 #
 # Create Subscription
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the create, must be the responsible manager (required)
 # @param int $plan_id The plan to subscribe to, if null use default plan (optional)
 # @param string $promo_code Set a promo code for a discount. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the create, must be the responsible manager',
@@ -91,18 +85,13 @@ sub new {
 sub create_subscription {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_subscription");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_subscription");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/subscription/create';
+    my $_resource_path = '/subscription/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -131,13 +120,6 @@ sub create_subscription {
         $query_params->{'promoCode'} = $self->{api_client}->to_query_value($args{'promo_code'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -158,15 +140,9 @@ sub create_subscription {
 #
 # Delete Subscription
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the delete, must be the responsible manager (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the delete, must be the responsible manager',
@@ -184,18 +160,13 @@ sub create_subscription {
 sub delete_subscription {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_subscription");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_subscription");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/subscription/delete';
+    my $_resource_path = '/subscription/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -212,13 +183,6 @@ sub delete_subscription {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -241,15 +205,9 @@ sub delete_subscription {
 #
 # Get Subscription
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the lookup (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the lookup',
@@ -267,18 +225,13 @@ sub delete_subscription {
 sub get_subscription {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_subscription");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_subscription");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/subscription/get';
+    my $_resource_path = '/subscription/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -295,13 +248,6 @@ sub get_subscription {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -324,15 +270,9 @@ sub get_subscription {
 #
 # Get Subscription Plan
 #
-# @param double $version  (required)
 # @param int $plan_id The ID of the plan to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'plan_id' => {
         data_type => 'int',
         description => 'The ID of the plan to get',
@@ -350,18 +290,13 @@ sub get_subscription {
 sub get_subscription_plan {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_subscription_plan");
-    }
-
     # verify the required parameter 'plan_id' is set
     unless (exists $args{'plan_id'}) {
       croak("Missing the required parameter 'plan_id' when calling get_subscription_plan");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/subscription/plan/get';
+    my $_resource_path = '/subscription/plan/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -378,13 +313,6 @@ sub get_subscription_plan {
     # query params
     if ( exists $args{'plan_id'}) {
         $query_params->{'planId'} = $self->{api_client}->to_query_value($args{'plan_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -407,16 +335,10 @@ sub get_subscription_plan {
 #
 # List Subscription Plans
 #
-# @param double $version  (required)
 # @param boolean $visible Include visible only (true), hidden only (false), or all (null) (optional)
 # @param string $role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'visible' => {
         data_type => 'boolean',
         description => 'Include visible only (true), hidden only (false), or all (null)',
@@ -439,13 +361,8 @@ sub get_subscription_plan {
 sub get_subscription_plans {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_subscription_plans");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/subscription/plan/list';
+    my $_resource_path = '/subscription/plan/list';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -469,13 +386,6 @@ sub get_subscription_plans {
         $query_params->{'role'} = $self->{api_client}->to_query_value($args{'role'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -496,18 +406,12 @@ sub get_subscription_plans {
 #
 # Get Subscription Usage
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the lookup (required)
 # @param int $application_id Get for just 1 application instead of the BillableEntity (optional)
 # @param int $start The start time frame (optional)
 # @param int $end The end time frame (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the lookup',
@@ -540,18 +444,13 @@ sub get_subscription_plans {
 sub get_subscription_usage {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_subscription_usage");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_subscription_usage");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/subscription/usage/get';
+    my $_resource_path = '/subscription/usage/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -585,13 +484,6 @@ sub get_subscription_usage {
         $query_params->{'end'} = $self->{api_client}->to_query_value($args{'end'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -612,18 +504,12 @@ sub get_subscription_usage {
 #
 # Update Subscription
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the update, must be the responsible manager (required)
 # @param int $plan_id The plan to subscribe to (optional)
 # @param string $promo_code Set a promo code for a discount. (optional)
 # @param boolean $active Set active status (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the update, must be the responsible manager',
@@ -656,18 +542,13 @@ sub get_subscription_usage {
 sub update_subscription {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_subscription");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_subscription");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/subscription/update';
+    my $_resource_path = '/subscription/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -699,13 +580,6 @@ sub update_subscription {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

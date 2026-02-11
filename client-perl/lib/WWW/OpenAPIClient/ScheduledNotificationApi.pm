@@ -53,7 +53,6 @@ sub new {
 #
 # Create Scheduled Notification
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the scheduled notification (required)
 # @param string $type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -90,11 +89,6 @@ sub new {
 # @param boolean $send_to_all Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -277,11 +271,6 @@ sub new {
 sub create_scheduled_notification {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_scheduled_notification");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_scheduled_notification");
@@ -303,7 +292,7 @@ sub create_scheduled_notification {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/schedule/create';
+    my $_resource_path = '/notification/schedule/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -487,13 +476,6 @@ sub create_scheduled_notification {
         $query_params->{'sendToAll'} = $self->{api_client}->to_query_value($args{'send_to_all'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -514,17 +496,11 @@ sub create_scheduled_notification {
 #
 # Delete Scheduled Notification
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $scheduled_notification_id the id of the scheduled notification to delete (required)
 # @param boolean $delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -552,11 +528,6 @@ sub create_scheduled_notification {
 sub delete_scheduled_notification {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_scheduled_notification");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_scheduled_notification");
@@ -568,7 +539,7 @@ sub delete_scheduled_notification {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/schedule/delete';
+    my $_resource_path = '/notification/schedule/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -597,13 +568,6 @@ sub delete_scheduled_notification {
         $query_params->{'deleteByGroupingId'} = $self->{api_client}->to_query_value($args{'delete_by_grouping_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -624,16 +588,10 @@ sub delete_scheduled_notification {
 #
 # Get Scheduled Notification
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account logged in (required)
 # @param int $scheduled_notification_id the id of the scheduled notification to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account logged in',
@@ -656,11 +614,6 @@ sub delete_scheduled_notification {
 sub get_scheduled_notification {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_scheduled_notification");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_scheduled_notification");
@@ -672,7 +625,7 @@ sub get_scheduled_notification {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/schedule/get';
+    my $_resource_path = '/notification/schedule/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -696,13 +649,6 @@ sub get_scheduled_notification {
         $query_params->{'scheduledNotificationId'} = $self->{api_client}->to_query_value($args{'scheduled_notification_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -723,7 +669,6 @@ sub get_scheduled_notification {
 #
 # Generate Schedule Notifications
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key The application to target (required)
 # @param string $report_name The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -734,11 +679,6 @@ sub get_scheduled_notification {
 # @param string $type The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -791,11 +731,6 @@ sub get_scheduled_notification {
 sub schedule_notification_listings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling schedule_notification_listings");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling schedule_notification_listings");
@@ -827,7 +762,7 @@ sub schedule_notification_listings {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/schedule/generate';
+    my $_resource_path = '/notification/schedule/generate';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -881,13 +816,6 @@ sub schedule_notification_listings {
         $query_params->{'recipientReportId'} = $self->{api_client}->to_query_value($args{'recipient_report_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -908,7 +836,6 @@ sub schedule_notification_listings {
 #
 # Search Scheduled Notifications
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $grouping_id Filter results by a grouping identifier defined by the client (optional)
 # @param int $audience_id Filter results by audience (optional)
@@ -931,11 +858,6 @@ sub schedule_notification_listings {
 # @param boolean $return_audience_account_count If true, include audience account counts in the response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1048,18 +970,13 @@ sub schedule_notification_listings {
 sub search_scheduled_notifications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_scheduled_notifications");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_scheduled_notifications");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/schedule/search';
+    my $_resource_path = '/notification/schedule/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1173,13 +1090,6 @@ sub search_scheduled_notifications {
         $query_params->{'returnAudienceAccountCount'} = $self->{api_client}->to_query_value($args{'return_audience_account_count'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1200,7 +1110,6 @@ sub search_scheduled_notifications {
 #
 # Update Scheduled Notification
 #
-# @param double $version  (required)
 # @param int $scheduled_notification_id The id of scheduled notification to update (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the scheduled notification (optional)
@@ -1241,11 +1150,6 @@ sub search_scheduled_notifications {
 # @param boolean $send_to_all Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'scheduled_notification_id' => {
         data_type => 'int',
         description => 'The id of scheduled notification to update',
@@ -1448,11 +1352,6 @@ sub search_scheduled_notifications {
 sub update_scheduled_notification {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_scheduled_notification");
-    }
-
     # verify the required parameter 'scheduled_notification_id' is set
     unless (exists $args{'scheduled_notification_id'}) {
       croak("Missing the required parameter 'scheduled_notification_id' when calling update_scheduled_notification");
@@ -1464,7 +1363,7 @@ sub update_scheduled_notification {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/notification/schedule/update';
+    my $_resource_path = '/notification/schedule/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1666,13 +1565,6 @@ sub update_scheduled_notification {
     # query params
     if ( exists $args{'send_to_all'}) {
         $query_params->{'sendToAll'} = $self->{api_client}->to_query_value($args{'send_to_all'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

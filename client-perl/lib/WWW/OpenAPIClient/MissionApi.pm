@@ -53,7 +53,6 @@ sub new {
 #
 # Create Mission
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $title The title of the mission (required)
 # @param string $description The description of the mission (optional)
@@ -82,11 +81,6 @@ sub new {
 # @param string $radius Comma separated list of radii for locations (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -229,11 +223,6 @@ sub new {
 sub create_mission {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_mission");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_mission");
@@ -245,7 +234,7 @@ sub create_mission {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/create';
+    my $_resource_path = '/mission/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -389,13 +378,6 @@ sub create_mission {
         $query_params->{'radius'} = $self->{api_client}->to_query_value($args{'radius'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -416,16 +398,10 @@ sub create_mission {
 #
 # Delete Mission
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $mission_id the id of the mission to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -448,11 +424,6 @@ sub create_mission {
 sub delete_mission {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_mission");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_mission");
@@ -464,7 +435,7 @@ sub delete_mission {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/delete';
+    my $_resource_path = '/mission/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -488,13 +459,6 @@ sub delete_mission {
         $query_params->{'missionId'} = $self->{api_client}->to_query_value($args{'mission_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -515,7 +479,6 @@ sub delete_mission {
 #
 # Find Missions
 #
-# @param double $version  (required)
 # @param string $app_key The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
 # @param string $suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
 # @param string $type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -537,11 +500,6 @@ sub delete_mission {
 # @param string $audience_operator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.',
@@ -649,18 +607,13 @@ sub delete_mission {
 sub find_missions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling find_missions");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling find_missions");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/find';
+    my $_resource_path = '/mission/find';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -769,13 +722,6 @@ sub find_missions {
         $query_params->{'audienceOperator'} = $self->{api_client}->to_query_value($args{'audience_operator'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -796,17 +742,11 @@ sub find_missions {
 #
 # Get Mission
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $mission_id The id of the mission to return. (required)
 # @param boolean $return_creative Return creatives associated with the mission when true (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -834,11 +774,6 @@ sub find_missions {
 sub get_mission {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_mission");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_mission");
@@ -850,7 +785,7 @@ sub get_mission {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/get';
+    my $_resource_path = '/mission/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -879,13 +814,6 @@ sub get_mission {
         $query_params->{'returnCreative'} = $self->{api_client}->to_query_value($args{'return_creative'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -906,7 +834,6 @@ sub get_mission {
 #
 # Import Mission
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param double $latitude The current location of the requesting device (required)
 # @param double $longitude The current location of the requesting device (required)
@@ -917,11 +844,6 @@ sub get_mission {
 # @param string $ad_size the size of the ad (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -974,11 +896,6 @@ sub get_mission {
 sub import_mission {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling import_mission");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling import_mission");
@@ -1000,7 +917,7 @@ sub import_mission {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/import';
+    my $_resource_path = '/mission/import';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1054,13 +971,6 @@ sub import_mission {
         $query_params->{'adSize'} = $self->{api_client}->to_query_value($args{'ad_size'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1081,17 +991,11 @@ sub import_mission {
 #
 # Search Mission Formats
 #
-# @param double $version  (required)
 # @param int $start The starting index in the result set to return. Default is 0. (required)
 # @param int $limit The total number of records to return. Default is 20. (required)
 # @param boolean $active_only Determines whether to return only active results. Default is false. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'start' => {
         data_type => 'int',
         description => 'The starting index in the result set to return. Default is 0.',
@@ -1119,11 +1023,6 @@ sub import_mission {
 sub search_mission_formats {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_mission_formats");
-    }
-
     # verify the required parameter 'start' is set
     unless (exists $args{'start'}) {
       croak("Missing the required parameter 'start' when calling search_mission_formats");
@@ -1140,7 +1039,7 @@ sub search_mission_formats {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/format/search';
+    my $_resource_path = '/mission/format/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1169,13 +1068,6 @@ sub search_mission_formats {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1196,7 +1088,6 @@ sub search_mission_formats {
 #
 # Search Missions
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $keyword Filter by keyword (optional)
 # @param string $sub_type Custom string client apps can use for searching/filtering missions (optional)
@@ -1210,11 +1101,6 @@ sub search_mission_formats {
 # @param boolean $descending Whether to sort in descending order (default true) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1282,18 +1168,13 @@ sub search_mission_formats {
 sub search_missions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_missions");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_missions");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/search';
+    my $_resource_path = '/mission/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1362,13 +1243,6 @@ sub search_missions {
         $query_params->{'descending'} = $self->{api_client}->to_query_value($args{'descending'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1389,7 +1263,6 @@ sub search_missions {
 #
 # Search Missions by Billable Entity
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $keyword Filter by keyword (optional)
 # @param int $start The index into the record set to start with. Default is 0. (optional)
@@ -1402,11 +1275,6 @@ sub search_missions {
 # @param boolean $descending Whether to sort in descending order (default true) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1469,18 +1337,13 @@ sub search_missions {
 sub search_missions_by_billable_entity {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_missions_by_billable_entity");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_missions_by_billable_entity");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/searchByBillableEntity';
+    my $_resource_path = '/mission/searchByBillableEntity';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1544,13 +1407,6 @@ sub search_missions_by_billable_entity {
         $query_params->{'descending'} = $self->{api_client}->to_query_value($args{'descending'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1571,7 +1427,6 @@ sub search_missions_by_billable_entity {
 #
 # Update Mission
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $mission_id The id of the mission to update. (required)
 # @param string $title The title of the mission (optional)
@@ -1599,11 +1454,6 @@ sub search_missions_by_billable_entity {
 # @param string $radius Comma separated list of radii for locations (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1741,11 +1591,6 @@ sub search_missions_by_billable_entity {
 sub update_mission {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_mission");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_mission");
@@ -1757,7 +1602,7 @@ sub update_mission {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/mission/update';
+    my $_resource_path = '/mission/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1894,13 +1739,6 @@ sub update_mission {
     # query params
     if ( exists $args{'radius'}) {
         $query_params->{'radius'} = $self->{api_client}->to_query_value($args{'radius'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

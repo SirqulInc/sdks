@@ -53,17 +53,11 @@ sub new {
 #
 # Create following
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -91,11 +85,6 @@ sub new {
 sub create_following {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_following");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_following");
@@ -107,7 +96,7 @@ sub create_following {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/rels/following/create';
+    my $_resource_path = '/vatom/me/rels/following/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -136,13 +125,6 @@ sub create_following {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -159,18 +141,12 @@ sub create_following {
 #
 # Create Vatom Space
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -203,11 +179,6 @@ sub create_following {
 sub create_space {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_space");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_space");
@@ -224,7 +195,7 @@ sub create_space {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/spaces/create';
+    my $_resource_path = '/vatom/b/spaces/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -258,13 +229,6 @@ sub create_space {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -281,18 +245,12 @@ sub create_space {
 #
 # Create Vatom Event
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -325,11 +283,6 @@ sub create_space {
 sub create_vatom_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_vatom_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_vatom_event");
@@ -346,7 +299,7 @@ sub create_vatom_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/events/create';
+    my $_resource_path = '/vatom/b/events/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -380,13 +333,6 @@ sub create_vatom_event {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -403,17 +349,11 @@ sub create_vatom_event {
 #
 # Delete following
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_rels_key Vatom Rels Key (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -441,11 +381,6 @@ sub create_vatom_event {
 sub delete_following {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_following");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_following");
@@ -457,7 +392,7 @@ sub delete_following {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/rels/following/delete';
+    my $_resource_path = '/vatom/me/rels/following/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -486,13 +421,6 @@ sub delete_following {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -509,18 +437,12 @@ sub delete_following {
 #
 # Reset All Points Balance
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_campaign_id Vatom Campaign Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -553,11 +475,6 @@ sub delete_following {
 sub delete_points_balance {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_points_balance");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_points_balance");
@@ -574,7 +491,7 @@ sub delete_points_balance {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign/points/delete';
+    my $_resource_path = '/vatom/b/campaign/points/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -608,13 +525,6 @@ sub delete_points_balance {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -631,18 +541,12 @@ sub delete_points_balance {
 #
 # Delete Vatom Space
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_space_id Vatom Space Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -675,11 +579,6 @@ sub delete_points_balance {
 sub delete_space {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_space");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_space");
@@ -696,7 +595,7 @@ sub delete_space {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/spaces/delete';
+    my $_resource_path = '/vatom/b/spaces/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -730,13 +629,6 @@ sub delete_space {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -753,18 +645,12 @@ sub delete_space {
 #
 # Delete Vatom Event
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_event_id Vatom Event Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -797,11 +683,6 @@ sub delete_space {
 sub delete_vatom_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_vatom_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_vatom_event");
@@ -818,7 +699,7 @@ sub delete_vatom_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/events/delete';
+    my $_resource_path = '/vatom/b/events/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -852,13 +733,6 @@ sub delete_vatom_event {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -875,17 +749,11 @@ sub delete_vatom_event {
 #
 # Delete Vatom NFT
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_id Vatom NFT Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -913,11 +781,6 @@ sub delete_vatom_event {
 sub delete_vatom_nft {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_vatom_nft");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_vatom_nft");
@@ -929,7 +792,7 @@ sub delete_vatom_nft {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/vatoms/delete';
+    my $_resource_path = '/vatom/vatoms/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -958,13 +821,6 @@ sub delete_vatom_nft {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -981,18 +837,12 @@ sub delete_vatom_nft {
 #
 # Execute Action on NFT
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_id Vatom NFT Id (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1025,11 +875,6 @@ sub delete_vatom_nft {
 sub execute_action_on_nft {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling execute_action_on_nft");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling execute_action_on_nft");
@@ -1046,7 +891,7 @@ sub execute_action_on_nft {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/vatoms/execute-action';
+    my $_resource_path = '/vatom/vatoms/execute-action';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1080,13 +925,6 @@ sub execute_action_on_nft {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1103,17 +941,11 @@ sub execute_action_on_nft {
 #
 # Search Vatom Geo Map
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1141,11 +973,6 @@ sub execute_action_on_nft {
 sub geomap_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling geomap_search");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling geomap_search");
@@ -1157,7 +984,7 @@ sub geomap_search {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/vatoms/geo-map/search';
+    my $_resource_path = '/vatom/vatoms/geo-map/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1186,13 +1013,6 @@ sub geomap_search {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1209,17 +1029,11 @@ sub geomap_search {
 #
 # Get Vatom Business Behaviors
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1247,11 +1061,6 @@ sub geomap_search {
 sub get_business_behaviors {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_business_behaviors");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_business_behaviors");
@@ -1263,7 +1072,7 @@ sub get_business_behaviors {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/behaviors';
+    my $_resource_path = '/vatom/b/behaviors';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1292,13 +1101,6 @@ sub get_business_behaviors {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1315,17 +1117,11 @@ sub get_business_behaviors {
 #
 # Get the coins for a Business
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1353,11 +1149,6 @@ sub get_business_behaviors {
 sub get_business_coins_balance {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_business_coins_balance");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_business_coins_balance");
@@ -1369,7 +1160,7 @@ sub get_business_coins_balance {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/coins/get';
+    my $_resource_path = '/vatom/b/coins/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1398,13 +1189,6 @@ sub get_business_coins_balance {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1421,16 +1205,10 @@ sub get_business_coins_balance {
 #
 # Get the user business ids
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1453,18 +1231,13 @@ sub get_business_coins_balance {
 sub get_business_ids {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_business_ids");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_business_ids");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/businesses';
+    my $_resource_path = '/vatom/me/businesses';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1488,13 +1261,6 @@ sub get_business_ids {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1511,18 +1277,12 @@ sub get_business_ids {
 #
 # Get Vatom Business Info
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1555,11 +1315,6 @@ sub get_business_ids {
 sub get_business_info {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_business_info");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_business_info");
@@ -1571,7 +1326,7 @@ sub get_business_info {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/get';
+    my $_resource_path = '/vatom/b/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1605,13 +1360,6 @@ sub get_business_info {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1628,17 +1376,11 @@ sub get_business_info {
 #
 # Get Vatom Business Users
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1666,11 +1408,6 @@ sub get_business_info {
 sub get_business_users {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_business_users");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_business_users");
@@ -1682,7 +1419,7 @@ sub get_business_users {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/users';
+    my $_resource_path = '/vatom/b/users';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1711,13 +1448,6 @@ sub get_business_users {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1734,18 +1464,12 @@ sub get_business_users {
 #
 # Get Campaign Group Entities
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_campaign_id Vatom Campaign Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1778,11 +1502,6 @@ sub get_business_users {
 sub get_campaign_group_entities {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_campaign_group_entities");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_campaign_group_entities");
@@ -1799,7 +1518,7 @@ sub get_campaign_group_entities {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign-groups/entities';
+    my $_resource_path = '/vatom/b/campaign-groups/entities';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1833,13 +1552,6 @@ sub get_campaign_group_entities {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1856,18 +1568,12 @@ sub get_campaign_group_entities {
 #
 # Get Campaign Group Rules
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_campaign_id Vatom Campaign Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -1900,11 +1606,6 @@ sub get_campaign_group_entities {
 sub get_campaign_group_rules {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_campaign_group_rules");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_campaign_group_rules");
@@ -1921,7 +1622,7 @@ sub get_campaign_group_rules {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign-groups/rules';
+    my $_resource_path = '/vatom/b/campaign-groups/rules';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1955,13 +1656,6 @@ sub get_campaign_group_rules {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1978,18 +1672,12 @@ sub get_campaign_group_rules {
 #
 # Get Campaign Group Stats
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_campaign_id Vatom Campaign Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2022,11 +1710,6 @@ sub get_campaign_group_rules {
 sub get_campaign_group_stats {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_campaign_group_stats");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_campaign_group_stats");
@@ -2043,7 +1726,7 @@ sub get_campaign_group_stats {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign-groups/stats';
+    my $_resource_path = '/vatom/b/campaign-groups/stats';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2077,13 +1760,6 @@ sub get_campaign_group_stats {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2100,18 +1776,12 @@ sub get_campaign_group_stats {
 #
 # Get Campaign Info
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_campaign_id Vatom Campaign Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2144,11 +1814,6 @@ sub get_campaign_group_stats {
 sub get_campaign_info {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_campaign_info");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_campaign_info");
@@ -2165,7 +1830,7 @@ sub get_campaign_info {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign-groups/get';
+    my $_resource_path = '/vatom/b/campaign-groups/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2199,13 +1864,6 @@ sub get_campaign_info {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2222,18 +1880,12 @@ sub get_campaign_info {
 #
 # Get Vatom Event Guest List
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_event_id Vatom Event Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2266,11 +1918,6 @@ sub get_campaign_info {
 sub get_event_guest_list {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_event_guest_list");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_event_guest_list");
@@ -2287,7 +1934,7 @@ sub get_event_guest_list {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/events/guests/get';
+    my $_resource_path = '/vatom/b/events/guests/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2321,13 +1968,6 @@ sub get_event_guest_list {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2344,17 +1984,11 @@ sub get_event_guest_list {
 #
 # Get Vatom User's Inventory
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2382,11 +2016,6 @@ sub get_event_guest_list {
 sub get_inventory {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_inventory");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_inventory");
@@ -2398,7 +2027,7 @@ sub get_inventory {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/inventory';
+    my $_resource_path = '/vatom/me/inventory';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2427,13 +2056,6 @@ sub get_inventory {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2450,16 +2072,10 @@ sub get_inventory {
 #
 # Get following
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2482,18 +2098,13 @@ sub get_inventory {
 sub get_my_following {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_my_following");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_my_following");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/rels/following';
+    my $_resource_path = '/vatom/me/rels/following';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2517,13 +2128,6 @@ sub get_my_following {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2540,18 +2144,12 @@ sub get_my_following {
 #
 # Get Points Balance
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $vatom_campaign_id Vatom Campaign Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2584,11 +2182,6 @@ sub get_my_following {
 sub get_points_balance {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_points_balance");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_points_balance");
@@ -2605,7 +2198,7 @@ sub get_points_balance {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/u/campaign/points/get';
+    my $_resource_path = '/vatom/u/campaign/points/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2639,13 +2232,6 @@ sub get_points_balance {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2662,7 +2248,6 @@ sub get_points_balance {
 #
 # Get Points Balance as Business
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_user_id Vatom User Id (required)
@@ -2670,11 +2255,6 @@ sub get_points_balance {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2712,11 +2292,6 @@ sub get_points_balance {
 sub get_points_balance_as_business {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_points_balance_as_business");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_points_balance_as_business");
@@ -2738,7 +2313,7 @@ sub get_points_balance_as_business {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign/u/points/get';
+    my $_resource_path = '/vatom/b/campaign/u/points/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2777,13 +2352,6 @@ sub get_points_balance_as_business {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2800,18 +2368,12 @@ sub get_points_balance_as_business {
 #
 # Get Vatom Space
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_space_id Vatom Space Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2844,11 +2406,6 @@ sub get_points_balance_as_business {
 sub get_space {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_space");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_space");
@@ -2865,7 +2422,7 @@ sub get_space {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/spaces/get';
+    my $_resource_path = '/vatom/b/spaces/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2899,13 +2456,6 @@ sub get_space {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2922,18 +2472,12 @@ sub get_space {
 #
 # Get the coins for a user (as a Business)
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -2966,11 +2510,6 @@ sub get_space {
 sub get_user_coins_as_business {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_coins_as_business");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_user_coins_as_business");
@@ -2987,7 +2526,7 @@ sub get_user_coins_as_business {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/users/coins/get';
+    my $_resource_path = '/vatom/b/users/coins/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3021,13 +2560,6 @@ sub get_user_coins_as_business {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3044,18 +2576,12 @@ sub get_user_coins_as_business {
 #
 # Gets the coins balance for a Vatom User
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3088,11 +2614,6 @@ sub get_user_coins_as_business {
 sub get_user_coins_balance {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_coins_balance");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_user_coins_balance");
@@ -3104,7 +2625,7 @@ sub get_user_coins_balance {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/u/coins/get';
+    my $_resource_path = '/vatom/u/coins/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3138,13 +2659,6 @@ sub get_user_coins_balance {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3161,17 +2675,11 @@ sub get_user_coins_balance {
 #
 # Get user followers
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3199,11 +2707,6 @@ sub get_user_coins_balance {
 sub get_user_followers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_followers");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_user_followers");
@@ -3215,7 +2718,7 @@ sub get_user_followers {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/users/rels/followers';
+    my $_resource_path = '/vatom/users/rels/followers';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3244,13 +2747,6 @@ sub get_user_followers {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3267,17 +2763,11 @@ sub get_user_followers {
 #
 # Get user following
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3305,11 +2795,6 @@ sub get_user_followers {
 sub get_user_following {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_following");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_user_following");
@@ -3321,7 +2806,7 @@ sub get_user_following {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/users/rels/following';
+    my $_resource_path = '/vatom/users/rels/following';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3350,13 +2835,6 @@ sub get_user_following {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3373,17 +2851,11 @@ sub get_user_following {
 #
 # Get User Info
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3411,11 +2883,6 @@ sub get_user_following {
 sub get_user_info {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_info");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_user_info");
@@ -3427,7 +2894,7 @@ sub get_user_info {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/user/get';
+    my $_resource_path = '/vatom/user/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3456,13 +2923,6 @@ sub get_user_info {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3479,16 +2939,10 @@ sub get_user_info {
 #
 # Get Vatom User Profile
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3511,18 +2965,13 @@ sub get_user_info {
 sub get_user_profile {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_profile");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_user_profile");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/get';
+    my $_resource_path = '/vatom/me/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3546,13 +2995,6 @@ sub get_user_profile {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3569,18 +3011,12 @@ sub get_user_profile {
 #
 # Get Vatom Event
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_event_id Vatom Event Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3613,11 +3049,6 @@ sub get_user_profile {
 sub get_vatom_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_vatom_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_vatom_event");
@@ -3634,7 +3065,7 @@ sub get_vatom_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/events/get';
+    my $_resource_path = '/vatom/b/events/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3668,13 +3099,6 @@ sub get_vatom_event {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3691,17 +3115,11 @@ sub get_vatom_event {
 #
 # Get Vatom NFT Details
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_id Vatom NFT Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3729,11 +3147,6 @@ sub get_vatom_event {
 sub get_vatom_nft {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_vatom_nft");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_vatom_nft");
@@ -3745,7 +3158,7 @@ sub get_vatom_nft {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/vatoms/get';
+    my $_resource_path = '/vatom/vatoms/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3774,13 +3187,6 @@ sub get_vatom_nft {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3797,18 +3203,12 @@ sub get_vatom_nft {
 #
 # List Vatom Communities
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3841,11 +3241,6 @@ sub get_vatom_nft {
 sub list_communities {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_communities");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_communities");
@@ -3857,7 +3252,7 @@ sub list_communities {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/communities/search';
+    my $_resource_path = '/vatom/b/communities/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3891,13 +3286,6 @@ sub list_communities {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3914,18 +3302,12 @@ sub list_communities {
 #
 # List Vatom Events
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -3958,11 +3340,6 @@ sub list_communities {
 sub list_events {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_events");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_events");
@@ -3974,7 +3351,7 @@ sub list_events {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/events/search';
+    my $_resource_path = '/vatom/b/events/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -4008,13 +3385,6 @@ sub list_events {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4031,18 +3401,12 @@ sub list_events {
 #
 # List Vatom Spaces
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4075,11 +3439,6 @@ sub list_events {
 sub list_spaces {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_spaces");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_spaces");
@@ -4091,7 +3450,7 @@ sub list_spaces {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/spaces/search';
+    my $_resource_path = '/vatom/b/spaces/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -4125,13 +3484,6 @@ sub list_spaces {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4148,18 +3500,12 @@ sub list_spaces {
 #
 # List Coin Transactions for a Vatom User
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4192,11 +3538,6 @@ sub list_spaces {
 sub list_user_coin_transactions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_user_coin_transactions");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_user_coin_transactions");
@@ -4208,7 +3549,7 @@ sub list_user_coin_transactions {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/u/coins/txns/search';
+    my $_resource_path = '/vatom/u/coins/txns/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -4242,13 +3583,6 @@ sub list_user_coin_transactions {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4265,7 +3599,6 @@ sub list_user_coin_transactions {
 #
 # List coin transactions for a user (as a Business)
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $app_key Sirqul Application Key (required)
@@ -4273,11 +3606,6 @@ sub list_user_coin_transactions {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4315,11 +3643,6 @@ sub list_user_coin_transactions {
 sub list_user_coin_transactions_as_business {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_user_coin_transactions_as_business");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling list_user_coin_transactions_as_business");
@@ -4336,7 +3659,7 @@ sub list_user_coin_transactions_as_business {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/users/coins/txns/search';
+    my $_resource_path = '/vatom/b/users/coins/txns/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -4375,13 +3698,6 @@ sub list_user_coin_transactions_as_business {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4398,7 +3714,6 @@ sub list_user_coin_transactions_as_business {
 #
 # Perform Action on NFT
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_id Vatom NFT Id (required)
 # @param string $vatom_action Vatom Action (required)
@@ -4406,11 +3721,6 @@ sub list_user_coin_transactions_as_business {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4448,11 +3758,6 @@ sub list_user_coin_transactions_as_business {
 sub perform_action_on_nft {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling perform_action_on_nft");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling perform_action_on_nft");
@@ -4474,7 +3779,7 @@ sub perform_action_on_nft {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/vatoms/actions';
+    my $_resource_path = '/vatom/me/vatoms/actions';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4513,13 +3818,6 @@ sub perform_action_on_nft {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4536,18 +3834,12 @@ sub perform_action_on_nft {
 #
 # Redeem NFT
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4580,11 +3872,6 @@ sub perform_action_on_nft {
 sub redeem_nft {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling redeem_nft");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling redeem_nft");
@@ -4601,7 +3888,7 @@ sub redeem_nft {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/redemptions';
+    my $_resource_path = '/vatom/b/redemptions';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4635,13 +3922,6 @@ sub redeem_nft {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4658,7 +3938,6 @@ sub redeem_nft {
 #
 # Redeem the coins for a user (as a Business)
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $app_key Sirqul Application Key (required)
@@ -4666,11 +3945,6 @@ sub redeem_nft {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4708,11 +3982,6 @@ sub redeem_nft {
 sub redeem_user_coins_as_business {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling redeem_user_coins_as_business");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling redeem_user_coins_as_business");
@@ -4734,7 +4003,7 @@ sub redeem_user_coins_as_business {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/users/coins/redeem';
+    my $_resource_path = '/vatom/b/users/coins/redeem';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4773,13 +4042,6 @@ sub redeem_user_coins_as_business {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4796,17 +4058,11 @@ sub redeem_user_coins_as_business {
 #
 # Search for Vatom Businesses
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4834,18 +4090,13 @@ sub redeem_user_coins_as_business {
 sub search_businesses {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_businesses");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_businesses");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/search';
+    my $_resource_path = '/vatom/b/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -4874,13 +4125,6 @@ sub search_businesses {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4897,17 +4141,11 @@ sub search_businesses {
 #
 # Search Campaign Groups
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -4935,11 +4173,6 @@ sub search_businesses {
 sub search_campaign_groups {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_campaign_groups");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_campaign_groups");
@@ -4951,7 +4184,7 @@ sub search_campaign_groups {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign-groups/search';
+    my $_resource_path = '/vatom/b/campaign-groups/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -4980,13 +4213,6 @@ sub search_campaign_groups {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5003,16 +4229,10 @@ sub search_campaign_groups {
 #
 # Search User Identities
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5035,18 +4255,13 @@ sub search_campaign_groups {
 sub search_identities {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_identities");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_identities");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/identities/search';
+    my $_resource_path = '/vatom/me/identities/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -5070,13 +4285,6 @@ sub search_identities {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5093,17 +4301,11 @@ sub search_identities {
 #
 # Search Vatom User's Inventory
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_parameters Vatom Parameters (optional)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5131,18 +4333,13 @@ sub search_identities {
 sub search_inventory {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_inventory");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_inventory");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/user-inventory/search';
+    my $_resource_path = '/vatom/user-inventory/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -5171,13 +4368,6 @@ sub search_inventory {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5194,7 +4384,6 @@ sub search_inventory {
 #
 # Send NFT
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_campaign_id Vatom Campaign Id (required)
@@ -5202,11 +4391,6 @@ sub search_inventory {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5244,11 +4428,6 @@ sub search_inventory {
 sub send_nft {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling send_nft");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling send_nft");
@@ -5270,7 +4449,7 @@ sub send_nft {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaigns/send';
+    my $_resource_path = '/vatom/b/campaigns/send';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5309,13 +4488,6 @@ sub send_nft {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5332,7 +4504,6 @@ sub send_nft {
 #
 # Set Points Balance as Business
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_user_id Vatom User Id (required)
@@ -5341,11 +4512,6 @@ sub send_nft {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5388,11 +4554,6 @@ sub send_nft {
 sub set_points_balance_as_business {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling set_points_balance_as_business");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling set_points_balance_as_business");
@@ -5419,7 +4580,7 @@ sub set_points_balance_as_business {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/campaign/u/points/update';
+    my $_resource_path = '/vatom/b/campaign/u/points/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5463,13 +4624,6 @@ sub set_points_balance_as_business {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5486,18 +4640,12 @@ sub set_points_balance_as_business {
 #
 # Transfer coins from Vatom Users
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5530,11 +4678,6 @@ sub set_points_balance_as_business {
 sub transfer_user_coins {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling transfer_user_coins");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling transfer_user_coins");
@@ -5551,7 +4694,7 @@ sub transfer_user_coins {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/u/coins/transfer';
+    my $_resource_path = '/vatom/u/coins/transfer';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5585,13 +4728,6 @@ sub transfer_user_coins {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5608,18 +4744,12 @@ sub transfer_user_coins {
 #
 # Fund coins for a Business
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5652,11 +4782,6 @@ sub transfer_user_coins {
 sub update_business_coins {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_business_coins");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_business_coins");
@@ -5673,7 +4798,7 @@ sub update_business_coins {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/coins/update';
+    my $_resource_path = '/vatom/b/coins/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5707,13 +4832,6 @@ sub update_business_coins {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5730,7 +4848,6 @@ sub update_business_coins {
 #
 # Update Vatom Event Guest List
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_event_id Vatom Event Id (required)
@@ -5738,11 +4855,6 @@ sub update_business_coins {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5780,11 +4892,6 @@ sub update_business_coins {
 sub update_event_guest_list {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_event_guest_list");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_event_guest_list");
@@ -5806,7 +4913,7 @@ sub update_event_guest_list {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/events/guests/update';
+    my $_resource_path = '/vatom/b/events/guests/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5845,13 +4952,6 @@ sub update_event_guest_list {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5868,7 +4968,6 @@ sub update_event_guest_list {
 #
 # Update Vatom Space
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_space_id Vatom Space Id (required)
@@ -5876,11 +4975,6 @@ sub update_event_guest_list {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -5918,11 +5012,6 @@ sub update_event_guest_list {
 sub update_space {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_space");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_space");
@@ -5944,7 +5033,7 @@ sub update_space {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/spaces/update';
+    my $_resource_path = '/vatom/b/spaces/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5983,13 +5072,6 @@ sub update_space {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -6006,7 +5088,6 @@ sub update_space {
 #
 # Update the coins for a user (as a Business)
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_user_id Vatom User Id (required)
 # @param string $app_key Sirqul Application Key (required)
@@ -6014,11 +5095,6 @@ sub update_space {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -6056,11 +5132,6 @@ sub update_space {
 sub update_user_coins_as_business {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_user_coins_as_business");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_user_coins_as_business");
@@ -6082,7 +5153,7 @@ sub update_user_coins_as_business {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/users/coins/update';
+    my $_resource_path = '/vatom/b/users/coins/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6121,13 +5192,6 @@ sub update_user_coins_as_business {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -6144,17 +5208,11 @@ sub update_user_coins_as_business {
 #
 # Update Vatom User Profile
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $vatom_parameters Vatom Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -6182,11 +5240,6 @@ sub update_user_coins_as_business {
 sub update_user_profile {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_user_profile");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_user_profile");
@@ -6198,7 +5251,7 @@ sub update_user_profile {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/me/update';
+    my $_resource_path = '/vatom/me/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6227,13 +5280,6 @@ sub update_user_profile {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -6250,7 +5296,6 @@ sub update_user_profile {
 #
 # Update Vatom Event
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $vatom_event_id Vatom Event Id (required)
@@ -6258,11 +5303,6 @@ sub update_user_profile {
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -6300,11 +5340,6 @@ sub update_user_profile {
 sub update_vatom_event {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_vatom_event");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_vatom_event");
@@ -6326,7 +5361,7 @@ sub update_vatom_event {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vatom/b/events/update';
+    my $_resource_path = '/vatom/b/events/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6363,13 +5398,6 @@ sub update_vatom_event {
     # query params
     if ( exists $args{'return_raw_response'}) {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

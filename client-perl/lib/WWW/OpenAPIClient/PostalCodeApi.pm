@@ -53,7 +53,6 @@ sub new {
 #
 # Create Postal Code
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param string $code the postal code (required)
 # @param double $latitude the latitude of the postal code (required)
@@ -63,11 +62,6 @@ sub new {
 # @param boolean $active whether the postal code created should be active or inactive (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -115,11 +109,6 @@ sub new {
 sub create_postal_code {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_postal_code");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_postal_code");
@@ -141,7 +130,7 @@ sub create_postal_code {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/postalCode/create';
+    my $_resource_path = '/postalCode/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -190,13 +179,6 @@ sub create_postal_code {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -217,16 +199,10 @@ sub create_postal_code {
 #
 # Delete Postal Code
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $postal_code_id the id of the postal code to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -249,11 +225,6 @@ sub create_postal_code {
 sub delete_postal_code {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_postal_code");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_postal_code");
@@ -265,7 +236,7 @@ sub delete_postal_code {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/postalCode/delete';
+    my $_resource_path = '/postalCode/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -289,13 +260,6 @@ sub delete_postal_code {
         $query_params->{'postalCodeId'} = $self->{api_client}->to_query_value($args{'postal_code_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -316,15 +280,9 @@ sub delete_postal_code {
 #
 # Get Postal Code
 #
-# @param double $version  (required)
 # @param int $postal_code_id the id of the postal code to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'postal_code_id' => {
         data_type => 'int',
         description => 'the id of the postal code to get',
@@ -342,18 +300,13 @@ sub delete_postal_code {
 sub get_postal_code {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_postal_code");
-    }
-
     # verify the required parameter 'postal_code_id' is set
     unless (exists $args{'postal_code_id'}) {
       croak("Missing the required parameter 'postal_code_id' when calling get_postal_code");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/postalCode/get';
+    my $_resource_path = '/postalCode/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -370,13 +323,6 @@ sub get_postal_code {
     # query params
     if ( exists $args{'postal_code_id'}) {
         $query_params->{'postalCodeId'} = $self->{api_client}->to_query_value($args{'postal_code_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -399,7 +345,6 @@ sub get_postal_code {
 #
 # Search Postal Codes
 #
-# @param double $version  (required)
 # @param string $sort_field the field to sort the results on (required)
 # @param boolean $descending whether to order results in ascending or descending order (required)
 # @param double $latitude the latitude of the postal code to search on (optional)
@@ -410,11 +355,6 @@ sub get_postal_code {
 # @param int $limit the limit of the index and/or pagination (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'the field to sort the results on',
@@ -467,11 +407,6 @@ sub get_postal_code {
 sub get_postal_codes {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_postal_codes");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling get_postal_codes");
@@ -483,7 +418,7 @@ sub get_postal_codes {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/postalCode/search';
+    my $_resource_path = '/postalCode/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -537,13 +472,6 @@ sub get_postal_codes {
         $query_params->{'descending'} = $self->{api_client}->to_query_value($args{'descending'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -564,7 +492,6 @@ sub get_postal_codes {
 #
 # Update Postal Code
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $postal_code_id the id of the postal code to update (required)
 # @param string $code the postal code to update (optional)
@@ -575,11 +502,6 @@ sub get_postal_codes {
 # @param boolean $active whether the postal code is active or inactive (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -632,11 +554,6 @@ sub get_postal_codes {
 sub update_postal_code {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_postal_code");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_postal_code");
@@ -648,7 +565,7 @@ sub update_postal_code {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/postalCode/update';
+    my $_resource_path = '/postalCode/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -700,13 +617,6 @@ sub update_postal_code {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

@@ -53,7 +53,6 @@ sub new {
 #
 # Add Connection
 #
-# @param double $version  (required)
 # @param boolean $return_nulls whether to return nulls or not (required)
 # @param int $group_id the group id (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -65,11 +64,6 @@ sub new {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'whether to return nulls or not',
@@ -127,11 +121,6 @@ sub new {
 sub add_connection_to_group {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_connection_to_group");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling add_connection_to_group");
@@ -143,7 +132,7 @@ sub add_connection_to_group {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/group/addConnection';
+    my $_resource_path = '/consumer/connection/group/addConnection';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -202,13 +191,6 @@ sub add_connection_to_group {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -229,7 +211,6 @@ sub add_connection_to_group {
 #
 # Add Connections
 #
-# @param double $version  (required)
 # @param int $connection_group_id the connection group ID (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -239,11 +220,6 @@ sub add_connection_to_group {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'connection_group_id' => {
         data_type => 'int',
         description => 'the connection group ID',
@@ -291,18 +267,13 @@ sub add_connection_to_group {
 sub add_connections_to_group {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_connections_to_group");
-    }
-
     # verify the required parameter 'connection_group_id' is set
     unless (exists $args{'connection_group_id'}) {
       croak("Missing the required parameter 'connection_group_id' when calling add_connections_to_group");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/connection/group/addConnections';
+    my $_resource_path = '/connection/group/addConnections';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -351,13 +322,6 @@ sub add_connections_to_group {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -378,7 +342,6 @@ sub add_connections_to_group {
 #
 # Add Connection Groups
 #
-# @param double $version  (required)
 # @param boolean $return_nulls whether to return nulls or not (required)
 # @param int $group_id the parent group id (required)
 # @param string $sub_group_ids comma separated list of group IDs to add to the parent group (required)
@@ -388,11 +351,6 @@ sub add_connections_to_group {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'whether to return nulls or not',
@@ -440,11 +398,6 @@ sub add_connections_to_group {
 sub add_sub_groups {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_sub_groups");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling add_sub_groups");
@@ -461,7 +414,7 @@ sub add_sub_groups {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/group/addSubGroup';
+    my $_resource_path = '/consumer/connection/group/addSubGroup';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -510,13 +463,6 @@ sub add_sub_groups {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -537,7 +483,6 @@ sub add_sub_groups {
 #
 # Create or Update Connection
 #
-# @param double $version  (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param int $connection_id the connection id for editing (optional)
@@ -554,11 +499,6 @@ sub add_sub_groups {
 # @param boolean $connection_response whether to return the connection response or not (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id (deviceId or accountId required)',
@@ -641,13 +581,8 @@ sub add_sub_groups {
 sub create_or_update_connection {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_or_update_connection");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/add';
+    my $_resource_path = '/consumer/connection/add';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -731,13 +666,6 @@ sub create_or_update_connection {
         $query_params->{'connectionResponse'} = $self->{api_client}->to_query_value($args{'connection_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -758,7 +686,6 @@ sub create_or_update_connection {
 #
 # Create or Update Connection Group
 #
-# @param double $version  (required)
 # @param boolean $return_nulls whether to return nulls or not (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -775,11 +702,6 @@ sub create_or_update_connection {
 # @param double $longitude the longitude of the group (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'whether to return nulls or not',
@@ -862,18 +784,13 @@ sub create_or_update_connection {
 sub create_or_update_group {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_or_update_group");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling create_or_update_group");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/group';
+    my $_resource_path = '/consumer/connection/group';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -957,13 +874,6 @@ sub create_or_update_group {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -984,17 +894,11 @@ sub create_or_update_group {
 #
 # Accept Follow Request
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param int $connection_account_id the account ID of the user who initiated the follow (required)
 # @param string $app_key the application key for sending notifications (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -1022,11 +926,6 @@ sub create_or_update_group {
 sub follow_accept {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling follow_accept");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling follow_accept");
@@ -1043,7 +942,7 @@ sub follow_accept {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/follow/accept';
+    my $_resource_path = '/consumer/follow/accept';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1072,13 +971,6 @@ sub follow_accept {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1099,17 +991,11 @@ sub follow_accept {
 #
 # Reject Follow Request
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param int $connection_account_id the account ID of the user who initiated the follow (required)
 # @param string $app_key the application key for sending notifications (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -1137,11 +1023,6 @@ sub follow_accept {
 sub follow_reject {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling follow_reject");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling follow_reject");
@@ -1158,7 +1039,7 @@ sub follow_reject {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/follow/reject';
+    my $_resource_path = '/consumer/follow/reject';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1187,13 +1068,6 @@ sub follow_reject {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1214,17 +1088,11 @@ sub follow_reject {
 #
 # Remove Follower / Unfollow
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param int $connection_account_id the account ID of the user who you want to unfollow (required)
 # @param string $app_key the application key for sending notifications (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -1252,11 +1120,6 @@ sub follow_reject {
 sub follow_remove {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling follow_remove");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling follow_remove");
@@ -1273,7 +1136,7 @@ sub follow_remove {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/follow/remove';
+    my $_resource_path = '/consumer/follow/remove';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1302,13 +1165,6 @@ sub follow_remove {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1329,18 +1185,12 @@ sub follow_remove {
 #
 # Send Follow Request
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param int $connection_account_id the account ID of the user who you want to follow (required)
 # @param string $app_key the application key for sending notifications (required)
 # @param boolean $approval_needed determines if the other user needs to confirm the follow request (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -1373,11 +1223,6 @@ sub follow_remove {
 sub follow_request {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling follow_request");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling follow_request");
@@ -1394,7 +1239,7 @@ sub follow_request {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/follow/request';
+    my $_resource_path = '/consumer/follow/request';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1428,13 +1273,6 @@ sub follow_request {
         $query_params->{'approvalNeeded'} = $self->{api_client}->to_query_value($args{'approval_needed'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1455,7 +1293,6 @@ sub follow_request {
 #
 # Accept Friend
 #
-# @param double $version  (required)
 # @param int $friend_account_id the friend&#39;s account id (required)
 # @param boolean $notify_friend determines whether to send a notification to the afflicting party (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -1465,11 +1302,6 @@ sub follow_request {
 # @param string $notification_message optional message to send in a notification (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'friend_account_id' => {
         data_type => 'int',
         description => 'the friend&#39;s account id',
@@ -1517,11 +1349,6 @@ sub follow_request {
 sub friend_accept {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling friend_accept");
-    }
-
     # verify the required parameter 'friend_account_id' is set
     unless (exists $args{'friend_account_id'}) {
       croak("Missing the required parameter 'friend_account_id' when calling friend_accept");
@@ -1533,7 +1360,7 @@ sub friend_accept {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/friend/accept';
+    my $_resource_path = '/consumer/friend/accept';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1582,13 +1409,6 @@ sub friend_accept {
         $query_params->{'notificationMessage'} = $self->{api_client}->to_query_value($args{'notification_message'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1609,7 +1429,6 @@ sub friend_accept {
 #
 # Decline Friend
 #
-# @param double $version  (required)
 # @param int $friend_account_id the friend&#39;s account id (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1619,11 +1438,6 @@ sub friend_accept {
 # @param string $notification_message optional message to send in a notification (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'friend_account_id' => {
         data_type => 'int',
         description => 'the friend&#39;s account id',
@@ -1671,18 +1485,13 @@ sub friend_accept {
 sub friend_reject {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling friend_reject");
-    }
-
     # verify the required parameter 'friend_account_id' is set
     unless (exists $args{'friend_account_id'}) {
       croak("Missing the required parameter 'friend_account_id' when calling friend_reject");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/friend/reject';
+    my $_resource_path = '/consumer/friend/reject';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1731,13 +1540,6 @@ sub friend_reject {
         $query_params->{'notificationMessage'} = $self->{api_client}->to_query_value($args{'notification_message'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1758,7 +1560,6 @@ sub friend_reject {
 #
 # Delete Friend
 #
-# @param double $version  (required)
 # @param int $friend_account_id the account ID of the friend to remove (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1766,11 +1567,6 @@ sub friend_reject {
 # @param boolean $remove_from_groups optionally removes the connection from the user&#39;s groups (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'friend_account_id' => {
         data_type => 'int',
         description => 'the account ID of the friend to remove',
@@ -1808,18 +1604,13 @@ sub friend_reject {
 sub friend_remove {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling friend_remove");
-    }
-
     # verify the required parameter 'friend_account_id' is set
     unless (exists $args{'friend_account_id'}) {
       croak("Missing the required parameter 'friend_account_id' when calling friend_remove");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/friend/remove';
+    my $_resource_path = '/consumer/friend/remove';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1858,13 +1649,6 @@ sub friend_remove {
         $query_params->{'removeFromGroups'} = $self->{api_client}->to_query_value($args{'remove_from_groups'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1885,7 +1669,6 @@ sub friend_remove {
 #
 # Request Friend
 #
-# @param double $version  (required)
 # @param int $friend_account_id the friend&#39;s account id (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -1894,11 +1677,6 @@ sub friend_remove {
 # @param string $notification_message optional message to send in a notification (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'friend_account_id' => {
         data_type => 'int',
         description => 'the friend&#39;s account id',
@@ -1941,18 +1719,13 @@ sub friend_remove {
 sub friend_request {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling friend_request");
-    }
-
     # verify the required parameter 'friend_account_id' is set
     unless (exists $args{'friend_account_id'}) {
       croak("Missing the required parameter 'friend_account_id' when calling friend_request");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/friend/request';
+    my $_resource_path = '/consumer/friend/request';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1996,13 +1769,6 @@ sub friend_request {
         $query_params->{'notificationMessage'} = $self->{api_client}->to_query_value($args{'notification_message'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2023,16 +1789,10 @@ sub friend_request {
 #
 # Get Sent Friend Requests
 #
-# @param double $version  (required)
 # @param string $device_id the ID of the device (optional)
 # @param int $account_id the id of the account (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the ID of the device',
@@ -2055,13 +1815,8 @@ sub friend_request {
 sub get_connection_sent_friend_requests {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_connection_sent_friend_requests");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/getRequested';
+    my $_resource_path = '/consumer/connection/getRequested';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2085,13 +1840,6 @@ sub get_connection_sent_friend_requests {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2112,7 +1860,6 @@ sub get_connection_sent_friend_requests {
 #
 # Search Connections
 #
-# @param double $version  (required)
 # @param boolean $return_nulls whether to return nulls or not (required)
 # @param string $filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
 # @param string $sort_field sorts the response list by ConnectionApiMap (required)
@@ -2130,11 +1877,6 @@ sub get_connection_sent_friend_requests {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'whether to return nulls or not',
@@ -2222,11 +1964,6 @@ sub get_connection_sent_friend_requests {
 sub get_connections {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_connections");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling get_connections");
@@ -2258,7 +1995,7 @@ sub get_connections {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/get';
+    my $_resource_path = '/consumer/connection/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2347,13 +2084,6 @@ sub get_connections {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2374,7 +2104,6 @@ sub get_connections {
 #
 # Get Connection Group
 #
-# @param double $version  (required)
 # @param boolean $combine_connections whether to combine connections or not (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2383,11 +2112,6 @@ sub get_connections {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'combine_connections' => {
         data_type => 'boolean',
         description => 'whether to combine connections or not',
@@ -2430,18 +2154,13 @@ sub get_connections {
 sub get_group_details {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_group_details");
-    }
-
     # verify the required parameter 'combine_connections' is set
     unless (exists $args{'combine_connections'}) {
       croak("Missing the required parameter 'combine_connections' when calling get_group_details");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/group/details/get';
+    my $_resource_path = '/consumer/connection/group/details/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2485,13 +2204,6 @@ sub get_group_details {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2512,7 +2224,6 @@ sub get_group_details {
 #
 # Search Connection Groups
 #
-# @param double $version  (required)
 # @param string $sort_field the field to sort by (required)
 # @param boolean $descending whether to return results in descending or ascending order (required)
 # @param boolean $active_only to search on active only or not (required)
@@ -2525,11 +2236,6 @@ sub get_group_details {
 # @param string $keyword keyword search string (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'sort_field' => {
         data_type => 'string',
         description => 'the field to sort by',
@@ -2592,11 +2298,6 @@ sub get_group_details {
 sub group_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling group_search");
-    }
-
     # verify the required parameter 'sort_field' is set
     unless (exists $args{'sort_field'}) {
       croak("Missing the required parameter 'sort_field' when calling group_search");
@@ -2623,7 +2324,7 @@ sub group_search {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/connection/group/search';
+    my $_resource_path = '/connection/group/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2687,13 +2388,6 @@ sub group_search {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2714,7 +2408,6 @@ sub group_search {
 #
 # Delete Connection
 #
-# @param double $version  (required)
 # @param boolean $return_nulls whether to return nulls or not (required)
 # @param int $group_id the group id (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -2726,11 +2419,6 @@ sub group_search {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'whether to return nulls or not',
@@ -2788,11 +2476,6 @@ sub group_search {
 sub remove_connection_from_group {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_connection_from_group");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling remove_connection_from_group");
@@ -2804,7 +2487,7 @@ sub remove_connection_from_group {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/group/removeConnection';
+    my $_resource_path = '/consumer/connection/group/removeConnection';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2863,13 +2546,6 @@ sub remove_connection_from_group {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2890,7 +2566,6 @@ sub remove_connection_from_group {
 #
 # Remove Connections
 #
-# @param double $version  (required)
 # @param int $connection_group_id connection group id (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -2900,11 +2575,6 @@ sub remove_connection_from_group {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'connection_group_id' => {
         data_type => 'int',
         description => 'connection group id',
@@ -2952,18 +2622,13 @@ sub remove_connection_from_group {
 sub remove_connections_from_group {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_connections_from_group");
-    }
-
     # verify the required parameter 'connection_group_id' is set
     unless (exists $args{'connection_group_id'}) {
       croak("Missing the required parameter 'connection_group_id' when calling remove_connections_from_group");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/connection/group/removeConnections';
+    my $_resource_path = '/connection/group/removeConnections';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3012,13 +2677,6 @@ sub remove_connections_from_group {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3039,7 +2697,6 @@ sub remove_connections_from_group {
 #
 # Delete Connection Group
 #
-# @param double $version  (required)
 # @param boolean $return_nulls whether to return nulls or not (required)
 # @param int $group_id the group id (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
@@ -3048,11 +2705,6 @@ sub remove_connections_from_group {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'whether to return nulls or not',
@@ -3095,11 +2747,6 @@ sub remove_connections_from_group {
 sub remove_group {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_group");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling remove_group");
@@ -3111,7 +2758,7 @@ sub remove_group {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/group/remove';
+    my $_resource_path = '/consumer/connection/group/remove';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3155,13 +2802,6 @@ sub remove_group {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3182,7 +2822,6 @@ sub remove_group {
 #
 # Remove Connection Groups
 #
-# @param double $version  (required)
 # @param boolean $return_nulls whether to return nulls or not (required)
 # @param int $group_id the parent group id (required)
 # @param string $sub_group_ids comma separated list of group IDs to remove from the parent group (required)
@@ -3192,11 +2831,6 @@ sub remove_group {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'whether to return nulls or not',
@@ -3244,11 +2878,6 @@ sub remove_group {
 sub remove_sub_groups {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_sub_groups");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling remove_sub_groups");
@@ -3265,7 +2894,7 @@ sub remove_sub_groups {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/connection/group/removeSubGroup';
+    my $_resource_path = '/consumer/connection/group/removeSubGroup';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3314,13 +2943,6 @@ sub remove_sub_groups {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3341,7 +2963,6 @@ sub remove_sub_groups {
 #
 # Search Possible Connections
 #
-# @param double $version  (required)
 # @param boolean $return_nulls return all json attributes if true. defualt is true. (required)
 # @param int $start start index of the pagination (required)
 # @param int $limit limit of the pagination (required)
@@ -3359,11 +2980,6 @@ sub remove_sub_groups {
 # @param boolean $has_location whether the search has location or not (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'return all json attributes if true. defualt is true.',
@@ -3451,11 +3067,6 @@ sub remove_sub_groups {
 sub search_connections {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_connections");
-    }
-
     # verify the required parameter 'return_nulls' is set
     unless (exists $args{'return_nulls'}) {
       croak("Missing the required parameter 'return_nulls' when calling search_connections");
@@ -3472,7 +3083,7 @@ sub search_connections {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/connection/search';
+    my $_resource_path = '/connection/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3559,13 +3170,6 @@ sub search_connections {
     # query params
     if ( exists $args{'has_location'}) {
         $query_params->{'hasLocation'} = $self->{api_client}->to_query_value($args{'has_location'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

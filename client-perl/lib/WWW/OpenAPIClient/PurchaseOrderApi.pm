@@ -53,7 +53,6 @@ sub new {
 #
 # Create Order
 #
-# @param double $version  (required)
 # @param string $app_key The application requesting the purchase (required)
 # @param string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
@@ -68,11 +67,6 @@ sub new {
 # @param string $promo_code The Promo Code (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application requesting the purchase',
@@ -145,11 +139,6 @@ sub new {
 sub create_order {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_order");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling create_order");
@@ -161,7 +150,7 @@ sub create_order {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/order/create';
+    my $_resource_path = '/order/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -235,13 +224,6 @@ sub create_order {
         $query_params->{'promoCode'} = $self->{api_client}->to_query_value($args{'promo_code'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -262,17 +244,11 @@ sub create_order {
 #
 # Delete Order
 #
-# @param double $version  (required)
 # @param int $order_id Order Id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'order_id' => {
         data_type => 'int',
         description => 'Order Id',
@@ -300,18 +276,13 @@ sub create_order {
 sub delete_order {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_order");
-    }
-
     # verify the required parameter 'order_id' is set
     unless (exists $args{'order_id'}) {
       croak("Missing the required parameter 'order_id' when calling delete_order");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/order/delete';
+    my $_resource_path = '/order/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -340,13 +311,6 @@ sub delete_order {
         $query_params->{'orderId'} = $self->{api_client}->to_query_value($args{'order_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -367,18 +331,12 @@ sub delete_order {
 #
 # Get Order
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $order_id The order id to get details of, either orderId or externalOrderId must be provided (optional)
 # @param string $external_order_id The external order id to get details of, either orderId or externalOrderId must be provided (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -411,13 +369,8 @@ sub delete_order {
 sub get_order {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_order");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/order/get';
+    my $_resource_path = '/order/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -451,13 +404,6 @@ sub get_order {
         $query_params->{'externalOrderId'} = $self->{api_client}->to_query_value($args{'external_order_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -478,7 +424,6 @@ sub get_order {
 #
 # Preview Order
 #
-# @param double $version  (required)
 # @param string $app_key The application requesting the purchase (required)
 # @param string $cart A JSON list of items to purchase (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
@@ -493,11 +438,6 @@ sub get_order {
 # @param string $promo_code The Promo Code (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application requesting the purchase',
@@ -570,11 +510,6 @@ sub get_order {
 sub preview_order {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling preview_order");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling preview_order");
@@ -586,7 +521,7 @@ sub preview_order {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/order/preview';
+    my $_resource_path = '/order/preview';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -660,13 +595,6 @@ sub preview_order {
         $query_params->{'promoCode'} = $self->{api_client}->to_query_value($args{'promo_code'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -687,7 +615,6 @@ sub preview_order {
 #
 # Search Orders
 #
-# @param double $version  (required)
 # @param string $app_key The application requesting the purchase (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -721,11 +648,6 @@ sub preview_order {
 # @param int $ended_before Filter results by the offer end date (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application requesting the purchase',
@@ -893,18 +815,13 @@ sub preview_order {
 sub search_orders {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_orders");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling search_orders");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/order/search';
+    my $_resource_path = '/order/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1073,13 +990,6 @@ sub search_orders {
         $query_params->{'endedBefore'} = $self->{api_client}->to_query_value($args{'ended_before'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1100,7 +1010,6 @@ sub search_orders {
 #
 # Update Order
 #
-# @param double $version  (required)
 # @param int $order_id The order to add the purchase to, leave null for new order. (required)
 # @param string $app_key The application requesting the purchase (required)
 # @param string $cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
@@ -1114,11 +1023,6 @@ sub search_orders {
 # @param int $external_date External Date (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'order_id' => {
         data_type => 'int',
         description => 'The order to add the purchase to, leave null for new order.',
@@ -1186,11 +1090,6 @@ sub search_orders {
 sub update_order {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_order");
-    }
-
     # verify the required parameter 'order_id' is set
     unless (exists $args{'order_id'}) {
       croak("Missing the required parameter 'order_id' when calling update_order");
@@ -1207,7 +1106,7 @@ sub update_order {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/order/update';
+    my $_resource_path = '/order/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1274,13 +1173,6 @@ sub update_order {
     # query params
     if ( exists $args{'external_date'}) {
         $query_params->{'externalDate'} = $self->{api_client}->to_query_value($args{'external_date'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

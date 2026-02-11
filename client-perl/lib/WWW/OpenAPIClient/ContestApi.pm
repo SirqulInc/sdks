@@ -53,7 +53,6 @@ sub new {
 #
 # Create or Update Contest
 #
-# @param double $version  (required)
 # @param boolean $public_read determines whether the contest&#39;s participants has read permissions (required)
 # @param boolean $public_write determines whether the contest&#39;s participants has write permissions (required)
 # @param boolean $public_delete determines whether the contest&#39;s participants has delete permissions (required)
@@ -81,11 +80,6 @@ sub new {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'public_read' => {
         data_type => 'boolean',
         description => 'determines whether the contest&#39;s participants has read permissions',
@@ -223,11 +217,6 @@ sub new {
 sub add_or_update_album_contest {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_or_update_album_contest");
-    }
-
     # verify the required parameter 'public_read' is set
     unless (exists $args{'public_read'}) {
       croak("Missing the required parameter 'public_read' when calling add_or_update_album_contest");
@@ -259,7 +248,7 @@ sub add_or_update_album_contest {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/album/contest';
+    my $_resource_path = '/consumer/album/contest';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -398,13 +387,6 @@ sub add_or_update_album_contest {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -425,18 +407,12 @@ sub add_or_update_album_contest {
 #
 # Approve Contest
 #
-# @param double $version  (required)
 # @param int $album_contest_id The ID of the album contest (required)
 # @param string $approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
 # @param string $device_id A unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id The account ID of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_contest_id' => {
         data_type => 'int',
         description => 'The ID of the album contest',
@@ -469,11 +445,6 @@ sub add_or_update_album_contest {
 sub approve_album_contest {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling approve_album_contest");
-    }
-
     # verify the required parameter 'album_contest_id' is set
     unless (exists $args{'album_contest_id'}) {
       croak("Missing the required parameter 'album_contest_id' when calling approve_album_contest");
@@ -485,7 +456,7 @@ sub approve_album_contest {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/album/contest/approve';
+    my $_resource_path = '/consumer/album/contest/approve';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -519,13 +490,6 @@ sub approve_album_contest {
         $query_params->{'approvalStatus'} = $self->{api_client}->to_query_value($args{'approval_status'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -546,7 +510,6 @@ sub approve_album_contest {
 #
 # Delete Contest
 #
-# @param double $version  (required)
 # @param int $album_contest_id the album contest ID (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -554,11 +517,6 @@ sub approve_album_contest {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_contest_id' => {
         data_type => 'int',
         description => 'the album contest ID',
@@ -596,18 +554,13 @@ sub approve_album_contest {
 sub delete_contest {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_contest");
-    }
-
     # verify the required parameter 'album_contest_id' is set
     unless (exists $args{'album_contest_id'}) {
       croak("Missing the required parameter 'album_contest_id' when calling delete_contest");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/album/contest/remove';
+    my $_resource_path = '/consumer/album/contest/remove';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -646,13 +599,6 @@ sub delete_contest {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -673,7 +619,6 @@ sub delete_contest {
 #
 # Get Contest
 #
-# @param double $version  (required)
 # @param int $album_contest_id the album contest ID (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -681,11 +626,6 @@ sub delete_contest {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_contest_id' => {
         data_type => 'int',
         description => 'the album contest ID',
@@ -723,18 +663,13 @@ sub delete_contest {
 sub get_album_contest {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_album_contest");
-    }
-
     # verify the required parameter 'album_contest_id' is set
     unless (exists $args{'album_contest_id'}) {
       croak("Missing the required parameter 'album_contest_id' when calling get_album_contest");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/album/contest/get';
+    my $_resource_path = '/consumer/album/contest/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -773,13 +708,6 @@ sub get_album_contest {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -800,7 +728,6 @@ sub get_album_contest {
 #
 # Search Contests
 #
-# @param double $version  (required)
 # @param string $filter a comma separated list of Ownership (required)
 # @param string $sort_field the field to sort by. See AlbumContestApiMap (required)
 # @param boolean $descending determines whether the sorted list is in descending or ascending order (required)
@@ -822,11 +749,6 @@ sub get_album_contest {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'filter' => {
         data_type => 'string',
         description => 'a comma separated list of Ownership',
@@ -934,11 +856,6 @@ sub get_album_contest {
 sub get_album_contests {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_album_contests");
-    }
-
     # verify the required parameter 'filter' is set
     unless (exists $args{'filter'}) {
       croak("Missing the required parameter 'filter' when calling get_album_contests");
@@ -965,7 +882,7 @@ sub get_album_contests {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/album/contest/search';
+    my $_resource_path = '/consumer/album/contest/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1074,13 +991,6 @@ sub get_album_contests {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1101,7 +1011,6 @@ sub get_album_contests {
 #
 # Vote on Contest
 #
-# @param double $version  (required)
 # @param int $album_contest_id the album contest ID (required)
 # @param int $album_id the ID of the album to vote on (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1111,11 +1020,6 @@ sub get_album_contests {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'album_contest_id' => {
         data_type => 'int',
         description => 'the album contest ID',
@@ -1163,11 +1067,6 @@ sub get_album_contests {
 sub vote_on_album_contest {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling vote_on_album_contest");
-    }
-
     # verify the required parameter 'album_contest_id' is set
     unless (exists $args{'album_contest_id'}) {
       croak("Missing the required parameter 'album_contest_id' when calling vote_on_album_contest");
@@ -1179,7 +1078,7 @@ sub vote_on_album_contest {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/album/contest/vote';
+    my $_resource_path = '/consumer/album/contest/vote';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1226,13 +1125,6 @@ sub vote_on_album_contest {
     # query params
     if ( exists $args{'longitude'}) {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

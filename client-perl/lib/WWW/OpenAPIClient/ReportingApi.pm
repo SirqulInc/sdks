@@ -53,7 +53,6 @@ sub new {
 #
 # Create Offline Report
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user for passing account related params (required)
 # @param string $status the status of the report (required)
 # @param int $preview_limit the limit on how much you can preview of the batch report (required)
@@ -67,11 +66,6 @@ sub new {
 # @param string $page_url  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user for passing account related params',
@@ -139,11 +133,6 @@ sub new {
 sub create_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_batch");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_batch");
@@ -160,7 +149,7 @@ sub create_batch {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/report/batch/create';
+    my $_resource_path = '/report/batch/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -229,13 +218,6 @@ sub create_batch {
         $query_params->{'pageUrl'} = $self->{api_client}->to_query_value($args{'page_url'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -256,15 +238,9 @@ sub create_batch {
 #
 # Create Offline Report
 #
-# @param double $version  (required)
 # @param ARRAY[RegionLegSummary] $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'ARRAY[RegionLegSummary]',
         description => '',
@@ -282,13 +258,8 @@ sub create_batch {
 sub create_region_leg_summary_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_region_leg_summary_batch");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/report/region/summary/batch';
+    my $_resource_path = '/report/region/summary/batch';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -301,13 +272,6 @@ sub create_region_leg_summary_batch {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -334,16 +298,10 @@ sub create_region_leg_summary_batch {
 #
 # Delete Offline Report
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account (required)
 # @param int $batch_id the id of the batch to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account',
@@ -366,11 +324,6 @@ sub create_region_leg_summary_batch {
 sub delete_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_batch");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_batch");
@@ -382,7 +335,7 @@ sub delete_batch {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/report/batch/delete';
+    my $_resource_path = '/report/batch/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -406,13 +359,6 @@ sub delete_batch {
         $query_params->{'batchId'} = $self->{api_client}->to_query_value($args{'batch_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -433,17 +379,11 @@ sub delete_batch {
 #
 # Get Offline Report
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $batch_id returned by /report/batch/create (required)
 # @param boolean $all_results whether to return all batch results or not (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -471,11 +411,6 @@ sub delete_batch {
 sub get_report_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_report_batch");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_report_batch");
@@ -492,7 +427,7 @@ sub get_report_batch {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/report/batch/get';
+    my $_resource_path = '/report/batch/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -521,13 +456,6 @@ sub get_report_batch {
         $query_params->{'allResults'} = $self->{api_client}->to_query_value($args{'all_results'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -548,7 +476,6 @@ sub get_report_batch {
 #
 # Run Report
 #
-# @param double $version  (required)
 # @param boolean $desc If true then descending order, false is ascending (required)
 # @param int $account_id The account id of the user for passing account related params (optional)
 # @param string $query The named identifier of the query (optional)
@@ -559,11 +486,6 @@ sub get_report_batch {
 # @param string $response_format Determines what response format to return. Options are: JSON or CSV (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'desc' => {
         data_type => 'boolean',
         description => 'If true then descending order, false is ascending',
@@ -616,18 +538,13 @@ sub get_report_batch {
 sub run_report {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling run_report");
-    }
-
     # verify the required parameter 'desc' is set
     unless (exists $args{'desc'}) {
       croak("Missing the required parameter 'desc' when calling run_report");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/report/run';
+    my $_resource_path = '/report/run';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -681,13 +598,6 @@ sub run_report {
         $query_params->{'responseFormat'} = $self->{api_client}->to_query_value($args{'response_format'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -708,7 +618,6 @@ sub run_report {
 #
 # Search Offline Reports
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account logged in (required)
 # @param int $start the start of the index and/or pagination (required)
 # @param int $limit the limit of the index and/or pagination (required)
@@ -720,11 +629,6 @@ sub run_report {
 # @param int $end_date the end date of the report batch to search on (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account logged in',
@@ -782,11 +686,6 @@ sub run_report {
 sub search_batch {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_batch");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_batch");
@@ -803,7 +702,7 @@ sub search_batch {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/report/batch/search';
+    my $_resource_path = '/report/batch/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -860,13 +759,6 @@ sub search_batch {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

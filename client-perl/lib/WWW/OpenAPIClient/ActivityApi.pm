@@ -53,15 +53,9 @@ sub new {
 #
 # Create an entity reference.
 #
-# @param double $version  (required)
 # @param EntityReference $body The entity reference object (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'EntityReference',
         description => 'The entity reference object',
@@ -79,18 +73,13 @@ sub new {
 sub create_entity_reference {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_entity_reference");
-    }
-
     # verify the required parameter 'body' is set
     unless (exists $args{'body'}) {
       croak("Missing the required parameter 'body' when calling create_entity_reference");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/entity/reference';
+    my $_resource_path = '/entity/reference';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -103,13 +92,6 @@ sub create_entity_reference {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params

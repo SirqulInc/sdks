@@ -53,7 +53,6 @@ sub new {
 #
 # Create Credential
 #
-# @param double $version  (required)
 # @param string $third_party_id the third party user account id (required)
 # @param string $third_party_token the access token to authenticate with (ex: username or fb token or phone number) (required)
 # @param string $network_uid the access provider to authenticate against (required)
@@ -73,11 +72,6 @@ sub new {
 # @param string $audience_ids_to_remove audience ids to remove from the account (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'third_party_id' => {
         data_type => 'string',
         description => 'the third party user account id',
@@ -175,11 +169,6 @@ sub new {
 sub create_credential {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_credential");
-    }
-
     # verify the required parameter 'third_party_id' is set
     unless (exists $args{'third_party_id'}) {
       croak("Missing the required parameter 'third_party_id' when calling create_credential");
@@ -201,7 +190,7 @@ sub create_credential {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/credential/create';
+    my $_resource_path = '/thirdparty/credential/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -300,13 +289,6 @@ sub create_credential {
         $query_params->{'audienceIdsToRemove'} = $self->{api_client}->to_query_value($args{'audience_ids_to_remove'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -327,7 +309,6 @@ sub create_credential {
 #
 # Create Network
 #
-# @param double $version  (required)
 # @param int $account_id The account id making the request (required)
 # @param string $name The name of the network (required)
 # @param boolean $enable_introspection Whether the network uses introspection calls (required)
@@ -347,11 +328,6 @@ sub create_credential {
 # @param string $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id making the request',
@@ -449,11 +425,6 @@ sub create_credential {
 sub create_network {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_network");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_network");
@@ -470,7 +441,7 @@ sub create_network {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/network/create';
+    my $_resource_path = '/thirdparty/network/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -564,13 +535,6 @@ sub create_network {
         $query_params->{'oauthSecretKey'} = $self->{api_client}->to_query_value($args{'oauth_secret_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # body params
     if ( exists $args{'body'}) {
@@ -596,18 +560,12 @@ sub create_network {
 #
 # Delete Credential
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param string $network_uid The third party network identifier (required)
 # @param string $third_party_id The third party user id (required)
 # @param string $app_key the application key (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -640,11 +598,6 @@ sub create_network {
 sub delete_credential {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_credential");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_credential");
@@ -666,7 +619,7 @@ sub delete_credential {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/credential/delete';
+    my $_resource_path = '/thirdparty/credential/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -700,13 +653,6 @@ sub delete_credential {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -727,16 +673,10 @@ sub delete_credential {
 #
 # Delete Network
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param string $network_uid The unique identifier for the third party network defined by Sirqul (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -759,11 +699,6 @@ sub delete_credential {
 sub delete_network {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_network");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_network");
@@ -775,7 +710,7 @@ sub delete_network {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/network/delete';
+    my $_resource_path = '/thirdparty/network/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -799,13 +734,6 @@ sub delete_network {
         $query_params->{'networkUID'} = $self->{api_client}->to_query_value($args{'network_uid'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -826,7 +754,6 @@ sub delete_network {
 #
 # Get Credential
 #
-# @param double $version  (required)
 # @param string $network_uid the access provider to authenticate against (required)
 # @param string $app_key the application key (required)
 # @param int $account_id the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -844,11 +771,6 @@ sub delete_network {
 # @param int $referral_account_id account id of the referrer (inviter-invitee relationship) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'network_uid' => {
         data_type => 'string',
         description => 'the access provider to authenticate against',
@@ -936,11 +858,6 @@ sub delete_network {
 sub get_credential {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_credential");
-    }
-
     # verify the required parameter 'network_uid' is set
     unless (exists $args{'network_uid'}) {
       croak("Missing the required parameter 'network_uid' when calling get_credential");
@@ -952,7 +869,7 @@ sub get_credential {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/credential/get';
+    my $_resource_path = '/thirdparty/credential/get';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1041,13 +958,6 @@ sub get_credential {
         $query_params->{'referralAccountId'} = $self->{api_client}->to_query_value($args{'referral_account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1068,16 +978,10 @@ sub get_credential {
 #
 # Get Network
 #
-# @param double $version  (required)
 # @param int $account_id The account id making the request (required)
 # @param string $network_uid The unique identifier for the third party network defined by Sirqul (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id making the request',
@@ -1100,11 +1004,6 @@ sub get_credential {
 sub get_network {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_network");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_network");
@@ -1116,7 +1015,7 @@ sub get_network {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/network/get';
+    my $_resource_path = '/thirdparty/network/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1140,13 +1039,6 @@ sub get_network {
         $query_params->{'networkUID'} = $self->{api_client}->to_query_value($args{'network_uid'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1167,7 +1059,6 @@ sub get_network {
 #
 # Search Credentials
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param string $keyword The keyword used to search on the third party name and network string (optional)
 # @param string $network_uid The network UID to filter results with (optional)
@@ -1176,11 +1067,6 @@ sub get_network {
 # @param int $limit The limit of the pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -1223,18 +1109,13 @@ sub get_network {
 sub search_credentials {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_credentials");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_credentials");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/credential/search';
+    my $_resource_path = '/thirdparty/credential/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1278,13 +1159,6 @@ sub search_credentials {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1305,7 +1179,6 @@ sub search_credentials {
 #
 # Search Networks
 #
-# @param double $version  (required)
 # @param int $account_id The account id making the request (required)
 # @param string $sort_field The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
 # @param boolean $descending The order to return the search results (required)
@@ -1316,11 +1189,6 @@ sub search_credentials {
 # @param boolean $filter_billable Determines whether to only return applications that the user has access to (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id making the request',
@@ -1373,11 +1241,6 @@ sub search_credentials {
 sub search_networks {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_networks");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_networks");
@@ -1409,7 +1272,7 @@ sub search_networks {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/network/search';
+    my $_resource_path = '/thirdparty/network/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1463,13 +1326,6 @@ sub search_networks {
         $query_params->{'filterBillable'} = $self->{api_client}->to_query_value($args{'filter_billable'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1490,7 +1346,6 @@ sub search_networks {
 #
 # Send MFA Challenge
 #
-# @param double $version  (required)
 # @param string $network_uid the third party network provider that has MFA enabled (required)
 # @param string $app_key the application key (required)
 # @param string $third_party_token the access token to authenticate with (optional)
@@ -1498,11 +1353,6 @@ sub search_networks {
 # @param string $device_id the unique id of the device making the request (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'network_uid' => {
         data_type => 'string',
         description => 'the third party network provider that has MFA enabled',
@@ -1540,11 +1390,6 @@ sub search_networks {
 sub send_mfa_challenge {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling send_mfa_challenge");
-    }
-
     # verify the required parameter 'network_uid' is set
     unless (exists $args{'network_uid'}) {
       croak("Missing the required parameter 'network_uid' when calling send_mfa_challenge");
@@ -1556,7 +1401,7 @@ sub send_mfa_challenge {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/credential/mfa/send';
+    my $_resource_path = '/thirdparty/credential/mfa/send';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1595,13 +1440,6 @@ sub send_mfa_challenge {
         $query_params->{'deviceId'} = $self->{api_client}->to_query_value($args{'device_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1622,7 +1460,6 @@ sub send_mfa_challenge {
 #
 # Update Credential
 #
-# @param double $version  (required)
 # @param string $network_uid the access provider to authenticate against (required)
 # @param string $third_party_id the third party user account id (required)
 # @param string $app_key the application key (required)
@@ -1634,11 +1471,6 @@ sub send_mfa_challenge {
 # @param string $third_party_refresh_token optional refresh token for the third party (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'network_uid' => {
         data_type => 'string',
         description => 'the access provider to authenticate against',
@@ -1696,11 +1528,6 @@ sub send_mfa_challenge {
 sub update_credential {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_credential");
-    }
-
     # verify the required parameter 'network_uid' is set
     unless (exists $args{'network_uid'}) {
       croak("Missing the required parameter 'network_uid' when calling update_credential");
@@ -1717,7 +1544,7 @@ sub update_credential {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/credential/update';
+    my $_resource_path = '/thirdparty/credential/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1776,13 +1603,6 @@ sub update_credential {
         $query_params->{'thirdPartyRefreshToken'} = $self->{api_client}->to_query_value($args{'third_party_refresh_token'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1803,7 +1623,6 @@ sub update_credential {
 #
 # Update Network
 #
-# @param double $version  (required)
 # @param int $account_id The account id making the request (required)
 # @param string $network_uid The unique identifier for the third party network defined by Sirqul (required)
 # @param string $name The name of the network (optional)
@@ -1824,11 +1643,6 @@ sub update_credential {
 # @param string $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id making the request',
@@ -1931,11 +1745,6 @@ sub update_credential {
 sub update_network {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_network");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_network");
@@ -1947,7 +1756,7 @@ sub update_network {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/thirdparty/network/update';
+    my $_resource_path = '/thirdparty/network/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2044,13 +1853,6 @@ sub update_network {
     # query params
     if ( exists $args{'oauth_secret_key'}) {
         $query_params->{'oauthSecretKey'} = $self->{api_client}->to_query_value($args{'oauth_secret_key'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

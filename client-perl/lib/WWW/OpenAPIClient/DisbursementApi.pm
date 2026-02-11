@@ -53,15 +53,9 @@ sub new {
 #
 # Check Disbursements
 #
-# @param double $version  (required)
 # @param int $disbursement_id the ID of the disbursement being checked on (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'disbursement_id' => {
         data_type => 'int',
         description => 'the ID of the disbursement being checked on',
@@ -79,18 +73,13 @@ sub new {
 sub check_disbursements {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling check_disbursements");
-    }
-
     # verify the required parameter 'disbursement_id' is set
     unless (exists $args{'disbursement_id'}) {
       croak("Missing the required parameter 'disbursement_id' when calling check_disbursements");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/disbursement/check';
+    my $_resource_path = '/disbursement/check';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -107,13 +96,6 @@ sub check_disbursements {
     # query params
     if ( exists $args{'disbursement_id'}) {
         $query_params->{'disbursementId'} = $self->{api_client}->to_query_value($args{'disbursement_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -136,7 +118,6 @@ sub check_disbursements {
 #
 # Create Disbursement
 #
-# @param double $version  (required)
 # @param int $account_id the ID of the logging in user (must be an EXECUTIVE account) (required)
 # @param int $receiver_account_id the ID of the account receiving the disbursement (required)
 # @param int $original_sender_account_id the ID of the original sender account (required)
@@ -149,11 +130,6 @@ sub check_disbursements {
 # @param string $introspection_params This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the ID of the logging in user (must be an EXECUTIVE account)',
@@ -216,11 +192,6 @@ sub check_disbursements {
 sub create_disbursement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_disbursement");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_disbursement");
@@ -247,7 +218,7 @@ sub create_disbursement {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/disbursement/create';
+    my $_resource_path = '/disbursement/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -311,13 +282,6 @@ sub create_disbursement {
         $query_params->{'introspectionParams'} = $self->{api_client}->to_query_value($args{'introspection_params'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -338,16 +302,10 @@ sub create_disbursement {
 #
 # Get Disbursement
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $disbursement_id the id of the disbursement (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -370,11 +328,6 @@ sub create_disbursement {
 sub get_disbursement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_disbursement");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_disbursement");
@@ -386,7 +339,7 @@ sub get_disbursement {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/disbursement/get';
+    my $_resource_path = '/disbursement/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -410,13 +363,6 @@ sub get_disbursement {
         $query_params->{'disbursementId'} = $self->{api_client}->to_query_value($args{'disbursement_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -437,7 +383,6 @@ sub get_disbursement {
 #
 # Search Disbursements
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $receiver_account_id filter results by the id of the account receiving the disbursement (optional)
 # @param string $statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -450,11 +395,6 @@ sub get_disbursement {
 # @param string $external_id search results by this external ID (that can be used to reference the disbursement) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -517,18 +457,13 @@ sub get_disbursement {
 sub search_disbursements {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_disbursements");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_disbursements");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/disbursement/search';
+    my $_resource_path = '/disbursement/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -592,13 +527,6 @@ sub search_disbursements {
         $query_params->{'externalId'} = $self->{api_client}->to_query_value($args{'external_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -619,7 +547,6 @@ sub search_disbursements {
 #
 # Update Disbursement
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $disbursement_id the id of the disbursement being updated (required)
 # @param double $amount the disbursement dollar amount being updated (optional)
@@ -632,11 +559,6 @@ sub search_disbursements {
 # @param string $introspection_params for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -699,11 +621,6 @@ sub search_disbursements {
 sub update_disbursement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_disbursement");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_disbursement");
@@ -715,7 +632,7 @@ sub update_disbursement {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/disbursement/update';
+    my $_resource_path = '/disbursement/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -777,13 +694,6 @@ sub update_disbursement {
     # query params
     if ( exists $args{'introspection_params'}) {
         $query_params->{'introspectionParams'} = $self->{api_client}->to_query_value($args{'introspection_params'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

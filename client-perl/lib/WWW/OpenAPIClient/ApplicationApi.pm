@@ -53,7 +53,6 @@ sub new {
 #
 # Create Application
 #
-# @param double $version  (required)
 # @param string $app_name The name of the application (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -135,11 +134,6 @@ sub new {
 # @param string $open_ai_secret_key OpenAI Secret API Key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_name' => {
         data_type => 'string',
         description => 'The name of the application',
@@ -547,18 +541,13 @@ sub new {
 sub create_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_application");
-    }
-
     # verify the required parameter 'app_name' is set
     unless (exists $args{'app_name'}) {
       croak("Missing the required parameter 'app_name' when calling create_application");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/create';
+    my $_resource_path = '/application/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -967,13 +956,6 @@ sub create_application {
         $query_params->{'openAISecretKey'} = $self->{api_client}->to_query_value($args{'open_ai_secret_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -994,7 +976,6 @@ sub create_application {
 #
 # Create Ad Placement
 #
-# @param double $version  (required)
 # @param string $app_key The appKey of the application the ad placement is for (required)
 # @param string $size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1008,11 +989,6 @@ sub create_application {
 # @param boolean $active Active (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The appKey of the application the ad placement is for',
@@ -1080,11 +1056,6 @@ sub create_application {
 sub create_application_placement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_application_placement");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling create_application_placement");
@@ -1096,7 +1067,7 @@ sub create_application_placement {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/placement/create';
+    my $_resource_path = '/application/placement/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1165,13 +1136,6 @@ sub create_application_placement {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1192,16 +1156,10 @@ sub create_application_placement {
 #
 # Delete Application
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the delete, must have rights to edit the application. (optional)
 # @param string $app_key The key of the application to be deleted (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the delete, must have rights to edit the application.',
@@ -1224,13 +1182,8 @@ sub create_application_placement {
 sub delete_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_application");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/application/delete';
+    my $_resource_path = '/application/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1254,13 +1207,6 @@ sub delete_application {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1281,17 +1227,11 @@ sub delete_application {
 #
 # Delete Ad Placement
 #
-# @param double $version  (required)
 # @param int $placement_id The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'placement_id' => {
         data_type => 'int',
         description => 'The id of the placement to delete, the user must have rights to the application the ad placement is for',
@@ -1319,18 +1259,13 @@ sub delete_application {
 sub delete_application_placement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_application_placement");
-    }
-
     # verify the required parameter 'placement_id' is set
     unless (exists $args{'placement_id'}) {
       croak("Missing the required parameter 'placement_id' when calling delete_application_placement");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/placement/delete';
+    my $_resource_path = '/application/placement/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1359,13 +1294,6 @@ sub delete_application_placement {
         $query_params->{'placementId'} = $self->{api_client}->to_query_value($args{'placement_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1386,16 +1314,10 @@ sub delete_application_placement {
 #
 # Get Application
 #
-# @param double $version  (required)
 # @param string $app_key The key of the application (optional)
 # @param int $application_id Application Id (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The key of the application',
@@ -1418,13 +1340,8 @@ sub delete_application_placement {
 sub get_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_application");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/application/get';
+    my $_resource_path = '/application/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1448,13 +1365,6 @@ sub get_application {
         $query_params->{'applicationId'} = $self->{api_client}->to_query_value($args{'application_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1475,17 +1385,11 @@ sub get_application {
 #
 # Get Ad Placement
 #
-# @param double $version  (required)
 # @param int $placement_id The id of the placement (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'placement_id' => {
         data_type => 'int',
         description => 'The id of the placement',
@@ -1513,18 +1417,13 @@ sub get_application {
 sub get_application_placement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_application_placement");
-    }
-
     # verify the required parameter 'placement_id' is set
     unless (exists $args{'placement_id'}) {
       croak("Missing the required parameter 'placement_id' when calling get_application_placement");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/placement/get';
+    my $_resource_path = '/application/placement/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1553,13 +1452,6 @@ sub get_application_placement {
         $query_params->{'placementId'} = $self->{api_client}->to_query_value($args{'placement_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1580,14 +1472,8 @@ sub get_application_placement {
 #
 # Get API versions
 #
-# @param double $version  (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     };
     __PACKAGE__->method_documentation->{ 'get_application_versions' } = {
         summary => 'Get API versions',
@@ -1600,13 +1486,8 @@ sub get_application_placement {
 sub get_application_versions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_application_versions");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/application/versions';
+    my $_resource_path = '/application/versions';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1619,13 +1500,6 @@ sub get_application_versions {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # authentication setting, if any
@@ -1647,7 +1521,6 @@ sub get_application_versions {
 #
 # Search Application Users
 #
-# @param double $version  (required)
 # @param string $app_key The application key (required)
 # @param string $q Q (optional)
 # @param string $keyword The keyword used to search (optional)
@@ -1658,11 +1531,6 @@ sub get_application_versions {
 # @param int $limit The limit of the pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key',
@@ -1715,18 +1583,13 @@ sub get_application_versions {
 sub get_unique_users_by_app {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_unique_users_by_app");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling get_unique_users_by_app");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/users';
+    my $_resource_path = '/application/users';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1780,13 +1643,6 @@ sub get_unique_users_by_app {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1807,7 +1663,6 @@ sub get_unique_users_by_app {
 #
 # List Applications
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the application owner/manager (optional)
 # @param string $q Q (optional)
 # @param string $keyword The keyword used to search for title, about, and description fields (optional)
@@ -1830,11 +1685,6 @@ sub get_unique_users_by_app {
 # @param boolean $active_only Return only active results (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the application owner/manager',
@@ -1947,13 +1797,8 @@ sub get_unique_users_by_app {
 sub list_applications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling list_applications");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/application/list';
+    my $_resource_path = '/application/list';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2067,13 +1912,6 @@ sub list_applications {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2094,7 +1932,6 @@ sub list_applications {
 #
 # Search for Ad Placements
 #
-# @param double $version  (required)
 # @param string $app_key The key of the application (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2102,11 +1939,6 @@ sub list_applications {
 # @param int $limit The limit of the pagination (optional, default to 100)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The key of the application',
@@ -2144,18 +1976,13 @@ sub list_applications {
 sub search_application_placement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_application_placement");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling search_application_placement");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/placement/search';
+    my $_resource_path = '/application/placement/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2194,13 +2021,6 @@ sub search_application_placement {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2221,7 +2041,6 @@ sub search_application_placement {
 #
 # Search for Application Settings
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $connection_account_id The account id used to view another person&#39;s account (optional)
@@ -2232,11 +2051,6 @@ sub search_application_placement {
 # @param int $limit The limit per result set for pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -2289,13 +2103,8 @@ sub search_application_placement {
 sub search_application_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_application_settings");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/application/settings/search';
+    my $_resource_path = '/application/settings/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2349,13 +2158,6 @@ sub search_application_settings {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2376,7 +2178,6 @@ sub search_application_settings {
 #
 # Search Applications
 #
-# @param double $version  (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param double $latitude The location of the device (optional)
@@ -2395,11 +2196,6 @@ sub search_application_settings {
 # @param boolean $active_only Return only active results (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique id of the device making the request (deviceId or accountId required)',
@@ -2492,13 +2288,8 @@ sub search_application_settings {
 sub search_applications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_applications");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/application/search';
+    my $_resource_path = '/application/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2592,13 +2383,6 @@ sub search_applications {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2619,7 +2403,6 @@ sub search_applications {
 #
 # Update Application
 #
-# @param double $version  (required)
 # @param string $app_key The application key for updating an existing application (required)
 # @param string $app_name The name of the application (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2702,11 +2485,6 @@ sub search_applications {
 # @param string $open_ai_secret_key OpenAI Secret API Key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key for updating an existing application',
@@ -3119,11 +2897,6 @@ sub search_applications {
 sub update_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_application");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling update_application");
@@ -3135,7 +2908,7 @@ sub update_application {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/update';
+    my $_resource_path = '/application/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3549,13 +3322,6 @@ sub update_application {
         $query_params->{'openAISecretKey'} = $self->{api_client}->to_query_value($args{'open_ai_secret_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3576,17 +3342,11 @@ sub update_application {
 #
 # Change Appliation Status
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the delete, must have rights to edit the application. (required)
 # @param string $app_key The key of the application to be deleted (required)
 # @param boolean $active If true then set to active, false otherwise (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the delete, must have rights to edit the application.',
@@ -3614,11 +3374,6 @@ sub update_application {
 sub update_application_active {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_application_active");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_application_active");
@@ -3635,7 +3390,7 @@ sub update_application_active {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/active';
+    my $_resource_path = '/application/active';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3664,13 +3419,6 @@ sub update_application_active {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3691,7 +3439,6 @@ sub update_application_active {
 #
 # Update Ad Placement
 #
-# @param double $version  (required)
 # @param int $placement_id The id of the placement to update, the user must have rights to the application the ad placement is for (required)
 # @param string $device_id The unique id of the device making the request (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -3705,11 +3452,6 @@ sub update_application_active {
 # @param boolean $active Active (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'placement_id' => {
         data_type => 'int',
         description => 'The id of the placement to update, the user must have rights to the application the ad placement is for',
@@ -3777,18 +3519,13 @@ sub update_application_active {
 sub update_application_placement {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_application_placement");
-    }
-
     # verify the required parameter 'placement_id' is set
     unless (exists $args{'placement_id'}) {
       croak("Missing the required parameter 'placement_id' when calling update_application_placement");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/placement/update';
+    my $_resource_path = '/application/placement/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3857,13 +3594,6 @@ sub update_application_placement {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3884,18 +3614,12 @@ sub update_application_placement {
 #
 # Create Application Certificate
 #
-# @param double $version  (required)
 # @param string $app_key The key of the application (required)
 # @param string $device_id Device Id (optional)
 # @param int $account_id The account used to perform the delete, must have rights to edit the application. (optional)
 # @param string $certificate Certificate (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The key of the application',
@@ -3928,18 +3652,13 @@ sub update_application_placement {
 sub upload_application_certificate {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling upload_application_certificate");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling upload_application_certificate");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/application/certificate/create';
+    my $_resource_path = '/application/certificate/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3971,13 +3690,6 @@ sub upload_application_certificate {
     # query params
     if ( exists $args{'certificate'}) {
         $query_params->{'certificate'} = $self->{api_client}->to_query_value($args{'certificate'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

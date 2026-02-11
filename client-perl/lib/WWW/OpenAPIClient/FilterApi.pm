@@ -53,7 +53,6 @@ sub new {
 #
 # Create Filter
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (must have permissions to the target application) (required)
 # @param string $name The name of the filter (required)
 # @param string $app_key The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -65,11 +64,6 @@ sub new {
 # @param string $meta_data external custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user (must have permissions to the target application)',
@@ -127,11 +121,6 @@ sub new {
 sub create_filter {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_filter");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_filter");
@@ -143,7 +132,7 @@ sub create_filter {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/filter/create';
+    my $_resource_path = '/filter/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -202,13 +191,6 @@ sub create_filter {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -229,16 +211,10 @@ sub create_filter {
 #
 # Delete Filter
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
 # @param int $filter_id The ID of the filter to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user (must have permissions to the filter&#39;s assigned application)',
@@ -261,11 +237,6 @@ sub create_filter {
 sub delete_filter {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_filter");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_filter");
@@ -277,7 +248,7 @@ sub delete_filter {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/filter/delete';
+    my $_resource_path = '/filter/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -301,13 +272,6 @@ sub delete_filter {
         $query_params->{'filterId'} = $self->{api_client}->to_query_value($args{'filter_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -328,15 +292,9 @@ sub delete_filter {
 #
 # Get Filter
 #
-# @param double $version  (required)
 # @param int $filter_id the id of the filter to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'filter_id' => {
         data_type => 'int',
         description => 'the id of the filter to get',
@@ -354,18 +312,13 @@ sub delete_filter {
 sub get_filter {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_filter");
-    }
-
     # verify the required parameter 'filter_id' is set
     unless (exists $args{'filter_id'}) {
       croak("Missing the required parameter 'filter_id' when calling get_filter");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/filter/get';
+    my $_resource_path = '/filter/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -382,13 +335,6 @@ sub get_filter {
     # query params
     if ( exists $args{'filter_id'}) {
         $query_params->{'filterId'} = $self->{api_client}->to_query_value($args{'filter_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -411,7 +357,6 @@ sub get_filter {
 #
 # Search Filters
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (optional)
 # @param string $keyword The string to search on (optional)
 # @param string $app_key the appKey of the application to retrieve filters for (optional)
@@ -424,11 +369,6 @@ sub get_filter {
 # @param boolean $active_only Determines whether to return only active categories (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -491,13 +431,8 @@ sub get_filter {
 sub search_filters {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_filters");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/filter/search';
+    my $_resource_path = '/filter/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -561,13 +496,6 @@ sub search_filters {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -588,7 +516,6 @@ sub search_filters {
 #
 # Update Filter
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param int $filter_id The ID of the filter to edit (required)
 # @param int $parent_filter_id The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -600,11 +527,6 @@ sub search_filters {
 # @param string $meta_data external custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -662,11 +584,6 @@ sub search_filters {
 sub update_filter {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_filter");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_filter");
@@ -678,7 +595,7 @@ sub update_filter {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/filter/update';
+    my $_resource_path = '/filter/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -735,13 +652,6 @@ sub update_filter {
     # query params
     if ( exists $args{'meta_data'}) {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

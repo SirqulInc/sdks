@@ -53,7 +53,6 @@ sub new {
 #
 # Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user creating the leaderboard. (optional)
 # @param string $app_key The application key (optional)
 # @param string $rank_type a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -69,11 +68,6 @@ sub new {
 # @param string $meta_data custom meta data for the leaderboard (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user creating the leaderboard.',
@@ -151,13 +145,8 @@ sub new {
 sub create_leaderboard {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_leaderboard");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/leaderboard/create';
+    my $_resource_path = '/leaderboard/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -236,13 +225,6 @@ sub create_leaderboard {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -263,16 +245,10 @@ sub create_leaderboard {
 #
 # Delete the Leader Board
 #
-# @param double $version  (required)
 # @param int $leaderboard_id The leaderboard id to delete. (required)
 # @param int $account_id The account id of the user making the request. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'leaderboard_id' => {
         data_type => 'int',
         description => 'The leaderboard id to delete.',
@@ -295,18 +271,13 @@ sub create_leaderboard {
 sub delete_leaderboard {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_leaderboard");
-    }
-
     # verify the required parameter 'leaderboard_id' is set
     unless (exists $args{'leaderboard_id'}) {
       croak("Missing the required parameter 'leaderboard_id' when calling delete_leaderboard");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/leaderboard/delete';
+    my $_resource_path = '/leaderboard/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -330,13 +301,6 @@ sub delete_leaderboard {
         $query_params->{'leaderboardId'} = $self->{api_client}->to_query_value($args{'leaderboard_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -357,17 +321,11 @@ sub delete_leaderboard {
 #
 # Read a leaderboard by id and retrieve the matching ranking list
 #
-# @param double $version  (required)
 # @param int $leaderboard_id The leaderboard id. (required)
 # @param int $account_id A valid account. (optional)
 # @param boolean $include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'leaderboard_id' => {
         data_type => 'int',
         description => 'The leaderboard id.',
@@ -395,18 +353,13 @@ sub delete_leaderboard {
 sub get_leaderboard {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_leaderboard");
-    }
-
     # verify the required parameter 'leaderboard_id' is set
     unless (exists $args{'leaderboard_id'}) {
       croak("Missing the required parameter 'leaderboard_id' when calling get_leaderboard");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/leaderboard/get';
+    my $_resource_path = '/leaderboard/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -435,13 +388,6 @@ sub get_leaderboard {
         $query_params->{'includeFullRankingList'} = $self->{api_client}->to_query_value($args{'include_full_ranking_list'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -462,7 +408,6 @@ sub get_leaderboard {
 #
 # Search leaderboard and retrieve the matching ranking list
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user requesting the search. (optional)
 # @param string $app_key The application key. (optional)
 # @param boolean $global_only only include global leaderboards (this overrides the appKey filter) (optional)
@@ -477,11 +422,6 @@ sub get_leaderboard {
 # @param int $limit Limit the result to some number. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user requesting the search.',
@@ -554,13 +494,8 @@ sub get_leaderboard {
 sub search_leaderboards {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_leaderboards");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/leaderboard/search';
+    my $_resource_path = '/leaderboard/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -634,13 +569,6 @@ sub search_leaderboards {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -661,7 +589,6 @@ sub search_leaderboards {
 #
 # Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 #
-# @param double $version  (required)
 # @param int $leaderboard_id The leaderboard id to update. (required)
 # @param int $account_id The account id of the user updating the leaderboard. (optional)
 # @param string $app_key The application key (optional)
@@ -679,11 +606,6 @@ sub search_leaderboards {
 # @param string $meta_data custom meta data for the leaderboard (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'leaderboard_id' => {
         data_type => 'int',
         description => 'The leaderboard id to update.',
@@ -771,18 +693,13 @@ sub search_leaderboards {
 sub update_leaderboard {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_leaderboard");
-    }
-
     # verify the required parameter 'leaderboard_id' is set
     unless (exists $args{'leaderboard_id'}) {
       croak("Missing the required parameter 'leaderboard_id' when calling update_leaderboard");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/leaderboard/update';
+    my $_resource_path = '/leaderboard/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -869,13 +786,6 @@ sub update_leaderboard {
     # query params
     if ( exists $args{'meta_data'}) {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

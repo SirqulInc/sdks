@@ -53,7 +53,6 @@ sub new {
 #
 # Create Question
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param string $question the text of the question (required)
 # @param string $answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  (required)
@@ -67,11 +66,6 @@ sub new {
 # @param int $points The number of points to award for completing a mission (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -139,11 +133,6 @@ sub new {
 sub create_question {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_question");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_question");
@@ -175,7 +164,7 @@ sub create_question {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/question/create';
+    my $_resource_path = '/game/question/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -244,13 +233,6 @@ sub create_question {
         $query_params->{'points'} = $self->{api_client}->to_query_value($args{'points'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -271,16 +253,10 @@ sub create_question {
 #
 # Delete Question
 #
-# @param double $version  (required)
 # @param int $question_id the id of the question to delete (required)
 # @param int $account_id the id of the account that can execute this request (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'question_id' => {
         data_type => 'int',
         description => 'the id of the question to delete',
@@ -303,11 +279,6 @@ sub create_question {
 sub delete_question {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_question");
-    }
-
     # verify the required parameter 'question_id' is set
     unless (exists $args{'question_id'}) {
       croak("Missing the required parameter 'question_id' when calling delete_question");
@@ -319,7 +290,7 @@ sub delete_question {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/question/delete';
+    my $_resource_path = '/game/question/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -343,13 +314,6 @@ sub delete_question {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -370,16 +334,10 @@ sub delete_question {
 #
 # Get Question
 #
-# @param double $version  (required)
 # @param int $question_id the id of the question to get (required)
 # @param int $account_id the id of the account that can make this request (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'question_id' => {
         data_type => 'int',
         description => 'the id of the question to get',
@@ -402,11 +360,6 @@ sub delete_question {
 sub get_question {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_question");
-    }
-
     # verify the required parameter 'question_id' is set
     unless (exists $args{'question_id'}) {
       croak("Missing the required parameter 'question_id' when calling get_question");
@@ -418,7 +371,7 @@ sub get_question {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/question/get';
+    my $_resource_path = '/game/question/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -442,13 +395,6 @@ sub get_question {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -469,7 +415,6 @@ sub get_question {
 #
 # Search Questions
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $sort_field The column to sort the search on (required)
 # @param boolean $descending The order to return the search results (required)
@@ -479,11 +424,6 @@ sub get_question {
 # @param string $keyword The keyword for searching questions with matching tags or question text. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -531,11 +471,6 @@ sub get_question {
 sub search_questions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_questions");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_questions");
@@ -567,7 +502,7 @@ sub search_questions {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/question/search';
+    my $_resource_path = '/game/question/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -616,13 +551,6 @@ sub search_questions {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -643,7 +571,6 @@ sub search_questions {
 #
 # Update Question
 #
-# @param double $version  (required)
 # @param int $question_id The id of the question to update. (required)
 # @param int $account_id The logged in user. (required)
 # @param int $ticket_count The number of tickets to reward (required)
@@ -658,11 +585,6 @@ sub search_questions {
 # @param int $points The number of points to award for completing a mission (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'question_id' => {
         data_type => 'int',
         description => 'The id of the question to update.',
@@ -735,11 +657,6 @@ sub search_questions {
 sub update_question {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_question");
-    }
-
     # verify the required parameter 'question_id' is set
     unless (exists $args{'question_id'}) {
       croak("Missing the required parameter 'question_id' when calling update_question");
@@ -756,7 +673,7 @@ sub update_question {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/game/question/update';
+    my $_resource_path = '/game/question/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -828,13 +745,6 @@ sub update_question {
     # query params
     if ( exists $args{'points'}) {
         $query_params->{'points'} = $self->{api_client}->to_query_value($args{'points'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

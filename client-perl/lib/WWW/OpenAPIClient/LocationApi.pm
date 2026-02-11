@@ -53,7 +53,6 @@ sub new {
 #
 # Create Trilateration Data with File
 #
-# @param double $version  (required)
 # @param string $udid The unique identifier of the source device (required)
 # @param int $source_time The current timestamp of the source device (optional)
 # @param int $minimum_sample_size the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -61,11 +60,6 @@ sub new {
 # @param string $data_file Binary file containing data (multipart upload) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'udid' => {
         data_type => 'string',
         description => 'The unique identifier of the source device',
@@ -103,18 +97,13 @@ sub new {
 sub cache_trilateration_data {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling cache_trilateration_data");
-    }
-
     # verify the required parameter 'udid' is set
     unless (exists $args{'udid'}) {
       croak("Missing the required parameter 'udid' when calling cache_trilateration_data");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/location/trilaterate/cache';
+    my $_resource_path = '/location/trilaterate/cache';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -153,13 +142,6 @@ sub cache_trilateration_data {
         $query_params->{'dataFile'} = $self->{api_client}->to_query_value($args{'data_file'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -180,15 +162,9 @@ sub cache_trilateration_data {
 #
 # Create Trilateration Data with Rest
 #
-# @param double $version  (required)
 # @param TrilatCacheRequest $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'TrilatCacheRequest',
         description => '',
@@ -206,13 +182,8 @@ sub cache_trilateration_data {
 sub cache_trilateration_data_gzip {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling cache_trilateration_data_gzip");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/location/trilaterate/cache/submit';
+    my $_resource_path = '/location/trilaterate/cache/submit';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -225,13 +196,6 @@ sub cache_trilateration_data_gzip {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -258,15 +222,9 @@ sub cache_trilateration_data_gzip {
 #
 # Get Location by IP
 #
-# @param double $version  (required)
 # @param string $ip the ip address of the client device (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'ip' => {
         data_type => 'string',
         description => 'the ip address of the client device',
@@ -284,13 +242,8 @@ sub cache_trilateration_data_gzip {
 sub get_location_by_ip {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_location_by_ip");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/location/ip';
+    my $_resource_path = '/location/ip';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -307,13 +260,6 @@ sub get_location_by_ip {
     # query params
     if ( exists $args{'ip'}) {
         $query_params->{'ip'} = $self->{api_client}->to_query_value($args{'ip'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -336,7 +282,6 @@ sub get_location_by_ip {
 #
 # Get Location by Trilateration
 #
-# @param double $version  (required)
 # @param int $account_id The account making the request, if provided the last know location will be updated (optional)
 # @param double $latitude The known GPS latitude to compare to the calculated version (optional)
 # @param double $longitude The known GPS longitude to compare to the calculated version (optional)
@@ -344,11 +289,6 @@ sub get_location_by_ip {
 # @param string $response_filters Optional response filters (not used currently) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account making the request, if provided the last know location will be updated',
@@ -386,13 +326,8 @@ sub get_location_by_ip {
 sub get_location_by_trilateration {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_location_by_trilateration");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/location/trilaterate';
+    my $_resource_path = '/account/location/trilaterate';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -431,13 +366,6 @@ sub get_location_by_trilateration {
         $query_params->{'responseFilters'} = $self->{api_client}->to_query_value($args{'response_filters'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -458,7 +386,6 @@ sub get_location_by_trilateration {
 #
 # Search Regions or Postal Codes
 #
-# @param double $version  (required)
 # @param string $device_id the device id (optional)
 # @param int $account_id the account id (optional)
 # @param double $currentlatitude This parameter is deprecated. (optional)
@@ -480,11 +407,6 @@ sub get_location_by_trilateration {
 # @param int $limit the limit for pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the device id',
@@ -592,13 +514,8 @@ sub get_location_by_trilateration {
 sub get_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_locations");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/location/search';
+    my $_resource_path = '/location/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -705,13 +622,6 @@ sub get_locations {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

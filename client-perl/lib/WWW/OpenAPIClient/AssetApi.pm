@@ -53,15 +53,9 @@ sub new {
 #
 # Download Asset
 #
-# @param double $version  (required)
 # @param string $filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'filename' => {
         data_type => 'string',
         description => 'the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}',
@@ -79,18 +73,13 @@ sub new {
 sub asset_download {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling asset_download");
-    }
-
     # verify the required parameter 'filename' is set
     unless (exists $args{'filename'}) {
       croak("Missing the required parameter 'filename' when calling asset_download");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/download/{filename}';
+    my $_resource_path = '/asset/download/{filename}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -103,13 +92,6 @@ sub asset_download {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'filename'}) {
@@ -138,7 +120,6 @@ sub asset_download {
 #
 # Convert Offer to Creative
 #
-# @param double $version  (required)
 # @param int $offer_id offer id used for inserting offer text/flavor (required)
 # @param string $ad_size the ad size used for selecting a format for the creative image (required)
 # @param int $creative_id used for inserting the newly created image into (optional)
@@ -148,11 +129,6 @@ sub asset_download {
 # @param string $template the template to use (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'offer_id' => {
         data_type => 'int',
         description => 'offer id used for inserting offer text/flavor',
@@ -200,11 +176,6 @@ sub asset_download {
 sub asset_morph {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling asset_morph");
-    }
-
     # verify the required parameter 'offer_id' is set
     unless (exists $args{'offer_id'}) {
       croak("Missing the required parameter 'offer_id' when calling asset_morph");
@@ -216,7 +187,7 @@ sub asset_morph {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/morph';
+    my $_resource_path = '/asset/morph';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -265,13 +236,6 @@ sub asset_morph {
         $query_params->{'template'} = $self->{api_client}->to_query_value($args{'template'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -292,7 +256,6 @@ sub asset_morph {
 #
 # Create Asset
 #
-# @param double $version  (required)
 # @param boolean $return_nulls to return nulls (optional)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -329,11 +292,6 @@ sub asset_morph {
 # @param double $longitude the longitude (optional) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'to return nulls',
@@ -516,13 +474,8 @@ sub asset_morph {
 sub create_asset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_asset");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/create';
+    my $_resource_path = '/asset/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -706,13 +659,6 @@ sub create_asset {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -733,7 +679,6 @@ sub create_asset {
 #
 # Delete Asset
 #
-# @param double $version  (required)
 # @param string $asset_id the id of the asset to delete (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -741,11 +686,6 @@ sub create_asset {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'asset_id' => {
         data_type => 'string',
         description => 'the id of the asset to delete',
@@ -783,18 +723,13 @@ sub create_asset {
 sub delete_asset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_asset");
-    }
-
     # verify the required parameter 'asset_id' is set
     unless (exists $args{'asset_id'}) {
       croak("Missing the required parameter 'asset_id' when calling delete_asset");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/delete';
+    my $_resource_path = '/asset/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -833,13 +768,6 @@ sub delete_asset {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -860,18 +788,12 @@ sub delete_asset {
 #
 # Get Asset
 #
-# @param double $version  (required)
 # @param int $asset_id the asset ID (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 # @param boolean $note_descending determines whether the notes on the asset are in descending order (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'asset_id' => {
         data_type => 'int',
         description => 'the asset ID',
@@ -904,18 +826,13 @@ sub delete_asset {
 sub get_asset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_asset");
-    }
-
     # verify the required parameter 'asset_id' is set
     unless (exists $args{'asset_id'}) {
       croak("Missing the required parameter 'asset_id' when calling get_asset");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/get';
+    my $_resource_path = '/asset/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -949,13 +866,6 @@ sub get_asset {
         $query_params->{'noteDescending'} = $self->{api_client}->to_query_value($args{'note_descending'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -976,7 +886,6 @@ sub get_asset {
 #
 # Remove Asset from Collection
 #
-# @param double $version  (required)
 # @param string $asset_id the id of the asset to remove (required)
 # @param string $device_id the device id (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -987,11 +896,6 @@ sub get_asset {
 # @param double $longitude longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'asset_id' => {
         data_type => 'string',
         description => 'the id of the asset to remove',
@@ -1044,18 +948,13 @@ sub get_asset {
 sub remove_asset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling remove_asset");
-    }
-
     # verify the required parameter 'asset_id' is set
     unless (exists $args{'asset_id'}) {
       croak("Missing the required parameter 'asset_id' when calling remove_asset");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/remove';
+    my $_resource_path = '/asset/remove';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1109,13 +1008,6 @@ sub remove_asset {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1136,7 +1028,6 @@ sub remove_asset {
 #
 # Search Assets
 #
-# @param double $version  (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 # @param string $album_ids comma separated list of album ids to search on (optional)
@@ -1163,11 +1054,6 @@ sub remove_asset {
 # @param int $assigned_account_id filter results by an assigned account id (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique ID given by the device (deviceId or accountId required)',
@@ -1300,13 +1186,8 @@ sub remove_asset {
 sub search_assets {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_assets");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/search';
+    my $_resource_path = '/asset/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1440,13 +1321,6 @@ sub search_assets {
         $query_params->{'assignedAccountId'} = $self->{api_client}->to_query_value($args{'assigned_account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1467,7 +1341,6 @@ sub search_assets {
 #
 # Update Asset
 #
-# @param double $version  (required)
 # @param int $asset_id the ID of the asset to update (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
@@ -1501,11 +1374,6 @@ sub search_assets {
 # @param double $longitude longitude used to update the asset&#39;s location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'asset_id' => {
         data_type => 'int',
         description => 'the ID of the asset to update',
@@ -1673,18 +1541,13 @@ sub search_assets {
 sub update_asset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_asset");
-    }
-
     # verify the required parameter 'asset_id' is set
     unless (exists $args{'asset_id'}) {
       croak("Missing the required parameter 'asset_id' when calling update_asset");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/asset/update';
+    my $_resource_path = '/asset/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1851,13 +1714,6 @@ sub update_asset {
     # query params
     if ( exists $args{'longitude'}) {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

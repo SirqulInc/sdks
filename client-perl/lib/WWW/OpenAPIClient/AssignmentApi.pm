@@ -53,16 +53,10 @@ sub new {
 #
 # Search Assignment Assignees
 #
-# @param double $version  (required)
 # @param int $account_id The account id sending the request (required)
 # @param string $keyword The keyword to filter the returned results (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id sending the request',
@@ -85,18 +79,13 @@ sub new {
 sub assigment_assignee_account_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assigment_assignee_account_search");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assigment_assignee_account_search");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/assignee/search';
+    my $_resource_path = '/assignment/assignee/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -120,13 +109,6 @@ sub assigment_assignee_account_search {
         $query_params->{'keyword'} = $self->{api_client}->to_query_value($args{'keyword'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -147,7 +129,6 @@ sub assigment_assignee_account_search {
 #
 # Create Assignment
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param string $name the name for the assignment (required)
 # @param int $assignee_account_id the account id to assign to (required)
@@ -157,11 +138,6 @@ sub assigment_assignee_account_search {
 # @param boolean $active determines whether the assignment is active or inactive (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -209,11 +185,6 @@ sub assigment_assignee_account_search {
 sub assignment_create {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_create");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_create");
@@ -230,7 +201,7 @@ sub assignment_create {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/create';
+    my $_resource_path = '/assignment/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -279,13 +250,6 @@ sub assignment_create {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -306,16 +270,10 @@ sub assignment_create {
 #
 # Delete Assignment
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param int $assignment_id the assignment id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -338,11 +296,6 @@ sub assignment_create {
 sub assignment_delete {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_delete");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_delete");
@@ -354,7 +307,7 @@ sub assignment_delete {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/delete';
+    my $_resource_path = '/assignment/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -378,13 +331,6 @@ sub assignment_delete {
         $query_params->{'assignmentId'} = $self->{api_client}->to_query_value($args{'assignment_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -405,16 +351,10 @@ sub assignment_delete {
 #
 # Get Assignment
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param int $assignment_id the assignment id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -437,11 +377,6 @@ sub assignment_delete {
 sub assignment_get {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_get");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_get");
@@ -453,7 +388,7 @@ sub assignment_get {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/get';
+    my $_resource_path = '/assignment/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -477,13 +412,6 @@ sub assignment_get {
         $query_params->{'assignmentId'} = $self->{api_client}->to_query_value($args{'assignment_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -504,7 +432,6 @@ sub assignment_get {
 #
 # Search Assignments
 #
-# @param double $version  (required)
 # @param int $account_id the account sending the request (required)
 # @param string $sort_field sort by table field (required)
 # @param boolean $descending return results in descending order or not (required)
@@ -518,11 +445,6 @@ sub assignment_get {
 # @param string $keyword filter results by keyword search that matches the assignee, creator, or retailer location name (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account sending the request',
@@ -590,11 +512,6 @@ sub assignment_get {
 sub assignment_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_search");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_search");
@@ -626,7 +543,7 @@ sub assignment_search {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/search';
+    my $_resource_path = '/assignment/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -695,13 +612,6 @@ sub assignment_search {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -722,7 +632,6 @@ sub assignment_search {
 #
 # Create Assignment Status
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param int $assignment_id the assignment id (required)
 # @param int $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -736,11 +645,6 @@ sub assignment_search {
 # @param boolean $active determines whether the assignment status is active or inactive (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -808,11 +712,6 @@ sub assignment_search {
 sub assignment_status_create {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_status_create");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_status_create");
@@ -824,7 +723,7 @@ sub assignment_status_create {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/status/create';
+    my $_resource_path = '/assignment/status/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -893,13 +792,6 @@ sub assignment_status_create {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -920,16 +812,10 @@ sub assignment_status_create {
 #
 # Deletes Assignment Status
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param int $assignment_status_id the assignment status id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -952,11 +838,6 @@ sub assignment_status_create {
 sub assignment_status_delete {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_status_delete");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_status_delete");
@@ -968,7 +849,7 @@ sub assignment_status_delete {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/status/delete';
+    my $_resource_path = '/assignment/status/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -992,13 +873,6 @@ sub assignment_status_delete {
         $query_params->{'assignmentStatusId'} = $self->{api_client}->to_query_value($args{'assignment_status_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1019,16 +893,10 @@ sub assignment_status_delete {
 #
 # Get Assignment Status
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param int $assignment_status_id the assignment status id (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -1051,11 +919,6 @@ sub assignment_status_delete {
 sub assignment_status_get {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_status_get");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_status_get");
@@ -1067,7 +930,7 @@ sub assignment_status_get {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/status/get';
+    my $_resource_path = '/assignment/status/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1091,13 +954,6 @@ sub assignment_status_get {
         $query_params->{'assignmentStatusId'} = $self->{api_client}->to_query_value($args{'assignment_status_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1118,7 +974,6 @@ sub assignment_status_get {
 #
 # Search Assignment Statuses
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param string $sort_field the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
 # @param boolean $descending determines whether the sorted list is in descending or ascending order (required)
@@ -1133,11 +988,6 @@ sub assignment_status_get {
 # @param string $keyword filter results by keyword search (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -1210,11 +1060,6 @@ sub assignment_status_get {
 sub assignment_status_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_status_search");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_status_search");
@@ -1246,7 +1091,7 @@ sub assignment_status_search {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/status/search';
+    my $_resource_path = '/assignment/status/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1320,13 +1165,6 @@ sub assignment_status_search {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1347,7 +1185,6 @@ sub assignment_status_search {
 #
 # Update Assignment Status
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param int $assignment_status_id the assignment status id (required)
 # @param int $scheduled_notification_id the scheduled notification id for reminders (optional)
@@ -1361,11 +1198,6 @@ sub assignment_status_search {
 # @param boolean $active determines whether the assignment status is active or inactive (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -1433,11 +1265,6 @@ sub assignment_status_search {
 sub assignment_status_update {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_status_update");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_status_update");
@@ -1449,7 +1276,7 @@ sub assignment_status_update {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/status/update';
+    my $_resource_path = '/assignment/status/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1518,13 +1345,6 @@ sub assignment_status_update {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1545,7 +1365,6 @@ sub assignment_status_update {
 #
 # Update Assignment
 #
-# @param double $version  (required)
 # @param int $account_id the user account id (required)
 # @param int $assignment_id the assignment id (required)
 # @param string $name the name of the assignment (optional)
@@ -1556,11 +1375,6 @@ sub assignment_status_update {
 # @param boolean $active determines whether the assignment is active or inactive (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user account id',
@@ -1613,11 +1427,6 @@ sub assignment_status_update {
 sub assignment_update {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling assignment_update");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling assignment_update");
@@ -1629,7 +1438,7 @@ sub assignment_update {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/assignment/update';
+    my $_resource_path = '/assignment/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1681,13 +1490,6 @@ sub assignment_update {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

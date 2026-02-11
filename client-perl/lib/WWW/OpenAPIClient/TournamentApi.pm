@@ -53,7 +53,6 @@ sub new {
 #
 # Create Tournament
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key The appKey the tournament is created for. (required)
 # @param string $title The title of the tournament (required)
@@ -91,11 +90,6 @@ sub new {
 # @param string $tie_tag This sets what analytic tag is used when a tie has occurred (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -283,11 +277,6 @@ sub new {
 sub create_tournament {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_tournament");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_tournament");
@@ -314,7 +303,7 @@ sub create_tournament {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/create';
+    my $_resource_path = '/tournament/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -503,13 +492,6 @@ sub create_tournament {
         $query_params->{'tieTag'} = $self->{api_client}->to_query_value($args{'tie_tag'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -530,16 +512,10 @@ sub create_tournament {
 #
 # Delete Tournament
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $mission_id the id of the mission to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -562,11 +538,6 @@ sub create_tournament {
 sub delete_tournament {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_tournament");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_tournament");
@@ -578,7 +549,7 @@ sub delete_tournament {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/delete';
+    my $_resource_path = '/tournament/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -602,13 +573,6 @@ sub delete_tournament {
         $query_params->{'missionId'} = $self->{api_client}->to_query_value($args{'mission_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -629,7 +593,6 @@ sub delete_tournament {
 #
 # Get Tournament
 #
-# @param double $version  (required)
 # @param int $account_id The id of the logged in user (required)
 # @param int $mission_id The id of the mission to return (either missionId or joinCode is required) (optional)
 # @param string $join_code Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -637,11 +600,6 @@ sub delete_tournament {
 # @param int $object_preview_size Determines the max number of game objects that will get returned for each game level response (optional, default to 50)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The id of the logged in user',
@@ -679,18 +637,13 @@ sub delete_tournament {
 sub get_tournament {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_tournament");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_tournament");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/get';
+    my $_resource_path = '/tournament/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -729,13 +682,6 @@ sub get_tournament {
         $query_params->{'objectPreviewSize'} = $self->{api_client}->to_query_value($args{'object_preview_size'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -756,7 +702,6 @@ sub get_tournament {
 #
 # Search Tournament Objects
 #
-# @param double $version  (required)
 # @param int $account_id the account ID (required)
 # @param int $game_level_id the game level id to filter results by (required)
 # @param string $sort_field the field to sort by (optional, default to 'PLAYER_SCORE_COUNT')
@@ -765,11 +710,6 @@ sub get_tournament {
 # @param int $limit the limit for pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID',
@@ -812,11 +752,6 @@ sub get_tournament {
 sub search_objects {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_objects");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_objects");
@@ -828,7 +763,7 @@ sub search_objects {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/object/search';
+    my $_resource_path = '/tournament/object/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -872,13 +807,6 @@ sub search_objects {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -899,7 +827,6 @@ sub search_objects {
 #
 # Search Tournament Rounds
 #
-# @param double $version  (required)
 # @param int $account_id the account ID (required)
 # @param string $app_key the application key (required)
 # @param string $status comma separated list of statuses to filter results by (optional, default to 'ACCEPTED,ACTIVE')
@@ -910,11 +837,6 @@ sub search_objects {
 # @param int $limit the limit for pagination (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID',
@@ -967,11 +889,6 @@ sub search_objects {
 sub search_rounds {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_rounds");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_rounds");
@@ -983,7 +900,7 @@ sub search_rounds {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/round/search';
+    my $_resource_path = '/tournament/round/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1037,13 +954,6 @@ sub search_rounds {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1064,7 +974,6 @@ sub search_rounds {
 #
 # Search Tournaments
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key The application key (required)
 # @param string $keyword the keyword to search tournament on (optional)
@@ -1079,11 +988,6 @@ sub search_rounds {
 # @param int $limit Limit the result to some number (optional, default to 20)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1156,11 +1060,6 @@ sub search_rounds {
 sub search_tournaments {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_tournaments");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_tournaments");
@@ -1172,7 +1071,7 @@ sub search_tournaments {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/search';
+    my $_resource_path = '/tournament/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1246,13 +1145,6 @@ sub search_tournaments {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1273,7 +1165,6 @@ sub search_tournaments {
 #
 # Submit Tournament Score
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user account ID. (required)
 # @param string $app_key The application key. (required)
 # @param int $mission_id The missionId to score for (required)
@@ -1283,11 +1174,6 @@ sub search_tournaments {
 # @param int $game_level_id The gameLevelId to score for (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user account ID.',
@@ -1335,11 +1221,6 @@ sub search_tournaments {
 sub submit_tournament_score {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling submit_tournament_score");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling submit_tournament_score");
@@ -1371,7 +1252,7 @@ sub submit_tournament_score {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/score';
+    my $_resource_path = '/tournament/score';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1420,13 +1301,6 @@ sub submit_tournament_score {
         $query_params->{'scores'} = $self->{api_client}->to_query_value($args{'scores'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1447,7 +1321,6 @@ sub submit_tournament_score {
 #
 # Submit a vote for a multi-stage album tournament.
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key The application to target (required)
 # @param int $mission_id The tournament&#39;s primary id (required)
@@ -1456,11 +1329,6 @@ sub submit_tournament_score {
 # @param boolean $check_if_device_already_voted When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1503,11 +1371,6 @@ sub submit_tournament_score {
 sub submit_tournament_vote {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling submit_tournament_vote");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling submit_tournament_vote");
@@ -1529,7 +1392,7 @@ sub submit_tournament_vote {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/vote';
+    my $_resource_path = '/tournament/vote';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1573,13 +1436,6 @@ sub submit_tournament_vote {
         $query_params->{'checkIfDeviceAlreadyVoted'} = $self->{api_client}->to_query_value($args{'check_if_device_already_voted'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1600,18 +1456,12 @@ sub submit_tournament_vote {
 #
 # Substitute Tournament Player
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $mission_id the id of the mission (required)
 # @param int $pack_id the id of the pack (required)
 # @param int $game_level_id the id of the game level (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -1644,11 +1494,6 @@ sub submit_tournament_vote {
 sub substitute_tournament_player {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling substitute_tournament_player");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling substitute_tournament_player");
@@ -1670,7 +1515,7 @@ sub substitute_tournament_player {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/substitute';
+    my $_resource_path = '/tournament/substitute';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1704,13 +1549,6 @@ sub substitute_tournament_player {
         $query_params->{'gameLevelId'} = $self->{api_client}->to_query_value($args{'game_level_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1731,7 +1569,6 @@ sub substitute_tournament_player {
 #
 # Update Tournament
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $mission_id The mission/tournament to update (required)
 # @param string $title The title of the tournament (optional)
@@ -1768,11 +1605,6 @@ sub substitute_tournament_player {
 # @param string $tie_tag This sets what analytic tag is used when a winner is determined (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1955,11 +1787,6 @@ sub substitute_tournament_player {
 sub update_tournament {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_tournament");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_tournament");
@@ -1971,7 +1798,7 @@ sub update_tournament {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/tournament/update';
+    my $_resource_path = '/tournament/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2153,13 +1980,6 @@ sub update_tournament {
     # query params
     if ( exists $args{'tie_tag'}) {
         $query_params->{'tieTag'} = $self->{api_client}->to_query_value($args{'tie_tag'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

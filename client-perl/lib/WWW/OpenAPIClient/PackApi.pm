@@ -53,7 +53,6 @@ sub new {
 #
 # Create Pack
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $title The title of the pack (required)
 # @param int $pack_order The order of the pack (required)
@@ -80,11 +79,6 @@ sub new {
 # @param int $points The number of points to award for completing a pack (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -217,11 +211,6 @@ sub new {
 sub create_pack {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_pack");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_pack");
@@ -258,7 +247,7 @@ sub create_pack {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/pack/create';
+    my $_resource_path = '/pack/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -392,13 +381,6 @@ sub create_pack {
         $query_params->{'points'} = $self->{api_client}->to_query_value($args{'points'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -419,16 +401,10 @@ sub create_pack {
 #
 # Delete Pack
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $pack_id the id of the pack to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -451,11 +427,6 @@ sub create_pack {
 sub delete_pack {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_pack");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_pack");
@@ -467,7 +438,7 @@ sub delete_pack {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/pack/delete';
+    my $_resource_path = '/pack/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -491,13 +462,6 @@ sub delete_pack {
         $query_params->{'packId'} = $self->{api_client}->to_query_value($args{'pack_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -518,17 +482,11 @@ sub delete_pack {
 #
 # Get Pack
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $pack_id The id of the pack to return. (required)
 # @param boolean $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -556,11 +514,6 @@ sub delete_pack {
 sub get_pack {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_pack");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_pack");
@@ -577,7 +530,7 @@ sub get_pack {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/pack/get';
+    my $_resource_path = '/pack/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -606,13 +559,6 @@ sub get_pack {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -633,7 +579,6 @@ sub get_pack {
 #
 # Search Packs
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $sort_field The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -646,11 +591,6 @@ sub get_pack {
 # @param string $app_key The application to filter results on (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -713,11 +653,6 @@ sub get_pack {
 sub search_packs {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_packs");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_packs");
@@ -734,7 +669,7 @@ sub search_packs {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/pack/search';
+    my $_resource_path = '/pack/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -798,13 +733,6 @@ sub search_packs {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -825,7 +753,6 @@ sub search_packs {
 #
 # Update Pack
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $pack_id The id of the pack to update. (required)
 # @param boolean $allocate_tickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -853,11 +780,6 @@ sub search_packs {
 # @param int $points The number of points to award for completing a pack (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -995,11 +917,6 @@ sub search_packs {
 sub update_pack {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_pack");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_pack");
@@ -1021,7 +938,7 @@ sub update_pack {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/pack/update';
+    my $_resource_path = '/pack/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1158,13 +1075,6 @@ sub update_pack {
     # query params
     if ( exists $args{'points'}) {
         $query_params->{'points'} = $self->{api_client}->to_query_value($args{'points'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

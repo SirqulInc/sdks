@@ -53,15 +53,9 @@ sub new {
 #
 # Authorize Twitter
 #
-# @param double $version  (required)
 # @param string $app_key the application key (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'the application key',
@@ -79,18 +73,13 @@ sub new {
 sub authorize_twitter {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling authorize_twitter");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling authorize_twitter");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/twitter/authorize';
+    my $_resource_path = '/twitter/authorize';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -107,13 +96,6 @@ sub authorize_twitter {
     # query params
     if ( exists $args{'app_key'}) {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -136,7 +118,6 @@ sub authorize_twitter {
 #
 # Login Twitter
 #
-# @param double $version  (required)
 # @param string $access_token The access token (required)
 # @param string $access_token_secret The secret access token (required)
 # @param string $app_key The application key (required)
@@ -146,11 +127,6 @@ sub authorize_twitter {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'access_token' => {
         data_type => 'string',
         description => 'The access token',
@@ -198,11 +174,6 @@ sub authorize_twitter {
 sub login_twitter {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling login_twitter");
-    }
-
     # verify the required parameter 'access_token' is set
     unless (exists $args{'access_token'}) {
       croak("Missing the required parameter 'access_token' when calling login_twitter");
@@ -224,7 +195,7 @@ sub login_twitter {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/twitter/login';
+    my $_resource_path = '/twitter/login';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -271,13 +242,6 @@ sub login_twitter {
     # query params
     if ( exists $args{'longitude'}) {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

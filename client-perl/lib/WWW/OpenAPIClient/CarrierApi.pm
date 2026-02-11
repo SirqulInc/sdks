@@ -53,7 +53,6 @@ sub new {
 #
 # Search Carriers
 #
-# @param double $version  (required)
 # @param string $keyword The keyword to search on (optional)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
 # @param int $start The start index for pagination (optional, default to 0)
@@ -61,11 +60,6 @@ sub new {
 # @param boolean $active_only Determines whether to return inactive results (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'keyword' => {
         data_type => 'string',
         description => 'The keyword to search on',
@@ -103,13 +97,8 @@ sub new {
 sub search_carriers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_carriers");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/carrier/search';
+    my $_resource_path = '/carrier/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -146,13 +135,6 @@ sub search_carriers {
     # query params
     if ( exists $args{'active_only'}) {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

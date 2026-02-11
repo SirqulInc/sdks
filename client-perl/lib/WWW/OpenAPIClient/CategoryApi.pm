@@ -53,7 +53,6 @@ sub new {
 #
 # Search Categories by Distance
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (optional)
 # @param string $keyword The keyword string to search on (optional)
 # @param string $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -76,11 +75,6 @@ sub new {
 # @param double $range the maximum range the category can be from the center (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -193,13 +187,8 @@ sub new {
 sub category_distance_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling category_distance_search");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/category/distancesearch';
+    my $_resource_path = '/category/distancesearch';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -313,13 +302,6 @@ sub category_distance_search {
         $query_params->{'range'} = $self->{api_client}->to_query_value($args{'range'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -340,7 +322,6 @@ sub category_distance_search {
 #
 # Create Category
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (must have permissions to the target application) (required)
 # @param string $name The name of the category (required)
 # @param string $app_key The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -357,11 +338,6 @@ sub category_distance_search {
 # @param string $search_tags user defined strings for searching (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user (must have permissions to the target application)',
@@ -444,11 +420,6 @@ sub category_distance_search {
 sub create_category {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_category");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_category");
@@ -460,7 +431,7 @@ sub create_category {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/category/create';
+    my $_resource_path = '/category/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -544,13 +515,6 @@ sub create_category {
         $query_params->{'searchTags'} = $self->{api_client}->to_query_value($args{'search_tags'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -571,16 +535,10 @@ sub create_category {
 #
 # Delete Category
 #
-# @param double $version  (required)
 # @param int $account_id the ID of the account (required)
 # @param int $category_id the ID of the category (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the ID of the account',
@@ -603,11 +561,6 @@ sub create_category {
 sub delete_category {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_category");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_category");
@@ -619,7 +572,7 @@ sub delete_category {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/category/delete';
+    my $_resource_path = '/category/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -643,13 +596,6 @@ sub delete_category {
         $query_params->{'categoryId'} = $self->{api_client}->to_query_value($args{'category_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -670,18 +616,12 @@ sub delete_category {
 #
 # Duplicate Category
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (must have permissions to the target application) (required)
 # @param int $category_id The category ID to duplicate (includes all children) (required)
 # @param string $app_key The application to assign the new category to, may be different then the application the source category is assigned to (optional)
 # @param int $parent_category_id The parent category ID to add the target category to. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user (must have permissions to the target application)',
@@ -714,11 +654,6 @@ sub delete_category {
 sub duplicate_category {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling duplicate_category");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling duplicate_category");
@@ -730,7 +665,7 @@ sub duplicate_category {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/category/duplicate';
+    my $_resource_path = '/category/duplicate';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -764,13 +699,6 @@ sub duplicate_category {
         $query_params->{'parentCategoryId'} = $self->{api_client}->to_query_value($args{'parent_category_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -791,16 +719,10 @@ sub duplicate_category {
 #
 # Get Category
 #
-# @param double $version  (required)
 # @param int $category_id the ID of the category (required)
 # @param boolean $return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'category_id' => {
         data_type => 'int',
         description => 'the ID of the category',
@@ -823,18 +745,13 @@ sub duplicate_category {
 sub get_category {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_category");
-    }
-
     # verify the required parameter 'category_id' is set
     unless (exists $args{'category_id'}) {
       croak("Missing the required parameter 'category_id' when calling get_category");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/category/get';
+    my $_resource_path = '/category/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -858,13 +775,6 @@ sub get_category {
         $query_params->{'returnExternal'} = $self->{api_client}->to_query_value($args{'return_external'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -885,7 +795,6 @@ sub get_category {
 #
 # Search Categories
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (optional)
 # @param string $keyword The string to search on (optional)
 # @param string $app_key the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -909,11 +818,6 @@ sub get_category {
 # @param string $search_mode The search index mode to use (e.g. OPENSEARCH or RDS) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -1031,13 +935,8 @@ sub get_category {
 sub search_categories {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_categories");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/category/search';
+    my $_resource_path = '/category/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1156,13 +1055,6 @@ sub search_categories {
         $query_params->{'searchMode'} = $self->{api_client}->to_query_value($args{'search_mode'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1183,7 +1075,6 @@ sub search_categories {
 #
 # Update Category
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param int $category_id The ID of the category to edit (required)
 # @param int $parent_category_id The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -1200,11 +1091,6 @@ sub search_categories {
 # @param string $search_tags user defined strings for searching (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -1287,11 +1173,6 @@ sub search_categories {
 sub update_category {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_category");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_category");
@@ -1303,7 +1184,7 @@ sub update_category {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/category/update';
+    my $_resource_path = '/category/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1385,13 +1266,6 @@ sub update_category {
     # query params
     if ( exists $args{'search_tags'}) {
         $query_params->{'searchTags'} = $self->{api_client}->to_query_value($args{'search_tags'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

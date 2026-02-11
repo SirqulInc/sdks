@@ -53,7 +53,6 @@ sub new {
 #
 # Update Payment Method
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the the request (required)
 # @param int $payment_method_id Payment Method Id (optional)
 # @param string $account_name the name of the account (optional)
@@ -79,11 +78,6 @@ sub new {
 # @param string $meta_data Meta Data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the the request',
@@ -211,18 +205,13 @@ sub new {
 sub add_payment_method {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling add_payment_method");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling add_payment_method");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/billing/update';
+    my $_resource_path = '/billing/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -351,13 +340,6 @@ sub add_payment_method {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -378,7 +360,6 @@ sub add_payment_method {
 #
 # Create Payment Method
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the the request (required)
 # @param string $account_name Account Name of the credit card user (optional)
 # @param string $first_name The first name on the credit card (optional)
@@ -406,11 +387,6 @@ sub add_payment_method {
 # @param string $app_key Application Key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the the request',
@@ -548,18 +524,13 @@ sub add_payment_method {
 sub create_payment_method {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_payment_method");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_payment_method");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/billing/create';
+    my $_resource_path = '/billing/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -698,13 +669,6 @@ sub create_payment_method {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -725,18 +689,12 @@ sub create_payment_method {
 #
 # Create Smart Contract
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the the request (required)
 # @param string $token_name The token name (required)
 # @param string $token_symbol The token symbol (required)
 # @param int $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the the request',
@@ -769,11 +727,6 @@ sub create_payment_method {
 sub create_smart_contract {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_smart_contract");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_smart_contract");
@@ -790,7 +743,7 @@ sub create_smart_contract {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/billing/crypto/transfer';
+    my $_resource_path = '/billing/crypto/transfer';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -824,13 +777,6 @@ sub create_smart_contract {
         $query_params->{'tokenSymbol'} = $self->{api_client}->to_query_value($args{'token_symbol'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -851,17 +797,11 @@ sub create_smart_contract {
 #
 # Get Crypto Balances
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the the request (required)
 # @param int $owner_account_id The account to retreive balances for (optional)
 # @param int $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the the request',
@@ -889,18 +829,13 @@ sub create_smart_contract {
 sub get_crypto_balance {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_crypto_balance");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_crypto_balance");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/billing/crypto/get';
+    my $_resource_path = '/billing/crypto/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -929,13 +864,6 @@ sub get_crypto_balance {
         $query_params->{'paymentMethodId'} = $self->{api_client}->to_query_value($args{'payment_method_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -956,17 +884,11 @@ sub get_crypto_balance {
 #
 # Get Payment Method
 #
-# @param double $version  (required)
 # @param int $account_id The account used to perform the the request (required)
 # @param int $payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
 # @param boolean $get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account used to perform the the request',
@@ -994,18 +916,13 @@ sub get_crypto_balance {
 sub get_payment_method {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_payment_method");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_payment_method");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/billing/get';
+    my $_resource_path = '/billing/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1034,13 +951,6 @@ sub get_payment_method {
         $query_params->{'getCurrentBalance'} = $self->{api_client}->to_query_value($args{'get_current_balance'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1061,7 +971,6 @@ sub get_payment_method {
 #
 # Search Payment Methods
 #
-# @param double $version  (required)
 # @param int $account_id Account Id to search on (required)
 # @param string $provider Provider to search on (optional, default to 'AUTHORIZE_NET')
 # @param string $type the type to search on (optional)
@@ -1072,11 +981,6 @@ sub get_payment_method {
 # @param int $limit the limit of the search (optional, default to 5)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Account Id to search on',
@@ -1129,18 +1033,13 @@ sub get_payment_method {
 sub search_payment_method {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_payment_method");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_payment_method");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/billing/search';
+    my $_resource_path = '/billing/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1192,13 +1091,6 @@ sub search_payment_method {
     # query params
     if ( exists $args{'limit'}) {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

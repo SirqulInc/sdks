@@ -53,7 +53,6 @@ sub new {
 #
 # Search Historical Rankings
 #
-# @param double $version  (required)
 # @param string $app_key the application key for filtering results by application (required)
 # @param string $rank_type the rank type to return (required)
 # @param int $start_date timestamp in milliseconds to filter results with (required)
@@ -66,11 +65,6 @@ sub new {
 # @param int $limit the limit for pagination (optional, default to 100)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'the application key for filtering results by application',
@@ -133,11 +127,6 @@ sub new {
 sub get_historical_rankings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_historical_rankings");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling get_historical_rankings");
@@ -159,7 +148,7 @@ sub get_historical_rankings {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/ranking/historical/search';
+    my $_resource_path = '/ranking/historical/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -223,13 +212,6 @@ sub get_historical_rankings {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -250,7 +232,6 @@ sub get_historical_rankings {
 #
 # Search Rankings
 #
-# @param double $version  (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param string $game_type This parameter is deprecated. (optional)
@@ -271,11 +252,6 @@ sub get_historical_rankings {
 # @param int $limit the limit for pagination (optional, default to 100)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique id given by the device (deviceId or accountId required)',
@@ -378,13 +354,8 @@ sub get_historical_rankings {
 sub get_rankings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_rankings");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/ranking/search';
+    my $_resource_path = '/ranking/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -488,13 +459,6 @@ sub get_rankings {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -515,7 +479,6 @@ sub get_rankings {
 #
 # Get Personal Rankings
 #
-# @param double $version  (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (optional)
 # @param string $app_key the application key for filtering results by application (required) (optional)
@@ -529,11 +492,6 @@ sub get_rankings {
 # @param int $limit the limit for pagination (optional, default to 100)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique id given by the device (deviceId or accountId required)',
@@ -601,13 +559,8 @@ sub get_rankings {
 sub get_user_rank {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_user_rank");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/ranking/personal/ranks';
+    my $_resource_path = '/ranking/personal/ranks';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -676,13 +629,6 @@ sub get_user_rank {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -703,7 +649,6 @@ sub get_user_rank {
 #
 # Override User Rank
 #
-# @param double $version  (required)
 # @param int $account_id the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
 # @param int $owner_account_id the end user&#39;s account id to override (required)
 # @param string $app_key the application key the leaderboard is for (required)
@@ -728,11 +673,6 @@ sub get_user_rank {
 # @param int $end_date the end date to update (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the logged in user&#39;s account id (must have permissions to manage data for the application)',
@@ -855,11 +795,6 @@ sub get_user_rank {
 sub override_user_rank {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling override_user_rank");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling override_user_rank");
@@ -881,7 +816,7 @@ sub override_user_rank {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/ranking/override';
+    my $_resource_path = '/ranking/override';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1005,13 +940,6 @@ sub override_user_rank {
         $query_params->{'endDate'} = $self->{api_client}->to_query_value($args{'end_date'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1032,7 +960,6 @@ sub override_user_rank {
 #
 # Update Ranking
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (required)
 # @param string $app_key the application key for filtering results by application (required)
 # @param string $rank_type a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -1045,11 +972,6 @@ sub override_user_rank {
 # @param boolean $create_leaderboard create the leaderboard if it does not exist (default false) (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -1112,11 +1034,6 @@ sub override_user_rank {
 sub update_rankings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_rankings");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_rankings");
@@ -1133,7 +1050,7 @@ sub update_rankings {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/ranking/update';
+    my $_resource_path = '/ranking/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1195,13 +1112,6 @@ sub update_rankings {
     # query params
     if ( exists $args{'create_leaderboard'}) {
         $query_params->{'createLeaderboard'} = $self->{api_client}->to_query_value($args{'create_leaderboard'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

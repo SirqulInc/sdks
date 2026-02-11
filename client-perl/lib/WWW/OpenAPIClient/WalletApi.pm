@@ -53,7 +53,6 @@ sub new {
 #
 # Create Wallet Offers
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -67,11 +66,6 @@ sub new {
 # @param int $status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -139,13 +133,8 @@ sub new {
 sub create_offer_transaction {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_offer_transaction");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/wallet/create';
+    my $_resource_path = '/wallet/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -214,13 +203,6 @@ sub create_offer_transaction {
         $query_params->{'status'} = $self->{api_client}->to_query_value($args{'status'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -241,17 +223,11 @@ sub create_offer_transaction {
 #
 # Delete Wallet Offer
 #
-# @param double $version  (required)
 # @param int $transaction_id The offer transaction id to remove (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'transaction_id' => {
         data_type => 'int',
         description => 'The offer transaction id to remove',
@@ -279,18 +255,13 @@ sub create_offer_transaction {
 sub delete_offer_transaction {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_offer_transaction");
-    }
-
     # verify the required parameter 'transaction_id' is set
     unless (exists $args{'transaction_id'}) {
       croak("Missing the required parameter 'transaction_id' when calling delete_offer_transaction");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/wallet/delete';
+    my $_resource_path = '/wallet/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -319,13 +290,6 @@ sub delete_offer_transaction {
         $query_params->{'transactionId'} = $self->{api_client}->to_query_value($args{'transaction_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -346,7 +310,6 @@ sub delete_offer_transaction {
 #
 # Get Wallet Offer
 #
-# @param double $version  (required)
 # @param int $transaction_id The offer transaction id to get details of (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -356,11 +319,6 @@ sub delete_offer_transaction {
 # @param boolean $return_full_response Determines whether to return a detailed version of the response (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'transaction_id' => {
         data_type => 'int',
         description => 'The offer transaction id to get details of',
@@ -408,18 +366,13 @@ sub delete_offer_transaction {
 sub get_offer_transaction {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_offer_transaction");
-    }
-
     # verify the required parameter 'transaction_id' is set
     unless (exists $args{'transaction_id'}) {
       croak("Missing the required parameter 'transaction_id' when calling get_offer_transaction");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/wallet/get';
+    my $_resource_path = '/wallet/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -468,13 +421,6 @@ sub get_offer_transaction {
         $query_params->{'returnFullResponse'} = $self->{api_client}->to_query_value($args{'return_full_response'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -495,7 +441,6 @@ sub get_offer_transaction {
 #
 # Preview Wallet Offers
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $offer_id The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -508,11 +453,6 @@ sub get_offer_transaction {
 # @param string $app_key The application requesting the purchase, required when currencyType is TICKETS (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -575,13 +515,8 @@ sub get_offer_transaction {
 sub preview_offer_transaction {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling preview_offer_transaction");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/wallet/preview';
+    my $_resource_path = '/wallet/preview';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -645,13 +580,6 @@ sub preview_offer_transaction {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -672,7 +600,6 @@ sub preview_offer_transaction {
 #
 # Search Wallet Offers
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $keyword The keyword to search for (optional)
@@ -716,11 +643,6 @@ sub preview_offer_transaction {
 # @param int $recurring_expiration_before Filter results by the recurring billing expiration date (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -938,13 +860,8 @@ sub preview_offer_transaction {
 sub search_offer_transactions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_offer_transactions");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/wallet/search';
+    my $_resource_path = '/wallet/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1163,13 +1080,6 @@ sub search_offer_transactions {
         $query_params->{'recurringExpirationBefore'} = $self->{api_client}->to_query_value($args{'recurring_expiration_before'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1190,7 +1100,6 @@ sub search_offer_transactions {
 #
 # Update Wallet Offer
 #
-# @param double $version  (required)
 # @param int $transaction_id The offer transaction id to remove (required)
 # @param int $status The status value to change to (0 or 1) (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
@@ -1206,11 +1115,6 @@ sub search_offer_transactions {
 # @param string $exception_membership_offer_ids Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'transaction_id' => {
         data_type => 'int',
         description => 'The offer transaction id to remove',
@@ -1288,11 +1192,6 @@ sub search_offer_transactions {
 sub update_offer_transaction {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_offer_transaction");
-    }
-
     # verify the required parameter 'transaction_id' is set
     unless (exists $args{'transaction_id'}) {
       croak("Missing the required parameter 'transaction_id' when calling update_offer_transaction");
@@ -1304,7 +1203,7 @@ sub update_offer_transaction {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/wallet/update';
+    my $_resource_path = '/wallet/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1381,13 +1280,6 @@ sub update_offer_transaction {
     # query params
     if ( exists $args{'exception_membership_offer_ids'}) {
         $query_params->{'exceptionMembershipOfferIds'} = $self->{api_client}->to_query_value($args{'exception_membership_offer_ids'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

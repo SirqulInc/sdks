@@ -53,7 +53,6 @@ sub new {
 #
 # Create Score
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key The game application key to save the score for. (required)
 # @param int $points The score (required)
@@ -66,11 +65,6 @@ sub new {
 # @param boolean $highest  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -133,11 +127,6 @@ sub new {
 sub create_score {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_score");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_score");
@@ -154,7 +143,7 @@ sub create_score {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/score/create';
+    my $_resource_path = '/score/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -218,13 +207,6 @@ sub create_score {
         $query_params->{'highest'} = $self->{api_client}->to_query_value($args{'highest'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -245,7 +227,6 @@ sub create_score {
 #
 # Get Score
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key The game application key to get the level for. (required)
 # @param int $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -257,11 +238,6 @@ sub create_score {
 # @param string $score_status The status of the score to filter (ScoreStatus) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -319,11 +295,6 @@ sub create_score {
 sub get_score {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_score");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_score");
@@ -335,7 +306,7 @@ sub get_score {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/score/get';
+    my $_resource_path = '/score/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -394,13 +365,6 @@ sub get_score {
         $query_params->{'scoreStatus'} = $self->{api_client}->to_query_value($args{'score_status'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -421,7 +385,6 @@ sub get_score {
 #
 # Search Score
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key The game application key to get the level for. (required)
 # @param int $mission_id The missionId to score for, null if not playing mission. (optional)
@@ -431,11 +394,6 @@ sub get_score {
 # @param int $game_object_id The gameObjectId to score for, null if level based scoring. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -483,11 +441,6 @@ sub get_score {
 sub search_scores {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_scores");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_scores");
@@ -499,7 +452,7 @@ sub search_scores {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/score/search';
+    my $_resource_path = '/score/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -546,13 +499,6 @@ sub search_scores {
     # query params
     if ( exists $args{'game_object_id'}) {
         $query_params->{'gameObjectId'} = $self->{api_client}->to_query_value($args{'game_object_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

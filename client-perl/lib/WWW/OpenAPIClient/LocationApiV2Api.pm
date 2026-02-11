@@ -53,15 +53,9 @@ sub new {
 #
 # Create new location
 #
-# @param double $version  (required)
 # @param Location $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'Location',
         description => '',
@@ -79,13 +73,8 @@ sub new {
 sub create_location_v2 {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_location_v2");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/location';
+    my $_resource_path = '/location';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -98,13 +87,6 @@ sub create_location_v2 {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -131,16 +113,10 @@ sub create_location_v2 {
 #
 # Update an existing location
 #
-# @param double $version  (required)
 # @param int $id the id of the location to update (required)
 # @param Location $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the location to update',
@@ -163,18 +139,13 @@ sub create_location_v2 {
 sub update_location_v2 {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_location_v2");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_location_v2");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/location/{id}';
+    my $_resource_path = '/location/{id}';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -187,13 +158,6 @@ sub update_location_v2 {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {

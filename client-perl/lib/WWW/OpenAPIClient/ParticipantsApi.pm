@@ -53,17 +53,11 @@ sub new {
 #
 # Process All Participant Feeds
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param string $app_key The application key used to identify the application (optional)
 # @param boolean $use_short_name_as_id Whether to use short name as the participant ID (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -91,18 +85,13 @@ sub new {
 sub process_all_participants {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling process_all_participants");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling process_all_participants");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/participant/process/all';
+    my $_resource_path = '/participant/process/all';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -131,13 +120,6 @@ sub process_all_participants {
         $query_params->{'useShortNameAsID'} = $self->{api_client}->to_query_value($args{'use_short_name_as_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -158,7 +140,6 @@ sub process_all_participants {
 #
 # Process Participants Feed
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param string $league The league identifier to process (required)
 # @param string $app_key The application key used to identify the application (optional)
@@ -166,11 +147,6 @@ sub process_all_participants {
 # @param string $file Multipart file containing participant feed contents (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -208,11 +184,6 @@ sub process_all_participants {
 sub process_participants {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling process_participants");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling process_participants");
@@ -224,7 +195,7 @@ sub process_participants {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/participant/process';
+    my $_resource_path = '/participant/process';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -261,13 +232,6 @@ sub process_participants {
     # query params
     if ( exists $args{'file'}) {
         $query_params->{'file'} = $self->{api_client}->to_query_value($args{'file'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

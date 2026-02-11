@@ -53,18 +53,12 @@ sub new {
 #
 # Search Weather
 #
-# @param double $version  (required)
 # @param int $region_id Region Id (optional)
 # @param double $latitude Latitude (optional)
 # @param double $longitude Longitude (optional)
 # @param int $timezone_offset Timezone Offset (optional, default to -6)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'region_id' => {
         data_type => 'int',
         description => 'Region Id',
@@ -97,13 +91,8 @@ sub new {
 sub search_weather {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_weather");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/weather/search';
+    my $_resource_path = '/weather/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -135,13 +124,6 @@ sub search_weather {
     # query params
     if ( exists $args{'timezone_offset'}) {
         $query_params->{'timezoneOffset'} = $self->{api_client}->to_query_value($args{'timezone_offset'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

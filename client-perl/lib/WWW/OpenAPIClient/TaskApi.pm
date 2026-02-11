@@ -53,7 +53,6 @@ sub new {
 #
 # Create Task
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the task (required)
 # @param string $app_key The application to target (optional)
@@ -68,11 +67,6 @@ sub new {
 # @param boolean $active Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -145,11 +139,6 @@ sub new {
 sub create_task {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_task");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_task");
@@ -161,7 +150,7 @@ sub create_task {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/task/create';
+    my $_resource_path = '/task/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -235,13 +224,6 @@ sub create_task {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -262,16 +244,10 @@ sub create_task {
 #
 # Delete Task
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $task_id The id of the Task to delete. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -294,11 +270,6 @@ sub create_task {
 sub delete_task {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_task");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_task");
@@ -310,7 +281,7 @@ sub delete_task {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/task/delete';
+    my $_resource_path = '/task/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -334,13 +305,6 @@ sub delete_task {
         $query_params->{'taskId'} = $self->{api_client}->to_query_value($args{'task_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -361,16 +325,10 @@ sub delete_task {
 #
 # Get Task
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $task_id The id of the Task to return. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -393,11 +351,6 @@ sub delete_task {
 sub get_task {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_task");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_task");
@@ -409,7 +362,7 @@ sub get_task {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/task/get';
+    my $_resource_path = '/task/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -433,13 +386,6 @@ sub get_task {
         $query_params->{'taskId'} = $self->{api_client}->to_query_value($args{'task_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -460,7 +406,6 @@ sub get_task {
 #
 # Search Tasks
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $grouping_id Filter results by a grouping identifier defined by the client (optional)
 # @param string $filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to 'MINE')
@@ -475,11 +420,6 @@ sub get_task {
 # @param boolean $active_only Determines whether to return only active results (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -552,18 +492,13 @@ sub get_task {
 sub search_tasks {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_tasks");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_tasks");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/task/search';
+    my $_resource_path = '/task/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -637,13 +572,6 @@ sub search_tasks {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -664,7 +592,6 @@ sub search_tasks {
 #
 # Update Task
 #
-# @param double $version  (required)
 # @param int $task_id Task Id (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the task (optional)
@@ -680,11 +607,6 @@ sub search_tasks {
 # @param boolean $active Sets whether the Task is active or not (inactive Tasks are not processed) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'task_id' => {
         data_type => 'int',
         description => 'Task Id',
@@ -762,11 +684,6 @@ sub search_tasks {
 sub update_task {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_task");
-    }
-
     # verify the required parameter 'task_id' is set
     unless (exists $args{'task_id'}) {
       croak("Missing the required parameter 'task_id' when calling update_task");
@@ -778,7 +695,7 @@ sub update_task {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/task/update';
+    my $_resource_path = '/task/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -855,13 +772,6 @@ sub update_task {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

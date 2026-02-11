@@ -53,7 +53,6 @@ sub new {
 #
 # Create Secure Application
 #
-# @param double $version  (required)
 # @param int $account_id The unique id of the user making the request (required)
 # @param string $app_key The application to secure (required)
 # @param string $key_cert  (required)
@@ -66,11 +65,6 @@ sub new {
 # @param string $biometric_position2 The position for each the biometric2 file uploaded (optional, default to 'UNKNOWN')
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The unique id of the user making the request',
@@ -133,11 +127,6 @@ sub new {
 sub create_secure_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_secure_application");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_secure_application");
@@ -169,7 +158,7 @@ sub create_secure_application {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/secure/application/create';
+    my $_resource_path = '/secure/application/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -233,13 +222,6 @@ sub create_secure_application {
         $query_params->{'biometricPosition2'} = $self->{api_client}->to_query_value($args{'biometric_position2'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -260,16 +242,10 @@ sub create_secure_application {
 #
 # Delete Secure Application
 #
-# @param double $version  (required)
 # @param int $account_id The unique id of the user making the request (required)
 # @param string $app_key The application to secure (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The unique id of the user making the request',
@@ -292,11 +268,6 @@ sub create_secure_application {
 sub delete_secure_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_secure_application");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_secure_application");
@@ -308,7 +279,7 @@ sub delete_secure_application {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/secure/application/delete';
+    my $_resource_path = '/secure/application/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -332,13 +303,6 @@ sub delete_secure_application {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -359,7 +323,6 @@ sub delete_secure_application {
 #
 # Login Clear
 #
-# @param double $version  (required)
 # @param string $app_key The application making the request, defines what type and position is required to make a secure login the request. (required)
 # @param string $biometric_file The data file used to perform authentication (required)
 # @param string $device_id The unique id of the device making the request (optional)
@@ -371,11 +334,6 @@ sub delete_secure_application {
 # @param double $longitude Used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application making the request, defines what type and position is required to make a secure login the request.',
@@ -433,11 +391,6 @@ sub delete_secure_application {
 sub login_secure {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling login_secure");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling login_secure");
@@ -449,7 +402,7 @@ sub login_secure {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/secure/login';
+    my $_resource_path = '/secure/login';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -508,13 +461,6 @@ sub login_secure {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -535,15 +481,9 @@ sub login_secure {
 #
 # Purchase Clear
 #
-# @param double $version  (required)
 # @param PaymentRequest $body The payment request object (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'PaymentRequest',
         description => 'The payment request object',
@@ -561,18 +501,13 @@ sub login_secure {
 sub purchase_secure {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling purchase_secure");
-    }
-
     # verify the required parameter 'body' is set
     unless (exists $args{'body'}) {
       croak("Missing the required parameter 'body' when calling purchase_secure");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/secure/purchase';
+    my $_resource_path = '/secure/purchase';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -585,13 +520,6 @@ sub purchase_secure {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type('application/json');
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -618,16 +546,10 @@ sub purchase_secure {
 #
 # Rest Secure Application
 #
-# @param double $version  (required)
 # @param int $account_id The unique id of the user making the request (required)
 # @param string $app_key The application to secure (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The unique id of the user making the request',
@@ -650,11 +572,6 @@ sub purchase_secure {
 sub reset_secure {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling reset_secure");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling reset_secure");
@@ -666,7 +583,7 @@ sub reset_secure {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/secure/application/reset';
+    my $_resource_path = '/secure/application/reset';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -690,13 +607,6 @@ sub reset_secure {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -717,7 +627,6 @@ sub reset_secure {
 #
 # Update Secure Application
 #
-# @param double $version  (required)
 # @param int $account_id The unique id of the user making the request (required)
 # @param string $app_key The application to secure (required)
 # @param boolean $active  (optional)
@@ -730,11 +639,6 @@ sub reset_secure {
 # @param string $biometric_position2 The position for each the biometric2 file uploaded (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The unique id of the user making the request',
@@ -797,11 +701,6 @@ sub reset_secure {
 sub update_secure_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_secure_application");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_secure_application");
@@ -813,7 +712,7 @@ sub update_secure_application {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/secure/application/update';
+    my $_resource_path = '/secure/application/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -875,13 +774,6 @@ sub update_secure_application {
     # query params
     if ( exists $args{'biometric_position2'}) {
         $query_params->{'biometricPosition2'} = $self->{api_client}->to_query_value($args{'biometric_position2'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

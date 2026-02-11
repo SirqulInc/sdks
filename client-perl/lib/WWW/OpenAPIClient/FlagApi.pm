@@ -53,7 +53,6 @@ sub new {
 #
 # Create Flag
 #
-# @param double $version  (required)
 # @param string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
 # @param int $flagable_id The flagable object id (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -63,11 +62,6 @@ sub new {
 # @param double $longitude The current location of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'flagable_type' => {
         data_type => 'string',
         description => 'The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}',
@@ -115,11 +109,6 @@ sub new {
 sub create_flag {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_flag");
-    }
-
     # verify the required parameter 'flagable_type' is set
     unless (exists $args{'flagable_type'}) {
       croak("Missing the required parameter 'flagable_type' when calling create_flag");
@@ -131,7 +120,7 @@ sub create_flag {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/flag/create';
+    my $_resource_path = '/flag/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -180,13 +169,6 @@ sub create_flag {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -207,7 +189,6 @@ sub create_flag {
 #
 # Delete Flag
 #
-# @param double $version  (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 # @param string $item_being_flagged_type This parameter is deprecated. (optional)
@@ -216,11 +197,6 @@ sub create_flag {
 # @param int $flagable_id The flagable object id (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The unique device identifier that made the request (either deviceId or accountId must be used)',
@@ -263,13 +239,8 @@ sub create_flag {
 sub delete_flag {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_flag");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/flag/delete';
+    my $_resource_path = '/flag/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -313,13 +284,6 @@ sub delete_flag {
         $query_params->{'flagableId'} = $self->{api_client}->to_query_value($args{'flagable_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -340,7 +304,6 @@ sub delete_flag {
 #
 # Get Flag
 #
-# @param double $version  (required)
 # @param string $flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
 # @param int $flagable_id The flagable object id (required)
 # @param string $device_id The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -349,11 +312,6 @@ sub delete_flag {
 # @param double $longitude The current location of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'flagable_type' => {
         data_type => 'string',
         description => 'The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}',
@@ -396,11 +354,6 @@ sub delete_flag {
 sub get_flag {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_flag");
-    }
-
     # verify the required parameter 'flagable_type' is set
     unless (exists $args{'flagable_type'}) {
       croak("Missing the required parameter 'flagable_type' when calling get_flag");
@@ -412,7 +365,7 @@ sub get_flag {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/flag/get';
+    my $_resource_path = '/flag/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -456,13 +409,6 @@ sub get_flag {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -483,16 +429,10 @@ sub get_flag {
 #
 # Get Flag Threshold
 #
-# @param double $version  (required)
 # @param string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
 # @param string $app_key The application key (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'item_being_flagged_type' => {
         data_type => 'string',
         description => 'The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}',
@@ -515,11 +455,6 @@ sub get_flag {
 sub get_flag_threshold {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_flag_threshold");
-    }
-
     # verify the required parameter 'item_being_flagged_type' is set
     unless (exists $args{'item_being_flagged_type'}) {
       croak("Missing the required parameter 'item_being_flagged_type' when calling get_flag_threshold");
@@ -531,7 +466,7 @@ sub get_flag_threshold {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/flag/threshold/get';
+    my $_resource_path = '/flag/threshold/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -555,13 +490,6 @@ sub get_flag_threshold {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -582,7 +510,6 @@ sub get_flag_threshold {
 #
 # Update Flag Threshold
 #
-# @param double $version  (required)
 # @param string $item_being_flagged_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
 # @param int $threshold The threshold value (required)
 # @param string $app_key The application key (required)
@@ -590,11 +517,6 @@ sub get_flag_threshold {
 # @param int $account_id The unique accountId that made the request (either deviceId or accountId must be used) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'item_being_flagged_type' => {
         data_type => 'string',
         description => 'The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}',
@@ -632,11 +554,6 @@ sub get_flag_threshold {
 sub update_flag_threshold {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_flag_threshold");
-    }
-
     # verify the required parameter 'item_being_flagged_type' is set
     unless (exists $args{'item_being_flagged_type'}) {
       croak("Missing the required parameter 'item_being_flagged_type' when calling update_flag_threshold");
@@ -653,7 +570,7 @@ sub update_flag_threshold {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/flag/threshold/update';
+    my $_resource_path = '/flag/threshold/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -690,13 +607,6 @@ sub update_flag_threshold {
     # query params
     if ( exists $args{'app_key'}) {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

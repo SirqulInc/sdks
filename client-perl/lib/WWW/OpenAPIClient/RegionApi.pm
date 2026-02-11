@@ -53,7 +53,6 @@ sub new {
 #
 # Create Region
 #
-# @param double $version  (required)
 # @param int $account_id The id of the account sending the request (required)
 # @param string $region_class RegionClass of this region (required)
 # @param string $short_name Short name of the region. This is optimized for search (required)
@@ -77,11 +76,6 @@ sub new {
 # @param boolean $active Active or inactive status of the region (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The id of the account sending the request',
@@ -199,11 +193,6 @@ sub new {
 sub create_region {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_region");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_region");
@@ -220,7 +209,7 @@ sub create_region {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/region/create';
+    my $_resource_path = '/region/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -339,13 +328,6 @@ sub create_region {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -366,16 +348,10 @@ sub create_region {
 #
 # Delete Region
 #
-# @param double $version  (required)
 # @param int $account_id the id of the account logged in (required)
 # @param int $region_id the id of the region (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the account logged in',
@@ -398,11 +374,6 @@ sub create_region {
 sub delete_region {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_region");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_region");
@@ -414,7 +385,7 @@ sub delete_region {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/region/delete';
+    my $_resource_path = '/region/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -438,13 +409,6 @@ sub delete_region {
         $query_params->{'regionId'} = $self->{api_client}->to_query_value($args{'region_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -465,16 +429,10 @@ sub delete_region {
 #
 # Get Region
 #
-# @param double $version  (required)
 # @param int $region_id the id of the region to get (required)
 # @param int $account_id the id of the logged in user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'region_id' => {
         data_type => 'int',
         description => 'the id of the region to get',
@@ -497,18 +455,13 @@ sub delete_region {
 sub get_region {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_region");
-    }
-
     # verify the required parameter 'region_id' is set
     unless (exists $args{'region_id'}) {
       croak("Missing the required parameter 'region_id' when calling get_region");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/region/get';
+    my $_resource_path = '/region/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -532,13 +485,6 @@ sub get_region {
         $query_params->{'regionId'} = $self->{api_client}->to_query_value($args{'region_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -559,7 +505,6 @@ sub get_region {
 #
 # Search Regions
 #
-# @param double $version  (required)
 # @param int $account_id the owner account id of the region to be created (optional)
 # @param string $query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
 # @param string $keyword the keyword to filter results on (optional)
@@ -584,11 +529,6 @@ sub get_region {
 # @param int $limit the limit for pagination (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the owner account id of the region to be created',
@@ -711,13 +651,8 @@ sub get_region {
 sub search_regions {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_regions");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/region/search';
+    my $_resource_path = '/region/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -841,13 +776,6 @@ sub search_regions {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -868,7 +796,6 @@ sub search_regions {
 #
 # Update Region
 #
-# @param double $version  (required)
 # @param int $account_id The id of the account sending the request (required)
 # @param int $region_id The id of the region to be updated (required)
 # @param string $region_class RegionClass of this region (optional)
@@ -894,11 +821,6 @@ sub search_regions {
 # @param boolean $clear_lists If true clear the children and postal code lists before add new ones, otherwise just append. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The id of the account sending the request',
@@ -1026,11 +948,6 @@ sub search_regions {
 sub update_region {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_region");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_region");
@@ -1042,7 +959,7 @@ sub update_region {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/region/update';
+    my $_resource_path = '/region/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1169,13 +1086,6 @@ sub update_region {
     # query params
     if ( exists $args{'clear_lists'}) {
         $query_params->{'clearLists'} = $self->{api_client}->to_query_value($args{'clear_lists'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

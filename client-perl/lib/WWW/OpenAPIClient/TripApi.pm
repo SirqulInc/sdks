@@ -53,15 +53,9 @@ sub new {
 #
 # Create Trip
 #
-# @param double $version  (required)
 # @param Trip $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'body' => {
         data_type => 'Trip',
         description => '',
@@ -79,13 +73,8 @@ sub new {
 sub create_trip {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_trip");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/trip';
+    my $_resource_path = '/trip';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -98,13 +87,6 @@ sub create_trip {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # body params
@@ -131,15 +113,9 @@ sub create_trip {
 #
 # Delete Trip
 #
-# @param double $version  (required)
 # @param int $id the id of the trip to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip to delete',
@@ -157,18 +133,13 @@ sub create_trip {
 sub delete {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling delete");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}';
+    my $_resource_path = '/trip/{id}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -181,13 +152,6 @@ sub delete {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -212,16 +176,10 @@ sub delete {
 #
 # Set Trip Preference Driver
 #
-# @param double $version  (required)
 # @param int $id the id of the trip (required)
 # @param boolean $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip',
@@ -244,11 +202,6 @@ sub delete {
 sub drive_trip {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling drive_trip");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling drive_trip");
@@ -260,7 +213,7 @@ sub drive_trip {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/drive';
+    my $_resource_path = '/trip/{id}/drive';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -277,13 +230,6 @@ sub drive_trip {
     # query params
     if ( exists $args{'recurrence'}) {
         $query_params->{'recurrence'} = $self->{api_client}->to_query_value($args{'recurrence'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -313,16 +259,10 @@ sub drive_trip {
 #
 # Set Trip Preference Flexible
 #
-# @param double $version  (required)
 # @param int $id the id of the trip (required)
 # @param boolean $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip',
@@ -345,11 +285,6 @@ sub drive_trip {
 sub flexible_trip {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling flexible_trip");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling flexible_trip");
@@ -361,7 +296,7 @@ sub flexible_trip {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/flexible';
+    my $_resource_path = '/trip/{id}/flexible';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -378,13 +313,6 @@ sub flexible_trip {
     # query params
     if ( exists $args{'recurrence'}) {
         $query_params->{'recurrence'} = $self->{api_client}->to_query_value($args{'recurrence'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -414,15 +342,9 @@ sub flexible_trip {
 #
 # Get Trip
 #
-# @param double $version  (required)
 # @param int $id the id of the trip to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip to get',
@@ -440,18 +362,13 @@ sub flexible_trip {
 sub get_trip {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_trip");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling get_trip");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}';
+    my $_resource_path = '/trip/{id}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -464,13 +381,6 @@ sub get_trip {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -499,7 +409,6 @@ sub get_trip {
 #
 # Get Trip Matches
 #
-# @param double $version  (required)
 # @param int $id The id The id of the trip to search for matches for (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -510,11 +419,6 @@ sub get_trip {
 # @param boolean $matched_has_driver Only return matchings that already have driver assigned (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'The id The id of the trip to search for matches for',
@@ -567,11 +471,6 @@ sub get_trip {
 sub get_trip_matches {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_trip_matches");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling get_trip_matches");
@@ -603,7 +502,7 @@ sub get_trip_matches {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/match';
+    my $_resource_path = '/trip/{id}/match';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -653,13 +552,6 @@ sub get_trip_matches {
     }
 
     # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
-    # path params
     if ( exists $args{'id'}) {
         my $_base_variable = "{" . "id" . "}";
         my $_base_value = $self->{api_client}->to_path_value($args{'id'});
@@ -686,17 +578,11 @@ sub get_trip_matches {
 #
 # Process Trip Matches
 #
-# @param double $version  (required)
 # @param int $start_date The lower bound date to process matchings (optional)
 # @param int $end_date The upper bound date to process matchings (optional)
 # @param int $trip_id the id of the trip to process (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'start_date' => {
         data_type => 'int',
         description => 'The lower bound date to process matchings',
@@ -724,13 +610,8 @@ sub get_trip_matches {
 sub process_trip_matches {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling process_trip_matches");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/match/process';
+    my $_resource_path = '/trip/match/process';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -759,13 +640,6 @@ sub process_trip_matches {
         $query_params->{'tripId'} = $self->{api_client}->to_query_value($args{'trip_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -786,16 +660,10 @@ sub process_trip_matches {
 #
 # Set Trip Preference Rider
 #
-# @param double $version  (required)
 # @param int $id the id of the trip (required)
 # @param boolean $recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip',
@@ -818,11 +686,6 @@ sub process_trip_matches {
 sub ride {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling ride");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling ride");
@@ -834,7 +697,7 @@ sub ride {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/ride';
+    my $_resource_path = '/trip/{id}/ride';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -851,13 +714,6 @@ sub ride {
     # query params
     if ( exists $args{'recurrence'}) {
         $query_params->{'recurrence'} = $self->{api_client}->to_query_value($args{'recurrence'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params
@@ -887,7 +743,6 @@ sub ride {
 #
 # Search Trips
 #
-# @param double $version  (required)
 # @param int $account_id The owner of the trips (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -899,11 +754,6 @@ sub ride {
 # @param boolean $has_notifications whether to search on trips that have notifications or not (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The owner of the trips',
@@ -961,11 +811,6 @@ sub ride {
 sub search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search");
@@ -997,7 +842,7 @@ sub search {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip';
+    my $_resource_path = '/trip';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1056,13 +901,6 @@ sub search {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1083,7 +921,6 @@ sub search {
 #
 # Search Trips
 #
-# @param double $version  (required)
 # @param int $account_id The owner of the trips (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1096,11 +933,6 @@ sub search {
 # @param boolean $matched_has_driver Only return matchings that already have driver assigned (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The owner of the trips',
@@ -1163,11 +995,6 @@ sub search {
 sub search_trips {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_trips");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_trips");
@@ -1199,7 +1026,7 @@ sub search_trips {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/match';
+    my $_resource_path = '/trip/match';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1263,13 +1090,6 @@ sub search_trips {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1290,16 +1110,10 @@ sub search_trips {
 #
 # Update Trip Locations
 #
-# @param double $version  (required)
 # @param int $id the id of the trip to update locations for (required)
 # @param Trip $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip to update locations for',
@@ -1322,18 +1136,13 @@ sub search_trips {
 sub update_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_locations");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_locations");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/locations';
+    my $_resource_path = '/trip/{id}/locations';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1346,13 +1155,6 @@ sub update_locations {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -1386,16 +1188,10 @@ sub update_locations {
 #
 # Update Recurrence Locations
 #
-# @param double $version  (required)
 # @param int $id the id of the trip (required)
 # @param Trip $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip',
@@ -1418,18 +1214,13 @@ sub update_locations {
 sub update_recurrence_locations {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_recurrence_locations");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_recurrence_locations");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/locations/recurrence';
+    my $_resource_path = '/trip/{id}/locations/recurrence';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1442,13 +1233,6 @@ sub update_recurrence_locations {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -1482,16 +1266,10 @@ sub update_recurrence_locations {
 #
 # Update Recurrence Shipments
 #
-# @param double $version  (required)
 # @param int $id the id of the trip (required)
 # @param Trip $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip',
@@ -1514,18 +1292,13 @@ sub update_recurrence_locations {
 sub update_recurrence_shipments {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_recurrence_shipments");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_recurrence_shipments");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/shipments/recurrence';
+    my $_resource_path = '/trip/{id}/shipments/recurrence';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1538,13 +1311,6 @@ sub update_recurrence_shipments {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -1578,16 +1344,10 @@ sub update_recurrence_shipments {
 #
 # Update Trip Shipments
 #
-# @param double $version  (required)
 # @param int $id the id of the trip shipments to update (required)
 # @param Trip $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip shipments to update',
@@ -1610,18 +1370,13 @@ sub update_recurrence_shipments {
 sub update_shipments {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_shipments");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_shipments");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}/shipments';
+    my $_resource_path = '/trip/{id}/shipments';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1634,13 +1389,6 @@ sub update_shipments {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -1674,16 +1422,10 @@ sub update_shipments {
 #
 # Update Trip
 #
-# @param double $version  (required)
 # @param int $id the id of the trip to update (required)
 # @param Trip $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip to update',
@@ -1706,18 +1448,13 @@ sub update_shipments {
 sub update_trip {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_trip");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_trip");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/{id}';
+    my $_resource_path = '/trip/{id}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -1730,13 +1467,6 @@ sub update_trip {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -1770,16 +1500,10 @@ sub update_trip {
 #
 # Trip Notifications
 #
-# @param double $version  (required)
 # @param int $id the id of the trip (required)
 # @param string $notifications the notifications to update on the trip (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'the id of the trip',
@@ -1802,18 +1526,13 @@ sub update_trip {
 sub update_trip_notifications {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_trip_notifications");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_trip_notifications");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trip/notifications';
+    my $_resource_path = '/trip/notifications';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1835,13 +1554,6 @@ sub update_trip_notifications {
     # query params
     if ( exists $args{'notifications'}) {
         $query_params->{'notifications'} = $self->{api_client}->to_query_value($args{'notifications'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

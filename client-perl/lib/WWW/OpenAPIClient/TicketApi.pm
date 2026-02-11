@@ -53,7 +53,6 @@ sub new {
 #
 # Get Ticket Count
 #
-# @param double $version  (required)
 # @param string $device_id the id of the device that owns the tickets (optional)
 # @param int $account_id the id of the account that owns the tickets (optional)
 # @param string $game_type this is deprecated. (optional)
@@ -61,11 +60,6 @@ sub new {
 # @param string $ticket_type the type of ticket (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the id of the device that owns the tickets',
@@ -103,13 +97,8 @@ sub new {
 sub get_ticket_count {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_ticket_count");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/ticket/count';
+    my $_resource_path = '/ticket/count';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -148,13 +137,6 @@ sub get_ticket_count {
         $query_params->{'ticketType'} = $self->{api_client}->to_query_value($args{'ticket_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -175,7 +157,6 @@ sub get_ticket_count {
 #
 # Get Ticket List
 #
-# @param double $version  (required)
 # @param string $device_id the id of the device that owns the tickets (optional)
 # @param int $account_id the id of the account that owns the tickets (optional)
 # @param string $ticket_object_type comma separated list of TicketObjectType (optional)
@@ -187,11 +168,6 @@ sub get_ticket_count {
 # @param string $app_key the application key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'the id of the device that owns the tickets',
@@ -249,13 +225,8 @@ sub get_ticket_count {
 sub get_ticket_list {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_ticket_list");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/ticket/getList';
+    my $_resource_path = '/ticket/getList';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -314,13 +285,6 @@ sub get_ticket_list {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -341,7 +305,6 @@ sub get_ticket_list {
 #
 # Gift Tickets
 #
-# @param double $version  (required)
 # @param int $receiver_account_id the id of the account receiving the tickets (required)
 # @param int $ticket_id the id of the tickets (required)
 # @param string $device_id the id of the device (optional)
@@ -352,11 +315,6 @@ sub get_ticket_list {
 # @param string $app_key the application key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'receiver_account_id' => {
         data_type => 'int',
         description => 'the id of the account receiving the tickets',
@@ -409,11 +367,6 @@ sub get_ticket_list {
 sub gift_purchase {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling gift_purchase");
-    }
-
     # verify the required parameter 'receiver_account_id' is set
     unless (exists $args{'receiver_account_id'}) {
       croak("Missing the required parameter 'receiver_account_id' when calling gift_purchase");
@@ -425,7 +378,7 @@ sub gift_purchase {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/purchase/gift';
+    my $_resource_path = '/purchase/gift';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -479,13 +432,6 @@ sub gift_purchase {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -506,7 +452,6 @@ sub gift_purchase {
 #
 # Save Ticket
 #
-# @param double $version  (required)
 # @param string $action_type the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
 # @param string $ticket_object_type the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
 # @param boolean $return_nulls whether to return nulls or not (optional)
@@ -527,11 +472,6 @@ sub gift_purchase {
 # @param string $app_version the application version (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'action_type' => {
         data_type => 'string',
         description => 'the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER',
@@ -634,11 +574,6 @@ sub gift_purchase {
 sub save_ticket {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling save_ticket");
-    }
-
     # verify the required parameter 'action_type' is set
     unless (exists $args{'action_type'}) {
       croak("Missing the required parameter 'action_type' when calling save_ticket");
@@ -650,7 +585,7 @@ sub save_ticket {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/ticket/save';
+    my $_resource_path = '/ticket/save';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -754,13 +689,6 @@ sub save_ticket {
         $query_params->{'appVersion'} = $self->{api_client}->to_query_value($args{'app_version'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -781,7 +709,6 @@ sub save_ticket {
 #
 # Save Ticket with Reciept
 #
-# @param double $version  (required)
 # @param string $action_type the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
 # @param string $ticket_object_type the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
 # @param string $receipt_data the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -802,11 +729,6 @@ sub save_ticket {
 # @param string $app_version the application version (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'action_type' => {
         data_type => 'string',
         description => 'the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }',
@@ -909,11 +831,6 @@ sub save_ticket {
 sub save_ticket_via_file_upload {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling save_ticket_via_file_upload");
-    }
-
     # verify the required parameter 'action_type' is set
     unless (exists $args{'action_type'}) {
       croak("Missing the required parameter 'action_type' when calling save_ticket_via_file_upload");
@@ -930,7 +847,7 @@ sub save_ticket_via_file_upload {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/ticket/save/fileUpload';
+    my $_resource_path = '/ticket/save/fileUpload';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1034,13 +951,6 @@ sub save_ticket_via_file_upload {
         $query_params->{'appVersion'} = $self->{api_client}->to_query_value($args{'app_version'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1061,14 +971,8 @@ sub save_ticket_via_file_upload {
 #
 # Get Ticket Offers
 #
-# @param double $version  (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     };
     __PACKAGE__->method_documentation->{ 'ticket_offers' } = {
         summary => 'Get Ticket Offers',
@@ -1081,13 +985,8 @@ sub save_ticket_via_file_upload {
 sub ticket_offers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling ticket_offers");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/ticket/ticketoffers';
+    my $_resource_path = '/ticket/ticketoffers';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1100,13 +999,6 @@ sub ticket_offers {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     my $_body_data;
     # authentication setting, if any

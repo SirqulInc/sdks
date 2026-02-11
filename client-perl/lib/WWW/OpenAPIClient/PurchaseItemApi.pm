@@ -53,7 +53,6 @@ sub new {
 #
 # Create Purchase
 #
-# @param double $version  (required)
 # @param string $app_key The application key that the purchase can be used in (required)
 # @param string $name The name of the purchase item (required)
 # @param string $purchase_type The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -76,11 +75,6 @@ sub new {
 # @param int $offer_location_id The offer location that will get added to the user&#39;s wallet after purchase. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key that the purchase can be used in',
@@ -193,11 +187,6 @@ sub new {
 sub create_purchase_item {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_purchase_item");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling create_purchase_item");
@@ -214,7 +203,7 @@ sub create_purchase_item {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/purchase/create';
+    my $_resource_path = '/purchase/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -328,13 +317,6 @@ sub create_purchase_item {
         $query_params->{'offerLocationId'} = $self->{api_client}->to_query_value($args{'offer_location_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -355,17 +337,11 @@ sub create_purchase_item {
 #
 # Delete Purchase
 #
-# @param double $version  (required)
 # @param int $purchase_item_id The purchase item id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'purchase_item_id' => {
         data_type => 'int',
         description => 'The purchase item id',
@@ -393,18 +369,13 @@ sub create_purchase_item {
 sub delete_purchase_item {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_purchase_item");
-    }
-
     # verify the required parameter 'purchase_item_id' is set
     unless (exists $args{'purchase_item_id'}) {
       croak("Missing the required parameter 'purchase_item_id' when calling delete_purchase_item");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/purchase/delete';
+    my $_resource_path = '/purchase/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -433,13 +404,6 @@ sub delete_purchase_item {
         $query_params->{'purchaseItemId'} = $self->{api_client}->to_query_value($args{'purchase_item_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -460,17 +424,11 @@ sub delete_purchase_item {
 #
 # Get Purchase
 #
-# @param double $version  (required)
 # @param int $purchase_item_id The purchase item id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'purchase_item_id' => {
         data_type => 'int',
         description => 'The purchase item id',
@@ -498,18 +456,13 @@ sub delete_purchase_item {
 sub get_purchase_item {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_purchase_item");
-    }
-
     # verify the required parameter 'purchase_item_id' is set
     unless (exists $args{'purchase_item_id'}) {
       croak("Missing the required parameter 'purchase_item_id' when calling get_purchase_item");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/purchase/get';
+    my $_resource_path = '/purchase/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -538,13 +491,6 @@ sub get_purchase_item {
         $query_params->{'purchaseItemId'} = $self->{api_client}->to_query_value($args{'purchase_item_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -565,7 +511,6 @@ sub get_purchase_item {
 #
 # Search Purchases
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $app_key The application key to filter results by application (optional)
@@ -580,11 +525,6 @@ sub get_purchase_item {
 # @param boolean $active_only Return only active results (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -657,13 +597,8 @@ sub get_purchase_item {
 sub search_purchase_items {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_purchase_items");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/purchase/search';
+    my $_resource_path = '/purchase/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -737,13 +672,6 @@ sub search_purchase_items {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -764,7 +692,6 @@ sub search_purchase_items {
 #
 # Update Purchase
 #
-# @param double $version  (required)
 # @param int $purchase_item_id The purchase item id (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -788,11 +715,6 @@ sub search_purchase_items {
 # @param int $offer_location_id The offer location that will get added to the user&#39;s wallet after purchase. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'purchase_item_id' => {
         data_type => 'int',
         description => 'The purchase item id',
@@ -910,18 +832,13 @@ sub search_purchase_items {
 sub update_purchase_item {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_purchase_item");
-    }
-
     # verify the required parameter 'purchase_item_id' is set
     unless (exists $args{'purchase_item_id'}) {
       croak("Missing the required parameter 'purchase_item_id' when calling update_purchase_item");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/purchase/update';
+    my $_resource_path = '/purchase/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1038,13 +955,6 @@ sub update_purchase_item {
     # query params
     if ( exists $args{'offer_location_id'}) {
         $query_params->{'offerLocationId'} = $self->{api_client}->to_query_value($args{'offer_location_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

@@ -53,7 +53,6 @@ sub new {
 #
 # Create Consumer
 #
-# @param double $version  (required)
 # @param string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
 # @param string $name The name of the queue to connect to (required)
 # @param string $hostname The hostname of the server the queue is hosted on (required)
@@ -70,11 +69,6 @@ sub new {
 # @param boolean $use_ssl Use SSL (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.',
@@ -157,11 +151,6 @@ sub new {
 sub consumer_create {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling consumer_create");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling consumer_create");
@@ -193,7 +182,7 @@ sub consumer_create {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/consumer/create';
+    my $_resource_path = '/queue/consumer/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -277,13 +266,6 @@ sub consumer_create {
         $query_params->{'useSSL'} = $self->{api_client}->to_query_value($args{'use_ssl'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -304,7 +286,6 @@ sub consumer_create {
 #
 # Update Consumer
 #
-# @param double $version  (required)
 # @param string $app_key The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
 # @param int $queue_id The queue to update (required)
 # @param string $data_mapping The data mapping information in the format of AMQPRequest (required)
@@ -313,11 +294,6 @@ sub consumer_create {
 # @param boolean $use_ssl Use SSL (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.',
@@ -360,11 +336,6 @@ sub consumer_create {
 sub consumer_update {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling consumer_update");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling consumer_update");
@@ -381,7 +352,7 @@ sub consumer_update {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/consumer/update';
+    my $_resource_path = '/queue/consumer/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -425,13 +396,6 @@ sub consumer_update {
         $query_params->{'useSSL'} = $self->{api_client}->to_query_value($args{'use_ssl'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -452,7 +416,6 @@ sub consumer_update {
 #
 # Create Queue
 #
-# @param double $version  (required)
 # @param string $app_key The application key unique to each application. (required)
 # @param string $name The name of the queue to create (required)
 # @param string $device_id The client deviceID (optional)
@@ -467,11 +430,6 @@ sub consumer_update {
 # @param boolean $use_ssl Use SSL (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'The application key unique to each application.',
@@ -544,11 +502,6 @@ sub consumer_update {
 sub queue_create {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling queue_create");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling queue_create");
@@ -560,7 +513,7 @@ sub queue_create {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/create';
+    my $_resource_path = '/queue/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -634,13 +587,6 @@ sub queue_create {
         $query_params->{'useSSL'} = $self->{api_client}->to_query_value($args{'use_ssl'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -661,17 +607,11 @@ sub queue_create {
 #
 # Delete Queue
 #
-# @param double $version  (required)
 # @param int $queue_id The id of the queue to find (required)
 # @param string $device_id The client device ID (optional)
 # @param int $account_id The logged in user ID (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'queue_id' => {
         data_type => 'int',
         description => 'The id of the queue to find',
@@ -699,18 +639,13 @@ sub queue_create {
 sub queue_delete {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling queue_delete");
-    }
-
     # verify the required parameter 'queue_id' is set
     unless (exists $args{'queue_id'}) {
       croak("Missing the required parameter 'queue_id' when calling queue_delete");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/delete';
+    my $_resource_path = '/queue/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -739,13 +674,6 @@ sub queue_delete {
         $query_params->{'queueId'} = $self->{api_client}->to_query_value($args{'queue_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -766,7 +694,6 @@ sub queue_delete {
 #
 # Get Queue
 #
-# @param double $version  (required)
 # @param string $device_id The client device ID (optional)
 # @param int $account_id The logged in user ID (optional)
 # @param int $queue_id The id of the queue to find (optional)
@@ -776,11 +703,6 @@ sub queue_delete {
 # @param string $virtual_host The virtual host of the queue to find (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The client device ID',
@@ -828,13 +750,8 @@ sub queue_delete {
 sub queue_get {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling queue_get");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/get';
+    my $_resource_path = '/queue/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -883,13 +800,6 @@ sub queue_get {
         $query_params->{'virtualHost'} = $self->{api_client}->to_query_value($args{'virtual_host'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -910,7 +820,6 @@ sub queue_get {
 #
 # Publish Queue
 #
-# @param double $version  (required)
 # @param string $message The payload to send to the queue (required)
 # @param int $queue_id The id of the queue to publish to (optional)
 # @param string $app_key The application key the queue was assigned to (optional)
@@ -919,11 +828,6 @@ sub queue_get {
 # @param string $virtual_host The virtual host defined on the server to queue (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'message' => {
         data_type => 'string',
         description => 'The payload to send to the queue',
@@ -966,18 +870,13 @@ sub queue_get {
 sub queue_publish {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling queue_publish");
-    }
-
     # verify the required parameter 'message' is set
     unless (exists $args{'message'}) {
       croak("Missing the required parameter 'message' when calling queue_publish");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/publish';
+    my $_resource_path = '/queue/publish';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1021,13 +920,6 @@ sub queue_publish {
         $query_params->{'message'} = $self->{api_client}->to_query_value($args{'message'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1048,7 +940,6 @@ sub queue_publish {
 #
 # Search Queue
 #
-# @param double $version  (required)
 # @param int $queue_id The id of the queue to find (optional)
 # @param string $device_id The client device ID (optional)
 # @param int $account_id The logged in user ID (optional)
@@ -1057,11 +948,6 @@ sub queue_publish {
 # @param int $limit Limit of the index (optional, default to 10)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'queue_id' => {
         data_type => 'int',
         description => 'The id of the queue to find',
@@ -1104,13 +990,8 @@ sub queue_publish {
 sub queue_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling queue_search");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/search';
+    my $_resource_path = '/queue/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1154,13 +1035,6 @@ sub queue_search {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1181,7 +1055,6 @@ sub queue_search {
 #
 # Update Queue
 #
-# @param double $version  (required)
 # @param int $queue_id The id of the queue to update (required)
 # @param string $device_id The client deviceID (optional)
 # @param int $account_id The logged in user ID (optional)
@@ -1196,11 +1069,6 @@ sub queue_search {
 # @param boolean $use_ssl the SSL to use (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'queue_id' => {
         data_type => 'int',
         description => 'The id of the queue to update',
@@ -1273,18 +1141,13 @@ sub queue_search {
 sub queue_update {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling queue_update");
-    }
-
     # verify the required parameter 'queue_id' is set
     unless (exists $args{'queue_id'}) {
       croak("Missing the required parameter 'queue_id' when calling queue_update");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/queue/update';
+    my $_resource_path = '/queue/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1356,13 +1219,6 @@ sub queue_update {
     # query params
     if ( exists $args{'use_ssl'}) {
         $query_params->{'useSSL'} = $self->{api_client}->to_query_value($args{'use_ssl'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

@@ -53,17 +53,11 @@ sub new {
 #
 # Generate images with OpenAI
 #
-# @param double $version  (required)
 # @param int $account_id Sirqul Account Id (required)
 # @param string $post_body Post Body Parameters (required)
 # @param boolean $return_raw_response Return raw response (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Sirqul Account Id',
@@ -91,11 +85,6 @@ sub new {
 sub image_generation {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling image_generation");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling image_generation");
@@ -107,7 +96,7 @@ sub image_generation {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/openai/v1/images/generations';
+    my $_resource_path = '/openai/v1/images/generations';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -134,13 +123,6 @@ sub image_generation {
     # query params
     if ( exists $args{'return_raw_response'}) {
         $query_params->{'returnRawResponse'} = $self->{api_client}->to_query_value($args{'return_raw_response'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

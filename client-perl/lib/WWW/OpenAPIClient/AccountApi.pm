@@ -53,7 +53,6 @@ sub new {
 #
 # Search Accounts by Location
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $q Deprecated - legacy query parameter (optional)
@@ -90,11 +89,6 @@ sub new {
 # @param boolean $content_admin_only Returns only content admin users (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -277,13 +271,8 @@ sub new {
 sub account_location_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling account_location_search");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/search';
+    my $_resource_path = '/account/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -467,13 +456,6 @@ sub account_location_search {
         $query_params->{'contentAdminOnly'} = $self->{api_client}->to_query_value($args{'content_admin_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -494,7 +476,6 @@ sub account_location_search {
 #
 # Block Account
 #
-# @param double $version  (required)
 # @param int $account_id_being_blocked The id of the account to be blocked/unblocked (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -504,11 +485,6 @@ sub account_location_search {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id_being_blocked' => {
         data_type => 'int',
         description => 'The id of the account to be blocked/unblocked',
@@ -556,18 +532,13 @@ sub account_location_search {
 sub block_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling block_account");
-    }
-
     # verify the required parameter 'account_id_being_blocked' is set
     unless (exists $args{'account_id_being_blocked'}) {
       croak("Missing the required parameter 'account_id_being_blocked' when calling block_account");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/block';
+    my $_resource_path = '/account/block';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -616,13 +587,6 @@ sub block_account {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -643,7 +607,6 @@ sub block_account {
 #
 # Create Account
 #
-# @param double $version  (required)
 # @param string $username The access token to authenticate with (ex: username) (required)
 # @param string $password The secret to authenticate with (ex: password) (required)
 # @param string $name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -718,11 +681,6 @@ sub block_account {
 # @param int $personal_audience_id Personal audience id to associate with this account (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'username' => {
         data_type => 'string',
         description => 'The access token to authenticate with (ex: username)',
@@ -1095,11 +1053,6 @@ sub block_account {
 sub create_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_account");
-    }
-
     # verify the required parameter 'username' is set
     unless (exists $args{'username'}) {
       croak("Missing the required parameter 'username' when calling create_account");
@@ -1111,7 +1064,7 @@ sub create_account {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/create';
+    my $_resource_path = '/account/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1485,13 +1438,6 @@ sub create_account {
         $query_params->{'personalAudienceId'} = $self->{api_client}->to_query_value($args{'personal_audience_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1512,7 +1458,6 @@ sub create_account {
 #
 # Update Account
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param int $connection_account_id The account id used to edit another person&#39;s account (optional)
@@ -1597,11 +1542,6 @@ sub create_account {
 # @param string $non_guest_username The user&#39;s username to update with if they currently have a guest username (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -2024,13 +1964,8 @@ sub create_account {
 sub edit_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling edit_account");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/profile/update';
+    my $_resource_path = '/account/profile/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2454,13 +2389,6 @@ sub edit_account {
         $query_params->{'nonGuestUsername'} = $self->{api_client}->to_query_value($args{'non_guest_username'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2481,18 +2409,12 @@ sub edit_account {
 #
 # Update Username and Email
 #
-# @param double $version  (required)
 # @param string $device_id The device id (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $email_address the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
 # @param string $username the user&#39;s username to update with if they currently have a guest username (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id',
@@ -2525,13 +2447,8 @@ sub edit_account {
 sub edit_username {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling edit_username");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/username/update';
+    my $_resource_path = '/account/username/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -2565,13 +2482,6 @@ sub edit_username {
         $query_params->{'username'} = $self->{api_client}->to_query_value($args{'username'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2592,7 +2502,6 @@ sub edit_username {
 #
 # Get Account
 #
-# @param double $version  (required)
 # @param boolean $return_nulls Return Nulls (optional, default to false)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2607,11 +2516,6 @@ sub edit_username {
 # @param double $longitude Longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'Return Nulls',
@@ -2684,13 +2588,8 @@ sub edit_username {
 sub get_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_account");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/profile/get';
+    my $_resource_path = '/account/profile/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2764,13 +2663,6 @@ sub get_account {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -2791,7 +2683,6 @@ sub get_account {
 #
 # Get Profile Assets
 #
-# @param double $version  (required)
 # @param boolean $return_nulls Determines whether to return null fields in the response (optional, default to false)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -2808,11 +2699,6 @@ sub get_account {
 # @param int $limit Limit of the pagination (optional, default to 0)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'return_nulls' => {
         data_type => 'boolean',
         description => 'Determines whether to return null fields in the response',
@@ -2895,13 +2781,8 @@ sub get_account {
 sub get_profile_assets {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_profile_assets");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/profile/assets';
+    my $_resource_path = '/account/profile/assets';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -2985,13 +2866,6 @@ sub get_profile_assets {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3012,7 +2886,6 @@ sub get_profile_assets {
 #
 # Search Accounts
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $app_key The application key (optional)
 # @param string $retrieve_type one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -3026,11 +2899,6 @@ sub get_profile_assets {
 # @param boolean $children_children if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user (deviceId or accountId required)',
@@ -3098,13 +2966,8 @@ sub get_profile_assets {
 sub get_referral_list {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_referral_list");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/referral/list';
+    my $_resource_path = '/account/referral/list';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3173,13 +3036,6 @@ sub get_referral_list {
         $query_params->{'childrenChildren'} = $self->{api_client}->to_query_value($args{'children_children'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3196,18 +3052,12 @@ sub get_referral_list {
 #
 # Get Account Settings
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param double $latitude The current latitude of the user (optional)
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -3240,13 +3090,8 @@ sub get_referral_list {
 sub get_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_settings");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/settings/get';
+    my $_resource_path = '/account/settings/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -3280,13 +3125,6 @@ sub get_settings {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3307,7 +3145,6 @@ sub get_settings {
 #
 # Login as Account
 #
-# @param double $version  (required)
 # @param string $access_token  (required)
 # @param string $app_key  (required)
 # @param string $device_id  (optional)
@@ -3321,11 +3158,6 @@ sub get_settings {
 # @param double $longitude  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'access_token' => {
         data_type => 'string',
         description => '',
@@ -3393,11 +3225,6 @@ sub get_settings {
 sub login_delegate {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling login_delegate");
-    }
-
     # verify the required parameter 'access_token' is set
     unless (exists $args{'access_token'}) {
       croak("Missing the required parameter 'access_token' when calling login_delegate");
@@ -3409,7 +3236,7 @@ sub login_delegate {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/login/delegate';
+    my $_resource_path = '/account/login/delegate';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3478,13 +3305,6 @@ sub login_delegate {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3505,7 +3325,6 @@ sub login_delegate {
 #
 # Login Account
 #
-# @param double $version  (required)
 # @param string $access_token The access token to authenticate with (ex: username or fb token) (required)
 # @param string $network_uid The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
 # @param string $app_key The application key (required)
@@ -3521,11 +3340,6 @@ sub login_delegate {
 # @param int $third_party_credential_id Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'access_token' => {
         data_type => 'string',
         description => 'The access token to authenticate with (ex: username or fb token)',
@@ -3603,11 +3417,6 @@ sub login_delegate {
 sub login_general {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling login_general");
-    }
-
     # verify the required parameter 'access_token' is set
     unless (exists $args{'access_token'}) {
       croak("Missing the required parameter 'access_token' when calling login_general");
@@ -3624,7 +3433,7 @@ sub login_general {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/login';
+    my $_resource_path = '/account/login';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3703,13 +3512,6 @@ sub login_general {
         $query_params->{'thirdPartyCredentialId'} = $self->{api_client}->to_query_value($args{'third_party_credential_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3730,7 +3532,6 @@ sub login_general {
 #
 # Login Account (Username)
 #
-# @param double $version  (required)
 # @param string $username the user&#39;s email address they used to sign-up (required)
 # @param string $password the password (required)
 # @param string $device_id the device id (optional)
@@ -3743,11 +3544,6 @@ sub login_general {
 # @param string $response_filters a comma separated list of ProfileFilters for filtering the returned response data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'username' => {
         data_type => 'string',
         description => 'the user&#39;s email address they used to sign-up',
@@ -3810,11 +3606,6 @@ sub login_general {
 sub login_username {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling login_username");
-    }
-
     # verify the required parameter 'username' is set
     unless (exists $args{'username'}) {
       croak("Missing the required parameter 'username' when calling login_username");
@@ -3826,7 +3617,7 @@ sub login_username {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/get';
+    my $_resource_path = '/account/get';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -3890,13 +3681,6 @@ sub login_username {
         $query_params->{'responseFilters'} = $self->{api_client}->to_query_value($args{'response_filters'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -3917,7 +3701,6 @@ sub login_username {
 #
 # Logout Account
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param string $device_id_type Device Id Type (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
@@ -3925,11 +3708,6 @@ sub login_username {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -3967,13 +3745,8 @@ sub login_username {
 sub logout {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling logout");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/logout';
+    my $_resource_path = '/account/logout';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4012,13 +3785,6 @@ sub logout {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4039,18 +3805,12 @@ sub logout {
 #
 # Merge Account
 #
-# @param double $version  (required)
 # @param int $merge_account_id The id of the account to being merged (required)
 # @param string $app_key The application key (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'merge_account_id' => {
         data_type => 'int',
         description => 'The id of the account to being merged',
@@ -4083,11 +3843,6 @@ sub logout {
 sub merge_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling merge_account");
-    }
-
     # verify the required parameter 'merge_account_id' is set
     unless (exists $args{'merge_account_id'}) {
       croak("Missing the required parameter 'merge_account_id' when calling merge_account");
@@ -4099,7 +3854,7 @@ sub merge_account {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/merge';
+    my $_resource_path = '/account/merge';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4133,13 +3888,6 @@ sub merge_account {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4160,18 +3908,12 @@ sub merge_account {
 #
 # Update Password
 #
-# @param double $version  (required)
 # @param int $account_id The account to update (required)
 # @param string $old_password The current password, used to validate access (required)
 # @param string $new_password The new password to set, cannot be empty (required)
 # @param string $confirm_password The new password to confirm, must match newPassword (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account to update',
@@ -4204,11 +3946,6 @@ sub merge_account {
 sub password_change {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling password_change");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling password_change");
@@ -4230,7 +3967,7 @@ sub password_change {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/passwordchange';
+    my $_resource_path = '/account/passwordchange';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4264,13 +4001,6 @@ sub password_change {
         $query_params->{'confirmPassword'} = $self->{api_client}->to_query_value($args{'confirm_password'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4291,17 +4021,11 @@ sub password_change {
 #
 # Reset Password
 #
-# @param double $version  (required)
 # @param string $token The token associated with the account to update, good for 24 hours (required)
 # @param string $password The new password to set, cannot be empty (required)
 # @param string $confirm The new password to confirm, must match newPassword (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'token' => {
         data_type => 'string',
         description => 'The token associated with the account to update, good for 24 hours',
@@ -4329,11 +4053,6 @@ sub password_change {
 sub password_reset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling password_reset");
-    }
-
     # verify the required parameter 'token' is set
     unless (exists $args{'token'}) {
       croak("Missing the required parameter 'token' when calling password_reset");
@@ -4350,7 +4069,7 @@ sub password_reset {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/passwordreset';
+    my $_resource_path = '/account/passwordreset';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4379,13 +4098,6 @@ sub password_reset {
         $query_params->{'confirm'} = $self->{api_client}->to_query_value($args{'confirm'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4406,7 +4118,6 @@ sub password_reset {
 #
 # Request Password Reset
 #
-# @param double $version  (required)
 # @param string $email The email/username of the account (required)
 # @param string $from this is the sender email (optional, default to 'Sirqul')
 # @param string $domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -4414,11 +4125,6 @@ sub password_reset {
 # @param string $referer this is used to generate a password reset link (optional, default to 'http://dev.sirqul.com/resetpassword')
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'email' => {
         data_type => 'string',
         description => 'The email/username of the account',
@@ -4456,18 +4162,13 @@ sub password_reset {
 sub request_password_reset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling request_password_reset");
-    }
-
     # verify the required parameter 'email' is set
     unless (exists $args{'email'}) {
       croak("Missing the required parameter 'email' when calling request_password_reset");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/requestpasswordreset';
+    my $_resource_path = '/account/requestpasswordreset';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4506,13 +4207,6 @@ sub request_password_reset {
         $query_params->{'referer'} = $self->{api_client}->to_query_value($args{'referer'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4533,15 +4227,9 @@ sub request_password_reset {
 #
 # Send Validation Request
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -4559,18 +4247,13 @@ sub request_password_reset {
 sub request_validate_account {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling request_validate_account");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling request_validate_account");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/requestValidateAccount';
+    my $_resource_path = '/account/requestValidateAccount';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -4587,13 +4270,6 @@ sub request_validate_account {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -4616,7 +4292,6 @@ sub request_validate_account {
 #
 # Search Accounts
 #
-# @param double $version  (required)
 # @param int $account_id The id of the account requesting (required)
 # @param string $app_key The application key (required)
 # @param string $keyword The keyword for for querying the account (optional)
@@ -4637,11 +4312,6 @@ sub request_validate_account {
 # @param boolean $active_only Determines whether to return only active results. Default is false. (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The id of the account requesting',
@@ -4744,11 +4414,6 @@ sub request_validate_account {
 sub search_accounts {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_accounts");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_accounts");
@@ -4760,7 +4425,7 @@ sub search_accounts {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/profile/search';
+    my $_resource_path = '/account/profile/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -4864,13 +4529,6 @@ sub search_accounts {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -4891,7 +4549,6 @@ sub search_accounts {
 #
 # Login Account (Encrypted Username)
 #
-# @param double $version  (required)
 # @param string $username The user&#39;s encrypted email address they used to sign-up (required)
 # @param string $password The encrypted password (required)
 # @param string $game_type The application key (required)
@@ -4903,11 +4560,6 @@ sub search_accounts {
 # @param string $response_filters A comma separated list of ProfileFilters for filtering the returned response data (optional, default to 'PROFILE')
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'username' => {
         data_type => 'string',
         description => 'The user&#39;s encrypted email address they used to sign-up',
@@ -4965,11 +4617,6 @@ sub search_accounts {
 sub secure_login {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling secure_login");
-    }
-
     # verify the required parameter 'username' is set
     unless (exists $args{'username'}) {
       croak("Missing the required parameter 'username' when calling secure_login");
@@ -4986,7 +4633,7 @@ sub secure_login {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/login/validate';
+    my $_resource_path = '/account/login/validate';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5045,13 +4692,6 @@ sub secure_login {
         $query_params->{'responseFilters'} = $self->{api_client}->to_query_value($args{'response_filters'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5072,7 +4712,6 @@ sub secure_login {
 #
 # Create Account (Encrypted Username)
 #
-# @param double $version  (required)
 # @param string $device_id The device id (required)
 # @param string $username The encrypted email of the user, this is what will be used when they login (required)
 # @param string $password The encrypted password of the user (required)
@@ -5136,11 +4775,6 @@ sub secure_login {
 # @param string $response_type Response Type (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id',
@@ -5458,11 +5092,6 @@ sub secure_login {
 sub secure_signup {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling secure_signup");
-    }
-
     # verify the required parameter 'device_id' is set
     unless (exists $args{'device_id'}) {
       croak("Missing the required parameter 'device_id' when calling secure_signup");
@@ -5479,7 +5108,7 @@ sub secure_signup {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/create/validate';
+    my $_resource_path = '/account/create/validate';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5798,13 +5427,6 @@ sub secure_signup {
         $query_params->{'responseType'} = $self->{api_client}->to_query_value($args{'response_type'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5825,7 +5447,6 @@ sub secure_signup {
 #
 # Save Match Token
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $match_token A string of numbers (optional)
@@ -5835,11 +5456,6 @@ sub secure_signup {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -5887,13 +5503,8 @@ sub secure_signup {
 sub set_match_token {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling set_match_token");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/consumer/profile/matchToken';
+    my $_resource_path = '/consumer/profile/matchToken';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -5942,13 +5553,6 @@ sub set_match_token {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -5969,7 +5573,6 @@ sub set_match_token {
 #
 # Update Account Active Status
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (deviceId or accountId required) (required)
 # @param int $connection_account_id The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
 # @param boolean $active true will activate the user and false will deactivate (required)
@@ -5977,11 +5580,6 @@ sub set_match_token {
 # @param string $app_key the application key that the user belongs to (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user (deviceId or accountId required)',
@@ -6019,11 +5617,6 @@ sub set_match_token {
 sub update_actve_status {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_actve_status");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_actve_status");
@@ -6040,7 +5633,7 @@ sub update_actve_status {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/active/update';
+    my $_resource_path = '/account/active/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6079,13 +5672,6 @@ sub update_actve_status {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -6106,7 +5692,6 @@ sub update_actve_status {
 #
 # Update Location
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param double $latitude The current latitude of the user (optional)
@@ -6114,11 +5699,6 @@ sub update_actve_status {
 # @param int $client_time The time of the update (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -6156,13 +5736,8 @@ sub update_actve_status {
 sub update_location {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_location");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/location/update';
+    my $_resource_path = '/account/location/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6201,13 +5776,6 @@ sub update_location {
         $query_params->{'clientTime'} = $self->{api_client}->to_query_value($args{'client_time'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -6228,7 +5796,6 @@ sub update_location {
 #
 # Update Account Settings
 #
-# @param double $version  (required)
 # @param string $device_id The device id (deviceId or accountId required) (optional)
 # @param int $account_id The account id of the user (deviceId or accountId required) (optional)
 # @param string $blocked_notifications The notifications to be blocked (optional)
@@ -6243,11 +5810,6 @@ sub update_location {
 # @param double $longitude The current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'The device id (deviceId or accountId required)',
@@ -6320,13 +5882,8 @@ sub update_location {
 sub update_settings {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_settings");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/account/settings/update';
+    my $_resource_path = '/account/settings/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6400,13 +5957,6 @@ sub update_settings {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -6427,15 +5977,9 @@ sub update_settings {
 #
 # Save Validation Status
 #
-# @param double $version  (required)
 # @param string $token The token associated with the account to update, good for 24 hours (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'token' => {
         data_type => 'string',
         description => 'The token associated with the account to update, good for 24 hours',
@@ -6453,18 +5997,13 @@ sub update_settings {
 sub validate_account_signup {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling validate_account_signup");
-    }
-
     # verify the required parameter 'token' is set
     unless (exists $args{'token'}) {
       croak("Missing the required parameter 'token' when calling validate_account_signup");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/validateAccountSignup';
+    my $_resource_path = '/account/validateAccountSignup';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6481,13 +6020,6 @@ sub validate_account_signup {
     # query params
     if ( exists $args{'token'}) {
         $query_params->{'token'} = $self->{api_client}->to_query_value($args{'token'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -6510,15 +6042,9 @@ sub validate_account_signup {
 #
 # Validate Password Reset Token
 #
-# @param double $version  (required)
 # @param string $token The token associated with the account to update, good for 24 hours (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'token' => {
         data_type => 'string',
         description => 'The token associated with the account to update, good for 24 hours',
@@ -6536,18 +6062,13 @@ sub validate_account_signup {
 sub validate_password_reset {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling validate_password_reset");
-    }
-
     # verify the required parameter 'token' is set
     unless (exists $args{'token'}) {
       croak("Missing the required parameter 'token' when calling validate_password_reset");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/account/validatepasswordreset';
+    my $_resource_path = '/account/validatepasswordreset';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -6564,13 +6085,6 @@ sub validate_password_reset {
     # query params
     if ( exists $args{'token'}) {
         $query_params->{'token'} = $self->{api_client}->to_query_value($args{'token'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

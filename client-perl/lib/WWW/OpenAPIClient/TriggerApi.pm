@@ -53,7 +53,6 @@ sub new {
 #
 # Create Trigger
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user (required)
 # @param string $name The name of the trigger (required)
 # @param string $app_key The application to target (optional)
@@ -69,11 +68,6 @@ sub new {
 # @param boolean $active Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user',
@@ -151,11 +145,6 @@ sub new {
 sub create_trigger {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_trigger");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_trigger");
@@ -167,7 +156,7 @@ sub create_trigger {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trigger/create';
+    my $_resource_path = '/trigger/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -246,13 +235,6 @@ sub create_trigger {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -273,16 +255,10 @@ sub create_trigger {
 #
 # Delete Trigger
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $trigger_id The id of the trigger to delete. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -305,11 +281,6 @@ sub create_trigger {
 sub delete_trigger {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_trigger");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_trigger");
@@ -321,7 +292,7 @@ sub delete_trigger {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trigger/delete';
+    my $_resource_path = '/trigger/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -345,13 +316,6 @@ sub delete_trigger {
         $query_params->{'triggerId'} = $self->{api_client}->to_query_value($args{'trigger_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -372,16 +336,10 @@ sub delete_trigger {
 #
 # Get Trigger
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $trigger_id The id of the Trigger to return. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -404,11 +362,6 @@ sub delete_trigger {
 sub get_trigger {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_trigger");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_trigger");
@@ -420,7 +373,7 @@ sub get_trigger {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trigger/get';
+    my $_resource_path = '/trigger/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -444,13 +397,6 @@ sub get_trigger {
         $query_params->{'triggerId'} = $self->{api_client}->to_query_value($args{'trigger_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -471,7 +417,6 @@ sub get_trigger {
 #
 # Search Triggers
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $grouping_id Filter results by a grouping identifier defined by the client (optional)
 # @param string $filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to 'MINE')
@@ -486,11 +431,6 @@ sub get_trigger {
 # @param boolean $active_only Determines whether to return only active results (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -563,18 +503,13 @@ sub get_trigger {
 sub search_triggers {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_triggers");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling search_triggers");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trigger/search';
+    my $_resource_path = '/trigger/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -648,13 +583,6 @@ sub search_triggers {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -675,7 +603,6 @@ sub search_triggers {
 #
 # Update Trigger
 #
-# @param double $version  (required)
 # @param int $trigger_id The trigger to update (required)
 # @param int $account_id The logged in user (required)
 # @param string $name The name of the trigger (optional)
@@ -692,11 +619,6 @@ sub search_triggers {
 # @param boolean $active Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'trigger_id' => {
         data_type => 'int',
         description => 'The trigger to update',
@@ -779,11 +701,6 @@ sub search_triggers {
 sub update_trigger {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_trigger");
-    }
-
     # verify the required parameter 'trigger_id' is set
     unless (exists $args{'trigger_id'}) {
       croak("Missing the required parameter 'trigger_id' when calling update_trigger");
@@ -795,7 +712,7 @@ sub update_trigger {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/trigger/update';
+    my $_resource_path = '/trigger/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -877,13 +794,6 @@ sub update_trigger {
     # query params
     if ( exists $args{'active'}) {
         $query_params->{'active'} = $self->{api_client}->to_query_value($args{'active'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

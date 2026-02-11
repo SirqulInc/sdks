@@ -53,7 +53,6 @@ sub new {
 #
 # Create Game Level
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $name The name of the level. (required)
 # @param string $game_data The game level data: xml, json, or other text based format. (required)
@@ -82,11 +81,6 @@ sub new {
 # @param string $meta_data external custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -229,11 +223,6 @@ sub new {
 sub create_game_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_game_level");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_game_level");
@@ -255,7 +244,7 @@ sub create_game_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/create';
+    my $_resource_path = '/level/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -399,13 +388,6 @@ sub create_game_level {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -426,16 +408,10 @@ sub create_game_level {
 #
 # Delete Game Level
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $level_id The id of the level to return. (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -458,11 +434,6 @@ sub create_game_level {
 sub delete_game_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_game_level");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_game_level");
@@ -474,7 +445,7 @@ sub delete_game_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/delete';
+    my $_resource_path = '/level/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -498,13 +469,6 @@ sub delete_game_level {
         $query_params->{'levelId'} = $self->{api_client}->to_query_value($args{'level_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -525,17 +489,11 @@ sub delete_game_level {
 #
 # Get Game Level
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $level_id The id of the level to return. (required)
 # @param boolean $include_game_data If true include the game level data, otherwise don&#39;t. default is false. (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -563,11 +521,6 @@ sub delete_game_level {
 sub get_game_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_game_level");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_game_level");
@@ -579,7 +532,7 @@ sub get_game_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/get';
+    my $_resource_path = '/level/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -608,13 +561,6 @@ sub get_game_level {
         $query_params->{'includeGameData'} = $self->{api_client}->to_query_value($args{'include_game_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -635,7 +581,6 @@ sub get_game_level {
 #
 # Search Game Levels
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param string $app_key the application key (required)
 # @param string $keyword Match the keyword to the owner name or level name. (optional)
@@ -648,11 +593,6 @@ sub get_game_level {
 # @param string $filters  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -715,11 +655,6 @@ sub get_game_level {
 sub get_game_levels_by_application {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_game_levels_by_application");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_game_levels_by_application");
@@ -731,7 +666,7 @@ sub get_game_levels_by_application {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/search';
+    my $_resource_path = '/level/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -795,13 +730,6 @@ sub get_game_levels_by_application {
         $query_params->{'filters'} = $self->{api_client}->to_query_value($args{'filters'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -822,7 +750,6 @@ sub get_game_levels_by_application {
 #
 # Search Game Level by Billable Entity
 #
-# @param double $version  (required)
 # @param int $account_id The account id of the user (required)
 # @param string $app_key the application key (optional)
 # @param string $keyword The keyword used to search (optional)
@@ -833,11 +760,6 @@ sub get_game_levels_by_application {
 # @param int $limit The number of records to return (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The account id of the user',
@@ -890,18 +812,13 @@ sub get_game_levels_by_application {
 sub get_game_levels_by_billable_entity {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_game_levels_by_billable_entity");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling get_game_levels_by_billable_entity");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/searchByBillableEntity';
+    my $_resource_path = '/level/searchByBillableEntity';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -955,13 +872,6 @@ sub get_game_levels_by_billable_entity {
         $query_params->{'limit'} = $self->{api_client}->to_query_value($args{'limit'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -982,16 +892,10 @@ sub get_game_levels_by_billable_entity {
 #
 # Get Level Questions
 #
-# @param double $version  (required)
 # @param int $level_id the id of the level to get questions from (required)
 # @param int $account_id the id of the logged in user (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'level_id' => {
         data_type => 'int',
         description => 'the id of the level to get questions from',
@@ -1014,11 +918,6 @@ sub get_game_levels_by_billable_entity {
 sub get_questions_in_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_questions_in_level");
-    }
-
     # verify the required parameter 'level_id' is set
     unless (exists $args{'level_id'}) {
       croak("Missing the required parameter 'level_id' when calling get_questions_in_level");
@@ -1030,7 +929,7 @@ sub get_questions_in_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/questions/get';
+    my $_resource_path = '/level/questions/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1052,13 +951,6 @@ sub get_questions_in_level {
     # query params
     if ( exists $args{'account_id'}) {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -1081,16 +973,10 @@ sub get_questions_in_level {
 #
 # Get Level Words
 #
-# @param double $version  (required)
 # @param int $level_id the id of the level to get words for (required)
 # @param int $account_id the id of the logged in user (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'level_id' => {
         data_type => 'int',
         description => 'the id of the level to get words for',
@@ -1113,11 +999,6 @@ sub get_questions_in_level {
 sub get_words_in_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_words_in_level");
-    }
-
     # verify the required parameter 'level_id' is set
     unless (exists $args{'level_id'}) {
       croak("Missing the required parameter 'level_id' when calling get_words_in_level");
@@ -1129,7 +1010,7 @@ sub get_words_in_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/words/get';
+    my $_resource_path = '/level/words/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -1153,13 +1034,6 @@ sub get_words_in_level {
         $query_params->{'accountId'} = $self->{api_client}->to_query_value($args{'account_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1180,7 +1054,6 @@ sub get_words_in_level {
 #
 # Update Game Level
 #
-# @param double $version  (required)
 # @param int $account_id The logged in user. (required)
 # @param int $level_id If update then include the level Id. (required)
 # @param string $app_key The game application key to save the level for. (optional)
@@ -1210,11 +1083,6 @@ sub get_words_in_level {
 # @param string $meta_data external custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'The logged in user.',
@@ -1362,11 +1230,6 @@ sub get_words_in_level {
 sub update_game_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_game_level");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_game_level");
@@ -1378,7 +1241,7 @@ sub update_game_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/update';
+    my $_resource_path = '/level/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1527,13 +1390,6 @@ sub update_game_level {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1554,17 +1410,11 @@ sub update_game_level {
 #
 # Update Level Questions
 #
-# @param double $version  (required)
 # @param int $level_id the id of the level to update questions on (required)
 # @param int $account_id the id of the logged in user (required)
 # @param string $question_ids the IDs of the questions to update (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'level_id' => {
         data_type => 'int',
         description => 'the id of the level to update questions on',
@@ -1592,11 +1442,6 @@ sub update_game_level {
 sub update_questions_in_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_questions_in_level");
-    }
-
     # verify the required parameter 'level_id' is set
     unless (exists $args{'level_id'}) {
       croak("Missing the required parameter 'level_id' when calling update_questions_in_level");
@@ -1613,7 +1458,7 @@ sub update_questions_in_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/questions/update';
+    my $_resource_path = '/level/questions/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1642,13 +1487,6 @@ sub update_questions_in_level {
         $query_params->{'questionIds'} = $self->{api_client}->to_query_value($args{'question_ids'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1669,17 +1507,11 @@ sub update_questions_in_level {
 #
 # Update Level Words
 #
-# @param double $version  (required)
 # @param int $level_id the id of the level to update words for (required)
 # @param int $account_id the id of the logged in user (required)
 # @param string $word_ids the ids of the words to update for the level (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'level_id' => {
         data_type => 'int',
         description => 'the id of the level to update words for',
@@ -1707,11 +1539,6 @@ sub update_questions_in_level {
 sub update_words_in_level {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_words_in_level");
-    }
-
     # verify the required parameter 'level_id' is set
     unless (exists $args{'level_id'}) {
       croak("Missing the required parameter 'level_id' when calling update_words_in_level");
@@ -1728,7 +1555,7 @@ sub update_words_in_level {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/level/words/update';
+    my $_resource_path = '/level/words/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1755,13 +1582,6 @@ sub update_words_in_level {
     # query params
     if ( exists $args{'word_ids'}) {
         $query_params->{'wordIds'} = $self->{api_client}->to_query_value($args{'word_ids'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

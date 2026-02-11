@@ -53,7 +53,6 @@ sub new {
 #
 # Accept Invite
 #
-# @param double $version  (required)
 # @param string $token the invite token (required)
 # @param int $account_id the accountId of the user who is accepting the invite (required)
 # @param int $album_id the album id associated with this invite (if applicable) (optional)
@@ -70,11 +69,6 @@ sub new {
 # @param boolean $auto_favorite_retailer_location whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'token' => {
         data_type => 'string',
         description => 'the invite token',
@@ -157,11 +151,6 @@ sub new {
 sub accept_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling accept_invite");
-    }
-
     # verify the required parameter 'token' is set
     unless (exists $args{'token'}) {
       croak("Missing the required parameter 'token' when calling accept_invite");
@@ -173,7 +162,7 @@ sub accept_invite {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/accept';
+    my $_resource_path = '/invite/accept';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -257,13 +246,6 @@ sub accept_invite {
         $query_params->{'autoFavoriteRetailerLocation'} = $self->{api_client}->to_query_value($args{'auto_favorite_retailer_location'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -284,7 +266,6 @@ sub accept_invite {
 #
 # Invite to Contest
 #
-# @param double $version  (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 # @param int $app_id This parameter is deprecated. (optional)
@@ -294,11 +275,6 @@ sub accept_invite {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique ID given by the device (deviceId or accountId required)',
@@ -346,13 +322,8 @@ sub accept_invite {
 sub album_contest_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling album_contest_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/albumContest';
+    my $_resource_path = '/invite/albumContest';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -401,13 +372,6 @@ sub album_contest_invite {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -428,7 +392,6 @@ sub album_contest_invite {
 #
 # Invite to Collection
 #
-# @param double $version  (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 # @param int $app_id This parameter is deprecated. (optional)
@@ -438,11 +401,6 @@ sub album_contest_invite {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique ID given by the device (deviceId or accountId required)',
@@ -490,13 +448,8 @@ sub album_contest_invite {
 sub album_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling album_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/album';
+    my $_resource_path = '/invite/album';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -545,13 +498,6 @@ sub album_invite {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -572,7 +518,6 @@ sub album_invite {
 #
 # Invite to Event
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user making the share (required)
 # @param string $app_key the application key (required)
 # @param int $listing_id The ID of the event listing (required)
@@ -580,11 +525,6 @@ sub album_invite {
 # @param int $retailer_location_id The retailer location id of where the event will take place (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user making the share',
@@ -622,11 +562,6 @@ sub album_invite {
 sub event_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling event_invite");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling event_invite");
@@ -643,7 +578,7 @@ sub event_invite {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/event';
+    my $_resource_path = '/invite/event';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -682,13 +617,6 @@ sub event_invite {
         $query_params->{'retailerLocationId'} = $self->{api_client}->to_query_value($args{'retailer_location_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -709,7 +637,6 @@ sub event_invite {
 #
 # Invite to Game Level
 #
-# @param double $version  (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 # @param int $app_id This parameter is deprecated. (optional)
@@ -719,11 +646,6 @@ sub event_invite {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique ID given by the device (deviceId or accountId required)',
@@ -771,13 +693,8 @@ sub event_invite {
 sub game_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling game_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/gameLevel';
+    my $_resource_path = '/invite/gameLevel';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -826,13 +743,6 @@ sub game_invite {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -853,7 +763,6 @@ sub game_invite {
 #
 # Get Invite
 #
-# @param double $version  (required)
 # @param int $account_id Account ID of the user if they are logged in (optional)
 # @param string $token the invite token (optional)
 # @param int $album_id album id to match the invite against (if applicable) (optional)
@@ -865,11 +774,6 @@ sub game_invite {
 # @param string $app_key the application key (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'Account ID of the user if they are logged in',
@@ -927,13 +831,8 @@ sub game_invite {
 sub get_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/get';
+    my $_resource_path = '/invite/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -992,13 +891,6 @@ sub get_invite {
         $query_params->{'appKey'} = $self->{api_client}->to_query_value($args{'app_key'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1019,7 +911,6 @@ sub get_invite {
 #
 # Invite to Mission
 #
-# @param double $version  (required)
 # @param string $device_id a unique ID given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account ID of the user (deviceId or accountId required) (optional)
 # @param int $app_id This parameter is deprecated. (optional)
@@ -1029,11 +920,6 @@ sub get_invite {
 # @param double $longitude the current longitude of the user (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique ID given by the device (deviceId or accountId required)',
@@ -1081,13 +967,8 @@ sub get_invite {
 sub mission_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling mission_invite");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/mission';
+    my $_resource_path = '/invite/mission';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1136,13 +1017,6 @@ sub mission_invite {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1163,17 +1037,11 @@ sub mission_invite {
 #
 # Invite to Offer
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user making the share (required)
 # @param string $app_key the application key (required)
 # @param int $offer_id the ID of the offer used to invite to favorite (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user making the share',
@@ -1201,11 +1069,6 @@ sub mission_invite {
 sub offer_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling offer_invite");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling offer_invite");
@@ -1222,7 +1085,7 @@ sub offer_invite {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/offer';
+    my $_resource_path = '/invite/offer';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1251,13 +1114,6 @@ sub offer_invite {
         $query_params->{'offerId'} = $self->{api_client}->to_query_value($args{'offer_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1278,17 +1134,11 @@ sub offer_invite {
 #
 # Invite to Offer Location
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user making the share (required)
 # @param string $app_key the application key (required)
 # @param int $offer_location_id the id of the offer location to share (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user making the share',
@@ -1316,11 +1166,6 @@ sub offer_invite {
 sub offer_location_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling offer_location_invite");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling offer_location_invite");
@@ -1337,7 +1182,7 @@ sub offer_location_invite {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/offerLocation';
+    my $_resource_path = '/invite/offerLocation';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1366,13 +1211,6 @@ sub offer_location_invite {
         $query_params->{'offerLocationId'} = $self->{api_client}->to_query_value($args{'offer_location_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -1393,18 +1231,12 @@ sub offer_location_invite {
 #
 # Invite to Retailer Location
 #
-# @param double $version  (required)
 # @param int $account_id the account ID of the user making the share (required)
 # @param string $app_key the application key (required)
 # @param int $retailer_location_id The retailer location id of where the event will take place (required)
 # @param int $album_id Optional album id to link with the invite (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account ID of the user making the share',
@@ -1437,11 +1269,6 @@ sub offer_location_invite {
 sub retailer_location_invite {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling retailer_location_invite");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling retailer_location_invite");
@@ -1458,7 +1285,7 @@ sub retailer_location_invite {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/invite/retailerLocation';
+    my $_resource_path = '/invite/retailerLocation';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1490,13 +1317,6 @@ sub retailer_location_invite {
     # query params
     if ( exists $args{'album_id'}) {
         $query_params->{'albumId'} = $self->{api_client}->to_query_value($args{'album_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

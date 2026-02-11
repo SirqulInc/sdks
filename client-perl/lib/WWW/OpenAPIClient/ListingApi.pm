@@ -53,7 +53,6 @@ sub new {
 #
 # Create Listing
 #
-# @param double $version  (required)
 # @param int $account_id the user&#39;s account ID (required)
 # @param string $name the name of the listing (required)
 # @param string $filter_ids comma separated list of filter IDs (optional)
@@ -70,11 +69,6 @@ sub new {
 # @param string $meta_data external custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user&#39;s account ID',
@@ -157,11 +151,6 @@ sub new {
 sub create_listing {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_listing");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling create_listing");
@@ -173,7 +162,7 @@ sub create_listing {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/listing/create';
+    my $_resource_path = '/listing/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -257,13 +246,6 @@ sub create_listing {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -284,16 +266,10 @@ sub create_listing {
 #
 # Delete Listing
 #
-# @param double $version  (required)
 # @param int $account_id the id of the logged in user (required)
 # @param int $listing_id the id of the listing to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the id of the logged in user',
@@ -316,11 +292,6 @@ sub create_listing {
 sub delete_listing {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_listing");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling delete_listing");
@@ -332,7 +303,7 @@ sub delete_listing {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/listing/delete';
+    my $_resource_path = '/listing/delete';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -356,13 +327,6 @@ sub delete_listing {
         $query_params->{'listingId'} = $self->{api_client}->to_query_value($args{'listing_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -383,15 +347,9 @@ sub delete_listing {
 #
 # Get Listing
 #
-# @param double $version  (required)
 # @param int $listing_id the id of the listing to get (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'listing_id' => {
         data_type => 'int',
         description => 'the id of the listing to get',
@@ -409,18 +367,13 @@ sub delete_listing {
 sub get_listing {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_listing");
-    }
-
     # verify the required parameter 'listing_id' is set
     unless (exists $args{'listing_id'}) {
       croak("Missing the required parameter 'listing_id' when calling get_listing");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/listing/get';
+    my $_resource_path = '/listing/get';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -437,13 +390,6 @@ sub get_listing {
     # query params
     if ( exists $args{'listing_id'}) {
         $query_params->{'listingId'} = $self->{api_client}->to_query_value($args{'listing_id'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -466,7 +412,6 @@ sub get_listing {
 #
 # Search Listings
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (optional)
 # @param string $keyword search the event name and description for this keyword (optional)
 # @param int $start the record to begin the return set on (optional, default to 0)
@@ -484,11 +429,6 @@ sub get_listing {
 # @param string $external_group_id external group identifier used by a third party (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -576,13 +516,8 @@ sub get_listing {
 sub search_listing {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_listing");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/listing/search';
+    my $_resource_path = '/listing/search';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -671,13 +606,6 @@ sub search_listing {
         $query_params->{'externalGroupId'} = $self->{api_client}->to_query_value($args{'external_group_id'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -698,7 +626,6 @@ sub search_listing {
 #
 # Summary Listing
 #
-# @param double $version  (required)
 # @param int $account_id the account id of the user (optional)
 # @param int $start_date the start date to search from (optional)
 # @param string $category_ids the list of categories to search on (optional)
@@ -706,11 +633,6 @@ sub search_listing {
 # @param boolean $use_listing_order_ids determines whether to use configured listing order ids (optional, default to true)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the account id of the user',
@@ -748,13 +670,8 @@ sub search_listing {
 sub summary_listing {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling summary_listing");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/listing/summary';
+    my $_resource_path = '/listing/summary';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -793,13 +710,6 @@ sub summary_listing {
         $query_params->{'useListingOrderIds'} = $self->{api_client}->to_query_value($args{'use_listing_order_ids'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -820,7 +730,6 @@ sub summary_listing {
 #
 # Update Listing
 #
-# @param double $version  (required)
 # @param int $account_id the user&#39;s account ID (required)
 # @param int $listing_id the listing to update (required)
 # @param string $filter_ids comma separated list of filter IDs (optional)
@@ -838,11 +747,6 @@ sub summary_listing {
 # @param string $meta_data external custom client defined data (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'account_id' => {
         data_type => 'int',
         description => 'the user&#39;s account ID',
@@ -930,11 +834,6 @@ sub summary_listing {
 sub update_listing {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_listing");
-    }
-
     # verify the required parameter 'account_id' is set
     unless (exists $args{'account_id'}) {
       croak("Missing the required parameter 'account_id' when calling update_listing");
@@ -946,7 +845,7 @@ sub update_listing {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/listing/update';
+    my $_resource_path = '/listing/update';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -1033,13 +932,6 @@ sub update_listing {
     # query params
     if ( exists $args{'meta_data'}) {
         $query_params->{'metaData'} = $self->{api_client}->to_query_value($args{'meta_data'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

@@ -53,16 +53,10 @@ sub new {
 #
 # Create Stripe Checkout Session
 #
-# @param double $version  (required)
 # @param string $app_key Sirqul Application Key (required)
 # @param string $stripe_parameters Stripe Parameters (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'app_key' => {
         data_type => 'string',
         description => 'Sirqul Application Key',
@@ -85,11 +79,6 @@ sub new {
 sub create_stripe_checkout_session {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_stripe_checkout_session");
-    }
-
     # verify the required parameter 'app_key' is set
     unless (exists $args{'app_key'}) {
       croak("Missing the required parameter 'app_key' when calling create_stripe_checkout_session");
@@ -101,7 +90,7 @@ sub create_stripe_checkout_session {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/stripe/checkout/session/create';
+    my $_resource_path = '/stripe/checkout/session/create';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -123,13 +112,6 @@ sub create_stripe_checkout_session {
     # query params
     if ( exists $args{'stripe_parameters'}) {
         $query_params->{'stripeParameters'} = $self->{api_client}->to_query_value($args{'stripe_parameters'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;

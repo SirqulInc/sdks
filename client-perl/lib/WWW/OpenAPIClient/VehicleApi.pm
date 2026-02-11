@@ -53,16 +53,10 @@ sub new {
 #
 # Create Vehicle
 #
-# @param double $version  (required)
 # @param string $vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
 # @param Vehicle $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'vehicle' => {
         data_type => 'string',
         description => 'A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; ',
@@ -85,18 +79,13 @@ sub new {
 sub create_vehicle {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling create_vehicle");
-    }
-
     # verify the required parameter 'vehicle' is set
     unless (exists $args{'vehicle'}) {
       croak("Missing the required parameter 'vehicle' when calling create_vehicle");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vehicle';
+    my $_resource_path = '/vehicle';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -113,13 +102,6 @@ sub create_vehicle {
     # query params
     if ( exists $args{'vehicle'}) {
         $query_params->{'vehicle'} = $self->{api_client}->to_query_value($args{'vehicle'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
@@ -147,15 +129,9 @@ sub create_vehicle {
 #
 # Delete Vehicle
 #
-# @param double $version  (required)
 # @param int $id The id of the vehicle to delete (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'The id of the vehicle to delete',
@@ -173,18 +149,13 @@ sub create_vehicle {
 sub delete_vehicle {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling delete_vehicle");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling delete_vehicle");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vehicle/{id}';
+    my $_resource_path = '/vehicle/{id}';
 
     my $_method = 'DELETE';
     my $query_params = {};
@@ -197,13 +168,6 @@ sub delete_vehicle {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -228,15 +192,9 @@ sub delete_vehicle {
 #
 # Get Vehicle
 #
-# @param double $version  (required)
 # @param int $id The id of the vehicle requested (required)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'The id of the vehicle requested',
@@ -254,18 +212,13 @@ sub delete_vehicle {
 sub get_vehicle {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_vehicle");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling get_vehicle");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vehicle/{id}';
+    my $_resource_path = '/vehicle/{id}';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -278,13 +231,6 @@ sub get_vehicle {
         $header_params->{'Accept'} = $_header_accept;
     }
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
 
     # path params
     if ( exists $args{'id'}) {
@@ -313,7 +259,6 @@ sub get_vehicle {
 #
 # Search Vehicle
 #
-# @param double $version  (required)
 # @param int $hub_id Filter by service hub (required)
 # @param string $sort_field The field to sort by (required)
 # @param boolean $descending Determines whether the sorted list is in descending or ascending order (required)
@@ -323,11 +268,6 @@ sub get_vehicle {
 # @param string $keyword The keyword to search for (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'hub_id' => {
         data_type => 'int',
         description => 'Filter by service hub',
@@ -375,11 +315,6 @@ sub get_vehicle {
 sub search_vehicle {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling search_vehicle");
-    }
-
     # verify the required parameter 'hub_id' is set
     unless (exists $args{'hub_id'}) {
       croak("Missing the required parameter 'hub_id' when calling search_vehicle");
@@ -411,7 +346,7 @@ sub search_vehicle {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vehicle';
+    my $_resource_path = '/vehicle';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -460,13 +395,6 @@ sub search_vehicle {
         $query_params->{'activeOnly'} = $self->{api_client}->to_query_value($args{'active_only'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -487,17 +415,11 @@ sub search_vehicle {
 #
 # Update Vehicle
 #
-# @param double $version  (required)
 # @param int $id The id of the vehicle to update (required)
 # @param string $vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
 # @param Vehicle $body  (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'id' => {
         data_type => 'int',
         description => 'The id of the vehicle to update',
@@ -525,11 +447,6 @@ sub search_vehicle {
 sub update_vehicle {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling update_vehicle");
-    }
-
     # verify the required parameter 'id' is set
     unless (exists $args{'id'}) {
       croak("Missing the required parameter 'id' when calling update_vehicle");
@@ -541,7 +458,7 @@ sub update_vehicle {
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/vehicle/{id}';
+    my $_resource_path = '/vehicle/{id}';
 
     my $_method = 'PUT';
     my $query_params = {};
@@ -558,13 +475,6 @@ sub update_vehicle {
     # query params
     if ( exists $args{'vehicle'}) {
         $query_params->{'vehicle'} = $self->{api_client}->to_query_value($args{'vehicle'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     # path params

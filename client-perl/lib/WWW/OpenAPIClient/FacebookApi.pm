@@ -53,18 +53,12 @@ sub new {
 #
 # Get Facebook Token
 #
-# @param double $version  (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
 # @param double $latitude used to update the user&#39;s current location (optional)
 # @param double $longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'device_id' => {
         data_type => 'string',
         description => 'a unique id given by the device (deviceId or accountId required)',
@@ -97,13 +91,8 @@ sub new {
 sub get_token {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling get_token");
-    }
-
     # parse inputs
-    my $_resource_path = '/api/{version}/facebook/getfbtoken';
+    my $_resource_path = '/facebook/getfbtoken';
 
     my $_method = 'GET';
     my $query_params = {};
@@ -137,13 +126,6 @@ sub get_token {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
     }
 
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
-    }
-
     my $_body_data;
     # authentication setting, if any
     my $auth_settings = [qw()];
@@ -164,7 +146,6 @@ sub get_token {
 #
 # Post to Facebook
 #
-# @param double $version  (required)
 # @param string $event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
 # @param string $device_id a unique id given by the device (deviceId or accountId required) (optional)
 # @param int $account_id the account id of the user (deviceId or accountId required) (optional)
@@ -177,11 +158,6 @@ sub get_token {
 # @param double $longitude used to update the user&#39;s current location (optional)
 {
     my $params = {
-    'version' => {
-        data_type => 'double',
-        description => '',
-        required => '1',
-    },
     'event' => {
         data_type => 'string',
         description => 'the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}',
@@ -244,18 +220,13 @@ sub get_token {
 sub graph_interface {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'version' is set
-    unless (exists $args{'version'}) {
-      croak("Missing the required parameter 'version' when calling graph_interface");
-    }
-
     # verify the required parameter 'event' is set
     unless (exists $args{'event'}) {
       croak("Missing the required parameter 'event' when calling graph_interface");
     }
 
     # parse inputs
-    my $_resource_path = '/api/{version}/facebook/graph';
+    my $_resource_path = '/facebook/graph';
 
     my $_method = 'POST';
     my $query_params = {};
@@ -317,13 +288,6 @@ sub graph_interface {
     # query params
     if ( exists $args{'longitude'}) {
         $query_params->{'longitude'} = $self->{api_client}->to_query_value($args{'longitude'});
-    }
-
-    # path params
-    if ( exists $args{'version'}) {
-        my $_base_variable = "{" . "version" . "}";
-        my $_base_value = $self->{api_client}->to_path_value($args{'version'});
-        $_resource_path =~ s/$_base_variable/$_base_value/g;
     }
 
     my $_body_data;
