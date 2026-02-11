@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.MissionResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class MissionInviteApi {
 
     /**
      * Build call for createMissionInvite
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -92,7 +90,7 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createMissionInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createMissionInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,8 +107,7 @@ public class MissionInviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/invite/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/invite/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -158,20 +155,14 @@ public class MissionInviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMissionInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createMissionInvite(Async)");
-        }
-
-        return createMissionInviteCall(version, deviceId, accountId, missionId, joinCode, includeGameData, _callback);
+    private okhttp3.Call createMissionInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+        return createMissionInviteCall(deviceId, accountId, missionId, joinCode, includeGameData, _callback);
 
     }
 
     /**
      * Create Mission Invite
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -186,15 +177,14 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionResponse createMissionInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<MissionResponse> localVarResp = createMissionInviteWithHttpInfo(version, deviceId, accountId, missionId, joinCode, includeGameData);
+    public MissionResponse createMissionInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<MissionResponse> localVarResp = createMissionInviteWithHttpInfo(deviceId, accountId, missionId, joinCode, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Create Mission Invite
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -209,8 +199,8 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionResponse> createMissionInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = createMissionInviteValidateBeforeCall(version, deviceId, accountId, missionId, joinCode, includeGameData, null);
+    public ApiResponse<MissionResponse> createMissionInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = createMissionInviteValidateBeforeCall(deviceId, accountId, missionId, joinCode, includeGameData, null);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -218,7 +208,6 @@ public class MissionInviteApi {
     /**
      * Create Mission Invite (asynchronously)
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for. (optional)
@@ -234,16 +223,15 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createMissionInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<MissionResponse> _callback) throws ApiException {
+    public okhttp3.Call createMissionInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<MissionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createMissionInviteValidateBeforeCall(version, deviceId, accountId, missionId, joinCode, includeGameData, _callback);
+        okhttp3.Call localVarCall = createMissionInviteValidateBeforeCall(deviceId, accountId, missionId, joinCode, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteMissionInvite
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -259,7 +247,7 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteMissionInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteMissionInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -276,8 +264,7 @@ public class MissionInviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/invite/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/invite/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -325,20 +312,14 @@ public class MissionInviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteMissionInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteMissionInvite(Async)");
-        }
-
-        return deleteMissionInviteCall(version, deviceId, accountId, missionId, missionInviteId, includeGameData, _callback);
+    private okhttp3.Call deleteMissionInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+        return deleteMissionInviteCall(deviceId, accountId, missionId, missionInviteId, includeGameData, _callback);
 
     }
 
     /**
      * Delete Mission Invite
      * Update the mission invite status to quit.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -353,15 +334,14 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteMissionInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteMissionInviteWithHttpInfo(version, deviceId, accountId, missionId, missionInviteId, includeGameData);
+    public SirqulResponse deleteMissionInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteMissionInviteWithHttpInfo(deviceId, accountId, missionId, missionInviteId, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Delete Mission Invite
      * Update the mission invite status to quit.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -376,8 +356,8 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteMissionInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = deleteMissionInviteValidateBeforeCall(version, deviceId, accountId, missionId, missionInviteId, includeGameData, null);
+    public ApiResponse<SirqulResponse> deleteMissionInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = deleteMissionInviteValidateBeforeCall(deviceId, accountId, missionId, missionInviteId, includeGameData, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -385,7 +365,6 @@ public class MissionInviteApi {
     /**
      * Delete Mission Invite (asynchronously)
      * Update the mission invite status to quit.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -401,16 +380,15 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteMissionInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteMissionInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteMissionInviteValidateBeforeCall(version, deviceId, accountId, missionId, missionInviteId, includeGameData, _callback);
+        okhttp3.Call localVarCall = deleteMissionInviteValidateBeforeCall(deviceId, accountId, missionId, missionInviteId, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getMissionInvite
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -427,7 +405,7 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMissionInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMissionInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -444,8 +422,7 @@ public class MissionInviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/invite/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/invite/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -497,20 +474,14 @@ public class MissionInviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMissionInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getMissionInvite(Async)");
-        }
-
-        return getMissionInviteCall(version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, _callback);
+    private okhttp3.Call getMissionInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores, final ApiCallback _callback) throws ApiException {
+        return getMissionInviteCall(deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, _callback);
 
     }
 
     /**
      * Get Mission Invite
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -526,15 +497,14 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionResponse getMissionInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores) throws ApiException {
-        ApiResponse<MissionResponse> localVarResp = getMissionInviteWithHttpInfo(version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
+    public MissionResponse getMissionInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores) throws ApiException {
+        ApiResponse<MissionResponse> localVarResp = getMissionInviteWithHttpInfo(deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
         return localVarResp.getData();
     }
 
     /**
      * Get Mission Invite
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -550,8 +520,8 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionResponse> getMissionInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores) throws ApiException {
-        okhttp3.Call localVarCall = getMissionInviteValidateBeforeCall(version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, null);
+    public ApiResponse<MissionResponse> getMissionInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores) throws ApiException {
+        okhttp3.Call localVarCall = getMissionInviteValidateBeforeCall(deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, null);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -559,7 +529,6 @@ public class MissionInviteApi {
     /**
      * Get Mission Invite (asynchronously)
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param missionId The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -576,16 +545,15 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMissionInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores, final ApiCallback<MissionResponse> _callback) throws ApiException {
+    public okhttp3.Call getMissionInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String includeScores, final ApiCallback<MissionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMissionInviteValidateBeforeCall(version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, _callback);
+        okhttp3.Call localVarCall = getMissionInviteValidateBeforeCall(deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, _callback);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchMissionInvites
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -609,7 +577,7 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionInvitesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchMissionInvitesCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -626,8 +594,7 @@ public class MissionInviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/invite/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/invite/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -707,20 +674,14 @@ public class MissionInviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchMissionInvitesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchMissionInvites(Async)");
-        }
-
-        return searchMissionInvitesCall(version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, _callback);
+    private okhttp3.Call searchMissionInvitesValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+        return searchMissionInvitesCall(deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, _callback);
 
     }
 
     /**
      * Search Mission Invites
      * Get a list of mission invites that the account has.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -743,15 +704,14 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<MissionResponse> searchMissionInvites(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<List<MissionResponse>> localVarResp = searchMissionInvitesWithHttpInfo(version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
+    public List<MissionResponse> searchMissionInvites(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<List<MissionResponse>> localVarResp = searchMissionInvitesWithHttpInfo(deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Search Mission Invites
      * Get a list of mission invites that the account has.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -774,8 +734,8 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<MissionResponse>> searchMissionInvitesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = searchMissionInvitesValidateBeforeCall(version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, null);
+    public ApiResponse<List<MissionResponse>> searchMissionInvitesWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = searchMissionInvitesValidateBeforeCall(deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, null);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -783,7 +743,6 @@ public class MissionInviteApi {
     /**
      * Search Mission Invites (asynchronously)
      * Get a list of mission invites that the account has.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the app to retrieve the data for, use your application key. (optional)
@@ -807,16 +766,15 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionInvitesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchMissionInvitesAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable Long lastUpdated, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchMissionInvitesValidateBeforeCall(version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, _callback);
+        okhttp3.Call localVarCall = searchMissionInvitesValidateBeforeCall(deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateMissionInvite
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -838,7 +796,7 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMissionInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateMissionInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -855,8 +813,7 @@ public class MissionInviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/invite/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/invite/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -928,20 +885,14 @@ public class MissionInviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateMissionInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateMissionInvite(Async)");
-        }
-
-        return updateMissionInviteCall(version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, _callback);
+    private okhttp3.Call updateMissionInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+        return updateMissionInviteCall(deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, _callback);
 
     }
 
     /**
      * Update Mission Invite
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -962,15 +913,14 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionResponse updateMissionInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<MissionResponse> localVarResp = updateMissionInviteWithHttpInfo(version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
+    public MissionResponse updateMissionInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<MissionResponse> localVarResp = updateMissionInviteWithHttpInfo(deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Update Mission Invite
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -991,8 +941,8 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionResponse> updateMissionInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = updateMissionInviteValidateBeforeCall(version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, null);
+    public ApiResponse<MissionResponse> updateMissionInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = updateMissionInviteValidateBeforeCall(deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, null);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1000,7 +950,6 @@ public class MissionInviteApi {
     /**
      * Update Mission Invite (asynchronously)
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param appKey the application key (optional)
@@ -1022,9 +971,9 @@ public class MissionInviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMissionInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<MissionResponse> _callback) throws ApiException {
+    public okhttp3.Call updateMissionInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long missionInviteId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<MissionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateMissionInviteValidateBeforeCall(version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, _callback);
+        okhttp3.Call localVarCall = updateMissionInviteValidateBeforeCall(deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

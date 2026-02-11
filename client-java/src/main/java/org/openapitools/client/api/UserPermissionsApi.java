@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.UserPermissionsResponse;
 
@@ -76,7 +75,6 @@ public class UserPermissionsApi {
 
     /**
      * Build call for addUsersToPermissionable
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -104,7 +102,7 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addUsersToPermissionableCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addUsersToPermissionableCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -121,8 +119,7 @@ public class UserPermissionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/permissions/add"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/permissions/add";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -218,12 +215,7 @@ public class UserPermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addUsersToPermissionableValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addUsersToPermissionable(Async)");
-        }
-
+    private okhttp3.Call addUsersToPermissionableValidateBeforeCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'permissionableType' is set
         if (permissionableType == null) {
             throw new ApiException("Missing the required parameter 'permissionableType' when calling addUsersToPermissionable(Async)");
@@ -234,14 +226,13 @@ public class UserPermissionsApi {
             throw new ApiException("Missing the required parameter 'permissionableId' when calling addUsersToPermissionable(Async)");
         }
 
-        return addUsersToPermissionableCall(version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, _callback);
+        return addUsersToPermissionableCall(permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, _callback);
 
     }
 
     /**
      * Add User
      * Adds a user to a permissionable object.
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -268,15 +259,14 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse addUsersToPermissionable(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = addUsersToPermissionableWithHttpInfo(version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
+    public SirqulResponse addUsersToPermissionable(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = addUsersToPermissionableWithHttpInfo(permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
         return localVarResp.getData();
     }
 
     /**
      * Add User
      * Adds a user to a permissionable object.
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -303,8 +293,8 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> addUsersToPermissionableWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
-        okhttp3.Call localVarCall = addUsersToPermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, null);
+    public ApiResponse<SirqulResponse> addUsersToPermissionableWithHttpInfo(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
+        okhttp3.Call localVarCall = addUsersToPermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -312,7 +302,6 @@ public class UserPermissionsApi {
     /**
      * Add User (asynchronously)
      * Adds a user to a permissionable object.
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -340,16 +329,15 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addUsersToPermissionableAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call addUsersToPermissionableAsync(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addUsersToPermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, _callback);
+        okhttp3.Call localVarCall = addUsersToPermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for approvePermissionable
-     * @param version  (required)
      * @param permissionableType The permissionable type of the object (required)
      * @param permissionableId The id of the permissionable object (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -365,7 +353,7 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approvePermissionableCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call approvePermissionableCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -382,8 +370,7 @@ public class UserPermissionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/permissionable/approve"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/permissionable/approve";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -431,12 +418,7 @@ public class UserPermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call approvePermissionableValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling approvePermissionable(Async)");
-        }
-
+    private okhttp3.Call approvePermissionableValidateBeforeCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'permissionableType' is set
         if (permissionableType == null) {
             throw new ApiException("Missing the required parameter 'permissionableType' when calling approvePermissionable(Async)");
@@ -447,14 +429,13 @@ public class UserPermissionsApi {
             throw new ApiException("Missing the required parameter 'permissionableId' when calling approvePermissionable(Async)");
         }
 
-        return approvePermissionableCall(version, permissionableType, permissionableId, deviceId, accountId, approvalStatus, _callback);
+        return approvePermissionableCall(permissionableType, permissionableId, deviceId, accountId, approvalStatus, _callback);
 
     }
 
     /**
      * Approve Permissionable
      * Sets the approval status of a permissionable object.
-     * @param version  (required)
      * @param permissionableType The permissionable type of the object (required)
      * @param permissionableId The id of the permissionable object (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -469,15 +450,14 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse approvePermissionable(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = approvePermissionableWithHttpInfo(version, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
+    public SirqulResponse approvePermissionable(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = approvePermissionableWithHttpInfo(permissionableType, permissionableId, deviceId, accountId, approvalStatus);
         return localVarResp.getData();
     }
 
     /**
      * Approve Permissionable
      * Sets the approval status of a permissionable object.
-     * @param version  (required)
      * @param permissionableType The permissionable type of the object (required)
      * @param permissionableId The id of the permissionable object (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -492,8 +472,8 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> approvePermissionableWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus) throws ApiException {
-        okhttp3.Call localVarCall = approvePermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, approvalStatus, null);
+    public ApiResponse<SirqulResponse> approvePermissionableWithHttpInfo(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus) throws ApiException {
+        okhttp3.Call localVarCall = approvePermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, approvalStatus, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -501,7 +481,6 @@ public class UserPermissionsApi {
     /**
      * Approve Permissionable (asynchronously)
      * Sets the approval status of a permissionable object.
-     * @param version  (required)
      * @param permissionableType The permissionable type of the object (required)
      * @param permissionableId The id of the permissionable object (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -517,16 +496,15 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approvePermissionableAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call approvePermissionableAsync(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = approvePermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, approvalStatus, _callback);
+        okhttp3.Call localVarCall = approvePermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, approvalStatus, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for leaveFromPermissionable
-     * @param version  (required)
      * @param permissionableType the permissionable type PermissionableType (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -543,7 +521,7 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call leaveFromPermissionableCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call leaveFromPermissionableCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -560,8 +538,7 @@ public class UserPermissionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/permissions/leave"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/permissions/leave";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -613,12 +590,7 @@ public class UserPermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call leaveFromPermissionableValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling leaveFromPermissionable(Async)");
-        }
-
+    private okhttp3.Call leaveFromPermissionableValidateBeforeCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'permissionableType' is set
         if (permissionableType == null) {
             throw new ApiException("Missing the required parameter 'permissionableType' when calling leaveFromPermissionable(Async)");
@@ -629,14 +601,13 @@ public class UserPermissionsApi {
             throw new ApiException("Missing the required parameter 'permissionableId' when calling leaveFromPermissionable(Async)");
         }
 
-        return leaveFromPermissionableCall(version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude, _callback);
+        return leaveFromPermissionableCall(permissionableType, permissionableId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Leave
      * Used when the user wants to leave from someone else&#39;s permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type PermissionableType (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -652,15 +623,14 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse leaveFromPermissionable(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = leaveFromPermissionableWithHttpInfo(version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
+    public SirqulResponse leaveFromPermissionable(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = leaveFromPermissionableWithHttpInfo(permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Leave
      * Used when the user wants to leave from someone else&#39;s permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type PermissionableType (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -676,8 +646,8 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> leaveFromPermissionableWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = leaveFromPermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> leaveFromPermissionableWithHttpInfo(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = leaveFromPermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -685,7 +655,6 @@ public class UserPermissionsApi {
     /**
      * Leave (asynchronously)
      * Used when the user wants to leave from someone else&#39;s permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type PermissionableType (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -702,16 +671,15 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call leaveFromPermissionableAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call leaveFromPermissionableAsync(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = leaveFromPermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = leaveFromPermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeUsersFromPermissionable
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -733,7 +701,7 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeUsersFromPermissionableCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeUsersFromPermissionableCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -750,8 +718,7 @@ public class UserPermissionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/permissions/remove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/permissions/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -823,12 +790,7 @@ public class UserPermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeUsersFromPermissionableValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeUsersFromPermissionable(Async)");
-        }
-
+    private okhttp3.Call removeUsersFromPermissionableValidateBeforeCall(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'permissionableType' is set
         if (permissionableType == null) {
             throw new ApiException("Missing the required parameter 'permissionableType' when calling removeUsersFromPermissionable(Async)");
@@ -839,14 +801,13 @@ public class UserPermissionsApi {
             throw new ApiException("Missing the required parameter 'permissionableId' when calling removeUsersFromPermissionable(Async)");
         }
 
-        return removeUsersFromPermissionableCall(version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, _callback);
+        return removeUsersFromPermissionableCall(permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, _callback);
 
     }
 
     /**
      * Remove User
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -867,15 +828,14 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeUsersFromPermissionable(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeUsersFromPermissionableWithHttpInfo(version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
+    public SirqulResponse removeUsersFromPermissionable(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeUsersFromPermissionableWithHttpInfo(permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
         return localVarResp.getData();
     }
 
     /**
      * Remove User
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -896,8 +856,8 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeUsersFromPermissionableWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
-        okhttp3.Call localVarCall = removeUsersFromPermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, null);
+    public ApiResponse<SirqulResponse> removeUsersFromPermissionableWithHttpInfo(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds) throws ApiException {
+        okhttp3.Call localVarCall = removeUsersFromPermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -905,7 +865,6 @@ public class UserPermissionsApi {
     /**
      * Remove User (asynchronously)
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @param version  (required)
      * @param permissionableType the permissionable type of the object (required)
      * @param permissionableId the id of the permissionable object (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -927,16 +886,15 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeUsersFromPermissionableAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeUsersFromPermissionableAsync(@javax.annotation.Nonnull String permissionableType, @javax.annotation.Nonnull Long permissionableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Boolean removeFriendGroup, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeUsersFromPermissionableValidateBeforeCall(version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, _callback);
+        okhttp3.Call localVarCall = removeUsersFromPermissionableValidateBeforeCall(permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchPermissionables
-     * @param version  (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -960,7 +918,7 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPermissionablesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchPermissionablesCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -977,8 +935,7 @@ public class UserPermissionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/permissions/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/permissions/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1058,20 +1015,14 @@ public class UserPermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchPermissionablesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchPermissionables(Async)");
-        }
-
-        return searchPermissionablesCall(version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, _callback);
+    private okhttp3.Call searchPermissionablesValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchPermissionablesCall(deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, _callback);
 
     }
 
     /**
      * Search Permissionables
      * Search on UserPermissions
-     * @param version  (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -1094,15 +1045,14 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<UserPermissionsResponse> searchPermissionables(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<UserPermissionsResponse>> localVarResp = searchPermissionablesWithHttpInfo(version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
+    public List<UserPermissionsResponse> searchPermissionables(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<UserPermissionsResponse>> localVarResp = searchPermissionablesWithHttpInfo(deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Permissionables
      * Search on UserPermissions
-     * @param version  (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -1125,8 +1075,8 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UserPermissionsResponse>> searchPermissionablesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchPermissionablesValidateBeforeCall(version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, null);
+    public ApiResponse<List<UserPermissionsResponse>> searchPermissionablesWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchPermissionablesValidateBeforeCall(deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, null);
         Type localVarReturnType = new TypeToken<List<UserPermissionsResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1134,7 +1084,6 @@ public class UserPermissionsApi {
     /**
      * Search Permissionables (asynchronously)
      * Search on UserPermissions
-     * @param version  (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId Filter results for a specific user account (optional)
@@ -1158,16 +1107,15 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPermissionablesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<UserPermissionsResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchPermissionablesAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<UserPermissionsResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchPermissionablesValidateBeforeCall(version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, _callback);
+        okhttp3.Call localVarCall = searchPermissionablesValidateBeforeCall(deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<UserPermissionsResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchPermissionablesFollowingDistance
-     * @param version  (required)
      * @param latitude The latitude of the current account (required)
      * @param longitude The longitude of the current account (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -1192,7 +1140,7 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPermissionablesFollowingDistanceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchPermissionablesFollowingDistanceCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1209,8 +1157,7 @@ public class UserPermissionsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/permissions/distancesearch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/permissions/distancesearch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1294,12 +1241,7 @@ public class UserPermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchPermissionablesFollowingDistanceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchPermissionablesFollowingDistance(Async)");
-        }
-
+    private okhttp3.Call searchPermissionablesFollowingDistanceValidateBeforeCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'latitude' is set
         if (latitude == null) {
             throw new ApiException("Missing the required parameter 'latitude' when calling searchPermissionablesFollowingDistance(Async)");
@@ -1310,14 +1252,13 @@ public class UserPermissionsApi {
             throw new ApiException("Missing the required parameter 'longitude' when calling searchPermissionablesFollowingDistance(Async)");
         }
 
-        return searchPermissionablesFollowingDistanceCall(version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, _callback);
+        return searchPermissionablesFollowingDistanceCall(latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, _callback);
 
     }
 
     /**
      * Search Permissionables by Distnace
      * Search on UserPermissions by distance
-     * @param version  (required)
      * @param latitude The latitude of the current account (required)
      * @param longitude The longitude of the current account (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -1341,15 +1282,14 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<UserPermissionsResponse> searchPermissionablesFollowingDistance(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<UserPermissionsResponse>> localVarResp = searchPermissionablesFollowingDistanceWithHttpInfo(version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
+    public List<UserPermissionsResponse> searchPermissionablesFollowingDistance(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<UserPermissionsResponse>> localVarResp = searchPermissionablesFollowingDistanceWithHttpInfo(latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Permissionables by Distnace
      * Search on UserPermissions by distance
-     * @param version  (required)
      * @param latitude The latitude of the current account (required)
      * @param longitude The longitude of the current account (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -1373,8 +1313,8 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UserPermissionsResponse>> searchPermissionablesFollowingDistanceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchPermissionablesFollowingDistanceValidateBeforeCall(version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, null);
+    public ApiResponse<List<UserPermissionsResponse>> searchPermissionablesFollowingDistanceWithHttpInfo(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchPermissionablesFollowingDistanceValidateBeforeCall(latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, null);
         Type localVarReturnType = new TypeToken<List<UserPermissionsResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1382,7 +1322,6 @@ public class UserPermissionsApi {
     /**
      * Search Permissionables by Distnace (asynchronously)
      * Search on UserPermissions by distance
-     * @param version  (required)
      * @param latitude The latitude of the current account (required)
      * @param longitude The longitude of the current account (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -1407,9 +1346,9 @@ public class UserPermissionsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPermissionablesFollowingDistanceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<UserPermissionsResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchPermissionablesFollowingDistanceAsync(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean pending, @javax.annotation.Nullable Boolean admin, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<UserPermissionsResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchPermissionablesFollowingDistanceValidateBeforeCall(version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, _callback);
+        okhttp3.Call localVarCall = searchPermissionablesFollowingDistanceValidateBeforeCall(latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<UserPermissionsResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

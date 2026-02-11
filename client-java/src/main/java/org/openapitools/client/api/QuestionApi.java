@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.QuestionResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class QuestionApi {
 
     /**
      * Build call for createQuestion
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param question the text of the question (required)
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  (required)
@@ -98,7 +96,7 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createQuestionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createQuestionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,8 +113,7 @@ public class QuestionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/question/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/question/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -188,12 +185,7 @@ public class QuestionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createQuestionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createQuestion(Async)");
-        }
-
+    private okhttp3.Call createQuestionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createQuestion(Async)");
@@ -224,14 +216,13 @@ public class QuestionApi {
             throw new ApiException("Missing the required parameter 'ticketCount' when calling createQuestion(Async)");
         }
 
-        return createQuestionCall(version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, _callback);
+        return createQuestionCall(accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, _callback);
 
     }
 
     /**
      * Create Question
      * Create a question and related answers by the given params.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param question the text of the question (required)
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  (required)
@@ -252,15 +243,14 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QuestionResponse createQuestion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        ApiResponse<QuestionResponse> localVarResp = createQuestionWithHttpInfo(version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
+    public QuestionResponse createQuestion(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        ApiResponse<QuestionResponse> localVarResp = createQuestionWithHttpInfo(accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
         return localVarResp.getData();
     }
 
     /**
      * Create Question
      * Create a question and related answers by the given params.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param question the text of the question (required)
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  (required)
@@ -281,8 +271,8 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QuestionResponse> createQuestionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        okhttp3.Call localVarCall = createQuestionValidateBeforeCall(version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, null);
+    public ApiResponse<QuestionResponse> createQuestionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        okhttp3.Call localVarCall = createQuestionValidateBeforeCall(accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, null);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -290,7 +280,6 @@ public class QuestionApi {
     /**
      * Create Question (asynchronously)
      * Create a question and related answers by the given params.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param question the text of the question (required)
      * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  (required)
@@ -312,16 +301,15 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createQuestionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<QuestionResponse> _callback) throws ApiException {
+    public okhttp3.Call createQuestionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String question, @javax.annotation.Nonnull String answers, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<QuestionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createQuestionValidateBeforeCall(version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, _callback);
+        okhttp3.Call localVarCall = createQuestionValidateBeforeCall(accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, _callback);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteQuestion
-     * @param version  (required)
      * @param questionId the id of the question to delete (required)
      * @param accountId the id of the account that can execute this request (required)
      * @param _callback Callback for upload/download progress
@@ -334,7 +322,7 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteQuestionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteQuestionCall(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -351,8 +339,7 @@ public class QuestionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/question/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/question/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -388,12 +375,7 @@ public class QuestionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteQuestionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteQuestion(Async)");
-        }
-
+    private okhttp3.Call deleteQuestionValidateBeforeCall(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'questionId' is set
         if (questionId == null) {
             throw new ApiException("Missing the required parameter 'questionId' when calling deleteQuestion(Async)");
@@ -404,14 +386,13 @@ public class QuestionApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteQuestion(Async)");
         }
 
-        return deleteQuestionCall(version, questionId, accountId, _callback);
+        return deleteQuestionCall(questionId, accountId, _callback);
 
     }
 
     /**
      * Delete Question
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param questionId the id of the question to delete (required)
      * @param accountId the id of the account that can execute this request (required)
      * @return SirqulResponse
@@ -423,15 +404,14 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteQuestion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteQuestionWithHttpInfo(version, questionId, accountId);
+    public SirqulResponse deleteQuestion(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteQuestionWithHttpInfo(questionId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Question
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param questionId the id of the question to delete (required)
      * @param accountId the id of the account that can execute this request (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -443,8 +423,8 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteQuestionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteQuestionValidateBeforeCall(version, questionId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteQuestionWithHttpInfo(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteQuestionValidateBeforeCall(questionId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -452,7 +432,6 @@ public class QuestionApi {
     /**
      * Delete Question (asynchronously)
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param questionId the id of the question to delete (required)
      * @param accountId the id of the account that can execute this request (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -465,16 +444,15 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteQuestionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteQuestionAsync(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteQuestionValidateBeforeCall(version, questionId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteQuestionValidateBeforeCall(questionId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getQuestion
-     * @param version  (required)
      * @param questionId the id of the question to get (required)
      * @param accountId the id of the account that can make this request (required)
      * @param _callback Callback for upload/download progress
@@ -487,7 +465,7 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuestionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getQuestionCall(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -504,8 +482,7 @@ public class QuestionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/question/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/question/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -541,12 +518,7 @@ public class QuestionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuestionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getQuestion(Async)");
-        }
-
+    private okhttp3.Call getQuestionValidateBeforeCall(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'questionId' is set
         if (questionId == null) {
             throw new ApiException("Missing the required parameter 'questionId' when calling getQuestion(Async)");
@@ -557,14 +529,13 @@ public class QuestionApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getQuestion(Async)");
         }
 
-        return getQuestionCall(version, questionId, accountId, _callback);
+        return getQuestionCall(questionId, accountId, _callback);
 
     }
 
     /**
      * Get Question
      * Get a question by the given id.
-     * @param version  (required)
      * @param questionId the id of the question to get (required)
      * @param accountId the id of the account that can make this request (required)
      * @return QuestionResponse
@@ -576,15 +547,14 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QuestionResponse getQuestion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<QuestionResponse> localVarResp = getQuestionWithHttpInfo(version, questionId, accountId);
+    public QuestionResponse getQuestion(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<QuestionResponse> localVarResp = getQuestionWithHttpInfo(questionId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Question
      * Get a question by the given id.
-     * @param version  (required)
      * @param questionId the id of the question to get (required)
      * @param accountId the id of the account that can make this request (required)
      * @return ApiResponse&lt;QuestionResponse&gt;
@@ -596,8 +566,8 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QuestionResponse> getQuestionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getQuestionValidateBeforeCall(version, questionId, accountId, null);
+    public ApiResponse<QuestionResponse> getQuestionWithHttpInfo(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getQuestionValidateBeforeCall(questionId, accountId, null);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -605,7 +575,6 @@ public class QuestionApi {
     /**
      * Get Question (asynchronously)
      * Get a question by the given id.
-     * @param version  (required)
      * @param questionId the id of the question to get (required)
      * @param accountId the id of the account that can make this request (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -618,16 +587,15 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuestionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback<QuestionResponse> _callback) throws ApiException {
+    public okhttp3.Call getQuestionAsync(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, final ApiCallback<QuestionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getQuestionValidateBeforeCall(version, questionId, accountId, _callback);
+        okhttp3.Call localVarCall = getQuestionValidateBeforeCall(questionId, accountId, _callback);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchQuestions
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -645,7 +613,7 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchQuestionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchQuestionsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -662,8 +630,7 @@ public class QuestionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/question/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/question/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -719,12 +686,7 @@ public class QuestionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchQuestionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchQuestions(Async)");
-        }
-
+    private okhttp3.Call searchQuestionsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchQuestions(Async)");
@@ -755,14 +717,13 @@ public class QuestionApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchQuestions(Async)");
         }
 
-        return searchQuestionsCall(version, accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
+        return searchQuestionsCall(accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
 
     }
 
     /**
      * Search Questions
      * Search for questions by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -779,15 +740,14 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<QuestionResponse> searchQuestions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<QuestionResponse>> localVarResp = searchQuestionsWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+    public List<QuestionResponse> searchQuestions(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<QuestionResponse>> localVarResp = searchQuestionsWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Questions
      * Search for questions by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -804,8 +764,8 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<QuestionResponse>> searchQuestionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = searchQuestionsValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, keyword, null);
+    public ApiResponse<List<QuestionResponse>> searchQuestionsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = searchQuestionsValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, keyword, null);
         Type localVarReturnType = new TypeToken<List<QuestionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -813,7 +773,6 @@ public class QuestionApi {
     /**
      * Search Questions (asynchronously)
      * Search for questions by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -831,16 +790,15 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchQuestionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback<List<QuestionResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchQuestionsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback<List<QuestionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchQuestionsValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
+        okhttp3.Call localVarCall = searchQuestionsValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<QuestionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateQuestion
-     * @param version  (required)
      * @param questionId The id of the question to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -863,7 +821,7 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateQuestionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateQuestionCall(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -880,8 +838,7 @@ public class QuestionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/question/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/question/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -957,12 +914,7 @@ public class QuestionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateQuestionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateQuestion(Async)");
-        }
-
+    private okhttp3.Call updateQuestionValidateBeforeCall(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'questionId' is set
         if (questionId == null) {
             throw new ApiException("Missing the required parameter 'questionId' when calling updateQuestion(Async)");
@@ -978,14 +930,13 @@ public class QuestionApi {
             throw new ApiException("Missing the required parameter 'ticketCount' when calling updateQuestion(Async)");
         }
 
-        return updateQuestionCall(version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, _callback);
+        return updateQuestionCall(questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, _callback);
 
     }
 
     /**
      * Update Question
      * Update a question and related answers.
-     * @param version  (required)
      * @param questionId The id of the question to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -1007,15 +958,14 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QuestionResponse updateQuestion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        ApiResponse<QuestionResponse> localVarResp = updateQuestionWithHttpInfo(version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
+    public QuestionResponse updateQuestion(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        ApiResponse<QuestionResponse> localVarResp = updateQuestionWithHttpInfo(questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
         return localVarResp.getData();
     }
 
     /**
      * Update Question
      * Update a question and related answers.
-     * @param version  (required)
      * @param questionId The id of the question to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -1037,8 +987,8 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QuestionResponse> updateQuestionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        okhttp3.Call localVarCall = updateQuestionValidateBeforeCall(version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, null);
+    public ApiResponse<QuestionResponse> updateQuestionWithHttpInfo(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        okhttp3.Call localVarCall = updateQuestionValidateBeforeCall(questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, null);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1046,7 +996,6 @@ public class QuestionApi {
     /**
      * Update Question (asynchronously)
      * Update a question and related answers.
-     * @param version  (required)
      * @param questionId The id of the question to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -1069,9 +1018,9 @@ public class QuestionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateQuestionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<QuestionResponse> _callback) throws ApiException {
+    public okhttp3.Call updateQuestionAsync(@javax.annotation.Nonnull Long questionId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String question, @javax.annotation.Nullable String answers, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String videoURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<QuestionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateQuestionValidateBeforeCall(version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, _callback);
+        okhttp3.Call localVarCall = updateQuestionValidateBeforeCall(questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, _callback);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

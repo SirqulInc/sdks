@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.PaymentRequest;
 import org.openapitools.client.model.ProfileResponse;
@@ -78,7 +77,6 @@ public class SecureAppApi {
 
     /**
      * Build call for createSecureApplication
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param keyCert  (required)
@@ -99,7 +97,7 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSecureApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSecureApplicationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class SecureAppApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/secure/application/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/secure/application/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -185,12 +182,7 @@ public class SecureAppApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSecureApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createSecureApplication(Async)");
-        }
-
+    private okhttp3.Call createSecureApplicationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createSecureApplication(Async)");
@@ -221,14 +213,13 @@ public class SecureAppApi {
             throw new ApiException("Missing the required parameter 'password' when calling createSecureApplication(Async)");
         }
 
-        return createSecureApplicationCall(version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, _callback);
+        return createSecureApplicationCall(accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, _callback);
 
     }
 
     /**
      * Create Secure Application
      * Create a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param keyCert  (required)
@@ -248,15 +239,14 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse createSecureApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = createSecureApplicationWithHttpInfo(version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
+    public SirqulResponse createSecureApplication(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = createSecureApplicationWithHttpInfo(accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
         return localVarResp.getData();
     }
 
     /**
      * Create Secure Application
      * Create a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param keyCert  (required)
@@ -276,8 +266,8 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> createSecureApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
-        okhttp3.Call localVarCall = createSecureApplicationValidateBeforeCall(version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, null);
+    public ApiResponse<SirqulResponse> createSecureApplicationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
+        okhttp3.Call localVarCall = createSecureApplicationValidateBeforeCall(accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -285,7 +275,6 @@ public class SecureAppApi {
     /**
      * Create Secure Application (asynchronously)
      * Create a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param keyCert  (required)
@@ -306,16 +295,15 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSecureApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call createSecureApplicationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File keyCert, @javax.annotation.Nonnull File trustStore, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createSecureApplicationValidateBeforeCall(version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, _callback);
+        okhttp3.Call localVarCall = createSecureApplicationValidateBeforeCall(accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteSecureApplication
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param _callback Callback for upload/download progress
@@ -328,7 +316,7 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSecureApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteSecureApplicationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -345,8 +333,7 @@ public class SecureAppApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/secure/application/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/secure/application/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -382,12 +369,7 @@ public class SecureAppApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteSecureApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteSecureApplication(Async)");
-        }
-
+    private okhttp3.Call deleteSecureApplicationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteSecureApplication(Async)");
@@ -398,14 +380,13 @@ public class SecureAppApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling deleteSecureApplication(Async)");
         }
 
-        return deleteSecureApplicationCall(version, accountId, appKey, _callback);
+        return deleteSecureApplicationCall(accountId, appKey, _callback);
 
     }
 
     /**
      * Delete Secure Application
      * Delete a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @return SirqulResponse
@@ -417,15 +398,14 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteSecureApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteSecureApplicationWithHttpInfo(version, accountId, appKey);
+    public SirqulResponse deleteSecureApplication(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteSecureApplicationWithHttpInfo(accountId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Delete Secure Application
      * Delete a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -437,8 +417,8 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteSecureApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = deleteSecureApplicationValidateBeforeCall(version, accountId, appKey, null);
+    public ApiResponse<SirqulResponse> deleteSecureApplicationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = deleteSecureApplicationValidateBeforeCall(accountId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -446,7 +426,6 @@ public class SecureAppApi {
     /**
      * Delete Secure Application (asynchronously)
      * Delete a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -459,16 +438,15 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSecureApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteSecureApplicationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteSecureApplicationValidateBeforeCall(version, accountId, appKey, _callback);
+        okhttp3.Call localVarCall = deleteSecureApplicationValidateBeforeCall(accountId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for loginSecure
-     * @param version  (required)
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param biometricFile The data file used to perform authentication (required)
      * @param deviceId The unique id of the device making the request (optional)
@@ -488,7 +466,7 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginSecureCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call loginSecureCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -505,8 +483,7 @@ public class SecureAppApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/secure/login"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/secure/login";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -570,12 +547,7 @@ public class SecureAppApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call loginSecureValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling loginSecure(Async)");
-        }
-
+    private okhttp3.Call loginSecureValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling loginSecure(Async)");
@@ -586,14 +558,13 @@ public class SecureAppApi {
             throw new ApiException("Missing the required parameter 'biometricFile' when calling loginSecure(Async)");
         }
 
-        return loginSecureCall(version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, _callback);
+        return loginSecureCall(appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, _callback);
 
     }
 
     /**
      * Login Clear
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @param version  (required)
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param biometricFile The data file used to perform authentication (required)
      * @param deviceId The unique id of the device making the request (optional)
@@ -612,15 +583,14 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse loginSecure(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = loginSecureWithHttpInfo(version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
+    public ProfileResponse loginSecure(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = loginSecureWithHttpInfo(appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Login Clear
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @param version  (required)
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param biometricFile The data file used to perform authentication (required)
      * @param deviceId The unique id of the device making the request (optional)
@@ -639,8 +609,8 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> loginSecureWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = loginSecureValidateBeforeCall(version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, null);
+    public ApiResponse<ProfileResponse> loginSecureWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = loginSecureValidateBeforeCall(appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -648,7 +618,6 @@ public class SecureAppApi {
     /**
      * Login Clear (asynchronously)
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @param version  (required)
      * @param appKey The application making the request, defines what type and position is required to make a secure login the request. (required)
      * @param biometricFile The data file used to perform authentication (required)
      * @param deviceId The unique id of the device making the request (optional)
@@ -668,16 +637,15 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginSecureAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call loginSecureAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull File biometricFile, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable File biometricFile2, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = loginSecureValidateBeforeCall(version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = loginSecureValidateBeforeCall(appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for purchaseSecure
-     * @param version  (required)
      * @param body The payment request object (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -689,7 +657,7 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call purchaseSecureCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull PaymentRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call purchaseSecureCall(@javax.annotation.Nonnull PaymentRequest body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -706,8 +674,7 @@ public class SecureAppApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/secure/purchase"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/secure/purchase";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -736,25 +703,19 @@ public class SecureAppApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call purchaseSecureValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull PaymentRequest body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling purchaseSecure(Async)");
-        }
-
+    private okhttp3.Call purchaseSecureValidateBeforeCall(@javax.annotation.Nonnull PaymentRequest body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling purchaseSecure(Async)");
         }
 
-        return purchaseSecureCall(version, body, _callback);
+        return purchaseSecureCall(body, _callback);
 
     }
 
     /**
      * Purchase Clear
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @param version  (required)
      * @param body The payment request object (required)
      * @return ProfileResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -765,15 +726,14 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse purchaseSecure(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull PaymentRequest body) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = purchaseSecureWithHttpInfo(version, body);
+    public ProfileResponse purchaseSecure(@javax.annotation.Nonnull PaymentRequest body) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = purchaseSecureWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Purchase Clear
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @param version  (required)
      * @param body The payment request object (required)
      * @return ApiResponse&lt;ProfileResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -784,8 +744,8 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> purchaseSecureWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull PaymentRequest body) throws ApiException {
-        okhttp3.Call localVarCall = purchaseSecureValidateBeforeCall(version, body, null);
+    public ApiResponse<ProfileResponse> purchaseSecureWithHttpInfo(@javax.annotation.Nonnull PaymentRequest body) throws ApiException {
+        okhttp3.Call localVarCall = purchaseSecureValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -793,7 +753,6 @@ public class SecureAppApi {
     /**
      * Purchase Clear (asynchronously)
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @param version  (required)
      * @param body The payment request object (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -805,16 +764,15 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call purchaseSecureAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull PaymentRequest body, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call purchaseSecureAsync(@javax.annotation.Nonnull PaymentRequest body, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = purchaseSecureValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = purchaseSecureValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for resetSecure
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param _callback Callback for upload/download progress
@@ -827,7 +785,7 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resetSecureCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call resetSecureCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -844,8 +802,7 @@ public class SecureAppApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/secure/application/reset"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/secure/application/reset";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -881,12 +838,7 @@ public class SecureAppApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call resetSecureValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling resetSecure(Async)");
-        }
-
+    private okhttp3.Call resetSecureValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling resetSecure(Async)");
@@ -897,14 +849,13 @@ public class SecureAppApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling resetSecure(Async)");
         }
 
-        return resetSecureCall(version, accountId, appKey, _callback);
+        return resetSecureCall(accountId, appKey, _callback);
 
     }
 
     /**
      * Rest Secure Application
      * Reset a secure application client.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @return SirqulResponse
@@ -916,15 +867,14 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse resetSecure(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = resetSecureWithHttpInfo(version, accountId, appKey);
+    public SirqulResponse resetSecure(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = resetSecureWithHttpInfo(accountId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Rest Secure Application
      * Reset a secure application client.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -936,8 +886,8 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> resetSecureWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = resetSecureValidateBeforeCall(version, accountId, appKey, null);
+    public ApiResponse<SirqulResponse> resetSecureWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = resetSecureValidateBeforeCall(accountId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -945,7 +895,6 @@ public class SecureAppApi {
     /**
      * Rest Secure Application (asynchronously)
      * Reset a secure application client.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -958,16 +907,15 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resetSecureAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call resetSecureAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = resetSecureValidateBeforeCall(version, accountId, appKey, _callback);
+        okhttp3.Call localVarCall = resetSecureValidateBeforeCall(accountId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateSecureApplication
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param active  (optional)
@@ -988,7 +936,7 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSecureApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSecureApplicationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1005,8 +953,7 @@ public class SecureAppApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/secure/application/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/secure/application/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1074,12 +1021,7 @@ public class SecureAppApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSecureApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateSecureApplication(Async)");
-        }
-
+    private okhttp3.Call updateSecureApplicationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateSecureApplication(Async)");
@@ -1090,14 +1032,13 @@ public class SecureAppApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling updateSecureApplication(Async)");
         }
 
-        return updateSecureApplicationCall(version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, _callback);
+        return updateSecureApplicationCall(accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, _callback);
 
     }
 
     /**
      * Update Secure Application
      * Update a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param active  (optional)
@@ -1117,15 +1058,14 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateSecureApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateSecureApplicationWithHttpInfo(version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
+    public SirqulResponse updateSecureApplication(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateSecureApplicationWithHttpInfo(accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
         return localVarResp.getData();
     }
 
     /**
      * Update Secure Application
      * Update a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param active  (optional)
@@ -1145,8 +1085,8 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateSecureApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
-        okhttp3.Call localVarCall = updateSecureApplicationValidateBeforeCall(version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, null);
+    public ApiResponse<SirqulResponse> updateSecureApplicationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2) throws ApiException {
+        okhttp3.Call localVarCall = updateSecureApplicationValidateBeforeCall(accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1154,7 +1094,6 @@ public class SecureAppApi {
     /**
      * Update Secure Application (asynchronously)
      * Update a secure application record.
-     * @param version  (required)
      * @param accountId The unique id of the user making the request (required)
      * @param appKey The application to secure (required)
      * @param active  (optional)
@@ -1175,9 +1114,9 @@ public class SecureAppApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSecureApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateSecureApplicationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable File keyCert, @javax.annotation.Nullable File trustStore, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String biometricType, @javax.annotation.Nullable String biometricPosition, @javax.annotation.Nullable String biometricPosition2, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateSecureApplicationValidateBeforeCall(version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, _callback);
+        okhttp3.Call localVarCall = updateSecureApplicationValidateBeforeCall(accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

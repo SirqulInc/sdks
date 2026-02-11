@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.GameLevelListResponse;
 import org.openapitools.client.model.GameLevelResponse;
 import org.openapitools.client.model.QuestionResponse;
@@ -79,7 +78,6 @@ public class GameLevelApi {
 
     /**
      * Build call for createGameLevel
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param gameData The game level data: xml, json, or other text based format. (required)
@@ -116,7 +114,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createGameLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createGameLevelCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,8 +131,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -266,12 +263,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createGameLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createGameLevel(Async)");
-        }
-
+    private okhttp3.Call createGameLevelValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createGameLevel(Async)");
@@ -292,14 +284,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'gameDataSuffix' when calling createGameLevel(Async)");
         }
 
-        return createGameLevelCall(version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
+        return createGameLevelCall(accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
 
     }
 
     /**
      * Create Game Level
      * Create a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param gameData The game level data: xml, json, or other text based format. (required)
@@ -335,15 +326,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameLevelResponse createGameLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<GameLevelResponse> localVarResp = createGameLevelWithHttpInfo(version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+    public GameLevelResponse createGameLevel(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<GameLevelResponse> localVarResp = createGameLevelWithHttpInfo(accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Create Game Level
      * Create a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param gameData The game level data: xml, json, or other text based format. (required)
@@ -379,8 +369,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameLevelResponse> createGameLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = createGameLevelValidateBeforeCall(version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, null);
+    public ApiResponse<GameLevelResponse> createGameLevelWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = createGameLevelValidateBeforeCall(accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, null);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -388,7 +378,6 @@ public class GameLevelApi {
     /**
      * Create Game Level (asynchronously)
      * Create a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param gameData The game level data: xml, json, or other text based format. (required)
@@ -425,16 +414,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createGameLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
+    public okhttp3.Call createGameLevelAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String gameData, @javax.annotation.Nonnull String gameDataSuffix, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createGameLevelValidateBeforeCall(version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
+        okhttp3.Call localVarCall = createGameLevelValidateBeforeCall(accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteGameLevel
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @param _callback Callback for upload/download progress
@@ -447,7 +435,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteGameLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteGameLevelCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -464,8 +452,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -501,12 +488,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteGameLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteGameLevel(Async)");
-        }
-
+    private okhttp3.Call deleteGameLevelValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteGameLevel(Async)");
@@ -517,14 +499,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'levelId' when calling deleteGameLevel(Async)");
         }
 
-        return deleteGameLevelCall(version, accountId, levelId, _callback);
+        return deleteGameLevelCall(accountId, levelId, _callback);
 
     }
 
     /**
      * Delete Game Level
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @return SirqulResponse
@@ -536,15 +517,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteGameLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteGameLevelWithHttpInfo(version, accountId, levelId);
+    public SirqulResponse deleteGameLevel(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteGameLevelWithHttpInfo(accountId, levelId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Game Level
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -556,8 +536,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteGameLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId) throws ApiException {
-        okhttp3.Call localVarCall = deleteGameLevelValidateBeforeCall(version, accountId, levelId, null);
+    public ApiResponse<SirqulResponse> deleteGameLevelWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId) throws ApiException {
+        okhttp3.Call localVarCall = deleteGameLevelValidateBeforeCall(accountId, levelId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -565,7 +545,6 @@ public class GameLevelApi {
     /**
      * Delete Game Level (asynchronously)
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -578,16 +557,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteGameLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteGameLevelAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteGameLevelValidateBeforeCall(version, accountId, levelId, _callback);
+        okhttp3.Call localVarCall = deleteGameLevelValidateBeforeCall(accountId, levelId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getGameLevel
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -601,7 +579,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGameLevelCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -618,8 +596,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -659,12 +636,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGameLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getGameLevel(Async)");
-        }
-
+    private okhttp3.Call getGameLevelValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getGameLevel(Async)");
@@ -675,14 +647,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'levelId' when calling getGameLevel(Async)");
         }
 
-        return getGameLevelCall(version, accountId, levelId, includeGameData, _callback);
+        return getGameLevelCall(accountId, levelId, includeGameData, _callback);
 
     }
 
     /**
      * Get Game Level
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -695,15 +666,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameLevelResponse getGameLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<GameLevelResponse> localVarResp = getGameLevelWithHttpInfo(version, accountId, levelId, includeGameData);
+    public GameLevelResponse getGameLevel(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<GameLevelResponse> localVarResp = getGameLevelWithHttpInfo(accountId, levelId, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Get Game Level
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -716,8 +686,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameLevelResponse> getGameLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = getGameLevelValidateBeforeCall(version, accountId, levelId, includeGameData, null);
+    public ApiResponse<GameLevelResponse> getGameLevelWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = getGameLevelValidateBeforeCall(accountId, levelId, includeGameData, null);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -725,7 +695,6 @@ public class GameLevelApi {
     /**
      * Get Game Level (asynchronously)
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId The id of the level to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -739,16 +708,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
+    public okhttp3.Call getGameLevelAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGameLevelValidateBeforeCall(version, accountId, levelId, includeGameData, _callback);
+        okhttp3.Call localVarCall = getGameLevelValidateBeforeCall(accountId, levelId, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getGameLevelsByApplication
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -769,7 +737,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameLevelsByApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGameLevelsByApplicationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -786,8 +754,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -855,12 +822,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGameLevelsByApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getGameLevelsByApplication(Async)");
-        }
-
+    private okhttp3.Call getGameLevelsByApplicationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getGameLevelsByApplication(Async)");
@@ -871,14 +833,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getGameLevelsByApplication(Async)");
         }
 
-        return getGameLevelsByApplicationCall(version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, _callback);
+        return getGameLevelsByApplicationCall(accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, _callback);
 
     }
 
     /**
      * Search Game Levels
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -898,15 +859,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameLevelListResponse getGameLevelsByApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters) throws ApiException {
-        ApiResponse<GameLevelListResponse> localVarResp = getGameLevelsByApplicationWithHttpInfo(version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
+    public GameLevelListResponse getGameLevelsByApplication(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters) throws ApiException {
+        ApiResponse<GameLevelListResponse> localVarResp = getGameLevelsByApplicationWithHttpInfo(accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
         return localVarResp.getData();
     }
 
     /**
      * Search Game Levels
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -926,8 +886,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameLevelListResponse> getGameLevelsByApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters) throws ApiException {
-        okhttp3.Call localVarCall = getGameLevelsByApplicationValidateBeforeCall(version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, null);
+    public ApiResponse<GameLevelListResponse> getGameLevelsByApplicationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters) throws ApiException {
+        okhttp3.Call localVarCall = getGameLevelsByApplicationValidateBeforeCall(accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, null);
         Type localVarReturnType = new TypeToken<GameLevelListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -935,7 +895,6 @@ public class GameLevelApi {
     /**
      * Search Game Levels (asynchronously)
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param keyword Match the keyword to the owner name or level name. (optional)
@@ -956,16 +915,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameLevelsByApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters, final ApiCallback<GameLevelListResponse> _callback) throws ApiException {
+    public okhttp3.Call getGameLevelsByApplicationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String filters, final ApiCallback<GameLevelListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGameLevelsByApplicationValidateBeforeCall(version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, _callback);
+        okhttp3.Call localVarCall = getGameLevelsByApplicationValidateBeforeCall(accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, _callback);
         Type localVarReturnType = new TypeToken<GameLevelListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getGameLevelsByBillableEntity
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -984,7 +942,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameLevelsByBillableEntityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGameLevelsByBillableEntityCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1001,8 +959,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/searchByBillableEntity"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/searchByBillableEntity";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1062,25 +1019,19 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGameLevelsByBillableEntityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getGameLevelsByBillableEntity(Async)");
-        }
-
+    private okhttp3.Call getGameLevelsByBillableEntityValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getGameLevelsByBillableEntity(Async)");
         }
 
-        return getGameLevelsByBillableEntityCall(version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, _callback);
+        return getGameLevelsByBillableEntityCall(accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, _callback);
 
     }
 
     /**
      * Search Game Level by Billable Entity
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -1098,15 +1049,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameLevelResponse getGameLevelsByBillableEntity(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
-        ApiResponse<GameLevelResponse> localVarResp = getGameLevelsByBillableEntityWithHttpInfo(version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
+    public GameLevelResponse getGameLevelsByBillableEntity(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
+        ApiResponse<GameLevelResponse> localVarResp = getGameLevelsByBillableEntityWithHttpInfo(accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Game Level by Billable Entity
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -1124,8 +1074,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameLevelResponse> getGameLevelsByBillableEntityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
-        okhttp3.Call localVarCall = getGameLevelsByBillableEntityValidateBeforeCall(version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, null);
+    public ApiResponse<GameLevelResponse> getGameLevelsByBillableEntityWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
+        okhttp3.Call localVarCall = getGameLevelsByBillableEntityValidateBeforeCall(accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, null);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1133,7 +1083,6 @@ public class GameLevelApi {
     /**
      * Search Game Level by Billable Entity (asynchronously)
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey the application key (optional)
      * @param keyword The keyword used to search (optional)
@@ -1152,16 +1101,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameLevelsByBillableEntityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
+    public okhttp3.Call getGameLevelsByBillableEntityAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGameLevelsByBillableEntityValidateBeforeCall(version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, _callback);
+        okhttp3.Call localVarCall = getGameLevelsByBillableEntityValidateBeforeCall(accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, _callback);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getQuestionsInLevel
-     * @param version  (required)
      * @param levelId the id of the level to get questions from (required)
      * @param accountId the id of the logged in user (required)
      * @param _callback Callback for upload/download progress
@@ -1174,7 +1122,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuestionsInLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getQuestionsInLevelCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1191,8 +1139,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/questions/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/questions/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1228,12 +1175,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuestionsInLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getQuestionsInLevel(Async)");
-        }
-
+    private okhttp3.Call getQuestionsInLevelValidateBeforeCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'levelId' is set
         if (levelId == null) {
             throw new ApiException("Missing the required parameter 'levelId' when calling getQuestionsInLevel(Async)");
@@ -1244,14 +1186,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getQuestionsInLevel(Async)");
         }
 
-        return getQuestionsInLevelCall(version, levelId, accountId, _callback);
+        return getQuestionsInLevelCall(levelId, accountId, _callback);
 
     }
 
     /**
      * Get Level Questions
      * Get questions within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get questions from (required)
      * @param accountId the id of the logged in user (required)
      * @return QuestionResponse
@@ -1263,15 +1204,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QuestionResponse getQuestionsInLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<QuestionResponse> localVarResp = getQuestionsInLevelWithHttpInfo(version, levelId, accountId);
+    public QuestionResponse getQuestionsInLevel(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<QuestionResponse> localVarResp = getQuestionsInLevelWithHttpInfo(levelId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Level Questions
      * Get questions within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get questions from (required)
      * @param accountId the id of the logged in user (required)
      * @return ApiResponse&lt;QuestionResponse&gt;
@@ -1283,8 +1223,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QuestionResponse> getQuestionsInLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getQuestionsInLevelValidateBeforeCall(version, levelId, accountId, null);
+    public ApiResponse<QuestionResponse> getQuestionsInLevelWithHttpInfo(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getQuestionsInLevelValidateBeforeCall(levelId, accountId, null);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1292,7 +1232,6 @@ public class GameLevelApi {
     /**
      * Get Level Questions (asynchronously)
      * Get questions within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get questions from (required)
      * @param accountId the id of the logged in user (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1305,16 +1244,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getQuestionsInLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback<QuestionResponse> _callback) throws ApiException {
+    public okhttp3.Call getQuestionsInLevelAsync(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback<QuestionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getQuestionsInLevelValidateBeforeCall(version, levelId, accountId, _callback);
+        okhttp3.Call localVarCall = getQuestionsInLevelValidateBeforeCall(levelId, accountId, _callback);
         Type localVarReturnType = new TypeToken<QuestionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getWordsInLevel
-     * @param version  (required)
      * @param levelId the id of the level to get words for (required)
      * @param accountId the id of the logged in user (required)
      * @param _callback Callback for upload/download progress
@@ -1327,7 +1265,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWordsInLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWordsInLevelCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1344,8 +1282,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/words/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/words/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1381,12 +1318,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWordsInLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getWordsInLevel(Async)");
-        }
-
+    private okhttp3.Call getWordsInLevelValidateBeforeCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'levelId' is set
         if (levelId == null) {
             throw new ApiException("Missing the required parameter 'levelId' when calling getWordsInLevel(Async)");
@@ -1397,14 +1329,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getWordsInLevel(Async)");
         }
 
-        return getWordsInLevelCall(version, levelId, accountId, _callback);
+        return getWordsInLevelCall(levelId, accountId, _callback);
 
     }
 
     /**
      * Get Level Words
      * Get words within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get words for (required)
      * @param accountId the id of the logged in user (required)
      * @return WordzWordResponse
@@ -1416,15 +1347,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WordzWordResponse getWordsInLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<WordzWordResponse> localVarResp = getWordsInLevelWithHttpInfo(version, levelId, accountId);
+    public WordzWordResponse getWordsInLevel(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<WordzWordResponse> localVarResp = getWordsInLevelWithHttpInfo(levelId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Level Words
      * Get words within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get words for (required)
      * @param accountId the id of the logged in user (required)
      * @return ApiResponse&lt;WordzWordResponse&gt;
@@ -1436,8 +1366,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WordzWordResponse> getWordsInLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getWordsInLevelValidateBeforeCall(version, levelId, accountId, null);
+    public ApiResponse<WordzWordResponse> getWordsInLevelWithHttpInfo(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getWordsInLevelValidateBeforeCall(levelId, accountId, null);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1445,7 +1375,6 @@ public class GameLevelApi {
     /**
      * Get Level Words (asynchronously)
      * Get words within a level.
-     * @param version  (required)
      * @param levelId the id of the level to get words for (required)
      * @param accountId the id of the logged in user (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1458,16 +1387,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWordsInLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
+    public okhttp3.Call getWordsInLevelAsync(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWordsInLevelValidateBeforeCall(version, levelId, accountId, _callback);
+        okhttp3.Call localVarCall = getWordsInLevelValidateBeforeCall(levelId, accountId, _callback);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateGameLevel
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId If update then include the level Id. (required)
      * @param appKey The game application key to save the level for. (optional)
@@ -1505,7 +1433,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateGameLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateGameLevelCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1522,8 +1450,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1659,12 +1586,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateGameLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateGameLevel(Async)");
-        }
-
+    private okhttp3.Call updateGameLevelValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateGameLevel(Async)");
@@ -1675,14 +1597,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'levelId' when calling updateGameLevel(Async)");
         }
 
-        return updateGameLevelCall(version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
+        return updateGameLevelCall(accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
 
     }
 
     /**
      * Update Game Level
      * Update a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId If update then include the level Id. (required)
      * @param appKey The game application key to save the level for. (optional)
@@ -1719,15 +1640,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameLevelResponse updateGameLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<GameLevelResponse> localVarResp = updateGameLevelWithHttpInfo(version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+    public GameLevelResponse updateGameLevel(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<GameLevelResponse> localVarResp = updateGameLevelWithHttpInfo(accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Update Game Level
      * Update a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId If update then include the level Id. (required)
      * @param appKey The game application key to save the level for. (optional)
@@ -1764,8 +1684,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameLevelResponse> updateGameLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = updateGameLevelValidateBeforeCall(version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, null);
+    public ApiResponse<GameLevelResponse> updateGameLevelWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = updateGameLevelValidateBeforeCall(accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, null);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1773,7 +1693,6 @@ public class GameLevelApi {
     /**
      * Update Game Level (asynchronously)
      * Update a game level. Currently does NOT support game objects.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param levelId If update then include the level Id. (required)
      * @param appKey The game application key to save the level for. (optional)
@@ -1811,16 +1730,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateGameLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
+    public okhttp3.Call updateGameLevelAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String difficulty, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable Long assetIconId, @javax.annotation.Nullable String gameData, @javax.annotation.Nullable String gameDataSuffix, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean friendGroup, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String tutorialTitle, @javax.annotation.Nullable String tutorialMessage, @javax.annotation.Nullable String tutorialAlignment, @javax.annotation.Nullable Long tutorialImageAssetId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String metaData, final ApiCallback<GameLevelResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateGameLevelValidateBeforeCall(version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
+        okhttp3.Call localVarCall = updateGameLevelValidateBeforeCall(accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, _callback);
         Type localVarReturnType = new TypeToken<GameLevelResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateQuestionsInLevel
-     * @param version  (required)
      * @param levelId the id of the level to update questions on (required)
      * @param accountId the id of the logged in user (required)
      * @param questionIds the IDs of the questions to update (required)
@@ -1834,7 +1752,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateQuestionsInLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateQuestionsInLevelCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1851,8 +1769,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/questions/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/questions/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1892,12 +1809,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateQuestionsInLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateQuestionsInLevel(Async)");
-        }
-
+    private okhttp3.Call updateQuestionsInLevelValidateBeforeCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'levelId' is set
         if (levelId == null) {
             throw new ApiException("Missing the required parameter 'levelId' when calling updateQuestionsInLevel(Async)");
@@ -1913,14 +1825,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'questionIds' when calling updateQuestionsInLevel(Async)");
         }
 
-        return updateQuestionsInLevelCall(version, levelId, accountId, questionIds, _callback);
+        return updateQuestionsInLevelCall(levelId, accountId, questionIds, _callback);
 
     }
 
     /**
      * Update Level Questions
      * Updates a level with question game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update questions on (required)
      * @param accountId the id of the logged in user (required)
      * @param questionIds the IDs of the questions to update (required)
@@ -1933,15 +1844,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateQuestionsInLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateQuestionsInLevelWithHttpInfo(version, levelId, accountId, questionIds);
+    public SirqulResponse updateQuestionsInLevel(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateQuestionsInLevelWithHttpInfo(levelId, accountId, questionIds);
         return localVarResp.getData();
     }
 
     /**
      * Update Level Questions
      * Updates a level with question game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update questions on (required)
      * @param accountId the id of the logged in user (required)
      * @param questionIds the IDs of the questions to update (required)
@@ -1954,8 +1864,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateQuestionsInLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds) throws ApiException {
-        okhttp3.Call localVarCall = updateQuestionsInLevelValidateBeforeCall(version, levelId, accountId, questionIds, null);
+    public ApiResponse<SirqulResponse> updateQuestionsInLevelWithHttpInfo(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds) throws ApiException {
+        okhttp3.Call localVarCall = updateQuestionsInLevelValidateBeforeCall(levelId, accountId, questionIds, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1963,7 +1873,6 @@ public class GameLevelApi {
     /**
      * Update Level Questions (asynchronously)
      * Updates a level with question game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update questions on (required)
      * @param accountId the id of the logged in user (required)
      * @param questionIds the IDs of the questions to update (required)
@@ -1977,16 +1886,15 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateQuestionsInLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateQuestionsInLevelAsync(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String questionIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateQuestionsInLevelValidateBeforeCall(version, levelId, accountId, questionIds, _callback);
+        okhttp3.Call localVarCall = updateQuestionsInLevelValidateBeforeCall(levelId, accountId, questionIds, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateWordsInLevel
-     * @param version  (required)
      * @param levelId the id of the level to update words for (required)
      * @param accountId the id of the logged in user (required)
      * @param wordIds the ids of the words to update for the level (required)
@@ -2000,7 +1908,7 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWordsInLevelCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateWordsInLevelCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2017,8 +1925,7 @@ public class GameLevelApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/level/words/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/level/words/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2058,12 +1965,7 @@ public class GameLevelApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateWordsInLevelValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateWordsInLevel(Async)");
-        }
-
+    private okhttp3.Call updateWordsInLevelValidateBeforeCall(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'levelId' is set
         if (levelId == null) {
             throw new ApiException("Missing the required parameter 'levelId' when calling updateWordsInLevel(Async)");
@@ -2079,14 +1981,13 @@ public class GameLevelApi {
             throw new ApiException("Missing the required parameter 'wordIds' when calling updateWordsInLevel(Async)");
         }
 
-        return updateWordsInLevelCall(version, levelId, accountId, wordIds, _callback);
+        return updateWordsInLevelCall(levelId, accountId, wordIds, _callback);
 
     }
 
     /**
      * Update Level Words
      * Updates a level with word game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update words for (required)
      * @param accountId the id of the logged in user (required)
      * @param wordIds the ids of the words to update for the level (required)
@@ -2099,15 +2000,14 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateWordsInLevel(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateWordsInLevelWithHttpInfo(version, levelId, accountId, wordIds);
+    public SirqulResponse updateWordsInLevel(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateWordsInLevelWithHttpInfo(levelId, accountId, wordIds);
         return localVarResp.getData();
     }
 
     /**
      * Update Level Words
      * Updates a level with word game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update words for (required)
      * @param accountId the id of the logged in user (required)
      * @param wordIds the ids of the words to update for the level (required)
@@ -2120,8 +2020,8 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateWordsInLevelWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds) throws ApiException {
-        okhttp3.Call localVarCall = updateWordsInLevelValidateBeforeCall(version, levelId, accountId, wordIds, null);
+    public ApiResponse<SirqulResponse> updateWordsInLevelWithHttpInfo(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds) throws ApiException {
+        okhttp3.Call localVarCall = updateWordsInLevelValidateBeforeCall(levelId, accountId, wordIds, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2129,7 +2029,6 @@ public class GameLevelApi {
     /**
      * Update Level Words (asynchronously)
      * Updates a level with word game objects.
-     * @param version  (required)
      * @param levelId the id of the level to update words for (required)
      * @param accountId the id of the logged in user (required)
      * @param wordIds the ids of the words to update for the level (required)
@@ -2143,9 +2042,9 @@ public class GameLevelApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWordsInLevelAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateWordsInLevelAsync(@javax.annotation.Nonnull Long levelId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String wordIds, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateWordsInLevelValidateBeforeCall(version, levelId, accountId, wordIds, _callback);
+        okhttp3.Call localVarCall = updateWordsInLevelValidateBeforeCall(levelId, accountId, wordIds, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

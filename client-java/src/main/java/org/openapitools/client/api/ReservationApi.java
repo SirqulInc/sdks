@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AvailabilityResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.ReservationResponse;
 import org.openapitools.client.model.TimeSlotResponse;
 
@@ -77,7 +76,6 @@ public class ReservationApi {
 
     /**
      * Build call for createReservation
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -96,7 +94,7 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReservationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createReservationCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,8 +111,7 @@ public class ReservationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/reservation/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/reservation/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -173,20 +170,14 @@ public class ReservationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createReservationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createReservation(Async)");
-        }
-
-        return createReservationCall(version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, _callback);
+    private okhttp3.Call createReservationValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+        return createReservationCall(deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, _callback);
 
     }
 
     /**
      * Create Reservation
      * Creates a reservation on an offer object
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -203,14 +194,13 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void createReservation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData) throws ApiException {
-        createReservationWithHttpInfo(version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
+    public void createReservation(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData) throws ApiException {
+        createReservationWithHttpInfo(deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
     }
 
     /**
      * Create Reservation
      * Creates a reservation on an offer object
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -228,15 +218,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> createReservationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = createReservationValidateBeforeCall(version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, null);
+    public ApiResponse<Void> createReservationWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = createReservationValidateBeforeCall(deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Create Reservation (asynchronously)
      * Creates a reservation on an offer object
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param startDate The start date (optional)
@@ -255,15 +244,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createReservationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call createReservationAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String metaData, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createReservationValidateBeforeCall(version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, _callback);
+        okhttp3.Call localVarCall = createReservationValidateBeforeCall(deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteReservation
-     * @param version  (required)
      * @param reservationId The reservation id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -277,7 +265,7 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteReservationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteReservationCall(@javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -294,8 +282,7 @@ public class ReservationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/reservation/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/reservation/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -334,25 +321,19 @@ public class ReservationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteReservationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteReservation(Async)");
-        }
-
+    private okhttp3.Call deleteReservationValidateBeforeCall(@javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'reservationId' is set
         if (reservationId == null) {
             throw new ApiException("Missing the required parameter 'reservationId' when calling deleteReservation(Async)");
         }
 
-        return deleteReservationCall(version, reservationId, deviceId, accountId, _callback);
+        return deleteReservationCall(reservationId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Reservation
      * Deleted a reservation on a reservation object
-     * @param version  (required)
      * @param reservationId The reservation id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -364,14 +345,13 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteReservation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        deleteReservationWithHttpInfo(version, reservationId, deviceId, accountId);
+    public void deleteReservation(@javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        deleteReservationWithHttpInfo(reservationId, deviceId, accountId);
     }
 
     /**
      * Delete Reservation
      * Deleted a reservation on a reservation object
-     * @param version  (required)
      * @param reservationId The reservation id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -384,15 +364,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteReservationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteReservationValidateBeforeCall(version, reservationId, deviceId, accountId, null);
+    public ApiResponse<Void> deleteReservationWithHttpInfo(@javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteReservationValidateBeforeCall(reservationId, deviceId, accountId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Reservation (asynchronously)
      * Deleted a reservation on a reservation object
-     * @param version  (required)
      * @param reservationId The reservation id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -406,15 +385,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteReservationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteReservationAsync(@javax.annotation.Nonnull Long reservationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteReservationValidateBeforeCall(version, reservationId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteReservationValidateBeforeCall(reservationId, deviceId, accountId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for reservableAvailability
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the type of reservation (required)
      * @param deviceId the device id of the reservation (optional)
@@ -431,7 +409,7 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reservableAvailabilityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call reservableAvailabilityCall(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -448,8 +426,7 @@ public class ReservationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/reservable/availability/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/reservable/availability/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -501,12 +478,7 @@ public class ReservationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call reservableAvailabilityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling reservableAvailability(Async)");
-        }
-
+    private okhttp3.Call reservableAvailabilityValidateBeforeCall(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'reservableId' is set
         if (reservableId == null) {
             throw new ApiException("Missing the required parameter 'reservableId' when calling reservableAvailability(Async)");
@@ -517,14 +489,13 @@ public class ReservationApi {
             throw new ApiException("Missing the required parameter 'reservableType' when calling reservableAvailability(Async)");
         }
 
-        return reservableAvailabilityCall(version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, _callback);
+        return reservableAvailabilityCall(reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, _callback);
 
     }
 
     /**
      * Update Availability
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the type of reservation (required)
      * @param deviceId the device id of the reservation (optional)
@@ -540,15 +511,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AvailabilityResponse> reservableAvailability(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        ApiResponse<List<AvailabilityResponse>> localVarResp = reservableAvailabilityWithHttpInfo(version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
+    public List<AvailabilityResponse> reservableAvailability(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        ApiResponse<List<AvailabilityResponse>> localVarResp = reservableAvailabilityWithHttpInfo(reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
         return localVarResp.getData();
     }
 
     /**
      * Update Availability
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the type of reservation (required)
      * @param deviceId the device id of the reservation (optional)
@@ -564,8 +534,8 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AvailabilityResponse>> reservableAvailabilityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        okhttp3.Call localVarCall = reservableAvailabilityValidateBeforeCall(version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, null);
+    public ApiResponse<List<AvailabilityResponse>> reservableAvailabilityWithHttpInfo(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        okhttp3.Call localVarCall = reservableAvailabilityValidateBeforeCall(reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, null);
         Type localVarReturnType = new TypeToken<List<AvailabilityResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -573,7 +543,6 @@ public class ReservationApi {
     /**
      * Update Availability (asynchronously)
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the type of reservation (required)
      * @param deviceId the device id of the reservation (optional)
@@ -590,16 +559,15 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reservableAvailabilityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<List<AvailabilityResponse>> _callback) throws ApiException {
+    public okhttp3.Call reservableAvailabilityAsync(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<List<AvailabilityResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = reservableAvailabilityValidateBeforeCall(version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, _callback);
+        okhttp3.Call localVarCall = reservableAvailabilityValidateBeforeCall(reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, _callback);
         Type localVarReturnType = new TypeToken<List<AvailabilityResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchAvailability
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservable type (required)
      * @param deviceId the device ID that the reservation is on (optional)
@@ -618,7 +586,7 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAvailabilityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAvailabilityCall(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -635,8 +603,7 @@ public class ReservationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/reservable/availability/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/reservable/availability/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -696,12 +663,7 @@ public class ReservationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAvailabilityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchAvailability(Async)");
-        }
-
+    private okhttp3.Call searchAvailabilityValidateBeforeCall(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'reservableId' is set
         if (reservableId == null) {
             throw new ApiException("Missing the required parameter 'reservableId' when calling searchAvailability(Async)");
@@ -712,14 +674,13 @@ public class ReservationApi {
             throw new ApiException("Missing the required parameter 'reservableType' when calling searchAvailability(Async)");
         }
 
-        return searchAvailabilityCall(version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, _callback);
+        return searchAvailabilityCall(reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, _callback);
 
     }
 
     /**
      * Search Availability
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservable type (required)
      * @param deviceId the device ID that the reservation is on (optional)
@@ -737,15 +698,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AvailabilityResponse> searchAvailability(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<AvailabilityResponse>> localVarResp = searchAvailabilityWithHttpInfo(version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
+    public List<AvailabilityResponse> searchAvailability(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<AvailabilityResponse>> localVarResp = searchAvailabilityWithHttpInfo(reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Availability
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservable type (required)
      * @param deviceId the device ID that the reservation is on (optional)
@@ -763,8 +723,8 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AvailabilityResponse>> searchAvailabilityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchAvailabilityValidateBeforeCall(version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, null);
+    public ApiResponse<List<AvailabilityResponse>> searchAvailabilityWithHttpInfo(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchAvailabilityValidateBeforeCall(reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, null);
         Type localVarReturnType = new TypeToken<List<AvailabilityResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -772,7 +732,6 @@ public class ReservationApi {
     /**
      * Search Availability (asynchronously)
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservable type (required)
      * @param deviceId the device ID that the reservation is on (optional)
@@ -791,16 +750,15 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAvailabilityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<AvailabilityResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchAvailabilityAsync(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<AvailabilityResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAvailabilityValidateBeforeCall(version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, _callback);
+        okhttp3.Call localVarCall = searchAvailabilityValidateBeforeCall(reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<AvailabilityResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchReservations
-     * @param version  (required)
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -822,7 +780,7 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchReservationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchReservationsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -839,8 +797,7 @@ public class ReservationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/reservation/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/reservation/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -912,20 +869,14 @@ public class ReservationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchReservationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchReservations(Async)");
-        }
-
-        return searchReservationsCall(version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, _callback);
+    private okhttp3.Call searchReservationsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchReservationsCall(deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, _callback);
 
     }
 
     /**
      * Search Reservations
      * 
-     * @param version  (required)
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -946,15 +897,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ReservationResponse> searchReservations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<ReservationResponse>> localVarResp = searchReservationsWithHttpInfo(version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
+    public List<ReservationResponse> searchReservations(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<ReservationResponse>> localVarResp = searchReservationsWithHttpInfo(deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Reservations
      * 
-     * @param version  (required)
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -975,8 +925,8 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ReservationResponse>> searchReservationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchReservationsValidateBeforeCall(version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, null);
+    public ApiResponse<List<ReservationResponse>> searchReservationsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchReservationsValidateBeforeCall(deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, null);
         Type localVarReturnType = new TypeToken<List<ReservationResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -984,7 +934,6 @@ public class ReservationApi {
     /**
      * Search Reservations (asynchronously)
      * 
-     * @param version  (required)
      * @param deviceId Device Id (optional)
      * @param appKey Appilcation Key (optional)
      * @param accountId the id of the logged in user (optional)
@@ -1006,16 +955,15 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchReservationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<ReservationResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchReservationsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable Long reservableId, @javax.annotation.Nullable String reservableType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<ReservationResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchReservationsValidateBeforeCall(version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, _callback);
+        okhttp3.Call localVarCall = searchReservationsValidateBeforeCall(deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<ReservationResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchSchedule
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservation type (required)
      * @param startDate the start date of the reservation (required)
@@ -1033,7 +981,7 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchScheduleCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchScheduleCall(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1050,8 +998,7 @@ public class ReservationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/reservable/schedule/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/reservable/schedule/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1107,12 +1054,7 @@ public class ReservationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchScheduleValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchSchedule(Async)");
-        }
-
+    private okhttp3.Call searchScheduleValidateBeforeCall(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'reservableId' is set
         if (reservableId == null) {
             throw new ApiException("Missing the required parameter 'reservableId' when calling searchSchedule(Async)");
@@ -1133,14 +1075,13 @@ public class ReservationApi {
             throw new ApiException("Missing the required parameter 'endDate' when calling searchSchedule(Async)");
         }
 
-        return searchScheduleCall(version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, _callback);
+        return searchScheduleCall(reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, _callback);
 
     }
 
     /**
      * Search Schedule
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservation type (required)
      * @param startDate the start date of the reservation (required)
@@ -1157,15 +1098,14 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<TimeSlotResponse> searchSchedule(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins) throws ApiException {
-        ApiResponse<List<TimeSlotResponse>> localVarResp = searchScheduleWithHttpInfo(version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
+    public List<TimeSlotResponse> searchSchedule(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins) throws ApiException {
+        ApiResponse<List<TimeSlotResponse>> localVarResp = searchScheduleWithHttpInfo(reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
         return localVarResp.getData();
     }
 
     /**
      * Search Schedule
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservation type (required)
      * @param startDate the start date of the reservation (required)
@@ -1182,8 +1122,8 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TimeSlotResponse>> searchScheduleWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins) throws ApiException {
-        okhttp3.Call localVarCall = searchScheduleValidateBeforeCall(version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, null);
+    public ApiResponse<List<TimeSlotResponse>> searchScheduleWithHttpInfo(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins) throws ApiException {
+        okhttp3.Call localVarCall = searchScheduleValidateBeforeCall(reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, null);
         Type localVarReturnType = new TypeToken<List<TimeSlotResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1191,7 +1131,6 @@ public class ReservationApi {
     /**
      * Search Schedule (asynchronously)
      * 
-     * @param version  (required)
      * @param reservableId the id of the reservation (required)
      * @param reservableType the reservation type (required)
      * @param startDate the start date of the reservation (required)
@@ -1209,9 +1148,9 @@ public class ReservationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchScheduleAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins, final ApiCallback<List<TimeSlotResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchScheduleAsync(@javax.annotation.Nonnull Long reservableId, @javax.annotation.Nonnull String reservableType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer timeBucketMins, final ApiCallback<List<TimeSlotResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchScheduleValidateBeforeCall(version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, _callback);
+        okhttp3.Call localVarCall = searchScheduleValidateBeforeCall(reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, _callback);
         Type localVarReturnType = new TypeToken<List<TimeSlotResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

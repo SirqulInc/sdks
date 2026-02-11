@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.MissionShortResponse;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TournamentResponse;
@@ -77,7 +76,6 @@ public class TournamentApi {
 
     /**
      * Build call for createTournament
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The appKey the tournament is created for. (required)
      * @param title The title of the tournament (required)
@@ -123,7 +121,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTournamentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTournamentCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -140,8 +138,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -309,12 +306,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTournamentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createTournament(Async)");
-        }
-
+    private okhttp3.Call createTournamentValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createTournament(Async)");
@@ -340,14 +332,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'startDate' when calling createTournament(Async)");
         }
 
-        return createTournamentCall(version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
+        return createTournamentCall(accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
 
     }
 
     /**
      * Create Tournament
      * Create a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The appKey the tournament is created for. (required)
      * @param title The title of the tournament (required)
@@ -392,15 +383,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TournamentResponse createTournament(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
-        ApiResponse<TournamentResponse> localVarResp = createTournamentWithHttpInfo(version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+    public TournamentResponse createTournament(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
+        ApiResponse<TournamentResponse> localVarResp = createTournamentWithHttpInfo(accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
         return localVarResp.getData();
     }
 
     /**
      * Create Tournament
      * Create a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The appKey the tournament is created for. (required)
      * @param title The title of the tournament (required)
@@ -445,8 +435,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TournamentResponse> createTournamentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
-        okhttp3.Call localVarCall = createTournamentValidateBeforeCall(version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, null);
+    public ApiResponse<TournamentResponse> createTournamentWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
+        okhttp3.Call localVarCall = createTournamentValidateBeforeCall(accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, null);
         Type localVarReturnType = new TypeToken<TournamentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -454,7 +444,6 @@ public class TournamentApi {
     /**
      * Create Tournament (asynchronously)
      * Create a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The appKey the tournament is created for. (required)
      * @param title The title of the tournament (required)
@@ -500,16 +489,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTournamentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback<TournamentResponse> _callback) throws ApiException {
+    public okhttp3.Call createTournamentAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Integer costToPlay, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback<TournamentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTournamentValidateBeforeCall(version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
+        okhttp3.Call localVarCall = createTournamentValidateBeforeCall(accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
         Type localVarReturnType = new TypeToken<TournamentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteTournament
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @param _callback Callback for upload/download progress
@@ -522,7 +510,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTournamentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteTournamentCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -539,8 +527,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -576,12 +563,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTournamentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteTournament(Async)");
-        }
-
+    private okhttp3.Call deleteTournamentValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteTournament(Async)");
@@ -592,14 +574,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'missionId' when calling deleteTournament(Async)");
         }
 
-        return deleteTournamentCall(version, accountId, missionId, _callback);
+        return deleteTournamentCall(accountId, missionId, _callback);
 
     }
 
     /**
      * Delete Tournament
      * Delete a tournament.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @return SirqulResponse
@@ -611,15 +592,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteTournament(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteTournamentWithHttpInfo(version, accountId, missionId);
+    public SirqulResponse deleteTournament(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteTournamentWithHttpInfo(accountId, missionId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Tournament
      * Delete a tournament.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -631,8 +611,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteTournamentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
-        okhttp3.Call localVarCall = deleteTournamentValidateBeforeCall(version, accountId, missionId, null);
+    public ApiResponse<SirqulResponse> deleteTournamentWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
+        okhttp3.Call localVarCall = deleteTournamentValidateBeforeCall(accountId, missionId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -640,7 +620,6 @@ public class TournamentApi {
     /**
      * Delete Tournament (asynchronously)
      * Delete a tournament.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -653,16 +632,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTournamentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteTournamentAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteTournamentValidateBeforeCall(version, accountId, missionId, _callback);
+        okhttp3.Call localVarCall = deleteTournamentValidateBeforeCall(accountId, missionId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTournament
-     * @param version  (required)
      * @param accountId The id of the logged in user (required)
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -678,7 +656,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTournamentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTournamentCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -695,8 +673,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -744,25 +721,19 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTournamentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTournament(Async)");
-        }
-
+    private okhttp3.Call getTournamentValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getTournament(Async)");
         }
 
-        return getTournamentCall(version, accountId, missionId, joinCode, includeScores, objectPreviewSize, _callback);
+        return getTournamentCall(accountId, missionId, joinCode, includeScores, objectPreviewSize, _callback);
 
     }
 
     /**
      * Get Tournament
      * Get a tournament.
-     * @param version  (required)
      * @param accountId The id of the logged in user (required)
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -777,15 +748,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TournamentResponse getTournament(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize) throws ApiException {
-        ApiResponse<TournamentResponse> localVarResp = getTournamentWithHttpInfo(version, accountId, missionId, joinCode, includeScores, objectPreviewSize);
+    public TournamentResponse getTournament(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize) throws ApiException {
+        ApiResponse<TournamentResponse> localVarResp = getTournamentWithHttpInfo(accountId, missionId, joinCode, includeScores, objectPreviewSize);
         return localVarResp.getData();
     }
 
     /**
      * Get Tournament
      * Get a tournament.
-     * @param version  (required)
      * @param accountId The id of the logged in user (required)
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -800,8 +770,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TournamentResponse> getTournamentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize) throws ApiException {
-        okhttp3.Call localVarCall = getTournamentValidateBeforeCall(version, accountId, missionId, joinCode, includeScores, objectPreviewSize, null);
+    public ApiResponse<TournamentResponse> getTournamentWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize) throws ApiException {
+        okhttp3.Call localVarCall = getTournamentValidateBeforeCall(accountId, missionId, joinCode, includeScores, objectPreviewSize, null);
         Type localVarReturnType = new TypeToken<TournamentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -809,7 +779,6 @@ public class TournamentApi {
     /**
      * Get Tournament (asynchronously)
      * Get a tournament.
-     * @param version  (required)
      * @param accountId The id of the logged in user (required)
      * @param missionId The id of the mission to return (either missionId or joinCode is required) (optional)
      * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
@@ -825,16 +794,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTournamentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize, final ApiCallback<TournamentResponse> _callback) throws ApiException {
+    public okhttp3.Call getTournamentAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String joinCode, @javax.annotation.Nullable String includeScores, @javax.annotation.Nullable Integer objectPreviewSize, final ApiCallback<TournamentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTournamentValidateBeforeCall(version, accountId, missionId, joinCode, includeScores, objectPreviewSize, _callback);
+        okhttp3.Call localVarCall = getTournamentValidateBeforeCall(accountId, missionId, joinCode, includeScores, objectPreviewSize, _callback);
         Type localVarReturnType = new TypeToken<TournamentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchObjects
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param gameLevelId the game level id to filter results by (required)
      * @param sortField the field to sort by (optional, default to PLAYER_SCORE_COUNT)
@@ -851,7 +819,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchObjectsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchObjectsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -868,8 +836,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/object/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/object/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -921,12 +888,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchObjectsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchObjects(Async)");
-        }
-
+    private okhttp3.Call searchObjectsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchObjects(Async)");
@@ -937,14 +899,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'gameLevelId' when calling searchObjects(Async)");
         }
 
-        return searchObjectsCall(version, accountId, gameLevelId, sortField, descending, start, limit, _callback);
+        return searchObjectsCall(accountId, gameLevelId, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search Tournament Objects
      * Search on game objects of tournaments
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param gameLevelId the game level id to filter results by (required)
      * @param sortField the field to sort by (optional, default to PLAYER_SCORE_COUNT)
@@ -960,15 +921,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse searchObjects(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = searchObjectsWithHttpInfo(version, accountId, gameLevelId, sortField, descending, start, limit);
+    public SirqulResponse searchObjects(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = searchObjectsWithHttpInfo(accountId, gameLevelId, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Tournament Objects
      * Search on game objects of tournaments
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param gameLevelId the game level id to filter results by (required)
      * @param sortField the field to sort by (optional, default to PLAYER_SCORE_COUNT)
@@ -984,8 +944,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> searchObjectsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchObjectsValidateBeforeCall(version, accountId, gameLevelId, sortField, descending, start, limit, null);
+    public ApiResponse<SirqulResponse> searchObjectsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchObjectsValidateBeforeCall(accountId, gameLevelId, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -993,7 +953,6 @@ public class TournamentApi {
     /**
      * Search Tournament Objects (asynchronously)
      * Search on game objects of tournaments
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param gameLevelId the game level id to filter results by (required)
      * @param sortField the field to sort by (optional, default to PLAYER_SCORE_COUNT)
@@ -1010,16 +969,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchObjectsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call searchObjectsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameLevelId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchObjectsValidateBeforeCall(version, accountId, gameLevelId, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchObjectsValidateBeforeCall(accountId, gameLevelId, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRounds
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param appKey the application key (required)
      * @param status comma separated list of statuses to filter results by (optional, default to ACCEPTED,ACTIVE)
@@ -1038,7 +996,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRoundsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRoundsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1055,8 +1013,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/round/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/round/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1116,12 +1073,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRoundsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRounds(Async)");
-        }
-
+    private okhttp3.Call searchRoundsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchRounds(Async)");
@@ -1132,14 +1084,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchRounds(Async)");
         }
 
-        return searchRoundsCall(version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, _callback);
+        return searchRoundsCall(accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, _callback);
 
     }
 
     /**
      * Search Tournament Rounds
      * Search for the user&#39;s tournament games.
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param appKey the application key (required)
      * @param status comma separated list of statuses to filter results by (optional, default to ACCEPTED,ACTIVE)
@@ -1157,15 +1108,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse searchRounds(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = searchRoundsWithHttpInfo(version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
+    public SirqulResponse searchRounds(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = searchRoundsWithHttpInfo(accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Tournament Rounds
      * Search for the user&#39;s tournament games.
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param appKey the application key (required)
      * @param status comma separated list of statuses to filter results by (optional, default to ACCEPTED,ACTIVE)
@@ -1183,8 +1133,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> searchRoundsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchRoundsValidateBeforeCall(version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, null);
+    public ApiResponse<SirqulResponse> searchRoundsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchRoundsValidateBeforeCall(accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1192,7 +1142,6 @@ public class TournamentApi {
     /**
      * Search Tournament Rounds (asynchronously)
      * Search for the user&#39;s tournament games.
-     * @param version  (required)
      * @param accountId the account ID (required)
      * @param appKey the application key (required)
      * @param status comma separated list of statuses to filter results by (optional, default to ACCEPTED,ACTIVE)
@@ -1211,16 +1160,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRoundsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call searchRoundsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable String missionType, @javax.annotation.Nullable Boolean currentOnly, @javax.annotation.Nullable String visibilities, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRoundsValidateBeforeCall(version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, _callback);
+        okhttp3.Call localVarCall = searchRoundsValidateBeforeCall(accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchTournaments
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application key (required)
      * @param keyword the keyword to search tournament on (optional)
@@ -1243,7 +1191,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTournamentsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTournamentsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1260,8 +1208,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1337,12 +1284,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTournamentsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchTournaments(Async)");
-        }
-
+    private okhttp3.Call searchTournamentsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchTournaments(Async)");
@@ -1353,14 +1295,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchTournaments(Async)");
         }
 
-        return searchTournamentsCall(version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, _callback);
+        return searchTournamentsCall(accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, _callback);
 
     }
 
     /**
      * Search Tournaments
      * Search for tournaments
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application key (required)
      * @param keyword the keyword to search tournament on (optional)
@@ -1382,15 +1323,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionShortResponse searchTournaments(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<MissionShortResponse> localVarResp = searchTournamentsWithHttpInfo(version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
+    public MissionShortResponse searchTournaments(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<MissionShortResponse> localVarResp = searchTournamentsWithHttpInfo(accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Tournaments
      * Search for tournaments
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application key (required)
      * @param keyword the keyword to search tournament on (optional)
@@ -1412,8 +1352,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionShortResponse> searchTournamentsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchTournamentsValidateBeforeCall(version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, null);
+    public ApiResponse<MissionShortResponse> searchTournamentsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchTournamentsValidateBeforeCall(accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, null);
         Type localVarReturnType = new TypeToken<MissionShortResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1421,7 +1361,6 @@ public class TournamentApi {
     /**
      * Search Tournaments (asynchronously)
      * Search for tournaments
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application key (required)
      * @param keyword the keyword to search tournament on (optional)
@@ -1444,16 +1383,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTournamentsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<MissionShortResponse> _callback) throws ApiException {
+    public okhttp3.Call searchTournamentsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String missionTypes, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<MissionShortResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTournamentsValidateBeforeCall(version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, _callback);
+        okhttp3.Call localVarCall = searchTournamentsValidateBeforeCall(accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, _callback);
         Type localVarReturnType = new TypeToken<MissionShortResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for submitTournamentScore
-     * @param version  (required)
      * @param accountId The logged in user account ID. (required)
      * @param appKey The application key. (required)
      * @param missionId The missionId to score for (required)
@@ -1471,7 +1409,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitTournamentScoreCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call submitTournamentScoreCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1488,8 +1426,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/score"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/score";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1545,12 +1482,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call submitTournamentScoreValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling submitTournamentScore(Async)");
-        }
-
+    private okhttp3.Call submitTournamentScoreValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling submitTournamentScore(Async)");
@@ -1581,14 +1513,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'scores' when calling submitTournamentScore(Async)");
         }
 
-        return submitTournamentScoreCall(version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId, _callback);
+        return submitTournamentScoreCall(accountId, appKey, missionId, gameId, packId, scores, gameLevelId, _callback);
 
     }
 
     /**
      * Submit Tournament Score
      * Submit an array of scores for a tournament match. 
-     * @param version  (required)
      * @param accountId The logged in user account ID. (required)
      * @param appKey The application key. (required)
      * @param missionId The missionId to score for (required)
@@ -1605,15 +1536,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse submitTournamentScore(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = submitTournamentScoreWithHttpInfo(version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
+    public SirqulResponse submitTournamentScore(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = submitTournamentScoreWithHttpInfo(accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
         return localVarResp.getData();
     }
 
     /**
      * Submit Tournament Score
      * Submit an array of scores for a tournament match. 
-     * @param version  (required)
      * @param accountId The logged in user account ID. (required)
      * @param appKey The application key. (required)
      * @param missionId The missionId to score for (required)
@@ -1630,8 +1560,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> submitTournamentScoreWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId) throws ApiException {
-        okhttp3.Call localVarCall = submitTournamentScoreValidateBeforeCall(version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId, null);
+    public ApiResponse<SirqulResponse> submitTournamentScoreWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId) throws ApiException {
+        okhttp3.Call localVarCall = submitTournamentScoreValidateBeforeCall(accountId, appKey, missionId, gameId, packId, scores, gameLevelId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1639,7 +1569,6 @@ public class TournamentApi {
     /**
      * Submit Tournament Score (asynchronously)
      * Submit an array of scores for a tournament match. 
-     * @param version  (required)
      * @param accountId The logged in user account ID. (required)
      * @param appKey The application key. (required)
      * @param missionId The missionId to score for (required)
@@ -1657,16 +1586,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitTournamentScoreAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call submitTournamentScoreAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull String scores, @javax.annotation.Nullable Long gameLevelId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = submitTournamentScoreValidateBeforeCall(version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId, _callback);
+        okhttp3.Call localVarCall = submitTournamentScoreValidateBeforeCall(accountId, appKey, missionId, gameId, packId, scores, gameLevelId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for submitTournamentVote
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param missionId The tournament&#39;s primary id (required)
@@ -1683,7 +1611,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitTournamentVoteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call submitTournamentVoteCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1700,8 +1628,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/vote"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/vote";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1753,12 +1680,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call submitTournamentVoteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling submitTournamentVote(Async)");
-        }
-
+    private okhttp3.Call submitTournamentVoteValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling submitTournamentVote(Async)");
@@ -1779,14 +1701,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'gameObjectId' when calling submitTournamentVote(Async)");
         }
 
-        return submitTournamentVoteCall(version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, _callback);
+        return submitTournamentVoteCall(accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, _callback);
 
     }
 
     /**
      * Submit a vote for a multi-stage album tournament.
      * Submit a vote for a multi-stage album tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param missionId The tournament&#39;s primary id (required)
@@ -1802,15 +1723,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse submitTournamentVote(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = submitTournamentVoteWithHttpInfo(version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
+    public SirqulResponse submitTournamentVote(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = submitTournamentVoteWithHttpInfo(accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
         return localVarResp.getData();
     }
 
     /**
      * Submit a vote for a multi-stage album tournament.
      * Submit a vote for a multi-stage album tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param missionId The tournament&#39;s primary id (required)
@@ -1826,8 +1746,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> submitTournamentVoteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted) throws ApiException {
-        okhttp3.Call localVarCall = submitTournamentVoteValidateBeforeCall(version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, null);
+    public ApiResponse<SirqulResponse> submitTournamentVoteWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted) throws ApiException {
+        okhttp3.Call localVarCall = submitTournamentVoteValidateBeforeCall(accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1835,7 +1755,6 @@ public class TournamentApi {
     /**
      * Submit a vote for a multi-stage album tournament. (asynchronously)
      * Submit a vote for a multi-stage album tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param missionId The tournament&#39;s primary id (required)
@@ -1852,16 +1771,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call submitTournamentVoteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call submitTournamentVoteAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long gameObjectId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Boolean checkIfDeviceAlreadyVoted, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = submitTournamentVoteValidateBeforeCall(version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, _callback);
+        okhttp3.Call localVarCall = submitTournamentVoteValidateBeforeCall(accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for substituteTournamentPlayer
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission (required)
      * @param packId the id of the pack (required)
@@ -1876,7 +1794,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call substituteTournamentPlayerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call substituteTournamentPlayerCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1893,8 +1811,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/substitute"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/substitute";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1938,12 +1855,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call substituteTournamentPlayerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling substituteTournamentPlayer(Async)");
-        }
-
+    private okhttp3.Call substituteTournamentPlayerValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling substituteTournamentPlayer(Async)");
@@ -1964,14 +1876,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'gameLevelId' when calling substituteTournamentPlayer(Async)");
         }
 
-        return substituteTournamentPlayerCall(version, accountId, missionId, packId, gameLevelId, _callback);
+        return substituteTournamentPlayerCall(accountId, missionId, packId, gameLevelId, _callback);
 
     }
 
     /**
      * Substitute Tournament Player
      * Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission (required)
      * @param packId the id of the pack (required)
@@ -1985,15 +1896,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse substituteTournamentPlayer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = substituteTournamentPlayerWithHttpInfo(version, accountId, missionId, packId, gameLevelId);
+    public SirqulResponse substituteTournamentPlayer(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = substituteTournamentPlayerWithHttpInfo(accountId, missionId, packId, gameLevelId);
         return localVarResp.getData();
     }
 
     /**
      * Substitute Tournament Player
      * Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission (required)
      * @param packId the id of the pack (required)
@@ -2007,8 +1917,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> substituteTournamentPlayerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId) throws ApiException {
-        okhttp3.Call localVarCall = substituteTournamentPlayerValidateBeforeCall(version, accountId, missionId, packId, gameLevelId, null);
+    public ApiResponse<SirqulResponse> substituteTournamentPlayerWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId) throws ApiException {
+        okhttp3.Call localVarCall = substituteTournamentPlayerValidateBeforeCall(accountId, missionId, packId, gameLevelId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2016,7 +1926,6 @@ public class TournamentApi {
     /**
      * Substitute Tournament Player (asynchronously)
      * Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission (required)
      * @param packId the id of the pack (required)
@@ -2031,16 +1940,15 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call substituteTournamentPlayerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call substituteTournamentPlayerAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Long gameLevelId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = substituteTournamentPlayerValidateBeforeCall(version, accountId, missionId, packId, gameLevelId, _callback);
+        okhttp3.Call localVarCall = substituteTournamentPlayerValidateBeforeCall(accountId, missionId, packId, gameLevelId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateTournament
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The mission/tournament to update (required)
      * @param title The title of the tournament (optional)
@@ -2085,7 +1993,7 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTournamentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTournamentCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2102,8 +2010,7 @@ public class TournamentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tournament/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tournament/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2267,12 +2174,7 @@ public class TournamentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTournamentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateTournament(Async)");
-        }
-
+    private okhttp3.Call updateTournamentValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateTournament(Async)");
@@ -2283,14 +2185,13 @@ public class TournamentApi {
             throw new ApiException("Missing the required parameter 'missionId' when calling updateTournament(Async)");
         }
 
-        return updateTournamentCall(version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
+        return updateTournamentCall(accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
 
     }
 
     /**
      * Update Tournament
      * Update a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The mission/tournament to update (required)
      * @param title The title of the tournament (optional)
@@ -2334,15 +2235,14 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TournamentResponse updateTournament(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
-        ApiResponse<TournamentResponse> localVarResp = updateTournamentWithHttpInfo(version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+    public TournamentResponse updateTournament(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
+        ApiResponse<TournamentResponse> localVarResp = updateTournamentWithHttpInfo(accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
         return localVarResp.getData();
     }
 
     /**
      * Update Tournament
      * Update a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The mission/tournament to update (required)
      * @param title The title of the tournament (optional)
@@ -2386,8 +2286,8 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TournamentResponse> updateTournamentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
-        okhttp3.Call localVarCall = updateTournamentValidateBeforeCall(version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, null);
+    public ApiResponse<TournamentResponse> updateTournamentWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag) throws ApiException {
+        okhttp3.Call localVarCall = updateTournamentValidateBeforeCall(accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, null);
         Type localVarReturnType = new TypeToken<TournamentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2395,7 +2295,6 @@ public class TournamentApi {
     /**
      * Update Tournament (asynchronously)
      * Update a tournament.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The mission/tournament to update (required)
      * @param title The title of the tournament (optional)
@@ -2440,9 +2339,9 @@ public class TournamentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTournamentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback<TournamentResponse> _callback) throws ApiException {
+    public okhttp3.Call updateTournamentAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Integer secondsBetweenLevels, @javax.annotation.Nullable Integer secondsForTieBreaker, @javax.annotation.Nullable Integer secondsBetweenPacks, @javax.annotation.Nullable Integer maximumLevelLength, @javax.annotation.Nullable Integer costToPlay, @javax.annotation.Nullable String costToPlayType, @javax.annotation.Nullable Integer minimumToPlay, @javax.annotation.Nullable Integer startingLimit, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean enableBuyBack, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerAssetId, @javax.annotation.Nullable Boolean fixedReward, @javax.annotation.Nullable String splitReward, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String tournamentData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Integer preliminaryGroups, @javax.annotation.Nullable String preliminaryGroupAdvancements, @javax.annotation.Nullable Boolean enableMultipleEntries, @javax.annotation.Nullable Boolean enableMultipleVotes, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String winnerTag, @javax.annotation.Nullable String tieTag, final ApiCallback<TournamentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTournamentValidateBeforeCall(version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
+        okhttp3.Call localVarCall = updateTournamentValidateBeforeCall(accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, _callback);
         Type localVarReturnType = new TypeToken<TournamentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

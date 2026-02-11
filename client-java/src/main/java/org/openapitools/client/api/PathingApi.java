@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PathingResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class PathingApi {
 
     /**
      * Build call for computePath
-     * @param version  (required)
      * @param data the data to with start, end point and exclusion points (required)
      * @param units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param reducePath determines whether to reduce the path to go in diagonal lines (required)
@@ -90,7 +88,7 @@ public class PathingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call computePathCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call computePathCall(@javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,8 +105,7 @@ public class PathingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/pathing/compute"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/pathing/compute";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -152,12 +149,7 @@ public class PathingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call computePathValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling computePath(Async)");
-        }
-
+    private okhttp3.Call computePathValidateBeforeCall(@javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'data' is set
         if (data == null) {
             throw new ApiException("Missing the required parameter 'data' when calling computePath(Async)");
@@ -178,14 +170,13 @@ public class PathingApi {
             throw new ApiException("Missing the required parameter 'directions' when calling computePath(Async)");
         }
 
-        return computePathCall(version, data, units, reducePath, directions, _callback);
+        return computePathCall(data, units, reducePath, directions, _callback);
 
     }
 
     /**
      * Calculate Path
      * Calculates the shortest path from point to point on a grid
-     * @param version  (required)
      * @param data the data to with start, end point and exclusion points (required)
      * @param units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param reducePath determines whether to reduce the path to go in diagonal lines (required)
@@ -199,15 +190,14 @@ public class PathingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PathingResponse computePath(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions) throws ApiException {
-        ApiResponse<PathingResponse> localVarResp = computePathWithHttpInfo(version, data, units, reducePath, directions);
+    public PathingResponse computePath(@javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions) throws ApiException {
+        ApiResponse<PathingResponse> localVarResp = computePathWithHttpInfo(data, units, reducePath, directions);
         return localVarResp.getData();
     }
 
     /**
      * Calculate Path
      * Calculates the shortest path from point to point on a grid
-     * @param version  (required)
      * @param data the data to with start, end point and exclusion points (required)
      * @param units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param reducePath determines whether to reduce the path to go in diagonal lines (required)
@@ -221,8 +211,8 @@ public class PathingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PathingResponse> computePathWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions) throws ApiException {
-        okhttp3.Call localVarCall = computePathValidateBeforeCall(version, data, units, reducePath, directions, null);
+    public ApiResponse<PathingResponse> computePathWithHttpInfo(@javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions) throws ApiException {
+        okhttp3.Call localVarCall = computePathValidateBeforeCall(data, units, reducePath, directions, null);
         Type localVarReturnType = new TypeToken<PathingResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -230,7 +220,6 @@ public class PathingApi {
     /**
      * Calculate Path (asynchronously)
      * Calculates the shortest path from point to point on a grid
-     * @param version  (required)
      * @param data the data to with start, end point and exclusion points (required)
      * @param units the system of measurement for directions: {METRIC, IMPERIAL} (required)
      * @param reducePath determines whether to reduce the path to go in diagonal lines (required)
@@ -245,9 +234,9 @@ public class PathingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call computePathAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions, final ApiCallback<PathingResponse> _callback) throws ApiException {
+    public okhttp3.Call computePathAsync(@javax.annotation.Nonnull String data, @javax.annotation.Nonnull String units, @javax.annotation.Nonnull Boolean reducePath, @javax.annotation.Nonnull Boolean directions, final ApiCallback<PathingResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = computePathValidateBeforeCall(version, data, units, reducePath, directions, _callback);
+        okhttp3.Call localVarCall = computePathValidateBeforeCall(data, units, reducePath, directions, _callback);
         Type localVarReturnType = new TypeToken<PathingResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

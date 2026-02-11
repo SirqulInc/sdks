@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CountResponse;
 import java.io.File;
 import org.openapitools.client.model.ProfileResponse;
@@ -80,7 +79,6 @@ public class TicketApi {
 
     /**
      * Build call for getTicketCount
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -96,7 +94,7 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTicketCountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTicketCountCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,8 +111,7 @@ public class TicketApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ticket/count"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ticket/count";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -162,20 +159,14 @@ public class TicketApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTicketCountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTicketCount(Async)");
-        }
-
-        return getTicketCountCall(version, deviceId, accountId, gameType, appKey, ticketType, _callback);
+    private okhttp3.Call getTicketCountValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType, final ApiCallback _callback) throws ApiException {
+        return getTicketCountCall(deviceId, accountId, gameType, appKey, ticketType, _callback);
 
     }
 
     /**
      * Get Ticket Count
      * Gets the ticket count.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -190,15 +181,14 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CountResponse getTicketCount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType) throws ApiException {
-        ApiResponse<CountResponse> localVarResp = getTicketCountWithHttpInfo(version, deviceId, accountId, gameType, appKey, ticketType);
+    public CountResponse getTicketCount(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType) throws ApiException {
+        ApiResponse<CountResponse> localVarResp = getTicketCountWithHttpInfo(deviceId, accountId, gameType, appKey, ticketType);
         return localVarResp.getData();
     }
 
     /**
      * Get Ticket Count
      * Gets the ticket count.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -213,8 +203,8 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountResponse> getTicketCountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType) throws ApiException {
-        okhttp3.Call localVarCall = getTicketCountValidateBeforeCall(version, deviceId, accountId, gameType, appKey, ticketType, null);
+    public ApiResponse<CountResponse> getTicketCountWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType) throws ApiException {
+        okhttp3.Call localVarCall = getTicketCountValidateBeforeCall(deviceId, accountId, gameType, appKey, ticketType, null);
         Type localVarReturnType = new TypeToken<CountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -222,7 +212,6 @@ public class TicketApi {
     /**
      * Get Ticket Count (asynchronously)
      * Gets the ticket count.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param gameType this is deprecated. (optional)
@@ -238,16 +227,15 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTicketCountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType, final ApiCallback<CountResponse> _callback) throws ApiException {
+    public okhttp3.Call getTicketCountAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String ticketType, final ApiCallback<CountResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTicketCountValidateBeforeCall(version, deviceId, accountId, gameType, appKey, ticketType, _callback);
+        okhttp3.Call localVarCall = getTicketCountValidateBeforeCall(deviceId, accountId, gameType, appKey, ticketType, _callback);
         Type localVarReturnType = new TypeToken<CountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTicketList
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -267,7 +255,7 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTicketListCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTicketListCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -284,8 +272,7 @@ public class TicketApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ticket/getList"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ticket/getList";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -349,20 +336,14 @@ public class TicketApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTicketListValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTicketList(Async)");
-        }
-
-        return getTicketListCall(version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, _callback);
+    private okhttp3.Call getTicketListValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+        return getTicketListCall(deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, _callback);
 
     }
 
     /**
      * Get Ticket List
      * Gets the list of tickets.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -381,15 +362,14 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TicketListResponse getTicketList(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<TicketListResponse> localVarResp = getTicketListWithHttpInfo(version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
+    public TicketListResponse getTicketList(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<TicketListResponse> localVarResp = getTicketListWithHttpInfo(deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Get Ticket List
      * Gets the list of tickets.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -408,8 +388,8 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TicketListResponse> getTicketListWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = getTicketListValidateBeforeCall(version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, null);
+    public ApiResponse<TicketListResponse> getTicketListWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = getTicketListValidateBeforeCall(deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, null);
         Type localVarReturnType = new TypeToken<TicketListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -417,7 +397,6 @@ public class TicketApi {
     /**
      * Get Ticket List (asynchronously)
      * Gets the list of tickets.
-     * @param version  (required)
      * @param deviceId the id of the device that owns the tickets (optional)
      * @param accountId the id of the account that owns the tickets (optional)
      * @param ticketObjectType comma separated list of TicketObjectType (optional)
@@ -437,16 +416,15 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTicketListAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback<TicketListResponse> _callback) throws ApiException {
+    public okhttp3.Call getTicketListAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String ticketObjectType, @javax.annotation.Nullable String actionType, @javax.annotation.Nullable String ticketIds, @javax.annotation.Nullable String objectIds, @javax.annotation.Nullable String receiptTokens, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback<TicketListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTicketListValidateBeforeCall(version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, _callback);
+        okhttp3.Call localVarCall = getTicketListValidateBeforeCall(deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, _callback);
         Type localVarReturnType = new TypeToken<TicketListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for giftPurchase
-     * @param version  (required)
      * @param receiverAccountId the id of the account receiving the tickets (required)
      * @param ticketId the id of the tickets (required)
      * @param deviceId the id of the device (optional)
@@ -465,7 +443,7 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call giftPurchaseCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call giftPurchaseCall(@javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -482,8 +460,7 @@ public class TicketApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/purchase/gift"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/purchase/gift";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -543,12 +520,7 @@ public class TicketApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call giftPurchaseValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling giftPurchase(Async)");
-        }
-
+    private okhttp3.Call giftPurchaseValidateBeforeCall(@javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'receiverAccountId' is set
         if (receiverAccountId == null) {
             throw new ApiException("Missing the required parameter 'receiverAccountId' when calling giftPurchase(Async)");
@@ -559,14 +531,13 @@ public class TicketApi {
             throw new ApiException("Missing the required parameter 'ticketId' when calling giftPurchase(Async)");
         }
 
-        return giftPurchaseCall(version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, _callback);
+        return giftPurchaseCall(receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, _callback);
 
     }
 
     /**
      * Gift Tickets
      * Gift tickets to another user.
-     * @param version  (required)
      * @param receiverAccountId the id of the account receiving the tickets (required)
      * @param ticketId the id of the tickets (required)
      * @param deviceId the id of the device (optional)
@@ -584,15 +555,14 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse giftPurchase(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = giftPurchaseWithHttpInfo(version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
+    public SirqulResponse giftPurchase(@javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = giftPurchaseWithHttpInfo(receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Gift Tickets
      * Gift tickets to another user.
-     * @param version  (required)
      * @param receiverAccountId the id of the account receiving the tickets (required)
      * @param ticketId the id of the tickets (required)
      * @param deviceId the id of the device (optional)
@@ -610,8 +580,8 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> giftPurchaseWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = giftPurchaseValidateBeforeCall(version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, null);
+    public ApiResponse<SirqulResponse> giftPurchaseWithHttpInfo(@javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = giftPurchaseValidateBeforeCall(receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -619,7 +589,6 @@ public class TicketApi {
     /**
      * Gift Tickets (asynchronously)
      * Gift tickets to another user.
-     * @param version  (required)
      * @param receiverAccountId the id of the account receiving the tickets (required)
      * @param ticketId the id of the tickets (required)
      * @param deviceId the id of the device (optional)
@@ -638,16 +607,15 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call giftPurchaseAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call giftPurchaseAsync(@javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long ticketId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = giftPurchaseValidateBeforeCall(version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, _callback);
+        okhttp3.Call localVarCall = giftPurchaseValidateBeforeCall(receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for saveTicket
-     * @param version  (required)
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param returnNulls whether to return nulls or not (optional)
@@ -676,7 +644,7 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTicketCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call saveTicketCall(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -693,8 +661,7 @@ public class TicketApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ticket/save"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ticket/save";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -794,12 +761,7 @@ public class TicketApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call saveTicketValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling saveTicket(Async)");
-        }
-
+    private okhttp3.Call saveTicketValidateBeforeCall(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'actionType' is set
         if (actionType == null) {
             throw new ApiException("Missing the required parameter 'actionType' when calling saveTicket(Async)");
@@ -810,14 +772,13 @@ public class TicketApi {
             throw new ApiException("Missing the required parameter 'ticketObjectType' when calling saveTicket(Async)");
         }
 
-        return saveTicketCall(version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
+        return saveTicketCall(actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
 
     }
 
     /**
      * Save Ticket
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @param version  (required)
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param returnNulls whether to return nulls or not (optional)
@@ -845,15 +806,14 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse saveTicket(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = saveTicketWithHttpInfo(version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+    public ProfileResponse saveTicket(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = saveTicketWithHttpInfo(actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
         return localVarResp.getData();
     }
 
     /**
      * Save Ticket
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @param version  (required)
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param returnNulls whether to return nulls or not (optional)
@@ -881,8 +841,8 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> saveTicketWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
-        okhttp3.Call localVarCall = saveTicketValidateBeforeCall(version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, null);
+    public ApiResponse<ProfileResponse> saveTicketWithHttpInfo(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
+        okhttp3.Call localVarCall = saveTicketValidateBeforeCall(actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -890,7 +850,6 @@ public class TicketApi {
     /**
      * Save Ticket (asynchronously)
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @param version  (required)
      * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
      * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
      * @param returnNulls whether to return nulls or not (optional)
@@ -919,16 +878,15 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTicketAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call saveTicketAsync(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable String receiptData, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = saveTicketValidateBeforeCall(version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
+        okhttp3.Call localVarCall = saveTicketValidateBeforeCall(actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for saveTicketViaFileUpload
-     * @param version  (required)
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -957,7 +915,7 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTicketViaFileUploadCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call saveTicketViaFileUploadCall(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -974,8 +932,7 @@ public class TicketApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ticket/save/fileUpload"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ticket/save/fileUpload";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1075,12 +1032,7 @@ public class TicketApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call saveTicketViaFileUploadValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling saveTicketViaFileUpload(Async)");
-        }
-
+    private okhttp3.Call saveTicketViaFileUploadValidateBeforeCall(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'actionType' is set
         if (actionType == null) {
             throw new ApiException("Missing the required parameter 'actionType' when calling saveTicketViaFileUpload(Async)");
@@ -1096,14 +1048,13 @@ public class TicketApi {
             throw new ApiException("Missing the required parameter 'receiptData' when calling saveTicketViaFileUpload(Async)");
         }
 
-        return saveTicketViaFileUploadCall(version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
+        return saveTicketViaFileUploadCall(actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
 
     }
 
     /**
      * Save Ticket with Reciept
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @param version  (required)
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -1131,15 +1082,14 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse saveTicketViaFileUpload(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = saveTicketViaFileUploadWithHttpInfo(version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+    public ProfileResponse saveTicketViaFileUpload(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = saveTicketViaFileUploadWithHttpInfo(actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
         return localVarResp.getData();
     }
 
     /**
      * Save Ticket with Reciept
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @param version  (required)
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -1167,8 +1117,8 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> saveTicketViaFileUploadWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
-        okhttp3.Call localVarCall = saveTicketViaFileUploadValidateBeforeCall(version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, null);
+    public ApiResponse<ProfileResponse> saveTicketViaFileUploadWithHttpInfo(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion) throws ApiException {
+        okhttp3.Call localVarCall = saveTicketViaFileUploadValidateBeforeCall(actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1176,7 +1126,6 @@ public class TicketApi {
     /**
      * Save Ticket with Reciept (asynchronously)
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @param version  (required)
      * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
      * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
      * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. (required)
@@ -1205,16 +1154,15 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTicketViaFileUploadAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call saveTicketViaFileUploadAsync(@javax.annotation.Nonnull String actionType, @javax.annotation.Nonnull String ticketObjectType, @javax.annotation.Nonnull File receiptData, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long objectId, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String receiptToken, @javax.annotation.Nullable Long count, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable String purchaseProvider, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean returnProfileResponse, @javax.annotation.Nullable Boolean includeProfileResponse, @javax.annotation.Nullable String appVersion, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = saveTicketViaFileUploadValidateBeforeCall(version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
+        okhttp3.Call localVarCall = saveTicketViaFileUploadValidateBeforeCall(actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for ticketOffers
-     * @param version  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1225,7 +1173,7 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ticketOffersCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ticketOffersCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1242,8 +1190,7 @@ public class TicketApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ticket/ticketoffers"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ticket/ticketoffers";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1271,20 +1218,14 @@ public class TicketApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ticketOffersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling ticketOffers(Async)");
-        }
-
-        return ticketOffersCall(version, _callback);
+    private okhttp3.Call ticketOffersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return ticketOffersCall(_callback);
 
     }
 
     /**
      * Get Ticket Offers
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @param version  (required)
      * @return TicketOfferResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1294,15 +1235,14 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TicketOfferResponse ticketOffers(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        ApiResponse<TicketOfferResponse> localVarResp = ticketOffersWithHttpInfo(version);
+    public TicketOfferResponse ticketOffers() throws ApiException {
+        ApiResponse<TicketOfferResponse> localVarResp = ticketOffersWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get Ticket Offers
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @param version  (required)
      * @return ApiResponse&lt;TicketOfferResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1312,8 +1252,8 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TicketOfferResponse> ticketOffersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        okhttp3.Call localVarCall = ticketOffersValidateBeforeCall(version, null);
+    public ApiResponse<TicketOfferResponse> ticketOffersWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = ticketOffersValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<TicketOfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1321,7 +1261,6 @@ public class TicketApi {
     /**
      * Get Ticket Offers (asynchronously)
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @param version  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1332,9 +1271,9 @@ public class TicketApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ticketOffersAsync(@javax.annotation.Nonnull BigDecimal version, final ApiCallback<TicketOfferResponse> _callback) throws ApiException {
+    public okhttp3.Call ticketOffersAsync(final ApiCallback<TicketOfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = ticketOffersValidateBeforeCall(version, _callback);
+        okhttp3.Call localVarCall = ticketOffersValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<TicketOfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

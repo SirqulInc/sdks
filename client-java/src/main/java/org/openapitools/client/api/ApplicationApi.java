@@ -31,7 +31,6 @@ import org.openapitools.client.model.AccountListResponse;
 import org.openapitools.client.model.ApplicationResponse;
 import org.openapitools.client.model.ApplicationSettingsResponse;
 import org.openapitools.client.model.ApplicationShortResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.PlacementResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -81,7 +80,6 @@ public class ApplicationApi {
 
     /**
      * Build call for createApplication
-     * @param version  (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -171,7 +169,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createApplicationCall(@javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -188,8 +186,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -533,25 +530,19 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createApplication(Async)");
-        }
-
+    private okhttp3.Call createApplicationValidateBeforeCall(@javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appName' is set
         if (appName == null) {
             throw new ApiException("Missing the required parameter 'appName' when calling createApplication(Async)");
         }
 
-        return createApplicationCall(version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
+        return createApplicationCall(appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
 
     }
 
     /**
      * Create Application
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @param version  (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -640,15 +631,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationResponse createApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
-        ApiResponse<ApplicationResponse> localVarResp = createApplicationWithHttpInfo(version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+    public ApplicationResponse createApplication(@javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
+        ApiResponse<ApplicationResponse> localVarResp = createApplicationWithHttpInfo(appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
         return localVarResp.getData();
     }
 
     /**
      * Create Application
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @param version  (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -737,8 +727,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationResponse> createApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
-        okhttp3.Call localVarCall = createApplicationValidateBeforeCall(version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, null);
+    public ApiResponse<ApplicationResponse> createApplicationWithHttpInfo(@javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
+        okhttp3.Call localVarCall = createApplicationValidateBeforeCall(appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, null);
         Type localVarReturnType = new TypeToken<ApplicationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -746,7 +736,6 @@ public class ApplicationApi {
     /**
      * Create Application (asynchronously)
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @param version  (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -836,16 +825,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback<ApplicationResponse> _callback) throws ApiException {
+    public okhttp3.Call createApplicationAsync(@javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback<ApplicationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createApplicationValidateBeforeCall(version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
+        okhttp3.Call localVarCall = createApplicationValidateBeforeCall(appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
         Type localVarReturnType = new TypeToken<ApplicationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createApplicationPlacement
-     * @param version  (required)
      * @param appKey The appKey of the application the ad placement is for (required)
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -867,7 +855,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createApplicationPlacementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createApplicationPlacementCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -884,8 +872,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/placement/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/placement/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -957,12 +944,7 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createApplicationPlacement(Async)");
-        }
-
+    private okhttp3.Call createApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling createApplicationPlacement(Async)");
@@ -973,14 +955,13 @@ public class ApplicationApi {
             throw new ApiException("Missing the required parameter 'size' when calling createApplicationPlacement(Async)");
         }
 
-        return createApplicationPlacementCall(version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, _callback);
+        return createApplicationPlacementCall(appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, _callback);
 
     }
 
     /**
      * Create Ad Placement
      * Creates a new ad placement for an application.
-     * @param version  (required)
      * @param appKey The appKey of the application the ad placement is for (required)
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1001,15 +982,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PlacementResponse createApplicationPlacement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<PlacementResponse> localVarResp = createApplicationPlacementWithHttpInfo(version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
+    public PlacementResponse createApplicationPlacement(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<PlacementResponse> localVarResp = createApplicationPlacementWithHttpInfo(appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Ad Placement
      * Creates a new ad placement for an application.
-     * @param version  (required)
      * @param appKey The appKey of the application the ad placement is for (required)
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1030,8 +1010,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PlacementResponse> createApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = createApplicationPlacementValidateBeforeCall(version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, null);
+    public ApiResponse<PlacementResponse> createApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = createApplicationPlacementValidateBeforeCall(appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, null);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1039,7 +1019,6 @@ public class ApplicationApi {
     /**
      * Create Ad Placement (asynchronously)
      * Creates a new ad placement for an application.
-     * @param version  (required)
      * @param appKey The appKey of the application the ad placement is for (required)
      * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1061,16 +1040,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createApplicationPlacementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback<PlacementResponse> _callback) throws ApiException {
+    public okhttp3.Call createApplicationPlacementAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String size, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback<PlacementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createApplicationPlacementValidateBeforeCall(version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, _callback);
+        okhttp3.Call localVarCall = createApplicationPlacementValidateBeforeCall(appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, _callback);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteApplication
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @param _callback Callback for upload/download progress
@@ -1083,7 +1061,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteApplicationCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1100,8 +1078,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1137,20 +1114,14 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteApplication(Async)");
-        }
-
-        return deleteApplicationCall(version, accountId, appKey, _callback);
+    private okhttp3.Call deleteApplicationValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+        return deleteApplicationCall(accountId, appKey, _callback);
 
     }
 
     /**
      * Delete Application
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @return SirqulResponse
@@ -1162,15 +1133,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteApplicationWithHttpInfo(version, accountId, appKey);
+    public SirqulResponse deleteApplication(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteApplicationWithHttpInfo(accountId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Delete Application
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -1182,8 +1152,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = deleteApplicationValidateBeforeCall(version, accountId, appKey, null);
+    public ApiResponse<SirqulResponse> deleteApplicationWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = deleteApplicationValidateBeforeCall(accountId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1191,7 +1161,6 @@ public class ApplicationApi {
     /**
      * Delete Application (asynchronously)
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
      * @param appKey The key of the application to be deleted (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1204,16 +1173,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteApplicationAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteApplicationValidateBeforeCall(version, accountId, appKey, _callback);
+        okhttp3.Call localVarCall = deleteApplicationValidateBeforeCall(accountId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteApplicationPlacement
-     * @param version  (required)
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1227,7 +1195,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteApplicationPlacementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteApplicationPlacementCall(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1244,8 +1212,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/placement/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/placement/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1285,25 +1252,19 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteApplicationPlacement(Async)");
-        }
-
+    private okhttp3.Call deleteApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'placementId' is set
         if (placementId == null) {
             throw new ApiException("Missing the required parameter 'placementId' when calling deleteApplicationPlacement(Async)");
         }
 
-        return deleteApplicationPlacementCall(version, placementId, deviceId, accountId, _callback);
+        return deleteApplicationPlacementCall(placementId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Ad Placement
      * Deletes an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1316,15 +1277,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PlacementResponse deleteApplicationPlacement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<PlacementResponse> localVarResp = deleteApplicationPlacementWithHttpInfo(version, placementId, deviceId, accountId);
+    public PlacementResponse deleteApplicationPlacement(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<PlacementResponse> localVarResp = deleteApplicationPlacementWithHttpInfo(placementId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Ad Placement
      * Deletes an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1337,8 +1297,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PlacementResponse> deleteApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteApplicationPlacementValidateBeforeCall(version, placementId, deviceId, accountId, null);
+    public ApiResponse<PlacementResponse> deleteApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteApplicationPlacementValidateBeforeCall(placementId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1346,7 +1306,6 @@ public class ApplicationApi {
     /**
      * Delete Ad Placement (asynchronously)
      * Deletes an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1360,16 +1319,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteApplicationPlacementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<PlacementResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteApplicationPlacementAsync(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<PlacementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteApplicationPlacementValidateBeforeCall(version, placementId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteApplicationPlacementValidateBeforeCall(placementId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getApplication
-     * @param version  (required)
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @param _callback Callback for upload/download progress
@@ -1382,7 +1340,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationCall(@javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1399,8 +1357,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1436,20 +1393,14 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getApplication(Async)");
-        }
-
-        return getApplicationCall(version, appKey, applicationId, _callback);
+    private okhttp3.Call getApplicationValidateBeforeCall(@javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId, final ApiCallback _callback) throws ApiException {
+        return getApplicationCall(appKey, applicationId, _callback);
 
     }
 
     /**
      * Get Application
      * Get a specific application by appKey
-     * @param version  (required)
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @return ApplicationResponse
@@ -1461,15 +1412,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationResponse getApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId) throws ApiException {
-        ApiResponse<ApplicationResponse> localVarResp = getApplicationWithHttpInfo(version, appKey, applicationId);
+    public ApplicationResponse getApplication(@javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        ApiResponse<ApplicationResponse> localVarResp = getApplicationWithHttpInfo(appKey, applicationId);
         return localVarResp.getData();
     }
 
     /**
      * Get Application
      * Get a specific application by appKey
-     * @param version  (required)
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @return ApiResponse&lt;ApplicationResponse&gt;
@@ -1481,8 +1431,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationResponse> getApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId) throws ApiException {
-        okhttp3.Call localVarCall = getApplicationValidateBeforeCall(version, appKey, applicationId, null);
+    public ApiResponse<ApplicationResponse> getApplicationWithHttpInfo(@javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId) throws ApiException {
+        okhttp3.Call localVarCall = getApplicationValidateBeforeCall(appKey, applicationId, null);
         Type localVarReturnType = new TypeToken<ApplicationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1490,7 +1440,6 @@ public class ApplicationApi {
     /**
      * Get Application (asynchronously)
      * Get a specific application by appKey
-     * @param version  (required)
      * @param appKey The key of the application (optional)
      * @param applicationId Application Id (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1503,16 +1452,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId, final ApiCallback<ApplicationResponse> _callback) throws ApiException {
+    public okhttp3.Call getApplicationAsync(@javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long applicationId, final ApiCallback<ApplicationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApplicationValidateBeforeCall(version, appKey, applicationId, _callback);
+        okhttp3.Call localVarCall = getApplicationValidateBeforeCall(appKey, applicationId, _callback);
         Type localVarReturnType = new TypeToken<ApplicationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getApplicationPlacement
-     * @param version  (required)
      * @param placementId The id of the placement (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1526,7 +1474,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationPlacementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationPlacementCall(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1543,8 +1491,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/placement/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/placement/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1584,25 +1531,19 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getApplicationPlacement(Async)");
-        }
-
+    private okhttp3.Call getApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'placementId' is set
         if (placementId == null) {
             throw new ApiException("Missing the required parameter 'placementId' when calling getApplicationPlacement(Async)");
         }
 
-        return getApplicationPlacementCall(version, placementId, deviceId, accountId, _callback);
+        return getApplicationPlacementCall(placementId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Get Ad Placement
      * Get details of an ad placement
-     * @param version  (required)
      * @param placementId The id of the placement (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1615,15 +1556,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PlacementResponse getApplicationPlacement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<PlacementResponse> localVarResp = getApplicationPlacementWithHttpInfo(version, placementId, deviceId, accountId);
+    public PlacementResponse getApplicationPlacement(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<PlacementResponse> localVarResp = getApplicationPlacementWithHttpInfo(placementId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Ad Placement
      * Get details of an ad placement
-     * @param version  (required)
      * @param placementId The id of the placement (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1636,8 +1576,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PlacementResponse> getApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getApplicationPlacementValidateBeforeCall(version, placementId, deviceId, accountId, null);
+    public ApiResponse<PlacementResponse> getApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getApplicationPlacementValidateBeforeCall(placementId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1645,7 +1585,6 @@ public class ApplicationApi {
     /**
      * Get Ad Placement (asynchronously)
      * Get details of an ad placement
-     * @param version  (required)
      * @param placementId The id of the placement (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1659,16 +1598,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationPlacementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<PlacementResponse> _callback) throws ApiException {
+    public okhttp3.Call getApplicationPlacementAsync(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<PlacementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApplicationPlacementValidateBeforeCall(version, placementId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = getApplicationPlacementValidateBeforeCall(placementId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getApplicationVersions
-     * @param version  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1679,7 +1617,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationVersionsCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationVersionsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1696,8 +1634,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/versions"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/versions";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1725,20 +1662,14 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationVersionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getApplicationVersions(Async)");
-        }
-
-        return getApplicationVersionsCall(version, _callback);
+    private okhttp3.Call getApplicationVersionsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getApplicationVersionsCall(_callback);
 
     }
 
     /**
      * Get API versions
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @param version  (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1748,15 +1679,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse getApplicationVersions(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = getApplicationVersionsWithHttpInfo(version);
+    public SirqulResponse getApplicationVersions() throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = getApplicationVersionsWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get API versions
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @param version  (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1766,8 +1696,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> getApplicationVersionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        okhttp3.Call localVarCall = getApplicationVersionsValidateBeforeCall(version, null);
+    public ApiResponse<SirqulResponse> getApplicationVersionsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getApplicationVersionsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1775,7 +1705,6 @@ public class ApplicationApi {
     /**
      * Get API versions (asynchronously)
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @param version  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1786,16 +1715,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationVersionsAsync(@javax.annotation.Nonnull BigDecimal version, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call getApplicationVersionsAsync(final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApplicationVersionsValidateBeforeCall(version, _callback);
+        okhttp3.Call localVarCall = getApplicationVersionsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUniqueUsersByApp
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -1814,7 +1742,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUniqueUsersByAppCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUniqueUsersByAppCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1831,8 +1759,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/users"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/users";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1892,25 +1819,19 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUniqueUsersByAppValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUniqueUsersByApp(Async)");
-        }
-
+    private okhttp3.Call getUniqueUsersByAppValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling getUniqueUsersByApp(Async)");
         }
 
-        return getUniqueUsersByAppCall(version, appKey, q, keyword, since, i, start, l, limit, _callback);
+        return getUniqueUsersByAppCall(appKey, q, keyword, since, i, start, l, limit, _callback);
 
     }
 
     /**
      * Search Application Users
      * Get a list of users per application
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -1928,15 +1849,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AccountListResponse getUniqueUsersByApp(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<AccountListResponse> localVarResp = getUniqueUsersByAppWithHttpInfo(version, appKey, q, keyword, since, i, start, l, limit);
+    public AccountListResponse getUniqueUsersByApp(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<AccountListResponse> localVarResp = getUniqueUsersByAppWithHttpInfo(appKey, q, keyword, since, i, start, l, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Application Users
      * Get a list of users per application
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -1954,8 +1874,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountListResponse> getUniqueUsersByAppWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getUniqueUsersByAppValidateBeforeCall(version, appKey, q, keyword, since, i, start, l, limit, null);
+    public ApiResponse<AccountListResponse> getUniqueUsersByAppWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getUniqueUsersByAppValidateBeforeCall(appKey, q, keyword, since, i, start, l, limit, null);
         Type localVarReturnType = new TypeToken<AccountListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1963,7 +1883,6 @@ public class ApplicationApi {
     /**
      * Search Application Users (asynchronously)
      * Get a list of users per application
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param q Q (optional)
      * @param keyword The keyword used to search (optional)
@@ -1982,16 +1901,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUniqueUsersByAppAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<AccountListResponse> _callback) throws ApiException {
+    public okhttp3.Call getUniqueUsersByAppAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long since, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<AccountListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUniqueUsersByAppValidateBeforeCall(version, appKey, q, keyword, since, i, start, l, limit, _callback);
+        okhttp3.Call localVarCall = getUniqueUsersByAppValidateBeforeCall(appKey, q, keyword, since, i, start, l, limit, _callback);
         Type localVarReturnType = new TypeToken<AccountListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listApplications
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -2022,7 +1940,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listApplicationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listApplicationsCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2039,8 +1957,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2148,20 +2065,14 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listApplicationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listApplications(Async)");
-        }
-
-        return listApplicationsCall(version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, _callback);
+    private okhttp3.Call listApplicationsValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+        return listApplicationsCall(accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, _callback);
 
     }
 
     /**
      * List Applications
      * List active applications matching the criteria (as a consumer)
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -2191,15 +2102,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ApplicationShortResponse> listApplications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<ApplicationShortResponse>> localVarResp = listApplicationsWithHttpInfo(version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
+    public List<ApplicationShortResponse> listApplications(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<ApplicationShortResponse>> localVarResp = listApplicationsWithHttpInfo(accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * List Applications
      * List active applications matching the criteria (as a consumer)
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -2229,8 +2139,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ApplicationShortResponse>> listApplicationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = listApplicationsValidateBeforeCall(version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, null);
+    public ApiResponse<List<ApplicationShortResponse>> listApplicationsWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = listApplicationsValidateBeforeCall(accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<ApplicationShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2238,7 +2148,6 @@ public class ApplicationApi {
     /**
      * List Applications (asynchronously)
      * List active applications matching the criteria (as a consumer)
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (optional)
      * @param q Q (optional)
      * @param keyword The keyword used to search for title, about, and description fields (optional)
@@ -2269,16 +2178,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listApplicationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<ApplicationShortResponse>> _callback) throws ApiException {
+    public okhttp3.Call listApplicationsAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean filterBillable, @javax.annotation.Nullable Boolean filterContentAdmin, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable Boolean hasObjectStore, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<ApplicationShortResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listApplicationsValidateBeforeCall(version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, _callback);
+        okhttp3.Call localVarCall = listApplicationsValidateBeforeCall(accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<ApplicationShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchApplicationPlacement
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2294,7 +2202,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationPlacementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchApplicationPlacementCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2311,8 +2219,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/placement/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/placement/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2360,25 +2267,19 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchApplicationPlacement(Async)");
-        }
-
+    private okhttp3.Call searchApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchApplicationPlacement(Async)");
         }
 
-        return searchApplicationPlacementCall(version, appKey, deviceId, accountId, start, limit, _callback);
+        return searchApplicationPlacementCall(appKey, deviceId, accountId, start, limit, _callback);
 
     }
 
     /**
      * Search for Ad Placements
      * Searches placements for an application.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2393,15 +2294,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<PlacementResponse> searchApplicationPlacement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<PlacementResponse>> localVarResp = searchApplicationPlacementWithHttpInfo(version, appKey, deviceId, accountId, start, limit);
+    public List<PlacementResponse> searchApplicationPlacement(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<PlacementResponse>> localVarResp = searchApplicationPlacementWithHttpInfo(appKey, deviceId, accountId, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search for Ad Placements
      * Searches placements for an application.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2416,8 +2316,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<PlacementResponse>> searchApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchApplicationPlacementValidateBeforeCall(version, appKey, deviceId, accountId, start, limit, null);
+    public ApiResponse<List<PlacementResponse>> searchApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchApplicationPlacementValidateBeforeCall(appKey, deviceId, accountId, start, limit, null);
         Type localVarReturnType = new TypeToken<List<PlacementResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2425,7 +2325,6 @@ public class ApplicationApi {
     /**
      * Search for Ad Placements (asynchronously)
      * Searches placements for an application.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2441,16 +2340,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationPlacementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<PlacementResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchApplicationPlacementAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<PlacementResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchApplicationPlacementValidateBeforeCall(version, appKey, deviceId, accountId, start, limit, _callback);
+        okhttp3.Call localVarCall = searchApplicationPlacementValidateBeforeCall(appKey, deviceId, accountId, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<PlacementResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchApplicationSettings
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -2469,7 +2367,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationSettingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchApplicationSettingsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2486,8 +2384,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/settings/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/settings/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2547,20 +2444,14 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchApplicationSettingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchApplicationSettings(Async)");
-        }
-
-        return searchApplicationSettingsCall(version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, _callback);
+    private okhttp3.Call searchApplicationSettingsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchApplicationSettingsCall(deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search for Application Settings
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -2578,15 +2469,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationSettingsResponse searchApplicationSettings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<ApplicationSettingsResponse> localVarResp = searchApplicationSettingsWithHttpInfo(version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
+    public ApplicationSettingsResponse searchApplicationSettings(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<ApplicationSettingsResponse> localVarResp = searchApplicationSettingsWithHttpInfo(deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search for Application Settings
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -2604,8 +2494,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationSettingsResponse> searchApplicationSettingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchApplicationSettingsValidateBeforeCall(version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, null);
+    public ApiResponse<ApplicationSettingsResponse> searchApplicationSettingsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchApplicationSettingsValidateBeforeCall(deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<ApplicationSettingsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2613,7 +2503,6 @@ public class ApplicationApi {
     /**
      * Search for Application Settings (asynchronously)
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to view another person&#39;s account (optional)
@@ -2632,16 +2521,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationSettingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<ApplicationSettingsResponse> _callback) throws ApiException {
+    public okhttp3.Call searchApplicationSettingsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<ApplicationSettingsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchApplicationSettingsValidateBeforeCall(version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchApplicationSettingsValidateBeforeCall(deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<ApplicationSettingsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchApplications
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -2668,7 +2556,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchApplicationsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2685,8 +2573,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2778,20 +2665,14 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchApplicationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchApplications(Async)");
-        }
-
-        return searchApplicationsCall(version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, _callback);
+    private okhttp3.Call searchApplicationsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+        return searchApplicationsCall(deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, _callback);
 
     }
 
     /**
      * Search Applications
      * Search for applications matching the criteria that the logged in user has access to
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -2817,15 +2698,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ApplicationResponse> searchApplications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<ApplicationResponse>> localVarResp = searchApplicationsWithHttpInfo(version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
+    public List<ApplicationResponse> searchApplications(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<ApplicationResponse>> localVarResp = searchApplicationsWithHttpInfo(deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Applications
      * Search for applications matching the criteria that the logged in user has access to
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -2851,8 +2731,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ApplicationResponse>> searchApplicationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchApplicationsValidateBeforeCall(version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, null);
+    public ApiResponse<List<ApplicationResponse>> searchApplicationsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchApplicationsValidateBeforeCall(deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<ApplicationResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2860,7 +2740,6 @@ public class ApplicationApi {
     /**
      * Search Applications (asynchronously)
      * Search for applications matching the criteria that the logged in user has access to
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The location of the device (optional)
@@ -2887,16 +2766,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<ApplicationResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchApplicationsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String qSearchFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasAds, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<ApplicationResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchApplicationsValidateBeforeCall(version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchApplicationsValidateBeforeCall(deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<ApplicationResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateApplication
-     * @param version  (required)
      * @param appKey The application key for updating an existing application (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -2987,7 +2865,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateApplicationCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3004,8 +2882,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3353,12 +3230,7 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateApplication(Async)");
-        }
-
+    private okhttp3.Call updateApplicationValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling updateApplication(Async)");
@@ -3369,14 +3241,13 @@ public class ApplicationApi {
             throw new ApiException("Missing the required parameter 'appName' when calling updateApplication(Async)");
         }
 
-        return updateApplicationCall(version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
+        return updateApplicationCall(appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
 
     }
 
     /**
      * Update Application
      * Update an application record
-     * @param version  (required)
      * @param appKey The application key for updating an existing application (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -3466,15 +3337,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationResponse updateApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
-        ApiResponse<ApplicationResponse> localVarResp = updateApplicationWithHttpInfo(version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+    public ApplicationResponse updateApplication(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
+        ApiResponse<ApplicationResponse> localVarResp = updateApplicationWithHttpInfo(appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
         return localVarResp.getData();
     }
 
     /**
      * Update Application
      * Update an application record
-     * @param version  (required)
      * @param appKey The application key for updating an existing application (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -3564,8 +3434,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationResponse> updateApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
-        okhttp3.Call localVarCall = updateApplicationValidateBeforeCall(version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, null);
+    public ApiResponse<ApplicationResponse> updateApplicationWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey) throws ApiException {
+        okhttp3.Call localVarCall = updateApplicationValidateBeforeCall(appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, null);
         Type localVarReturnType = new TypeToken<ApplicationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3573,7 +3443,6 @@ public class ApplicationApi {
     /**
      * Update Application (asynchronously)
      * Update an application record
-     * @param version  (required)
      * @param appKey The application key for updating an existing application (required)
      * @param appName The name of the application (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -3664,16 +3533,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback<ApplicationResponse> _callback) throws ApiException {
+    public okhttp3.Call updateApplicationAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String about, @javax.annotation.Nullable String bundleId, @javax.annotation.Nullable Long appIconAssetId, @javax.annotation.Nullable Long appLogoAssetId, @javax.annotation.Nullable String facebookAppId, @javax.annotation.Nullable String facebookAppSecret, @javax.annotation.Nullable String googleApiKey, @javax.annotation.Nullable Boolean updateEULADate, @javax.annotation.Nullable String eulaVersion, @javax.annotation.Nullable String landingPageUrl, @javax.annotation.Nullable Boolean showInActivities, @javax.annotation.Nullable String activityDescription, @javax.annotation.Nullable String inviteWelcomeText, @javax.annotation.Nullable String invitePageUrl, @javax.annotation.Nullable String urlScheme, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String downloadUrls, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String scoringType, @javax.annotation.Nullable Integer hintCost, @javax.annotation.Nullable Integer maxScore, @javax.annotation.Nullable Float ticketsPerPoint, @javax.annotation.Nullable Boolean hasGameData, @javax.annotation.Nullable Boolean publicNotifications, @javax.annotation.Nullable Boolean useMatchingAlgorithm, @javax.annotation.Nullable Boolean globalTickets, @javax.annotation.Nullable Float buildVersion, @javax.annotation.Nullable Float apiVersion, @javax.annotation.Nullable String placementName, @javax.annotation.Nullable String placementDescription, @javax.annotation.Nullable String placementSize, @javax.annotation.Nullable Integer placementHeight, @javax.annotation.Nullable Integer placementWidth, @javax.annotation.Nullable Integer placementRefreshInterval, @javax.annotation.Nullable Boolean createObjectStore, @javax.annotation.Nullable Boolean publicContentApproval, @javax.annotation.Nullable Boolean productionMode, @javax.annotation.Nullable Integer minimumSessionLength, @javax.annotation.Nullable Integer sessionGapLength, @javax.annotation.Nullable Boolean localAdsEnabled, @javax.annotation.Nullable String sqootApiKey, @javax.annotation.Nullable String trilatProcessingType, @javax.annotation.Nullable Integer maxSampleSize, @javax.annotation.Nullable Double minRSSI, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Integer authorizedCount, @javax.annotation.Nullable String authorizedServers, @javax.annotation.Nullable String defaultTimezone, @javax.annotation.Nullable String smtpPass, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String placementMetaData, @javax.annotation.Nullable Boolean ipsFloor, @javax.annotation.Nullable Boolean enableAPNSBadge, @javax.annotation.Nullable Boolean includeInReport, @javax.annotation.Nullable Long defaultAppFilterId, @javax.annotation.Nullable Boolean enableWelcomeEmail, @javax.annotation.Nullable String appleAppId, @javax.annotation.Nullable String appleTeamId, @javax.annotation.Nullable String appleAuthKeyId, @javax.annotation.Nullable File appleAuthKey, @javax.annotation.Nullable String appleIssuerId, @javax.annotation.Nullable String appStoreKeyId, @javax.annotation.Nullable File appStoreKey, @javax.annotation.Nullable File googlePrivateKeyFile, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, @javax.annotation.Nullable String emailSender, @javax.annotation.Nullable String smtpUser, @javax.annotation.Nullable String smtpHost, @javax.annotation.Nullable String vatomBusinessId, @javax.annotation.Nullable String vatomRestClientId, @javax.annotation.Nullable String vatomRestSecretKey, @javax.annotation.Nullable String twilioAccountSID, @javax.annotation.Nullable String twilioAuthToken, @javax.annotation.Nullable String twilioSenderPhoneNumber, @javax.annotation.Nullable String openAISecretKey, final ApiCallback<ApplicationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateApplicationValidateBeforeCall(version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
+        okhttp3.Call localVarCall = updateApplicationValidateBeforeCall(appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, _callback);
         Type localVarReturnType = new TypeToken<ApplicationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateApplicationActive
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (required)
      * @param appKey The key of the application to be deleted (required)
      * @param active If true then set to active, false otherwise (required)
@@ -3687,7 +3555,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationActiveCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateApplicationActiveCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3704,8 +3572,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/active"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/active";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3745,12 +3612,7 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateApplicationActiveValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateApplicationActive(Async)");
-        }
-
+    private okhttp3.Call updateApplicationActiveValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateApplicationActive(Async)");
@@ -3766,14 +3628,13 @@ public class ApplicationApi {
             throw new ApiException("Missing the required parameter 'active' when calling updateApplicationActive(Async)");
         }
 
-        return updateApplicationActiveCall(version, accountId, appKey, active, _callback);
+        return updateApplicationActiveCall(accountId, appKey, active, _callback);
 
     }
 
     /**
      * Change Appliation Status
      * Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (required)
      * @param appKey The key of the application to be deleted (required)
      * @param active If true then set to active, false otherwise (required)
@@ -3786,15 +3647,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateApplicationActive(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateApplicationActiveWithHttpInfo(version, accountId, appKey, active);
+    public SirqulResponse updateApplicationActive(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateApplicationActiveWithHttpInfo(accountId, appKey, active);
         return localVarResp.getData();
     }
 
     /**
      * Change Appliation Status
      * Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (required)
      * @param appKey The key of the application to be deleted (required)
      * @param active If true then set to active, false otherwise (required)
@@ -3807,8 +3667,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateApplicationActiveWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = updateApplicationActiveValidateBeforeCall(version, accountId, appKey, active, null);
+    public ApiResponse<SirqulResponse> updateApplicationActiveWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = updateApplicationActiveValidateBeforeCall(accountId, appKey, active, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3816,7 +3676,6 @@ public class ApplicationApi {
     /**
      * Change Appliation Status (asynchronously)
      * Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (required)
      * @param appKey The key of the application to be deleted (required)
      * @param active If true then set to active, false otherwise (required)
@@ -3830,16 +3689,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationActiveAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateApplicationActiveAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean active, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateApplicationActiveValidateBeforeCall(version, accountId, appKey, active, _callback);
+        okhttp3.Call localVarCall = updateApplicationActiveValidateBeforeCall(accountId, appKey, active, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateApplicationPlacement
-     * @param version  (required)
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -3861,7 +3719,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationPlacementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateApplicationPlacementCall(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3878,8 +3736,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/placement/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/placement/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3951,25 +3808,19 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateApplicationPlacement(Async)");
-        }
-
+    private okhttp3.Call updateApplicationPlacementValidateBeforeCall(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'placementId' is set
         if (placementId == null) {
             throw new ApiException("Missing the required parameter 'placementId' when calling updateApplicationPlacement(Async)");
         }
 
-        return updateApplicationPlacementCall(version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, _callback);
+        return updateApplicationPlacementCall(placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, _callback);
 
     }
 
     /**
      * Update Ad Placement
      * Updates an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -3990,15 +3841,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PlacementResponse updateApplicationPlacement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<PlacementResponse> localVarResp = updateApplicationPlacementWithHttpInfo(version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
+    public PlacementResponse updateApplicationPlacement(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<PlacementResponse> localVarResp = updateApplicationPlacementWithHttpInfo(placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Ad Placement
      * Updates an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -4019,8 +3869,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PlacementResponse> updateApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = updateApplicationPlacementValidateBeforeCall(version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, null);
+    public ApiResponse<PlacementResponse> updateApplicationPlacementWithHttpInfo(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = updateApplicationPlacementValidateBeforeCall(placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, null);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4028,7 +3878,6 @@ public class ApplicationApi {
     /**
      * Update Ad Placement (asynchronously)
      * Updates an ad placement for an application.
-     * @param version  (required)
      * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -4050,16 +3899,15 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationPlacementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback<PlacementResponse> _callback) throws ApiException {
+    public okhttp3.Call updateApplicationPlacementAsync(@javax.annotation.Nonnull Long placementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String size, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer refreshInterval, @javax.annotation.Nullable Long defaultImageId, @javax.annotation.Nullable Boolean active, final ApiCallback<PlacementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateApplicationPlacementValidateBeforeCall(version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, _callback);
+        okhttp3.Call localVarCall = updateApplicationPlacementValidateBeforeCall(placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, _callback);
         Type localVarReturnType = new TypeToken<PlacementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for uploadApplicationCertificate
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -4074,7 +3922,7 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadApplicationCertificateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadApplicationCertificateCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4091,8 +3939,7 @@ public class ApplicationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/application/certificate/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/application/certificate/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4136,25 +3983,19 @@ public class ApplicationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadApplicationCertificateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling uploadApplicationCertificate(Async)");
-        }
-
+    private okhttp3.Call uploadApplicationCertificateValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling uploadApplicationCertificate(Async)");
         }
 
-        return uploadApplicationCertificateCall(version, appKey, deviceId, accountId, certificate, _callback);
+        return uploadApplicationCertificateCall(appKey, deviceId, accountId, certificate, _callback);
 
     }
 
     /**
      * Create Application Certificate
      * Uploads a certificate for an application that the user has access to.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -4168,15 +4009,14 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse uploadApplicationCertificate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = uploadApplicationCertificateWithHttpInfo(version, appKey, deviceId, accountId, certificate);
+    public SirqulResponse uploadApplicationCertificate(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = uploadApplicationCertificateWithHttpInfo(appKey, deviceId, accountId, certificate);
         return localVarResp.getData();
     }
 
     /**
      * Create Application Certificate
      * Uploads a certificate for an application that the user has access to.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -4190,8 +4030,8 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> uploadApplicationCertificateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate) throws ApiException {
-        okhttp3.Call localVarCall = uploadApplicationCertificateValidateBeforeCall(version, appKey, deviceId, accountId, certificate, null);
+    public ApiResponse<SirqulResponse> uploadApplicationCertificateWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate) throws ApiException {
+        okhttp3.Call localVarCall = uploadApplicationCertificateValidateBeforeCall(appKey, deviceId, accountId, certificate, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4199,7 +4039,6 @@ public class ApplicationApi {
     /**
      * Create Application Certificate (asynchronously)
      * Uploads a certificate for an application that the user has access to.
-     * @param version  (required)
      * @param appKey The key of the application (required)
      * @param deviceId Device Id (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the application. (optional)
@@ -4214,9 +4053,9 @@ public class ApplicationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadApplicationCertificateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call uploadApplicationCertificateAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File certificate, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadApplicationCertificateValidateBeforeCall(version, appKey, deviceId, accountId, certificate, _callback);
+        okhttp3.Call localVarCall = uploadApplicationCertificateValidateBeforeCall(appKey, deviceId, accountId, certificate, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TaskResponse;
 
@@ -76,7 +75,6 @@ public class TaskApi {
 
     /**
      * Build call for createTask
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (required)
      * @param appKey The application to target (optional)
@@ -99,7 +97,7 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTaskCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTaskCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class TaskApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/task/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/task/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -193,12 +190,7 @@ public class TaskApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTaskValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createTask(Async)");
-        }
-
+    private okhttp3.Call createTaskValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createTask(Async)");
@@ -209,14 +201,13 @@ public class TaskApi {
             throw new ApiException("Missing the required parameter 'name' when calling createTask(Async)");
         }
 
-        return createTaskCall(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
+        return createTaskCall(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
 
     }
 
     /**
      * Create Task
      * Create a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (required)
      * @param appKey The application to target (optional)
@@ -238,15 +229,14 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TaskResponse createTask(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<TaskResponse> localVarResp = createTaskWithHttpInfo(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+    public TaskResponse createTask(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<TaskResponse> localVarResp = createTaskWithHttpInfo(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Task
      * Create a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (required)
      * @param appKey The application to target (optional)
@@ -268,8 +258,8 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaskResponse> createTaskWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = createTaskValidateBeforeCall(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, null);
+    public ApiResponse<TaskResponse> createTaskWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = createTaskValidateBeforeCall(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, null);
         Type localVarReturnType = new TypeToken<TaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -277,7 +267,6 @@ public class TaskApi {
     /**
      * Create Task (asynchronously)
      * Create a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (required)
      * @param appKey The application to target (optional)
@@ -300,16 +289,15 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTaskAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TaskResponse> _callback) throws ApiException {
+    public okhttp3.Call createTaskAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTaskValidateBeforeCall(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
+        okhttp3.Call localVarCall = createTaskValidateBeforeCall(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
         Type localVarReturnType = new TypeToken<TaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteTask
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to delete. (required)
      * @param _callback Callback for upload/download progress
@@ -322,7 +310,7 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTaskCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteTaskCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -339,8 +327,7 @@ public class TaskApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/task/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/task/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -376,12 +363,7 @@ public class TaskApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTaskValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteTask(Async)");
-        }
-
+    private okhttp3.Call deleteTaskValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteTask(Async)");
@@ -392,14 +374,13 @@ public class TaskApi {
             throw new ApiException("Missing the required parameter 'taskId' when calling deleteTask(Async)");
         }
 
-        return deleteTaskCall(version, accountId, taskId, _callback);
+        return deleteTaskCall(accountId, taskId, _callback);
 
     }
 
     /**
      * Delete Task
      * Delete a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to delete. (required)
      * @return SirqulResponse
@@ -411,15 +392,14 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteTask(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteTaskWithHttpInfo(version, accountId, taskId);
+    public SirqulResponse deleteTask(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteTaskWithHttpInfo(accountId, taskId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Task
      * Delete a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to delete. (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -431,8 +411,8 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteTaskWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
-        okhttp3.Call localVarCall = deleteTaskValidateBeforeCall(version, accountId, taskId, null);
+    public ApiResponse<SirqulResponse> deleteTaskWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
+        okhttp3.Call localVarCall = deleteTaskValidateBeforeCall(accountId, taskId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -440,7 +420,6 @@ public class TaskApi {
     /**
      * Delete Task (asynchronously)
      * Delete a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to delete. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -453,16 +432,15 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTaskAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteTaskAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteTaskValidateBeforeCall(version, accountId, taskId, _callback);
+        okhttp3.Call localVarCall = deleteTaskValidateBeforeCall(accountId, taskId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTask
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to return. (required)
      * @param _callback Callback for upload/download progress
@@ -475,7 +453,7 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaskCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTaskCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -492,8 +470,7 @@ public class TaskApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/task/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/task/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -529,12 +506,7 @@ public class TaskApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTaskValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTask(Async)");
-        }
-
+    private okhttp3.Call getTaskValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getTask(Async)");
@@ -545,14 +517,13 @@ public class TaskApi {
             throw new ApiException("Missing the required parameter 'taskId' when calling getTask(Async)");
         }
 
-        return getTaskCall(version, accountId, taskId, _callback);
+        return getTaskCall(accountId, taskId, _callback);
 
     }
 
     /**
      * Get Task
      * Get a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to return. (required)
      * @return TaskResponse
@@ -564,15 +535,14 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TaskResponse getTask(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
-        ApiResponse<TaskResponse> localVarResp = getTaskWithHttpInfo(version, accountId, taskId);
+    public TaskResponse getTask(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
+        ApiResponse<TaskResponse> localVarResp = getTaskWithHttpInfo(accountId, taskId);
         return localVarResp.getData();
     }
 
     /**
      * Get Task
      * Get a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to return. (required)
      * @return ApiResponse&lt;TaskResponse&gt;
@@ -584,8 +554,8 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaskResponse> getTaskWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
-        okhttp3.Call localVarCall = getTaskValidateBeforeCall(version, accountId, taskId, null);
+    public ApiResponse<TaskResponse> getTaskWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId) throws ApiException {
+        okhttp3.Call localVarCall = getTaskValidateBeforeCall(accountId, taskId, null);
         Type localVarReturnType = new TypeToken<TaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -593,7 +563,6 @@ public class TaskApi {
     /**
      * Get Task (asynchronously)
      * Get a Task
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param taskId The id of the Task to return. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -606,16 +575,15 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTaskAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback<TaskResponse> _callback) throws ApiException {
+    public okhttp3.Call getTaskAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long taskId, final ApiCallback<TaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTaskValidateBeforeCall(version, accountId, taskId, _callback);
+        okhttp3.Call localVarCall = getTaskValidateBeforeCall(accountId, taskId, _callback);
         Type localVarReturnType = new TypeToken<TaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchTasks
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to MINE)
@@ -638,7 +606,7 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTasksCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTasksCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -655,8 +623,7 @@ public class TaskApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/task/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/task/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -732,25 +699,19 @@ public class TaskApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTasksValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchTasks(Async)");
-        }
-
+    private okhttp3.Call searchTasksValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchTasks(Async)");
         }
 
-        return searchTasksCall(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
+        return searchTasksCall(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
 
     }
 
     /**
      * Search Tasks
      * Search on Tasks
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to MINE)
@@ -772,15 +733,14 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<TaskResponse> searchTasks(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<TaskResponse>> localVarResp = searchTasksWithHttpInfo(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+    public List<TaskResponse> searchTasks(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<TaskResponse>> localVarResp = searchTasksWithHttpInfo(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Tasks
      * Search on Tasks
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to MINE)
@@ -802,8 +762,8 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TaskResponse>> searchTasksWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchTasksValidateBeforeCall(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, null);
+    public ApiResponse<List<TaskResponse>> searchTasksWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchTasksValidateBeforeCall(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<TaskResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -811,7 +771,6 @@ public class TaskApi {
     /**
      * Search Tasks (asynchronously)
      * Search on Tasks
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to MINE)
@@ -834,16 +793,15 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTasksAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<TaskResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchTasksAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<TaskResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTasksValidateBeforeCall(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchTasksValidateBeforeCall(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<TaskResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateTask
-     * @param version  (required)
      * @param taskId Task Id (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (optional)
@@ -867,7 +825,7 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTaskCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTaskCall(@javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -884,8 +842,7 @@ public class TaskApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/task/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/task/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -965,12 +922,7 @@ public class TaskApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTaskValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateTask(Async)");
-        }
-
+    private okhttp3.Call updateTaskValidateBeforeCall(@javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new ApiException("Missing the required parameter 'taskId' when calling updateTask(Async)");
@@ -981,14 +933,13 @@ public class TaskApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateTask(Async)");
         }
 
-        return updateTaskCall(version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
+        return updateTaskCall(taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
 
     }
 
     /**
      * Update Task
      * Update a Task
-     * @param version  (required)
      * @param taskId Task Id (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (optional)
@@ -1011,15 +962,14 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TaskResponse updateTask(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<TaskResponse> localVarResp = updateTaskWithHttpInfo(version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+    public TaskResponse updateTask(@javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<TaskResponse> localVarResp = updateTaskWithHttpInfo(taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Task
      * Update a Task
-     * @param version  (required)
      * @param taskId Task Id (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (optional)
@@ -1042,8 +992,8 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TaskResponse> updateTaskWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = updateTaskValidateBeforeCall(version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, null);
+    public ApiResponse<TaskResponse> updateTaskWithHttpInfo(@javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = updateTaskValidateBeforeCall(taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, null);
         Type localVarReturnType = new TypeToken<TaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1051,7 +1001,6 @@ public class TaskApi {
     /**
      * Update Task (asynchronously)
      * Update a Task
-     * @param version  (required)
      * @param taskId Task Id (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the task (optional)
@@ -1075,9 +1024,9 @@ public class TaskApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTaskAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TaskResponse> _callback) throws ApiException {
+    public okhttp3.Call updateTaskAsync(@javax.annotation.Nonnull Long taskId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTaskValidateBeforeCall(version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
+        okhttp3.Call localVarCall = updateTaskValidateBeforeCall(taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, _callback);
         Type localVarReturnType = new TypeToken<TaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

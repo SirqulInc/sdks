@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Stop;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class StopApi {
 
     /**
      * Build call for getStop
-     * @param version  (required)
      * @param id the id of the stop to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +85,7 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStopCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getStopCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +102,7 @@ public class StopApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/stop/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/stop/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -134,25 +131,19 @@ public class StopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getStopValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getStop(Async)");
-        }
-
+    private okhttp3.Call getStopValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getStop(Async)");
         }
 
-        return getStopCall(version, id, _callback);
+        return getStopCall(id, _callback);
 
     }
 
     /**
      * Get Stop
      * Get an existing stop
-     * @param version  (required)
      * @param id the id of the stop to get (required)
      * @return Stop
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -163,15 +154,14 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Stop getStop(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        ApiResponse<Stop> localVarResp = getStopWithHttpInfo(version, id);
+    public Stop getStop(@javax.annotation.Nonnull Long id) throws ApiException {
+        ApiResponse<Stop> localVarResp = getStopWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get Stop
      * Get an existing stop
-     * @param version  (required)
      * @param id the id of the stop to get (required)
      * @return ApiResponse&lt;Stop&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -182,8 +172,8 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Stop> getStopWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = getStopValidateBeforeCall(version, id, null);
+    public ApiResponse<Stop> getStopWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = getStopValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<Stop>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -191,7 +181,6 @@ public class StopApi {
     /**
      * Get Stop (asynchronously)
      * Get an existing stop
-     * @param version  (required)
      * @param id the id of the stop to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -203,16 +192,15 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStopAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Stop> _callback) throws ApiException {
+    public okhttp3.Call getStopAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Stop> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getStopValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = getStopValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Stop>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateStop
-     * @param version  (required)
      * @param id the id of the stop to update (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -225,7 +213,7 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateStopCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateStopCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -242,8 +230,7 @@ public class StopApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/stop/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/stop/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -272,25 +259,19 @@ public class StopApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateStopValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateStop(Async)");
-        }
-
+    private okhttp3.Call updateStopValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateStop(Async)");
         }
 
-        return updateStopCall(version, id, body, _callback);
+        return updateStopCall(id, body, _callback);
 
     }
 
     /**
      * Update Stop
      * Update an existing stop
-     * @param version  (required)
      * @param id the id of the stop to update (required)
      * @param body  (optional)
      * @return Stop
@@ -302,15 +283,14 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Stop updateStop(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body) throws ApiException {
-        ApiResponse<Stop> localVarResp = updateStopWithHttpInfo(version, id, body);
+    public Stop updateStop(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body) throws ApiException {
+        ApiResponse<Stop> localVarResp = updateStopWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Stop
      * Update an existing stop
-     * @param version  (required)
      * @param id the id of the stop to update (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Stop&gt;
@@ -322,8 +302,8 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Stop> updateStopWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body) throws ApiException {
-        okhttp3.Call localVarCall = updateStopValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Stop> updateStopWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body) throws ApiException {
+        okhttp3.Call localVarCall = updateStopValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<Stop>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -331,7 +311,6 @@ public class StopApi {
     /**
      * Update Stop (asynchronously)
      * Update an existing stop
-     * @param version  (required)
      * @param id the id of the stop to update (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -344,9 +323,9 @@ public class StopApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateStopAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body, final ApiCallback<Stop> _callback) throws ApiException {
+    public okhttp3.Call updateStopAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Stop body, final ApiCallback<Stop> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateStopValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateStopValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<Stop>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

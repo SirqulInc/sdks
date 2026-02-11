@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TokenResponse;
 
@@ -76,7 +75,6 @@ public class FacebookApi {
 
     /**
      * Build call for getToken
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user&#39;s current location (optional)
@@ -91,7 +89,7 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTokenCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTokenCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class FacebookApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/facebook/getfbtoken"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/facebook/getfbtoken";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -153,20 +150,14 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTokenValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getToken(Async)");
-        }
-
-        return getTokenCall(version, deviceId, accountId, latitude, longitude, _callback);
+    private okhttp3.Call getTokenValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return getTokenCall(deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Facebook Token
      * Gets a user&#39;s Facebook token.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user&#39;s current location (optional)
@@ -180,15 +171,14 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TokenResponse getToken(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<TokenResponse> localVarResp = getTokenWithHttpInfo(version, deviceId, accountId, latitude, longitude);
+    public TokenResponse getToken(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<TokenResponse> localVarResp = getTokenWithHttpInfo(deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Facebook Token
      * Gets a user&#39;s Facebook token.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user&#39;s current location (optional)
@@ -202,8 +192,8 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TokenResponse> getTokenWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getTokenValidateBeforeCall(version, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<TokenResponse> getTokenWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getTokenValidateBeforeCall(deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<TokenResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -211,7 +201,6 @@ public class FacebookApi {
     /**
      * Get Facebook Token (asynchronously)
      * Gets a user&#39;s Facebook token.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param latitude used to update the user&#39;s current location (optional)
@@ -226,16 +215,15 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTokenAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<TokenResponse> _callback) throws ApiException {
+    public okhttp3.Call getTokenAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<TokenResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTokenValidateBeforeCall(version, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getTokenValidateBeforeCall(deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<TokenResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for graphInterface
-     * @param version  (required)
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -256,7 +244,7 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call graphInterfaceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call graphInterfaceCall(@javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -273,8 +261,7 @@ public class FacebookApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/facebook/graph"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/facebook/graph";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -342,25 +329,19 @@ public class FacebookApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call graphInterfaceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling graphInterface(Async)");
-        }
-
+    private okhttp3.Call graphInterfaceValidateBeforeCall(@javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'event' is set
         if (event == null) {
             throw new ApiException("Missing the required parameter 'event' when calling graphInterface(Async)");
         }
 
-        return graphInterfaceCall(version, event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, _callback);
+        return graphInterfaceCall(event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, _callback);
 
     }
 
     /**
      * Post to Facebook
      * Make Facebook posts on behalf of the user.
-     * @param version  (required)
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -380,15 +361,14 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse graphInterface(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = graphInterfaceWithHttpInfo(version, event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
+    public SirqulResponse graphInterface(@javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = graphInterfaceWithHttpInfo(event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Post to Facebook
      * Make Facebook posts on behalf of the user.
-     * @param version  (required)
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -408,8 +388,8 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> graphInterfaceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = graphInterfaceValidateBeforeCall(version, event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> graphInterfaceWithHttpInfo(@javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = graphInterfaceValidateBeforeCall(event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -417,7 +397,6 @@ public class FacebookApi {
     /**
      * Post to Facebook (asynchronously)
      * Make Facebook posts on behalf of the user.
-     * @param version  (required)
      * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -438,9 +417,9 @@ public class FacebookApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call graphInterfaceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call graphInterfaceAsync(@javax.annotation.Nonnull String event, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = graphInterfaceValidateBeforeCall(version, event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = graphInterfaceValidateBeforeCall(event, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

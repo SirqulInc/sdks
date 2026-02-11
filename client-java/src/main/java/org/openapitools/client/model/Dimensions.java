@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * Dimensions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-09T19:12:30.146356577Z[Etc/UTC]", comments = "Generator version: 7.20.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-11T18:59:03.014614210Z[Etc/UTC]", comments = "Generator version: 7.20.0-SNAPSHOT")
 public class Dimensions {
   public static final String SERIALIZED_NAME_WIDTH = "width";
   @SerializedName(SERIALIZED_NAME_WIDTH)

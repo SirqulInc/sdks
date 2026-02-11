@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.BlockedNotificationResponse;
 import org.openapitools.client.model.NotificationMessageListResponse;
 import org.openapitools.client.model.NotificationRecipientResponse;
@@ -80,7 +79,6 @@ public class NotificationApi {
 
     /**
      * Build call for createNotificationTemplate
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param title title of the notification template (required)
@@ -98,7 +96,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNotificationTemplateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createNotificationTemplateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,8 +113,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/template/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/template/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -172,12 +169,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createNotificationTemplate(Async)");
-        }
-
+    private okhttp3.Call createNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createNotificationTemplate(Async)");
@@ -198,14 +190,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'body' when calling createNotificationTemplate(Async)");
         }
 
-        return createNotificationTemplateCall(version, accountId, conduit, title, body, appKey, event, tags, _callback);
+        return createNotificationTemplateCall(accountId, conduit, title, body, appKey, event, tags, _callback);
 
     }
 
     /**
      * Create Notification Template
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param title title of the notification template (required)
@@ -222,15 +213,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationTemplateResponse createNotificationTemplate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags) throws ApiException {
-        ApiResponse<NotificationTemplateResponse> localVarResp = createNotificationTemplateWithHttpInfo(version, accountId, conduit, title, body, appKey, event, tags);
+    public NotificationTemplateResponse createNotificationTemplate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags) throws ApiException {
+        ApiResponse<NotificationTemplateResponse> localVarResp = createNotificationTemplateWithHttpInfo(accountId, conduit, title, body, appKey, event, tags);
         return localVarResp.getData();
     }
 
     /**
      * Create Notification Template
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param title title of the notification template (required)
@@ -247,8 +237,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationTemplateResponse> createNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags) throws ApiException {
-        okhttp3.Call localVarCall = createNotificationTemplateValidateBeforeCall(version, accountId, conduit, title, body, appKey, event, tags, null);
+    public ApiResponse<NotificationTemplateResponse> createNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags) throws ApiException {
+        okhttp3.Call localVarCall = createNotificationTemplateValidateBeforeCall(accountId, conduit, title, body, appKey, event, tags, null);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -256,7 +246,6 @@ public class NotificationApi {
     /**
      * Create Notification Template (asynchronously)
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
      * @param title title of the notification template (required)
@@ -274,16 +263,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNotificationTemplateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
+    public okhttp3.Call createNotificationTemplateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String conduit, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String body, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String tags, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createNotificationTemplateValidateBeforeCall(version, accountId, conduit, title, body, appKey, event, tags, _callback);
+        okhttp3.Call localVarCall = createNotificationTemplateValidateBeforeCall(accountId, conduit, title, body, appKey, event, tags, _callback);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createOrUpdateBlockedNotifications
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param data batch data payload (application specific) (required)
      * @param accountId the account id of the user (optional)
@@ -297,7 +285,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrUpdateBlockedNotificationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOrUpdateBlockedNotificationsCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -314,8 +302,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/blocked/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/blocked/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -355,12 +342,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOrUpdateBlockedNotificationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createOrUpdateBlockedNotifications(Async)");
-        }
-
+    private okhttp3.Call createOrUpdateBlockedNotificationsValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling createOrUpdateBlockedNotifications(Async)");
@@ -371,14 +353,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'data' when calling createOrUpdateBlockedNotifications(Async)");
         }
 
-        return createOrUpdateBlockedNotificationsCall(version, appKey, data, accountId, _callback);
+        return createOrUpdateBlockedNotificationsCall(appKey, data, accountId, _callback);
 
     }
 
     /**
      * Create or update blocked notification settings
      * Create or update blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param data batch data payload (application specific) (required)
      * @param accountId the account id of the user (optional)
@@ -391,15 +372,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BlockedNotificationResponse createOrUpdateBlockedNotifications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<BlockedNotificationResponse> localVarResp = createOrUpdateBlockedNotificationsWithHttpInfo(version, appKey, data, accountId);
+    public BlockedNotificationResponse createOrUpdateBlockedNotifications(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<BlockedNotificationResponse> localVarResp = createOrUpdateBlockedNotificationsWithHttpInfo(appKey, data, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Create or update blocked notification settings
      * Create or update blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param data batch data payload (application specific) (required)
      * @param accountId the account id of the user (optional)
@@ -412,8 +392,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlockedNotificationResponse> createOrUpdateBlockedNotificationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = createOrUpdateBlockedNotificationsValidateBeforeCall(version, appKey, data, accountId, null);
+    public ApiResponse<BlockedNotificationResponse> createOrUpdateBlockedNotificationsWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = createOrUpdateBlockedNotificationsValidateBeforeCall(appKey, data, accountId, null);
         Type localVarReturnType = new TypeToken<BlockedNotificationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -421,7 +401,6 @@ public class NotificationApi {
     /**
      * Create or update blocked notification settings (asynchronously)
      * Create or update blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param data batch data payload (application specific) (required)
      * @param accountId the account id of the user (optional)
@@ -435,16 +414,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrUpdateBlockedNotificationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId, final ApiCallback<BlockedNotificationResponse> _callback) throws ApiException {
+    public okhttp3.Call createOrUpdateBlockedNotificationsAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String data, @javax.annotation.Nullable Long accountId, final ApiCallback<BlockedNotificationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createOrUpdateBlockedNotificationsValidateBeforeCall(version, appKey, data, accountId, _callback);
+        okhttp3.Call localVarCall = createOrUpdateBlockedNotificationsValidateBeforeCall(appKey, data, accountId, _callback);
         Type localVarReturnType = new TypeToken<BlockedNotificationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteNotificationTemplate
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param notificationTemplateId the id of the notification template to delete (required)
      * @param _callback Callback for upload/download progress
@@ -457,7 +435,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteNotificationTemplateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteNotificationTemplateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -474,8 +452,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/template/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/template/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -511,12 +488,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteNotificationTemplate(Async)");
-        }
-
+    private okhttp3.Call deleteNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteNotificationTemplate(Async)");
@@ -527,14 +499,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'notificationTemplateId' when calling deleteNotificationTemplate(Async)");
         }
 
-        return deleteNotificationTemplateCall(version, accountId, notificationTemplateId, _callback);
+        return deleteNotificationTemplateCall(accountId, notificationTemplateId, _callback);
 
     }
 
     /**
      * Delete Notification Template
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param notificationTemplateId the id of the notification template to delete (required)
      * @return NotificationTemplateResponse
@@ -546,15 +517,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationTemplateResponse deleteNotificationTemplate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
-        ApiResponse<NotificationTemplateResponse> localVarResp = deleteNotificationTemplateWithHttpInfo(version, accountId, notificationTemplateId);
+    public NotificationTemplateResponse deleteNotificationTemplate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
+        ApiResponse<NotificationTemplateResponse> localVarResp = deleteNotificationTemplateWithHttpInfo(accountId, notificationTemplateId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Notification Template
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param notificationTemplateId the id of the notification template to delete (required)
      * @return ApiResponse&lt;NotificationTemplateResponse&gt;
@@ -566,8 +536,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationTemplateResponse> deleteNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
-        okhttp3.Call localVarCall = deleteNotificationTemplateValidateBeforeCall(version, accountId, notificationTemplateId, null);
+    public ApiResponse<NotificationTemplateResponse> deleteNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
+        okhttp3.Call localVarCall = deleteNotificationTemplateValidateBeforeCall(accountId, notificationTemplateId, null);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -575,7 +545,6 @@ public class NotificationApi {
     /**
      * Delete Notification Template (asynchronously)
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param notificationTemplateId the id of the notification template to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -588,16 +557,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteNotificationTemplateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteNotificationTemplateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteNotificationTemplateValidateBeforeCall(version, accountId, notificationTemplateId, _callback);
+        okhttp3.Call localVarCall = deleteNotificationTemplateValidateBeforeCall(accountId, notificationTemplateId, _callback);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getNotificationTemplate
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param notificationTemplateId the id of the notification template to get (required)
      * @param _callback Callback for upload/download progress
@@ -610,7 +578,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationTemplateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNotificationTemplateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -627,8 +595,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/template/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/template/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -664,12 +631,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getNotificationTemplate(Async)");
-        }
-
+    private okhttp3.Call getNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getNotificationTemplate(Async)");
@@ -680,14 +642,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'notificationTemplateId' when calling getNotificationTemplate(Async)");
         }
 
-        return getNotificationTemplateCall(version, accountId, notificationTemplateId, _callback);
+        return getNotificationTemplateCall(accountId, notificationTemplateId, _callback);
 
     }
 
     /**
      * Get Notification Template
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param notificationTemplateId the id of the notification template to get (required)
      * @return NotificationTemplateResponse
@@ -699,15 +660,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationTemplateResponse getNotificationTemplate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
-        ApiResponse<NotificationTemplateResponse> localVarResp = getNotificationTemplateWithHttpInfo(version, accountId, notificationTemplateId);
+    public NotificationTemplateResponse getNotificationTemplate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
+        ApiResponse<NotificationTemplateResponse> localVarResp = getNotificationTemplateWithHttpInfo(accountId, notificationTemplateId);
         return localVarResp.getData();
     }
 
     /**
      * Get Notification Template
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param notificationTemplateId the id of the notification template to get (required)
      * @return ApiResponse&lt;NotificationTemplateResponse&gt;
@@ -719,8 +679,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationTemplateResponse> getNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
-        okhttp3.Call localVarCall = getNotificationTemplateValidateBeforeCall(version, accountId, notificationTemplateId, null);
+    public ApiResponse<NotificationTemplateResponse> getNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId) throws ApiException {
+        okhttp3.Call localVarCall = getNotificationTemplateValidateBeforeCall(accountId, notificationTemplateId, null);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -728,7 +688,6 @@ public class NotificationApi {
     /**
      * Get Notification Template (asynchronously)
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param notificationTemplateId the id of the notification template to get (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -741,16 +700,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationTemplateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
+    public okhttp3.Call getNotificationTemplateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNotificationTemplateValidateBeforeCall(version, accountId, notificationTemplateId, _callback);
+        okhttp3.Call localVarCall = getNotificationTemplateValidateBeforeCall(accountId, notificationTemplateId, _callback);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getNotifications
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -782,7 +740,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNotificationsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -799,8 +757,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -912,20 +869,14 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNotificationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getNotifications(Async)");
-        }
-
-        return getNotificationsCall(version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, _callback);
+    private okhttp3.Call getNotificationsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return getNotificationsCall(deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, _callback);
 
     }
 
     /**
      * Get Notifications
      * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -956,15 +907,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationMessageListResponse getNotifications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<NotificationMessageListResponse> localVarResp = getNotificationsWithHttpInfo(version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
+    public NotificationMessageListResponse getNotifications(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<NotificationMessageListResponse> localVarResp = getNotificationsWithHttpInfo(deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Get Notifications
      * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -995,8 +945,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationMessageListResponse> getNotificationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, null);
+    public ApiResponse<NotificationMessageListResponse> getNotificationsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, null);
         Type localVarReturnType = new TypeToken<NotificationMessageListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1004,7 +954,6 @@ public class NotificationApi {
     /**
      * Get Notifications (asynchronously)
      * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId the account id used to view another person&#39;s notifications (optional)
@@ -1036,16 +985,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNotificationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<NotificationMessageListResponse> _callback) throws ApiException {
+    public okhttp3.Call getNotificationsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean returnReadMessages, @javax.annotation.Nullable Boolean markAsRead, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnSent, @javax.annotation.Nullable Boolean ignoreFlagged, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<NotificationMessageListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, _callback);
+        okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, _callback);
         Type localVarReturnType = new TypeToken<NotificationMessageListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for registerNotificationToken
-     * @param version  (required)
      * @param token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param pushType The type of push notification. Possible values include: APNS, GCM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1066,7 +1014,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call registerNotificationTokenCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call registerNotificationTokenCall(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1083,8 +1031,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/token"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/token";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1152,12 +1099,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call registerNotificationTokenValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling registerNotificationToken(Async)");
-        }
-
+    private okhttp3.Call registerNotificationTokenValidateBeforeCall(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'token' is set
         if (token == null) {
             throw new ApiException("Missing the required parameter 'token' when calling registerNotificationToken(Async)");
@@ -1168,14 +1110,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'pushType' when calling registerNotificationToken(Async)");
         }
 
-        return registerNotificationTokenCall(version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, _callback);
+        return registerNotificationTokenCall(token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, _callback);
 
     }
 
     /**
      * Register Notification Token
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @param version  (required)
      * @param token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param pushType The type of push notification. Possible values include: APNS, GCM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1195,15 +1136,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse registerNotificationToken(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = registerNotificationTokenWithHttpInfo(version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
+    public SirqulResponse registerNotificationToken(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = registerNotificationTokenWithHttpInfo(token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Register Notification Token
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @param version  (required)
      * @param token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param pushType The type of push notification. Possible values include: APNS, GCM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1223,8 +1163,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> registerNotificationTokenWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = registerNotificationTokenValidateBeforeCall(version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> registerNotificationTokenWithHttpInfo(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = registerNotificationTokenValidateBeforeCall(token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1232,7 +1172,6 @@ public class NotificationApi {
     /**
      * Register Notification Token (asynchronously)
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @param version  (required)
      * @param token A token that is generated by the device to sign requests for the notification service providers (required)
      * @param pushType The type of push notification. Possible values include: APNS, GCM (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -1253,16 +1192,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call registerNotificationTokenAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call registerNotificationTokenAsync(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String pushType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = registerNotificationTokenValidateBeforeCall(version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = registerNotificationTokenValidateBeforeCall(token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchBlockedNotifications
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -1285,7 +1223,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBlockedNotificationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchBlockedNotificationsCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1302,8 +1240,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/blocked/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/blocked/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1379,25 +1316,19 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchBlockedNotificationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchBlockedNotifications(Async)");
-        }
-
+    private okhttp3.Call searchBlockedNotificationsValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchBlockedNotifications(Async)");
         }
 
-        return searchBlockedNotificationsCall(version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, _callback);
+        return searchBlockedNotificationsCall(appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search on the user&#39;s blocked notification settings
      * Search on the user&#39;s blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -1419,15 +1350,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BlockedNotificationResponse searchBlockedNotifications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<BlockedNotificationResponse> localVarResp = searchBlockedNotificationsWithHttpInfo(version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
+    public BlockedNotificationResponse searchBlockedNotifications(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<BlockedNotificationResponse> localVarResp = searchBlockedNotificationsWithHttpInfo(appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search on the user&#39;s blocked notification settings
      * Search on the user&#39;s blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -1449,8 +1379,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BlockedNotificationResponse> searchBlockedNotificationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchBlockedNotificationsValidateBeforeCall(version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, null);
+    public ApiResponse<BlockedNotificationResponse> searchBlockedNotificationsWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchBlockedNotificationsValidateBeforeCall(appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<BlockedNotificationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1458,7 +1388,6 @@ public class NotificationApi {
     /**
      * Search on the user&#39;s blocked notification settings (asynchronously)
      * Search on the user&#39;s blocked notification settings
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param accountId the account id of the user (optional)
      * @param searchTags search tags to filter results (optional)
@@ -1481,16 +1410,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBlockedNotificationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<BlockedNotificationResponse> _callback) throws ApiException {
+    public okhttp3.Call searchBlockedNotificationsAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String events, @javax.annotation.Nullable String conduits, @javax.annotation.Nullable String customTypes, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<BlockedNotificationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchBlockedNotificationsValidateBeforeCall(version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchBlockedNotificationsValidateBeforeCall(appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<BlockedNotificationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchNotificationTemplate
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param descending Specified whether the results are returned in descending or ascending order. (required)
@@ -1512,7 +1440,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchNotificationTemplateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchNotificationTemplateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1529,8 +1457,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/template/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/template/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1602,12 +1529,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchNotificationTemplate(Async)");
-        }
-
+    private okhttp3.Call searchNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchNotificationTemplate(Async)");
@@ -1633,14 +1555,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchNotificationTemplate(Async)");
         }
 
-        return searchNotificationTemplateCall(version, accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword, _callback);
+        return searchNotificationTemplateCall(accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword, _callback);
 
     }
 
     /**
      * Search Notification Templates
      * Search for notification templates on owned applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param descending Specified whether the results are returned in descending or ascending order. (required)
@@ -1661,15 +1582,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationTemplateResponse searchNotificationTemplate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<NotificationTemplateResponse> localVarResp = searchNotificationTemplateWithHttpInfo(version, accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword);
+    public NotificationTemplateResponse searchNotificationTemplate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<NotificationTemplateResponse> localVarResp = searchNotificationTemplateWithHttpInfo(accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Notification Templates
      * Search for notification templates on owned applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param descending Specified whether the results are returned in descending or ascending order. (required)
@@ -1690,8 +1610,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationTemplateResponse> searchNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = searchNotificationTemplateValidateBeforeCall(version, accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword, null);
+    public ApiResponse<NotificationTemplateResponse> searchNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = searchNotificationTemplateValidateBeforeCall(accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword, null);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1699,7 +1619,6 @@ public class NotificationApi {
     /**
      * Search Notification Templates (asynchronously)
      * Search for notification templates on owned applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. (required)
      * @param descending Specified whether the results are returned in descending or ascending order. (required)
@@ -1721,16 +1640,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchNotificationTemplateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
+    public okhttp3.Call searchNotificationTemplateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String event, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable Boolean reservedOnly, @javax.annotation.Nullable String keyword, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchNotificationTemplateValidateBeforeCall(version, accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword, _callback);
+        okhttp3.Call localVarCall = searchNotificationTemplateValidateBeforeCall(accountId, sortField, descending, start, limit, appKey, event, conduit, globalOnly, reservedOnly, keyword, _callback);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRecipients
-     * @param version  (required)
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1754,7 +1672,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRecipientsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRecipientsCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1771,8 +1689,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/recipient/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/recipient/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1852,25 +1769,19 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipientsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRecipients(Async)");
-        }
-
+    private okhttp3.Call searchRecipientsValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchRecipients(Async)");
         }
 
-        return searchRecipientsCall(version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, _callback);
+        return searchRecipientsCall(sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, _callback);
 
     }
 
     /**
      * Search for Recipients
      * Search for application users to send notifications.
-     * @param version  (required)
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1893,15 +1804,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<NotificationRecipientResponse> searchRecipients(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<NotificationRecipientResponse>> localVarResp = searchRecipientsWithHttpInfo(version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
+    public List<NotificationRecipientResponse> searchRecipients(@javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<NotificationRecipientResponse>> localVarResp = searchRecipientsWithHttpInfo(sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search for Recipients
      * Search for application users to send notifications.
-     * @param version  (required)
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1924,8 +1834,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<NotificationRecipientResponse>> searchRecipientsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchRecipientsValidateBeforeCall(version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, null);
+    public ApiResponse<List<NotificationRecipientResponse>> searchRecipientsWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchRecipientsValidateBeforeCall(sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<List<NotificationRecipientResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1933,7 +1843,6 @@ public class NotificationApi {
     /**
      * Search for Recipients (asynchronously)
      * Search for application users to send notifications.
-     * @param version  (required)
      * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1957,16 +1866,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRecipientsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<NotificationRecipientResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchRecipientsAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String recipientAccountIds, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<NotificationRecipientResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRecipientsValidateBeforeCall(version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchRecipientsValidateBeforeCall(sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<NotificationRecipientResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRecipientsCount
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -1989,7 +1897,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRecipientsCountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRecipientsCountCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2006,8 +1914,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/recipient/search/count"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/recipient/search/count";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2083,20 +1990,14 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipientsCountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRecipientsCount(Async)");
-        }
-
-        return searchRecipientsCountCall(version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, _callback);
+    private okhttp3.Call searchRecipientsCountValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchRecipientsCountCall(deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search for Recipients (Counts/Grouped)
      * Search for application users to send notifications (count/grouped variant).
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -2118,15 +2019,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationRecipientResponseListResponse searchRecipientsCount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<NotificationRecipientResponseListResponse> localVarResp = searchRecipientsCountWithHttpInfo(version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
+    public NotificationRecipientResponseListResponse searchRecipientsCount(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<NotificationRecipientResponseListResponse> localVarResp = searchRecipientsCountWithHttpInfo(deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search for Recipients (Counts/Grouped)
      * Search for application users to send notifications (count/grouped variant).
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -2148,8 +2048,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationRecipientResponseListResponse> searchRecipientsCountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchRecipientsCountValidateBeforeCall(version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, null);
+    public ApiResponse<NotificationRecipientResponseListResponse> searchRecipientsCountWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchRecipientsCountValidateBeforeCall(deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<NotificationRecipientResponseListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2157,7 +2057,6 @@ public class NotificationApi {
     /**
      * Search for Recipients (Counts/Grouped) (asynchronously)
      * Search for application users to send notifications (count/grouped variant).
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -2180,16 +2079,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRecipientsCountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<NotificationRecipientResponseListResponse> _callback) throws ApiException {
+    public okhttp3.Call searchRecipientsCountAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<NotificationRecipientResponseListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRecipientsCountValidateBeforeCall(version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchRecipientsCountValidateBeforeCall(deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<NotificationRecipientResponseListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for sendBatchNotifications
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (required)
      * @param appKey The application key for updating an existing application (required)
      * @param customMessage Message string that will be displayed in on the notification (required)
@@ -2209,7 +2107,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendBatchNotificationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendBatchNotificationsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2226,8 +2124,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2291,12 +2188,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendBatchNotificationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling sendBatchNotifications(Async)");
-        }
-
+    private okhttp3.Call sendBatchNotificationsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling sendBatchNotifications(Async)");
@@ -2312,14 +2204,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'customMessage' when calling sendBatchNotifications(Async)");
         }
 
-        return sendBatchNotificationsCall(version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, _callback);
+        return sendBatchNotificationsCall(accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, _callback);
 
     }
 
     /**
      * Send Batch Notifications
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (required)
      * @param appKey The application key for updating an existing application (required)
      * @param customMessage Message string that will be displayed in on the notification (required)
@@ -2338,15 +2229,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse sendBatchNotifications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = sendBatchNotificationsWithHttpInfo(version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
+    public SirqulResponse sendBatchNotifications(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = sendBatchNotificationsWithHttpInfo(accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
         return localVarResp.getData();
     }
 
     /**
      * Send Batch Notifications
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (required)
      * @param appKey The application key for updating an existing application (required)
      * @param customMessage Message string that will be displayed in on the notification (required)
@@ -2365,8 +2255,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> sendBatchNotificationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType) throws ApiException {
-        okhttp3.Call localVarCall = sendBatchNotificationsValidateBeforeCall(version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, null);
+    public ApiResponse<SirqulResponse> sendBatchNotificationsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType) throws ApiException {
+        okhttp3.Call localVarCall = sendBatchNotificationsValidateBeforeCall(accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2374,7 +2264,6 @@ public class NotificationApi {
     /**
      * Send Batch Notifications (asynchronously)
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @param version  (required)
      * @param accountId The account id of the application owner/manager (required)
      * @param appKey The application key for updating an existing application (required)
      * @param customMessage Message string that will be displayed in on the notification (required)
@@ -2394,16 +2283,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendBatchNotificationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call sendBatchNotificationsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String customMessage, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sendBatchNotificationsValidateBeforeCall(version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, _callback);
+        okhttp3.Call localVarCall = sendBatchNotificationsValidateBeforeCall(accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for sendCustomNotifications
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -2432,7 +2320,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendCustomNotificationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendCustomNotificationsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2449,8 +2337,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/custom"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/custom";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2550,20 +2437,14 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendCustomNotificationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling sendCustomNotifications(Async)");
-        }
-
-        return sendCustomNotificationsCall(version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, _callback);
+    private okhttp3.Call sendCustomNotificationsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return sendCustomNotificationsCall(deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, _callback);
 
     }
 
     /**
      * Send Custom Notifications
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -2591,15 +2472,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse sendCustomNotifications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = sendCustomNotificationsWithHttpInfo(version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
+    public SirqulResponse sendCustomNotifications(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = sendCustomNotificationsWithHttpInfo(deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Send Custom Notifications
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -2627,8 +2507,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> sendCustomNotificationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = sendCustomNotificationsValidateBeforeCall(version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> sendCustomNotificationsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = sendCustomNotificationsValidateBeforeCall(deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2636,7 +2516,6 @@ public class NotificationApi {
     /**
      * Send Custom Notifications (asynchronously)
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @param version  (required)
      * @param deviceId the unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param receiverAccountIds comma separated list of account IDs that will receive the notification (optional)
@@ -2665,16 +2544,15 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendCustomNotificationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call sendCustomNotificationsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean includeFriendGroup, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String conduit, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String actionCategory, @javax.annotation.Nullable String subject, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable Boolean friendOnlyAPNS, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sendCustomNotificationsValidateBeforeCall(version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = sendCustomNotificationsValidateBeforeCall(deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateNotificationTemplate
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param notificationTemplateId The notification template ID to update. (required)
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -2690,7 +2568,7 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateNotificationTemplateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateNotificationTemplateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2707,8 +2585,7 @@ public class NotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/template/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/template/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2756,12 +2633,7 @@ public class NotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateNotificationTemplate(Async)");
-        }
-
+    private okhttp3.Call updateNotificationTemplateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateNotificationTemplate(Async)");
@@ -2772,14 +2644,13 @@ public class NotificationApi {
             throw new ApiException("Missing the required parameter 'notificationTemplateId' when calling updateNotificationTemplate(Async)");
         }
 
-        return updateNotificationTemplateCall(version, accountId, notificationTemplateId, title, body, tags, _callback);
+        return updateNotificationTemplateCall(accountId, notificationTemplateId, title, body, tags, _callback);
 
     }
 
     /**
      * Update Notification Template
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param notificationTemplateId The notification template ID to update. (required)
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -2794,15 +2665,14 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NotificationTemplateResponse updateNotificationTemplate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags) throws ApiException {
-        ApiResponse<NotificationTemplateResponse> localVarResp = updateNotificationTemplateWithHttpInfo(version, accountId, notificationTemplateId, title, body, tags);
+    public NotificationTemplateResponse updateNotificationTemplate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags) throws ApiException {
+        ApiResponse<NotificationTemplateResponse> localVarResp = updateNotificationTemplateWithHttpInfo(accountId, notificationTemplateId, title, body, tags);
         return localVarResp.getData();
     }
 
     /**
      * Update Notification Template
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param notificationTemplateId The notification template ID to update. (required)
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -2817,8 +2687,8 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NotificationTemplateResponse> updateNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags) throws ApiException {
-        okhttp3.Call localVarCall = updateNotificationTemplateValidateBeforeCall(version, accountId, notificationTemplateId, title, body, tags, null);
+    public ApiResponse<NotificationTemplateResponse> updateNotificationTemplateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags) throws ApiException {
+        okhttp3.Call localVarCall = updateNotificationTemplateValidateBeforeCall(accountId, notificationTemplateId, title, body, tags, null);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2826,7 +2696,6 @@ public class NotificationApi {
     /**
      * Update Notification Template (asynchronously)
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @param version  (required)
      * @param accountId The account ID of the user. (required)
      * @param notificationTemplateId The notification template ID to update. (required)
      * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
@@ -2842,9 +2711,9 @@ public class NotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateNotificationTemplateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
+    public okhttp3.Call updateNotificationTemplateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long notificationTemplateId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String body, @javax.annotation.Nullable String tags, final ApiCallback<NotificationTemplateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateNotificationTemplateValidateBeforeCall(version, accountId, notificationTemplateId, title, body, tags, _callback);
+        okhttp3.Call localVarCall = updateNotificationTemplateValidateBeforeCall(accountId, notificationTemplateId, title, body, tags, _callback);
         Type localVarReturnType = new TypeToken<NotificationTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

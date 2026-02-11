@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CargoType;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class CargoTypeApi {
 
     /**
      * Build call for createCargoType
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +85,7 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCargoTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCargoTypeCall(@javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +102,7 @@ public class CargoTypeApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/type"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/cargo/type";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -133,20 +130,14 @@ public class CargoTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCargoTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createCargoType(Async)");
-        }
-
-        return createCargoTypeCall(version, body, _callback);
+    private okhttp3.Call createCargoTypeValidateBeforeCall(@javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
+        return createCargoTypeCall(body, _callback);
 
     }
 
     /**
      * Create Cargo Type
      * Create new cargo type
-     * @param version  (required)
      * @param body  (optional)
      * @return CargoType
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,15 +148,14 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CargoType createCargoType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable CargoType body) throws ApiException {
-        ApiResponse<CargoType> localVarResp = createCargoTypeWithHttpInfo(version, body);
+    public CargoType createCargoType(@javax.annotation.Nullable CargoType body) throws ApiException {
+        ApiResponse<CargoType> localVarResp = createCargoTypeWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Cargo Type
      * Create new cargo type
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;CargoType&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,8 +166,8 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CargoType> createCargoTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable CargoType body) throws ApiException {
-        okhttp3.Call localVarCall = createCargoTypeValidateBeforeCall(version, body, null);
+    public ApiResponse<CargoType> createCargoTypeWithHttpInfo(@javax.annotation.Nullable CargoType body) throws ApiException {
+        okhttp3.Call localVarCall = createCargoTypeValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<CargoType>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -185,7 +175,6 @@ public class CargoTypeApi {
     /**
      * Create Cargo Type (asynchronously)
      * Create new cargo type
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -197,16 +186,15 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCargoTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable CargoType body, final ApiCallback<CargoType> _callback) throws ApiException {
+    public okhttp3.Call createCargoTypeAsync(@javax.annotation.Nullable CargoType body, final ApiCallback<CargoType> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCargoTypeValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createCargoTypeValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<CargoType>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteCargoType
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -218,7 +206,7 @@ public class CargoTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCargoTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCargoTypeCall(@javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -235,8 +223,7 @@ public class CargoTypeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/type/{cargoTypeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/cargo/type/{cargoTypeId}"
             .replace("{" + "cargoTypeId" + "}", localVarApiClient.escapeString(cargoTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -264,25 +251,19 @@ public class CargoTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCargoTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteCargoType(Async)");
-        }
-
+    private okhttp3.Call deleteCargoTypeValidateBeforeCall(@javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'cargoTypeId' is set
         if (cargoTypeId == null) {
             throw new ApiException("Missing the required parameter 'cargoTypeId' when calling deleteCargoType(Async)");
         }
 
-        return deleteCargoTypeCall(version, cargoTypeId, _callback);
+        return deleteCargoTypeCall(cargoTypeId, _callback);
 
     }
 
     /**
      * Delete Cargo Type
      * Delete a type of cargo
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -292,14 +273,13 @@ public class CargoTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteCargoType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
-        deleteCargoTypeWithHttpInfo(version, cargoTypeId);
+    public void deleteCargoType(@javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
+        deleteCargoTypeWithHttpInfo(cargoTypeId);
     }
 
     /**
      * Delete Cargo Type
      * Delete a type of cargo
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -310,15 +290,14 @@ public class CargoTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteCargoTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
-        okhttp3.Call localVarCall = deleteCargoTypeValidateBeforeCall(version, cargoTypeId, null);
+    public ApiResponse<Void> deleteCargoTypeWithHttpInfo(@javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
+        okhttp3.Call localVarCall = deleteCargoTypeValidateBeforeCall(cargoTypeId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Cargo Type (asynchronously)
      * Delete a type of cargo
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -330,15 +309,14 @@ public class CargoTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCargoTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteCargoTypeAsync(@javax.annotation.Nonnull Long cargoTypeId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCargoTypeValidateBeforeCall(version, cargoTypeId, _callback);
+        okhttp3.Call localVarCall = deleteCargoTypeValidateBeforeCall(cargoTypeId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCargoType
-     * @param version  (required)
      * @param cargoTypeId the cargo type ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -350,7 +328,7 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCargoTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCargoTypeCall(@javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -367,8 +345,7 @@ public class CargoTypeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/type/{cargoTypeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/cargo/type/{cargoTypeId}"
             .replace("{" + "cargoTypeId" + "}", localVarApiClient.escapeString(cargoTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -397,25 +374,19 @@ public class CargoTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCargoTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCargoType(Async)");
-        }
-
+    private okhttp3.Call getCargoTypeValidateBeforeCall(@javax.annotation.Nonnull Long cargoTypeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'cargoTypeId' is set
         if (cargoTypeId == null) {
             throw new ApiException("Missing the required parameter 'cargoTypeId' when calling getCargoType(Async)");
         }
 
-        return getCargoTypeCall(version, cargoTypeId, _callback);
+        return getCargoTypeCall(cargoTypeId, _callback);
 
     }
 
     /**
      * Get Cargo Type
      * Get an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the cargo type ID (required)
      * @return CargoType
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -426,15 +397,14 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CargoType getCargoType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
-        ApiResponse<CargoType> localVarResp = getCargoTypeWithHttpInfo(version, cargoTypeId);
+    public CargoType getCargoType(@javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
+        ApiResponse<CargoType> localVarResp = getCargoTypeWithHttpInfo(cargoTypeId);
         return localVarResp.getData();
     }
 
     /**
      * Get Cargo Type
      * Get an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the cargo type ID (required)
      * @return ApiResponse&lt;CargoType&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -445,8 +415,8 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CargoType> getCargoTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
-        okhttp3.Call localVarCall = getCargoTypeValidateBeforeCall(version, cargoTypeId, null);
+    public ApiResponse<CargoType> getCargoTypeWithHttpInfo(@javax.annotation.Nonnull Long cargoTypeId) throws ApiException {
+        okhttp3.Call localVarCall = getCargoTypeValidateBeforeCall(cargoTypeId, null);
         Type localVarReturnType = new TypeToken<CargoType>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -454,7 +424,6 @@ public class CargoTypeApi {
     /**
      * Get Cargo Type (asynchronously)
      * Get an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the cargo type ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -466,16 +435,15 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCargoTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, final ApiCallback<CargoType> _callback) throws ApiException {
+    public okhttp3.Call getCargoTypeAsync(@javax.annotation.Nonnull Long cargoTypeId, final ApiCallback<CargoType> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCargoTypeValidateBeforeCall(version, cargoTypeId, _callback);
+        okhttp3.Call localVarCall = getCargoTypeValidateBeforeCall(cargoTypeId, _callback);
         Type localVarReturnType = new TypeToken<CargoType>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchCargoTypes
-     * @param version  (required)
      * @param sortField the sort field to use for the cargo type (required)
      * @param descending if the cargo type should be should be in descending order (required)
      * @param start the start of the search (required)
@@ -493,7 +461,7 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCargoTypesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCargoTypesCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -510,8 +478,7 @@ public class CargoTypeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/type"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/cargo/type";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -567,12 +534,7 @@ public class CargoTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCargoTypesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchCargoTypes(Async)");
-        }
-
+    private okhttp3.Call searchCargoTypesValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchCargoTypes(Async)");
@@ -598,14 +560,13 @@ public class CargoTypeApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchCargoTypes(Async)");
         }
 
-        return searchCargoTypesCall(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
+        return searchCargoTypesCall(sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
 
     }
 
     /**
      * Search Cargo Type
      * Search for types of cargo
-     * @param version  (required)
      * @param sortField the sort field to use for the cargo type (required)
      * @param descending if the cargo type should be should be in descending order (required)
      * @param start the start of the search (required)
@@ -622,15 +583,14 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<CargoType> searchCargoTypes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
-        ApiResponse<List<CargoType>> localVarResp = searchCargoTypesWithHttpInfo(version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+    public List<CargoType> searchCargoTypes(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
+        ApiResponse<List<CargoType>> localVarResp = searchCargoTypesWithHttpInfo(sortField, descending, start, limit, activeOnly, retailerId, hubId);
         return localVarResp.getData();
     }
 
     /**
      * Search Cargo Type
      * Search for types of cargo
-     * @param version  (required)
      * @param sortField the sort field to use for the cargo type (required)
      * @param descending if the cargo type should be should be in descending order (required)
      * @param start the start of the search (required)
@@ -647,8 +607,8 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CargoType>> searchCargoTypesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
-        okhttp3.Call localVarCall = searchCargoTypesValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, null);
+    public ApiResponse<List<CargoType>> searchCargoTypesWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
+        okhttp3.Call localVarCall = searchCargoTypesValidateBeforeCall(sortField, descending, start, limit, activeOnly, retailerId, hubId, null);
         Type localVarReturnType = new TypeToken<List<CargoType>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -656,7 +616,6 @@ public class CargoTypeApi {
     /**
      * Search Cargo Type (asynchronously)
      * Search for types of cargo
-     * @param version  (required)
      * @param sortField the sort field to use for the cargo type (required)
      * @param descending if the cargo type should be should be in descending order (required)
      * @param start the start of the search (required)
@@ -674,16 +633,15 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCargoTypesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback<List<CargoType>> _callback) throws ApiException {
+    public okhttp3.Call searchCargoTypesAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback<List<CargoType>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCargoTypesValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
+        okhttp3.Call localVarCall = searchCargoTypesValidateBeforeCall(sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
         Type localVarReturnType = new TypeToken<List<CargoType>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateCargoType
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -696,7 +654,7 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCargoTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCargoTypeCall(@javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -713,8 +671,7 @@ public class CargoTypeApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/type/{cargoTypeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/cargo/type/{cargoTypeId}"
             .replace("{" + "cargoTypeId" + "}", localVarApiClient.escapeString(cargoTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -743,25 +700,19 @@ public class CargoTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCargoTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateCargoType(Async)");
-        }
-
+    private okhttp3.Call updateCargoTypeValidateBeforeCall(@javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'cargoTypeId' is set
         if (cargoTypeId == null) {
             throw new ApiException("Missing the required parameter 'cargoTypeId' when calling updateCargoType(Async)");
         }
 
-        return updateCargoTypeCall(version, cargoTypeId, body, _callback);
+        return updateCargoTypeCall(cargoTypeId, body, _callback);
 
     }
 
     /**
      * Update Cargo Type
      * Update an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @param body  (optional)
      * @return CargoType
@@ -773,15 +724,14 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CargoType updateCargoType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body) throws ApiException {
-        ApiResponse<CargoType> localVarResp = updateCargoTypeWithHttpInfo(version, cargoTypeId, body);
+    public CargoType updateCargoType(@javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body) throws ApiException {
+        ApiResponse<CargoType> localVarResp = updateCargoTypeWithHttpInfo(cargoTypeId, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Cargo Type
      * Update an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @param body  (optional)
      * @return ApiResponse&lt;CargoType&gt;
@@ -793,8 +743,8 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CargoType> updateCargoTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body) throws ApiException {
-        okhttp3.Call localVarCall = updateCargoTypeValidateBeforeCall(version, cargoTypeId, body, null);
+    public ApiResponse<CargoType> updateCargoTypeWithHttpInfo(@javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body) throws ApiException {
+        okhttp3.Call localVarCall = updateCargoTypeValidateBeforeCall(cargoTypeId, body, null);
         Type localVarReturnType = new TypeToken<CargoType>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -802,7 +752,6 @@ public class CargoTypeApi {
     /**
      * Update Cargo Type (asynchronously)
      * Update an existing cargo type
-     * @param version  (required)
      * @param cargoTypeId the ID of the cargo type (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -815,9 +764,9 @@ public class CargoTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCargoTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body, final ApiCallback<CargoType> _callback) throws ApiException {
+    public okhttp3.Call updateCargoTypeAsync(@javax.annotation.Nonnull Long cargoTypeId, @javax.annotation.Nullable CargoType body, final ApiCallback<CargoType> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCargoTypeValidateBeforeCall(version, cargoTypeId, body, _callback);
+        okhttp3.Call localVarCall = updateCargoTypeValidateBeforeCall(cargoTypeId, body, _callback);
         Type localVarReturnType = new TypeToken<CargoType>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

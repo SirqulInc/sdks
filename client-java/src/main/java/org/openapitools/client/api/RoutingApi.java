@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.RoutingListResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class RoutingApi {
 
     /**
      * Build call for computeRouting
-     * @param version  (required)
      * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +85,7 @@ public class RoutingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call computeRoutingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call computeRoutingCall(@javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +102,7 @@ public class RoutingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/routing/compute"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/routing/compute";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -137,25 +134,19 @@ public class RoutingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call computeRoutingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling computeRouting(Async)");
-        }
-
+    private okhttp3.Call computeRoutingValidateBeforeCall(@javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'data' is set
         if (data == null) {
             throw new ApiException("Missing the required parameter 'data' when calling computeRouting(Async)");
         }
 
-        return computeRoutingCall(version, data, _callback);
+        return computeRoutingCall(data, _callback);
 
     }
 
     /**
      * Compute Route
      * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     * @param version  (required)
      * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @return RoutingListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -166,15 +157,14 @@ public class RoutingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RoutingListResponse computeRouting(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data) throws ApiException {
-        ApiResponse<RoutingListResponse> localVarResp = computeRoutingWithHttpInfo(version, data);
+    public RoutingListResponse computeRouting(@javax.annotation.Nonnull String data) throws ApiException {
+        ApiResponse<RoutingListResponse> localVarResp = computeRoutingWithHttpInfo(data);
         return localVarResp.getData();
     }
 
     /**
      * Compute Route
      * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     * @param version  (required)
      * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @return ApiResponse&lt;RoutingListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -185,8 +175,8 @@ public class RoutingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RoutingListResponse> computeRoutingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data) throws ApiException {
-        okhttp3.Call localVarCall = computeRoutingValidateBeforeCall(version, data, null);
+    public ApiResponse<RoutingListResponse> computeRoutingWithHttpInfo(@javax.annotation.Nonnull String data) throws ApiException {
+        okhttp3.Call localVarCall = computeRoutingValidateBeforeCall(data, null);
         Type localVarReturnType = new TypeToken<RoutingListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -194,7 +184,6 @@ public class RoutingApi {
     /**
      * Compute Route (asynchronously)
      * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     * @param version  (required)
      * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -206,9 +195,9 @@ public class RoutingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call computeRoutingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, final ApiCallback<RoutingListResponse> _callback) throws ApiException {
+    public okhttp3.Call computeRoutingAsync(@javax.annotation.Nonnull String data, final ApiCallback<RoutingListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = computeRoutingValidateBeforeCall(version, data, _callback);
+        okhttp3.Call localVarCall = computeRoutingValidateBeforeCall(data, _callback);
         Type localVarReturnType = new TypeToken<RoutingListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

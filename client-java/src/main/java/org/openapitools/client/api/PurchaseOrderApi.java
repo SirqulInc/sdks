@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.OrderResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class PurchaseOrderApi {
 
     /**
      * Build call for createOrder
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -99,7 +97,7 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrderCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOrderCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class PurchaseOrderApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/order/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/order/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -193,12 +190,7 @@ public class PurchaseOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOrderValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createOrder(Async)");
-        }
-
+    private okhttp3.Call createOrderValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling createOrder(Async)");
@@ -209,14 +201,13 @@ public class PurchaseOrderApi {
             throw new ApiException("Missing the required parameter 'cart' when calling createOrder(Async)");
         }
 
-        return createOrderCall(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
+        return createOrderCall(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
 
     }
 
     /**
      * Create Order
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -238,15 +229,14 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrderResponse createOrder(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
-        ApiResponse<OrderResponse> localVarResp = createOrderWithHttpInfo(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+    public OrderResponse createOrder(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = createOrderWithHttpInfo(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
         return localVarResp.getData();
     }
 
     /**
      * Create Order
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -268,8 +258,8 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderResponse> createOrderWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
-        okhttp3.Call localVarCall = createOrderValidateBeforeCall(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, null);
+    public ApiResponse<OrderResponse> createOrderWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
+        okhttp3.Call localVarCall = createOrderValidateBeforeCall(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, null);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -277,7 +267,6 @@ public class PurchaseOrderApi {
     /**
      * Create Order (asynchronously)
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -300,16 +289,15 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrderAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback<OrderResponse> _callback) throws ApiException {
+    public okhttp3.Call createOrderAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback<OrderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createOrderValidateBeforeCall(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
+        okhttp3.Call localVarCall = createOrderValidateBeforeCall(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteOrder
-     * @param version  (required)
      * @param orderId Order Id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -323,7 +311,7 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOrderCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteOrderCall(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -340,8 +328,7 @@ public class PurchaseOrderApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/order/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/order/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -381,25 +368,19 @@ public class PurchaseOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteOrderValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteOrder(Async)");
-        }
-
+    private okhttp3.Call deleteOrderValidateBeforeCall(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling deleteOrder(Async)");
         }
 
-        return deleteOrderCall(version, orderId, deviceId, accountId, _callback);
+        return deleteOrderCall(orderId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Order
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param orderId Order Id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -412,15 +393,14 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteOrder(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteOrderWithHttpInfo(version, orderId, deviceId, accountId);
+    public SirqulResponse deleteOrder(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteOrderWithHttpInfo(orderId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Order
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param orderId Order Id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -433,8 +413,8 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteOrderWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(version, orderId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteOrderWithHttpInfo(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -442,7 +422,6 @@ public class PurchaseOrderApi {
     /**
      * Delete Order (asynchronously)
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param orderId Order Id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -456,16 +435,15 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOrderAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteOrderAsync(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(version, orderId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteOrderValidateBeforeCall(orderId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOrder
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -480,7 +458,7 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrderCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrderCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -497,8 +475,7 @@ public class PurchaseOrderApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/order/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/order/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -542,20 +519,14 @@ public class PurchaseOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrderValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOrder(Async)");
-        }
-
-        return getOrderCall(version, deviceId, accountId, orderId, externalOrderId, _callback);
+    private okhttp3.Call getOrderValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId, final ApiCallback _callback) throws ApiException {
+        return getOrderCall(deviceId, accountId, orderId, externalOrderId, _callback);
 
     }
 
     /**
      * Get Order
      * Get an order record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -569,15 +540,14 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrderResponse getOrder(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId) throws ApiException {
-        ApiResponse<OrderResponse> localVarResp = getOrderWithHttpInfo(version, deviceId, accountId, orderId, externalOrderId);
+    public OrderResponse getOrder(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = getOrderWithHttpInfo(deviceId, accountId, orderId, externalOrderId);
         return localVarResp.getData();
     }
 
     /**
      * Get Order
      * Get an order record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -591,8 +561,8 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderResponse> getOrderWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId) throws ApiException {
-        okhttp3.Call localVarCall = getOrderValidateBeforeCall(version, deviceId, accountId, orderId, externalOrderId, null);
+    public ApiResponse<OrderResponse> getOrderWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId) throws ApiException {
+        okhttp3.Call localVarCall = getOrderValidateBeforeCall(deviceId, accountId, orderId, externalOrderId, null);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -600,7 +570,6 @@ public class PurchaseOrderApi {
     /**
      * Get Order (asynchronously)
      * Get an order record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param orderId The order id to get details of, either orderId or externalOrderId must be provided (optional)
@@ -615,16 +584,15 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrderAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId, final ApiCallback<OrderResponse> _callback) throws ApiException {
+    public okhttp3.Call getOrderAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long orderId, @javax.annotation.Nullable String externalOrderId, final ApiCallback<OrderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrderValidateBeforeCall(version, deviceId, accountId, orderId, externalOrderId, _callback);
+        okhttp3.Call localVarCall = getOrderValidateBeforeCall(deviceId, accountId, orderId, externalOrderId, _callback);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for previewOrder
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart A JSON list of items to purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -647,7 +615,7 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call previewOrderCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call previewOrderCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -664,8 +632,7 @@ public class PurchaseOrderApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/order/preview"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/order/preview";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -741,12 +708,7 @@ public class PurchaseOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call previewOrderValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling previewOrder(Async)");
-        }
-
+    private okhttp3.Call previewOrderValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling previewOrder(Async)");
@@ -757,14 +719,13 @@ public class PurchaseOrderApi {
             throw new ApiException("Missing the required parameter 'cart' when calling previewOrder(Async)");
         }
 
-        return previewOrderCall(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
+        return previewOrderCall(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
 
     }
 
     /**
      * Preview Order
      * Previews a purchase to see the total cost before making it.
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart A JSON list of items to purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -786,15 +747,14 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrderResponse previewOrder(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
-        ApiResponse<OrderResponse> localVarResp = previewOrderWithHttpInfo(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+    public OrderResponse previewOrder(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = previewOrderWithHttpInfo(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
         return localVarResp.getData();
     }
 
     /**
      * Preview Order
      * Previews a purchase to see the total cost before making it.
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart A JSON list of items to purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -816,8 +776,8 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderResponse> previewOrderWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
-        okhttp3.Call localVarCall = previewOrderValidateBeforeCall(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, null);
+    public ApiResponse<OrderResponse> previewOrderWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode) throws ApiException {
+        okhttp3.Call localVarCall = previewOrderValidateBeforeCall(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, null);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -825,7 +785,6 @@ public class PurchaseOrderApi {
     /**
      * Preview Order (asynchronously)
      * Previews a purchase to see the total cost before making it.
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart A JSON list of items to purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -848,16 +807,15 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call previewOrderAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback<OrderResponse> _callback) throws ApiException {
+    public okhttp3.Call previewOrderAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalOrderId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable String remoteRefType, @javax.annotation.Nullable Long externalDate, @javax.annotation.Nullable String promoCode, final ApiCallback<OrderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = previewOrderValidateBeforeCall(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
+        okhttp3.Call localVarCall = previewOrderValidateBeforeCall(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, _callback);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchOrders
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -899,7 +857,7 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOrdersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchOrdersCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -916,8 +874,7 @@ public class PurchaseOrderApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/order/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/order/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1069,25 +1026,19 @@ public class PurchaseOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchOrdersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchOrders(Async)");
-        }
-
+    private okhttp3.Call searchOrdersValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchOrders(Async)");
         }
 
-        return searchOrdersCall(version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, _callback);
+        return searchOrdersCall(appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, _callback);
 
     }
 
     /**
      * Search Orders
      * Search on active orders by customer
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1128,15 +1079,14 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OrderResponse> searchOrders(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore) throws ApiException {
-        ApiResponse<List<OrderResponse>> localVarResp = searchOrdersWithHttpInfo(version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
+    public List<OrderResponse> searchOrders(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore) throws ApiException {
+        ApiResponse<List<OrderResponse>> localVarResp = searchOrdersWithHttpInfo(appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
         return localVarResp.getData();
     }
 
     /**
      * Search Orders
      * Search on active orders by customer
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1177,8 +1127,8 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OrderResponse>> searchOrdersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore) throws ApiException {
-        okhttp3.Call localVarCall = searchOrdersValidateBeforeCall(version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, null);
+    public ApiResponse<List<OrderResponse>> searchOrdersWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore) throws ApiException {
+        okhttp3.Call localVarCall = searchOrdersValidateBeforeCall(appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, null);
         Type localVarReturnType = new TypeToken<List<OrderResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1186,7 +1136,6 @@ public class PurchaseOrderApi {
     /**
      * Search Orders (asynchronously)
      * Search on active orders by customer
-     * @param version  (required)
      * @param appKey The application requesting the purchase (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1228,16 +1177,15 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOrdersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, final ApiCallback<List<OrderResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchOrdersAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean ignoreCustomerFilter, @javax.annotation.Nullable String orderItemTypes, @javax.annotation.Nullable String orderItemIds, @javax.annotation.Nullable String orderCustomTypes, @javax.annotation.Nullable String orderCustomIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, final ApiCallback<List<OrderResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchOrdersValidateBeforeCall(version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, _callback);
+        okhttp3.Call localVarCall = searchOrdersValidateBeforeCall(appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, _callback);
         Type localVarReturnType = new TypeToken<List<OrderResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateOrder
-     * @param version  (required)
      * @param orderId The order to add the purchase to, leave null for new order. (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
@@ -1259,7 +1207,7 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOrderCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateOrderCall(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1276,8 +1224,7 @@ public class PurchaseOrderApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/order/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/order/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1349,12 +1296,7 @@ public class PurchaseOrderApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateOrderValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateOrder(Async)");
-        }
-
+    private okhttp3.Call updateOrderValidateBeforeCall(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId' when calling updateOrder(Async)");
@@ -1370,14 +1312,13 @@ public class PurchaseOrderApi {
             throw new ApiException("Missing the required parameter 'cart' when calling updateOrder(Async)");
         }
 
-        return updateOrderCall(version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, _callback);
+        return updateOrderCall(orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, _callback);
 
     }
 
     /**
      * Update Order
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @param version  (required)
      * @param orderId The order to add the purchase to, leave null for new order. (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
@@ -1398,15 +1339,14 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrderResponse updateOrder(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate) throws ApiException {
-        ApiResponse<OrderResponse> localVarResp = updateOrderWithHttpInfo(version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
+    public OrderResponse updateOrder(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate) throws ApiException {
+        ApiResponse<OrderResponse> localVarResp = updateOrderWithHttpInfo(orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
         return localVarResp.getData();
     }
 
     /**
      * Update Order
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @param version  (required)
      * @param orderId The order to add the purchase to, leave null for new order. (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
@@ -1427,8 +1367,8 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderResponse> updateOrderWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate) throws ApiException {
-        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, null);
+    public ApiResponse<OrderResponse> updateOrderWithHttpInfo(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate) throws ApiException {
+        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, null);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1436,7 +1376,6 @@ public class PurchaseOrderApi {
     /**
      * Update Order (asynchronously)
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @param version  (required)
      * @param orderId The order to add the purchase to, leave null for new order. (required)
      * @param appKey The application requesting the purchase (required)
      * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  (required)
@@ -1458,9 +1397,9 @@ public class PurchaseOrderApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOrderAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate, final ApiCallback<OrderResponse> _callback) throws ApiException {
+    public okhttp3.Call updateOrderAsync(@javax.annotation.Nonnull Long orderId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String cart, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long paymentTransactionId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String externalPaymentId, @javax.annotation.Nullable Long externalDate, final ApiCallback<OrderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, _callback);
+        okhttp3.Call localVarCall = updateOrderValidateBeforeCall(orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, _callback);
         Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

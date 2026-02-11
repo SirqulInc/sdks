@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.LikableResponse;
 import org.openapitools.client.model.SearchResponse;
 
@@ -76,7 +75,6 @@ public class LikeApi {
 
     /**
      * Build call for registerLike
-     * @param version  (required)
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -99,7 +97,7 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call registerLikeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call registerLikeCall(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class LikeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/like"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/like";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -193,12 +190,7 @@ public class LikeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call registerLikeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling registerLike(Async)");
-        }
-
+    private okhttp3.Call registerLikeValidateBeforeCall(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'likableType' is set
         if (likableType == null) {
             throw new ApiException("Missing the required parameter 'likableType' when calling registerLike(Async)");
@@ -209,14 +201,13 @@ public class LikeApi {
             throw new ApiException("Missing the required parameter 'likableId' when calling registerLike(Async)");
         }
 
-        return registerLikeCall(version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, _callback);
+        return registerLikeCall(likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, _callback);
 
     }
 
     /**
      * Create Like
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     * @param version  (required)
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -238,15 +229,14 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public LikableResponse registerLike(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<LikableResponse> localVarResp = registerLikeWithHttpInfo(version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
+    public LikableResponse registerLike(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<LikableResponse> localVarResp = registerLikeWithHttpInfo(likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Like
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     * @param version  (required)
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -268,8 +258,8 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LikableResponse> registerLikeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = registerLikeValidateBeforeCall(version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, null);
+    public ApiResponse<LikableResponse> registerLikeWithHttpInfo(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = registerLikeValidateBeforeCall(likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<LikableResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -277,7 +267,6 @@ public class LikeApi {
     /**
      * Create Like (asynchronously)
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     * @param version  (required)
      * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -300,16 +289,15 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call registerLikeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<LikableResponse> _callback) throws ApiException {
+    public okhttp3.Call registerLikeAsync(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable Boolean like, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<LikableResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = registerLikeValidateBeforeCall(version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = registerLikeValidateBeforeCall(likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<LikableResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeLike
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -326,7 +314,7 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeLikeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeLikeCall(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -343,8 +331,7 @@ public class LikeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/like/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/like/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -396,12 +383,7 @@ public class LikeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeLikeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeLike(Async)");
-        }
-
+    private okhttp3.Call removeLikeValidateBeforeCall(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'likableType' is set
         if (likableType == null) {
             throw new ApiException("Missing the required parameter 'likableType' when calling removeLike(Async)");
@@ -412,14 +394,13 @@ public class LikeApi {
             throw new ApiException("Missing the required parameter 'likableId' when calling removeLike(Async)");
         }
 
-        return removeLikeCall(version, likableType, likableId, deviceId, accountId, latitude, longitude, _callback);
+        return removeLikeCall(likableType, likableId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Delete Like
      * Removes a like. This will make the user \&quot;neutral\&quot;.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -435,15 +416,14 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public LikableResponse removeLike(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<LikableResponse> localVarResp = removeLikeWithHttpInfo(version, likableType, likableId, deviceId, accountId, latitude, longitude);
+    public LikableResponse removeLike(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<LikableResponse> localVarResp = removeLikeWithHttpInfo(likableType, likableId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Delete Like
      * Removes a like. This will make the user \&quot;neutral\&quot;.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -459,8 +439,8 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LikableResponse> removeLikeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = removeLikeValidateBeforeCall(version, likableType, likableId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<LikableResponse> removeLikeWithHttpInfo(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = removeLikeValidateBeforeCall(likableType, likableId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<LikableResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -468,7 +448,6 @@ public class LikeApi {
     /**
      * Delete Like (asynchronously)
      * Removes a like. This will make the user \&quot;neutral\&quot;.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -485,16 +464,15 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeLikeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<LikableResponse> _callback) throws ApiException {
+    public okhttp3.Call removeLikeAsync(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<LikableResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeLikeValidateBeforeCall(version, likableType, likableId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = removeLikeValidateBeforeCall(likableType, likableId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<LikableResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchLikes
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -516,7 +494,7 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchLikesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchLikesCall(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -533,8 +511,7 @@ public class LikeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/like/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/like/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -606,12 +583,7 @@ public class LikeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchLikesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchLikes(Async)");
-        }
-
+    private okhttp3.Call searchLikesValidateBeforeCall(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'likableType' is set
         if (likableType == null) {
             throw new ApiException("Missing the required parameter 'likableType' when calling searchLikes(Async)");
@@ -622,14 +594,13 @@ public class LikeApi {
             throw new ApiException("Missing the required parameter 'likableId' when calling searchLikes(Async)");
         }
 
-        return searchLikesCall(version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, _callback);
+        return searchLikesCall(likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, _callback);
 
     }
 
     /**
      * Search Likes
      * Search for likes on a likable object.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -650,15 +621,14 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SearchResponse searchLikes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<SearchResponse> localVarResp = searchLikesWithHttpInfo(version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
+    public SearchResponse searchLikes(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<SearchResponse> localVarResp = searchLikesWithHttpInfo(likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Likes
      * Search for likes on a likable object.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -679,8 +649,8 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SearchResponse> searchLikesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchLikesValidateBeforeCall(version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, null);
+    public ApiResponse<SearchResponse> searchLikesWithHttpInfo(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchLikesValidateBeforeCall(likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, null);
         Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -688,7 +658,6 @@ public class LikeApi {
     /**
      * Search Likes (asynchronously)
      * Search for likes on a likable object.
-     * @param version  (required)
      * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
      * @param likableId The id of the likable object (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -710,9 +679,9 @@ public class LikeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchLikesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<SearchResponse> _callback) throws ApiException {
+    public okhttp3.Call searchLikesAsync(@javax.annotation.Nonnull String likableType, @javax.annotation.Nonnull Long likableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<SearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchLikesValidateBeforeCall(version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, _callback);
+        okhttp3.Call localVarCall = searchLikesValidateBeforeCall(likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, _callback);
         Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

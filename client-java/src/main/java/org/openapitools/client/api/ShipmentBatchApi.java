@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ShipmentBatch;
 import org.openapitools.client.model.ShipmentImportStatus;
 
@@ -76,7 +75,6 @@ public class ShipmentBatchApi {
 
     /**
      * Build call for createShipmentBatch
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -88,7 +86,7 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShipmentBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ShipmentBatch body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createShipmentBatchCall(@javax.annotation.Nullable ShipmentBatch body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,8 +103,7 @@ public class ShipmentBatchApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/shipment/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -134,20 +131,14 @@ public class ShipmentBatchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createShipmentBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ShipmentBatch body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createShipmentBatch(Async)");
-        }
-
-        return createShipmentBatchCall(version, body, _callback);
+    private okhttp3.Call createShipmentBatchValidateBeforeCall(@javax.annotation.Nullable ShipmentBatch body, final ApiCallback _callback) throws ApiException {
+        return createShipmentBatchCall(body, _callback);
 
     }
 
     /**
      * Create Shipment Batch
      * Create a new shipment batch
-     * @param version  (required)
      * @param body  (optional)
      * @return ShipmentBatch
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -158,15 +149,14 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ShipmentBatch createShipmentBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ShipmentBatch body) throws ApiException {
-        ApiResponse<ShipmentBatch> localVarResp = createShipmentBatchWithHttpInfo(version, body);
+    public ShipmentBatch createShipmentBatch(@javax.annotation.Nullable ShipmentBatch body) throws ApiException {
+        ApiResponse<ShipmentBatch> localVarResp = createShipmentBatchWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Shipment Batch
      * Create a new shipment batch
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;ShipmentBatch&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -177,8 +167,8 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShipmentBatch> createShipmentBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ShipmentBatch body) throws ApiException {
-        okhttp3.Call localVarCall = createShipmentBatchValidateBeforeCall(version, body, null);
+    public ApiResponse<ShipmentBatch> createShipmentBatchWithHttpInfo(@javax.annotation.Nullable ShipmentBatch body) throws ApiException {
+        okhttp3.Call localVarCall = createShipmentBatchValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<ShipmentBatch>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -186,7 +176,6 @@ public class ShipmentBatchApi {
     /**
      * Create Shipment Batch (asynchronously)
      * Create a new shipment batch
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -198,16 +187,15 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShipmentBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ShipmentBatch body, final ApiCallback<ShipmentBatch> _callback) throws ApiException {
+    public okhttp3.Call createShipmentBatchAsync(@javax.annotation.Nullable ShipmentBatch body, final ApiCallback<ShipmentBatch> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createShipmentBatchValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createShipmentBatchValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ShipmentBatch>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteShipmentBatch
-     * @param version  (required)
      * @param batchId the id of the shipment batch to delete (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -219,7 +207,7 @@ public class ShipmentBatchApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShipmentBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteShipmentBatchCall(@javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -236,8 +224,7 @@ public class ShipmentBatchApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/batch/{batchId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/batch/{batchId}"
             .replace("{" + "batchId" + "}", localVarApiClient.escapeString(batchId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -265,25 +252,19 @@ public class ShipmentBatchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteShipmentBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteShipmentBatch(Async)");
-        }
-
+    private okhttp3.Call deleteShipmentBatchValidateBeforeCall(@javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'batchId' is set
         if (batchId == null) {
             throw new ApiException("Missing the required parameter 'batchId' when calling deleteShipmentBatch(Async)");
         }
 
-        return deleteShipmentBatchCall(version, batchId, _callback);
+        return deleteShipmentBatchCall(batchId, _callback);
 
     }
 
     /**
      * Delete Shipment Batch
      * Search for shipment batches
-     * @param version  (required)
      * @param batchId the id of the shipment batch to delete (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -293,14 +274,13 @@ public class ShipmentBatchApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteShipmentBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        deleteShipmentBatchWithHttpInfo(version, batchId);
+    public void deleteShipmentBatch(@javax.annotation.Nonnull Long batchId) throws ApiException {
+        deleteShipmentBatchWithHttpInfo(batchId);
     }
 
     /**
      * Delete Shipment Batch
      * Search for shipment batches
-     * @param version  (required)
      * @param batchId the id of the shipment batch to delete (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -311,15 +291,14 @@ public class ShipmentBatchApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteShipmentBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        okhttp3.Call localVarCall = deleteShipmentBatchValidateBeforeCall(version, batchId, null);
+    public ApiResponse<Void> deleteShipmentBatchWithHttpInfo(@javax.annotation.Nonnull Long batchId) throws ApiException {
+        okhttp3.Call localVarCall = deleteShipmentBatchValidateBeforeCall(batchId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Shipment Batch (asynchronously)
      * Search for shipment batches
-     * @param version  (required)
      * @param batchId the id of the shipment batch to delete (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -331,15 +310,14 @@ public class ShipmentBatchApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShipmentBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteShipmentBatchAsync(@javax.annotation.Nonnull Long batchId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteShipmentBatchValidateBeforeCall(version, batchId, _callback);
+        okhttp3.Call localVarCall = deleteShipmentBatchValidateBeforeCall(batchId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getShipmentBatch
-     * @param version  (required)
      * @param batchId the id of the shipment batch to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -351,7 +329,7 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShipmentBatchCall(@javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -368,8 +346,7 @@ public class ShipmentBatchApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/batch/{batchId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/batch/{batchId}"
             .replace("{" + "batchId" + "}", localVarApiClient.escapeString(batchId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -398,25 +375,19 @@ public class ShipmentBatchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShipmentBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getShipmentBatch(Async)");
-        }
-
+    private okhttp3.Call getShipmentBatchValidateBeforeCall(@javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'batchId' is set
         if (batchId == null) {
             throw new ApiException("Missing the required parameter 'batchId' when calling getShipmentBatch(Async)");
         }
 
-        return getShipmentBatchCall(version, batchId, _callback);
+        return getShipmentBatchCall(batchId, _callback);
 
     }
 
     /**
      * Get Shipment Batch
      * Get an existing shipment batch
-     * @param version  (required)
      * @param batchId the id of the shipment batch to get (required)
      * @return ShipmentBatch
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -427,15 +398,14 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ShipmentBatch getShipmentBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        ApiResponse<ShipmentBatch> localVarResp = getShipmentBatchWithHttpInfo(version, batchId);
+    public ShipmentBatch getShipmentBatch(@javax.annotation.Nonnull Long batchId) throws ApiException {
+        ApiResponse<ShipmentBatch> localVarResp = getShipmentBatchWithHttpInfo(batchId);
         return localVarResp.getData();
     }
 
     /**
      * Get Shipment Batch
      * Get an existing shipment batch
-     * @param version  (required)
      * @param batchId the id of the shipment batch to get (required)
      * @return ApiResponse&lt;ShipmentBatch&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -446,8 +416,8 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ShipmentBatch> getShipmentBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        okhttp3.Call localVarCall = getShipmentBatchValidateBeforeCall(version, batchId, null);
+    public ApiResponse<ShipmentBatch> getShipmentBatchWithHttpInfo(@javax.annotation.Nonnull Long batchId) throws ApiException {
+        okhttp3.Call localVarCall = getShipmentBatchValidateBeforeCall(batchId, null);
         Type localVarReturnType = new TypeToken<ShipmentBatch>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -455,7 +425,6 @@ public class ShipmentBatchApi {
     /**
      * Get Shipment Batch (asynchronously)
      * Get an existing shipment batch
-     * @param version  (required)
      * @param batchId the id of the shipment batch to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -467,16 +436,15 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, final ApiCallback<ShipmentBatch> _callback) throws ApiException {
+    public okhttp3.Call getShipmentBatchAsync(@javax.annotation.Nonnull Long batchId, final ApiCallback<ShipmentBatch> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShipmentBatchValidateBeforeCall(version, batchId, _callback);
+        okhttp3.Call localVarCall = getShipmentBatchValidateBeforeCall(batchId, _callback);
         Type localVarReturnType = new TypeToken<ShipmentBatch>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getShipmentBatchStatus
-     * @param version  (required)
      * @param batchId The id of the requested shipment batch (required)
      * @param accountId the id of the logged in user (required)
      * @param sortField The field to sort by (required)
@@ -499,7 +467,7 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentBatchStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShipmentBatchStatusCall(@javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -516,8 +484,7 @@ public class ShipmentBatchApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/batch/{batchId}/status"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/batch/{batchId}/status"
             .replace("{" + "batchId" + "}", localVarApiClient.escapeString(batchId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -590,12 +557,7 @@ public class ShipmentBatchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShipmentBatchStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getShipmentBatchStatus(Async)");
-        }
-
+    private okhttp3.Call getShipmentBatchStatusValidateBeforeCall(@javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'batchId' is set
         if (batchId == null) {
             throw new ApiException("Missing the required parameter 'batchId' when calling getShipmentBatchStatus(Async)");
@@ -626,14 +588,13 @@ public class ShipmentBatchApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getShipmentBatchStatus(Async)");
         }
 
-        return getShipmentBatchStatusCall(version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, _callback);
+        return getShipmentBatchStatusCall(batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, _callback);
 
     }
 
     /**
      * Get Shipment Batch Status
      * Get the import status list of the import shipment batch
-     * @param version  (required)
      * @param batchId The id of the requested shipment batch (required)
      * @param accountId the id of the logged in user (required)
      * @param sortField The field to sort by (required)
@@ -655,15 +616,14 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ShipmentImportStatus> getShipmentBatchStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<ShipmentImportStatus>> localVarResp = getShipmentBatchStatusWithHttpInfo(version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
+    public List<ShipmentImportStatus> getShipmentBatchStatus(@javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<ShipmentImportStatus>> localVarResp = getShipmentBatchStatusWithHttpInfo(batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Get Shipment Batch Status
      * Get the import status list of the import shipment batch
-     * @param version  (required)
      * @param batchId The id of the requested shipment batch (required)
      * @param accountId the id of the logged in user (required)
      * @param sortField The field to sort by (required)
@@ -685,8 +645,8 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ShipmentImportStatus>> getShipmentBatchStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = getShipmentBatchStatusValidateBeforeCall(version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, null);
+    public ApiResponse<List<ShipmentImportStatus>> getShipmentBatchStatusWithHttpInfo(@javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = getShipmentBatchStatusValidateBeforeCall(batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, null);
         Type localVarReturnType = new TypeToken<List<ShipmentImportStatus>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -694,7 +654,6 @@ public class ShipmentBatchApi {
     /**
      * Get Shipment Batch Status (asynchronously)
      * Get the import status list of the import shipment batch
-     * @param version  (required)
      * @param batchId The id of the requested shipment batch (required)
      * @param accountId the id of the logged in user (required)
      * @param sortField The field to sort by (required)
@@ -717,16 +676,15 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentBatchStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword, final ApiCallback<List<ShipmentImportStatus>> _callback) throws ApiException {
+    public okhttp3.Call getShipmentBatchStatusAsync(@javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean hasShipment, @javax.annotation.Nullable Boolean hasRoute, @javax.annotation.Nullable String keyword, final ApiCallback<List<ShipmentImportStatus>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShipmentBatchStatusValidateBeforeCall(version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, _callback);
+        okhttp3.Call localVarCall = getShipmentBatchStatusValidateBeforeCall(batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<ShipmentImportStatus>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchShipmentBatch
-     * @param version  (required)
      * @param hubId The associated service hub (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -742,7 +700,7 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchShipmentBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchShipmentBatchCall(@javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -759,8 +717,7 @@ public class ShipmentBatchApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/shipment/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -808,12 +765,7 @@ public class ShipmentBatchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchShipmentBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchShipmentBatch(Async)");
-        }
-
+    private okhttp3.Call searchShipmentBatchValidateBeforeCall(@javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'hubId' is set
         if (hubId == null) {
             throw new ApiException("Missing the required parameter 'hubId' when calling searchShipmentBatch(Async)");
@@ -839,14 +791,13 @@ public class ShipmentBatchApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchShipmentBatch(Async)");
         }
 
-        return searchShipmentBatchCall(version, hubId, sortField, descending, start, limit, _callback);
+        return searchShipmentBatchCall(hubId, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search Shipment Batch
      * Search for shipment batches
-     * @param version  (required)
      * @param hubId The associated service hub (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -861,15 +812,14 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ShipmentBatch> searchShipmentBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        ApiResponse<List<ShipmentBatch>> localVarResp = searchShipmentBatchWithHttpInfo(version, hubId, sortField, descending, start, limit);
+    public List<ShipmentBatch> searchShipmentBatch(@javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        ApiResponse<List<ShipmentBatch>> localVarResp = searchShipmentBatchWithHttpInfo(hubId, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Shipment Batch
      * Search for shipment batches
-     * @param version  (required)
      * @param hubId The associated service hub (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -884,8 +834,8 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ShipmentBatch>> searchShipmentBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchShipmentBatchValidateBeforeCall(version, hubId, sortField, descending, start, limit, null);
+    public ApiResponse<List<ShipmentBatch>> searchShipmentBatchWithHttpInfo(@javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchShipmentBatchValidateBeforeCall(hubId, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<List<ShipmentBatch>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -893,7 +843,6 @@ public class ShipmentBatchApi {
     /**
      * Search Shipment Batch (asynchronously)
      * Search for shipment batches
-     * @param version  (required)
      * @param hubId The associated service hub (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -909,9 +858,9 @@ public class ShipmentBatchApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchShipmentBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<List<ShipmentBatch>> _callback) throws ApiException {
+    public okhttp3.Call searchShipmentBatchAsync(@javax.annotation.Nonnull Long hubId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<List<ShipmentBatch>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchShipmentBatchValidateBeforeCall(version, hubId, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchShipmentBatchValidateBeforeCall(hubId, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<ShipmentBatch>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

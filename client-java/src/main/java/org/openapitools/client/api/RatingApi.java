@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.RatingIndexResponse;
 import org.openapitools.client.model.RatingResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class RatingApi {
 
     /**
      * Build call for createRating
-     * @param version  (required)
      * @param ratableType The ratable object type {RETAILER_LOCATION} (required)
      * @param ratableId The id of the ratable object (required)
      * @param ratingValue The integer value of 0-100 (required)
@@ -99,7 +97,7 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRatingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRatingCall(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class RatingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/rating/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/rating/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -189,12 +186,7 @@ public class RatingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRatingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRating(Async)");
-        }
-
+    private okhttp3.Call createRatingValidateBeforeCall(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'ratableType' is set
         if (ratableType == null) {
             throw new ApiException("Missing the required parameter 'ratableType' when calling createRating(Async)");
@@ -210,14 +202,13 @@ public class RatingApi {
             throw new ApiException("Missing the required parameter 'ratingValue' when calling createRating(Async)");
         }
 
-        return createRatingCall(version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, _callback);
+        return createRatingCall(ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, _callback);
 
     }
 
     /**
      * Create Rating
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @param version  (required)
      * @param ratableType The ratable object type {RETAILER_LOCATION} (required)
      * @param ratableId The id of the ratable object (required)
      * @param ratingValue The integer value of 0-100 (required)
@@ -238,15 +229,14 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RatingResponse createRating(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<RatingResponse> localVarResp = createRatingWithHttpInfo(version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
+    public RatingResponse createRating(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<RatingResponse> localVarResp = createRatingWithHttpInfo(ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Rating
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @param version  (required)
      * @param ratableType The ratable object type {RETAILER_LOCATION} (required)
      * @param ratableId The id of the ratable object (required)
      * @param ratingValue The integer value of 0-100 (required)
@@ -267,8 +257,8 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RatingResponse> createRatingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = createRatingValidateBeforeCall(version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, null);
+    public ApiResponse<RatingResponse> createRatingWithHttpInfo(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = createRatingValidateBeforeCall(ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<RatingResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -276,7 +266,6 @@ public class RatingApi {
     /**
      * Create Rating (asynchronously)
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @param version  (required)
      * @param ratableType The ratable object type {RETAILER_LOCATION} (required)
      * @param ratableId The id of the ratable object (required)
      * @param ratingValue The integer value of 0-100 (required)
@@ -298,16 +287,15 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRatingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<RatingResponse> _callback) throws ApiException {
+    public okhttp3.Call createRatingAsync(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nonnull Long ratableId, @javax.annotation.Nonnull Integer ratingValue, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<RatingResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRatingValidateBeforeCall(version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = createRatingValidateBeforeCall(ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<RatingResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteRating
-     * @param version  (required)
      * @param ratingId The ID of the rating to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -321,7 +309,7 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRatingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteRatingCall(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -338,8 +326,7 @@ public class RatingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/rating/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/rating/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -379,25 +366,19 @@ public class RatingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRatingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteRating(Async)");
-        }
-
+    private okhttp3.Call deleteRatingValidateBeforeCall(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'ratingId' is set
         if (ratingId == null) {
             throw new ApiException("Missing the required parameter 'ratingId' when calling deleteRating(Async)");
         }
 
-        return deleteRatingCall(version, ratingId, deviceId, accountId, _callback);
+        return deleteRatingCall(ratingId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Rating
      * Sets a rating as deleted.
-     * @param version  (required)
      * @param ratingId The ID of the rating to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -410,15 +391,14 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteRating(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteRatingWithHttpInfo(version, ratingId, deviceId, accountId);
+    public SirqulResponse deleteRating(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteRatingWithHttpInfo(ratingId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Rating
      * Sets a rating as deleted.
-     * @param version  (required)
      * @param ratingId The ID of the rating to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -431,8 +411,8 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteRatingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteRatingValidateBeforeCall(version, ratingId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteRatingWithHttpInfo(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteRatingValidateBeforeCall(ratingId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -440,7 +420,6 @@ public class RatingApi {
     /**
      * Delete Rating (asynchronously)
      * Sets a rating as deleted.
-     * @param version  (required)
      * @param ratingId The ID of the rating to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -454,16 +433,15 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRatingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteRatingAsync(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRatingValidateBeforeCall(version, ratingId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteRatingValidateBeforeCall(ratingId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchLocationRatingIndexes
-     * @param version  (required)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -491,7 +469,7 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchLocationRatingIndexesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchLocationRatingIndexesCall(@javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -508,8 +486,7 @@ public class RatingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/rating/index/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location/rating/index/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -605,20 +582,14 @@ public class RatingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchLocationRatingIndexesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchLocationRatingIndexes(Async)");
-        }
-
-        return searchLocationRatingIndexesCall(version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, _callback);
+    private okhttp3.Call searchLocationRatingIndexesValidateBeforeCall(@javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, final ApiCallback _callback) throws ApiException {
+        return searchLocationRatingIndexesCall(categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, _callback);
 
     }
 
     /**
      * Search Location Rating Indexes
      * Search for retailer locations by averages near you.
-     * @param version  (required)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -645,15 +616,14 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RatingIndexResponse> searchLocationRatingIndexes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters) throws ApiException {
-        ApiResponse<List<RatingIndexResponse>> localVarResp = searchLocationRatingIndexesWithHttpInfo(version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
+    public List<RatingIndexResponse> searchLocationRatingIndexes(@javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters) throws ApiException {
+        ApiResponse<List<RatingIndexResponse>> localVarResp = searchLocationRatingIndexesWithHttpInfo(categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
         return localVarResp.getData();
     }
 
     /**
      * Search Location Rating Indexes
      * Search for retailer locations by averages near you.
-     * @param version  (required)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -680,8 +650,8 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RatingIndexResponse>> searchLocationRatingIndexesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters) throws ApiException {
-        okhttp3.Call localVarCall = searchLocationRatingIndexesValidateBeforeCall(version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, null);
+    public ApiResponse<List<RatingIndexResponse>> searchLocationRatingIndexesWithHttpInfo(@javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters) throws ApiException {
+        okhttp3.Call localVarCall = searchLocationRatingIndexesValidateBeforeCall(categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, null);
         Type localVarReturnType = new TypeToken<List<RatingIndexResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -689,7 +659,6 @@ public class RatingApi {
     /**
      * Search Location Rating Indexes (asynchronously)
      * Search for retailer locations by averages near you.
-     * @param version  (required)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
      * @param keyword The keyword used to search (optional)
      * @param locationType The type of location to filter the results by (optional)
@@ -717,16 +686,15 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchLocationRatingIndexesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, final ApiCallback<List<RatingIndexResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchLocationRatingIndexesAsync(@javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnOverallRating, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, final ApiCallback<List<RatingIndexResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchLocationRatingIndexesValidateBeforeCall(version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, _callback);
+        okhttp3.Call localVarCall = searchLocationRatingIndexesValidateBeforeCall(categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, _callback);
         Type localVarReturnType = new TypeToken<List<RatingIndexResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRatingIndexes
-     * @param version  (required)
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -750,7 +718,7 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRatingIndexesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRatingIndexesCall(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -767,8 +735,7 @@ public class RatingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/rating/index/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/rating/index/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -848,25 +815,19 @@ public class RatingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRatingIndexesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRatingIndexes(Async)");
-        }
-
+    private okhttp3.Call searchRatingIndexesValidateBeforeCall(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'ratableType' is set
         if (ratableType == null) {
             throw new ApiException("Missing the required parameter 'ratableType' when calling searchRatingIndexes(Async)");
         }
 
-        return searchRatingIndexesCall(version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, _callback);
+        return searchRatingIndexesCall(ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, _callback);
 
     }
 
     /**
      * Search Rating Indexes
      * Search for ratable items by averages.
-     * @param version  (required)
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -889,15 +850,14 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RatingIndexResponse> searchRatingIndexes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating) throws ApiException {
-        ApiResponse<List<RatingIndexResponse>> localVarResp = searchRatingIndexesWithHttpInfo(version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
+    public List<RatingIndexResponse> searchRatingIndexes(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating) throws ApiException {
+        ApiResponse<List<RatingIndexResponse>> localVarResp = searchRatingIndexesWithHttpInfo(ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
         return localVarResp.getData();
     }
 
     /**
      * Search Rating Indexes
      * Search for ratable items by averages.
-     * @param version  (required)
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -920,8 +880,8 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RatingIndexResponse>> searchRatingIndexesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating) throws ApiException {
-        okhttp3.Call localVarCall = searchRatingIndexesValidateBeforeCall(version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, null);
+    public ApiResponse<List<RatingIndexResponse>> searchRatingIndexesWithHttpInfo(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating) throws ApiException {
+        okhttp3.Call localVarCall = searchRatingIndexesValidateBeforeCall(ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, null);
         Type localVarReturnType = new TypeToken<List<RatingIndexResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -929,7 +889,6 @@ public class RatingApi {
     /**
      * Search Rating Indexes (asynchronously)
      * Search for ratable items by averages.
-     * @param version  (required)
      * @param ratableType Filter results by a ratable type {RETAILER_LOCATION} (required)
      * @param ratableIds Comma separated list of ratable ids to filter the resuts by (optional)
      * @param categoryIds Comma separated list of category ids to filter the results by (optional)
@@ -953,16 +912,15 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRatingIndexesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating, final ApiCallback<List<RatingIndexResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchRatingIndexesAsync(@javax.annotation.Nonnull String ratableType, @javax.annotation.Nullable String ratableIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnRatable, @javax.annotation.Nullable Boolean returnOverallRating, final ApiCallback<List<RatingIndexResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRatingIndexesValidateBeforeCall(version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, _callback);
+        okhttp3.Call localVarCall = searchRatingIndexesValidateBeforeCall(ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, _callback);
         Type localVarReturnType = new TypeToken<List<RatingIndexResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRatings
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -984,7 +942,7 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRatingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRatingsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1001,8 +959,7 @@ public class RatingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/rating/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/rating/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1074,20 +1031,14 @@ public class RatingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRatingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRatings(Async)");
-        }
-
-        return searchRatingsCall(version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, _callback);
+    private okhttp3.Call searchRatingsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchRatingsCall(deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search Ratings
      * Search for ratings on a ratable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -1108,15 +1059,14 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RatingResponse> searchRatings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<RatingResponse>> localVarResp = searchRatingsWithHttpInfo(version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
+    public List<RatingResponse> searchRatings(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<RatingResponse>> localVarResp = searchRatingsWithHttpInfo(deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Ratings
      * Search for ratings on a ratable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -1137,8 +1087,8 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RatingResponse>> searchRatingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchRatingsValidateBeforeCall(version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, null);
+    public ApiResponse<List<RatingResponse>> searchRatingsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchRatingsValidateBeforeCall(deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<List<RatingResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1146,7 +1096,6 @@ public class RatingApi {
     /**
      * Search Ratings (asynchronously)
      * Search for ratings on a ratable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param filterAccountId Filter results for a particular account (optional)
@@ -1168,16 +1117,15 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRatingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<RatingResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchRatingsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long filterAccountId, @javax.annotation.Nullable String ratableType, @javax.annotation.Nullable Long ratableId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<RatingResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRatingsValidateBeforeCall(version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchRatingsValidateBeforeCall(deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<RatingResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRating
-     * @param version  (required)
      * @param ratingId The id of the rating (Note: this is not the ratable object id) (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1198,7 +1146,7 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRatingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRatingCall(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1215,8 +1163,7 @@ public class RatingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/rating/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/rating/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1284,25 +1231,19 @@ public class RatingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRatingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRating(Async)");
-        }
-
+    private okhttp3.Call updateRatingValidateBeforeCall(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'ratingId' is set
         if (ratingId == null) {
             throw new ApiException("Missing the required parameter 'ratingId' when calling updateRating(Async)");
         }
 
-        return updateRatingCall(version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, _callback);
+        return updateRatingCall(ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, _callback);
 
     }
 
     /**
      * Update Rating
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @param version  (required)
      * @param ratingId The id of the rating (Note: this is not the ratable object id) (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1322,15 +1263,14 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RatingResponse updateRating(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<RatingResponse> localVarResp = updateRatingWithHttpInfo(version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
+    public RatingResponse updateRating(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<RatingResponse> localVarResp = updateRatingWithHttpInfo(ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Update Rating
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @param version  (required)
      * @param ratingId The id of the rating (Note: this is not the ratable object id) (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1350,8 +1290,8 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RatingResponse> updateRatingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = updateRatingValidateBeforeCall(version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, null);
+    public ApiResponse<RatingResponse> updateRatingWithHttpInfo(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = updateRatingValidateBeforeCall(ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<RatingResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1359,7 +1299,6 @@ public class RatingApi {
     /**
      * Update Rating (asynchronously)
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @param version  (required)
      * @param ratingId The id of the rating (Note: this is not the ratable object id) (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1380,9 +1319,9 @@ public class RatingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRatingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<RatingResponse> _callback) throws ApiException {
+    public okhttp3.Call updateRatingAsync(@javax.annotation.Nonnull Long ratingId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer ratingValue, @javax.annotation.Nullable Long categoryId, @javax.annotation.Nullable String display, @javax.annotation.Nullable String description, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<RatingResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRatingValidateBeforeCall(version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = updateRatingValidateBeforeCall(ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<RatingResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

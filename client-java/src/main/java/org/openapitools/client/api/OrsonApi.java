@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.OrsonAiAddMovieResponse;
 import org.openapitools.client.model.OrsonAiBatchResponse;
@@ -86,7 +85,6 @@ public class OrsonApi {
 
     /**
      * Build call for addMovie
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param movieName Movie Name (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -104,7 +102,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addMovieCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addMovieCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -121,8 +119,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/addMovie"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/addMovie";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -178,12 +175,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addMovieValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addMovie(Async)");
-        }
-
+    private okhttp3.Call addMovieValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling addMovie(Async)");
@@ -194,14 +186,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'movieName' when calling addMovie(Async)");
         }
 
-        return addMovieCall(version, accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback, _callback);
+        return addMovieCall(accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback, _callback);
 
     }
 
     /**
      * Add Movie
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param movieName Movie Name (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -218,15 +209,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiAddMovieResponse addMovie(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiAddMovieResponse> localVarResp = addMovieWithHttpInfo(version, accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback);
+    public OrsonAiAddMovieResponse addMovie(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiAddMovieResponse> localVarResp = addMovieWithHttpInfo(accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Add Movie
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param movieName Movie Name (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -243,8 +233,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiAddMovieResponse> addMovieWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = addMovieValidateBeforeCall(version, accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback, null);
+    public ApiResponse<OrsonAiAddMovieResponse> addMovieWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = addMovieValidateBeforeCall(accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiAddMovieResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -252,7 +242,6 @@ public class OrsonApi {
     /**
      * Add Movie (asynchronously)
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param movieName Movie Name (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -270,16 +259,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addMovieAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiAddMovieResponse> _callback) throws ApiException {
+    public okhttp3.Call addMovieAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String movieName, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiAddMovieResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addMovieValidateBeforeCall(version, accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback, _callback);
+        okhttp3.Call localVarCall = addMovieValidateBeforeCall(accountId, movieName, thirdPartyAccountId, tags, _file, url, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiAddMovieResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for aiDocs
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param doc Doc (required)
      * @param returnTopics Return Topics (optional)
@@ -295,7 +283,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiDocsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aiDocsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -312,8 +300,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/docs"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/docs";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -361,12 +348,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aiDocsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling aiDocs(Async)");
-        }
-
+    private okhttp3.Call aiDocsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling aiDocs(Async)");
@@ -377,14 +359,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'doc' when calling aiDocs(Async)");
         }
 
-        return aiDocsCall(version, accountId, doc, returnTopics, limit, offset, _callback);
+        return aiDocsCall(accountId, doc, returnTopics, limit, offset, _callback);
 
     }
 
     /**
      * Search Docs
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param doc Doc (required)
      * @param returnTopics Return Topics (optional)
@@ -399,15 +380,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiProtoResponse aiDocs(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
-        ApiResponse<OrsonAiProtoResponse> localVarResp = aiDocsWithHttpInfo(version, accountId, doc, returnTopics, limit, offset);
+    public OrsonAiProtoResponse aiDocs(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
+        ApiResponse<OrsonAiProtoResponse> localVarResp = aiDocsWithHttpInfo(accountId, doc, returnTopics, limit, offset);
         return localVarResp.getData();
     }
 
     /**
      * Search Docs
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param doc Doc (required)
      * @param returnTopics Return Topics (optional)
@@ -422,8 +402,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiProtoResponse> aiDocsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
-        okhttp3.Call localVarCall = aiDocsValidateBeforeCall(version, accountId, doc, returnTopics, limit, offset, null);
+    public ApiResponse<OrsonAiProtoResponse> aiDocsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = aiDocsValidateBeforeCall(accountId, doc, returnTopics, limit, offset, null);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -431,7 +411,6 @@ public class OrsonApi {
     /**
      * Search Docs (asynchronously)
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param doc Doc (required)
      * @param returnTopics Return Topics (optional)
@@ -447,16 +426,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiDocsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
+    public okhttp3.Call aiDocsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String doc, @javax.annotation.Nullable Boolean returnTopics, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aiDocsValidateBeforeCall(version, accountId, doc, returnTopics, limit, offset, _callback);
+        okhttp3.Call localVarCall = aiDocsValidateBeforeCall(accountId, doc, returnTopics, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for aiFindImages
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param parseFlag Parse Flag (optional)
@@ -472,7 +450,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiFindImagesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aiFindImagesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -489,8 +467,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/img"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/img";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -538,12 +515,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aiFindImagesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling aiFindImages(Async)");
-        }
-
+    private okhttp3.Call aiFindImagesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling aiFindImages(Async)");
@@ -554,14 +526,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'text' when calling aiFindImages(Async)");
         }
 
-        return aiFindImagesCall(version, accountId, text, parseFlag, fetchFlag, size, _callback);
+        return aiFindImagesCall(accountId, text, parseFlag, fetchFlag, size, _callback);
 
     }
 
     /**
      * Find images
      * Returns a list of URIs of images that match the text.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param parseFlag Parse Flag (optional)
@@ -576,15 +547,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiProtoResponse aiFindImages(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size) throws ApiException {
-        ApiResponse<OrsonAiProtoResponse> localVarResp = aiFindImagesWithHttpInfo(version, accountId, text, parseFlag, fetchFlag, size);
+    public OrsonAiProtoResponse aiFindImages(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size) throws ApiException {
+        ApiResponse<OrsonAiProtoResponse> localVarResp = aiFindImagesWithHttpInfo(accountId, text, parseFlag, fetchFlag, size);
         return localVarResp.getData();
     }
 
     /**
      * Find images
      * Returns a list of URIs of images that match the text.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param parseFlag Parse Flag (optional)
@@ -599,8 +569,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiProtoResponse> aiFindImagesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size) throws ApiException {
-        okhttp3.Call localVarCall = aiFindImagesValidateBeforeCall(version, accountId, text, parseFlag, fetchFlag, size, null);
+    public ApiResponse<OrsonAiProtoResponse> aiFindImagesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size) throws ApiException {
+        okhttp3.Call localVarCall = aiFindImagesValidateBeforeCall(accountId, text, parseFlag, fetchFlag, size, null);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -608,7 +578,6 @@ public class OrsonApi {
     /**
      * Find images (asynchronously)
      * Returns a list of URIs of images that match the text.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param parseFlag Parse Flag (optional)
@@ -624,16 +593,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiFindImagesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
+    public okhttp3.Call aiFindImagesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String parseFlag, @javax.annotation.Nullable String fetchFlag, @javax.annotation.Nullable String size, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aiFindImagesValidateBeforeCall(version, accountId, text, parseFlag, fetchFlag, size, _callback);
+        okhttp3.Call localVarCall = aiFindImagesValidateBeforeCall(accountId, text, parseFlag, fetchFlag, size, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for aiTags
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param tags Tags (required)
      * @param conditional Conditional (optional)
@@ -649,7 +617,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiTagsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aiTagsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -666,8 +634,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/tags"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/tags";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -715,12 +682,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aiTagsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling aiTags(Async)");
-        }
-
+    private okhttp3.Call aiTagsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling aiTags(Async)");
@@ -731,14 +693,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'tags' when calling aiTags(Async)");
         }
 
-        return aiTagsCall(version, accountId, tags, conditional, limit, offset, _callback);
+        return aiTagsCall(accountId, tags, conditional, limit, offset, _callback);
 
     }
 
     /**
      * Search Tags
      * Search the tags column of user provided tags using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param tags Tags (required)
      * @param conditional Conditional (optional)
@@ -753,15 +714,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiProtoResponse aiTags(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
-        ApiResponse<OrsonAiProtoResponse> localVarResp = aiTagsWithHttpInfo(version, accountId, tags, conditional, limit, offset);
+    public OrsonAiProtoResponse aiTags(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
+        ApiResponse<OrsonAiProtoResponse> localVarResp = aiTagsWithHttpInfo(accountId, tags, conditional, limit, offset);
         return localVarResp.getData();
     }
 
     /**
      * Search Tags
      * Search the tags column of user provided tags using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param tags Tags (required)
      * @param conditional Conditional (optional)
@@ -776,8 +736,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiProtoResponse> aiTagsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
-        okhttp3.Call localVarCall = aiTagsValidateBeforeCall(version, accountId, tags, conditional, limit, offset, null);
+    public ApiResponse<OrsonAiProtoResponse> aiTagsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = aiTagsValidateBeforeCall(accountId, tags, conditional, limit, offset, null);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -785,7 +745,6 @@ public class OrsonApi {
     /**
      * Search Tags (asynchronously)
      * Search the tags column of user provided tags using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param tags Tags (required)
      * @param conditional Conditional (optional)
@@ -801,16 +760,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiTagsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
+    public okhttp3.Call aiTagsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tags, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aiTagsValidateBeforeCall(version, accountId, tags, conditional, limit, offset, _callback);
+        okhttp3.Call localVarCall = aiTagsValidateBeforeCall(accountId, tags, conditional, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for aiText
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param terms Terms (required)
      * @param conditional Conditional (optional)
@@ -826,7 +784,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiTextCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aiTextCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -843,8 +801,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/text"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/text";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -892,12 +849,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aiTextValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling aiText(Async)");
-        }
-
+    private okhttp3.Call aiTextValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling aiText(Async)");
@@ -908,14 +860,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'terms' when calling aiText(Async)");
         }
 
-        return aiTextCall(version, accountId, terms, conditional, limit, offset, _callback);
+        return aiTextCall(accountId, terms, conditional, limit, offset, _callback);
 
     }
 
     /**
      * Search Text
      * Search the movie text column of movie text using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param terms Terms (required)
      * @param conditional Conditional (optional)
@@ -930,15 +881,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiProtoResponse aiText(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
-        ApiResponse<OrsonAiProtoResponse> localVarResp = aiTextWithHttpInfo(version, accountId, terms, conditional, limit, offset);
+    public OrsonAiProtoResponse aiText(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
+        ApiResponse<OrsonAiProtoResponse> localVarResp = aiTextWithHttpInfo(accountId, terms, conditional, limit, offset);
         return localVarResp.getData();
     }
 
     /**
      * Search Text
      * Search the movie text column of movie text using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param terms Terms (required)
      * @param conditional Conditional (optional)
@@ -953,8 +903,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiProtoResponse> aiTextWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
-        okhttp3.Call localVarCall = aiTextValidateBeforeCall(version, accountId, terms, conditional, limit, offset, null);
+    public ApiResponse<OrsonAiProtoResponse> aiTextWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = aiTextValidateBeforeCall(accountId, terms, conditional, limit, offset, null);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -962,7 +912,6 @@ public class OrsonApi {
     /**
      * Search Text (asynchronously)
      * Search the movie text column of movie text using this endpoint.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param terms Terms (required)
      * @param conditional Conditional (optional)
@@ -978,16 +927,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiTextAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
+    public okhttp3.Call aiTextAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String terms, @javax.annotation.Nullable String conditional, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<OrsonAiProtoResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aiTextValidateBeforeCall(version, accountId, terms, conditional, limit, offset, _callback);
+        okhttp3.Call localVarCall = aiTextValidateBeforeCall(accountId, terms, conditional, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiProtoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for batch
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param limit The number of topics to return (optional)
@@ -1005,7 +953,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call batchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1022,8 +970,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1079,25 +1026,19 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling batch(Async)");
-        }
-
+    private okhttp3.Call batchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling batch(Async)");
         }
 
-        return batchCall(version, accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback, _callback);
+        return batchCall(accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback, _callback);
 
     }
 
     /**
      * Batch Analysis
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param limit The number of topics to return (optional)
@@ -1114,15 +1055,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiBatchResponse batch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiBatchResponse> localVarResp = batchWithHttpInfo(version, accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback);
+    public OrsonAiBatchResponse batch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiBatchResponse> localVarResp = batchWithHttpInfo(accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Batch Analysis
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param limit The number of topics to return (optional)
@@ -1139,8 +1079,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiBatchResponse> batchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = batchValidateBeforeCall(version, accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback, null);
+    public ApiResponse<OrsonAiBatchResponse> batchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = batchValidateBeforeCall(accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1148,7 +1088,6 @@ public class OrsonApi {
     /**
      * Batch Analysis (asynchronously)
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param limit The number of topics to return (optional)
@@ -1166,16 +1105,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call batchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String operations, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiBatchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = batchValidateBeforeCall(version, accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback, _callback);
+        okhttp3.Call localVarCall = batchValidateBeforeCall(accountId, thirdPartyAccountId, limit, operations, _file, url, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiBatchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createInstantEpisode
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @param _callback Callback for upload/download progress
@@ -1188,7 +1126,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInstantEpisodeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createInstantEpisodeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1205,8 +1143,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/stories/episodes/instant"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/stories/episodes/instant";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1242,12 +1179,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createInstantEpisodeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createInstantEpisode(Async)");
-        }
-
+    private okhttp3.Call createInstantEpisodeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createInstantEpisode(Async)");
@@ -1258,14 +1190,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'data' when calling createInstantEpisode(Async)");
         }
 
-        return createInstantEpisodeCall(version, accountId, data, _callback);
+        return createInstantEpisodeCall(accountId, data, _callback);
 
     }
 
     /**
      * Creates an instant episode
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @return OrsonEpisodeResponse
@@ -1277,15 +1208,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonEpisodeResponse createInstantEpisode(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
-        ApiResponse<OrsonEpisodeResponse> localVarResp = createInstantEpisodeWithHttpInfo(version, accountId, data);
+    public OrsonEpisodeResponse createInstantEpisode(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
+        ApiResponse<OrsonEpisodeResponse> localVarResp = createInstantEpisodeWithHttpInfo(accountId, data);
         return localVarResp.getData();
     }
 
     /**
      * Creates an instant episode
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @return ApiResponse&lt;OrsonEpisodeResponse&gt;
@@ -1297,8 +1227,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonEpisodeResponse> createInstantEpisodeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
-        okhttp3.Call localVarCall = createInstantEpisodeValidateBeforeCall(version, accountId, data, null);
+    public ApiResponse<OrsonEpisodeResponse> createInstantEpisodeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
+        okhttp3.Call localVarCall = createInstantEpisodeValidateBeforeCall(accountId, data, null);
         Type localVarReturnType = new TypeToken<OrsonEpisodeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1306,7 +1236,6 @@ public class OrsonApi {
     /**
      * Creates an instant episode (asynchronously)
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1319,16 +1248,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInstantEpisodeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback<OrsonEpisodeResponse> _callback) throws ApiException {
+    public okhttp3.Call createInstantEpisodeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback<OrsonEpisodeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createInstantEpisodeValidateBeforeCall(version, accountId, data, _callback);
+        okhttp3.Call localVarCall = createInstantEpisodeValidateBeforeCall(accountId, data, _callback);
         Type localVarReturnType = new TypeToken<OrsonEpisodeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createVoiceCanvas
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -1348,7 +1276,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createVoiceCanvasCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createVoiceCanvasCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1365,8 +1293,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/voiceCanvas"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/voiceCanvas";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1430,12 +1357,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createVoiceCanvasValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createVoiceCanvas(Async)");
-        }
-
+    private okhttp3.Call createVoiceCanvasValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createVoiceCanvas(Async)");
@@ -1446,14 +1368,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'dimensions' when calling createVoiceCanvas(Async)");
         }
 
-        return createVoiceCanvasCall(version, accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback, _callback);
+        return createVoiceCanvasCall(accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback, _callback);
 
     }
 
     /**
      * Create VoiceCanvas images
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -1472,15 +1393,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiVoiceCanvasResponse createVoiceCanvas(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiVoiceCanvasResponse> localVarResp = createVoiceCanvasWithHttpInfo(version, accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback);
+    public OrsonAiVoiceCanvasResponse createVoiceCanvas(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiVoiceCanvasResponse> localVarResp = createVoiceCanvasWithHttpInfo(accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Create VoiceCanvas images
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -1499,8 +1419,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiVoiceCanvasResponse> createVoiceCanvasWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = createVoiceCanvasValidateBeforeCall(version, accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback, null);
+    public ApiResponse<OrsonAiVoiceCanvasResponse> createVoiceCanvasWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = createVoiceCanvasValidateBeforeCall(accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiVoiceCanvasResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1508,7 +1428,6 @@ public class OrsonApi {
     /**
      * Create VoiceCanvas images (asynchronously)
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -1528,16 +1447,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createVoiceCanvasAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiVoiceCanvasResponse> _callback) throws ApiException {
+    public okhttp3.Call createVoiceCanvasAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String dimensions, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String text, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Boolean parseFlag, @javax.annotation.Nullable Boolean fetchFlag, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiVoiceCanvasResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createVoiceCanvasValidateBeforeCall(version, accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback, _callback);
+        okhttp3.Call localVarCall = createVoiceCanvasValidateBeforeCall(accountId, dimensions, thirdPartyAccountId, text, _file, url, parseFlag, fetchFlag, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiVoiceCanvasResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for emotion
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param _file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -1553,7 +1471,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call emotionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call emotionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1570,8 +1488,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/emotion"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/emotion";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1619,25 +1536,19 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call emotionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling emotion(Async)");
-        }
-
+    private okhttp3.Call emotionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling emotion(Async)");
         }
 
-        return emotionCall(version, accountId, thirdPartyAccountId, _file, url, paramCallback, _callback);
+        return emotionCall(accountId, thirdPartyAccountId, _file, url, paramCallback, _callback);
 
     }
 
     /**
      * Detect emotions
      * Detects emotions in an audio or video recording.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param _file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -1652,15 +1563,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiEmotionsResponse emotion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiEmotionsResponse> localVarResp = emotionWithHttpInfo(version, accountId, thirdPartyAccountId, _file, url, paramCallback);
+    public OrsonAiEmotionsResponse emotion(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiEmotionsResponse> localVarResp = emotionWithHttpInfo(accountId, thirdPartyAccountId, _file, url, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Detect emotions
      * Detects emotions in an audio or video recording.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param _file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -1675,8 +1585,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiEmotionsResponse> emotionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = emotionValidateBeforeCall(version, accountId, thirdPartyAccountId, _file, url, paramCallback, null);
+    public ApiResponse<OrsonAiEmotionsResponse> emotionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = emotionValidateBeforeCall(accountId, thirdPartyAccountId, _file, url, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiEmotionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1684,7 +1594,6 @@ public class OrsonApi {
     /**
      * Detect emotions (asynchronously)
      * Detects emotions in an audio or video recording.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param _file An uploaded recording to analyze (Currently limited to 10MB) (optional)
@@ -1700,16 +1609,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call emotionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiEmotionsResponse> _callback) throws ApiException {
+    public okhttp3.Call emotionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiEmotionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = emotionValidateBeforeCall(version, accountId, thirdPartyAccountId, _file, url, paramCallback, _callback);
+        okhttp3.Call localVarCall = emotionValidateBeforeCall(accountId, thirdPartyAccountId, _file, url, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiEmotionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAddMovieResult
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -1722,7 +1630,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAddMovieResultCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAddMovieResultCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1739,8 +1647,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/addMovie/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/addMovie/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1773,12 +1680,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAddMovieResultValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAddMovieResult(Async)");
-        }
-
+    private okhttp3.Call getAddMovieResultValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getAddMovieResult(Async)");
@@ -1789,14 +1691,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getAddMovieResult(Async)");
         }
 
-        return getAddMovieResultCall(version, requestId, accountId, _callback);
+        return getAddMovieResultCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get Add Movie Result
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiAddMovieResponse
@@ -1808,15 +1709,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiAddMovieResponse getAddMovieResult(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiAddMovieResponse> localVarResp = getAddMovieResultWithHttpInfo(version, requestId, accountId);
+    public OrsonAiAddMovieResponse getAddMovieResult(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiAddMovieResponse> localVarResp = getAddMovieResultWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Add Movie Result
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiAddMovieResponse&gt;
@@ -1828,8 +1728,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiAddMovieResponse> getAddMovieResultWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getAddMovieResultValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiAddMovieResponse> getAddMovieResultWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getAddMovieResultValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiAddMovieResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1837,7 +1737,6 @@ public class OrsonApi {
     /**
      * Get Add Movie Result (asynchronously)
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1850,16 +1749,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAddMovieResultAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiAddMovieResponse> _callback) throws ApiException {
+    public okhttp3.Call getAddMovieResultAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiAddMovieResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAddMovieResultValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getAddMovieResultValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiAddMovieResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBatch
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -1872,7 +1770,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBatchCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1889,8 +1787,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/batch/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/batch/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1923,12 +1820,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBatch(Async)");
-        }
-
+    private okhttp3.Call getBatchValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getBatch(Async)");
@@ -1939,14 +1831,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getBatch(Async)");
         }
 
-        return getBatchCall(version, requestId, accountId, _callback);
+        return getBatchCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get Batch Analysis Results
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiBatchResponse
@@ -1958,15 +1849,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiBatchResponse getBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiBatchResponse> localVarResp = getBatchWithHttpInfo(version, requestId, accountId);
+    public OrsonAiBatchResponse getBatch(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiBatchResponse> localVarResp = getBatchWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Batch Analysis Results
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiBatchResponse&gt;
@@ -1978,8 +1868,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiBatchResponse> getBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getBatchValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiBatchResponse> getBatchWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getBatchValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1987,7 +1877,6 @@ public class OrsonApi {
     /**
      * Get Batch Analysis Results (asynchronously)
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2000,16 +1889,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call getBatchAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiBatchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBatchValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getBatchValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiBatchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getEmotion
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -2022,7 +1910,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmotionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEmotionCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2039,8 +1927,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/emotion/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/emotion/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2073,12 +1960,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmotionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getEmotion(Async)");
-        }
-
+    private okhttp3.Call getEmotionValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getEmotion(Async)");
@@ -2089,14 +1971,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getEmotion(Async)");
         }
 
-        return getEmotionCall(version, requestId, accountId, _callback);
+        return getEmotionCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get Emotion Results
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiEmotionsResponse
@@ -2108,15 +1989,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiEmotionsResponse getEmotion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiEmotionsResponse> localVarResp = getEmotionWithHttpInfo(version, requestId, accountId);
+    public OrsonAiEmotionsResponse getEmotion(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiEmotionsResponse> localVarResp = getEmotionWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Emotion Results
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiEmotionsResponse&gt;
@@ -2128,8 +2008,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiEmotionsResponse> getEmotionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getEmotionValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiEmotionsResponse> getEmotionWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getEmotionValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiEmotionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2137,7 +2017,6 @@ public class OrsonApi {
     /**
      * Get Emotion Results (asynchronously)
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2150,16 +2029,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmotionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiEmotionsResponse> _callback) throws ApiException {
+    public okhttp3.Call getEmotionAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiEmotionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEmotionValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getEmotionValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiEmotionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getEpisodeStatus
-     * @param version  (required)
      * @param episodeId Episode ID (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -2172,7 +2050,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEpisodeStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEpisodeStatusCall(@javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2189,8 +2067,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/stories/episodes/{episodeId}/status"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/stories/episodes/{episodeId}/status"
             .replace("{" + "episodeId" + "}", localVarApiClient.escapeString(episodeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2223,12 +2100,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEpisodeStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getEpisodeStatus(Async)");
-        }
-
+    private okhttp3.Call getEpisodeStatusValidateBeforeCall(@javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'episodeId' is set
         if (episodeId == null) {
             throw new ApiException("Missing the required parameter 'episodeId' when calling getEpisodeStatus(Async)");
@@ -2239,14 +2111,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getEpisodeStatus(Async)");
         }
 
-        return getEpisodeStatusCall(version, episodeId, accountId, _callback);
+        return getEpisodeStatusCall(episodeId, accountId, _callback);
 
     }
 
     /**
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version  (required)
      * @param episodeId Episode ID (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonEpisodeResponse
@@ -2258,15 +2129,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonEpisodeResponse getEpisodeStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonEpisodeResponse> localVarResp = getEpisodeStatusWithHttpInfo(version, episodeId, accountId);
+    public OrsonEpisodeResponse getEpisodeStatus(@javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonEpisodeResponse> localVarResp = getEpisodeStatusWithHttpInfo(episodeId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version  (required)
      * @param episodeId Episode ID (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonEpisodeResponse&gt;
@@ -2278,8 +2148,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonEpisodeResponse> getEpisodeStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getEpisodeStatusValidateBeforeCall(version, episodeId, accountId, null);
+    public ApiResponse<OrsonEpisodeResponse> getEpisodeStatusWithHttpInfo(@javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getEpisodeStatusValidateBeforeCall(episodeId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonEpisodeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2287,7 +2157,6 @@ public class OrsonApi {
     /**
      * Check episode status (asynchronously)
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version  (required)
      * @param episodeId Episode ID (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2300,16 +2169,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEpisodeStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonEpisodeResponse> _callback) throws ApiException {
+    public okhttp3.Call getEpisodeStatusAsync(@javax.annotation.Nonnull Long episodeId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonEpisodeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEpisodeStatusValidateBeforeCall(version, episodeId, accountId, _callback);
+        okhttp3.Call localVarCall = getEpisodeStatusValidateBeforeCall(episodeId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonEpisodeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRenderStatus
-     * @param version  (required)
      * @param renderId Render ID (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -2322,7 +2190,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRenderStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRenderStatusCall(@javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2339,8 +2207,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/stories/renders/{renderId}/status"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/stories/renders/{renderId}/status"
             .replace("{" + "renderId" + "}", localVarApiClient.escapeString(renderId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2373,12 +2240,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRenderStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRenderStatus(Async)");
-        }
-
+    private okhttp3.Call getRenderStatusValidateBeforeCall(@javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'renderId' is set
         if (renderId == null) {
             throw new ApiException("Missing the required parameter 'renderId' when calling getRenderStatus(Async)");
@@ -2389,14 +2251,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getRenderStatus(Async)");
         }
 
-        return getRenderStatusCall(version, renderId, accountId, _callback);
+        return getRenderStatusCall(renderId, accountId, _callback);
 
     }
 
     /**
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version  (required)
      * @param renderId Render ID (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonRenderResponse
@@ -2408,15 +2269,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonRenderResponse getRenderStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonRenderResponse> localVarResp = getRenderStatusWithHttpInfo(version, renderId, accountId);
+    public OrsonRenderResponse getRenderStatus(@javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonRenderResponse> localVarResp = getRenderStatusWithHttpInfo(renderId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Check episode status
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version  (required)
      * @param renderId Render ID (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonRenderResponse&gt;
@@ -2428,8 +2288,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonRenderResponse> getRenderStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getRenderStatusValidateBeforeCall(version, renderId, accountId, null);
+    public ApiResponse<OrsonRenderResponse> getRenderStatusWithHttpInfo(@javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getRenderStatusValidateBeforeCall(renderId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonRenderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2437,7 +2297,6 @@ public class OrsonApi {
     /**
      * Check episode status (asynchronously)
      * Gets a summary of the episode&#39;s status, including any renders.
-     * @param version  (required)
      * @param renderId Render ID (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2450,16 +2309,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRenderStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonRenderResponse> _callback) throws ApiException {
+    public okhttp3.Call getRenderStatusAsync(@javax.annotation.Nonnull String renderId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonRenderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRenderStatusValidateBeforeCall(version, renderId, accountId, _callback);
+        okhttp3.Call localVarCall = getRenderStatusValidateBeforeCall(renderId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonRenderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSTT
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -2472,7 +2330,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSTTCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSTTCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2489,8 +2347,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/stt/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/stt/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2523,12 +2380,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSTTValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getSTT(Async)");
-        }
-
+    private okhttp3.Call getSTTValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getSTT(Async)");
@@ -2539,14 +2391,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getSTT(Async)");
         }
 
-        return getSTTCall(version, requestId, accountId, _callback);
+        return getSTTCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get Speach to Text Result
      * The results of the video transcription and optional translation.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiSTTResponse
@@ -2558,15 +2409,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiSTTResponse getSTT(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiSTTResponse> localVarResp = getSTTWithHttpInfo(version, requestId, accountId);
+    public OrsonAiSTTResponse getSTT(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiSTTResponse> localVarResp = getSTTWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Speach to Text Result
      * The results of the video transcription and optional translation.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiSTTResponse&gt;
@@ -2578,8 +2428,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiSTTResponse> getSTTWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getSTTValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiSTTResponse> getSTTWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getSTTValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiSTTResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2587,7 +2437,6 @@ public class OrsonApi {
     /**
      * Get Speach to Text Result (asynchronously)
      * The results of the video transcription and optional translation.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2600,16 +2449,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSTTAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiSTTResponse> _callback) throws ApiException {
+    public okhttp3.Call getSTTAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiSTTResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSTTValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getSTTValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiSTTResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTTS
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -2622,7 +2470,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTTSCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTTSCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2639,8 +2487,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/tts/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/tts/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2673,12 +2520,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTTSValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTTS(Async)");
-        }
-
+    private okhttp3.Call getTTSValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getTTS(Async)");
@@ -2689,14 +2531,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getTTS(Async)");
         }
 
-        return getTTSCall(version, requestId, accountId, _callback);
+        return getTTSCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get Text to Speach Result
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiTTSResponse
@@ -2708,15 +2549,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiTTSResponse getTTS(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiTTSResponse> localVarResp = getTTSWithHttpInfo(version, requestId, accountId);
+    public OrsonAiTTSResponse getTTS(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiTTSResponse> localVarResp = getTTSWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Text to Speach Result
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiTTSResponse&gt;
@@ -2728,8 +2568,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiTTSResponse> getTTSWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getTTSValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiTTSResponse> getTTSWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getTTSValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiTTSResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2737,7 +2577,6 @@ public class OrsonApi {
     /**
      * Get Text to Speach Result (asynchronously)
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2750,16 +2589,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTTSAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiTTSResponse> _callback) throws ApiException {
+    public okhttp3.Call getTTSAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiTTSResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTTSValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getTTSValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiTTSResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTechTune
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -2772,7 +2610,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTechTuneCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTechTuneCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2789,8 +2627,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/techTune/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/techTune/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2823,12 +2660,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTechTuneValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTechTune(Async)");
-        }
-
+    private okhttp3.Call getTechTuneValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getTechTune(Async)");
@@ -2839,14 +2671,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getTechTune(Async)");
         }
 
-        return getTechTuneCall(version, requestId, accountId, _callback);
+        return getTechTuneCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get TechTune Results
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiTechTuneResponse
@@ -2858,15 +2689,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiTechTuneResponse getTechTune(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiTechTuneResponse> localVarResp = getTechTuneWithHttpInfo(version, requestId, accountId);
+    public OrsonAiTechTuneResponse getTechTune(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiTechTuneResponse> localVarResp = getTechTuneWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get TechTune Results
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiTechTuneResponse&gt;
@@ -2878,8 +2708,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiTechTuneResponse> getTechTuneWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getTechTuneValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiTechTuneResponse> getTechTuneWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getTechTuneValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiTechTuneResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2887,7 +2717,6 @@ public class OrsonApi {
     /**
      * Get TechTune Results (asynchronously)
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2900,16 +2729,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTechTuneAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiTechTuneResponse> _callback) throws ApiException {
+    public okhttp3.Call getTechTuneAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiTechTuneResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTechTuneValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getTechTuneValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiTechTuneResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTopics
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -2922,7 +2750,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTopicsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTopicsCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2939,8 +2767,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/topics/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/topics/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2973,12 +2800,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTopicsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTopics(Async)");
-        }
-
+    private okhttp3.Call getTopicsValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getTopics(Async)");
@@ -2989,14 +2811,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getTopics(Async)");
         }
 
-        return getTopicsCall(version, requestId, accountId, _callback);
+        return getTopicsCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get Topics
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiTopicsResponse
@@ -3008,15 +2829,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiTopicsResponse getTopics(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiTopicsResponse> localVarResp = getTopicsWithHttpInfo(version, requestId, accountId);
+    public OrsonAiTopicsResponse getTopics(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiTopicsResponse> localVarResp = getTopicsWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Topics
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiTopicsResponse&gt;
@@ -3028,8 +2848,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiTopicsResponse> getTopicsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getTopicsValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiTopicsResponse> getTopicsWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getTopicsValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiTopicsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3037,7 +2857,6 @@ public class OrsonApi {
     /**
      * Get Topics (asynchronously)
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3050,16 +2869,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTopicsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiTopicsResponse> _callback) throws ApiException {
+    public okhttp3.Call getTopicsAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiTopicsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTopicsValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getTopicsValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiTopicsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getVoiceCanvas
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback Callback for upload/download progress
@@ -3072,7 +2890,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoiceCanvasCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVoiceCanvasCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3089,8 +2907,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/voiceCanvas/{requestId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/orson/ai/voiceCanvas/{requestId}"
             .replace("{" + "requestId" + "}", localVarApiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3123,12 +2940,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVoiceCanvasValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getVoiceCanvas(Async)");
-        }
-
+    private okhttp3.Call getVoiceCanvasValidateBeforeCall(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getVoiceCanvas(Async)");
@@ -3139,14 +2951,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getVoiceCanvas(Async)");
         }
 
-        return getVoiceCanvasCall(version, requestId, accountId, _callback);
+        return getVoiceCanvasCall(requestId, accountId, _callback);
 
     }
 
     /**
      * Get VoiceCanvas images
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return OrsonAiVoiceCanvasResponse
@@ -3158,15 +2969,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiVoiceCanvasResponse getVoiceCanvas(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<OrsonAiVoiceCanvasResponse> localVarResp = getVoiceCanvasWithHttpInfo(version, requestId, accountId);
+    public OrsonAiVoiceCanvasResponse getVoiceCanvas(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<OrsonAiVoiceCanvasResponse> localVarResp = getVoiceCanvasWithHttpInfo(requestId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get VoiceCanvas images
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @return ApiResponse&lt;OrsonAiVoiceCanvasResponse&gt;
@@ -3178,8 +2988,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiVoiceCanvasResponse> getVoiceCanvasWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getVoiceCanvasValidateBeforeCall(version, requestId, accountId, null);
+    public ApiResponse<OrsonAiVoiceCanvasResponse> getVoiceCanvasWithHttpInfo(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getVoiceCanvasValidateBeforeCall(requestId, accountId, null);
         Type localVarReturnType = new TypeToken<OrsonAiVoiceCanvasResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3187,7 +2997,6 @@ public class OrsonApi {
     /**
      * Get VoiceCanvas images (asynchronously)
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @param version  (required)
      * @param requestId Orson Request Id (required)
      * @param accountId Sirqul Account Id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3200,16 +3009,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVoiceCanvasAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiVoiceCanvasResponse> _callback) throws ApiException {
+    public okhttp3.Call getVoiceCanvasAsync(@javax.annotation.Nonnull String requestId, @javax.annotation.Nonnull Long accountId, final ApiCallback<OrsonAiVoiceCanvasResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVoiceCanvasValidateBeforeCall(version, requestId, accountId, _callback);
+        okhttp3.Call localVarCall = getVoiceCanvasValidateBeforeCall(requestId, accountId, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiVoiceCanvasResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for startVideoRender
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @param _callback Callback for upload/download progress
@@ -3222,7 +3030,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call startVideoRenderCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call startVideoRenderCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3239,8 +3047,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/stories/renders"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/stories/renders";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3276,12 +3083,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call startVideoRenderValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling startVideoRender(Async)");
-        }
-
+    private okhttp3.Call startVideoRenderValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling startVideoRender(Async)");
@@ -3292,14 +3094,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'data' when calling startVideoRender(Async)");
         }
 
-        return startVideoRenderCall(version, accountId, data, _callback);
+        return startVideoRenderCall(accountId, data, _callback);
 
     }
 
     /**
      * Starts a StoryStitch video render
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @return OrsonRenderResponse
@@ -3311,15 +3112,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonRenderResponse startVideoRender(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
-        ApiResponse<OrsonRenderResponse> localVarResp = startVideoRenderWithHttpInfo(version, accountId, data);
+    public OrsonRenderResponse startVideoRender(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
+        ApiResponse<OrsonRenderResponse> localVarResp = startVideoRenderWithHttpInfo(accountId, data);
         return localVarResp.getData();
     }
 
     /**
      * Starts a StoryStitch video render
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @return ApiResponse&lt;OrsonRenderResponse&gt;
@@ -3331,8 +3131,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonRenderResponse> startVideoRenderWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
-        okhttp3.Call localVarCall = startVideoRenderValidateBeforeCall(version, accountId, data, null);
+    public ApiResponse<OrsonRenderResponse> startVideoRenderWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data) throws ApiException {
+        okhttp3.Call localVarCall = startVideoRenderValidateBeforeCall(accountId, data, null);
         Type localVarReturnType = new TypeToken<OrsonRenderResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3340,7 +3140,6 @@ public class OrsonApi {
     /**
      * Starts a StoryStitch video render (asynchronously)
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param data Request Data String (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3353,16 +3152,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call startVideoRenderAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback<OrsonRenderResponse> _callback) throws ApiException {
+    public okhttp3.Call startVideoRenderAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String data, final ApiCallback<OrsonRenderResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = startVideoRenderValidateBeforeCall(version, accountId, data, _callback);
+        okhttp3.Call localVarCall = startVideoRenderValidateBeforeCall(accountId, data, _callback);
         Type localVarReturnType = new TypeToken<OrsonRenderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for stt
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -3380,7 +3178,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sttCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sttCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3397,8 +3195,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/stt"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/stt";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3454,25 +3251,19 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sttValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling stt(Async)");
-        }
-
+    private okhttp3.Call sttValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling stt(Async)");
         }
 
-        return sttCall(version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback, _callback);
+        return sttCall(accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback, _callback);
 
     }
 
     /**
      * Speach to Text
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -3489,15 +3280,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiSTTResponse stt(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiSTTResponse> localVarResp = sttWithHttpInfo(version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback);
+    public OrsonAiSTTResponse stt(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiSTTResponse> localVarResp = sttWithHttpInfo(accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Speach to Text
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -3514,8 +3304,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiSTTResponse> sttWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = sttValidateBeforeCall(version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback, null);
+    public ApiResponse<OrsonAiSTTResponse> sttWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = sttValidateBeforeCall(accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiSTTResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3523,7 +3313,6 @@ public class OrsonApi {
     /**
      * Speach to Text (asynchronously)
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param sourceLanguage Source Language (optional)
@@ -3541,16 +3330,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sttAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiSTTResponse> _callback) throws ApiException {
+    public okhttp3.Call sttAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String sourceLanguage, @javax.annotation.Nullable String targetLanguage, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiSTTResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sttValidateBeforeCall(version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback, _callback);
+        okhttp3.Call localVarCall = sttValidateBeforeCall(accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, _file, url, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiSTTResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for summarizeTopics
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -3569,7 +3357,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call summarizeTopicsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call summarizeTopicsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3586,8 +3374,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/topics"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/topics";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3647,25 +3434,19 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call summarizeTopicsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling summarizeTopics(Async)");
-        }
-
+    private okhttp3.Call summarizeTopicsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling summarizeTopics(Async)");
         }
 
-        return summarizeTopicsCall(version, accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback, _callback);
+        return summarizeTopicsCall(accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback, _callback);
 
     }
 
     /**
      * Summarize Topics
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -3683,15 +3464,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiTopicsResponse summarizeTopics(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiTopicsResponse> localVarResp = summarizeTopicsWithHttpInfo(version, accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback);
+    public OrsonAiTopicsResponse summarizeTopics(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiTopicsResponse> localVarResp = summarizeTopicsWithHttpInfo(accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Summarize Topics
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -3709,8 +3489,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiTopicsResponse> summarizeTopicsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = summarizeTopicsValidateBeforeCall(version, accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback, null);
+    public ApiResponse<OrsonAiTopicsResponse> summarizeTopicsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = summarizeTopicsValidateBeforeCall(accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiTopicsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3718,7 +3498,6 @@ public class OrsonApi {
     /**
      * Summarize Topics (asynchronously)
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
      * @param doc The text to get topics for. (optional)
@@ -3737,16 +3516,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call summarizeTopicsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiTopicsResponse> _callback) throws ApiException {
+    public okhttp3.Call summarizeTopicsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String doc, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiTopicsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = summarizeTopicsValidateBeforeCall(version, accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback, _callback);
+        okhttp3.Call localVarCall = summarizeTopicsValidateBeforeCall(accountId, thirdPartyAccountId, doc, _file, url, limit, offset, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiTopicsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for techTune
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param numFacesExpected Number of expected faces (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -3763,7 +3541,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call techTuneCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call techTuneCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3780,8 +3558,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/techTune"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/techTune";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3833,12 +3610,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call techTuneValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling techTune(Async)");
-        }
-
+    private okhttp3.Call techTuneValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling techTune(Async)");
@@ -3849,14 +3621,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'numFacesExpected' when calling techTune(Async)");
         }
 
-        return techTuneCall(version, accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback, _callback);
+        return techTuneCall(accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback, _callback);
 
     }
 
     /**
      * Detect Technical Issues
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param numFacesExpected Number of expected faces (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -3872,15 +3643,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiTechTuneResponse techTune(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiTechTuneResponse> localVarResp = techTuneWithHttpInfo(version, accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback);
+    public OrsonAiTechTuneResponse techTune(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiTechTuneResponse> localVarResp = techTuneWithHttpInfo(accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Detect Technical Issues
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param numFacesExpected Number of expected faces (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -3896,8 +3666,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiTechTuneResponse> techTuneWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = techTuneValidateBeforeCall(version, accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback, null);
+    public ApiResponse<OrsonAiTechTuneResponse> techTuneWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = techTuneValidateBeforeCall(accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiTechTuneResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3905,7 +3675,6 @@ public class OrsonApi {
     /**
      * Detect Technical Issues (asynchronously)
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param numFacesExpected Number of expected faces (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -3922,16 +3691,15 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call techTuneAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiTechTuneResponse> _callback) throws ApiException {
+    public okhttp3.Call techTuneAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer numFacesExpected, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable File _file, @javax.annotation.Nullable String url, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiTechTuneResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = techTuneValidateBeforeCall(version, accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback, _callback);
+        okhttp3.Call localVarCall = techTuneValidateBeforeCall(accountId, numFacesExpected, thirdPartyAccountId, _file, url, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiTechTuneResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for tts
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -3948,7 +3716,7 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ttsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ttsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3965,8 +3733,7 @@ public class OrsonApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/orson/ai/tts"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/orson/ai/tts";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4018,12 +3785,7 @@ public class OrsonApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ttsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling tts(Async)");
-        }
-
+    private okhttp3.Call ttsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling tts(Async)");
@@ -4034,14 +3796,13 @@ public class OrsonApi {
             throw new ApiException("Missing the required parameter 'text' when calling tts(Async)");
         }
 
-        return ttsCall(version, accountId, text, thirdPartyAccountId, language, voice, paramCallback, _callback);
+        return ttsCall(accountId, text, thirdPartyAccountId, language, voice, paramCallback, _callback);
 
     }
 
     /**
      * Text to Speach
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -4057,15 +3818,14 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OrsonAiTTSResponse tts(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        ApiResponse<OrsonAiTTSResponse> localVarResp = ttsWithHttpInfo(version, accountId, text, thirdPartyAccountId, language, voice, paramCallback);
+    public OrsonAiTTSResponse tts(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        ApiResponse<OrsonAiTTSResponse> localVarResp = ttsWithHttpInfo(accountId, text, thirdPartyAccountId, language, voice, paramCallback);
         return localVarResp.getData();
     }
 
     /**
      * Text to Speach
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -4081,8 +3841,8 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrsonAiTTSResponse> ttsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback) throws ApiException {
-        okhttp3.Call localVarCall = ttsValidateBeforeCall(version, accountId, text, thirdPartyAccountId, language, voice, paramCallback, null);
+    public ApiResponse<OrsonAiTTSResponse> ttsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback) throws ApiException {
+        okhttp3.Call localVarCall = ttsValidateBeforeCall(accountId, text, thirdPartyAccountId, language, voice, paramCallback, null);
         Type localVarReturnType = new TypeToken<OrsonAiTTSResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4090,7 +3850,6 @@ public class OrsonApi {
     /**
      * Text to Speach (asynchronously)
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param text Text (required)
      * @param thirdPartyAccountId A third-party account id that is meaningful to your systems (optional)
@@ -4107,9 +3866,9 @@ public class OrsonApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call ttsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiTTSResponse> _callback) throws ApiException {
+    public okhttp3.Call ttsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String text, @javax.annotation.Nullable String thirdPartyAccountId, @javax.annotation.Nullable String language, @javax.annotation.Nullable String voice, @javax.annotation.Nullable String paramCallback, final ApiCallback<OrsonAiTTSResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = ttsValidateBeforeCall(version, accountId, text, thirdPartyAccountId, language, voice, paramCallback, _callback);
+        okhttp3.Call localVarCall = ttsValidateBeforeCall(accountId, text, thirdPartyAccountId, language, voice, paramCallback, _callback);
         Type localVarReturnType = new TypeToken<OrsonAiTTSResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

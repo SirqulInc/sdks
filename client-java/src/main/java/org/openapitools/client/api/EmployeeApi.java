@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.EmployeeResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class EmployeeApi {
 
     /**
      * Build call for assignEmployee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param employeeAccountId The account id of the user to be assigned as employee (required)
@@ -91,7 +89,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignEmployeeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignEmployeeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/assign"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/assign";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -153,12 +150,7 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignEmployeeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignEmployee(Async)");
-        }
-
+    private okhttp3.Call assignEmployeeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignEmployee(Async)");
@@ -174,14 +166,13 @@ public class EmployeeApi {
             throw new ApiException("Missing the required parameter 'employeeAccountId' when calling assignEmployee(Async)");
         }
 
-        return assignEmployeeCall(version, accountId, managerAccountId, employeeAccountId, role, _callback);
+        return assignEmployeeCall(accountId, managerAccountId, employeeAccountId, role, _callback);
 
     }
 
     /**
      * Assign Employee
      * Assign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param employeeAccountId The account id of the user to be assigned as employee (required)
@@ -195,15 +186,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public EmployeeResponse assignEmployee(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role) throws ApiException {
-        ApiResponse<EmployeeResponse> localVarResp = assignEmployeeWithHttpInfo(version, accountId, managerAccountId, employeeAccountId, role);
+    public EmployeeResponse assignEmployee(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role) throws ApiException {
+        ApiResponse<EmployeeResponse> localVarResp = assignEmployeeWithHttpInfo(accountId, managerAccountId, employeeAccountId, role);
         return localVarResp.getData();
     }
 
     /**
      * Assign Employee
      * Assign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param employeeAccountId The account id of the user to be assigned as employee (required)
@@ -217,8 +207,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmployeeResponse> assignEmployeeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role) throws ApiException {
-        okhttp3.Call localVarCall = assignEmployeeValidateBeforeCall(version, accountId, managerAccountId, employeeAccountId, role, null);
+    public ApiResponse<EmployeeResponse> assignEmployeeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role) throws ApiException {
+        okhttp3.Call localVarCall = assignEmployeeValidateBeforeCall(accountId, managerAccountId, employeeAccountId, role, null);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -226,7 +216,6 @@ public class EmployeeApi {
     /**
      * Assign Employee (asynchronously)
      * Assign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param employeeAccountId The account id of the user to be assigned as employee (required)
@@ -241,16 +230,15 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignEmployeeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
+    public okhttp3.Call assignEmployeeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String role, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignEmployeeValidateBeforeCall(version, accountId, managerAccountId, employeeAccountId, role, _callback);
+        okhttp3.Call localVarCall = assignEmployeeValidateBeforeCall(accountId, managerAccountId, employeeAccountId, role, _callback);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignToLocationEmployee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param retailerLocationId The retailer location to apply the change to (required)
      * @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -265,7 +253,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignToLocationEmployeeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignToLocationEmployeeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -282,8 +270,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/assignToLocation"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/assignToLocation";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -327,12 +314,7 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignToLocationEmployeeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignToLocationEmployee(Async)");
-        }
-
+    private okhttp3.Call assignToLocationEmployeeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignToLocationEmployee(Async)");
@@ -343,14 +325,13 @@ public class EmployeeApi {
             throw new ApiException("Missing the required parameter 'retailerLocationId' when calling assignToLocationEmployee(Async)");
         }
 
-        return assignToLocationEmployeeCall(version, accountId, retailerLocationId, employeeAccountId, assign, _callback);
+        return assignToLocationEmployeeCall(accountId, retailerLocationId, employeeAccountId, assign, _callback);
 
     }
 
     /**
      * Assign Employee to Location
      * Assign or unassign the account to a retailer location.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param retailerLocationId The retailer location to apply the change to (required)
      * @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -364,15 +345,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse assignToLocationEmployee(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = assignToLocationEmployeeWithHttpInfo(version, accountId, retailerLocationId, employeeAccountId, assign);
+    public SirqulResponse assignToLocationEmployee(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = assignToLocationEmployeeWithHttpInfo(accountId, retailerLocationId, employeeAccountId, assign);
         return localVarResp.getData();
     }
 
     /**
      * Assign Employee to Location
      * Assign or unassign the account to a retailer location.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param retailerLocationId The retailer location to apply the change to (required)
      * @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -386,8 +366,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> assignToLocationEmployeeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign) throws ApiException {
-        okhttp3.Call localVarCall = assignToLocationEmployeeValidateBeforeCall(version, accountId, retailerLocationId, employeeAccountId, assign, null);
+    public ApiResponse<SirqulResponse> assignToLocationEmployeeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign) throws ApiException {
+        okhttp3.Call localVarCall = assignToLocationEmployeeValidateBeforeCall(accountId, retailerLocationId, employeeAccountId, assign, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -395,7 +375,6 @@ public class EmployeeApi {
     /**
      * Assign Employee to Location (asynchronously)
      * Assign or unassign the account to a retailer location.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param retailerLocationId The retailer location to apply the change to (required)
      * @param employeeAccountId The account id of the user to apply the change to (optional)
@@ -410,16 +389,15 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignToLocationEmployeeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call assignToLocationEmployeeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long employeeAccountId, @javax.annotation.Nullable Boolean assign, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignToLocationEmployeeValidateBeforeCall(version, accountId, retailerLocationId, employeeAccountId, assign, _callback);
+        okhttp3.Call localVarCall = assignToLocationEmployeeValidateBeforeCall(accountId, retailerLocationId, employeeAccountId, assign, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createEmployee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -460,7 +438,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEmployeeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEmployeeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -477,8 +455,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -626,12 +603,7 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEmployeeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createEmployee(Async)");
-        }
-
+    private okhttp3.Call createEmployeeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createEmployee(Async)");
@@ -652,14 +624,13 @@ public class EmployeeApi {
             throw new ApiException("Missing the required parameter 'password' when calling createEmployee(Async)");
         }
 
-        return createEmployeeCall(version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
+        return createEmployeeCall(accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
 
     }
 
     /**
      * Create Employee
      * Create a new account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -699,15 +670,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public EmployeeResponse createEmployee(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
-        ApiResponse<EmployeeResponse> localVarResp = createEmployeeWithHttpInfo(version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+    public EmployeeResponse createEmployee(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
+        ApiResponse<EmployeeResponse> localVarResp = createEmployeeWithHttpInfo(accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
         return localVarResp.getData();
     }
 
     /**
      * Create Employee
      * Create a new account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -747,8 +717,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmployeeResponse> createEmployeeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
-        okhttp3.Call localVarCall = createEmployeeValidateBeforeCall(version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, null);
+    public ApiResponse<EmployeeResponse> createEmployeeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
+        okhttp3.Call localVarCall = createEmployeeValidateBeforeCall(accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, null);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -756,7 +726,6 @@ public class EmployeeApi {
     /**
      * Create Employee (asynchronously)
      * Create a new account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param managerAccountId The account id of the manager to assign under (required)
      * @param username The username/email for the new user. This must be unique across the entire the system. (required)
@@ -797,16 +766,15 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEmployeeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
+    public okhttp3.Call createEmployeeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long managerAccountId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createEmployeeValidateBeforeCall(version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
+        okhttp3.Call localVarCall = createEmployeeValidateBeforeCall(accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteEmployee
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param employeeAccountId the id of the employee to delete (required)
      * @param _callback Callback for upload/download progress
@@ -819,7 +787,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteEmployeeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteEmployeeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -836,8 +804,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -873,12 +840,7 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteEmployeeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteEmployee(Async)");
-        }
-
+    private okhttp3.Call deleteEmployeeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteEmployee(Async)");
@@ -889,14 +851,13 @@ public class EmployeeApi {
             throw new ApiException("Missing the required parameter 'employeeAccountId' when calling deleteEmployee(Async)");
         }
 
-        return deleteEmployeeCall(version, accountId, employeeAccountId, _callback);
+        return deleteEmployeeCall(accountId, employeeAccountId, _callback);
 
     }
 
     /**
      * Delete Employee
      * Set the deleted date field which marks the record as deleted.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param employeeAccountId the id of the employee to delete (required)
      * @return SirqulResponse
@@ -908,15 +869,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteEmployee(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteEmployeeWithHttpInfo(version, accountId, employeeAccountId);
+    public SirqulResponse deleteEmployee(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteEmployeeWithHttpInfo(accountId, employeeAccountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Employee
      * Set the deleted date field which marks the record as deleted.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param employeeAccountId the id of the employee to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -928,8 +888,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteEmployeeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteEmployeeValidateBeforeCall(version, accountId, employeeAccountId, null);
+    public ApiResponse<SirqulResponse> deleteEmployeeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteEmployeeValidateBeforeCall(accountId, employeeAccountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -937,7 +897,6 @@ public class EmployeeApi {
     /**
      * Delete Employee (asynchronously)
      * Set the deleted date field which marks the record as deleted.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param employeeAccountId the id of the employee to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -950,16 +909,15 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteEmployeeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteEmployeeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteEmployeeValidateBeforeCall(version, accountId, employeeAccountId, _callback);
+        okhttp3.Call localVarCall = deleteEmployeeValidateBeforeCall(accountId, employeeAccountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getEmployee
-     * @param version  (required)
      * @param accountId the id of logged in user (required)
      * @param employeeAccountId the id of the employee account to get (required)
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -973,7 +931,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmployeeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEmployeeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -990,8 +948,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1031,12 +988,7 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmployeeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getEmployee(Async)");
-        }
-
+    private okhttp3.Call getEmployeeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getEmployee(Async)");
@@ -1047,14 +999,13 @@ public class EmployeeApi {
             throw new ApiException("Missing the required parameter 'employeeAccountId' when calling getEmployee(Async)");
         }
 
-        return getEmployeeCall(version, accountId, employeeAccountId, settingsAppKey, _callback);
+        return getEmployeeCall(accountId, employeeAccountId, settingsAppKey, _callback);
 
     }
 
     /**
      * Get Employee
      * Get the account record for the account id provided.
-     * @param version  (required)
      * @param accountId the id of logged in user (required)
      * @param employeeAccountId the id of the employee account to get (required)
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -1067,15 +1018,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public EmployeeResponse getEmployee(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey) throws ApiException {
-        ApiResponse<EmployeeResponse> localVarResp = getEmployeeWithHttpInfo(version, accountId, employeeAccountId, settingsAppKey);
+    public EmployeeResponse getEmployee(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey) throws ApiException {
+        ApiResponse<EmployeeResponse> localVarResp = getEmployeeWithHttpInfo(accountId, employeeAccountId, settingsAppKey);
         return localVarResp.getData();
     }
 
     /**
      * Get Employee
      * Get the account record for the account id provided.
-     * @param version  (required)
      * @param accountId the id of logged in user (required)
      * @param employeeAccountId the id of the employee account to get (required)
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -1088,8 +1038,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmployeeResponse> getEmployeeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey) throws ApiException {
-        okhttp3.Call localVarCall = getEmployeeValidateBeforeCall(version, accountId, employeeAccountId, settingsAppKey, null);
+    public ApiResponse<EmployeeResponse> getEmployeeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey) throws ApiException {
+        okhttp3.Call localVarCall = getEmployeeValidateBeforeCall(accountId, employeeAccountId, settingsAppKey, null);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1097,7 +1047,6 @@ public class EmployeeApi {
     /**
      * Get Employee (asynchronously)
      * Get the account record for the account id provided.
-     * @param version  (required)
      * @param accountId the id of logged in user (required)
      * @param employeeAccountId the id of the employee account to get (required)
      * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application (optional)
@@ -1111,16 +1060,15 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmployeeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
+    public okhttp3.Call getEmployeeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable String settingsAppKey, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEmployeeValidateBeforeCall(version, accountId, employeeAccountId, settingsAppKey, _callback);
+        okhttp3.Call localVarCall = getEmployeeValidateBeforeCall(accountId, employeeAccountId, settingsAppKey, _callback);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchEmployees
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -1148,7 +1096,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchEmployeesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchEmployeesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1165,8 +1113,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1262,25 +1209,19 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchEmployeesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchEmployees(Async)");
-        }
-
+    private okhttp3.Call searchEmployeesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchEmployees(Async)");
         }
 
-        return searchEmployeesCall(version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, _callback);
+        return searchEmployeesCall(accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, _callback);
 
     }
 
     /**
      * Search Employees
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -1307,15 +1248,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<EmployeeResponse> searchEmployees(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query) throws ApiException {
-        ApiResponse<List<EmployeeResponse>> localVarResp = searchEmployeesWithHttpInfo(version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
+    public List<EmployeeResponse> searchEmployees(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query) throws ApiException {
+        ApiResponse<List<EmployeeResponse>> localVarResp = searchEmployeesWithHttpInfo(accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
         return localVarResp.getData();
     }
 
     /**
      * Search Employees
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -1342,8 +1282,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<EmployeeResponse>> searchEmployeesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query) throws ApiException {
-        okhttp3.Call localVarCall = searchEmployeesValidateBeforeCall(version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, null);
+    public ApiResponse<List<EmployeeResponse>> searchEmployeesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query) throws ApiException {
+        okhttp3.Call localVarCall = searchEmployeesValidateBeforeCall(accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, null);
         Type localVarReturnType = new TypeToken<List<EmployeeResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1351,7 +1291,6 @@ public class EmployeeApi {
     /**
      * Search Employees (asynchronously)
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
      * @param retailerId Filters employees by retailer (optional)
@@ -1379,16 +1318,15 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchEmployeesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query, final ApiCallback<List<EmployeeResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchEmployeesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean managedOnly, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String query, final ApiCallback<List<EmployeeResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchEmployeesValidateBeforeCall(version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, _callback);
+        okhttp3.Call localVarCall = searchEmployeesValidateBeforeCall(accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, _callback);
         Type localVarReturnType = new TypeToken<List<EmployeeResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for unassignEmployee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId The account id of the user to be unassigned (required)
      * @param _callback Callback for upload/download progress
@@ -1401,7 +1339,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call unassignEmployeeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call unassignEmployeeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1418,8 +1356,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/unassign"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/unassign";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1455,12 +1392,7 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call unassignEmployeeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling unassignEmployee(Async)");
-        }
-
+    private okhttp3.Call unassignEmployeeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling unassignEmployee(Async)");
@@ -1471,14 +1403,13 @@ public class EmployeeApi {
             throw new ApiException("Missing the required parameter 'employeeAccountId' when calling unassignEmployee(Async)");
         }
 
-        return unassignEmployeeCall(version, accountId, employeeAccountId, _callback);
+        return unassignEmployeeCall(accountId, employeeAccountId, _callback);
 
     }
 
     /**
      * Unassign Employee
      * Unassign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId The account id of the user to be unassigned (required)
      * @return EmployeeResponse
@@ -1490,15 +1421,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public EmployeeResponse unassignEmployee(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
-        ApiResponse<EmployeeResponse> localVarResp = unassignEmployeeWithHttpInfo(version, accountId, employeeAccountId);
+    public EmployeeResponse unassignEmployee(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
+        ApiResponse<EmployeeResponse> localVarResp = unassignEmployeeWithHttpInfo(accountId, employeeAccountId);
         return localVarResp.getData();
     }
 
     /**
      * Unassign Employee
      * Unassign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId The account id of the user to be unassigned (required)
      * @return ApiResponse&lt;EmployeeResponse&gt;
@@ -1510,8 +1440,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmployeeResponse> unassignEmployeeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
-        okhttp3.Call localVarCall = unassignEmployeeValidateBeforeCall(version, accountId, employeeAccountId, null);
+    public ApiResponse<EmployeeResponse> unassignEmployeeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId) throws ApiException {
+        okhttp3.Call localVarCall = unassignEmployeeValidateBeforeCall(accountId, employeeAccountId, null);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1519,7 +1449,6 @@ public class EmployeeApi {
     /**
      * Unassign Employee (asynchronously)
      * Unassign An existing account to be an employee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId The account id of the user to be unassigned (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1532,16 +1461,15 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call unassignEmployeeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
+    public okhttp3.Call unassignEmployeeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = unassignEmployeeValidateBeforeCall(version, accountId, employeeAccountId, _callback);
+        okhttp3.Call localVarCall = unassignEmployeeValidateBeforeCall(accountId, employeeAccountId, _callback);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateEmployee
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId the id of the employee account (required)
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -1582,7 +1510,7 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEmployeeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateEmployeeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1599,8 +1527,7 @@ public class EmployeeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/employee/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/employee/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1748,12 +1675,7 @@ public class EmployeeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateEmployeeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateEmployee(Async)");
-        }
-
+    private okhttp3.Call updateEmployeeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateEmployee(Async)");
@@ -1764,14 +1686,13 @@ public class EmployeeApi {
             throw new ApiException("Missing the required parameter 'employeeAccountId' when calling updateEmployee(Async)");
         }
 
-        return updateEmployeeCall(version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
+        return updateEmployeeCall(accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
 
     }
 
     /**
      * Update Employee
      * Update the account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId the id of the employee account (required)
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -1811,15 +1732,14 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public EmployeeResponse updateEmployee(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
-        ApiResponse<EmployeeResponse> localVarResp = updateEmployeeWithHttpInfo(version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+    public EmployeeResponse updateEmployee(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
+        ApiResponse<EmployeeResponse> localVarResp = updateEmployeeWithHttpInfo(accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
         return localVarResp.getData();
     }
 
     /**
      * Update Employee
      * Update the account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId the id of the employee account (required)
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -1859,8 +1779,8 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EmployeeResponse> updateEmployeeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
-        okhttp3.Call localVarCall = updateEmployeeValidateBeforeCall(version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, null);
+    public ApiResponse<EmployeeResponse> updateEmployeeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId) throws ApiException {
+        okhttp3.Call localVarCall = updateEmployeeValidateBeforeCall(accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, null);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1868,7 +1788,6 @@ public class EmployeeApi {
     /**
      * Update Employee (asynchronously)
      * Update the account record with the provided information.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param employeeAccountId the id of the employee account (required)
      * @param managerAccountId The account id of the manager to assign under (optional)
@@ -1909,9 +1828,9 @@ public class EmployeeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEmployeeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
+    public okhttp3.Call updateEmployeeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long employeeAccountId, @javax.annotation.Nullable Long managerAccountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String password, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String settingsAppKey, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable String assignedDeviceId, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateEmployeeValidateBeforeCall(version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
+        okhttp3.Call localVarCall = updateEmployeeValidateBeforeCall(accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, _callback);
         Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

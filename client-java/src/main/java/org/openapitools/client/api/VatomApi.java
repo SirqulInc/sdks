@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -74,7 +73,6 @@ public class VatomApi {
 
     /**
      * Build call for createFollowing
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -88,7 +86,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFollowingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createFollowingCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,8 +103,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/rels/following/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/rels/following/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -145,12 +142,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFollowingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createFollowing(Async)");
-        }
-
+    private okhttp3.Call createFollowingValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createFollowing(Async)");
@@ -161,14 +153,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling createFollowing(Async)");
         }
 
-        return createFollowingCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        return createFollowingCall(accountId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Create following
      * Create following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -180,14 +171,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void createFollowing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        createFollowingWithHttpInfo(version, accountId, vatomParameters, returnRawResponse);
+    public void createFollowing(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        createFollowingWithHttpInfo(accountId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Create following
      * Create following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -200,15 +190,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> createFollowingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = createFollowingValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> createFollowingWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = createFollowingValidateBeforeCall(accountId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Create following (asynchronously)
      * Create following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -222,15 +211,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFollowingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call createFollowingAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createFollowingValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = createFollowingValidateBeforeCall(accountId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for createSpace
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -245,7 +233,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSpaceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSpaceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -262,8 +250,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/spaces/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/spaces/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -306,12 +293,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSpaceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createSpace(Async)");
-        }
-
+    private okhttp3.Call createSpaceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createSpace(Async)");
@@ -327,14 +309,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling createSpace(Async)");
         }
 
-        return createSpaceCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return createSpaceCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Create Vatom Space
      * Create a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -347,14 +328,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void createSpace(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        createSpaceWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void createSpace(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        createSpaceWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * Create Vatom Space
      * Create a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -368,15 +348,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> createSpaceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = createSpaceValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> createSpaceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = createSpaceValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Create Vatom Space (asynchronously)
      * Create a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -391,15 +370,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSpaceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call createSpaceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createSpaceValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = createSpaceValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for createVatomEvent
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -414,7 +392,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createVatomEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createVatomEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -431,8 +409,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/events/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/events/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -475,12 +452,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createVatomEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createVatomEvent(Async)");
-        }
-
+    private okhttp3.Call createVatomEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createVatomEvent(Async)");
@@ -496,14 +468,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling createVatomEvent(Async)");
         }
 
-        return createVatomEventCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return createVatomEventCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Create Vatom Event
      * Create a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -516,14 +487,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void createVatomEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        createVatomEventWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void createVatomEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        createVatomEventWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * Create Vatom Event
      * Create a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -537,15 +507,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> createVatomEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = createVatomEventValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> createVatomEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = createVatomEventValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Create Vatom Event (asynchronously)
      * Create a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -560,15 +529,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createVatomEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call createVatomEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createVatomEventValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = createVatomEventValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteFollowing
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomRelsKey Vatom Rels Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -582,7 +550,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFollowingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteFollowingCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -599,8 +567,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/rels/following/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/rels/following/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -639,12 +606,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFollowingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteFollowing(Async)");
-        }
-
+    private okhttp3.Call deleteFollowingValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteFollowing(Async)");
@@ -655,14 +617,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomRelsKey' when calling deleteFollowing(Async)");
         }
 
-        return deleteFollowingCall(version, accountId, vatomRelsKey, returnRawResponse, _callback);
+        return deleteFollowingCall(accountId, vatomRelsKey, returnRawResponse, _callback);
 
     }
 
     /**
      * Delete following
      * Delete following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomRelsKey Vatom Rels Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -674,14 +635,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteFollowing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        deleteFollowingWithHttpInfo(version, accountId, vatomRelsKey, returnRawResponse);
+    public void deleteFollowing(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        deleteFollowingWithHttpInfo(accountId, vatomRelsKey, returnRawResponse);
     }
 
     /**
      * Delete following
      * Delete following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomRelsKey Vatom Rels Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -694,15 +654,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteFollowingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = deleteFollowingValidateBeforeCall(version, accountId, vatomRelsKey, returnRawResponse, null);
+    public ApiResponse<Void> deleteFollowingWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = deleteFollowingValidateBeforeCall(accountId, vatomRelsKey, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete following (asynchronously)
      * Delete following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomRelsKey Vatom Rels Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -716,15 +675,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFollowingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteFollowingAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomRelsKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFollowingValidateBeforeCall(version, accountId, vatomRelsKey, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = deleteFollowingValidateBeforeCall(accountId, vatomRelsKey, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for deletePointsBalance
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -739,7 +697,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePointsBalanceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deletePointsBalanceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -756,8 +714,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign/points/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign/points/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -800,12 +757,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePointsBalanceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deletePointsBalance(Async)");
-        }
-
+    private okhttp3.Call deletePointsBalanceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deletePointsBalance(Async)");
@@ -821,14 +773,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomCampaignId' when calling deletePointsBalance(Async)");
         }
 
-        return deletePointsBalanceCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        return deletePointsBalanceCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
 
     }
 
     /**
      * Reset All Points Balance
      * Reset All Points Balance.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -841,14 +792,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deletePointsBalance(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        deletePointsBalanceWithHttpInfo(version, accountId, appKey, vatomCampaignId, returnRawResponse);
+    public void deletePointsBalance(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        deletePointsBalanceWithHttpInfo(accountId, appKey, vatomCampaignId, returnRawResponse);
     }
 
     /**
      * Reset All Points Balance
      * Reset All Points Balance.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -862,15 +812,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deletePointsBalanceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = deletePointsBalanceValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, null);
+    public ApiResponse<Void> deletePointsBalanceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = deletePointsBalanceValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Reset All Points Balance (asynchronously)
      * Reset All Points Balance.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -885,15 +834,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePointsBalanceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deletePointsBalanceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePointsBalanceValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = deletePointsBalanceValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteSpace
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -908,7 +856,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSpaceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteSpaceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -925,8 +873,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/spaces/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/spaces/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -969,12 +916,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteSpaceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteSpace(Async)");
-        }
-
+    private okhttp3.Call deleteSpaceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteSpace(Async)");
@@ -990,14 +932,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomSpaceId' when calling deleteSpace(Async)");
         }
 
-        return deleteSpaceCall(version, accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
+        return deleteSpaceCall(accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
 
     }
 
     /**
      * Delete Vatom Space
      * Delete a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -1010,14 +951,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteSpace(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        deleteSpaceWithHttpInfo(version, accountId, appKey, vatomSpaceId, returnRawResponse);
+    public void deleteSpace(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        deleteSpaceWithHttpInfo(accountId, appKey, vatomSpaceId, returnRawResponse);
     }
 
     /**
      * Delete Vatom Space
      * Delete a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -1031,15 +971,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteSpaceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = deleteSpaceValidateBeforeCall(version, accountId, appKey, vatomSpaceId, returnRawResponse, null);
+    public ApiResponse<Void> deleteSpaceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = deleteSpaceValidateBeforeCall(accountId, appKey, vatomSpaceId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Vatom Space (asynchronously)
      * Delete a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -1054,15 +993,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSpaceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteSpaceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteSpaceValidateBeforeCall(version, accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = deleteSpaceValidateBeforeCall(accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteVatomEvent
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -1077,7 +1015,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteVatomEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteVatomEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1094,8 +1032,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/events/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/events/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1138,12 +1075,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteVatomEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteVatomEvent(Async)");
-        }
-
+    private okhttp3.Call deleteVatomEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteVatomEvent(Async)");
@@ -1159,14 +1091,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomEventId' when calling deleteVatomEvent(Async)");
         }
 
-        return deleteVatomEventCall(version, accountId, appKey, vatomEventId, returnRawResponse, _callback);
+        return deleteVatomEventCall(accountId, appKey, vatomEventId, returnRawResponse, _callback);
 
     }
 
     /**
      * Delete Vatom Event
      * Delete a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -1179,14 +1110,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteVatomEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        deleteVatomEventWithHttpInfo(version, accountId, appKey, vatomEventId, returnRawResponse);
+    public void deleteVatomEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        deleteVatomEventWithHttpInfo(accountId, appKey, vatomEventId, returnRawResponse);
     }
 
     /**
      * Delete Vatom Event
      * Delete a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -1200,15 +1130,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteVatomEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = deleteVatomEventValidateBeforeCall(version, accountId, appKey, vatomEventId, returnRawResponse, null);
+    public ApiResponse<Void> deleteVatomEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = deleteVatomEventValidateBeforeCall(accountId, appKey, vatomEventId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Vatom Event (asynchronously)
      * Delete a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -1223,15 +1152,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteVatomEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteVatomEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteVatomEventValidateBeforeCall(version, accountId, appKey, vatomEventId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = deleteVatomEventValidateBeforeCall(accountId, appKey, vatomEventId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteVatomNFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1245,7 +1173,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteVatomNFTCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteVatomNFTCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1262,8 +1190,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/vatoms/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/vatoms/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1302,12 +1229,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteVatomNFTValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteVatomNFT(Async)");
-        }
-
+    private okhttp3.Call deleteVatomNFTValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteVatomNFT(Async)");
@@ -1318,14 +1240,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomId' when calling deleteVatomNFT(Async)");
         }
 
-        return deleteVatomNFTCall(version, accountId, vatomId, returnRawResponse, _callback);
+        return deleteVatomNFTCall(accountId, vatomId, returnRawResponse, _callback);
 
     }
 
     /**
      * Delete Vatom NFT
      * Delete Vatom NFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1337,14 +1258,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteVatomNFT(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        deleteVatomNFTWithHttpInfo(version, accountId, vatomId, returnRawResponse);
+    public void deleteVatomNFT(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        deleteVatomNFTWithHttpInfo(accountId, vatomId, returnRawResponse);
     }
 
     /**
      * Delete Vatom NFT
      * Delete Vatom NFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1357,15 +1277,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteVatomNFTWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = deleteVatomNFTValidateBeforeCall(version, accountId, vatomId, returnRawResponse, null);
+    public ApiResponse<Void> deleteVatomNFTWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = deleteVatomNFTValidateBeforeCall(accountId, vatomId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Vatom NFT (asynchronously)
      * Delete Vatom NFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1379,15 +1298,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteVatomNFTAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteVatomNFTAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteVatomNFTValidateBeforeCall(version, accountId, vatomId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = deleteVatomNFTValidateBeforeCall(accountId, vatomId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for executeActionOnNFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -1402,7 +1320,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call executeActionOnNFTCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call executeActionOnNFTCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1419,8 +1337,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/vatoms/execute-action"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/vatoms/execute-action";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1463,12 +1380,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call executeActionOnNFTValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling executeActionOnNFT(Async)");
-        }
-
+    private okhttp3.Call executeActionOnNFTValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling executeActionOnNFT(Async)");
@@ -1484,14 +1396,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling executeActionOnNFT(Async)");
         }
 
-        return executeActionOnNFTCall(version, accountId, vatomId, vatomParameters, returnRawResponse, _callback);
+        return executeActionOnNFTCall(accountId, vatomId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Execute Action on NFT
      * Execute Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -1504,14 +1415,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void executeActionOnNFT(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        executeActionOnNFTWithHttpInfo(version, accountId, vatomId, vatomParameters, returnRawResponse);
+    public void executeActionOnNFT(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        executeActionOnNFTWithHttpInfo(accountId, vatomId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Execute Action on NFT
      * Execute Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -1525,15 +1435,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> executeActionOnNFTWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = executeActionOnNFTValidateBeforeCall(version, accountId, vatomId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> executeActionOnNFTWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = executeActionOnNFTValidateBeforeCall(accountId, vatomId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Execute Action on NFT (asynchronously)
      * Execute Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -1548,15 +1457,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call executeActionOnNFTAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call executeActionOnNFTAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = executeActionOnNFTValidateBeforeCall(version, accountId, vatomId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = executeActionOnNFTValidateBeforeCall(accountId, vatomId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for geomapSearch
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1570,7 +1478,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call geomapSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call geomapSearchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1587,8 +1495,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/vatoms/geo-map/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/vatoms/geo-map/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1627,12 +1534,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call geomapSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling geomapSearch(Async)");
-        }
-
+    private okhttp3.Call geomapSearchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling geomapSearch(Async)");
@@ -1643,14 +1545,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling geomapSearch(Async)");
         }
 
-        return geomapSearchCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        return geomapSearchCall(accountId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Search Vatom Geo Map
      * Search Vatom Geo Map
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1662,14 +1563,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void geomapSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        geomapSearchWithHttpInfo(version, accountId, vatomParameters, returnRawResponse);
+    public void geomapSearch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        geomapSearchWithHttpInfo(accountId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Search Vatom Geo Map
      * Search Vatom Geo Map
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1682,15 +1582,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> geomapSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = geomapSearchValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> geomapSearchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = geomapSearchValidateBeforeCall(accountId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Search Vatom Geo Map (asynchronously)
      * Search Vatom Geo Map
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1704,15 +1603,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call geomapSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call geomapSearchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = geomapSearchValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = geomapSearchValidateBeforeCall(accountId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBusinessBehaviors
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1726,7 +1624,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessBehaviorsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessBehaviorsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1743,8 +1641,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/behaviors"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/behaviors";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1783,12 +1680,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessBehaviorsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBusinessBehaviors(Async)");
-        }
-
+    private okhttp3.Call getBusinessBehaviorsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getBusinessBehaviors(Async)");
@@ -1799,14 +1691,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getBusinessBehaviors(Async)");
         }
 
-        return getBusinessBehaviorsCall(version, accountId, appKey, returnRawResponse, _callback);
+        return getBusinessBehaviorsCall(accountId, appKey, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom Business Behaviors
      * Gets the behaviors of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1818,14 +1709,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getBusinessBehaviors(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getBusinessBehaviorsWithHttpInfo(version, accountId, appKey, returnRawResponse);
+    public void getBusinessBehaviors(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getBusinessBehaviorsWithHttpInfo(accountId, appKey, returnRawResponse);
     }
 
     /**
      * Get Vatom Business Behaviors
      * Gets the behaviors of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1838,15 +1728,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getBusinessBehaviorsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessBehaviorsValidateBeforeCall(version, accountId, appKey, returnRawResponse, null);
+    public ApiResponse<Void> getBusinessBehaviorsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessBehaviorsValidateBeforeCall(accountId, appKey, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom Business Behaviors (asynchronously)
      * Gets the behaviors of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1860,15 +1749,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessBehaviorsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getBusinessBehaviorsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessBehaviorsValidateBeforeCall(version, accountId, appKey, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getBusinessBehaviorsValidateBeforeCall(accountId, appKey, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBusinessCoinsBalance
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1882,7 +1770,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessCoinsBalanceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessCoinsBalanceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1899,8 +1787,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/coins/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/coins/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1939,12 +1826,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessCoinsBalanceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBusinessCoinsBalance(Async)");
-        }
-
+    private okhttp3.Call getBusinessCoinsBalanceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getBusinessCoinsBalance(Async)");
@@ -1955,14 +1837,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getBusinessCoinsBalance(Async)");
         }
 
-        return getBusinessCoinsBalanceCall(version, accountId, appKey, returnRawResponse, _callback);
+        return getBusinessCoinsBalanceCall(accountId, appKey, returnRawResponse, _callback);
 
     }
 
     /**
      * Get the coins for a Business
      * Get the coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1974,14 +1855,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getBusinessCoinsBalance(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getBusinessCoinsBalanceWithHttpInfo(version, accountId, appKey, returnRawResponse);
+    public void getBusinessCoinsBalance(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getBusinessCoinsBalanceWithHttpInfo(accountId, appKey, returnRawResponse);
     }
 
     /**
      * Get the coins for a Business
      * Get the coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -1994,15 +1874,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getBusinessCoinsBalanceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessCoinsBalanceValidateBeforeCall(version, accountId, appKey, returnRawResponse, null);
+    public ApiResponse<Void> getBusinessCoinsBalanceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessCoinsBalanceValidateBeforeCall(accountId, appKey, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get the coins for a Business (asynchronously)
      * Get the coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -2016,15 +1895,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessCoinsBalanceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getBusinessCoinsBalanceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessCoinsBalanceValidateBeforeCall(version, accountId, appKey, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getBusinessCoinsBalanceValidateBeforeCall(accountId, appKey, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBusinessIds
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback Callback for upload/download progress
@@ -2037,7 +1915,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessIdsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessIdsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2054,8 +1932,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/businesses"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/businesses";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2090,25 +1967,19 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessIdsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBusinessIds(Async)");
-        }
-
+    private okhttp3.Call getBusinessIdsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getBusinessIds(Async)");
         }
 
-        return getBusinessIdsCall(version, accountId, returnRawResponse, _callback);
+        return getBusinessIdsCall(accountId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get the user business ids
      * Get the business ids the logged in user has access to.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2119,14 +1990,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getBusinessIds(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getBusinessIdsWithHttpInfo(version, accountId, returnRawResponse);
+    public void getBusinessIds(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getBusinessIdsWithHttpInfo(accountId, returnRawResponse);
     }
 
     /**
      * Get the user business ids
      * Get the business ids the logged in user has access to.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -2138,15 +2008,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getBusinessIdsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessIdsValidateBeforeCall(version, accountId, returnRawResponse, null);
+    public ApiResponse<Void> getBusinessIdsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessIdsValidateBeforeCall(accountId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get the user business ids (asynchronously)
      * Get the business ids the logged in user has access to.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2159,15 +2028,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessIdsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getBusinessIdsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessIdsValidateBeforeCall(version, accountId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getBusinessIdsValidateBeforeCall(accountId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBusinessInfo
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -2182,7 +2050,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessInfoCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessInfoCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2199,8 +2067,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2243,12 +2110,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessInfoValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBusinessInfo(Async)");
-        }
-
+    private okhttp3.Call getBusinessInfoValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getBusinessInfo(Async)");
@@ -2259,14 +2121,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getBusinessInfo(Async)");
         }
 
-        return getBusinessInfoCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return getBusinessInfoCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom Business Info
      * Gets the business info tied to this account.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -2279,14 +2140,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getBusinessInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getBusinessInfoWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void getBusinessInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getBusinessInfoWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * Get Vatom Business Info
      * Gets the business info tied to this account.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -2300,15 +2160,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getBusinessInfoWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessInfoValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> getBusinessInfoWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessInfoValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom Business Info (asynchronously)
      * Gets the business info tied to this account.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -2323,15 +2182,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessInfoAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getBusinessInfoAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessInfoValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getBusinessInfoValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBusinessUsers
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -2345,7 +2203,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessUsersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBusinessUsersCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2362,8 +2220,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/users"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/users";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2402,12 +2259,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBusinessUsersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBusinessUsers(Async)");
-        }
-
+    private okhttp3.Call getBusinessUsersValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getBusinessUsers(Async)");
@@ -2418,14 +2270,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getBusinessUsers(Async)");
         }
 
-        return getBusinessUsersCall(version, accountId, appKey, returnRawResponse, _callback);
+        return getBusinessUsersCall(accountId, appKey, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom Business Users
      * Gets the users of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -2437,14 +2288,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getBusinessUsers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getBusinessUsersWithHttpInfo(version, accountId, appKey, returnRawResponse);
+    public void getBusinessUsers(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getBusinessUsersWithHttpInfo(accountId, appKey, returnRawResponse);
     }
 
     /**
      * Get Vatom Business Users
      * Gets the users of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -2457,15 +2307,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getBusinessUsersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getBusinessUsersValidateBeforeCall(version, accountId, appKey, returnRawResponse, null);
+    public ApiResponse<Void> getBusinessUsersWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getBusinessUsersValidateBeforeCall(accountId, appKey, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom Business Users (asynchronously)
      * Gets the users of a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -2479,15 +2328,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBusinessUsersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getBusinessUsersAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBusinessUsersValidateBeforeCall(version, accountId, appKey, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getBusinessUsersValidateBeforeCall(accountId, appKey, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCampaignGroupEntities
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2502,7 +2350,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupEntitiesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupEntitiesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2519,8 +2367,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign-groups/entities"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign-groups/entities";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2563,12 +2410,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignGroupEntitiesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCampaignGroupEntities(Async)");
-        }
-
+    private okhttp3.Call getCampaignGroupEntitiesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getCampaignGroupEntities(Async)");
@@ -2584,14 +2426,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomCampaignId' when calling getCampaignGroupEntities(Async)");
         }
 
-        return getCampaignGroupEntitiesCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        return getCampaignGroupEntitiesCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Campaign Group Entities
      * Get campaign group entities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2604,14 +2445,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getCampaignGroupEntities(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getCampaignGroupEntitiesWithHttpInfo(version, accountId, appKey, vatomCampaignId, returnRawResponse);
+    public void getCampaignGroupEntities(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getCampaignGroupEntitiesWithHttpInfo(accountId, appKey, vatomCampaignId, returnRawResponse);
     }
 
     /**
      * Get Campaign Group Entities
      * Get campaign group entities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2625,15 +2465,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getCampaignGroupEntitiesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getCampaignGroupEntitiesValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, null);
+    public ApiResponse<Void> getCampaignGroupEntitiesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getCampaignGroupEntitiesValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Campaign Group Entities (asynchronously)
      * Get campaign group entities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2648,15 +2487,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupEntitiesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupEntitiesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCampaignGroupEntitiesValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getCampaignGroupEntitiesValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCampaignGroupRules
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2671,7 +2509,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupRulesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupRulesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2688,8 +2526,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign-groups/rules"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign-groups/rules";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2732,12 +2569,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignGroupRulesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCampaignGroupRules(Async)");
-        }
-
+    private okhttp3.Call getCampaignGroupRulesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getCampaignGroupRules(Async)");
@@ -2753,14 +2585,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomCampaignId' when calling getCampaignGroupRules(Async)");
         }
 
-        return getCampaignGroupRulesCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        return getCampaignGroupRulesCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Campaign Group Rules
      * Get campaign group rules.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2773,14 +2604,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getCampaignGroupRules(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getCampaignGroupRulesWithHttpInfo(version, accountId, appKey, vatomCampaignId, returnRawResponse);
+    public void getCampaignGroupRules(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getCampaignGroupRulesWithHttpInfo(accountId, appKey, vatomCampaignId, returnRawResponse);
     }
 
     /**
      * Get Campaign Group Rules
      * Get campaign group rules.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2794,15 +2624,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getCampaignGroupRulesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getCampaignGroupRulesValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, null);
+    public ApiResponse<Void> getCampaignGroupRulesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getCampaignGroupRulesValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Campaign Group Rules (asynchronously)
      * Get campaign group rules.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2817,15 +2646,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupRulesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupRulesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCampaignGroupRulesValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getCampaignGroupRulesValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCampaignGroupStats
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2840,7 +2668,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupStatsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupStatsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2857,8 +2685,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign-groups/stats"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign-groups/stats";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2901,12 +2728,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignGroupStatsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCampaignGroupStats(Async)");
-        }
-
+    private okhttp3.Call getCampaignGroupStatsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getCampaignGroupStats(Async)");
@@ -2922,14 +2744,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomCampaignId' when calling getCampaignGroupStats(Async)");
         }
 
-        return getCampaignGroupStatsCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        return getCampaignGroupStatsCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Campaign Group Stats
      * Get campaign group stats.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2942,14 +2763,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getCampaignGroupStats(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getCampaignGroupStatsWithHttpInfo(version, accountId, appKey, vatomCampaignId, returnRawResponse);
+    public void getCampaignGroupStats(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getCampaignGroupStatsWithHttpInfo(accountId, appKey, vatomCampaignId, returnRawResponse);
     }
 
     /**
      * Get Campaign Group Stats
      * Get campaign group stats.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2963,15 +2783,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getCampaignGroupStatsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getCampaignGroupStatsValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, null);
+    public ApiResponse<Void> getCampaignGroupStatsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getCampaignGroupStatsValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Campaign Group Stats (asynchronously)
      * Get campaign group stats.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -2986,15 +2805,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignGroupStatsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getCampaignGroupStatsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCampaignGroupStatsValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getCampaignGroupStatsValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCampaignInfo
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3009,7 +2827,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignInfoCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCampaignInfoCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3026,8 +2844,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign-groups/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign-groups/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3070,12 +2887,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCampaignInfoValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCampaignInfo(Async)");
-        }
-
+    private okhttp3.Call getCampaignInfoValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getCampaignInfo(Async)");
@@ -3091,14 +2903,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomCampaignId' when calling getCampaignInfo(Async)");
         }
 
-        return getCampaignInfoCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        return getCampaignInfoCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Campaign Info
      * Gets the info on a campaign.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3111,14 +2922,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getCampaignInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getCampaignInfoWithHttpInfo(version, accountId, appKey, vatomCampaignId, returnRawResponse);
+    public void getCampaignInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getCampaignInfoWithHttpInfo(accountId, appKey, vatomCampaignId, returnRawResponse);
     }
 
     /**
      * Get Campaign Info
      * Gets the info on a campaign.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3132,15 +2942,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getCampaignInfoWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getCampaignInfoValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, null);
+    public ApiResponse<Void> getCampaignInfoWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getCampaignInfoValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Campaign Info (asynchronously)
      * Gets the info on a campaign.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3155,15 +2964,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCampaignInfoAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getCampaignInfoAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCampaignInfoValidateBeforeCall(version, accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getCampaignInfoValidateBeforeCall(accountId, appKey, vatomCampaignId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getEventGuestList
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -3178,7 +2986,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEventGuestListCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEventGuestListCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3195,8 +3003,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/events/guests/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/events/guests/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3239,12 +3046,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEventGuestListValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getEventGuestList(Async)");
-        }
-
+    private okhttp3.Call getEventGuestListValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getEventGuestList(Async)");
@@ -3260,14 +3062,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomEventId' when calling getEventGuestList(Async)");
         }
 
-        return getEventGuestListCall(version, accountId, appKey, vatomEventId, returnRawResponse, _callback);
+        return getEventGuestListCall(accountId, appKey, vatomEventId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom Event Guest List
      * Gets the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -3280,14 +3081,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getEventGuestList(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getEventGuestListWithHttpInfo(version, accountId, appKey, vatomEventId, returnRawResponse);
+    public void getEventGuestList(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getEventGuestListWithHttpInfo(accountId, appKey, vatomEventId, returnRawResponse);
     }
 
     /**
      * Get Vatom Event Guest List
      * Gets the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -3301,15 +3101,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getEventGuestListWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getEventGuestListValidateBeforeCall(version, accountId, appKey, vatomEventId, returnRawResponse, null);
+    public ApiResponse<Void> getEventGuestListWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getEventGuestListValidateBeforeCall(accountId, appKey, vatomEventId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom Event Guest List (asynchronously)
      * Gets the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -3324,15 +3123,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEventGuestListAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getEventGuestListAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEventGuestListValidateBeforeCall(version, accountId, appKey, vatomEventId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getEventGuestListValidateBeforeCall(accountId, appKey, vatomEventId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getInventory
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -3346,7 +3144,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInventoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInventoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3363,8 +3161,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/inventory"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/inventory";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3403,12 +3200,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInventoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getInventory(Async)");
-        }
-
+    private okhttp3.Call getInventoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getInventory(Async)");
@@ -3419,14 +3211,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling getInventory(Async)");
         }
 
-        return getInventoryCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        return getInventoryCall(accountId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom User&#39;s Inventory
      * Gets the logged in user&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -3438,14 +3229,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getInventory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getInventoryWithHttpInfo(version, accountId, vatomParameters, returnRawResponse);
+    public void getInventory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getInventoryWithHttpInfo(accountId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Get Vatom User&#39;s Inventory
      * Gets the logged in user&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -3458,15 +3248,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getInventoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> getInventoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(accountId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom User&#39;s Inventory (asynchronously)
      * Gets the logged in user&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -3480,15 +3269,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInventoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getInventoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getInventoryValidateBeforeCall(accountId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getMyFollowing
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback Callback for upload/download progress
@@ -3501,7 +3289,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyFollowingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMyFollowingCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3518,8 +3306,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/rels/following"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/rels/following";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3554,25 +3341,19 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMyFollowingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getMyFollowing(Async)");
-        }
-
+    private okhttp3.Call getMyFollowingValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getMyFollowing(Async)");
         }
 
-        return getMyFollowingCall(version, accountId, returnRawResponse, _callback);
+        return getMyFollowingCall(accountId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get following
      * Get following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3583,14 +3364,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getMyFollowing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getMyFollowingWithHttpInfo(version, accountId, returnRawResponse);
+    public void getMyFollowing(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getMyFollowingWithHttpInfo(accountId, returnRawResponse);
     }
 
     /**
      * Get following
      * Get following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -3602,15 +3382,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getMyFollowingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getMyFollowingValidateBeforeCall(version, accountId, returnRawResponse, null);
+    public ApiResponse<Void> getMyFollowingWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getMyFollowingValidateBeforeCall(accountId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get following (asynchronously)
      * Get following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3623,15 +3402,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMyFollowingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getMyFollowingAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMyFollowingValidateBeforeCall(version, accountId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getMyFollowingValidateBeforeCall(accountId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPointsBalance
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3646,7 +3424,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPointsBalanceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPointsBalanceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3663,8 +3441,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/u/campaign/points/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/u/campaign/points/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3707,12 +3484,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPointsBalanceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPointsBalance(Async)");
-        }
-
+    private okhttp3.Call getPointsBalanceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPointsBalance(Async)");
@@ -3728,14 +3500,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomCampaignId' when calling getPointsBalance(Async)");
         }
 
-        return getPointsBalanceCall(version, accountId, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
+        return getPointsBalanceCall(accountId, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Points Balance
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3748,14 +3519,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getPointsBalance(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getPointsBalanceWithHttpInfo(version, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
+    public void getPointsBalance(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getPointsBalanceWithHttpInfo(accountId, vatomUserId, vatomCampaignId, returnRawResponse);
     }
 
     /**
      * Get Points Balance
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3769,15 +3539,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getPointsBalanceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getPointsBalanceValidateBeforeCall(version, accountId, vatomUserId, vatomCampaignId, returnRawResponse, null);
+    public ApiResponse<Void> getPointsBalanceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getPointsBalanceValidateBeforeCall(accountId, vatomUserId, vatomCampaignId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Points Balance (asynchronously)
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -3792,15 +3561,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPointsBalanceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getPointsBalanceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPointsBalanceValidateBeforeCall(version, accountId, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getPointsBalanceValidateBeforeCall(accountId, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPointsBalanceAsBusiness
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -3816,7 +3584,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPointsBalanceAsBusinessCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPointsBalanceAsBusinessCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3833,8 +3601,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign/u/points/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign/u/points/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3881,12 +3648,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPointsBalanceAsBusinessValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPointsBalanceAsBusiness(Async)");
-        }
-
+    private okhttp3.Call getPointsBalanceAsBusinessValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPointsBalanceAsBusiness(Async)");
@@ -3907,14 +3669,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomCampaignId' when calling getPointsBalanceAsBusiness(Async)");
         }
 
-        return getPointsBalanceAsBusinessCall(version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
+        return getPointsBalanceAsBusinessCall(accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Points Balance as Business
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -3928,14 +3689,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getPointsBalanceAsBusiness(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getPointsBalanceAsBusinessWithHttpInfo(version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
+    public void getPointsBalanceAsBusiness(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getPointsBalanceAsBusinessWithHttpInfo(accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
     }
 
     /**
      * Get Points Balance as Business
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -3950,15 +3710,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getPointsBalanceAsBusinessWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getPointsBalanceAsBusinessValidateBeforeCall(version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, null);
+    public ApiResponse<Void> getPointsBalanceAsBusinessWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getPointsBalanceAsBusinessValidateBeforeCall(accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Points Balance as Business (asynchronously)
      * Gets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -3974,15 +3733,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPointsBalanceAsBusinessAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getPointsBalanceAsBusinessAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPointsBalanceAsBusinessValidateBeforeCall(version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getPointsBalanceAsBusinessValidateBeforeCall(accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSpace
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -3997,7 +3755,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSpaceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSpaceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4014,8 +3772,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/spaces/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/spaces/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4058,12 +3815,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSpaceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getSpace(Async)");
-        }
-
+    private okhttp3.Call getSpaceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getSpace(Async)");
@@ -4079,14 +3831,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomSpaceId' when calling getSpace(Async)");
         }
 
-        return getSpaceCall(version, accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
+        return getSpaceCall(accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom Space
      * Gets the details of a space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -4099,14 +3850,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getSpace(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getSpaceWithHttpInfo(version, accountId, appKey, vatomSpaceId, returnRawResponse);
+    public void getSpace(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getSpaceWithHttpInfo(accountId, appKey, vatomSpaceId, returnRawResponse);
     }
 
     /**
      * Get Vatom Space
      * Gets the details of a space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -4120,15 +3870,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getSpaceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getSpaceValidateBeforeCall(version, accountId, appKey, vatomSpaceId, returnRawResponse, null);
+    public ApiResponse<Void> getSpaceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getSpaceValidateBeforeCall(accountId, appKey, vatomSpaceId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom Space (asynchronously)
      * Gets the details of a space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -4143,15 +3892,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSpaceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getSpaceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSpaceValidateBeforeCall(version, accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getSpaceValidateBeforeCall(accountId, appKey, vatomSpaceId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserCoinsAsBusiness
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -4166,7 +3914,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCoinsAsBusinessCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserCoinsAsBusinessCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4183,8 +3931,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/users/coins/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/users/coins/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4227,12 +3974,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserCoinsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserCoinsAsBusiness(Async)");
-        }
-
+    private okhttp3.Call getUserCoinsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getUserCoinsAsBusiness(Async)");
@@ -4248,14 +3990,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getUserCoinsAsBusiness(Async)");
         }
 
-        return getUserCoinsAsBusinessCall(version, accountId, vatomUserId, appKey, returnRawResponse, _callback);
+        return getUserCoinsAsBusinessCall(accountId, vatomUserId, appKey, returnRawResponse, _callback);
 
     }
 
     /**
      * Get the coins for a user (as a Business)
      * Get the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -4268,14 +4009,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getUserCoinsAsBusiness(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getUserCoinsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey, returnRawResponse);
+    public void getUserCoinsAsBusiness(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getUserCoinsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey, returnRawResponse);
     }
 
     /**
      * Get the coins for a user (as a Business)
      * Get the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -4289,15 +4029,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getUserCoinsAsBusinessWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getUserCoinsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, returnRawResponse, null);
+    public ApiResponse<Void> getUserCoinsAsBusinessWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getUserCoinsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get the coins for a user (as a Business) (asynchronously)
      * Get the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -4312,15 +4051,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCoinsAsBusinessAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getUserCoinsAsBusinessAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserCoinsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getUserCoinsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserCoinsBalance
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -4335,7 +4073,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCoinsBalanceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserCoinsBalanceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4352,8 +4090,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/u/coins/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/u/coins/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4396,12 +4133,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserCoinsBalanceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserCoinsBalance(Async)");
-        }
-
+    private okhttp3.Call getUserCoinsBalanceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getUserCoinsBalance(Async)");
@@ -4412,14 +4144,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomUserId' when calling getUserCoinsBalance(Async)");
         }
 
-        return getUserCoinsBalanceCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
+        return getUserCoinsBalanceCall(accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Gets the coins balance for a Vatom User
      * Gets the coins balance for a Vatom User.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -4432,14 +4163,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getUserCoinsBalance(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getUserCoinsBalanceWithHttpInfo(version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+    public void getUserCoinsBalance(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getUserCoinsBalanceWithHttpInfo(accountId, vatomUserId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Gets the coins balance for a Vatom User
      * Gets the coins balance for a Vatom User.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -4453,15 +4183,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getUserCoinsBalanceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getUserCoinsBalanceValidateBeforeCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> getUserCoinsBalanceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getUserCoinsBalanceValidateBeforeCall(accountId, vatomUserId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Gets the coins balance for a Vatom User (asynchronously)
      * Gets the coins balance for a Vatom User.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -4476,15 +4205,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCoinsBalanceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getUserCoinsBalanceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserCoinsBalanceValidateBeforeCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getUserCoinsBalanceValidateBeforeCall(accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserFollowers
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4498,7 +4226,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserFollowersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserFollowersCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4515,8 +4243,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/users/rels/followers"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/users/rels/followers";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4555,12 +4282,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserFollowersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserFollowers(Async)");
-        }
-
+    private okhttp3.Call getUserFollowersValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getUserFollowers(Async)");
@@ -4571,14 +4293,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomUserId' when calling getUserFollowers(Async)");
         }
 
-        return getUserFollowersCall(version, accountId, vatomUserId, returnRawResponse, _callback);
+        return getUserFollowersCall(accountId, vatomUserId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get user followers
      * Get user followers.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4590,14 +4311,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getUserFollowers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getUserFollowersWithHttpInfo(version, accountId, vatomUserId, returnRawResponse);
+    public void getUserFollowers(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getUserFollowersWithHttpInfo(accountId, vatomUserId, returnRawResponse);
     }
 
     /**
      * Get user followers
      * Get user followers.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4610,15 +4330,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getUserFollowersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getUserFollowersValidateBeforeCall(version, accountId, vatomUserId, returnRawResponse, null);
+    public ApiResponse<Void> getUserFollowersWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getUserFollowersValidateBeforeCall(accountId, vatomUserId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get user followers (asynchronously)
      * Get user followers.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4632,15 +4351,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserFollowersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getUserFollowersAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserFollowersValidateBeforeCall(version, accountId, vatomUserId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getUserFollowersValidateBeforeCall(accountId, vatomUserId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserFollowing
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4654,7 +4372,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserFollowingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserFollowingCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4671,8 +4389,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/users/rels/following"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/users/rels/following";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4711,12 +4428,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserFollowingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserFollowing(Async)");
-        }
-
+    private okhttp3.Call getUserFollowingValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getUserFollowing(Async)");
@@ -4727,14 +4439,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomUserId' when calling getUserFollowing(Async)");
         }
 
-        return getUserFollowingCall(version, accountId, vatomUserId, returnRawResponse, _callback);
+        return getUserFollowingCall(accountId, vatomUserId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get user following
      * Get user following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4746,14 +4457,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getUserFollowing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getUserFollowingWithHttpInfo(version, accountId, vatomUserId, returnRawResponse);
+    public void getUserFollowing(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getUserFollowingWithHttpInfo(accountId, vatomUserId, returnRawResponse);
     }
 
     /**
      * Get user following
      * Get user following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4766,15 +4476,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getUserFollowingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getUserFollowingValidateBeforeCall(version, accountId, vatomUserId, returnRawResponse, null);
+    public ApiResponse<Void> getUserFollowingWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getUserFollowingValidateBeforeCall(accountId, vatomUserId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get user following (asynchronously)
      * Get user following.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4788,15 +4497,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserFollowingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getUserFollowingAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserFollowingValidateBeforeCall(version, accountId, vatomUserId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getUserFollowingValidateBeforeCall(accountId, vatomUserId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserInfo
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4810,7 +4518,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserInfoCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserInfoCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4827,8 +4535,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/user/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/user/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4867,12 +4574,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserInfoValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserInfo(Async)");
-        }
-
+    private okhttp3.Call getUserInfoValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getUserInfo(Async)");
@@ -4883,14 +4585,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomUserId' when calling getUserInfo(Async)");
         }
 
-        return getUserInfoCall(version, accountId, vatomUserId, returnRawResponse, _callback);
+        return getUserInfoCall(accountId, vatomUserId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get User Info
      * Get a User&#39;s Info.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4902,14 +4603,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getUserInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getUserInfoWithHttpInfo(version, accountId, vatomUserId, returnRawResponse);
+    public void getUserInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getUserInfoWithHttpInfo(accountId, vatomUserId, returnRawResponse);
     }
 
     /**
      * Get User Info
      * Get a User&#39;s Info.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4922,15 +4622,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getUserInfoWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(version, accountId, vatomUserId, returnRawResponse, null);
+    public ApiResponse<Void> getUserInfoWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(accountId, vatomUserId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get User Info (asynchronously)
      * Get a User&#39;s Info.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -4944,15 +4643,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserInfoAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getUserInfoAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(version, accountId, vatomUserId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getUserInfoValidateBeforeCall(accountId, vatomUserId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserProfile
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback Callback for upload/download progress
@@ -4965,7 +4663,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserProfileCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserProfileCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4982,8 +4680,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5018,25 +4715,19 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserProfileValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserProfile(Async)");
-        }
-
+    private okhttp3.Call getUserProfileValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getUserProfile(Async)");
         }
 
-        return getUserProfileCall(version, accountId, returnRawResponse, _callback);
+        return getUserProfileCall(accountId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5047,14 +4738,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getUserProfile(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getUserProfileWithHttpInfo(version, accountId, returnRawResponse);
+    public void getUserProfile(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getUserProfileWithHttpInfo(accountId, returnRawResponse);
     }
 
     /**
      * Get Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -5066,15 +4756,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getUserProfileWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getUserProfileValidateBeforeCall(version, accountId, returnRawResponse, null);
+    public ApiResponse<Void> getUserProfileWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getUserProfileValidateBeforeCall(accountId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom User Profile (asynchronously)
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5087,15 +4776,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserProfileAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getUserProfileAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserProfileValidateBeforeCall(version, accountId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getUserProfileValidateBeforeCall(accountId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getVatomEvent
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -5110,7 +4798,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVatomEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVatomEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5127,8 +4815,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/events/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/events/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5171,12 +4858,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVatomEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getVatomEvent(Async)");
-        }
-
+    private okhttp3.Call getVatomEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getVatomEvent(Async)");
@@ -5192,14 +4874,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomEventId' when calling getVatomEvent(Async)");
         }
 
-        return getVatomEventCall(version, accountId, appKey, vatomEventId, returnRawResponse, _callback);
+        return getVatomEventCall(accountId, appKey, vatomEventId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom Event
      * Gets the details of a event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -5212,14 +4893,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getVatomEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getVatomEventWithHttpInfo(version, accountId, appKey, vatomEventId, returnRawResponse);
+    public void getVatomEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getVatomEventWithHttpInfo(accountId, appKey, vatomEventId, returnRawResponse);
     }
 
     /**
      * Get Vatom Event
      * Gets the details of a event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -5233,15 +4913,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getVatomEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getVatomEventValidateBeforeCall(version, accountId, appKey, vatomEventId, returnRawResponse, null);
+    public ApiResponse<Void> getVatomEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getVatomEventValidateBeforeCall(accountId, appKey, vatomEventId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom Event (asynchronously)
      * Gets the details of a event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -5256,15 +4935,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVatomEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getVatomEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVatomEventValidateBeforeCall(version, accountId, appKey, vatomEventId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getVatomEventValidateBeforeCall(accountId, appKey, vatomEventId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getVatomNFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -5278,7 +4956,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVatomNFTCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVatomNFTCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5295,8 +4973,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/vatoms/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/vatoms/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5335,12 +5012,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVatomNFTValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getVatomNFT(Async)");
-        }
-
+    private okhttp3.Call getVatomNFTValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getVatomNFT(Async)");
@@ -5351,14 +5023,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomId' when calling getVatomNFT(Async)");
         }
 
-        return getVatomNFTCall(version, accountId, vatomId, returnRawResponse, _callback);
+        return getVatomNFTCall(accountId, vatomId, returnRawResponse, _callback);
 
     }
 
     /**
      * Get Vatom NFT Details
      * Get Vatom NFT Details
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -5370,14 +5041,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getVatomNFT(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        getVatomNFTWithHttpInfo(version, accountId, vatomId, returnRawResponse);
+    public void getVatomNFT(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        getVatomNFTWithHttpInfo(accountId, vatomId, returnRawResponse);
     }
 
     /**
      * Get Vatom NFT Details
      * Get Vatom NFT Details
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -5390,15 +5060,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getVatomNFTWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = getVatomNFTValidateBeforeCall(version, accountId, vatomId, returnRawResponse, null);
+    public ApiResponse<Void> getVatomNFTWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = getVatomNFTValidateBeforeCall(accountId, vatomId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Get Vatom NFT Details (asynchronously)
      * Get Vatom NFT Details
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param returnRawResponse Return raw response (optional)
@@ -5412,15 +5081,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVatomNFTAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getVatomNFTAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVatomNFTValidateBeforeCall(version, accountId, vatomId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = getVatomNFTValidateBeforeCall(accountId, vatomId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for listCommunities
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5435,7 +5103,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCommunitiesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCommunitiesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5452,8 +5120,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/communities/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/communities/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5496,12 +5163,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCommunitiesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listCommunities(Async)");
-        }
-
+    private okhttp3.Call listCommunitiesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listCommunities(Async)");
@@ -5512,14 +5174,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling listCommunities(Async)");
         }
 
-        return listCommunitiesCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return listCommunitiesCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * List Vatom Communities
      * Gets the communities tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5532,14 +5193,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void listCommunities(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        listCommunitiesWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void listCommunities(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        listCommunitiesWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * List Vatom Communities
      * Gets the communities tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5553,15 +5213,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> listCommunitiesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = listCommunitiesValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> listCommunitiesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = listCommunitiesValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * List Vatom Communities (asynchronously)
      * Gets the communities tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5576,15 +5235,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCommunitiesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call listCommunitiesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCommunitiesValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = listCommunitiesValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for listEvents
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5599,7 +5257,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listEventsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listEventsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5616,8 +5274,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/events/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/events/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5660,12 +5317,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listEventsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listEvents(Async)");
-        }
-
+    private okhttp3.Call listEventsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listEvents(Async)");
@@ -5676,14 +5328,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling listEvents(Async)");
         }
 
-        return listEventsCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return listEventsCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * List Vatom Events
      * Gets the events tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5696,14 +5347,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void listEvents(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        listEventsWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void listEvents(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        listEventsWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * List Vatom Events
      * Gets the events tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5717,15 +5367,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> listEventsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = listEventsValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> listEventsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = listEventsValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * List Vatom Events (asynchronously)
      * Gets the events tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5740,15 +5389,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listEventsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call listEventsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listEventsValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = listEventsValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for listSpaces
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5763,7 +5411,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listSpacesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listSpacesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5780,8 +5428,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/spaces/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/spaces/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5824,12 +5471,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSpacesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listSpaces(Async)");
-        }
-
+    private okhttp3.Call listSpacesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listSpaces(Async)");
@@ -5840,14 +5482,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling listSpaces(Async)");
         }
 
-        return listSpacesCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return listSpacesCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * List Vatom Spaces
      * Gets the spaces tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5860,14 +5501,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void listSpaces(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        listSpacesWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void listSpaces(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        listSpacesWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * List Vatom Spaces
      * Gets the spaces tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5881,15 +5521,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> listSpacesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = listSpacesValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> listSpacesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = listSpacesValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * List Vatom Spaces (asynchronously)
      * Gets the spaces tied to a business.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5904,15 +5543,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listSpacesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call listSpacesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSpacesValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = listSpacesValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for listUserCoinTransactions
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -5927,7 +5565,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserCoinTransactionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listUserCoinTransactionsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5944,8 +5582,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/u/coins/txns/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/u/coins/txns/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5988,12 +5625,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUserCoinTransactionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listUserCoinTransactions(Async)");
-        }
-
+    private okhttp3.Call listUserCoinTransactionsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listUserCoinTransactions(Async)");
@@ -6004,14 +5636,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomUserId' when calling listUserCoinTransactions(Async)");
         }
 
-        return listUserCoinTransactionsCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
+        return listUserCoinTransactionsCall(accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * List Coin Transactions for a Vatom User
      * Gets the logged in user&#39;s Vatom coin transactions.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -6024,14 +5655,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void listUserCoinTransactions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        listUserCoinTransactionsWithHttpInfo(version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+    public void listUserCoinTransactions(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        listUserCoinTransactionsWithHttpInfo(accountId, vatomUserId, vatomParameters, returnRawResponse);
     }
 
     /**
      * List Coin Transactions for a Vatom User
      * Gets the logged in user&#39;s Vatom coin transactions.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -6045,15 +5675,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> listUserCoinTransactionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = listUserCoinTransactionsValidateBeforeCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> listUserCoinTransactionsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = listUserCoinTransactionsValidateBeforeCall(accountId, vatomUserId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * List Coin Transactions for a Vatom User (asynchronously)
      * Gets the logged in user&#39;s Vatom coin transactions.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (optional)
@@ -6068,15 +5697,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserCoinTransactionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call listUserCoinTransactionsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listUserCoinTransactionsValidateBeforeCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = listUserCoinTransactionsValidateBeforeCall(accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for listUserCoinTransactionsAsBusiness
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6092,7 +5720,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserCoinTransactionsAsBusinessCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listUserCoinTransactionsAsBusinessCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6109,8 +5737,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/users/coins/txns/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/users/coins/txns/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6157,12 +5784,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUserCoinTransactionsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listUserCoinTransactionsAsBusiness(Async)");
-        }
-
+    private okhttp3.Call listUserCoinTransactionsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listUserCoinTransactionsAsBusiness(Async)");
@@ -6178,14 +5800,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling listUserCoinTransactionsAsBusiness(Async)");
         }
 
-        return listUserCoinTransactionsAsBusinessCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
+        return listUserCoinTransactionsAsBusinessCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * List coin transactions for a user (as a Business)
      * List coin transactions for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6199,14 +5820,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void listUserCoinTransactionsAsBusiness(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        listUserCoinTransactionsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+    public void listUserCoinTransactionsAsBusiness(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        listUserCoinTransactionsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * List coin transactions for a user (as a Business)
      * List coin transactions for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6221,15 +5841,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> listUserCoinTransactionsAsBusinessWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = listUserCoinTransactionsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> listUserCoinTransactionsAsBusinessWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = listUserCoinTransactionsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * List coin transactions for a user (as a Business) (asynchronously)
      * List coin transactions for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6245,15 +5864,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserCoinTransactionsAsBusinessAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call listUserCoinTransactionsAsBusinessAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listUserCoinTransactionsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = listUserCoinTransactionsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for performActionOnNFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomAction Vatom Action (required)
@@ -6269,7 +5887,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call performActionOnNFTCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call performActionOnNFTCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6286,8 +5904,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/vatoms/actions"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/vatoms/actions";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6334,12 +5951,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call performActionOnNFTValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling performActionOnNFT(Async)");
-        }
-
+    private okhttp3.Call performActionOnNFTValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling performActionOnNFT(Async)");
@@ -6360,14 +5972,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling performActionOnNFT(Async)");
         }
 
-        return performActionOnNFTCall(version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, _callback);
+        return performActionOnNFTCall(accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Perform Action on NFT
      * Perform Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomAction Vatom Action (required)
@@ -6381,14 +5992,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void performActionOnNFT(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        performActionOnNFTWithHttpInfo(version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
+    public void performActionOnNFT(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        performActionOnNFTWithHttpInfo(accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
     }
 
     /**
      * Perform Action on NFT
      * Perform Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomAction Vatom Action (required)
@@ -6403,15 +6013,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> performActionOnNFTWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = performActionOnNFTValidateBeforeCall(version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> performActionOnNFTWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = performActionOnNFTValidateBeforeCall(accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Perform Action on NFT (asynchronously)
      * Perform Action on NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomId Vatom NFT Id (required)
      * @param vatomAction Vatom Action (required)
@@ -6427,15 +6036,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call performActionOnNFTAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call performActionOnNFTAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomId, @javax.annotation.Nonnull String vatomAction, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = performActionOnNFTValidateBeforeCall(version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = performActionOnNFTValidateBeforeCall(accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for redeemNFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -6450,7 +6058,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call redeemNFTCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call redeemNFTCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6467,8 +6075,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/redemptions"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/redemptions";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6511,12 +6118,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call redeemNFTValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling redeemNFT(Async)");
-        }
-
+    private okhttp3.Call redeemNFTValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling redeemNFT(Async)");
@@ -6532,14 +6134,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling redeemNFT(Async)");
         }
 
-        return redeemNFTCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return redeemNFTCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Redeem NFT
      * Redeem an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -6552,14 +6153,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void redeemNFT(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        redeemNFTWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void redeemNFT(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        redeemNFTWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * Redeem NFT
      * Redeem an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -6573,15 +6173,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> redeemNFTWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = redeemNFTValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> redeemNFTWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = redeemNFTValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Redeem NFT (asynchronously)
      * Redeem an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -6596,15 +6195,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call redeemNFTAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call redeemNFTAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = redeemNFTValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = redeemNFTValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for redeemUserCoinsAsBusiness
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6620,7 +6218,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call redeemUserCoinsAsBusinessCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call redeemUserCoinsAsBusinessCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6637,8 +6235,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/users/coins/redeem"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/users/coins/redeem";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6685,12 +6282,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call redeemUserCoinsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling redeemUserCoinsAsBusiness(Async)");
-        }
-
+    private okhttp3.Call redeemUserCoinsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling redeemUserCoinsAsBusiness(Async)");
@@ -6711,14 +6303,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling redeemUserCoinsAsBusiness(Async)");
         }
 
-        return redeemUserCoinsAsBusinessCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
+        return redeemUserCoinsAsBusinessCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Redeem the coins for a user (as a Business)
      * Redeem the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6732,14 +6323,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void redeemUserCoinsAsBusiness(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        redeemUserCoinsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+    public void redeemUserCoinsAsBusiness(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        redeemUserCoinsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * Redeem the coins for a user (as a Business)
      * Redeem the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6754,15 +6344,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> redeemUserCoinsAsBusinessWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = redeemUserCoinsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> redeemUserCoinsAsBusinessWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = redeemUserCoinsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Redeem the coins for a user (as a Business) (asynchronously)
      * Redeem the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -6778,15 +6367,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call redeemUserCoinsAsBusinessAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call redeemUserCoinsAsBusinessAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = redeemUserCoinsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = redeemUserCoinsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchBusinesses
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -6800,7 +6388,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBusinessesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchBusinessesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6817,8 +6405,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6857,25 +6444,19 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchBusinessesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchBusinesses(Async)");
-        }
-
+    private okhttp3.Call searchBusinessesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchBusinesses(Async)");
         }
 
-        return searchBusinessesCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        return searchBusinessesCall(accountId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Search for Vatom Businesses
      * Searches for Vatom businesses.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -6887,14 +6468,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void searchBusinesses(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        searchBusinessesWithHttpInfo(version, accountId, vatomParameters, returnRawResponse);
+    public void searchBusinesses(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        searchBusinessesWithHttpInfo(accountId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Search for Vatom Businesses
      * Searches for Vatom businesses.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -6907,15 +6487,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> searchBusinessesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = searchBusinessesValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> searchBusinessesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = searchBusinessesValidateBeforeCall(accountId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Search for Vatom Businesses (asynchronously)
      * Searches for Vatom businesses.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -6929,15 +6508,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBusinessesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call searchBusinessesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchBusinessesValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = searchBusinessesValidateBeforeCall(accountId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchCampaignGroups
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -6951,7 +6529,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCampaignGroupsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCampaignGroupsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6968,8 +6546,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign-groups/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign-groups/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7008,12 +6585,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCampaignGroupsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchCampaignGroups(Async)");
-        }
-
+    private okhttp3.Call searchCampaignGroupsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchCampaignGroups(Async)");
@@ -7024,14 +6596,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchCampaignGroups(Async)");
         }
 
-        return searchCampaignGroupsCall(version, accountId, appKey, returnRawResponse, _callback);
+        return searchCampaignGroupsCall(accountId, appKey, returnRawResponse, _callback);
 
     }
 
     /**
      * Search Campaign Groups
      * Search campaign groups.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -7043,14 +6614,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void searchCampaignGroups(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        searchCampaignGroupsWithHttpInfo(version, accountId, appKey, returnRawResponse);
+    public void searchCampaignGroups(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        searchCampaignGroupsWithHttpInfo(accountId, appKey, returnRawResponse);
     }
 
     /**
      * Search Campaign Groups
      * Search campaign groups.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -7063,15 +6633,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> searchCampaignGroupsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = searchCampaignGroupsValidateBeforeCall(version, accountId, appKey, returnRawResponse, null);
+    public ApiResponse<Void> searchCampaignGroupsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = searchCampaignGroupsValidateBeforeCall(accountId, appKey, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Search Campaign Groups (asynchronously)
      * Search campaign groups.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param returnRawResponse Return raw response (optional)
@@ -7085,15 +6654,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCampaignGroupsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call searchCampaignGroupsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCampaignGroupsValidateBeforeCall(version, accountId, appKey, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = searchCampaignGroupsValidateBeforeCall(accountId, appKey, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchIdentities
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback Callback for upload/download progress
@@ -7106,7 +6674,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchIdentitiesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchIdentitiesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7123,8 +6691,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/identities/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/identities/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7159,25 +6726,19 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchIdentitiesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchIdentities(Async)");
-        }
-
+    private okhttp3.Call searchIdentitiesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchIdentities(Async)");
         }
 
-        return searchIdentitiesCall(version, accountId, returnRawResponse, _callback);
+        return searchIdentitiesCall(accountId, returnRawResponse, _callback);
 
     }
 
     /**
      * Search User Identities
      * Search User Identities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7188,14 +6749,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void searchIdentities(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        searchIdentitiesWithHttpInfo(version, accountId, returnRawResponse);
+    public void searchIdentities(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        searchIdentitiesWithHttpInfo(accountId, returnRawResponse);
     }
 
     /**
      * Search User Identities
      * Search User Identities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -7207,15 +6767,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> searchIdentitiesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = searchIdentitiesValidateBeforeCall(version, accountId, returnRawResponse, null);
+    public ApiResponse<Void> searchIdentitiesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = searchIdentitiesValidateBeforeCall(accountId, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Search User Identities (asynchronously)
      * Search User Identities.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param returnRawResponse Return raw response (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -7228,15 +6787,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchIdentitiesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call searchIdentitiesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchIdentitiesValidateBeforeCall(version, accountId, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = searchIdentitiesValidateBeforeCall(accountId, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchInventory
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -7250,7 +6808,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchInventoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchInventoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7267,8 +6825,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/user-inventory/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/user-inventory/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7307,25 +6864,19 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchInventoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchInventory(Async)");
-        }
-
+    private okhttp3.Call searchInventoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchInventory(Async)");
         }
 
-        return searchInventoryCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        return searchInventoryCall(accountId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Search Vatom User&#39;s Inventory
      * Searches the logged in user&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -7337,14 +6888,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void searchInventory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        searchInventoryWithHttpInfo(version, accountId, vatomParameters, returnRawResponse);
+    public void searchInventory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        searchInventoryWithHttpInfo(accountId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Search Vatom User&#39;s Inventory
      * Searches the logged in user&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -7357,15 +6907,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> searchInventoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = searchInventoryValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> searchInventoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = searchInventoryValidateBeforeCall(accountId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Search Vatom User&#39;s Inventory (asynchronously)
      * Searches the logged in user&#39;s Vatom Inventory.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (optional)
      * @param returnRawResponse Return raw response (optional)
@@ -7379,15 +6928,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchInventoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call searchInventoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchInventoryValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = searchInventoryValidateBeforeCall(accountId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for sendNFT
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -7403,7 +6951,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendNFTCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendNFTCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7420,8 +6968,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaigns/send"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaigns/send";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7468,12 +7015,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendNFTValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling sendNFT(Async)");
-        }
-
+    private okhttp3.Call sendNFTValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling sendNFT(Async)");
@@ -7494,14 +7036,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling sendNFT(Async)");
         }
 
-        return sendNFTCall(version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
+        return sendNFTCall(accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Send NFT
      * Send an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -7515,14 +7056,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void sendNFT(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        sendNFTWithHttpInfo(version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
+    public void sendNFT(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        sendNFTWithHttpInfo(accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Send NFT
      * Send an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -7537,15 +7077,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> sendNFTWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = sendNFTValidateBeforeCall(version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> sendNFTWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = sendNFTValidateBeforeCall(accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Send NFT (asynchronously)
      * Send an NFT.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomCampaignId Vatom Campaign Id (required)
@@ -7561,15 +7100,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendNFTAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call sendNFTAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sendNFTValidateBeforeCall(version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = sendNFTValidateBeforeCall(accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for setPointsBalanceAsBusiness
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -7586,7 +7124,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setPointsBalanceAsBusinessCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call setPointsBalanceAsBusinessCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7603,8 +7141,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/campaign/u/points/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/campaign/u/points/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7655,12 +7192,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call setPointsBalanceAsBusinessValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling setPointsBalanceAsBusiness(Async)");
-        }
-
+    private okhttp3.Call setPointsBalanceAsBusinessValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling setPointsBalanceAsBusiness(Async)");
@@ -7686,14 +7218,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling setPointsBalanceAsBusiness(Async)");
         }
 
-        return setPointsBalanceAsBusinessCall(version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
+        return setPointsBalanceAsBusinessCall(accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Set Points Balance as Business
      * Sets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -7708,14 +7239,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void setPointsBalanceAsBusiness(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        setPointsBalanceAsBusinessWithHttpInfo(version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
+    public void setPointsBalanceAsBusiness(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        setPointsBalanceAsBusinessWithHttpInfo(accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Set Points Balance as Business
      * Sets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -7731,15 +7261,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> setPointsBalanceAsBusinessWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = setPointsBalanceAsBusinessValidateBeforeCall(version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> setPointsBalanceAsBusinessWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = setPointsBalanceAsBusinessValidateBeforeCall(accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Set Points Balance as Business (asynchronously)
      * Sets the points balance of a Vatom user.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomUserId Vatom User Id (required)
@@ -7756,15 +7285,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setPointsBalanceAsBusinessAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call setPointsBalanceAsBusinessAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomCampaignId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = setPointsBalanceAsBusinessValidateBeforeCall(version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = setPointsBalanceAsBusinessValidateBeforeCall(accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for transferUserCoins
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -7779,7 +7307,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call transferUserCoinsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call transferUserCoinsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7796,8 +7324,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/u/coins/transfer"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/u/coins/transfer";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7840,12 +7367,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call transferUserCoinsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling transferUserCoins(Async)");
-        }
-
+    private okhttp3.Call transferUserCoinsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling transferUserCoins(Async)");
@@ -7861,14 +7383,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling transferUserCoins(Async)");
         }
 
-        return transferUserCoinsCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
+        return transferUserCoinsCall(accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Transfer coins from Vatom Users
      * Transfer coins from Vatom Users.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -7881,14 +7402,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void transferUserCoins(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        transferUserCoinsWithHttpInfo(version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+    public void transferUserCoins(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        transferUserCoinsWithHttpInfo(accountId, vatomUserId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Transfer coins from Vatom Users
      * Transfer coins from Vatom Users.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -7902,15 +7422,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> transferUserCoinsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = transferUserCoinsValidateBeforeCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> transferUserCoinsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = transferUserCoinsValidateBeforeCall(accountId, vatomUserId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Transfer coins from Vatom Users (asynchronously)
      * Transfer coins from Vatom Users.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -7925,15 +7444,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call transferUserCoinsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call transferUserCoinsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = transferUserCoinsValidateBeforeCall(version, accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = transferUserCoinsValidateBeforeCall(accountId, vatomUserId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateBusinessCoins
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -7948,7 +7466,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateBusinessCoinsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateBusinessCoinsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7965,8 +7483,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/coins/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/coins/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8009,12 +7526,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateBusinessCoinsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateBusinessCoins(Async)");
-        }
-
+    private okhttp3.Call updateBusinessCoinsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateBusinessCoins(Async)");
@@ -8030,14 +7542,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling updateBusinessCoins(Async)");
         }
 
-        return updateBusinessCoinsCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        return updateBusinessCoinsCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Fund coins for a Business
      * Fund/update coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -8050,14 +7561,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateBusinessCoins(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        updateBusinessCoinsWithHttpInfo(version, accountId, appKey, vatomParameters, returnRawResponse);
+    public void updateBusinessCoins(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        updateBusinessCoinsWithHttpInfo(accountId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * Fund coins for a Business
      * Fund/update coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -8071,15 +7581,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateBusinessCoinsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = updateBusinessCoinsValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> updateBusinessCoinsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = updateBusinessCoinsValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Fund coins for a Business (asynchronously)
      * Fund/update coins for a Businesss.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomParameters Vatom Parameters (required)
@@ -8094,15 +7603,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateBusinessCoinsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateBusinessCoinsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateBusinessCoinsValidateBeforeCall(version, accountId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = updateBusinessCoinsValidateBeforeCall(accountId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateEventGuestList
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8118,7 +7626,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEventGuestListCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateEventGuestListCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8135,8 +7643,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/events/guests/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/events/guests/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8183,12 +7690,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateEventGuestListValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateEventGuestList(Async)");
-        }
-
+    private okhttp3.Call updateEventGuestListValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateEventGuestList(Async)");
@@ -8209,14 +7711,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling updateEventGuestList(Async)");
         }
 
-        return updateEventGuestListCall(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
+        return updateEventGuestListCall(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Update Vatom Event Guest List
      * Update the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8230,14 +7731,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateEventGuestList(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        updateEventGuestListWithHttpInfo(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+    public void updateEventGuestList(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        updateEventGuestListWithHttpInfo(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Update Vatom Event Guest List
      * Update the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8252,15 +7752,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateEventGuestListWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = updateEventGuestListValidateBeforeCall(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> updateEventGuestListWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = updateEventGuestListValidateBeforeCall(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update Vatom Event Guest List (asynchronously)
      * Update the guest list of an event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8276,15 +7775,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEventGuestListAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateEventGuestListAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateEventGuestListValidateBeforeCall(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = updateEventGuestListValidateBeforeCall(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateSpace
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -8300,7 +7798,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSpaceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSpaceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8317,8 +7815,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/spaces/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/spaces/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8365,12 +7862,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSpaceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateSpace(Async)");
-        }
-
+    private okhttp3.Call updateSpaceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateSpace(Async)");
@@ -8391,14 +7883,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling updateSpace(Async)");
         }
 
-        return updateSpaceCall(version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, _callback);
+        return updateSpaceCall(accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Update Vatom Space
      * Update a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -8412,14 +7903,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateSpace(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        updateSpaceWithHttpInfo(version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
+    public void updateSpace(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        updateSpaceWithHttpInfo(accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Update Vatom Space
      * Update a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -8434,15 +7924,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateSpaceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = updateSpaceValidateBeforeCall(version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> updateSpaceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = updateSpaceValidateBeforeCall(accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update Vatom Space (asynchronously)
      * Update a Vatom space.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomSpaceId Vatom Space Id (required)
@@ -8458,15 +7947,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSpaceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateSpaceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomSpaceId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateSpaceValidateBeforeCall(version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = updateSpaceValidateBeforeCall(accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateUserCoinsAsBusiness
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -8482,7 +7970,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserCoinsAsBusinessCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateUserCoinsAsBusinessCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8499,8 +7987,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/users/coins/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/users/coins/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8547,12 +8034,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserCoinsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateUserCoinsAsBusiness(Async)");
-        }
-
+    private okhttp3.Call updateUserCoinsAsBusinessValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateUserCoinsAsBusiness(Async)");
@@ -8573,14 +8055,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling updateUserCoinsAsBusiness(Async)");
         }
 
-        return updateUserCoinsAsBusinessCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
+        return updateUserCoinsAsBusinessCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Update the coins for a user (as a Business)
      * Update the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -8594,14 +8075,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateUserCoinsAsBusiness(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        updateUserCoinsAsBusinessWithHttpInfo(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+    public void updateUserCoinsAsBusiness(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        updateUserCoinsAsBusinessWithHttpInfo(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
     }
 
     /**
      * Update the coins for a user (as a Business)
      * Update the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -8616,15 +8096,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateUserCoinsAsBusinessWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = updateUserCoinsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> updateUserCoinsAsBusinessWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = updateUserCoinsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update the coins for a user (as a Business) (asynchronously)
      * Update the coins for a user (as a Business).
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomUserId Vatom User Id (required)
      * @param appKey Sirqul Application Key (required)
@@ -8640,15 +8119,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserCoinsAsBusinessAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateUserCoinsAsBusinessAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomUserId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateUserCoinsAsBusinessValidateBeforeCall(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = updateUserCoinsAsBusinessValidateBeforeCall(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateUserProfile
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -8662,7 +8140,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserProfileCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateUserProfileCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8679,8 +8157,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/me/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/me/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8719,12 +8196,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserProfileValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateUserProfile(Async)");
-        }
-
+    private okhttp3.Call updateUserProfileValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateUserProfile(Async)");
@@ -8735,14 +8207,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling updateUserProfile(Async)");
         }
 
-        return updateUserProfileCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        return updateUserProfileCall(accountId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Update Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -8754,14 +8225,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateUserProfile(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        updateUserProfileWithHttpInfo(version, accountId, vatomParameters, returnRawResponse);
+    public void updateUserProfile(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        updateUserProfileWithHttpInfo(accountId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Update Vatom User Profile
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -8774,15 +8244,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateUserProfileWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = updateUserProfileValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> updateUserProfileWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = updateUserProfileValidateBeforeCall(accountId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update Vatom User Profile (asynchronously)
      * Gets the logged in user&#39;s profile in Vatom.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param vatomParameters Vatom Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -8796,15 +8265,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserProfileAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateUserProfileAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateUserProfileValidateBeforeCall(version, accountId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = updateUserProfileValidateBeforeCall(accountId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateVatomEvent
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8820,7 +8288,7 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVatomEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateVatomEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8837,8 +8305,7 @@ public class VatomApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vatom/b/events/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vatom/b/events/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8885,12 +8352,7 @@ public class VatomApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateVatomEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateVatomEvent(Async)");
-        }
-
+    private okhttp3.Call updateVatomEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateVatomEvent(Async)");
@@ -8911,14 +8373,13 @@ public class VatomApi {
             throw new ApiException("Missing the required parameter 'vatomParameters' when calling updateVatomEvent(Async)");
         }
 
-        return updateVatomEventCall(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
+        return updateVatomEventCall(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
 
     }
 
     /**
      * Update Vatom Event
      * Update a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8932,14 +8393,13 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateVatomEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        updateVatomEventWithHttpInfo(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+    public void updateVatomEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        updateVatomEventWithHttpInfo(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
     }
 
     /**
      * Update Vatom Event
      * Update a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8954,15 +8414,14 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateVatomEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = updateVatomEventValidateBeforeCall(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, null);
+    public ApiResponse<Void> updateVatomEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = updateVatomEventValidateBeforeCall(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update Vatom Event (asynchronously)
      * Update a Vatom event.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param appKey Sirqul Application Key (required)
      * @param vatomEventId Vatom Event Id (required)
@@ -8978,9 +8437,9 @@ public class VatomApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVatomEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateVatomEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String vatomEventId, @javax.annotation.Nonnull String vatomParameters, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateVatomEventValidateBeforeCall(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = updateVatomEventValidateBeforeCall(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

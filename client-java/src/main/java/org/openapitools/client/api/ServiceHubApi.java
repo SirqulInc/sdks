@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ServiceHub;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class ServiceHubApi {
 
     /**
      * Build call for createServiceHub
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +85,7 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createServiceHubCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createServiceHubCall(@javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +102,7 @@ public class ServiceHubApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/hub"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/hub";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -133,20 +130,14 @@ public class ServiceHubApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createServiceHubValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createServiceHub(Async)");
-        }
-
-        return createServiceHubCall(version, body, _callback);
+    private okhttp3.Call createServiceHubValidateBeforeCall(@javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
+        return createServiceHubCall(body, _callback);
 
     }
 
     /**
      * Create Service Hub
      * Create new service hub
-     * @param version  (required)
      * @param body  (optional)
      * @return ServiceHub
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,15 +148,14 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ServiceHub createServiceHub(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ServiceHub body) throws ApiException {
-        ApiResponse<ServiceHub> localVarResp = createServiceHubWithHttpInfo(version, body);
+    public ServiceHub createServiceHub(@javax.annotation.Nullable ServiceHub body) throws ApiException {
+        ApiResponse<ServiceHub> localVarResp = createServiceHubWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Service Hub
      * Create new service hub
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;ServiceHub&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,8 +166,8 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ServiceHub> createServiceHubWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ServiceHub body) throws ApiException {
-        okhttp3.Call localVarCall = createServiceHubValidateBeforeCall(version, body, null);
+    public ApiResponse<ServiceHub> createServiceHubWithHttpInfo(@javax.annotation.Nullable ServiceHub body) throws ApiException {
+        okhttp3.Call localVarCall = createServiceHubValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<ServiceHub>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -185,7 +175,6 @@ public class ServiceHubApi {
     /**
      * Create Service Hub (asynchronously)
      * Create new service hub
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -197,16 +186,15 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createServiceHubAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable ServiceHub body, final ApiCallback<ServiceHub> _callback) throws ApiException {
+    public okhttp3.Call createServiceHubAsync(@javax.annotation.Nullable ServiceHub body, final ApiCallback<ServiceHub> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createServiceHubValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createServiceHubValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ServiceHub>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteServiceHub
-     * @param version  (required)
      * @param id the id of the service hub to delete (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -218,7 +206,7 @@ public class ServiceHubApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteServiceHubCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteServiceHubCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -235,8 +223,7 @@ public class ServiceHubApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/hub/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/hub/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -264,25 +251,19 @@ public class ServiceHubApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteServiceHubValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteServiceHub(Async)");
-        }
-
+    private okhttp3.Call deleteServiceHubValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteServiceHub(Async)");
         }
 
-        return deleteServiceHubCall(version, id, _callback);
+        return deleteServiceHubCall(id, _callback);
 
     }
 
     /**
      * Delete Service Hub
      * Delete an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to delete (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -292,14 +273,13 @@ public class ServiceHubApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteServiceHub(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        deleteServiceHubWithHttpInfo(version, id);
+    public void deleteServiceHub(@javax.annotation.Nonnull Long id) throws ApiException {
+        deleteServiceHubWithHttpInfo(id);
     }
 
     /**
      * Delete Service Hub
      * Delete an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to delete (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -310,15 +290,14 @@ public class ServiceHubApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteServiceHubWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = deleteServiceHubValidateBeforeCall(version, id, null);
+    public ApiResponse<Void> deleteServiceHubWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = deleteServiceHubValidateBeforeCall(id, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Service Hub (asynchronously)
      * Delete an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to delete (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -330,15 +309,14 @@ public class ServiceHubApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteServiceHubAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteServiceHubAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteServiceHubValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = deleteServiceHubValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getServiceHub
-     * @param version  (required)
      * @param id the id of the service hub to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -350,7 +328,7 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceHubCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getServiceHubCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -367,8 +345,7 @@ public class ServiceHubApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/hub/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/hub/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -397,25 +374,19 @@ public class ServiceHubApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getServiceHubValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getServiceHub(Async)");
-        }
-
+    private okhttp3.Call getServiceHubValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getServiceHub(Async)");
         }
 
-        return getServiceHubCall(version, id, _callback);
+        return getServiceHubCall(id, _callback);
 
     }
 
     /**
      * Get Service Hub
      * Get an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to get (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -426,15 +397,14 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Object getServiceHub(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        ApiResponse<Object> localVarResp = getServiceHubWithHttpInfo(version, id);
+    public Object getServiceHub(@javax.annotation.Nonnull Long id) throws ApiException {
+        ApiResponse<Object> localVarResp = getServiceHubWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get Service Hub
      * Get an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to get (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -445,8 +415,8 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getServiceHubWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = getServiceHubValidateBeforeCall(version, id, null);
+    public ApiResponse<Object> getServiceHubWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = getServiceHubValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -454,7 +424,6 @@ public class ServiceHubApi {
     /**
      * Get Service Hub (asynchronously)
      * Get an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -466,16 +435,15 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServiceHubAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getServiceHubAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getServiceHubValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = getServiceHubValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for postServiceHub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -488,7 +456,7 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call postServiceHubCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call postServiceHubCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -505,8 +473,7 @@ public class ServiceHubApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/hub/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/hub/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -535,25 +502,19 @@ public class ServiceHubApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postServiceHubValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling postServiceHub(Async)");
-        }
-
+    private okhttp3.Call postServiceHubValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling postServiceHub(Async)");
         }
 
-        return postServiceHubCall(version, id, body, _callback);
+        return postServiceHubCall(id, body, _callback);
 
     }
 
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @return ServiceHub
@@ -565,15 +526,14 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ServiceHub postServiceHub(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
-        ApiResponse<ServiceHub> localVarResp = postServiceHubWithHttpInfo(version, id, body);
+    public ServiceHub postServiceHub(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
+        ApiResponse<ServiceHub> localVarResp = postServiceHubWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @return ApiResponse&lt;ServiceHub&gt;
@@ -585,8 +545,8 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ServiceHub> postServiceHubWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
-        okhttp3.Call localVarCall = postServiceHubValidateBeforeCall(version, id, body, null);
+    public ApiResponse<ServiceHub> postServiceHubWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
+        okhttp3.Call localVarCall = postServiceHubValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<ServiceHub>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -594,7 +554,6 @@ public class ServiceHubApi {
     /**
      * Update Service Hub (asynchronously)
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -607,16 +566,15 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call postServiceHubAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback<ServiceHub> _callback) throws ApiException {
+    public okhttp3.Call postServiceHubAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback<ServiceHub> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postServiceHubValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = postServiceHubValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<ServiceHub>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for putServiceHub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -629,7 +587,7 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call putServiceHubCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call putServiceHubCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -646,8 +604,7 @@ public class ServiceHubApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/hub/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/hub/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -676,25 +633,19 @@ public class ServiceHubApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putServiceHubValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling putServiceHub(Async)");
-        }
-
+    private okhttp3.Call putServiceHubValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling putServiceHub(Async)");
         }
 
-        return putServiceHubCall(version, id, body, _callback);
+        return putServiceHubCall(id, body, _callback);
 
     }
 
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @return ServiceHub
@@ -706,15 +657,14 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ServiceHub putServiceHub(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
-        ApiResponse<ServiceHub> localVarResp = putServiceHubWithHttpInfo(version, id, body);
+    public ServiceHub putServiceHub(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
+        ApiResponse<ServiceHub> localVarResp = putServiceHubWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @return ApiResponse&lt;ServiceHub&gt;
@@ -726,8 +676,8 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ServiceHub> putServiceHubWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
-        okhttp3.Call localVarCall = putServiceHubValidateBeforeCall(version, id, body, null);
+    public ApiResponse<ServiceHub> putServiceHubWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body) throws ApiException {
+        okhttp3.Call localVarCall = putServiceHubValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<ServiceHub>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -735,7 +685,6 @@ public class ServiceHubApi {
     /**
      * Update Service Hub (asynchronously)
      * Update an existing service hub
-     * @param version  (required)
      * @param id the id of the service hub (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -748,16 +697,15 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call putServiceHubAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback<ServiceHub> _callback) throws ApiException {
+    public okhttp3.Call putServiceHubAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable ServiceHub body, final ApiCallback<ServiceHub> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putServiceHubValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = putServiceHubValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<ServiceHub>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchServiceHubs
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -775,7 +723,7 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchServiceHubsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchServiceHubsCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -792,8 +740,7 @@ public class ServiceHubApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/hub"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/hub";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -849,12 +796,7 @@ public class ServiceHubApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchServiceHubsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchServiceHubs(Async)");
-        }
-
+    private okhttp3.Call searchServiceHubsValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchServiceHubs(Async)");
@@ -880,14 +822,13 @@ public class ServiceHubApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchServiceHubs(Async)");
         }
 
-        return searchServiceHubsCall(version, sortField, descending, start, limit, activeOnly, keyword, retailerId, _callback);
+        return searchServiceHubsCall(sortField, descending, start, limit, activeOnly, keyword, retailerId, _callback);
 
     }
 
     /**
      * Search Service Hubs
      * Search for service hubs.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -904,15 +845,14 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ServiceHub> searchServiceHubs(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId) throws ApiException {
-        ApiResponse<List<ServiceHub>> localVarResp = searchServiceHubsWithHttpInfo(version, sortField, descending, start, limit, activeOnly, keyword, retailerId);
+    public List<ServiceHub> searchServiceHubs(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId) throws ApiException {
+        ApiResponse<List<ServiceHub>> localVarResp = searchServiceHubsWithHttpInfo(sortField, descending, start, limit, activeOnly, keyword, retailerId);
         return localVarResp.getData();
     }
 
     /**
      * Search Service Hubs
      * Search for service hubs.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -929,8 +869,8 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ServiceHub>> searchServiceHubsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId) throws ApiException {
-        okhttp3.Call localVarCall = searchServiceHubsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, keyword, retailerId, null);
+    public ApiResponse<List<ServiceHub>> searchServiceHubsWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId) throws ApiException {
+        okhttp3.Call localVarCall = searchServiceHubsValidateBeforeCall(sortField, descending, start, limit, activeOnly, keyword, retailerId, null);
         Type localVarReturnType = new TypeToken<List<ServiceHub>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -938,7 +878,6 @@ public class ServiceHubApi {
     /**
      * Search Service Hubs (asynchronously)
      * Search for service hubs.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -956,9 +895,9 @@ public class ServiceHubApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchServiceHubsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, final ApiCallback<List<ServiceHub>> _callback) throws ApiException {
+    public okhttp3.Call searchServiceHubsAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, final ApiCallback<List<ServiceHub>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchServiceHubsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, keyword, retailerId, _callback);
+        okhttp3.Call localVarCall = searchServiceHubsValidateBeforeCall(sortField, descending, start, limit, activeOnly, keyword, retailerId, _callback);
         Type localVarReturnType = new TypeToken<List<ServiceHub>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

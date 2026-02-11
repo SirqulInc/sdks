@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ScoreResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class ScoreApi {
 
     /**
      * Build call for createScore
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to save the score for. (required)
      * @param points The score (required)
@@ -96,7 +94,7 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createScoreCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createScoreCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,8 +111,7 @@ public class ScoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/score/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/score/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -182,12 +179,7 @@ public class ScoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createScoreValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createScore(Async)");
-        }
-
+    private okhttp3.Call createScoreValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createScore(Async)");
@@ -203,14 +195,13 @@ public class ScoreApi {
             throw new ApiException("Missing the required parameter 'points' when calling createScore(Async)");
         }
 
-        return createScoreCall(version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, _callback);
+        return createScoreCall(accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, _callback);
 
     }
 
     /**
      * Create Score
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to save the score for. (required)
      * @param points The score (required)
@@ -230,15 +221,14 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ScoreResponse createScore(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest) throws ApiException {
-        ApiResponse<ScoreResponse> localVarResp = createScoreWithHttpInfo(version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
+    public ScoreResponse createScore(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest) throws ApiException {
+        ApiResponse<ScoreResponse> localVarResp = createScoreWithHttpInfo(accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
         return localVarResp.getData();
     }
 
     /**
      * Create Score
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to save the score for. (required)
      * @param points The score (required)
@@ -258,8 +248,8 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScoreResponse> createScoreWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest) throws ApiException {
-        okhttp3.Call localVarCall = createScoreValidateBeforeCall(version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, null);
+    public ApiResponse<ScoreResponse> createScoreWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest) throws ApiException {
+        okhttp3.Call localVarCall = createScoreValidateBeforeCall(accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, null);
         Type localVarReturnType = new TypeToken<ScoreResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -267,7 +257,6 @@ public class ScoreApi {
     /**
      * Create Score (asynchronously)
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to save the score for. (required)
      * @param points The score (required)
@@ -288,16 +277,15 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createScoreAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest, final ApiCallback<ScoreResponse> _callback) throws ApiException {
+    public okhttp3.Call createScoreAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer points, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Integer timeTaken, @javax.annotation.Nullable Boolean highest, final ApiCallback<ScoreResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createScoreValidateBeforeCall(version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, _callback);
+        okhttp3.Call localVarCall = createScoreValidateBeforeCall(accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, _callback);
         Type localVarReturnType = new TypeToken<ScoreResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getScore
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -317,7 +305,7 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getScoreCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getScoreCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -334,8 +322,7 @@ public class ScoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/score/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/score/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -399,12 +386,7 @@ public class ScoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getScoreValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getScore(Async)");
-        }
-
+    private okhttp3.Call getScoreValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getScore(Async)");
@@ -415,14 +397,13 @@ public class ScoreApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getScore(Async)");
         }
 
-        return getScoreCall(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, _callback);
+        return getScoreCall(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, _callback);
 
     }
 
     /**
      * Get Score
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -441,15 +422,14 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ScoreResponse getScore(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus) throws ApiException {
-        ApiResponse<ScoreResponse> localVarResp = getScoreWithHttpInfo(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
+    public ScoreResponse getScore(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus) throws ApiException {
+        ApiResponse<ScoreResponse> localVarResp = getScoreWithHttpInfo(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
         return localVarResp.getData();
     }
 
     /**
      * Get Score
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -468,8 +448,8 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScoreResponse> getScoreWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus) throws ApiException {
-        okhttp3.Call localVarCall = getScoreValidateBeforeCall(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, null);
+    public ApiResponse<ScoreResponse> getScoreWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus) throws ApiException {
+        okhttp3.Call localVarCall = getScoreValidateBeforeCall(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, null);
         Type localVarReturnType = new TypeToken<ScoreResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -477,7 +457,6 @@ public class ScoreApi {
     /**
      * Get Score (asynchronously)
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -497,16 +476,15 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getScoreAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus, final ApiCallback<ScoreResponse> _callback) throws ApiException {
+    public okhttp3.Call getScoreAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable String scoreObjectType, @javax.annotation.Nullable String scoreStatus, final ApiCallback<ScoreResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getScoreValidateBeforeCall(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, _callback);
+        okhttp3.Call localVarCall = getScoreValidateBeforeCall(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, _callback);
         Type localVarReturnType = new TypeToken<ScoreResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchScores
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -524,7 +502,7 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchScoresCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchScoresCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -541,8 +519,7 @@ public class ScoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/score/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/score/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -598,12 +575,7 @@ public class ScoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchScoresValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchScores(Async)");
-        }
-
+    private okhttp3.Call searchScoresValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchScores(Async)");
@@ -614,14 +586,13 @@ public class ScoreApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchScores(Async)");
         }
 
-        return searchScoresCall(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
+        return searchScoresCall(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
 
     }
 
     /**
      * Search Score
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -638,15 +609,14 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ScoreResponse> searchScores(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId) throws ApiException {
-        ApiResponse<List<ScoreResponse>> localVarResp = searchScoresWithHttpInfo(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
+    public List<ScoreResponse> searchScores(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId) throws ApiException {
+        ApiResponse<List<ScoreResponse>> localVarResp = searchScoresWithHttpInfo(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
         return localVarResp.getData();
     }
 
     /**
      * Search Score
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -663,8 +633,8 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ScoreResponse>> searchScoresWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId) throws ApiException {
-        okhttp3.Call localVarCall = searchScoresValidateBeforeCall(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, null);
+    public ApiResponse<List<ScoreResponse>> searchScoresWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId) throws ApiException {
+        okhttp3.Call localVarCall = searchScoresValidateBeforeCall(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, null);
         Type localVarReturnType = new TypeToken<List<ScoreResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -672,7 +642,6 @@ public class ScoreApi {
     /**
      * Search Score (asynchronously)
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The game application key to get the level for. (required)
      * @param missionId The missionId to score for, null if not playing mission. (optional)
@@ -690,9 +659,9 @@ public class ScoreApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchScoresAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, final ApiCallback<List<ScoreResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchScoresAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, final ApiCallback<List<ScoreResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchScoresValidateBeforeCall(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
+        okhttp3.Call localVarCall = searchScoresValidateBeforeCall(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
         Type localVarReturnType = new TypeToken<List<ScoreResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Location;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class LocationApiV2Api {
 
     /**
      * Build call for createLocationV2
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -88,7 +86,7 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createLocationV2Call(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createLocationV2Call(@javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,8 +103,7 @@ public class LocationApiV2Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -134,20 +131,14 @@ public class LocationApiV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createLocationV2ValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createLocationV2(Async)");
-        }
-
-        return createLocationV2Call(version, body, _callback);
+    private okhttp3.Call createLocationV2ValidateBeforeCall(@javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
+        return createLocationV2Call(body, _callback);
 
     }
 
     /**
      * Create new location
      * Create a new location from a real object location.
-     * @param version  (required)
      * @param body  (optional)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -158,15 +149,14 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse createLocationV2(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Location body) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = createLocationV2WithHttpInfo(version, body);
+    public SirqulResponse createLocationV2(@javax.annotation.Nullable Location body) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = createLocationV2WithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create new location
      * Create a new location from a real object location.
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -177,8 +167,8 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> createLocationV2WithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Location body) throws ApiException {
-        okhttp3.Call localVarCall = createLocationV2ValidateBeforeCall(version, body, null);
+    public ApiResponse<SirqulResponse> createLocationV2WithHttpInfo(@javax.annotation.Nullable Location body) throws ApiException {
+        okhttp3.Call localVarCall = createLocationV2ValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -186,7 +176,6 @@ public class LocationApiV2Api {
     /**
      * Create new location (asynchronously)
      * Create a new location from a real object location.
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -198,16 +187,15 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createLocationV2Async(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Location body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call createLocationV2Async(@javax.annotation.Nullable Location body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createLocationV2ValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createLocationV2ValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateLocationV2
-     * @param version  (required)
      * @param id the id of the location to update (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -220,7 +208,7 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLocationV2Call(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateLocationV2Call(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -237,8 +225,7 @@ public class LocationApiV2Api {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/location/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -267,25 +254,19 @@ public class LocationApiV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateLocationV2ValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateLocationV2(Async)");
-        }
-
+    private okhttp3.Call updateLocationV2ValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateLocationV2(Async)");
         }
 
-        return updateLocationV2Call(version, id, body, _callback);
+        return updateLocationV2Call(id, body, _callback);
 
     }
 
     /**
      * Update an existing location
      * Update an existing location
-     * @param version  (required)
      * @param id the id of the location to update (required)
      * @param body  (optional)
      * @return SirqulResponse
@@ -297,15 +278,14 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateLocationV2(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateLocationV2WithHttpInfo(version, id, body);
+    public SirqulResponse updateLocationV2(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateLocationV2WithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update an existing location
      * Update an existing location
-     * @param version  (required)
      * @param id the id of the location to update (required)
      * @param body  (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -317,8 +297,8 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateLocationV2WithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body) throws ApiException {
-        okhttp3.Call localVarCall = updateLocationV2ValidateBeforeCall(version, id, body, null);
+    public ApiResponse<SirqulResponse> updateLocationV2WithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body) throws ApiException {
+        okhttp3.Call localVarCall = updateLocationV2ValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -326,7 +306,6 @@ public class LocationApiV2Api {
     /**
      * Update an existing location (asynchronously)
      * Update an existing location
-     * @param version  (required)
      * @param id the id of the location to update (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -339,9 +318,9 @@ public class LocationApiV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLocationV2Async(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateLocationV2Async(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Location body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateLocationV2ValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateLocationV2ValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

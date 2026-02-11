@@ -30,7 +30,6 @@ import java.io.IOException;
 import org.openapitools.client.model.AccountMiniResponse;
 import org.openapitools.client.model.AssignmentResponse;
 import org.openapitools.client.model.AssignmentStatusResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -78,7 +77,6 @@ public class AssignmentApi {
 
     /**
      * Build call for assigmentAssigneeAccountSearch
-     * @param version  (required)
      * @param accountId The account id sending the request (required)
      * @param keyword The keyword to filter the returned results (optional)
      * @param _callback Callback for upload/download progress
@@ -91,7 +89,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assigmentAssigneeAccountSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assigmentAssigneeAccountSearchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/assignee/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/assignee/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -145,25 +142,19 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assigmentAssigneeAccountSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assigmentAssigneeAccountSearch(Async)");
-        }
-
+    private okhttp3.Call assigmentAssigneeAccountSearchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assigmentAssigneeAccountSearch(Async)");
         }
 
-        return assigmentAssigneeAccountSearchCall(version, accountId, keyword, _callback);
+        return assigmentAssigneeAccountSearchCall(accountId, keyword, _callback);
 
     }
 
     /**
      * Search Assignment Assignees
      * Search for avaiable users for creating or updating assignment.
-     * @param version  (required)
      * @param accountId The account id sending the request (required)
      * @param keyword The keyword to filter the returned results (optional)
      * @return List&lt;AccountMiniResponse&gt;
@@ -175,15 +166,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AccountMiniResponse> assigmentAssigneeAccountSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<AccountMiniResponse>> localVarResp = assigmentAssigneeAccountSearchWithHttpInfo(version, accountId, keyword);
+    public List<AccountMiniResponse> assigmentAssigneeAccountSearch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<AccountMiniResponse>> localVarResp = assigmentAssigneeAccountSearchWithHttpInfo(accountId, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Assignment Assignees
      * Search for avaiable users for creating or updating assignment.
-     * @param version  (required)
      * @param accountId The account id sending the request (required)
      * @param keyword The keyword to filter the returned results (optional)
      * @return ApiResponse&lt;List&lt;AccountMiniResponse&gt;&gt;
@@ -195,8 +185,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AccountMiniResponse>> assigmentAssigneeAccountSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = assigmentAssigneeAccountSearchValidateBeforeCall(version, accountId, keyword, null);
+    public ApiResponse<List<AccountMiniResponse>> assigmentAssigneeAccountSearchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = assigmentAssigneeAccountSearchValidateBeforeCall(accountId, keyword, null);
         Type localVarReturnType = new TypeToken<List<AccountMiniResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -204,7 +194,6 @@ public class AssignmentApi {
     /**
      * Search Assignment Assignees (asynchronously)
      * Search for avaiable users for creating or updating assignment.
-     * @param version  (required)
      * @param accountId The account id sending the request (required)
      * @param keyword The keyword to filter the returned results (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -217,16 +206,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assigmentAssigneeAccountSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, final ApiCallback<List<AccountMiniResponse>> _callback) throws ApiException {
+    public okhttp3.Call assigmentAssigneeAccountSearchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, final ApiCallback<List<AccountMiniResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assigmentAssigneeAccountSearchValidateBeforeCall(version, accountId, keyword, _callback);
+        okhttp3.Call localVarCall = assigmentAssigneeAccountSearchValidateBeforeCall(accountId, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<AccountMiniResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentCreate
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param name the name for the assignment (required)
      * @param assigneeAccountId the account id to assign to (required)
@@ -244,7 +232,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentCreateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentCreateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -261,8 +249,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -318,12 +305,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentCreateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentCreate(Async)");
-        }
-
+    private okhttp3.Call assignmentCreateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentCreate(Async)");
@@ -339,14 +321,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assigneeAccountId' when calling assignmentCreate(Async)");
         }
 
-        return assignmentCreateCall(version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, _callback);
+        return assignmentCreateCall(accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, _callback);
 
     }
 
     /**
      * Create Assignment
      * Create an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param name the name for the assignment (required)
      * @param assigneeAccountId the account id to assign to (required)
@@ -363,15 +344,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssignmentResponse assignmentCreate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<AssignmentResponse> localVarResp = assignmentCreateWithHttpInfo(version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
+    public AssignmentResponse assignmentCreate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<AssignmentResponse> localVarResp = assignmentCreateWithHttpInfo(accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Assignment
      * Create an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param name the name for the assignment (required)
      * @param assigneeAccountId the account id to assign to (required)
@@ -388,8 +368,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssignmentResponse> assignmentCreateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = assignmentCreateValidateBeforeCall(version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, null);
+    public ApiResponse<AssignmentResponse> assignmentCreateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = assignmentCreateValidateBeforeCall(accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, null);
         Type localVarReturnType = new TypeToken<AssignmentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -397,7 +377,6 @@ public class AssignmentApi {
     /**
      * Create Assignment (asynchronously)
      * Create an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param name the name for the assignment (required)
      * @param assigneeAccountId the account id to assign to (required)
@@ -415,16 +394,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentCreateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentCreateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Long assigneeAccountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentCreateValidateBeforeCall(version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, _callback);
+        okhttp3.Call localVarCall = assignmentCreateValidateBeforeCall(accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, _callback);
         Type localVarReturnType = new TypeToken<AssignmentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentDelete
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param _callback Callback for upload/download progress
@@ -437,7 +415,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentDeleteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentDeleteCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -454,8 +432,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -491,12 +468,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentDeleteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentDelete(Async)");
-        }
-
+    private okhttp3.Call assignmentDeleteValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentDelete(Async)");
@@ -507,14 +479,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assignmentId' when calling assignmentDelete(Async)");
         }
 
-        return assignmentDeleteCall(version, accountId, assignmentId, _callback);
+        return assignmentDeleteCall(accountId, assignmentId, _callback);
 
     }
 
     /**
      * Delete Assignment
      * Delete an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @return SirqulResponse
@@ -526,15 +497,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse assignmentDelete(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = assignmentDeleteWithHttpInfo(version, accountId, assignmentId);
+    public SirqulResponse assignmentDelete(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = assignmentDeleteWithHttpInfo(accountId, assignmentId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Assignment
      * Delete an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -546,8 +516,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> assignmentDeleteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
-        okhttp3.Call localVarCall = assignmentDeleteValidateBeforeCall(version, accountId, assignmentId, null);
+    public ApiResponse<SirqulResponse> assignmentDeleteWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
+        okhttp3.Call localVarCall = assignmentDeleteValidateBeforeCall(accountId, assignmentId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -555,7 +525,6 @@ public class AssignmentApi {
     /**
      * Delete Assignment (asynchronously)
      * Delete an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -568,16 +537,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentDeleteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentDeleteAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentDeleteValidateBeforeCall(version, accountId, assignmentId, _callback);
+        okhttp3.Call localVarCall = assignmentDeleteValidateBeforeCall(accountId, assignmentId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentGet
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param _callback Callback for upload/download progress
@@ -590,7 +558,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentGetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentGetCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -607,8 +575,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -644,12 +611,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentGetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentGet(Async)");
-        }
-
+    private okhttp3.Call assignmentGetValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentGet(Async)");
@@ -660,14 +622,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assignmentId' when calling assignmentGet(Async)");
         }
 
-        return assignmentGetCall(version, accountId, assignmentId, _callback);
+        return assignmentGetCall(accountId, assignmentId, _callback);
 
     }
 
     /**
      * Get Assignment
      * Get the details of an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @return AssignmentResponse
@@ -679,15 +640,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssignmentResponse assignmentGet(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
-        ApiResponse<AssignmentResponse> localVarResp = assignmentGetWithHttpInfo(version, accountId, assignmentId);
+    public AssignmentResponse assignmentGet(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
+        ApiResponse<AssignmentResponse> localVarResp = assignmentGetWithHttpInfo(accountId, assignmentId);
         return localVarResp.getData();
     }
 
     /**
      * Get Assignment
      * Get the details of an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @return ApiResponse&lt;AssignmentResponse&gt;
@@ -699,8 +659,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssignmentResponse> assignmentGetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
-        okhttp3.Call localVarCall = assignmentGetValidateBeforeCall(version, accountId, assignmentId, null);
+    public ApiResponse<AssignmentResponse> assignmentGetWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId) throws ApiException {
+        okhttp3.Call localVarCall = assignmentGetValidateBeforeCall(accountId, assignmentId, null);
         Type localVarReturnType = new TypeToken<AssignmentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -708,7 +668,6 @@ public class AssignmentApi {
     /**
      * Get Assignment (asynchronously)
      * Get the details of an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -721,16 +680,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentGetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback<AssignmentResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentGetAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, final ApiCallback<AssignmentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentGetValidateBeforeCall(version, accountId, assignmentId, _callback);
+        okhttp3.Call localVarCall = assignmentGetValidateBeforeCall(accountId, assignmentId, _callback);
         Type localVarReturnType = new TypeToken<AssignmentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentSearch
-     * @param version  (required)
      * @param accountId the account sending the request (required)
      * @param sortField sort by table field (required)
      * @param descending return results in descending order or not (required)
@@ -752,7 +710,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentSearchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -769,8 +727,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -842,12 +799,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentSearch(Async)");
-        }
-
+    private okhttp3.Call assignmentSearchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentSearch(Async)");
@@ -878,14 +830,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'limit' when calling assignmentSearch(Async)");
         }
 
-        return assignmentSearchCall(version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, _callback);
+        return assignmentSearchCall(accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, _callback);
 
     }
 
     /**
      * Search Assignments
      * Search for assignments by the given parameters.
-     * @param version  (required)
      * @param accountId the account sending the request (required)
      * @param sortField sort by table field (required)
      * @param descending return results in descending order or not (required)
@@ -906,15 +857,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AssignmentResponse> assignmentSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<AssignmentResponse>> localVarResp = assignmentSearchWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
+    public List<AssignmentResponse> assignmentSearch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<AssignmentResponse>> localVarResp = assignmentSearchWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Assignments
      * Search for assignments by the given parameters.
-     * @param version  (required)
      * @param accountId the account sending the request (required)
      * @param sortField sort by table field (required)
      * @param descending return results in descending order or not (required)
@@ -935,8 +885,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AssignmentResponse>> assignmentSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = assignmentSearchValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, null);
+    public ApiResponse<List<AssignmentResponse>> assignmentSearchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = assignmentSearchValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, null);
         Type localVarReturnType = new TypeToken<List<AssignmentResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -944,7 +894,6 @@ public class AssignmentApi {
     /**
      * Search Assignments (asynchronously)
      * Search for assignments by the given parameters.
-     * @param version  (required)
      * @param accountId the account sending the request (required)
      * @param sortField sort by table field (required)
      * @param descending return results in descending order or not (required)
@@ -966,16 +915,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword, final ApiCallback<List<AssignmentResponse>> _callback) throws ApiException {
+    public okhttp3.Call assignmentSearchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable String assigneeAccountIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String currentStatusType, @javax.annotation.Nullable String keyword, final ApiCallback<List<AssignmentResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentSearchValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, _callback);
+        okhttp3.Call localVarCall = assignmentSearchValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<AssignmentResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentStatusCreate
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -997,7 +945,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusCreateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusCreateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1014,8 +962,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/status/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/status/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1087,12 +1034,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentStatusCreateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentStatusCreate(Async)");
-        }
-
+    private okhttp3.Call assignmentStatusCreateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentStatusCreate(Async)");
@@ -1103,14 +1045,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assignmentId' when calling assignmentStatusCreate(Async)");
         }
 
-        return assignmentStatusCreateCall(version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
+        return assignmentStatusCreateCall(accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
 
     }
 
     /**
      * Create Assignment Status
      * Create an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1131,15 +1072,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssignmentStatusResponse assignmentStatusCreate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<AssignmentStatusResponse> localVarResp = assignmentStatusCreateWithHttpInfo(version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+    public AssignmentStatusResponse assignmentStatusCreate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<AssignmentStatusResponse> localVarResp = assignmentStatusCreateWithHttpInfo(accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Assignment Status
      * Create an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1160,8 +1100,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssignmentStatusResponse> assignmentStatusCreateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = assignmentStatusCreateValidateBeforeCall(version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, null);
+    public ApiResponse<AssignmentStatusResponse> assignmentStatusCreateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = assignmentStatusCreateValidateBeforeCall(accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, null);
         Type localVarReturnType = new TypeToken<AssignmentStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1169,7 +1109,6 @@ public class AssignmentApi {
     /**
      * Create Assignment Status (asynchronously)
      * Create an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1191,16 +1130,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusCreateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusCreateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentStatusCreateValidateBeforeCall(version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
+        okhttp3.Call localVarCall = assignmentStatusCreateValidateBeforeCall(accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
         Type localVarReturnType = new TypeToken<AssignmentStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentStatusDelete
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param _callback Callback for upload/download progress
@@ -1213,7 +1151,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusDeleteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusDeleteCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1230,8 +1168,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/status/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/status/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1267,12 +1204,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentStatusDeleteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentStatusDelete(Async)");
-        }
-
+    private okhttp3.Call assignmentStatusDeleteValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentStatusDelete(Async)");
@@ -1283,14 +1215,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assignmentStatusId' when calling assignmentStatusDelete(Async)");
         }
 
-        return assignmentStatusDeleteCall(version, accountId, assignmentStatusId, _callback);
+        return assignmentStatusDeleteCall(accountId, assignmentStatusId, _callback);
 
     }
 
     /**
      * Deletes Assignment Status
      * Deletes an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @return SirqulResponse
@@ -1302,15 +1233,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse assignmentStatusDelete(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = assignmentStatusDeleteWithHttpInfo(version, accountId, assignmentStatusId);
+    public SirqulResponse assignmentStatusDelete(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = assignmentStatusDeleteWithHttpInfo(accountId, assignmentStatusId);
         return localVarResp.getData();
     }
 
     /**
      * Deletes Assignment Status
      * Deletes an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -1322,8 +1252,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> assignmentStatusDeleteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
-        okhttp3.Call localVarCall = assignmentStatusDeleteValidateBeforeCall(version, accountId, assignmentStatusId, null);
+    public ApiResponse<SirqulResponse> assignmentStatusDeleteWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
+        okhttp3.Call localVarCall = assignmentStatusDeleteValidateBeforeCall(accountId, assignmentStatusId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1331,7 +1261,6 @@ public class AssignmentApi {
     /**
      * Deletes Assignment Status (asynchronously)
      * Deletes an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1344,16 +1273,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusDeleteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusDeleteAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentStatusDeleteValidateBeforeCall(version, accountId, assignmentStatusId, _callback);
+        okhttp3.Call localVarCall = assignmentStatusDeleteValidateBeforeCall(accountId, assignmentStatusId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentStatusGet
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param _callback Callback for upload/download progress
@@ -1366,7 +1294,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusGetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusGetCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1383,8 +1311,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/status/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/status/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1420,12 +1347,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentStatusGetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentStatusGet(Async)");
-        }
-
+    private okhttp3.Call assignmentStatusGetValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentStatusGet(Async)");
@@ -1436,14 +1358,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assignmentStatusId' when calling assignmentStatusGet(Async)");
         }
 
-        return assignmentStatusGetCall(version, accountId, assignmentStatusId, _callback);
+        return assignmentStatusGetCall(accountId, assignmentStatusId, _callback);
 
     }
 
     /**
      * Get Assignment Status
      * Get an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @return AssignmentStatusResponse
@@ -1455,15 +1376,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssignmentStatusResponse assignmentStatusGet(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
-        ApiResponse<AssignmentStatusResponse> localVarResp = assignmentStatusGetWithHttpInfo(version, accountId, assignmentStatusId);
+    public AssignmentStatusResponse assignmentStatusGet(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
+        ApiResponse<AssignmentStatusResponse> localVarResp = assignmentStatusGetWithHttpInfo(accountId, assignmentStatusId);
         return localVarResp.getData();
     }
 
     /**
      * Get Assignment Status
      * Get an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @return ApiResponse&lt;AssignmentStatusResponse&gt;
@@ -1475,8 +1395,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssignmentStatusResponse> assignmentStatusGetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
-        okhttp3.Call localVarCall = assignmentStatusGetValidateBeforeCall(version, accountId, assignmentStatusId, null);
+    public ApiResponse<AssignmentStatusResponse> assignmentStatusGetWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId) throws ApiException {
+        okhttp3.Call localVarCall = assignmentStatusGetValidateBeforeCall(accountId, assignmentStatusId, null);
         Type localVarReturnType = new TypeToken<AssignmentStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1484,7 +1404,6 @@ public class AssignmentApi {
     /**
      * Get Assignment Status (asynchronously)
      * Get an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1497,16 +1416,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusGetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback<AssignmentStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusGetAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, final ApiCallback<AssignmentStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentStatusGetValidateBeforeCall(version, accountId, assignmentStatusId, _callback);
+        okhttp3.Call localVarCall = assignmentStatusGetValidateBeforeCall(accountId, assignmentStatusId, _callback);
         Type localVarReturnType = new TypeToken<AssignmentStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentStatusSearch
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -1529,7 +1447,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusSearchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1546,8 +1464,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/status/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/status/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1623,12 +1540,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentStatusSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentStatusSearch(Async)");
-        }
-
+    private okhttp3.Call assignmentStatusSearchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentStatusSearch(Async)");
@@ -1659,14 +1571,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'limit' when calling assignmentStatusSearch(Async)");
         }
 
-        return assignmentStatusSearchCall(version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, _callback);
+        return assignmentStatusSearchCall(accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, _callback);
 
     }
 
     /**
      * Search Assignment Statuses
      * Search on assignment statuses.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -1688,15 +1599,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AssignmentStatusResponse> assignmentStatusSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<AssignmentStatusResponse>> localVarResp = assignmentStatusSearchWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
+    public List<AssignmentStatusResponse> assignmentStatusSearch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<AssignmentStatusResponse>> localVarResp = assignmentStatusSearchWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Assignment Statuses
      * Search on assignment statuses.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -1718,8 +1628,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AssignmentStatusResponse>> assignmentStatusSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = assignmentStatusSearchValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, null);
+    public ApiResponse<List<AssignmentStatusResponse>> assignmentStatusSearchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = assignmentStatusSearchValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, null);
         Type localVarReturnType = new TypeToken<List<AssignmentStatusResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1727,7 +1637,6 @@ public class AssignmentApi {
     /**
      * Search Assignment Statuses (asynchronously)
      * Search on assignment statuses.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -1750,16 +1659,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword, final ApiCallback<List<AssignmentStatusResponse>> _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusSearchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long assignmentId, @javax.annotation.Nullable Long creatorAccountId, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String statusType, @javax.annotation.Nullable String keyword, final ApiCallback<List<AssignmentStatusResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentStatusSearchValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, _callback);
+        okhttp3.Call localVarCall = assignmentStatusSearchValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<AssignmentStatusResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentStatusUpdate
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1781,7 +1689,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusUpdateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusUpdateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1798,8 +1706,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/status/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/status/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1871,12 +1778,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentStatusUpdateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentStatusUpdate(Async)");
-        }
-
+    private okhttp3.Call assignmentStatusUpdateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentStatusUpdate(Async)");
@@ -1887,14 +1789,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assignmentStatusId' when calling assignmentStatusUpdate(Async)");
         }
 
-        return assignmentStatusUpdateCall(version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
+        return assignmentStatusUpdateCall(accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
 
     }
 
     /**
      * Update Assignment Status
      * Updates an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1915,15 +1816,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssignmentStatusResponse assignmentStatusUpdate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<AssignmentStatusResponse> localVarResp = assignmentStatusUpdateWithHttpInfo(version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+    public AssignmentStatusResponse assignmentStatusUpdate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<AssignmentStatusResponse> localVarResp = assignmentStatusUpdateWithHttpInfo(accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Assignment Status
      * Updates an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1944,8 +1844,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssignmentStatusResponse> assignmentStatusUpdateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = assignmentStatusUpdateValidateBeforeCall(version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, null);
+    public ApiResponse<AssignmentStatusResponse> assignmentStatusUpdateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = assignmentStatusUpdateValidateBeforeCall(accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, null);
         Type localVarReturnType = new TypeToken<AssignmentStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1953,7 +1853,6 @@ public class AssignmentApi {
     /**
      * Update Assignment Status (asynchronously)
      * Updates an assignment status.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentStatusId the assignment status id (required)
      * @param scheduledNotificationId the scheduled notification id for reminders (optional)
@@ -1975,16 +1874,15 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentStatusUpdateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentStatusUpdateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentStatusId, @javax.annotation.Nullable Long scheduledNotificationId, @javax.annotation.Nullable String toDo, @javax.annotation.Nullable String connection, @javax.annotation.Nullable String method, @javax.annotation.Nullable String status, @javax.annotation.Nullable String closure, @javax.annotation.Nullable String message, @javax.annotation.Nullable Long followUp, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentStatusUpdateValidateBeforeCall(version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
+        okhttp3.Call localVarCall = assignmentStatusUpdateValidateBeforeCall(accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, _callback);
         Type localVarReturnType = new TypeToken<AssignmentStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assignmentUpdate
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param name the name of the assignment (optional)
@@ -2003,7 +1901,7 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentUpdateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assignmentUpdateCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2020,8 +1918,7 @@ public class AssignmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/assignment/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/assignment/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2081,12 +1978,7 @@ public class AssignmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assignmentUpdateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assignmentUpdate(Async)");
-        }
-
+    private okhttp3.Call assignmentUpdateValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling assignmentUpdate(Async)");
@@ -2097,14 +1989,13 @@ public class AssignmentApi {
             throw new ApiException("Missing the required parameter 'assignmentId' when calling assignmentUpdate(Async)");
         }
 
-        return assignmentUpdateCall(version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, _callback);
+        return assignmentUpdateCall(accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, _callback);
 
     }
 
     /**
      * Update Assignment
      * Updates an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param name the name of the assignment (optional)
@@ -2122,15 +2013,14 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssignmentResponse assignmentUpdate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<AssignmentResponse> localVarResp = assignmentUpdateWithHttpInfo(version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
+    public AssignmentResponse assignmentUpdate(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<AssignmentResponse> localVarResp = assignmentUpdateWithHttpInfo(accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Assignment
      * Updates an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param name the name of the assignment (optional)
@@ -2148,8 +2038,8 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssignmentResponse> assignmentUpdateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = assignmentUpdateValidateBeforeCall(version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, null);
+    public ApiResponse<AssignmentResponse> assignmentUpdateWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = assignmentUpdateValidateBeforeCall(accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, null);
         Type localVarReturnType = new TypeToken<AssignmentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2157,7 +2047,6 @@ public class AssignmentApi {
     /**
      * Update Assignment (asynchronously)
      * Updates an assignment.
-     * @param version  (required)
      * @param accountId the user account id (required)
      * @param assignmentId the assignment id (required)
      * @param name the name of the assignment (optional)
@@ -2176,9 +2065,9 @@ public class AssignmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assignmentUpdateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentResponse> _callback) throws ApiException {
+    public okhttp3.Call assignmentUpdateAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long assignmentId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assigneeAccountId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean active, final ApiCallback<AssignmentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assignmentUpdateValidateBeforeCall(version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, _callback);
+        okhttp3.Call localVarCall = assignmentUpdateValidateBeforeCall(accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, _callback);
         Type localVarReturnType = new TypeToken<AssignmentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

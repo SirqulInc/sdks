@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.WordzWordResponse;
 
@@ -76,7 +75,6 @@ public class WordApi {
 
     /**
      * Build call for createWord
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param word The text of the word. (required)
      * @param definition The definition of the word. (required)
@@ -96,7 +94,7 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWordCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createWordCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,8 +111,7 @@ public class WordApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/word/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/word/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -178,12 +175,7 @@ public class WordApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createWordValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createWord(Async)");
-        }
-
+    private okhttp3.Call createWordValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createWord(Async)");
@@ -214,14 +206,13 @@ public class WordApi {
             throw new ApiException("Missing the required parameter 'ticketCount' when calling createWord(Async)");
         }
 
-        return createWordCall(version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, _callback);
+        return createWordCall(accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, _callback);
 
     }
 
     /**
      * Create Word
      * Create a word by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param word The text of the word. (required)
      * @param definition The definition of the word. (required)
@@ -240,15 +231,14 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WordzWordResponse createWord(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        ApiResponse<WordzWordResponse> localVarResp = createWordWithHttpInfo(version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
+    public WordzWordResponse createWord(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        ApiResponse<WordzWordResponse> localVarResp = createWordWithHttpInfo(accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
         return localVarResp.getData();
     }
 
     /**
      * Create Word
      * Create a word by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param word The text of the word. (required)
      * @param definition The definition of the word. (required)
@@ -267,8 +257,8 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WordzWordResponse> createWordWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        okhttp3.Call localVarCall = createWordValidateBeforeCall(version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, null);
+    public ApiResponse<WordzWordResponse> createWordWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        okhttp3.Call localVarCall = createWordValidateBeforeCall(accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, null);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -276,7 +266,6 @@ public class WordApi {
     /**
      * Create Word (asynchronously)
      * Create a word by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param word The text of the word. (required)
      * @param definition The definition of the word. (required)
@@ -296,16 +285,15 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWordAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
+    public okhttp3.Call createWordAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String word, @javax.annotation.Nonnull String definition, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createWordValidateBeforeCall(version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, _callback);
+        okhttp3.Call localVarCall = createWordValidateBeforeCall(accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, _callback);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteWord
-     * @param version  (required)
      * @param wordId The id of the word to delete. (required)
      * @param accountId The account vor validating permission (required)
      * @param _callback Callback for upload/download progress
@@ -318,7 +306,7 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteWordCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteWordCall(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -335,8 +323,7 @@ public class WordApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/word/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/word/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -372,12 +359,7 @@ public class WordApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteWordValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteWord(Async)");
-        }
-
+    private okhttp3.Call deleteWordValidateBeforeCall(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'wordId' is set
         if (wordId == null) {
             throw new ApiException("Missing the required parameter 'wordId' when calling deleteWord(Async)");
@@ -388,14 +370,13 @@ public class WordApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteWord(Async)");
         }
 
-        return deleteWordCall(version, wordId, accountId, _callback);
+        return deleteWordCall(wordId, accountId, _callback);
 
     }
 
     /**
      * Delete Word
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param wordId The id of the word to delete. (required)
      * @param accountId The account vor validating permission (required)
      * @return SirqulResponse
@@ -407,15 +388,14 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteWord(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteWordWithHttpInfo(version, wordId, accountId);
+    public SirqulResponse deleteWord(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteWordWithHttpInfo(wordId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Word
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param wordId The id of the word to delete. (required)
      * @param accountId The account vor validating permission (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -427,8 +407,8 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteWordWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteWordValidateBeforeCall(version, wordId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteWordWithHttpInfo(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteWordValidateBeforeCall(wordId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -436,7 +416,6 @@ public class WordApi {
     /**
      * Delete Word (asynchronously)
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @param version  (required)
      * @param wordId The id of the word to delete. (required)
      * @param accountId The account vor validating permission (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -449,16 +428,15 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteWordAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteWordAsync(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteWordValidateBeforeCall(version, wordId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteWordValidateBeforeCall(wordId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getWord
-     * @param version  (required)
      * @param wordId The id of the word to get. (required)
      * @param accountId The logged in user. (required)
      * @param _callback Callback for upload/download progress
@@ -471,7 +449,7 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWordCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWordCall(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -488,8 +466,7 @@ public class WordApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/word/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/word/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -525,12 +502,7 @@ public class WordApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWordValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getWord(Async)");
-        }
-
+    private okhttp3.Call getWordValidateBeforeCall(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'wordId' is set
         if (wordId == null) {
             throw new ApiException("Missing the required parameter 'wordId' when calling getWord(Async)");
@@ -541,14 +513,13 @@ public class WordApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling getWord(Async)");
         }
 
-        return getWordCall(version, wordId, accountId, _callback);
+        return getWordCall(wordId, accountId, _callback);
 
     }
 
     /**
      * Get Word
      * Get a word by the given id.
-     * @param version  (required)
      * @param wordId The id of the word to get. (required)
      * @param accountId The logged in user. (required)
      * @return WordzWordResponse
@@ -560,15 +531,14 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WordzWordResponse getWord(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<WordzWordResponse> localVarResp = getWordWithHttpInfo(version, wordId, accountId);
+    public WordzWordResponse getWord(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<WordzWordResponse> localVarResp = getWordWithHttpInfo(wordId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Word
      * Get a word by the given id.
-     * @param version  (required)
      * @param wordId The id of the word to get. (required)
      * @param accountId The logged in user. (required)
      * @return ApiResponse&lt;WordzWordResponse&gt;
@@ -580,8 +550,8 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WordzWordResponse> getWordWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getWordValidateBeforeCall(version, wordId, accountId, null);
+    public ApiResponse<WordzWordResponse> getWordWithHttpInfo(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getWordValidateBeforeCall(wordId, accountId, null);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -589,7 +559,6 @@ public class WordApi {
     /**
      * Get Word (asynchronously)
      * Get a word by the given id.
-     * @param version  (required)
      * @param wordId The id of the word to get. (required)
      * @param accountId The logged in user. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -602,16 +571,15 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWordAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
+    public okhttp3.Call getWordAsync(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWordValidateBeforeCall(version, wordId, accountId, _callback);
+        okhttp3.Call localVarCall = getWordValidateBeforeCall(wordId, accountId, _callback);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getWords
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -629,7 +597,7 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWordsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getWordsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -646,8 +614,7 @@ public class WordApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/word/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/word/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -703,12 +670,7 @@ public class WordApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getWordsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getWords(Async)");
-        }
-
+    private okhttp3.Call getWordsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getWords(Async)");
@@ -739,14 +701,13 @@ public class WordApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getWords(Async)");
         }
 
-        return getWordsCall(version, accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
+        return getWordsCall(accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
 
     }
 
     /**
      * Search Words
      * Search for words by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -763,15 +724,14 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<WordzWordResponse> getWords(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<WordzWordResponse>> localVarResp = getWordsWithHttpInfo(version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+    public List<WordzWordResponse> getWords(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<WordzWordResponse>> localVarResp = getWordsWithHttpInfo(accountId, sortField, descending, activeOnly, start, limit, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Words
      * Search for words by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -788,8 +748,8 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WordzWordResponse>> getWordsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = getWordsValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, keyword, null);
+    public ApiResponse<List<WordzWordResponse>> getWordsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = getWordsValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, keyword, null);
         Type localVarReturnType = new TypeToken<List<WordzWordResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -797,7 +757,6 @@ public class WordApi {
     /**
      * Search Words (asynchronously)
      * Search for words by the given params.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -815,16 +774,15 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getWordsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback<List<WordzWordResponse>> _callback) throws ApiException {
+    public okhttp3.Call getWordsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, final ApiCallback<List<WordzWordResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getWordsValidateBeforeCall(version, accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
+        okhttp3.Call localVarCall = getWordsValidateBeforeCall(accountId, sortField, descending, activeOnly, start, limit, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<WordzWordResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateWord
-     * @param version  (required)
      * @param wordId The id of the word to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -845,7 +803,7 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWordCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateWordCall(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -862,8 +820,7 @@ public class WordApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/word/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/word/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -931,12 +888,7 @@ public class WordApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateWordValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateWord(Async)");
-        }
-
+    private okhttp3.Call updateWordValidateBeforeCall(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'wordId' is set
         if (wordId == null) {
             throw new ApiException("Missing the required parameter 'wordId' when calling updateWord(Async)");
@@ -952,14 +904,13 @@ public class WordApi {
             throw new ApiException("Missing the required parameter 'ticketCount' when calling updateWord(Async)");
         }
 
-        return updateWordCall(version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, _callback);
+        return updateWordCall(wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, _callback);
 
     }
 
     /**
      * Update Word
      * Update a word by the given params.
-     * @param version  (required)
      * @param wordId The id of the word to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -979,15 +930,14 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WordzWordResponse updateWord(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        ApiResponse<WordzWordResponse> localVarResp = updateWordWithHttpInfo(version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
+    public WordzWordResponse updateWord(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        ApiResponse<WordzWordResponse> localVarResp = updateWordWithHttpInfo(wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
         return localVarResp.getData();
     }
 
     /**
      * Update Word
      * Update a word by the given params.
-     * @param version  (required)
      * @param wordId The id of the word to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -1007,8 +957,8 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WordzWordResponse> updateWordWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        okhttp3.Call localVarCall = updateWordValidateBeforeCall(version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, null);
+    public ApiResponse<WordzWordResponse> updateWordWithHttpInfo(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        okhttp3.Call localVarCall = updateWordValidateBeforeCall(wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, null);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1016,7 +966,6 @@ public class WordApi {
     /**
      * Update Word (asynchronously)
      * Update a word by the given params.
-     * @param version  (required)
      * @param wordId The id of the word to update. (required)
      * @param accountId The logged in user. (required)
      * @param ticketCount The number of tickets to reward (required)
@@ -1037,9 +986,9 @@ public class WordApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWordAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
+    public okhttp3.Call updateWordAsync(@javax.annotation.Nonnull Long wordId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String wordText, @javax.annotation.Nullable String definition, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<WordzWordResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateWordValidateBeforeCall(version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, _callback);
+        okhttp3.Call localVarCall = updateWordValidateBeforeCall(wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, _callback);
         Type localVarReturnType = new TypeToken<WordzWordResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class ParticipantsApi {
 
     /**
      * Build call for processAllParticipants
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -90,7 +88,7 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call processAllParticipantsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call processAllParticipantsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,8 +105,7 @@ public class ParticipantsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/participant/process/all"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/participant/process/all";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -148,25 +145,19 @@ public class ParticipantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call processAllParticipantsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling processAllParticipants(Async)");
-        }
-
+    private okhttp3.Call processAllParticipantsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling processAllParticipants(Async)");
         }
 
-        return processAllParticipantsCall(version, accountId, appKey, useShortNameAsID, _callback);
+        return processAllParticipantsCall(accountId, appKey, useShortNameAsID, _callback);
 
     }
 
     /**
      * Process All Participant Feeds
      * Processes all supported participant feeds.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -179,15 +170,14 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse processAllParticipants(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = processAllParticipantsWithHttpInfo(version, accountId, appKey, useShortNameAsID);
+    public SirqulResponse processAllParticipants(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = processAllParticipantsWithHttpInfo(accountId, appKey, useShortNameAsID);
         return localVarResp.getData();
     }
 
     /**
      * Process All Participant Feeds
      * Processes all supported participant feeds.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -200,8 +190,8 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> processAllParticipantsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID) throws ApiException {
-        okhttp3.Call localVarCall = processAllParticipantsValidateBeforeCall(version, accountId, appKey, useShortNameAsID, null);
+    public ApiResponse<SirqulResponse> processAllParticipantsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID) throws ApiException {
+        okhttp3.Call localVarCall = processAllParticipantsValidateBeforeCall(accountId, appKey, useShortNameAsID, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -209,7 +199,6 @@ public class ParticipantsApi {
     /**
      * Process All Participant Feeds (asynchronously)
      * Processes all supported participant feeds.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param appKey The application key used to identify the application (optional)
      * @param useShortNameAsID Whether to use short name as the participant ID (optional)
@@ -223,16 +212,15 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call processAllParticipantsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call processAllParticipantsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = processAllParticipantsValidateBeforeCall(version, accountId, appKey, useShortNameAsID, _callback);
+        okhttp3.Call localVarCall = processAllParticipantsValidateBeforeCall(accountId, appKey, useShortNameAsID, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for processParticipants
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param league The league identifier to process (required)
      * @param appKey The application key used to identify the application (optional)
@@ -248,7 +236,7 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call processParticipantsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call processParticipantsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -265,8 +253,7 @@ public class ParticipantsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/participant/process"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/participant/process";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -314,12 +301,7 @@ public class ParticipantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call processParticipantsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling processParticipants(Async)");
-        }
-
+    private okhttp3.Call processParticipantsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling processParticipants(Async)");
@@ -330,14 +312,13 @@ public class ParticipantsApi {
             throw new ApiException("Missing the required parameter 'league' when calling processParticipants(Async)");
         }
 
-        return processParticipantsCall(version, accountId, league, appKey, useShortNameAsID, _file, _callback);
+        return processParticipantsCall(accountId, league, appKey, useShortNameAsID, _file, _callback);
 
     }
 
     /**
      * Process Participants Feed
      * Processes a participant feed or uploaded file for a specific league.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param league The league identifier to process (required)
      * @param appKey The application key used to identify the application (optional)
@@ -352,15 +333,14 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse processParticipants(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = processParticipantsWithHttpInfo(version, accountId, league, appKey, useShortNameAsID, _file);
+    public SirqulResponse processParticipants(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = processParticipantsWithHttpInfo(accountId, league, appKey, useShortNameAsID, _file);
         return localVarResp.getData();
     }
 
     /**
      * Process Participants Feed
      * Processes a participant feed or uploaded file for a specific league.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param league The league identifier to process (required)
      * @param appKey The application key used to identify the application (optional)
@@ -375,8 +355,8 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> processParticipantsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file) throws ApiException {
-        okhttp3.Call localVarCall = processParticipantsValidateBeforeCall(version, accountId, league, appKey, useShortNameAsID, _file, null);
+    public ApiResponse<SirqulResponse> processParticipantsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file) throws ApiException {
+        okhttp3.Call localVarCall = processParticipantsValidateBeforeCall(accountId, league, appKey, useShortNameAsID, _file, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -384,7 +364,6 @@ public class ParticipantsApi {
     /**
      * Process Participants Feed (asynchronously)
      * Processes a participant feed or uploaded file for a specific league.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param league The league identifier to process (required)
      * @param appKey The application key used to identify the application (optional)
@@ -400,9 +379,9 @@ public class ParticipantsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call processParticipantsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call processParticipantsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String league, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean useShortNameAsID, @javax.annotation.Nullable File _file, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = processParticipantsValidateBeforeCall(version, accountId, league, appKey, useShortNameAsID, _file, _callback);
+        okhttp3.Call localVarCall = processParticipantsValidateBeforeCall(accountId, league, appKey, useShortNameAsID, _file, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

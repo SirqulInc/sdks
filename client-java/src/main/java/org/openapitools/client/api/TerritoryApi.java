@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TerritoryResponse;
 
@@ -76,7 +75,6 @@ public class TerritoryApi {
 
     /**
      * Build call for createTerritory
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the territory (required)
      * @param active If true set the game level as active. Default is true. (optional)
@@ -90,7 +88,7 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTerritoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTerritoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,8 +105,7 @@ public class TerritoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/territory/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/territory/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -148,12 +145,7 @@ public class TerritoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTerritoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createTerritory(Async)");
-        }
-
+    private okhttp3.Call createTerritoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createTerritory(Async)");
@@ -164,14 +156,13 @@ public class TerritoryApi {
             throw new ApiException("Missing the required parameter 'name' when calling createTerritory(Async)");
         }
 
-        return createTerritoryCall(version, accountId, name, active, _callback);
+        return createTerritoryCall(accountId, name, active, _callback);
 
     }
 
     /**
      * Create Territory
      * Creates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the territory (required)
      * @param active If true set the game level as active. Default is true. (optional)
@@ -184,15 +175,14 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TerritoryResponse createTerritory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<TerritoryResponse> localVarResp = createTerritoryWithHttpInfo(version, accountId, name, active);
+    public TerritoryResponse createTerritory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<TerritoryResponse> localVarResp = createTerritoryWithHttpInfo(accountId, name, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Territory
      * Creates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the territory (required)
      * @param active If true set the game level as active. Default is true. (optional)
@@ -205,8 +195,8 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TerritoryResponse> createTerritoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = createTerritoryValidateBeforeCall(version, accountId, name, active, null);
+    public ApiResponse<TerritoryResponse> createTerritoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = createTerritoryValidateBeforeCall(accountId, name, active, null);
         Type localVarReturnType = new TypeToken<TerritoryResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -214,7 +204,6 @@ public class TerritoryApi {
     /**
      * Create Territory (asynchronously)
      * Creates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the territory (required)
      * @param active If true set the game level as active. Default is true. (optional)
@@ -228,16 +217,15 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTerritoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active, final ApiCallback<TerritoryResponse> _callback) throws ApiException {
+    public okhttp3.Call createTerritoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable Boolean active, final ApiCallback<TerritoryResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTerritoryValidateBeforeCall(version, accountId, name, active, _callback);
+        okhttp3.Call localVarCall = createTerritoryValidateBeforeCall(accountId, name, active, _callback);
         Type localVarReturnType = new TypeToken<TerritoryResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteTerritory
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param territoryId the id of the territory to delete (required)
      * @param _callback Callback for upload/download progress
@@ -250,7 +238,7 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTerritoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteTerritoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -267,8 +255,7 @@ public class TerritoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/territory/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/territory/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -304,12 +291,7 @@ public class TerritoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTerritoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteTerritory(Async)");
-        }
-
+    private okhttp3.Call deleteTerritoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteTerritory(Async)");
@@ -320,14 +302,13 @@ public class TerritoryApi {
             throw new ApiException("Missing the required parameter 'territoryId' when calling deleteTerritory(Async)");
         }
 
-        return deleteTerritoryCall(version, accountId, territoryId, _callback);
+        return deleteTerritoryCall(accountId, territoryId, _callback);
 
     }
 
     /**
      * Delete Territory
      * Deletes a territory.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param territoryId the id of the territory to delete (required)
      * @return SirqulResponse
@@ -339,15 +320,14 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteTerritory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteTerritoryWithHttpInfo(version, accountId, territoryId);
+    public SirqulResponse deleteTerritory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteTerritoryWithHttpInfo(accountId, territoryId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Territory
      * Deletes a territory.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param territoryId the id of the territory to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -359,8 +339,8 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteTerritoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId) throws ApiException {
-        okhttp3.Call localVarCall = deleteTerritoryValidateBeforeCall(version, accountId, territoryId, null);
+    public ApiResponse<SirqulResponse> deleteTerritoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId) throws ApiException {
+        okhttp3.Call localVarCall = deleteTerritoryValidateBeforeCall(accountId, territoryId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -368,7 +348,6 @@ public class TerritoryApi {
     /**
      * Delete Territory (asynchronously)
      * Deletes a territory.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param territoryId the id of the territory to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -381,16 +360,15 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTerritoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteTerritoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteTerritoryValidateBeforeCall(version, accountId, territoryId, _callback);
+        okhttp3.Call localVarCall = deleteTerritoryValidateBeforeCall(accountId, territoryId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTerritory
-     * @param version  (required)
      * @param territoryId the id of the territory to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -402,7 +380,7 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTerritoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTerritoryCall(@javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -419,8 +397,7 @@ public class TerritoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/territory/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/territory/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -452,25 +429,19 @@ public class TerritoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTerritoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTerritory(Async)");
-        }
-
+    private okhttp3.Call getTerritoryValidateBeforeCall(@javax.annotation.Nonnull Long territoryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'territoryId' is set
         if (territoryId == null) {
             throw new ApiException("Missing the required parameter 'territoryId' when calling getTerritory(Async)");
         }
 
-        return getTerritoryCall(version, territoryId, _callback);
+        return getTerritoryCall(territoryId, _callback);
 
     }
 
     /**
      * Get Territory
      * Get a territory.
-     * @param version  (required)
      * @param territoryId the id of the territory to get (required)
      * @return TerritoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -481,15 +452,14 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TerritoryResponse getTerritory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long territoryId) throws ApiException {
-        ApiResponse<TerritoryResponse> localVarResp = getTerritoryWithHttpInfo(version, territoryId);
+    public TerritoryResponse getTerritory(@javax.annotation.Nonnull Long territoryId) throws ApiException {
+        ApiResponse<TerritoryResponse> localVarResp = getTerritoryWithHttpInfo(territoryId);
         return localVarResp.getData();
     }
 
     /**
      * Get Territory
      * Get a territory.
-     * @param version  (required)
      * @param territoryId the id of the territory to get (required)
      * @return ApiResponse&lt;TerritoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -500,8 +470,8 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TerritoryResponse> getTerritoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long territoryId) throws ApiException {
-        okhttp3.Call localVarCall = getTerritoryValidateBeforeCall(version, territoryId, null);
+    public ApiResponse<TerritoryResponse> getTerritoryWithHttpInfo(@javax.annotation.Nonnull Long territoryId) throws ApiException {
+        okhttp3.Call localVarCall = getTerritoryValidateBeforeCall(territoryId, null);
         Type localVarReturnType = new TypeToken<TerritoryResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -509,7 +479,6 @@ public class TerritoryApi {
     /**
      * Get Territory (asynchronously)
      * Get a territory.
-     * @param version  (required)
      * @param territoryId the id of the territory to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -521,16 +490,15 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTerritoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long territoryId, final ApiCallback<TerritoryResponse> _callback) throws ApiException {
+    public okhttp3.Call getTerritoryAsync(@javax.annotation.Nonnull Long territoryId, final ApiCallback<TerritoryResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTerritoryValidateBeforeCall(version, territoryId, _callback);
+        okhttp3.Call localVarCall = getTerritoryValidateBeforeCall(territoryId, _callback);
         Type localVarReturnType = new TypeToken<TerritoryResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchTerritories
-     * @param version  (required)
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param keyword Return results that match this keyword. (optional)
@@ -546,7 +514,7 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTerritoriesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTerritoriesCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -563,8 +531,7 @@ public class TerritoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/territory/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/territory/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -612,12 +579,7 @@ public class TerritoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTerritoriesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchTerritories(Async)");
-        }
-
+    private okhttp3.Call searchTerritoriesValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchTerritories(Async)");
@@ -628,14 +590,13 @@ public class TerritoryApi {
             throw new ApiException("Missing the required parameter 'descending' when calling searchTerritories(Async)");
         }
 
-        return searchTerritoriesCall(version, sortField, descending, keyword, start, limit, _callback);
+        return searchTerritoriesCall(sortField, descending, keyword, start, limit, _callback);
 
     }
 
     /**
      * Search Territories
      * Searches on territories.
-     * @param version  (required)
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param keyword Return results that match this keyword. (optional)
@@ -650,15 +611,14 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<TerritoryResponse> searchTerritories(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<TerritoryResponse>> localVarResp = searchTerritoriesWithHttpInfo(version, sortField, descending, keyword, start, limit);
+    public List<TerritoryResponse> searchTerritories(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<TerritoryResponse>> localVarResp = searchTerritoriesWithHttpInfo(sortField, descending, keyword, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Territories
      * Searches on territories.
-     * @param version  (required)
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param keyword Return results that match this keyword. (optional)
@@ -673,8 +633,8 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TerritoryResponse>> searchTerritoriesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchTerritoriesValidateBeforeCall(version, sortField, descending, keyword, start, limit, null);
+    public ApiResponse<List<TerritoryResponse>> searchTerritoriesWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchTerritoriesValidateBeforeCall(sortField, descending, keyword, start, limit, null);
         Type localVarReturnType = new TypeToken<List<TerritoryResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -682,7 +642,6 @@ public class TerritoryApi {
     /**
      * Search Territories (asynchronously)
      * Searches on territories.
-     * @param version  (required)
      * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param keyword Return results that match this keyword. (optional)
@@ -698,16 +657,15 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTerritoriesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<TerritoryResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchTerritoriesAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<TerritoryResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTerritoriesValidateBeforeCall(version, sortField, descending, keyword, start, limit, _callback);
+        okhttp3.Call localVarCall = searchTerritoriesValidateBeforeCall(sortField, descending, keyword, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<TerritoryResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateTerritory
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param territoryId the id of the territory to update (required)
      * @param name The name of the territory (optional)
@@ -722,7 +680,7 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTerritoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTerritoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -739,8 +697,7 @@ public class TerritoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/territory/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/territory/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -784,12 +741,7 @@ public class TerritoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTerritoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateTerritory(Async)");
-        }
-
+    private okhttp3.Call updateTerritoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateTerritory(Async)");
@@ -800,14 +752,13 @@ public class TerritoryApi {
             throw new ApiException("Missing the required parameter 'territoryId' when calling updateTerritory(Async)");
         }
 
-        return updateTerritoryCall(version, accountId, territoryId, name, active, _callback);
+        return updateTerritoryCall(accountId, territoryId, name, active, _callback);
 
     }
 
     /**
      * Update Territory
      * Updates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param territoryId the id of the territory to update (required)
      * @param name The name of the territory (optional)
@@ -821,15 +772,14 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TerritoryResponse updateTerritory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<TerritoryResponse> localVarResp = updateTerritoryWithHttpInfo(version, accountId, territoryId, name, active);
+    public TerritoryResponse updateTerritory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<TerritoryResponse> localVarResp = updateTerritoryWithHttpInfo(accountId, territoryId, name, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Territory
      * Updates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param territoryId the id of the territory to update (required)
      * @param name The name of the territory (optional)
@@ -843,8 +793,8 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TerritoryResponse> updateTerritoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = updateTerritoryValidateBeforeCall(version, accountId, territoryId, name, active, null);
+    public ApiResponse<TerritoryResponse> updateTerritoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = updateTerritoryValidateBeforeCall(accountId, territoryId, name, active, null);
         Type localVarReturnType = new TypeToken<TerritoryResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -852,7 +802,6 @@ public class TerritoryApi {
     /**
      * Update Territory (asynchronously)
      * Updates a territory.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param territoryId the id of the territory to update (required)
      * @param name The name of the territory (optional)
@@ -867,9 +816,9 @@ public class TerritoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTerritoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active, final ApiCallback<TerritoryResponse> _callback) throws ApiException {
+    public okhttp3.Call updateTerritoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long territoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Boolean active, final ApiCallback<TerritoryResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTerritoryValidateBeforeCall(version, accountId, territoryId, name, active, _callback);
+        okhttp3.Call localVarCall = updateTerritoryValidateBeforeCall(accountId, territoryId, name, active, _callback);
         Type localVarReturnType = new TypeToken<TerritoryResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

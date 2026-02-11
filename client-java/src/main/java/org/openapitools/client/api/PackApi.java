@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PackResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class PackApi {
 
     /**
      * Build call for createPack
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the pack (required)
      * @param packOrder The order of the pack (required)
@@ -111,7 +109,7 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPackCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPackCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -128,8 +126,7 @@ public class PackApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/pack/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/pack/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -253,12 +250,7 @@ public class PackApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPackValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createPack(Async)");
-        }
-
+    private okhttp3.Call createPackValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createPack(Async)");
@@ -294,14 +286,13 @@ public class PackApi {
             throw new ApiException("Missing the required parameter 'ticketCount' when calling createPack(Async)");
         }
 
-        return createPackCall(version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, _callback);
+        return createPackCall(accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, _callback);
 
     }
 
     /**
      * Create Pack
      * Create a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the pack (required)
      * @param packOrder The order of the pack (required)
@@ -335,15 +326,14 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PackResponse createPack(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        ApiResponse<PackResponse> localVarResp = createPackWithHttpInfo(version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
+    public PackResponse createPack(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        ApiResponse<PackResponse> localVarResp = createPackWithHttpInfo(accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
         return localVarResp.getData();
     }
 
     /**
      * Create Pack
      * Create a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the pack (required)
      * @param packOrder The order of the pack (required)
@@ -377,8 +367,8 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PackResponse> createPackWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        okhttp3.Call localVarCall = createPackValidateBeforeCall(version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, null);
+    public ApiResponse<PackResponse> createPackWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        okhttp3.Call localVarCall = createPackValidateBeforeCall(accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, null);
         Type localVarReturnType = new TypeToken<PackResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -386,7 +376,6 @@ public class PackApi {
     /**
      * Create Pack (asynchronously)
      * Create a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the pack (required)
      * @param packOrder The order of the pack (required)
@@ -421,16 +410,15 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPackAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<PackResponse> _callback) throws ApiException {
+    public okhttp3.Call createPackAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Long packOrder, @javax.annotation.Nonnull Integer price, @javax.annotation.Nonnull Boolean highest, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<PackResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPackValidateBeforeCall(version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, _callback);
+        okhttp3.Call localVarCall = createPackValidateBeforeCall(accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, _callback);
         Type localVarReturnType = new TypeToken<PackResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deletePack
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param packId the id of the pack to delete (required)
      * @param _callback Callback for upload/download progress
@@ -443,7 +431,7 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePackCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deletePackCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -460,8 +448,7 @@ public class PackApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/pack/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/pack/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -497,12 +484,7 @@ public class PackApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePackValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deletePack(Async)");
-        }
-
+    private okhttp3.Call deletePackValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deletePack(Async)");
@@ -513,14 +495,13 @@ public class PackApi {
             throw new ApiException("Missing the required parameter 'packId' when calling deletePack(Async)");
         }
 
-        return deletePackCall(version, accountId, packId, _callback);
+        return deletePackCall(accountId, packId, _callback);
 
     }
 
     /**
      * Delete Pack
      * Delete a pack.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param packId the id of the pack to delete (required)
      * @return SirqulResponse
@@ -532,15 +513,14 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deletePack(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deletePackWithHttpInfo(version, accountId, packId);
+    public SirqulResponse deletePack(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deletePackWithHttpInfo(accountId, packId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Pack
      * Delete a pack.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param packId the id of the pack to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -552,8 +532,8 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deletePackWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId) throws ApiException {
-        okhttp3.Call localVarCall = deletePackValidateBeforeCall(version, accountId, packId, null);
+    public ApiResponse<SirqulResponse> deletePackWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId) throws ApiException {
+        okhttp3.Call localVarCall = deletePackValidateBeforeCall(accountId, packId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -561,7 +541,6 @@ public class PackApi {
     /**
      * Delete Pack (asynchronously)
      * Delete a pack.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param packId the id of the pack to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -574,16 +553,15 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePackAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deletePackAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePackValidateBeforeCall(version, accountId, packId, _callback);
+        okhttp3.Call localVarCall = deletePackValidateBeforeCall(accountId, packId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPack
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -597,7 +575,7 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPackCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPackCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -614,8 +592,7 @@ public class PackApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/pack/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/pack/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -655,12 +632,7 @@ public class PackApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPackValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPack(Async)");
-        }
-
+    private okhttp3.Call getPackValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPack(Async)");
@@ -676,14 +648,13 @@ public class PackApi {
             throw new ApiException("Missing the required parameter 'includeGameData' when calling getPack(Async)");
         }
 
-        return getPackCall(version, accountId, packId, includeGameData, _callback);
+        return getPackCall(accountId, packId, includeGameData, _callback);
 
     }
 
     /**
      * Get Pack
      * Get a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -696,15 +667,14 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PackResponse getPack(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData) throws ApiException {
-        ApiResponse<PackResponse> localVarResp = getPackWithHttpInfo(version, accountId, packId, includeGameData);
+    public PackResponse getPack(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData) throws ApiException {
+        ApiResponse<PackResponse> localVarResp = getPackWithHttpInfo(accountId, packId, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Get Pack
      * Get a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -717,8 +687,8 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PackResponse> getPackWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = getPackValidateBeforeCall(version, accountId, packId, includeGameData, null);
+    public ApiResponse<PackResponse> getPackWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = getPackValidateBeforeCall(accountId, packId, includeGameData, null);
         Type localVarReturnType = new TypeToken<PackResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -726,7 +696,6 @@ public class PackApi {
     /**
      * Get Pack (asynchronously)
      * Get a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to return. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (required)
@@ -740,16 +709,15 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPackAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData, final ApiCallback<PackResponse> _callback) throws ApiException {
+    public okhttp3.Call getPackAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean includeGameData, final ApiCallback<PackResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPackValidateBeforeCall(version, accountId, packId, includeGameData, _callback);
+        okhttp3.Call localVarCall = getPackValidateBeforeCall(accountId, packId, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<PackResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchPacks
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -770,7 +738,7 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPacksCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchPacksCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -787,8 +755,7 @@ public class PackApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/pack/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/pack/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -856,12 +823,7 @@ public class PackApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchPacksValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchPacks(Async)");
-        }
-
+    private okhttp3.Call searchPacksValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchPacks(Async)");
@@ -877,14 +839,13 @@ public class PackApi {
             throw new ApiException("Missing the required parameter 'descending' when calling searchPacks(Async)");
         }
 
-        return searchPacksCall(version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, _callback);
+        return searchPacksCall(accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, _callback);
 
     }
 
     /**
      * Search Packs
      * Search on packs.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -904,15 +865,14 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<PackResponse> searchPacks(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<List<PackResponse>> localVarResp = searchPacksWithHttpInfo(version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
+    public List<PackResponse> searchPacks(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<List<PackResponse>> localVarResp = searchPacksWithHttpInfo(accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Search Packs
      * Search on packs.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -932,8 +892,8 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<PackResponse>> searchPacksWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = searchPacksValidateBeforeCall(version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, null);
+    public ApiResponse<List<PackResponse>> searchPacksWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = searchPacksValidateBeforeCall(accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, null);
         Type localVarReturnType = new TypeToken<List<PackResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -941,7 +901,6 @@ public class PackApi {
     /**
      * Search Packs (asynchronously)
      * Search on packs.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -962,16 +921,15 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPacksAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey, final ApiCallback<List<PackResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchPacksAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String appKey, final ApiCallback<List<PackResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchPacksValidateBeforeCall(version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, _callback);
+        okhttp3.Call localVarCall = searchPacksValidateBeforeCall(accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, _callback);
         Type localVarReturnType = new TypeToken<List<PackResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updatePack
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to update. (required)
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -1007,7 +965,7 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePackCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePackCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1024,8 +982,7 @@ public class PackApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/pack/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/pack/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1153,12 +1110,7 @@ public class PackApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePackValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updatePack(Async)");
-        }
-
+    private okhttp3.Call updatePackValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updatePack(Async)");
@@ -1179,14 +1131,13 @@ public class PackApi {
             throw new ApiException("Missing the required parameter 'ticketCount' when calling updatePack(Async)");
         }
 
-        return updatePackCall(version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, _callback);
+        return updatePackCall(accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, _callback);
 
     }
 
     /**
      * Update Pack
      * Update a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to update. (required)
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -1221,15 +1172,14 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PackResponse updatePack(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        ApiResponse<PackResponse> localVarResp = updatePackWithHttpInfo(version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
+    public PackResponse updatePack(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        ApiResponse<PackResponse> localVarResp = updatePackWithHttpInfo(accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
         return localVarResp.getData();
     }
 
     /**
      * Update Pack
      * Update a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to update. (required)
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -1264,8 +1214,8 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PackResponse> updatePackWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
-        okhttp3.Call localVarCall = updatePackValidateBeforeCall(version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, null);
+    public ApiResponse<PackResponse> updatePackWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points) throws ApiException {
+        okhttp3.Call localVarCall = updatePackValidateBeforeCall(accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, null);
         Type localVarReturnType = new TypeToken<PackResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1273,7 +1223,6 @@ public class PackApi {
     /**
      * Update Pack (asynchronously)
      * Update a pack.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param packId The id of the pack to update. (required)
      * @param allocateTickets Flag to indicate owner should receive tickets for completed packs (required)
@@ -1309,9 +1258,9 @@ public class PackApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePackAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<PackResponse> _callback) throws ApiException {
+    public okhttp3.Call updatePackAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long packId, @javax.annotation.Nonnull Boolean allocateTickets, @javax.annotation.Nonnull Long ticketCount, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String packType, @javax.annotation.Nullable Long packOrder, @javax.annotation.Nullable String sequenceType, @javax.annotation.Nullable Long backgroundId, @javax.annotation.Nullable Long imageId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String authorOverride, @javax.annotation.Nullable Integer price, @javax.annotation.Nullable String priceType, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable Boolean inGame, @javax.annotation.Nullable Boolean highest, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, final ApiCallback<PackResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updatePackValidateBeforeCall(version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, _callback);
+        okhttp3.Call localVarCall = updatePackValidateBeforeCall(accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, _callback);
         Type localVarReturnType = new TypeToken<PackResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

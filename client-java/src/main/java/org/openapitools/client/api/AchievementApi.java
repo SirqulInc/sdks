@@ -31,7 +31,6 @@ import org.openapitools.client.model.AchievementProgressResponse;
 import org.openapitools.client.model.AchievementResponse;
 import org.openapitools.client.model.AchievementShortResponse;
 import org.openapitools.client.model.AchievementTierResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -79,8 +78,7 @@ public class AchievementApi {
     }
 
     /**
-     * Build call for apiVersionAchievementTierSearchPost
-     * @param version  (required)
+     * Build call for achievementTierSearchPost
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -102,7 +100,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiVersionAchievementTierSearchPostCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call achievementTierSearchPostCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -119,8 +117,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/tier/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/tier/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -192,20 +189,14 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiVersionAchievementTierSearchPostValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling apiVersionAchievementTierSearchPost(Async)");
-        }
-
-        return apiVersionAchievementTierSearchPostCall(version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, _callback);
+    private okhttp3.Call achievementTierSearchPostValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+        return achievementTierSearchPostCall(deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, _callback);
 
     }
 
     /**
      * Searches an Achievement Tier
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -226,15 +217,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AchievementTierResponse apiVersionAchievementTierSearchPost(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
-        ApiResponse<AchievementTierResponse> localVarResp = apiVersionAchievementTierSearchPostWithHttpInfo(version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
+    public AchievementTierResponse achievementTierSearchPost(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
+        ApiResponse<AchievementTierResponse> localVarResp = achievementTierSearchPostWithHttpInfo(deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Searches an Achievement Tier
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -255,8 +245,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AchievementTierResponse> apiVersionAchievementTierSearchPostWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
-        okhttp3.Call localVarCall = apiVersionAchievementTierSearchPostValidateBeforeCall(version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, null);
+    public ApiResponse<AchievementTierResponse> achievementTierSearchPostWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
+        okhttp3.Call localVarCall = achievementTierSearchPostValidateBeforeCall(deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, null);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -264,7 +254,6 @@ public class AchievementApi {
     /**
      * Searches an Achievement Tier (asynchronously)
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param appKey the application key (optional)
@@ -286,16 +275,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiVersionAchievementTierSearchPostAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
+    public okhttp3.Call achievementTierSearchPostAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long achievementType, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean descendingGoal, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiVersionAchievementTierSearchPostValidateBeforeCall(version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, _callback);
+        okhttp3.Call localVarCall = achievementTierSearchPostValidateBeforeCall(deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, _callback);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAchievement
-     * @param version  (required)
      * @param appKey the application key the achievement is for (required)
      * @param title the title of the achievement (255 character limit) (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -319,7 +307,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAchievementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAchievementCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -336,8 +324,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -417,12 +404,7 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAchievementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createAchievement(Async)");
-        }
-
+    private okhttp3.Call createAchievementValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling createAchievement(Async)");
@@ -433,14 +415,13 @@ public class AchievementApi {
             throw new ApiException("Missing the required parameter 'title' when calling createAchievement(Async)");
         }
 
-        return createAchievementCall(version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, _callback);
+        return createAchievementCall(appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, _callback);
 
     }
 
     /**
      * Create Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param appKey the application key the achievement is for (required)
      * @param title the title of the achievement (255 character limit) (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -463,15 +444,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AchievementResponse createAchievement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
-        ApiResponse<AchievementResponse> localVarResp = createAchievementWithHttpInfo(version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
+    public AchievementResponse createAchievement(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
+        ApiResponse<AchievementResponse> localVarResp = createAchievementWithHttpInfo(appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
         return localVarResp.getData();
     }
 
     /**
      * Create Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param appKey the application key the achievement is for (required)
      * @param title the title of the achievement (255 character limit) (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -494,8 +474,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AchievementResponse> createAchievementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
-        okhttp3.Call localVarCall = createAchievementValidateBeforeCall(version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, null);
+    public ApiResponse<AchievementResponse> createAchievementWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
+        okhttp3.Call localVarCall = createAchievementValidateBeforeCall(appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, null);
         Type localVarReturnType = new TypeToken<AchievementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -503,7 +483,6 @@ public class AchievementApi {
     /**
      * Create Achievement (asynchronously)
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param appKey the application key the achievement is for (required)
      * @param title the title of the achievement (255 character limit) (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -527,16 +506,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAchievementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback<AchievementResponse> _callback) throws ApiException {
+    public okhttp3.Call createAchievementAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback<AchievementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAchievementValidateBeforeCall(version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, _callback);
+        okhttp3.Call localVarCall = createAchievementValidateBeforeCall(appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, _callback);
         Type localVarReturnType = new TypeToken<AchievementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAchievementTier
-     * @param version  (required)
      * @param achievementId the achievement id for adding a new tier (required)
      * @param scoreAllInstances score all instances (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -561,7 +539,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAchievementTierCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAchievementTierCall(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -578,8 +556,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/tier/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/tier/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -663,12 +640,7 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAchievementTierValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createAchievementTier(Async)");
-        }
-
+    private okhttp3.Call createAchievementTierValidateBeforeCall(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'achievementId' is set
         if (achievementId == null) {
             throw new ApiException("Missing the required parameter 'achievementId' when calling createAchievementTier(Async)");
@@ -679,14 +651,13 @@ public class AchievementApi {
             throw new ApiException("Missing the required parameter 'scoreAllInstances' when calling createAchievementTier(Async)");
         }
 
-        return createAchievementTierCall(version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
+        return createAchievementTierCall(achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
 
     }
 
     /**
      * Create Achievement Tier
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId the achievement id for adding a new tier (required)
      * @param scoreAllInstances score all instances (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -710,15 +681,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AchievementTierResponse createAchievementTier(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId) throws ApiException {
-        ApiResponse<AchievementTierResponse> localVarResp = createAchievementTierWithHttpInfo(version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
+    public AchievementTierResponse createAchievementTier(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId) throws ApiException {
+        ApiResponse<AchievementTierResponse> localVarResp = createAchievementTierWithHttpInfo(achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
         return localVarResp.getData();
     }
 
     /**
      * Create Achievement Tier
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId the achievement id for adding a new tier (required)
      * @param scoreAllInstances score all instances (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -742,8 +712,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AchievementTierResponse> createAchievementTierWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId) throws ApiException {
-        okhttp3.Call localVarCall = createAchievementTierValidateBeforeCall(version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, null);
+    public ApiResponse<AchievementTierResponse> createAchievementTierWithHttpInfo(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId) throws ApiException {
+        okhttp3.Call localVarCall = createAchievementTierValidateBeforeCall(achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, null);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -751,7 +721,6 @@ public class AchievementApi {
     /**
      * Create Achievement Tier (asynchronously)
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId the achievement id for adding a new tier (required)
      * @param scoreAllInstances score all instances (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
@@ -776,16 +745,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAchievementTierAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
+    public okhttp3.Call createAchievementTierAsync(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nonnull Boolean scoreAllInstances, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Integer gameObjectId, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAchievementTierValidateBeforeCall(version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
+        okhttp3.Call localVarCall = createAchievementTierValidateBeforeCall(achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, _callback);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteAchievement
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param _callback Callback for upload/download progress
@@ -798,7 +766,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAchievementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAchievementCall(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -815,8 +783,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -852,25 +819,19 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAchievementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteAchievement(Async)");
-        }
-
+    private okhttp3.Call deleteAchievementValidateBeforeCall(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'achievementId' is set
         if (achievementId == null) {
             throw new ApiException("Missing the required parameter 'achievementId' when calling deleteAchievement(Async)");
         }
 
-        return deleteAchievementCall(version, achievementId, accountId, _callback);
+        return deleteAchievementCall(achievementId, accountId, _callback);
 
     }
 
     /**
      * Delete Achievement
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @return SirqulResponse
@@ -882,15 +843,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteAchievement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteAchievementWithHttpInfo(version, achievementId, accountId);
+    public SirqulResponse deleteAchievement(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteAchievementWithHttpInfo(achievementId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Achievement
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -902,8 +862,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteAchievementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(version, achievementId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteAchievementWithHttpInfo(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(achievementId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -911,7 +871,6 @@ public class AchievementApi {
     /**
      * Delete Achievement (asynchronously)
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -924,16 +883,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAchievementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteAchievementAsync(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(version, achievementId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteAchievementValidateBeforeCall(achievementId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteAchievementTier
-     * @param version  (required)
      * @param achievementTierId the achievement id for deletion (required)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param _callback Callback for upload/download progress
@@ -946,7 +904,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAchievementTierCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAchievementTierCall(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -963,8 +921,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/tier/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/tier/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1000,25 +957,19 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAchievementTierValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteAchievementTier(Async)");
-        }
-
+    private okhttp3.Call deleteAchievementTierValidateBeforeCall(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'achievementTierId' is set
         if (achievementTierId == null) {
             throw new ApiException("Missing the required parameter 'achievementTierId' when calling deleteAchievementTier(Async)");
         }
 
-        return deleteAchievementTierCall(version, achievementTierId, accountId, _callback);
+        return deleteAchievementTierCall(achievementTierId, accountId, _callback);
 
     }
 
     /**
      * Delete Achievement Tier
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementTierId the achievement id for deletion (required)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @return SirqulResponse
@@ -1030,15 +981,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteAchievementTier(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteAchievementTierWithHttpInfo(version, achievementTierId, accountId);
+    public SirqulResponse deleteAchievementTier(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteAchievementTierWithHttpInfo(achievementTierId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Achievement Tier
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementTierId the achievement id for deletion (required)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -1050,8 +1000,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteAchievementTierWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteAchievementTierValidateBeforeCall(version, achievementTierId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteAchievementTierWithHttpInfo(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteAchievementTierValidateBeforeCall(achievementTierId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1059,7 +1009,6 @@ public class AchievementApi {
     /**
      * Delete Achievement Tier (asynchronously)
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param version  (required)
      * @param achievementTierId the achievement id for deletion (required)
      * @param accountId the account id of the user (deviceId or accountId required). (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1072,16 +1021,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAchievementTierAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteAchievementTierAsync(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAchievementTierValidateBeforeCall(version, achievementTierId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteAchievementTierValidateBeforeCall(achievementTierId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAchievement
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1096,7 +1044,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAchievementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAchievementCall(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1113,8 +1061,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1158,25 +1105,19 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAchievementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAchievement(Async)");
-        }
-
+    private okhttp3.Call getAchievementValidateBeforeCall(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'achievementId' is set
         if (achievementId == null) {
             throw new ApiException("Missing the required parameter 'achievementId' when calling getAchievement(Async)");
         }
 
-        return getAchievementCall(version, achievementId, deviceId, accountId, achievementType, _callback);
+        return getAchievementCall(achievementId, deviceId, accountId, achievementType, _callback);
 
     }
 
     /**
      * Get Achievement
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1190,15 +1131,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AchievementTierResponse getAchievement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType) throws ApiException {
-        ApiResponse<AchievementTierResponse> localVarResp = getAchievementWithHttpInfo(version, achievementId, deviceId, accountId, achievementType);
+    public AchievementTierResponse getAchievement(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType) throws ApiException {
+        ApiResponse<AchievementTierResponse> localVarResp = getAchievementWithHttpInfo(achievementId, deviceId, accountId, achievementType);
         return localVarResp.getData();
     }
 
     /**
      * Get Achievement
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1212,8 +1152,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AchievementTierResponse> getAchievementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType) throws ApiException {
-        okhttp3.Call localVarCall = getAchievementValidateBeforeCall(version, achievementId, deviceId, accountId, achievementType, null);
+    public ApiResponse<AchievementTierResponse> getAchievementWithHttpInfo(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType) throws ApiException {
+        okhttp3.Call localVarCall = getAchievementValidateBeforeCall(achievementId, deviceId, accountId, achievementType, null);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1221,7 +1161,6 @@ public class AchievementApi {
     /**
      * Get Achievement (asynchronously)
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementId The ID of the achievement (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1236,16 +1175,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAchievementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
+    public okhttp3.Call getAchievementAsync(@javax.annotation.Nonnull Long achievementId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String achievementType, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAchievementValidateBeforeCall(version, achievementId, deviceId, accountId, achievementType, _callback);
+        okhttp3.Call localVarCall = getAchievementValidateBeforeCall(achievementId, deviceId, accountId, achievementType, _callback);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAchievementTier
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param achievementTierId the achievement tier id that is being retrieved (required)
      * @param _callback Callback for upload/download progress
@@ -1258,7 +1196,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAchievementTierCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAchievementTierCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1275,8 +1213,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/tier/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/tier/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1312,12 +1249,7 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAchievementTierValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAchievementTier(Async)");
-        }
-
+    private okhttp3.Call getAchievementTierValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getAchievementTier(Async)");
@@ -1328,14 +1260,13 @@ public class AchievementApi {
             throw new ApiException("Missing the required parameter 'achievementTierId' when calling getAchievementTier(Async)");
         }
 
-        return getAchievementTierCall(version, accountId, achievementTierId, _callback);
+        return getAchievementTierCall(accountId, achievementTierId, _callback);
 
     }
 
     /**
      * Gets an achievement tier
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param achievementTierId the achievement tier id that is being retrieved (required)
      * @return AchievementTierResponse
@@ -1347,15 +1278,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AchievementTierResponse getAchievementTier(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId) throws ApiException {
-        ApiResponse<AchievementTierResponse> localVarResp = getAchievementTierWithHttpInfo(version, accountId, achievementTierId);
+    public AchievementTierResponse getAchievementTier(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId) throws ApiException {
+        ApiResponse<AchievementTierResponse> localVarResp = getAchievementTierWithHttpInfo(accountId, achievementTierId);
         return localVarResp.getData();
     }
 
     /**
      * Gets an achievement tier
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param achievementTierId the achievement tier id that is being retrieved (required)
      * @return ApiResponse&lt;AchievementTierResponse&gt;
@@ -1367,8 +1297,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AchievementTierResponse> getAchievementTierWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId) throws ApiException {
-        okhttp3.Call localVarCall = getAchievementTierValidateBeforeCall(version, accountId, achievementTierId, null);
+    public ApiResponse<AchievementTierResponse> getAchievementTierWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId) throws ApiException {
+        okhttp3.Call localVarCall = getAchievementTierValidateBeforeCall(accountId, achievementTierId, null);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1376,7 +1306,6 @@ public class AchievementApi {
     /**
      * Gets an achievement tier (asynchronously)
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param achievementTierId the achievement tier id that is being retrieved (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1389,16 +1318,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAchievementTierAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
+    public okhttp3.Call getAchievementTierAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long achievementTierId, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAchievementTierValidateBeforeCall(version, accountId, achievementTierId, _callback);
+        okhttp3.Call localVarCall = getAchievementTierValidateBeforeCall(accountId, achievementTierId, _callback);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserAchievements
-     * @param version  (required)
      * @param returnNulls determines whether to return null fields in the response (required)
      * @param appKey the application key for filtering results by application (required)
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -1420,7 +1348,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserAchievementsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserAchievementsCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1437,8 +1365,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/progress/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/progress/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1510,12 +1437,7 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserAchievementsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserAchievements(Async)");
-        }
-
+    private okhttp3.Call getUserAchievementsValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling getUserAchievements(Async)");
@@ -1531,14 +1453,13 @@ public class AchievementApi {
             throw new ApiException("Missing the required parameter 'includeUndiscovered' when calling getUserAchievements(Async)");
         }
 
-        return getUserAchievementsCall(version, returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, _callback);
+        return getUserAchievementsCall(returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Achievement Progress
      * Gets a list of user achievements.
-     * @param version  (required)
      * @param returnNulls determines whether to return null fields in the response (required)
      * @param appKey the application key for filtering results by application (required)
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -1559,15 +1480,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AchievementProgressResponse> getUserAchievements(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<List<AchievementProgressResponse>> localVarResp = getUserAchievementsWithHttpInfo(version, returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
+    public List<AchievementProgressResponse> getUserAchievements(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<List<AchievementProgressResponse>> localVarResp = getUserAchievementsWithHttpInfo(returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Achievement Progress
      * Gets a list of user achievements.
-     * @param version  (required)
      * @param returnNulls determines whether to return null fields in the response (required)
      * @param appKey the application key for filtering results by application (required)
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -1588,8 +1508,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AchievementProgressResponse>> getUserAchievementsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getUserAchievementsValidateBeforeCall(version, returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, null);
+    public ApiResponse<List<AchievementProgressResponse>> getUserAchievementsWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getUserAchievementsValidateBeforeCall(returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<List<AchievementProgressResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1597,7 +1517,6 @@ public class AchievementApi {
     /**
      * Get Achievement Progress (asynchronously)
      * Gets a list of user achievements.
-     * @param version  (required)
      * @param returnNulls determines whether to return null fields in the response (required)
      * @param appKey the application key for filtering results by application (required)
      * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet (required)
@@ -1619,16 +1538,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserAchievementsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<List<AchievementProgressResponse>> _callback) throws ApiException {
+    public okhttp3.Call getUserAchievementsAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean includeUndiscovered, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<List<AchievementProgressResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserAchievementsValidateBeforeCall(version, returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getUserAchievementsValidateBeforeCall(returnNulls, appKey, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<List<AchievementProgressResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listAchievementTags
-     * @param version  (required)
      * @param appKey filter results by application key (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1640,7 +1558,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementTagsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAchievementTagsCall(@javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1657,8 +1575,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/tag/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/tag/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1690,20 +1607,14 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAchievementTagsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listAchievementTags(Async)");
-        }
-
-        return listAchievementTagsCall(version, appKey, _callback);
+    private okhttp3.Call listAchievementTagsValidateBeforeCall(@javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+        return listAchievementTagsCall(appKey, _callback);
 
     }
 
     /**
      * List Achievement Tags
      * List achievement tags by application
-     * @param version  (required)
      * @param appKey filter results by application key (optional)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1714,15 +1625,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse listAchievementTags(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = listAchievementTagsWithHttpInfo(version, appKey);
+    public SirqulResponse listAchievementTags(@javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = listAchievementTagsWithHttpInfo(appKey);
         return localVarResp.getData();
     }
 
     /**
      * List Achievement Tags
      * List achievement tags by application
-     * @param version  (required)
      * @param appKey filter results by application key (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1733,8 +1643,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> listAchievementTagsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = listAchievementTagsValidateBeforeCall(version, appKey, null);
+    public ApiResponse<SirqulResponse> listAchievementTagsWithHttpInfo(@javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = listAchievementTagsValidateBeforeCall(appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1742,7 +1652,6 @@ public class AchievementApi {
     /**
      * List Achievement Tags (asynchronously)
      * List achievement tags by application
-     * @param version  (required)
      * @param appKey filter results by application key (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1754,16 +1663,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementTagsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call listAchievementTagsAsync(@javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listAchievementTagsValidateBeforeCall(version, appKey, _callback);
+        okhttp3.Call localVarCall = listAchievementTagsValidateBeforeCall(appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listAchievements
-     * @param version  (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param start the start index for pagination (required)
@@ -1785,7 +1693,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAchievementsCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1802,8 +1710,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1875,12 +1782,7 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAchievementsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listAchievements(Async)");
-        }
-
+    private okhttp3.Call listAchievementsValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling listAchievements(Async)");
@@ -1906,14 +1808,13 @@ public class AchievementApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling listAchievements(Async)");
         }
 
-        return listAchievementsCall(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, _callback);
+        return listAchievementsCall(sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, _callback);
 
     }
 
     /**
      * List Achievements
      * List achievements by billable.
-     * @param version  (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param start the start index for pagination (required)
@@ -1934,15 +1835,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AchievementShortResponse> listAchievements(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
-        ApiResponse<List<AchievementShortResponse>> localVarResp = listAchievementsWithHttpInfo(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
+    public List<AchievementShortResponse> listAchievements(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
+        ApiResponse<List<AchievementShortResponse>> localVarResp = listAchievementsWithHttpInfo(sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
         return localVarResp.getData();
     }
 
     /**
      * List Achievements
      * List achievements by billable.
-     * @param version  (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param start the start index for pagination (required)
@@ -1963,8 +1863,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AchievementShortResponse>> listAchievementsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
-        okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, null);
+    public ApiResponse<List<AchievementShortResponse>> listAchievementsWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
+        okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, null);
         Type localVarReturnType = new TypeToken<List<AchievementShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1972,7 +1872,6 @@ public class AchievementApi {
     /**
      * List Achievements (asynchronously)
      * List achievements by billable.
-     * @param version  (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
      * @param start the start index for pagination (required)
@@ -1994,16 +1893,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAchievementsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback<List<AchievementShortResponse>> _callback) throws ApiException {
+    public okhttp3.Call listAchievementsAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback<List<AchievementShortResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, _callback);
+        okhttp3.Call localVarCall = listAchievementsValidateBeforeCall(sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, _callback);
         Type localVarReturnType = new TypeToken<List<AchievementShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchAchievements
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -2026,7 +1924,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAchievementsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAchievementsCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2043,8 +1941,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2120,12 +2017,7 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAchievementsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchAchievements(Async)");
-        }
-
+    private okhttp3.Call searchAchievementsValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchAchievements(Async)");
@@ -2161,14 +2053,13 @@ public class AchievementApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchAchievements(Async)");
         }
 
-        return searchAchievementsCall(version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, _callback);
+        return searchAchievementsCall(appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, _callback);
 
     }
 
     /**
      * Search Achievements
      * Searches achievements by application for consumers.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -2190,15 +2081,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AchievementShortResponse> searchAchievements(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
-        ApiResponse<List<AchievementShortResponse>> localVarResp = searchAchievementsWithHttpInfo(version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
+    public List<AchievementShortResponse> searchAchievements(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
+        ApiResponse<List<AchievementShortResponse>> localVarResp = searchAchievementsWithHttpInfo(appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
         return localVarResp.getData();
     }
 
     /**
      * Search Achievements
      * Searches achievements by application for consumers.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -2220,8 +2110,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AchievementShortResponse>> searchAchievementsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
-        okhttp3.Call localVarCall = searchAchievementsValidateBeforeCall(version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, null);
+    public ApiResponse<List<AchievementShortResponse>> searchAchievementsWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType) throws ApiException {
+        okhttp3.Call localVarCall = searchAchievementsValidateBeforeCall(appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, null);
         Type localVarReturnType = new TypeToken<List<AchievementShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2229,7 +2119,6 @@ public class AchievementApi {
     /**
      * Search Achievements (asynchronously)
      * Searches achievements by application for consumers.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param sortField the field to sort by. See AchievementApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -2252,16 +2141,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAchievementsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback<List<AchievementShortResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchAchievementsAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean includeTiers, @javax.annotation.Nonnull Boolean includeInactiveTiers, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String achievementType, @javax.annotation.Nullable String rankType, final ApiCallback<List<AchievementShortResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAchievementsValidateBeforeCall(version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, _callback);
+        okhttp3.Call localVarCall = searchAchievementsValidateBeforeCall(appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, _callback);
         Type localVarReturnType = new TypeToken<List<AchievementShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateAchievement
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -2287,7 +2175,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAchievementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAchievementCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2304,8 +2192,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2393,20 +2280,14 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAchievementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateAchievement(Async)");
-        }
-
-        return updateAchievementCall(version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, _callback);
+    private okhttp3.Call updateAchievementValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback _callback) throws ApiException {
+        return updateAchievementCall(deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, _callback);
 
     }
 
     /**
      * Update Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -2431,15 +2312,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AchievementResponse updateAchievement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
-        ApiResponse<AchievementResponse> localVarResp = updateAchievementWithHttpInfo(version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
+    public AchievementResponse updateAchievement(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
+        ApiResponse<AchievementResponse> localVarResp = updateAchievementWithHttpInfo(deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
         return localVarResp.getData();
     }
 
     /**
      * Update Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -2464,8 +2344,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AchievementResponse> updateAchievementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
-        okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, null);
+    public ApiResponse<AchievementResponse> updateAchievementWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition) throws ApiException {
+        okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, null);
         Type localVarReturnType = new TypeToken<AchievementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2473,7 +2353,6 @@ public class AchievementApi {
     /**
      * Update Achievement (asynchronously)
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param achievementId the achievement ID for updating an existing achievement (optional)
@@ -2499,16 +2378,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAchievementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback<AchievementResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAchievementAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String analyticsTag, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Integer rankIncrement, @javax.annotation.Nullable Integer minIncrement, @javax.annotation.Nullable Boolean nullMinIncrement, @javax.annotation.Nullable Integer maxIncrement, @javax.annotation.Nullable Boolean nullMaxIncrement, @javax.annotation.Nullable Boolean validate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String triggerDefinition, final ApiCallback<AchievementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, _callback);
+        okhttp3.Call localVarCall = updateAchievementValidateBeforeCall(deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, _callback);
         Type localVarReturnType = new TypeToken<AchievementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateAchievementTier
-     * @param version  (required)
      * @param achievementTierId the achievement tier id for updating (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2533,7 +2411,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAchievementTierCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAchievementTierCall(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2550,8 +2428,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/tier/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/tier/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2635,25 +2512,19 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAchievementTierValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateAchievementTier(Async)");
-        }
-
+    private okhttp3.Call updateAchievementTierValidateBeforeCall(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'achievementTierId' is set
         if (achievementTierId == null) {
             throw new ApiException("Missing the required parameter 'achievementTierId' when calling updateAchievementTier(Async)");
         }
 
-        return updateAchievementTierCall(version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, _callback);
+        return updateAchievementTierCall(achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, _callback);
 
     }
 
     /**
      * Update Achievement Tier
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementTierId the achievement tier id for updating (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2677,15 +2548,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AchievementTierResponse updateAchievementTier(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances) throws ApiException {
-        ApiResponse<AchievementTierResponse> localVarResp = updateAchievementTierWithHttpInfo(version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
+    public AchievementTierResponse updateAchievementTier(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances) throws ApiException {
+        ApiResponse<AchievementTierResponse> localVarResp = updateAchievementTierWithHttpInfo(achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
         return localVarResp.getData();
     }
 
     /**
      * Update Achievement Tier
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementTierId the achievement tier id for updating (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2709,8 +2579,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AchievementTierResponse> updateAchievementTierWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances) throws ApiException {
-        okhttp3.Call localVarCall = updateAchievementTierValidateBeforeCall(version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, null);
+    public ApiResponse<AchievementTierResponse> updateAchievementTierWithHttpInfo(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances) throws ApiException {
+        okhttp3.Call localVarCall = updateAchievementTierValidateBeforeCall(achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, null);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2718,7 +2588,6 @@ public class AchievementApi {
     /**
      * Update Achievement Tier (asynchronously)
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param version  (required)
      * @param achievementTierId the achievement tier id for updating (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2743,16 +2612,15 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAchievementTierAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAchievementTierAsync(@javax.annotation.Nonnull Long achievementTierId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable File icon, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long goalCount, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable Long packId, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Long gameObjectId, @javax.annotation.Nullable Boolean scoreAllInstances, final ApiCallback<AchievementTierResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAchievementTierValidateBeforeCall(version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, _callback);
+        okhttp3.Call localVarCall = updateAchievementTierValidateBeforeCall(achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, _callback);
         Type localVarReturnType = new TypeToken<AchievementTierResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateUserAchievement
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -2771,7 +2639,7 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserAchievementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateUserAchievementCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2788,8 +2656,7 @@ public class AchievementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/achievement/progress/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/achievement/progress/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2849,25 +2716,19 @@ public class AchievementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserAchievementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateUserAchievement(Async)");
-        }
-
+    private okhttp3.Call updateUserAchievementValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateUserAchievement(Async)");
         }
 
-        return updateUserAchievementCall(version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, _callback);
+        return updateUserAchievementCall(accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, _callback);
 
     }
 
     /**
      * Update Achievement Progress
      * Update user achievement progress.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -2885,15 +2746,14 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateUserAchievement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateUserAchievementWithHttpInfo(version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
+    public SirqulResponse updateUserAchievement(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateUserAchievementWithHttpInfo(accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
         return localVarResp.getData();
     }
 
     /**
      * Update Achievement Progress
      * Update user achievement progress.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -2911,8 +2771,8 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateUserAchievementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress) throws ApiException {
-        okhttp3.Call localVarCall = updateUserAchievementValidateBeforeCall(version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, null);
+    public ApiResponse<SirqulResponse> updateUserAchievementWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress) throws ApiException {
+        okhttp3.Call localVarCall = updateUserAchievementValidateBeforeCall(accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2920,7 +2780,6 @@ public class AchievementApi {
     /**
      * Update Achievement Progress (asynchronously)
      * Update user achievement progress.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param achievementId the achievement id (achievementId or tag required) (optional)
      * @param tag the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -2939,9 +2798,9 @@ public class AchievementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserAchievementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateUserAchievementAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long achievementId, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean returnProgress, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateUserAchievementValidateBeforeCall(version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, _callback);
+        okhttp3.Call localVarCall = updateUserAchievementValidateBeforeCall(accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

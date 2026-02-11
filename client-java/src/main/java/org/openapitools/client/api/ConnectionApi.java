@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ConnectionGroupResponse;
 import org.openapitools.client.model.ConnectionInfoResponse;
 import org.openapitools.client.model.ConnectionListResponse;
@@ -79,7 +78,6 @@ public class ConnectionApi {
 
     /**
      * Build call for addConnectionToGroup
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -99,7 +97,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addConnectionToGroupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addConnectionToGroupCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/group/addConnection"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/group/addConnection";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -181,12 +178,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addConnectionToGroupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addConnectionToGroup(Async)");
-        }
-
+    private okhttp3.Call addConnectionToGroupValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling addConnectionToGroup(Async)");
@@ -197,14 +189,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'groupId' when calling addConnectionToGroup(Async)");
         }
 
-        return addConnectionToGroupCall(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
+        return addConnectionToGroupCall(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
 
     }
 
     /**
      * Add Connection
      * Adds a connection to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -223,15 +214,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse addConnectionToGroup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = addConnectionToGroupWithHttpInfo(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+    public SirqulResponse addConnectionToGroup(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = addConnectionToGroupWithHttpInfo(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Add Connection
      * Adds a connection to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -250,8 +240,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> addConnectionToGroupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = addConnectionToGroupValidateBeforeCall(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> addConnectionToGroupWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = addConnectionToGroupValidateBeforeCall(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -259,7 +249,6 @@ public class ConnectionApi {
     /**
      * Add Connection (asynchronously)
      * Adds a connection to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -279,16 +268,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addConnectionToGroupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call addConnectionToGroupAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addConnectionToGroupValidateBeforeCall(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = addConnectionToGroupValidateBeforeCall(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for addConnectionsToGroup
-     * @param version  (required)
      * @param connectionGroupId the connection group ID (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -306,7 +294,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addConnectionsToGroupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addConnectionsToGroupCall(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -323,8 +311,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/connection/group/addConnections"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/connection/group/addConnections";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -380,25 +367,19 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addConnectionsToGroupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addConnectionsToGroup(Async)");
-        }
-
+    private okhttp3.Call addConnectionsToGroupValidateBeforeCall(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'connectionGroupId' is set
         if (connectionGroupId == null) {
             throw new ApiException("Missing the required parameter 'connectionGroupId' when calling addConnectionsToGroup(Async)");
         }
 
-        return addConnectionsToGroupCall(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
+        return addConnectionsToGroupCall(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
 
     }
 
     /**
      * Add Connections
      * Adds a list of connections to a group.
-     * @param version  (required)
      * @param connectionGroupId the connection group ID (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -415,15 +396,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse addConnectionsToGroup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = addConnectionsToGroupWithHttpInfo(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+    public SirqulResponse addConnectionsToGroup(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = addConnectionsToGroupWithHttpInfo(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Add Connections
      * Adds a list of connections to a group.
-     * @param version  (required)
      * @param connectionGroupId the connection group ID (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -440,8 +420,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> addConnectionsToGroupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = addConnectionsToGroupValidateBeforeCall(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> addConnectionsToGroupWithHttpInfo(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = addConnectionsToGroupValidateBeforeCall(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -449,7 +429,6 @@ public class ConnectionApi {
     /**
      * Add Connections (asynchronously)
      * Adds a list of connections to a group.
-     * @param version  (required)
      * @param connectionGroupId the connection group ID (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -467,16 +446,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addConnectionsToGroupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call addConnectionsToGroupAsync(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addConnectionsToGroupValidateBeforeCall(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = addConnectionsToGroupValidateBeforeCall(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for addSubGroups
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to add to the parent group (required)
@@ -494,7 +472,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addSubGroupsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addSubGroupsCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -511,8 +489,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/group/addSubGroup"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/group/addSubGroup";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -568,12 +545,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addSubGroupsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addSubGroups(Async)");
-        }
-
+    private okhttp3.Call addSubGroupsValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling addSubGroups(Async)");
@@ -589,14 +561,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'subGroupIds' when calling addSubGroups(Async)");
         }
 
-        return addSubGroupsCall(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
+        return addSubGroupsCall(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Add Connection Groups
      * Add sub groups to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to add to the parent group (required)
@@ -613,15 +584,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ConnectionGroupResponse addSubGroups(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ConnectionGroupResponse> localVarResp = addSubGroupsWithHttpInfo(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+    public ConnectionGroupResponse addSubGroups(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ConnectionGroupResponse> localVarResp = addSubGroupsWithHttpInfo(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Add Connection Groups
      * Add sub groups to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to add to the parent group (required)
@@ -638,8 +608,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConnectionGroupResponse> addSubGroupsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = addSubGroupsValidateBeforeCall(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<ConnectionGroupResponse> addSubGroupsWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = addSubGroupsValidateBeforeCall(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ConnectionGroupResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -647,7 +617,6 @@ public class ConnectionApi {
     /**
      * Add Connection Groups (asynchronously)
      * Add sub groups to a group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to add to the parent group (required)
@@ -665,16 +634,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addSubGroupsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ConnectionGroupResponse> _callback) throws ApiException {
+    public okhttp3.Call addSubGroupsAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ConnectionGroupResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addSubGroupsValidateBeforeCall(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = addSubGroupsValidateBeforeCall(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ConnectionGroupResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createOrUpdateConnection
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -699,7 +667,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrUpdateConnectionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOrUpdateConnectionCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -716,8 +684,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/add"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/add";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -801,20 +768,14 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOrUpdateConnectionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createOrUpdateConnection(Async)");
-        }
-
-        return createOrUpdateConnectionCall(version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, _callback);
+    private okhttp3.Call createOrUpdateConnectionValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse, final ApiCallback _callback) throws ApiException {
+        return createOrUpdateConnectionCall(deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, _callback);
 
     }
 
     /**
      * Create or Update Connection
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -838,15 +799,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ConnectionResponse createOrUpdateConnection(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse) throws ApiException {
-        ApiResponse<ConnectionResponse> localVarResp = createOrUpdateConnectionWithHttpInfo(version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
+    public ConnectionResponse createOrUpdateConnection(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse) throws ApiException {
+        ApiResponse<ConnectionResponse> localVarResp = createOrUpdateConnectionWithHttpInfo(deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
         return localVarResp.getData();
     }
 
     /**
      * Create or Update Connection
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -870,8 +830,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConnectionResponse> createOrUpdateConnectionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse) throws ApiException {
-        okhttp3.Call localVarCall = createOrUpdateConnectionValidateBeforeCall(version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, null);
+    public ApiResponse<ConnectionResponse> createOrUpdateConnectionWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse) throws ApiException {
+        okhttp3.Call localVarCall = createOrUpdateConnectionValidateBeforeCall(deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, null);
         Type localVarReturnType = new TypeToken<ConnectionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -879,7 +839,6 @@ public class ConnectionApi {
     /**
      * Create or Update Connection (asynchronously)
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param connectionId the connection id for editing (optional)
@@ -904,16 +863,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrUpdateConnectionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse, final ApiCallback<ConnectionResponse> _callback) throws ApiException {
+    public okhttp3.Call createOrUpdateConnectionAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean isTrusted, @javax.annotation.Nullable Boolean ignoreFriendRequest, @javax.annotation.Nullable Boolean isContact, @javax.annotation.Nullable Boolean isBlocked, @javax.annotation.Nullable Boolean isFollowing, @javax.annotation.Nullable Boolean connectionResponse, final ApiCallback<ConnectionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createOrUpdateConnectionValidateBeforeCall(version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, _callback);
+        okhttp3.Call localVarCall = createOrUpdateConnectionValidateBeforeCall(deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, _callback);
         Type localVarReturnType = new TypeToken<ConnectionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createOrUpdateGroup
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -938,7 +896,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrUpdateGroupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOrUpdateGroupCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -955,8 +913,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/group"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/group";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1040,25 +997,19 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOrUpdateGroupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createOrUpdateGroup(Async)");
-        }
-
+    private okhttp3.Call createOrUpdateGroupValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling createOrUpdateGroup(Async)");
         }
 
-        return createOrUpdateGroupCall(version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, _callback);
+        return createOrUpdateGroupCall(returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, _callback);
 
     }
 
     /**
      * Create or Update Connection Group
      * Creates a new private group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1082,15 +1033,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse createOrUpdateGroup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = createOrUpdateGroupWithHttpInfo(version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
+    public SirqulResponse createOrUpdateGroup(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = createOrUpdateGroupWithHttpInfo(returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create or Update Connection Group
      * Creates a new private group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1114,8 +1064,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> createOrUpdateGroupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = createOrUpdateGroupValidateBeforeCall(version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> createOrUpdateGroupWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = createOrUpdateGroupValidateBeforeCall(returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1123,7 +1073,6 @@ public class ConnectionApi {
     /**
      * Create or Update Connection Group (asynchronously)
      * Creates a new private group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1148,16 +1097,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOrUpdateGroupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call createOrUpdateGroupAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean canViewProfileInfo, @javax.annotation.Nullable Boolean canViewGameInfo, @javax.annotation.Nullable Boolean canViewFriendInfo, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createOrUpdateGroupValidateBeforeCall(version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = createOrUpdateGroupValidateBeforeCall(returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for followAccept
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1171,7 +1119,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followAcceptCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call followAcceptCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1188,8 +1136,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/follow/accept"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/follow/accept";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1229,12 +1176,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call followAcceptValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling followAccept(Async)");
-        }
-
+    private okhttp3.Call followAcceptValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling followAccept(Async)");
@@ -1250,14 +1192,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling followAccept(Async)");
         }
 
-        return followAcceptCall(version, accountId, connectionAccountId, appKey, _callback);
+        return followAcceptCall(accountId, connectionAccountId, appKey, _callback);
 
     }
 
     /**
      * Accept Follow Request
      * Accept someone&#39;s follow request.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1270,15 +1211,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse followAccept(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = followAcceptWithHttpInfo(version, accountId, connectionAccountId, appKey);
+    public SirqulResponse followAccept(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = followAcceptWithHttpInfo(accountId, connectionAccountId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Accept Follow Request
      * Accept someone&#39;s follow request.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1291,8 +1231,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> followAcceptWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = followAcceptValidateBeforeCall(version, accountId, connectionAccountId, appKey, null);
+    public ApiResponse<SirqulResponse> followAcceptWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = followAcceptValidateBeforeCall(accountId, connectionAccountId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1300,7 +1240,6 @@ public class ConnectionApi {
     /**
      * Accept Follow Request (asynchronously)
      * Accept someone&#39;s follow request.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1314,16 +1253,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followAcceptAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call followAcceptAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = followAcceptValidateBeforeCall(version, accountId, connectionAccountId, appKey, _callback);
+        okhttp3.Call localVarCall = followAcceptValidateBeforeCall(accountId, connectionAccountId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for followReject
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1337,7 +1275,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followRejectCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call followRejectCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1354,8 +1292,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/follow/reject"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/follow/reject";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1395,12 +1332,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call followRejectValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling followReject(Async)");
-        }
-
+    private okhttp3.Call followRejectValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling followReject(Async)");
@@ -1416,14 +1348,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling followReject(Async)");
         }
 
-        return followRejectCall(version, accountId, connectionAccountId, appKey, _callback);
+        return followRejectCall(accountId, connectionAccountId, appKey, _callback);
 
     }
 
     /**
      * Reject Follow Request
      * Reject someone&#39;s follow request or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1436,15 +1367,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse followReject(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = followRejectWithHttpInfo(version, accountId, connectionAccountId, appKey);
+    public SirqulResponse followReject(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = followRejectWithHttpInfo(accountId, connectionAccountId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Reject Follow Request
      * Reject someone&#39;s follow request or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1457,8 +1387,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> followRejectWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = followRejectValidateBeforeCall(version, accountId, connectionAccountId, appKey, null);
+    public ApiResponse<SirqulResponse> followRejectWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = followRejectValidateBeforeCall(accountId, connectionAccountId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1466,7 +1396,6 @@ public class ConnectionApi {
     /**
      * Reject Follow Request (asynchronously)
      * Reject someone&#39;s follow request or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who initiated the follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1480,16 +1409,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followRejectAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call followRejectAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = followRejectValidateBeforeCall(version, accountId, connectionAccountId, appKey, _callback);
+        okhttp3.Call localVarCall = followRejectValidateBeforeCall(accountId, connectionAccountId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for followRemove
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to unfollow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1503,7 +1431,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followRemoveCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call followRemoveCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1520,8 +1448,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/follow/remove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/follow/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1561,12 +1488,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call followRemoveValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling followRemove(Async)");
-        }
-
+    private okhttp3.Call followRemoveValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling followRemove(Async)");
@@ -1582,14 +1504,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling followRemove(Async)");
         }
 
-        return followRemoveCall(version, accountId, connectionAccountId, appKey, _callback);
+        return followRemoveCall(accountId, connectionAccountId, appKey, _callback);
 
     }
 
     /**
      * Remove Follower / Unfollow
      * Unfollow someone you are following or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to unfollow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1602,15 +1523,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse followRemove(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = followRemoveWithHttpInfo(version, accountId, connectionAccountId, appKey);
+    public SirqulResponse followRemove(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = followRemoveWithHttpInfo(accountId, connectionAccountId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Remove Follower / Unfollow
      * Unfollow someone you are following or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to unfollow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1623,8 +1543,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> followRemoveWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = followRemoveValidateBeforeCall(version, accountId, connectionAccountId, appKey, null);
+    public ApiResponse<SirqulResponse> followRemoveWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = followRemoveValidateBeforeCall(accountId, connectionAccountId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1632,7 +1552,6 @@ public class ConnectionApi {
     /**
      * Remove Follower / Unfollow (asynchronously)
      * Unfollow someone you are following or remove them as a follower.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to unfollow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1646,16 +1565,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followRemoveAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call followRemoveAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = followRemoveValidateBeforeCall(version, accountId, connectionAccountId, appKey, _callback);
+        okhttp3.Call localVarCall = followRemoveValidateBeforeCall(accountId, connectionAccountId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for followRequest
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1670,7 +1588,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followRequestCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call followRequestCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1687,8 +1605,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/follow/request"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/follow/request";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1732,12 +1649,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call followRequestValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling followRequest(Async)");
-        }
-
+    private okhttp3.Call followRequestValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling followRequest(Async)");
@@ -1753,14 +1665,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling followRequest(Async)");
         }
 
-        return followRequestCall(version, accountId, connectionAccountId, appKey, approvalNeeded, _callback);
+        return followRequestCall(accountId, connectionAccountId, appKey, approvalNeeded, _callback);
 
     }
 
     /**
      * Send Follow Request
      * Send a request to follow someone.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1774,15 +1685,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse followRequest(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = followRequestWithHttpInfo(version, accountId, connectionAccountId, appKey, approvalNeeded);
+    public SirqulResponse followRequest(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = followRequestWithHttpInfo(accountId, connectionAccountId, appKey, approvalNeeded);
         return localVarResp.getData();
     }
 
     /**
      * Send Follow Request
      * Send a request to follow someone.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1796,8 +1706,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> followRequestWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded) throws ApiException {
-        okhttp3.Call localVarCall = followRequestValidateBeforeCall(version, accountId, connectionAccountId, appKey, approvalNeeded, null);
+    public ApiResponse<SirqulResponse> followRequestWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded) throws ApiException {
+        okhttp3.Call localVarCall = followRequestValidateBeforeCall(accountId, connectionAccountId, appKey, approvalNeeded, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1805,7 +1715,6 @@ public class ConnectionApi {
     /**
      * Send Follow Request (asynchronously)
      * Send a request to follow someone.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param connectionAccountId the account ID of the user who you want to follow (required)
      * @param appKey the application key for sending notifications (required)
@@ -1820,16 +1729,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call followRequestAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call followRequestAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Boolean approvalNeeded, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = followRequestValidateBeforeCall(version, accountId, connectionAccountId, appKey, approvalNeeded, _callback);
+        okhttp3.Call localVarCall = followRequestValidateBeforeCall(accountId, connectionAccountId, appKey, approvalNeeded, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for friendAccept
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param notifyFriend determines whether to send a notification to the afflicting party (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -1847,7 +1755,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendAcceptCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call friendAcceptCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1864,8 +1772,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/friend/accept"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/friend/accept";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1921,12 +1828,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call friendAcceptValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling friendAccept(Async)");
-        }
-
+    private okhttp3.Call friendAcceptValidateBeforeCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'friendAccountId' is set
         if (friendAccountId == null) {
             throw new ApiException("Missing the required parameter 'friendAccountId' when calling friendAccept(Async)");
@@ -1937,14 +1839,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'notifyFriend' when calling friendAccept(Async)");
         }
 
-        return friendAcceptCall(version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
+        return friendAcceptCall(friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
 
     }
 
     /**
      * Accept Friend
      * Accept a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param notifyFriend determines whether to send a notification to the afflicting party (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -1961,15 +1862,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse friendAccept(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = friendAcceptWithHttpInfo(version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
+    public SirqulResponse friendAccept(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = friendAcceptWithHttpInfo(friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
         return localVarResp.getData();
     }
 
     /**
      * Accept Friend
      * Accept a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param notifyFriend determines whether to send a notification to the afflicting party (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -1986,8 +1886,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> friendAcceptWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
-        okhttp3.Call localVarCall = friendAcceptValidateBeforeCall(version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, null);
+    public ApiResponse<SirqulResponse> friendAcceptWithHttpInfo(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
+        okhttp3.Call localVarCall = friendAcceptValidateBeforeCall(friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1995,7 +1895,6 @@ public class ConnectionApi {
     /**
      * Accept Friend (asynchronously)
      * Accept a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param notifyFriend determines whether to send a notification to the afflicting party (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2013,16 +1912,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendAcceptAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call friendAcceptAsync(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nonnull Boolean notifyFriend, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = friendAcceptValidateBeforeCall(version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
+        okhttp3.Call localVarCall = friendAcceptValidateBeforeCall(friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for friendReject
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2040,7 +1938,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendRejectCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call friendRejectCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2057,8 +1955,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/friend/reject"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/friend/reject";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2114,25 +2011,19 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call friendRejectValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling friendReject(Async)");
-        }
-
+    private okhttp3.Call friendRejectValidateBeforeCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'friendAccountId' is set
         if (friendAccountId == null) {
             throw new ApiException("Missing the required parameter 'friendAccountId' when calling friendReject(Async)");
         }
 
-        return friendRejectCall(version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, _callback);
+        return friendRejectCall(friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, _callback);
 
     }
 
     /**
      * Decline Friend
      * Request a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2149,15 +2040,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse friendReject(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = friendRejectWithHttpInfo(version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
+    public SirqulResponse friendReject(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = friendRejectWithHttpInfo(friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
         return localVarResp.getData();
     }
 
     /**
      * Decline Friend
      * Request a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2174,8 +2064,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> friendRejectWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage) throws ApiException {
-        okhttp3.Call localVarCall = friendRejectValidateBeforeCall(version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, null);
+    public ApiResponse<SirqulResponse> friendRejectWithHttpInfo(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage) throws ApiException {
+        okhttp3.Call localVarCall = friendRejectValidateBeforeCall(friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2183,7 +2073,6 @@ public class ConnectionApi {
     /**
      * Decline Friend (asynchronously)
      * Request a friend request and optionally sends a notification.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2201,16 +2090,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendRejectAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call friendRejectAsync(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable String notificationMessage, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = friendRejectValidateBeforeCall(version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, _callback);
+        okhttp3.Call localVarCall = friendRejectValidateBeforeCall(friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for friendRemove
-     * @param version  (required)
      * @param friendAccountId the account ID of the friend to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2226,7 +2114,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendRemoveCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call friendRemoveCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2243,8 +2131,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/friend/remove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/friend/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2292,25 +2179,19 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call friendRemoveValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling friendRemove(Async)");
-        }
-
+    private okhttp3.Call friendRemoveValidateBeforeCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'friendAccountId' is set
         if (friendAccountId == null) {
             throw new ApiException("Missing the required parameter 'friendAccountId' when calling friendRemove(Async)");
         }
 
-        return friendRemoveCall(version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, _callback);
+        return friendRemoveCall(friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, _callback);
 
     }
 
     /**
      * Delete Friend
      * Removes a friend from the user&#39;s friends list.
-     * @param version  (required)
      * @param friendAccountId the account ID of the friend to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2325,15 +2206,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse friendRemove(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = friendRemoveWithHttpInfo(version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
+    public SirqulResponse friendRemove(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = friendRemoveWithHttpInfo(friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
         return localVarResp.getData();
     }
 
     /**
      * Delete Friend
      * Removes a friend from the user&#39;s friends list.
-     * @param version  (required)
      * @param friendAccountId the account ID of the friend to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2348,8 +2228,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> friendRemoveWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups) throws ApiException {
-        okhttp3.Call localVarCall = friendRemoveValidateBeforeCall(version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, null);
+    public ApiResponse<SirqulResponse> friendRemoveWithHttpInfo(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups) throws ApiException {
+        okhttp3.Call localVarCall = friendRemoveValidateBeforeCall(friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2357,7 +2237,6 @@ public class ConnectionApi {
     /**
      * Delete Friend (asynchronously)
      * Removes a friend from the user&#39;s friends list.
-     * @param version  (required)
      * @param friendAccountId the account ID of the friend to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2373,16 +2252,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendRemoveAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call friendRemoveAsync(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean notifyFriend, @javax.annotation.Nullable Boolean removeFromGroups, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = friendRemoveValidateBeforeCall(version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, _callback);
+        okhttp3.Call localVarCall = friendRemoveValidateBeforeCall(friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for friendRequest
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2399,7 +2277,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendRequestCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call friendRequestCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2416,8 +2294,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/friend/request"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/friend/request";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2469,25 +2346,19 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call friendRequestValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling friendRequest(Async)");
-        }
-
+    private okhttp3.Call friendRequestValidateBeforeCall(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'friendAccountId' is set
         if (friendAccountId == null) {
             throw new ApiException("Missing the required parameter 'friendAccountId' when calling friendRequest(Async)");
         }
 
-        return friendRequestCall(version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
+        return friendRequestCall(friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
 
     }
 
     /**
      * Request Friend
      * Sends a friend request notification to another user.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2503,15 +2374,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse friendRequest(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = friendRequestWithHttpInfo(version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
+    public SirqulResponse friendRequest(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = friendRequestWithHttpInfo(friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
         return localVarResp.getData();
     }
 
     /**
      * Request Friend
      * Sends a friend request notification to another user.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2527,8 +2397,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> friendRequestWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
-        okhttp3.Call localVarCall = friendRequestValidateBeforeCall(version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, null);
+    public ApiResponse<SirqulResponse> friendRequestWithHttpInfo(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage) throws ApiException {
+        okhttp3.Call localVarCall = friendRequestValidateBeforeCall(friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2536,7 +2406,6 @@ public class ConnectionApi {
     /**
      * Request Friend (asynchronously)
      * Sends a friend request notification to another user.
-     * @param version  (required)
      * @param friendAccountId the friend&#39;s account id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2553,16 +2422,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call friendRequestAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call friendRequestAsync(@javax.annotation.Nonnull Long friendAccountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String notificationMessage, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = friendRequestValidateBeforeCall(version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
+        okhttp3.Call localVarCall = friendRequestValidateBeforeCall(friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getConnectionSentFriendRequests
-     * @param version  (required)
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @param _callback Callback for upload/download progress
@@ -2575,7 +2443,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConnectionSentFriendRequestsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getConnectionSentFriendRequestsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2592,8 +2460,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/getRequested"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/getRequested";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2629,20 +2496,14 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getConnectionSentFriendRequestsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getConnectionSentFriendRequests(Async)");
-        }
-
-        return getConnectionSentFriendRequestsCall(version, deviceId, accountId, _callback);
+    private okhttp3.Call getConnectionSentFriendRequestsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+        return getConnectionSentFriendRequestsCall(deviceId, accountId, _callback);
 
     }
 
     /**
      * Get Sent Friend Requests
      * Gets the connection sent friend requests.
-     * @param version  (required)
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @return ConnectionListResponse
@@ -2654,15 +2515,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ConnectionListResponse getConnectionSentFriendRequests(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<ConnectionListResponse> localVarResp = getConnectionSentFriendRequestsWithHttpInfo(version, deviceId, accountId);
+    public ConnectionListResponse getConnectionSentFriendRequests(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<ConnectionListResponse> localVarResp = getConnectionSentFriendRequestsWithHttpInfo(deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Sent Friend Requests
      * Gets the connection sent friend requests.
-     * @param version  (required)
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @return ApiResponse&lt;ConnectionListResponse&gt;
@@ -2674,8 +2534,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConnectionListResponse> getConnectionSentFriendRequestsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getConnectionSentFriendRequestsValidateBeforeCall(version, deviceId, accountId, null);
+    public ApiResponse<ConnectionListResponse> getConnectionSentFriendRequestsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getConnectionSentFriendRequestsValidateBeforeCall(deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<ConnectionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2683,7 +2543,6 @@ public class ConnectionApi {
     /**
      * Get Sent Friend Requests (asynchronously)
      * Gets the connection sent friend requests.
-     * @param version  (required)
      * @param deviceId the ID of the device (optional)
      * @param accountId the id of the account (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2696,16 +2555,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConnectionSentFriendRequestsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<ConnectionListResponse> _callback) throws ApiException {
+    public okhttp3.Call getConnectionSentFriendRequestsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<ConnectionListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getConnectionSentFriendRequestsValidateBeforeCall(version, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = getConnectionSentFriendRequestsValidateBeforeCall(deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<ConnectionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getConnections
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param sortField sorts the response list by ConnectionApiMap (required)
@@ -2731,7 +2589,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConnectionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getConnectionsCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2748,8 +2606,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2837,12 +2694,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getConnectionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getConnections(Async)");
-        }
-
+    private okhttp3.Call getConnectionsValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling getConnections(Async)");
@@ -2873,14 +2725,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getConnections(Async)");
         }
 
-        return getConnectionsCall(version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, _callback);
+        return getConnectionsCall(returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, _callback);
 
     }
 
     /**
      * Search Connections
      * Gets the connections.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param sortField sorts the response list by ConnectionApiMap (required)
@@ -2905,15 +2756,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ConnectionListResponse getConnections(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ConnectionListResponse> localVarResp = getConnectionsWithHttpInfo(version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
+    public ConnectionListResponse getConnections(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ConnectionListResponse> localVarResp = getConnectionsWithHttpInfo(returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Search Connections
      * Gets the connections.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param sortField sorts the response list by ConnectionApiMap (required)
@@ -2938,8 +2788,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConnectionListResponse> getConnectionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getConnectionsValidateBeforeCall(version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, null);
+    public ApiResponse<ConnectionListResponse> getConnectionsWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getConnectionsValidateBeforeCall(returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ConnectionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2947,7 +2797,6 @@ public class ConnectionApi {
     /**
      * Search Connections (asynchronously)
      * Gets the connections.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
      * @param sortField sorts the response list by ConnectionApiMap (required)
@@ -2973,16 +2822,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConnectionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ConnectionListResponse> _callback) throws ApiException {
+    public okhttp3.Call getConnectionsAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ConnectionListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getConnectionsValidateBeforeCall(version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getConnectionsValidateBeforeCall(returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ConnectionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getGroupDetails
-     * @param version  (required)
      * @param combineConnections whether to combine connections or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -2999,7 +2847,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGroupDetailsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGroupDetailsCall(@javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3016,8 +2864,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/group/details/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/group/details/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3069,25 +2916,19 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGroupDetailsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getGroupDetails(Async)");
-        }
-
+    private okhttp3.Call getGroupDetailsValidateBeforeCall(@javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'combineConnections' is set
         if (combineConnections == null) {
             throw new ApiException("Missing the required parameter 'combineConnections' when calling getGroupDetails(Async)");
         }
 
-        return getGroupDetailsCall(version, combineConnections, deviceId, accountId, groupId, latitude, longitude, _callback);
+        return getGroupDetailsCall(combineConnections, deviceId, accountId, groupId, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Connection Group
      * 
-     * @param version  (required)
      * @param combineConnections whether to combine connections or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -3103,15 +2944,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ConnectionGroupResponse getGroupDetails(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ConnectionGroupResponse> localVarResp = getGroupDetailsWithHttpInfo(version, combineConnections, deviceId, accountId, groupId, latitude, longitude);
+    public ConnectionGroupResponse getGroupDetails(@javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ConnectionGroupResponse> localVarResp = getGroupDetailsWithHttpInfo(combineConnections, deviceId, accountId, groupId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Connection Group
      * 
-     * @param version  (required)
      * @param combineConnections whether to combine connections or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -3127,8 +2967,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConnectionGroupResponse> getGroupDetailsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getGroupDetailsValidateBeforeCall(version, combineConnections, deviceId, accountId, groupId, latitude, longitude, null);
+    public ApiResponse<ConnectionGroupResponse> getGroupDetailsWithHttpInfo(@javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getGroupDetailsValidateBeforeCall(combineConnections, deviceId, accountId, groupId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ConnectionGroupResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3136,7 +2976,6 @@ public class ConnectionApi {
     /**
      * Get Connection Group (asynchronously)
      * 
-     * @param version  (required)
      * @param combineConnections whether to combine connections or not (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -3153,16 +2992,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGroupDetailsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ConnectionGroupResponse> _callback) throws ApiException {
+    public okhttp3.Call getGroupDetailsAsync(@javax.annotation.Nonnull Boolean combineConnections, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long groupId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ConnectionGroupResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGroupDetailsValidateBeforeCall(version, combineConnections, deviceId, accountId, groupId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getGroupDetailsValidateBeforeCall(combineConnections, deviceId, accountId, groupId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ConnectionGroupResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for groupSearch
-     * @param version  (required)
      * @param sortField the field to sort by (required)
      * @param descending whether to return results in descending or ascending order (required)
      * @param activeOnly to search on active only or not (required)
@@ -3183,7 +3021,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call groupSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call groupSearchCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3200,8 +3038,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/connection/group/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/connection/group/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3269,12 +3106,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call groupSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling groupSearch(Async)");
-        }
-
+    private okhttp3.Call groupSearchValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling groupSearch(Async)");
@@ -3300,14 +3132,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'limit' when calling groupSearch(Async)");
         }
 
-        return groupSearchCall(version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
+        return groupSearchCall(sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
 
     }
 
     /**
      * Search Connection Groups
      * Gets a user&#39;s private groups and default groups.
-     * @param version  (required)
      * @param sortField the field to sort by (required)
      * @param descending whether to return results in descending or ascending order (required)
      * @param activeOnly to search on active only or not (required)
@@ -3327,15 +3158,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ConnectionInfoResponse> groupSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<ConnectionInfoResponse>> localVarResp = groupSearchWithHttpInfo(version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
+    public List<ConnectionInfoResponse> groupSearch(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<ConnectionInfoResponse>> localVarResp = groupSearchWithHttpInfo(sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Connection Groups
      * Gets a user&#39;s private groups and default groups.
-     * @param version  (required)
      * @param sortField the field to sort by (required)
      * @param descending whether to return results in descending or ascending order (required)
      * @param activeOnly to search on active only or not (required)
@@ -3355,8 +3185,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ConnectionInfoResponse>> groupSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = groupSearchValidateBeforeCall(version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, null);
+    public ApiResponse<List<ConnectionInfoResponse>> groupSearchWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = groupSearchValidateBeforeCall(sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, null);
         Type localVarReturnType = new TypeToken<List<ConnectionInfoResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3364,7 +3194,6 @@ public class ConnectionApi {
     /**
      * Search Connection Groups (asynchronously)
      * Gets a user&#39;s private groups and default groups.
-     * @param version  (required)
      * @param sortField the field to sort by (required)
      * @param descending whether to return results in descending or ascending order (required)
      * @param activeOnly to search on active only or not (required)
@@ -3385,16 +3214,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call groupSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback<List<ConnectionInfoResponse>> _callback) throws ApiException {
+    public okhttp3.Call groupSearchAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback<List<ConnectionInfoResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = groupSearchValidateBeforeCall(version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
+        okhttp3.Call localVarCall = groupSearchValidateBeforeCall(sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<ConnectionInfoResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeConnectionFromGroup
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3414,7 +3242,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeConnectionFromGroupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeConnectionFromGroupCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3431,8 +3259,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/group/removeConnection"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/group/removeConnection";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3496,12 +3323,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeConnectionFromGroupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeConnectionFromGroup(Async)");
-        }
-
+    private okhttp3.Call removeConnectionFromGroupValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling removeConnectionFromGroup(Async)");
@@ -3512,14 +3334,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'groupId' when calling removeConnectionFromGroup(Async)");
         }
 
-        return removeConnectionFromGroupCall(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
+        return removeConnectionFromGroupCall(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
 
     }
 
     /**
      * Delete Connection
      * Removes the connection from group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3538,15 +3359,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeConnectionFromGroup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeConnectionFromGroupWithHttpInfo(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+    public SirqulResponse removeConnectionFromGroup(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeConnectionFromGroupWithHttpInfo(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Delete Connection
      * Removes the connection from group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3565,8 +3385,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeConnectionFromGroupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = removeConnectionFromGroupValidateBeforeCall(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> removeConnectionFromGroupWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = removeConnectionFromGroupValidateBeforeCall(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3574,7 +3394,6 @@ public class ConnectionApi {
     /**
      * Delete Connection (asynchronously)
      * Removes the connection from group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3594,16 +3413,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeConnectionFromGroupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeConnectionFromGroupAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long pendingId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeConnectionFromGroupValidateBeforeCall(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = removeConnectionFromGroupValidateBeforeCall(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeConnectionsFromGroup
-     * @param version  (required)
      * @param connectionGroupId connection group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -3621,7 +3439,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeConnectionsFromGroupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeConnectionsFromGroupCall(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3638,8 +3456,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/connection/group/removeConnections"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/connection/group/removeConnections";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3695,25 +3512,19 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeConnectionsFromGroupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeConnectionsFromGroup(Async)");
-        }
-
+    private okhttp3.Call removeConnectionsFromGroupValidateBeforeCall(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'connectionGroupId' is set
         if (connectionGroupId == null) {
             throw new ApiException("Missing the required parameter 'connectionGroupId' when calling removeConnectionsFromGroup(Async)");
         }
 
-        return removeConnectionsFromGroupCall(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
+        return removeConnectionsFromGroupCall(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
 
     }
 
     /**
      * Remove Connections
      * Remove a list of connections from a group.
-     * @param version  (required)
      * @param connectionGroupId connection group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -3730,15 +3541,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeConnectionsFromGroup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeConnectionsFromGroupWithHttpInfo(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+    public SirqulResponse removeConnectionsFromGroup(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeConnectionsFromGroupWithHttpInfo(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Remove Connections
      * Remove a list of connections from a group.
-     * @param version  (required)
      * @param connectionGroupId connection group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -3755,8 +3565,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeConnectionsFromGroupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = removeConnectionsFromGroupValidateBeforeCall(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> removeConnectionsFromGroupWithHttpInfo(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = removeConnectionsFromGroupValidateBeforeCall(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3764,7 +3574,6 @@ public class ConnectionApi {
     /**
      * Remove Connections (asynchronously)
      * Remove a list of connections from a group.
-     * @param version  (required)
      * @param connectionGroupId connection group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -3782,16 +3591,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeConnectionsFromGroupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeConnectionsFromGroupAsync(@javax.annotation.Nonnull Long connectionGroupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeConnectionsFromGroupValidateBeforeCall(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = removeConnectionsFromGroupValidateBeforeCall(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeGroup
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3808,7 +3616,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeGroupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeGroupCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3825,8 +3633,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/group/remove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/group/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3878,12 +3685,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeGroupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeGroup(Async)");
-        }
-
+    private okhttp3.Call removeGroupValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling removeGroup(Async)");
@@ -3894,14 +3696,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'groupId' when calling removeGroup(Async)");
         }
 
-        return removeGroupCall(version, returnNulls, groupId, deviceId, accountId, latitude, longitude, _callback);
+        return removeGroupCall(returnNulls, groupId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Delete Connection Group
      * Remove a user&#39;s group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3917,15 +3718,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeGroup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeGroupWithHttpInfo(version, returnNulls, groupId, deviceId, accountId, latitude, longitude);
+    public SirqulResponse removeGroup(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeGroupWithHttpInfo(returnNulls, groupId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Delete Connection Group
      * Remove a user&#39;s group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3941,8 +3741,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeGroupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = removeGroupValidateBeforeCall(version, returnNulls, groupId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> removeGroupWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = removeGroupValidateBeforeCall(returnNulls, groupId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3950,7 +3750,6 @@ public class ConnectionApi {
     /**
      * Delete Connection Group (asynchronously)
      * Remove a user&#39;s group.
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the group id (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3967,16 +3766,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeGroupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeGroupAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeGroupValidateBeforeCall(version, returnNulls, groupId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = removeGroupValidateBeforeCall(returnNulls, groupId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeSubGroups
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to remove from the parent group (required)
@@ -3994,7 +3792,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeSubGroupsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeSubGroupsCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4011,8 +3809,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/connection/group/removeSubGroup"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/connection/group/removeSubGroup";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4068,12 +3865,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeSubGroupsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeSubGroups(Async)");
-        }
-
+    private okhttp3.Call removeSubGroupsValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling removeSubGroups(Async)");
@@ -4089,14 +3881,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'subGroupIds' when calling removeSubGroups(Async)");
         }
 
-        return removeSubGroupsCall(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
+        return removeSubGroupsCall(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Remove Connection Groups
      * Remove sub groups from a group
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to remove from the parent group (required)
@@ -4113,15 +3904,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeSubGroups(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeSubGroupsWithHttpInfo(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+    public SirqulResponse removeSubGroups(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeSubGroupsWithHttpInfo(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Remove Connection Groups
      * Remove sub groups from a group
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to remove from the parent group (required)
@@ -4138,8 +3928,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeSubGroupsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = removeSubGroupsValidateBeforeCall(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> removeSubGroupsWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = removeSubGroupsValidateBeforeCall(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4147,7 +3937,6 @@ public class ConnectionApi {
     /**
      * Remove Connection Groups (asynchronously)
      * Remove sub groups from a group
-     * @param version  (required)
      * @param returnNulls whether to return nulls or not (required)
      * @param groupId the parent group id (required)
      * @param subGroupIds comma separated list of group IDs to remove from the parent group (required)
@@ -4165,16 +3954,15 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeSubGroupsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeSubGroupsAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long groupId, @javax.annotation.Nonnull String subGroupIds, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeSubGroupsValidateBeforeCall(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = removeSubGroupsValidateBeforeCall(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchConnections
-     * @param version  (required)
      * @param returnNulls return all json attributes if true. defualt is true. (required)
      * @param start start index of the pagination (required)
      * @param limit limit of the pagination (required)
@@ -4200,7 +3988,7 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchConnectionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchConnectionsCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4217,8 +4005,7 @@ public class ConnectionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/connection/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/connection/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4306,12 +4093,7 @@ public class ConnectionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchConnectionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchConnections(Async)");
-        }
-
+    private okhttp3.Call searchConnectionsValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling searchConnections(Async)");
@@ -4327,14 +4109,13 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchConnections(Async)");
         }
 
-        return searchConnectionsCall(version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, _callback);
+        return searchConnectionsCall(returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, _callback);
 
     }
 
     /**
      * Search Possible Connections
      * Search for accounts that the user may not have a connection with.
-     * @param version  (required)
      * @param returnNulls return all json attributes if true. defualt is true. (required)
      * @param start start index of the pagination (required)
      * @param limit limit of the pagination (required)
@@ -4359,15 +4140,14 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ConnectionListResponse searchConnections(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation) throws ApiException {
-        ApiResponse<ConnectionListResponse> localVarResp = searchConnectionsWithHttpInfo(version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
+    public ConnectionListResponse searchConnections(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation) throws ApiException {
+        ApiResponse<ConnectionListResponse> localVarResp = searchConnectionsWithHttpInfo(returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
         return localVarResp.getData();
     }
 
     /**
      * Search Possible Connections
      * Search for accounts that the user may not have a connection with.
-     * @param version  (required)
      * @param returnNulls return all json attributes if true. defualt is true. (required)
      * @param start start index of the pagination (required)
      * @param limit limit of the pagination (required)
@@ -4392,8 +4172,8 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConnectionListResponse> searchConnectionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation) throws ApiException {
-        okhttp3.Call localVarCall = searchConnectionsValidateBeforeCall(version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, null);
+    public ApiResponse<ConnectionListResponse> searchConnectionsWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation) throws ApiException {
+        okhttp3.Call localVarCall = searchConnectionsValidateBeforeCall(returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, null);
         Type localVarReturnType = new TypeToken<ConnectionListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4401,7 +4181,6 @@ public class ConnectionApi {
     /**
      * Search Possible Connections (asynchronously)
      * Search for accounts that the user may not have a connection with.
-     * @param version  (required)
      * @param returnNulls return all json attributes if true. defualt is true. (required)
      * @param start start index of the pagination (required)
      * @param limit limit of the pagination (required)
@@ -4427,9 +4206,9 @@ public class ConnectionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchConnectionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation, final ApiCallback<ConnectionListResponse> _callback) throws ApiException {
+    public okhttp3.Call searchConnectionsAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean hasLocation, final ApiCallback<ConnectionListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchConnectionsValidateBeforeCall(version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, _callback);
+        okhttp3.Call localVarCall = searchConnectionsValidateBeforeCall(returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, _callback);
         Type localVarReturnType = new TypeToken<ConnectionListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

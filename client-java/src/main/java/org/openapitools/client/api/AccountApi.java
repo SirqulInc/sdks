@@ -81,7 +81,6 @@ public class AccountApi {
 
     /**
      * Build call for accountLocationSearch
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -126,7 +125,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call accountLocationSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call accountLocationSearchCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -143,8 +142,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -308,20 +306,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call accountLocationSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling accountLocationSearch(Async)");
-        }
-
-        return accountLocationSearchCall(version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, _callback);
+    private okhttp3.Call accountLocationSearchValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly, final ApiCallback _callback) throws ApiException {
+        return accountLocationSearchCall(deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, _callback);
 
     }
 
     /**
      * Search Accounts by Location
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -365,15 +357,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public UserLocationSearchResponse accountLocationSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly) throws ApiException {
-        ApiResponse<UserLocationSearchResponse> localVarResp = accountLocationSearchWithHttpInfo(version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
+    public UserLocationSearchResponse accountLocationSearch(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly) throws ApiException {
+        ApiResponse<UserLocationSearchResponse> localVarResp = accountLocationSearchWithHttpInfo(deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Accounts by Location
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -417,8 +408,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UserLocationSearchResponse> accountLocationSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly) throws ApiException {
-        okhttp3.Call localVarCall = accountLocationSearchValidateBeforeCall(version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, null);
+    public ApiResponse<UserLocationSearchResponse> accountLocationSearchWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly) throws ApiException {
+        okhttp3.Call localVarCall = accountLocationSearchValidateBeforeCall(deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, null);
         Type localVarReturnType = new TypeToken<UserLocationSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -426,7 +417,6 @@ public class AccountApi {
     /**
      * Search Accounts by Location (asynchronously)
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q Deprecated - legacy query parameter (optional)
@@ -471,16 +461,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call accountLocationSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly, final ApiCallback<UserLocationSearchResponse> _callback) throws ApiException {
+    public okhttp3.Call accountLocationSearchAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double range, @javax.annotation.Nullable Long locationLastUpdated, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer minAge, @javax.annotation.Nullable Integer maxAge, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String roles, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String experience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable Boolean updateCurrentLocation, @javax.annotation.Nullable Boolean updatePreferredSettings, @javax.annotation.Nullable Boolean showExactLocations, @javax.annotation.Nullable Boolean showConnectionToSearcher, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean verifiedUserOnly, @javax.annotation.Nullable Boolean contentAdminOnly, final ApiCallback<UserLocationSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = accountLocationSearchValidateBeforeCall(version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, _callback);
+        okhttp3.Call localVarCall = accountLocationSearchValidateBeforeCall(deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, _callback);
         Type localVarReturnType = new TypeToken<UserLocationSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for blockAccount
-     * @param version  (required)
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -498,7 +487,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call blockAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call blockAccountCall(@javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -515,8 +504,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/block"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/block";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -572,25 +560,19 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call blockAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling blockAccount(Async)");
-        }
-
+    private okhttp3.Call blockAccountValidateBeforeCall(@javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountIdBeingBlocked' is set
         if (accountIdBeingBlocked == null) {
             throw new ApiException("Missing the required parameter 'accountIdBeingBlocked' when calling blockAccount(Async)");
         }
 
-        return blockAccountCall(version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, _callback);
+        return blockAccountCall(accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, _callback);
 
     }
 
     /**
      * Block Account
      * Moves or removes an account into the user&#39;s blocked group.
-     * @param version  (required)
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -607,15 +589,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse blockAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = blockAccountWithHttpInfo(version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
+    public SirqulResponse blockAccount(@javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = blockAccountWithHttpInfo(accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Block Account
      * Moves or removes an account into the user&#39;s blocked group.
-     * @param version  (required)
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -632,8 +613,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> blockAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = blockAccountValidateBeforeCall(version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> blockAccountWithHttpInfo(@javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = blockAccountValidateBeforeCall(accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -641,7 +622,6 @@ public class AccountApi {
     /**
      * Block Account (asynchronously)
      * Moves or removes an account into the user&#39;s blocked group.
-     * @param version  (required)
      * @param accountIdBeingBlocked The id of the account to be blocked/unblocked (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -659,16 +639,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call blockAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call blockAccountAsync(@javax.annotation.Nonnull Long accountIdBeingBlocked, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean blockFlagValue, @javax.annotation.Nullable Boolean removeFromGroupsIfBlocked, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = blockAccountValidateBeforeCall(version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = blockAccountValidateBeforeCall(accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAccount
-     * @param version  (required)
      * @param username The access token to authenticate with (ex: username) (required)
      * @param password The secret to authenticate with (ex: password) (required)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -751,7 +730,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAccountCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -768,8 +747,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1085,12 +1063,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createAccount(Async)");
-        }
-
+    private okhttp3.Call createAccountValidateBeforeCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling createAccount(Async)");
@@ -1101,14 +1074,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'password' when calling createAccount(Async)");
         }
 
-        return createAccountCall(version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, _callback);
+        return createAccountCall(username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, _callback);
 
     }
 
     /**
      * Create Account
      * Create a new account by role.
-     * @param version  (required)
      * @param username The access token to authenticate with (ex: username) (required)
      * @param password The secret to authenticate with (ex: password) (required)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1190,15 +1162,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AccountLoginResponse createAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId) throws ApiException {
-        ApiResponse<AccountLoginResponse> localVarResp = createAccountWithHttpInfo(version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
+    public AccountLoginResponse createAccount(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId) throws ApiException {
+        ApiResponse<AccountLoginResponse> localVarResp = createAccountWithHttpInfo(username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
         return localVarResp.getData();
     }
 
     /**
      * Create Account
      * Create a new account by role.
-     * @param version  (required)
      * @param username The access token to authenticate with (ex: username) (required)
      * @param password The secret to authenticate with (ex: password) (required)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1280,8 +1251,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountLoginResponse> createAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId) throws ApiException {
-        okhttp3.Call localVarCall = createAccountValidateBeforeCall(version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, null);
+    public ApiResponse<AccountLoginResponse> createAccountWithHttpInfo(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId) throws ApiException {
+        okhttp3.Call localVarCall = createAccountValidateBeforeCall(username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, null);
         Type localVarReturnType = new TypeToken<AccountLoginResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1289,7 +1260,6 @@ public class AccountApi {
     /**
      * Create Account (asynchronously)
      * Create a new account by role.
-     * @param version  (required)
      * @param username The access token to authenticate with (ex: username) (required)
      * @param password The secret to authenticate with (ex: password) (required)
      * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -1372,16 +1342,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, final ApiCallback<AccountLoginResponse> _callback) throws ApiException {
+    public okhttp3.Call createAccountAsync(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable Boolean sendValidation, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable Double homeLatitude, @javax.annotation.Nullable Double homeLongitude, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, final ApiCallback<AccountLoginResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAccountValidateBeforeCall(version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, _callback);
+        okhttp3.Call localVarCall = createAccountValidateBeforeCall(username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, _callback);
         Type localVarReturnType = new TypeToken<AccountLoginResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for editAccount
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -1474,7 +1443,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editAccountCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1491,8 +1460,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/profile/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/profile/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1848,20 +1816,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling editAccount(Async)");
-        }
-
-        return editAccountCall(version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, _callback);
+    private okhttp3.Call editAccountValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername, final ApiCallback _callback) throws ApiException {
+        return editAccountCall(deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, _callback);
 
     }
 
     /**
      * Update Account
      * Edit the user&#39;s profile information
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -1953,15 +1915,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileInfoResponse editAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername) throws ApiException {
-        ApiResponse<ProfileInfoResponse> localVarResp = editAccountWithHttpInfo(version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
+    public ProfileInfoResponse editAccount(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername) throws ApiException {
+        ApiResponse<ProfileInfoResponse> localVarResp = editAccountWithHttpInfo(deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
         return localVarResp.getData();
     }
 
     /**
      * Update Account
      * Edit the user&#39;s profile information
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -2053,8 +2014,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileInfoResponse> editAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername) throws ApiException {
-        okhttp3.Call localVarCall = editAccountValidateBeforeCall(version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, null);
+    public ApiResponse<ProfileInfoResponse> editAccountWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername) throws ApiException {
+        okhttp3.Call localVarCall = editAccountValidateBeforeCall(deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, null);
         Type localVarReturnType = new TypeToken<ProfileInfoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2062,7 +2023,6 @@ public class AccountApi {
     /**
      * Update Account (asynchronously)
      * Edit the user&#39;s profile information
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param connectionAccountId The account id used to edit another person&#39;s account (optional)
@@ -2155,16 +2115,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername, final ApiCallback<ProfileInfoResponse> _callback) throws ApiException {
+    public okhttp3.Call editAccountAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String role, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String country, @javax.annotation.Nullable Boolean makeProfileInfoPublic, @javax.annotation.Nullable Boolean makeGameInfoPublic, @javax.annotation.Nullable Boolean makeFriendsInfoPublic, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String locationVisibility, @javax.annotation.Nullable String appBlob, @javax.annotation.Nullable Boolean appEnablePush, @javax.annotation.Nullable Boolean appEnableSMS, @javax.annotation.Nullable Boolean appEnableEmail, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, @javax.annotation.Nullable String appNickname, @javax.annotation.Nullable Long personalAudienceId, @javax.annotation.Nullable String nonGuestUsername, final ApiCallback<ProfileInfoResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editAccountValidateBeforeCall(version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, _callback);
+        okhttp3.Call localVarCall = editAccountValidateBeforeCall(deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, _callback);
         Type localVarReturnType = new TypeToken<ProfileInfoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for editUsername
-     * @param version  (required)
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -2179,7 +2138,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editUsernameCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editUsernameCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2196,8 +2155,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/username/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/username/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2241,20 +2199,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editUsernameValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling editUsername(Async)");
-        }
-
-        return editUsernameCall(version, deviceId, accountId, emailAddress, username, _callback);
+    private okhttp3.Call editUsernameValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username, final ApiCallback _callback) throws ApiException {
+        return editUsernameCall(deviceId, accountId, emailAddress, username, _callback);
 
     }
 
     /**
      * Update Username and Email
      * Update account&#39;s own username and/or emailAddress
-     * @param version  (required)
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -2268,15 +2220,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse editUsername(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = editUsernameWithHttpInfo(version, deviceId, accountId, emailAddress, username);
+    public SirqulResponse editUsername(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = editUsernameWithHttpInfo(deviceId, accountId, emailAddress, username);
         return localVarResp.getData();
     }
 
     /**
      * Update Username and Email
      * Update account&#39;s own username and/or emailAddress
-     * @param version  (required)
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -2290,8 +2241,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> editUsernameWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username) throws ApiException {
-        okhttp3.Call localVarCall = editUsernameValidateBeforeCall(version, deviceId, accountId, emailAddress, username, null);
+    public ApiResponse<SirqulResponse> editUsernameWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username) throws ApiException {
+        okhttp3.Call localVarCall = editUsernameValidateBeforeCall(deviceId, accountId, emailAddress, username, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2299,7 +2250,6 @@ public class AccountApi {
     /**
      * Update Username and Email (asynchronously)
      * Update account&#39;s own username and/or emailAddress
-     * @param version  (required)
      * @param deviceId The device id (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param emailAddress the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
@@ -2314,16 +2264,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editUsernameAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call editUsernameAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable String username, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editUsernameValidateBeforeCall(version, deviceId, accountId, emailAddress, username, _callback);
+        okhttp3.Call localVarCall = editUsernameValidateBeforeCall(deviceId, accountId, emailAddress, username, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAccount
-     * @param version  (required)
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2346,7 +2295,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAccountCall(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2363,8 +2312,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/profile/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/profile/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2440,20 +2388,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAccount(Async)");
-        }
-
-        return getAccountCall(version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, _callback);
+    private okhttp3.Call getAccountValidateBeforeCall(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return getAccountCall(returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Account
      * Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @param version  (required)
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2475,15 +2417,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse getAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = getAccountWithHttpInfo(version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
+    public ProfileResponse getAccount(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = getAccountWithHttpInfo(returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Account
      * Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @param version  (required)
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2505,8 +2446,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> getAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getAccountValidateBeforeCall(version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, null);
+    public ApiResponse<ProfileResponse> getAccountWithHttpInfo(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getAccountValidateBeforeCall(returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2514,7 +2455,6 @@ public class AccountApi {
     /**
      * Get Account (asynchronously)
      * Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @param version  (required)
      * @param returnNulls Return Nulls (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2537,16 +2477,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call getAccountAsync(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connectionAccountEmail, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable Boolean updateViewedDate, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAccountValidateBeforeCall(version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getAccountValidateBeforeCall(returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getProfileAssets
-     * @param version  (required)
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2571,7 +2510,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProfileAssetsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProfileAssetsCall(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2588,8 +2527,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/profile/assets"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/profile/assets";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2673,20 +2611,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProfileAssetsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getProfileAssets(Async)");
-        }
-
-        return getProfileAssetsCall(version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, _callback);
+    private okhttp3.Call getProfileAssetsValidateBeforeCall(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return getProfileAssetsCall(returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, _callback);
 
     }
 
     /**
      * Get Profile Assets
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @param version  (required)
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2710,15 +2642,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssetListResponse getProfileAssets(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<AssetListResponse> localVarResp = getProfileAssetsWithHttpInfo(version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
+    public AssetListResponse getProfileAssets(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<AssetListResponse> localVarResp = getProfileAssetsWithHttpInfo(returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
         return localVarResp.getData();
     }
 
     /**
      * Get Profile Assets
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @param version  (required)
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2742,8 +2673,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssetListResponse> getProfileAssetsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getProfileAssetsValidateBeforeCall(version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, null);
+    public ApiResponse<AssetListResponse> getProfileAssetsWithHttpInfo(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getProfileAssetsValidateBeforeCall(returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, null);
         Type localVarReturnType = new TypeToken<AssetListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2751,7 +2682,6 @@ public class AccountApi {
     /**
      * Get Profile Assets (asynchronously)
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @param version  (required)
      * @param returnNulls Determines whether to return null fields in the response (optional, default to false)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2776,16 +2706,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProfileAssetsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<AssetListResponse> _callback) throws ApiException {
+    public okhttp3.Call getProfileAssetsAsync(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String mediaTypes, @javax.annotation.Nullable String mimeTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<AssetListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProfileAssetsValidateBeforeCall(version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, _callback);
+        okhttp3.Call localVarCall = getProfileAssetsValidateBeforeCall(returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, _callback);
         Type localVarReturnType = new TypeToken<AssetListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getReferralList
-     * @param version  (required)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -2807,7 +2736,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReferralListCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReferralListCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2824,8 +2753,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/referral/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/referral/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2896,20 +2824,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReferralListValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getReferralList(Async)");
-        }
-
-        return getReferralListCall(version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, _callback);
+    private okhttp3.Call getReferralListValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren, final ApiCallback _callback) throws ApiException {
+        return getReferralListCall(accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, _callback);
 
     }
 
     /**
      * Search Accounts
      * Gets a user&#39;s account profile and their referral List.
-     * @param version  (required)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -2929,14 +2851,13 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void getReferralList(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren) throws ApiException {
-        getReferralListWithHttpInfo(version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
+    public void getReferralList(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren) throws ApiException {
+        getReferralListWithHttpInfo(accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
     }
 
     /**
      * Search Accounts
      * Gets a user&#39;s account profile and their referral List.
-     * @param version  (required)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -2957,15 +2878,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getReferralListWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren) throws ApiException {
-        okhttp3.Call localVarCall = getReferralListValidateBeforeCall(version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, null);
+    public ApiResponse<Void> getReferralListWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren) throws ApiException {
+        okhttp3.Call localVarCall = getReferralListValidateBeforeCall(accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Search Accounts (asynchronously)
      * Gets a user&#39;s account profile and their referral List.
-     * @param version  (required)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
      * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -2987,15 +2907,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReferralListAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getReferralListAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String retrieveType, @javax.annotation.Nullable BigDecimal levelLimit, @javax.annotation.Nullable BigDecimal ancestorLevelLimit, @javax.annotation.Nullable BigDecimal childrenLevelLimit, @javax.annotation.Nullable BigDecimal ancestorListStart, @javax.annotation.Nullable BigDecimal ancestorListLimit, @javax.annotation.Nullable BigDecimal childrenListStart, @javax.annotation.Nullable BigDecimal childrenListLimit, @javax.annotation.Nullable Boolean childrenChildren, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getReferralListValidateBeforeCall(version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, _callback);
+        okhttp3.Call localVarCall = getReferralListValidateBeforeCall(accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSettings
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -3010,7 +2929,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSettingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSettingsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3027,8 +2946,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/settings/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/settings/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3072,20 +2990,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSettingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getSettings(Async)");
-        }
-
-        return getSettingsCall(version, deviceId, accountId, latitude, longitude, _callback);
+    private okhttp3.Call getSettingsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return getSettingsCall(deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Account Settings
      * Get the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -3099,15 +3011,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public UserSettingsResponse getSettings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<UserSettingsResponse> localVarResp = getSettingsWithHttpInfo(version, deviceId, accountId, latitude, longitude);
+    public UserSettingsResponse getSettings(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<UserSettingsResponse> localVarResp = getSettingsWithHttpInfo(deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Account Settings
      * Get the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -3121,8 +3032,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UserSettingsResponse> getSettingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getSettingsValidateBeforeCall(version, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<UserSettingsResponse> getSettingsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getSettingsValidateBeforeCall(deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<UserSettingsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3130,7 +3041,6 @@ public class AccountApi {
     /**
      * Get Account Settings (asynchronously)
      * Get the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -3145,16 +3055,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSettingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<UserSettingsResponse> _callback) throws ApiException {
+    public okhttp3.Call getSettingsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<UserSettingsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSettingsValidateBeforeCall(version, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getSettingsValidateBeforeCall(deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<UserSettingsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for loginDelegate
-     * @param version  (required)
      * @param accessToken  (required)
      * @param appKey  (required)
      * @param deviceId  (optional)
@@ -3176,7 +3085,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginDelegateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call loginDelegateCall(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3193,8 +3102,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/login/delegate"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/login/delegate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3266,12 +3174,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call loginDelegateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling loginDelegate(Async)");
-        }
-
+    private okhttp3.Call loginDelegateValidateBeforeCall(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accessToken' is set
         if (accessToken == null) {
             throw new ApiException("Missing the required parameter 'accessToken' when calling loginDelegate(Async)");
@@ -3282,14 +3185,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling loginDelegate(Async)");
         }
 
-        return loginDelegateCall(version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, _callback);
+        return loginDelegateCall(accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, _callback);
 
     }
 
     /**
      * Login as Account
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @param version  (required)
      * @param accessToken  (required)
      * @param appKey  (required)
      * @param deviceId  (optional)
@@ -3310,15 +3212,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse loginDelegate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = loginDelegateWithHttpInfo(version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
+    public ProfileResponse loginDelegate(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = loginDelegateWithHttpInfo(accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Login as Account
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @param version  (required)
      * @param accessToken  (required)
      * @param appKey  (required)
      * @param deviceId  (optional)
@@ -3339,8 +3240,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> loginDelegateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = loginDelegateValidateBeforeCall(version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, null);
+    public ApiResponse<ProfileResponse> loginDelegateWithHttpInfo(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = loginDelegateValidateBeforeCall(accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3348,7 +3249,6 @@ public class AccountApi {
     /**
      * Login as Account (asynchronously)
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @param version  (required)
      * @param accessToken  (required)
      * @param appKey  (required)
      * @param deviceId  (optional)
@@ -3370,16 +3270,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginDelegateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call loginDelegateAsync(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Long delegatedAccountId, @javax.annotation.Nullable String delegatedUsername, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = loginDelegateValidateBeforeCall(version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = loginDelegateValidateBeforeCall(accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for loginGeneral
-     * @param version  (required)
      * @param accessToken The access token to authenticate with (ex: username or fb token) (required)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
      * @param appKey The application key (required)
@@ -3403,7 +3302,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginGeneralCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call loginGeneralCall(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3420,8 +3319,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/login"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/login";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3501,12 +3399,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call loginGeneralValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling loginGeneral(Async)");
-        }
-
+    private okhttp3.Call loginGeneralValidateBeforeCall(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accessToken' is set
         if (accessToken == null) {
             throw new ApiException("Missing the required parameter 'accessToken' when calling loginGeneral(Async)");
@@ -3522,14 +3415,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling loginGeneral(Async)");
         }
 
-        return loginGeneralCall(version, accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, _callback);
+        return loginGeneralCall(accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, _callback);
 
     }
 
     /**
      * Login Account
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @param version  (required)
      * @param accessToken The access token to authenticate with (ex: username or fb token) (required)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
      * @param appKey The application key (required)
@@ -3552,15 +3444,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse loginGeneral(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = loginGeneralWithHttpInfo(version, accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
+    public ProfileResponse loginGeneral(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = loginGeneralWithHttpInfo(accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
         return localVarResp.getData();
     }
 
     /**
      * Login Account
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @param version  (required)
      * @param accessToken The access token to authenticate with (ex: username or fb token) (required)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
      * @param appKey The application key (required)
@@ -3583,8 +3474,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> loginGeneralWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId) throws ApiException {
-        okhttp3.Call localVarCall = loginGeneralValidateBeforeCall(version, accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, null);
+    public ApiResponse<ProfileResponse> loginGeneralWithHttpInfo(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId) throws ApiException {
+        okhttp3.Call localVarCall = loginGeneralValidateBeforeCall(accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3592,7 +3483,6 @@ public class AccountApi {
     /**
      * Login Account (asynchronously)
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @param version  (required)
      * @param accessToken The access token to authenticate with (ex: username or fb token) (required)
      * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
      * @param appKey The application key (required)
@@ -3616,16 +3506,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginGeneralAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call loginGeneralAsync(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String accessTokenSecret, @javax.annotation.Nullable Integer ageRestriction, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean emailMatch, @javax.annotation.Nullable Long chosenAccountId, @javax.annotation.Nullable Long thirdPartyCredentialId, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = loginGeneralValidateBeforeCall(version, accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, _callback);
+        okhttp3.Call localVarCall = loginGeneralValidateBeforeCall(accessToken, networkUID, appKey, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for loginUsername
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional)
@@ -3646,7 +3535,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginUsernameCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call loginUsernameCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3663,8 +3552,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3732,12 +3620,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call loginUsernameValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling loginUsername(Async)");
-        }
-
+    private okhttp3.Call loginUsernameValidateBeforeCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling loginUsername(Async)");
@@ -3748,14 +3631,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'password' when calling loginUsername(Async)");
         }
 
-        return loginUsernameCall(version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, _callback);
+        return loginUsernameCall(username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, _callback);
 
     }
 
     /**
      * Login Account (Username)
      * Login to system with an account
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional)
@@ -3775,15 +3657,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse loginUsername(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = loginUsernameWithHttpInfo(version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
+    public ProfileResponse loginUsername(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = loginUsernameWithHttpInfo(username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
         return localVarResp.getData();
     }
 
     /**
      * Login Account (Username)
      * Login to system with an account
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional)
@@ -3803,8 +3684,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> loginUsernameWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
-        okhttp3.Call localVarCall = loginUsernameValidateBeforeCall(version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, null);
+    public ApiResponse<ProfileResponse> loginUsernameWithHttpInfo(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
+        okhttp3.Call localVarCall = loginUsernameValidateBeforeCall(username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3812,7 +3693,6 @@ public class AccountApi {
     /**
      * Login Account (Username) (asynchronously)
      * Login to system with an account
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional)
@@ -3833,16 +3713,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginUsernameAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call loginUsernameAsync(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String app, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = loginUsernameValidateBeforeCall(version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, _callback);
+        okhttp3.Call localVarCall = loginUsernameValidateBeforeCall(username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for logout
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -3858,7 +3737,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call logoutCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call logoutCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3875,8 +3754,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/logout"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/logout";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3924,20 +3802,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call logoutValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling logout(Async)");
-        }
-
-        return logoutCall(version, deviceId, deviceIdType, accountId, latitude, longitude, _callback);
+    private okhttp3.Call logoutValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return logoutCall(deviceId, deviceIdType, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Logout Account
      * Cleans up the users data for logging out.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -3952,15 +3824,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse logout(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = logoutWithHttpInfo(version, deviceId, deviceIdType, accountId, latitude, longitude);
+    public SirqulResponse logout(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = logoutWithHttpInfo(deviceId, deviceIdType, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Logout Account
      * Cleans up the users data for logging out.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -3975,8 +3846,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> logoutWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = logoutValidateBeforeCall(version, deviceId, deviceIdType, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> logoutWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = logoutValidateBeforeCall(deviceId, deviceIdType, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3984,7 +3855,6 @@ public class AccountApi {
     /**
      * Logout Account (asynchronously)
      * Cleans up the users data for logging out.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param deviceIdType Device Id Type (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -4000,16 +3870,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call logoutAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call logoutAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = logoutValidateBeforeCall(version, deviceId, deviceIdType, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = logoutValidateBeforeCall(deviceId, deviceIdType, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for mergeAccount
-     * @param version  (required)
      * @param mergeAccountId The id of the account to being merged (required)
      * @param appKey The application key (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4024,7 +3893,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call mergeAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call mergeAccountCall(@javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4041,8 +3910,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/merge"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/merge";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4086,12 +3954,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call mergeAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling mergeAccount(Async)");
-        }
-
+    private okhttp3.Call mergeAccountValidateBeforeCall(@javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'mergeAccountId' is set
         if (mergeAccountId == null) {
             throw new ApiException("Missing the required parameter 'mergeAccountId' when calling mergeAccount(Async)");
@@ -4102,14 +3965,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling mergeAccount(Async)");
         }
 
-        return mergeAccountCall(version, mergeAccountId, appKey, deviceId, accountId, _callback);
+        return mergeAccountCall(mergeAccountId, appKey, deviceId, accountId, _callback);
 
     }
 
     /**
      * Merge Account
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @param version  (required)
      * @param mergeAccountId The id of the account to being merged (required)
      * @param appKey The application key (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4123,15 +3985,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse mergeAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = mergeAccountWithHttpInfo(version, mergeAccountId, appKey, deviceId, accountId);
+    public SirqulResponse mergeAccount(@javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = mergeAccountWithHttpInfo(mergeAccountId, appKey, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Merge Account
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @param version  (required)
      * @param mergeAccountId The id of the account to being merged (required)
      * @param appKey The application key (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4145,8 +4006,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> mergeAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = mergeAccountValidateBeforeCall(version, mergeAccountId, appKey, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> mergeAccountWithHttpInfo(@javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = mergeAccountValidateBeforeCall(mergeAccountId, appKey, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4154,7 +4015,6 @@ public class AccountApi {
     /**
      * Merge Account (asynchronously)
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @param version  (required)
      * @param mergeAccountId The id of the account to being merged (required)
      * @param appKey The application key (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4169,16 +4029,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call mergeAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call mergeAccountAsync(@javax.annotation.Nonnull Long mergeAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = mergeAccountValidateBeforeCall(version, mergeAccountId, appKey, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = mergeAccountValidateBeforeCall(mergeAccountId, appKey, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for passwordChange
-     * @param version  (required)
      * @param accountId The account to update (required)
      * @param oldPassword The current password, used to validate access (required)
      * @param newPassword The new password to set, cannot be empty (required)
@@ -4193,7 +4052,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call passwordChangeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call passwordChangeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4210,8 +4069,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/passwordchange"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/passwordchange";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4255,12 +4113,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call passwordChangeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling passwordChange(Async)");
-        }
-
+    private okhttp3.Call passwordChangeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling passwordChange(Async)");
@@ -4281,14 +4134,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'confirmPassword' when calling passwordChange(Async)");
         }
 
-        return passwordChangeCall(version, accountId, oldPassword, newPassword, confirmPassword, _callback);
+        return passwordChangeCall(accountId, oldPassword, newPassword, confirmPassword, _callback);
 
     }
 
     /**
      * Update Password
      * Update the account password.
-     * @param version  (required)
      * @param accountId The account to update (required)
      * @param oldPassword The current password, used to validate access (required)
      * @param newPassword The new password to set, cannot be empty (required)
@@ -4302,15 +4154,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse passwordChange(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = passwordChangeWithHttpInfo(version, accountId, oldPassword, newPassword, confirmPassword);
+    public SirqulResponse passwordChange(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = passwordChangeWithHttpInfo(accountId, oldPassword, newPassword, confirmPassword);
         return localVarResp.getData();
     }
 
     /**
      * Update Password
      * Update the account password.
-     * @param version  (required)
      * @param accountId The account to update (required)
      * @param oldPassword The current password, used to validate access (required)
      * @param newPassword The new password to set, cannot be empty (required)
@@ -4324,8 +4175,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> passwordChangeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword) throws ApiException {
-        okhttp3.Call localVarCall = passwordChangeValidateBeforeCall(version, accountId, oldPassword, newPassword, confirmPassword, null);
+    public ApiResponse<SirqulResponse> passwordChangeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword) throws ApiException {
+        okhttp3.Call localVarCall = passwordChangeValidateBeforeCall(accountId, oldPassword, newPassword, confirmPassword, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4333,7 +4184,6 @@ public class AccountApi {
     /**
      * Update Password (asynchronously)
      * Update the account password.
-     * @param version  (required)
      * @param accountId The account to update (required)
      * @param oldPassword The current password, used to validate access (required)
      * @param newPassword The new password to set, cannot be empty (required)
@@ -4348,16 +4198,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call passwordChangeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call passwordChangeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String oldPassword, @javax.annotation.Nonnull String newPassword, @javax.annotation.Nonnull String confirmPassword, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = passwordChangeValidateBeforeCall(version, accountId, oldPassword, newPassword, confirmPassword, _callback);
+        okhttp3.Call localVarCall = passwordChangeValidateBeforeCall(accountId, oldPassword, newPassword, confirmPassword, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for passwordReset
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param password The new password to set, cannot be empty (required)
      * @param confirm The new password to confirm, must match newPassword (required)
@@ -4371,7 +4220,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call passwordResetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call passwordResetCall(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4388,8 +4237,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/passwordreset"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/passwordreset";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4429,12 +4277,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call passwordResetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling passwordReset(Async)");
-        }
-
+    private okhttp3.Call passwordResetValidateBeforeCall(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'token' is set
         if (token == null) {
             throw new ApiException("Missing the required parameter 'token' when calling passwordReset(Async)");
@@ -4450,14 +4293,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'confirm' when calling passwordReset(Async)");
         }
 
-        return passwordResetCall(version, token, password, confirm, _callback);
+        return passwordResetCall(token, password, confirm, _callback);
 
     }
 
     /**
      * Reset Password
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param password The new password to set, cannot be empty (required)
      * @param confirm The new password to confirm, must match newPassword (required)
@@ -4470,15 +4312,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse passwordReset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = passwordResetWithHttpInfo(version, token, password, confirm);
+    public SirqulResponse passwordReset(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = passwordResetWithHttpInfo(token, password, confirm);
         return localVarResp.getData();
     }
 
     /**
      * Reset Password
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param password The new password to set, cannot be empty (required)
      * @param confirm The new password to confirm, must match newPassword (required)
@@ -4491,8 +4332,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> passwordResetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm) throws ApiException {
-        okhttp3.Call localVarCall = passwordResetValidateBeforeCall(version, token, password, confirm, null);
+    public ApiResponse<SirqulResponse> passwordResetWithHttpInfo(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm) throws ApiException {
+        okhttp3.Call localVarCall = passwordResetValidateBeforeCall(token, password, confirm, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4500,7 +4341,6 @@ public class AccountApi {
     /**
      * Reset Password (asynchronously)
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param password The new password to set, cannot be empty (required)
      * @param confirm The new password to confirm, must match newPassword (required)
@@ -4514,16 +4354,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call passwordResetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call passwordResetAsync(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String confirm, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = passwordResetValidateBeforeCall(version, token, password, confirm, _callback);
+        okhttp3.Call localVarCall = passwordResetValidateBeforeCall(token, password, confirm, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for requestPasswordReset
-     * @param version  (required)
      * @param email The email/username of the account (required)
      * @param from this is the sender email (optional, default to Sirqul)
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -4539,7 +4378,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPasswordResetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestPasswordResetCall(@javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4556,8 +4395,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/requestpasswordreset"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/requestpasswordreset";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4605,25 +4443,19 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestPasswordResetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling requestPasswordReset(Async)");
-        }
-
+    private okhttp3.Call requestPasswordResetValidateBeforeCall(@javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'email' is set
         if (email == null) {
             throw new ApiException("Missing the required parameter 'email' when calling requestPasswordReset(Async)");
         }
 
-        return requestPasswordResetCall(version, email, from, domain, subUrl, referer, _callback);
+        return requestPasswordResetCall(email, from, domain, subUrl, referer, _callback);
 
     }
 
     /**
      * Request Password Reset
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @param version  (required)
      * @param email The email/username of the account (required)
      * @param from this is the sender email (optional, default to Sirqul)
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -4638,15 +4470,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse requestPasswordReset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = requestPasswordResetWithHttpInfo(version, email, from, domain, subUrl, referer);
+    public SirqulResponse requestPasswordReset(@javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = requestPasswordResetWithHttpInfo(email, from, domain, subUrl, referer);
         return localVarResp.getData();
     }
 
     /**
      * Request Password Reset
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @param version  (required)
      * @param email The email/username of the account (required)
      * @param from this is the sender email (optional, default to Sirqul)
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -4661,8 +4492,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> requestPasswordResetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer) throws ApiException {
-        okhttp3.Call localVarCall = requestPasswordResetValidateBeforeCall(version, email, from, domain, subUrl, referer, null);
+    public ApiResponse<SirqulResponse> requestPasswordResetWithHttpInfo(@javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer) throws ApiException {
+        okhttp3.Call localVarCall = requestPasswordResetValidateBeforeCall(email, from, domain, subUrl, referer, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4670,7 +4501,6 @@ public class AccountApi {
     /**
      * Request Password Reset (asynchronously)
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @param version  (required)
      * @param email The email/username of the account (required)
      * @param from this is the sender email (optional, default to Sirqul)
      * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
@@ -4686,16 +4516,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPasswordResetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call requestPasswordResetAsync(@javax.annotation.Nonnull String email, @javax.annotation.Nullable String from, @javax.annotation.Nullable String domain, @javax.annotation.Nullable String subUrl, @javax.annotation.Nullable String referer, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestPasswordResetValidateBeforeCall(version, email, from, domain, subUrl, referer, _callback);
+        okhttp3.Call localVarCall = requestPasswordResetValidateBeforeCall(email, from, domain, subUrl, referer, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for requestValidateAccount
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4707,7 +4536,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestValidateAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestValidateAccountCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4724,8 +4553,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/requestValidateAccount"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/requestValidateAccount";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4757,25 +4585,19 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestValidateAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling requestValidateAccount(Async)");
-        }
-
+    private okhttp3.Call requestValidateAccountValidateBeforeCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling requestValidateAccount(Async)");
         }
 
-        return requestValidateAccountCall(version, accountId, _callback);
+        return requestValidateAccountCall(accountId, _callback);
 
     }
 
     /**
      * Send Validation Request
      * Send an email to validate a user&#39;s account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4786,15 +4608,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse requestValidateAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = requestValidateAccountWithHttpInfo(version, accountId);
+    public SirqulResponse requestValidateAccount(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = requestValidateAccountWithHttpInfo(accountId);
         return localVarResp.getData();
     }
 
     /**
      * Send Validation Request
      * Send an email to validate a user&#39;s account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4805,8 +4626,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> requestValidateAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = requestValidateAccountValidateBeforeCall(version, accountId, null);
+    public ApiResponse<SirqulResponse> requestValidateAccountWithHttpInfo(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = requestValidateAccountValidateBeforeCall(accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4814,7 +4635,6 @@ public class AccountApi {
     /**
      * Send Validation Request (asynchronously)
      * Send an email to validate a user&#39;s account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4826,16 +4646,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestValidateAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call requestValidateAccountAsync(@javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestValidateAccountValidateBeforeCall(version, accountId, _callback);
+        okhttp3.Call localVarCall = requestValidateAccountValidateBeforeCall(accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchAccounts
-     * @param version  (required)
      * @param accountId The id of the account requesting (required)
      * @param appKey The application key (required)
      * @param keyword The keyword for for querying the account (optional)
@@ -4864,7 +4683,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAccountsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAccountsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4881,8 +4700,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/profile/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/profile/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4982,12 +4800,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAccountsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchAccounts(Async)");
-        }
-
+    private okhttp3.Call searchAccountsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchAccounts(Async)");
@@ -4998,14 +4811,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchAccounts(Async)");
         }
 
-        return searchAccountsCall(version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, _callback);
+        return searchAccountsCall(accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, _callback);
 
     }
 
     /**
      * Search Accounts
      * Search for account profiles.
-     * @param version  (required)
      * @param accountId The id of the account requesting (required)
      * @param appKey The application key (required)
      * @param keyword The keyword for for querying the account (optional)
@@ -5033,15 +4845,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ProfileResponse> searchAccounts(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<ProfileResponse>> localVarResp = searchAccountsWithHttpInfo(version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
+    public List<ProfileResponse> searchAccounts(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<ProfileResponse>> localVarResp = searchAccountsWithHttpInfo(accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Accounts
      * Search for account profiles.
-     * @param version  (required)
      * @param accountId The id of the account requesting (required)
      * @param appKey The application key (required)
      * @param keyword The keyword for for querying the account (optional)
@@ -5069,8 +4880,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ProfileResponse>> searchAccountsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchAccountsValidateBeforeCall(version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, null);
+    public ApiResponse<List<ProfileResponse>> searchAccountsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchAccountsValidateBeforeCall(accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<ProfileResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5078,7 +4889,6 @@ public class AccountApi {
     /**
      * Search Accounts (asynchronously)
      * Search for account profiles.
-     * @param version  (required)
      * @param accountId The id of the account requesting (required)
      * @param appKey The application key (required)
      * @param keyword The keyword for for querying the account (optional)
@@ -5107,16 +4917,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAccountsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<ProfileResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchAccountsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double radius, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<ProfileResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAccountsValidateBeforeCall(version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchAccountsValidateBeforeCall(accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<ProfileResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for secureLogin
-     * @param version  (required)
      * @param username The user&#39;s encrypted email address they used to sign-up (required)
      * @param password The encrypted password (required)
      * @param gameType The application key (required)
@@ -5136,7 +4945,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call secureLoginCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call secureLoginCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5153,8 +4962,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/login/validate"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/login/validate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5218,12 +5026,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call secureLoginValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling secureLogin(Async)");
-        }
-
+    private okhttp3.Call secureLoginValidateBeforeCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling secureLogin(Async)");
@@ -5239,14 +5042,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'gameType' when calling secureLogin(Async)");
         }
 
-        return secureLoginCall(version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, _callback);
+        return secureLoginCall(username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, _callback);
 
     }
 
     /**
      * Login Account (Encrypted Username)
      * ogin with encrypted user-name and password.
-     * @param version  (required)
      * @param username The user&#39;s encrypted email address they used to sign-up (required)
      * @param password The encrypted password (required)
      * @param gameType The application key (required)
@@ -5265,15 +5067,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse secureLogin(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = secureLoginWithHttpInfo(version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
+    public ProfileResponse secureLogin(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = secureLoginWithHttpInfo(username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
         return localVarResp.getData();
     }
 
     /**
      * Login Account (Encrypted Username)
      * ogin with encrypted user-name and password.
-     * @param version  (required)
      * @param username The user&#39;s encrypted email address they used to sign-up (required)
      * @param password The encrypted password (required)
      * @param gameType The application key (required)
@@ -5292,8 +5093,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> secureLoginWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
-        okhttp3.Call localVarCall = secureLoginValidateBeforeCall(version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, null);
+    public ApiResponse<ProfileResponse> secureLoginWithHttpInfo(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters) throws ApiException {
+        okhttp3.Call localVarCall = secureLoginValidateBeforeCall(username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5301,7 +5102,6 @@ public class AccountApi {
     /**
      * Login Account (Encrypted Username) (asynchronously)
      * ogin with encrypted user-name and password.
-     * @param version  (required)
      * @param username The user&#39;s encrypted email address they used to sign-up (required)
      * @param password The encrypted password (required)
      * @param gameType The application key (required)
@@ -5321,16 +5121,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call secureLoginAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call secureLoginAsync(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String gameType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnProfile, @javax.annotation.Nullable String responseFilters, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = secureLoginValidateBeforeCall(version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, _callback);
+        okhttp3.Call localVarCall = secureLoginValidateBeforeCall(username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for secureSignup
-     * @param version  (required)
      * @param deviceId The device id (required)
      * @param username The encrypted email of the user, this is what will be used when they login (required)
      * @param password The encrypted password of the user (required)
@@ -5402,7 +5201,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call secureSignupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call secureSignupCall(@javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5419,8 +5218,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/create/validate"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/create/validate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5692,12 +5490,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call secureSignupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling secureSignup(Async)");
-        }
-
+    private okhttp3.Call secureSignupValidateBeforeCall(@javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'deviceId' is set
         if (deviceId == null) {
             throw new ApiException("Missing the required parameter 'deviceId' when calling secureSignup(Async)");
@@ -5713,14 +5506,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'password' when calling secureSignup(Async)");
         }
 
-        return secureSignupCall(version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, _callback);
+        return secureSignupCall(deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, _callback);
 
     }
 
     /**
      * Create Account (Encrypted Username)
      * Create a new account by role (with encrypted user-name and password)
-     * @param version  (required)
      * @param deviceId The device id (required)
      * @param username The encrypted email of the user, this is what will be used when they login (required)
      * @param password The encrypted password of the user (required)
@@ -5791,15 +5583,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileInfoResponse secureSignup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType) throws ApiException {
-        ApiResponse<ProfileInfoResponse> localVarResp = secureSignupWithHttpInfo(version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
+    public ProfileInfoResponse secureSignup(@javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType) throws ApiException {
+        ApiResponse<ProfileInfoResponse> localVarResp = secureSignupWithHttpInfo(deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
         return localVarResp.getData();
     }
 
     /**
      * Create Account (Encrypted Username)
      * Create a new account by role (with encrypted user-name and password)
-     * @param version  (required)
      * @param deviceId The device id (required)
      * @param username The encrypted email of the user, this is what will be used when they login (required)
      * @param password The encrypted password of the user (required)
@@ -5870,8 +5661,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileInfoResponse> secureSignupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType) throws ApiException {
-        okhttp3.Call localVarCall = secureSignupValidateBeforeCall(version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, null);
+    public ApiResponse<ProfileInfoResponse> secureSignupWithHttpInfo(@javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType) throws ApiException {
+        okhttp3.Call localVarCall = secureSignupValidateBeforeCall(deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, null);
         Type localVarReturnType = new TypeToken<ProfileInfoResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5879,7 +5670,6 @@ public class AccountApi {
     /**
      * Create Account (Encrypted Username) (asynchronously)
      * Create a new account by role (with encrypted user-name and password)
-     * @param version  (required)
      * @param deviceId The device id (required)
      * @param username The encrypted email of the user, this is what will be used when they login (required)
      * @param password The encrypted password of the user (required)
@@ -5951,16 +5741,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call secureSignupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, final ApiCallback<ProfileInfoResponse> _callback) throws ApiException {
+    public okhttp3.Call secureSignupAsync(@javax.annotation.Nonnull String deviceId, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String name, @javax.annotation.Nullable String inviteToken, @javax.annotation.Nullable String prefixName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String middleName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String suffixName, @javax.annotation.Nullable String title, @javax.annotation.Nullable String deviceIdType, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String address, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Long birthday, @javax.annotation.Nullable String homePhone, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String cellPhoneCarrier, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String role, @javax.annotation.Nullable String platforms, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String aboutUs, @javax.annotation.Nullable String gameExperience, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String hometown, @javax.annotation.Nullable String height, @javax.annotation.Nullable Integer heightIndex, @javax.annotation.Nullable String ethnicity, @javax.annotation.Nullable String bodyType, @javax.annotation.Nullable String maritalStatus, @javax.annotation.Nullable String children, @javax.annotation.Nullable String religion, @javax.annotation.Nullable String education, @javax.annotation.Nullable Integer educationIndex, @javax.annotation.Nullable String smoke, @javax.annotation.Nullable String drink, @javax.annotation.Nullable String companionship, @javax.annotation.Nullable Integer companionshipIndex, @javax.annotation.Nullable Integer preferredMinAge, @javax.annotation.Nullable Integer preferredMaxAge, @javax.annotation.Nullable Integer preferredMinHeight, @javax.annotation.Nullable Integer preferredMaxHeight, @javax.annotation.Nullable String preferredGender, @javax.annotation.Nullable String preferredEducation, @javax.annotation.Nullable Integer preferredEducationIndex, @javax.annotation.Nullable String preferredBodyType, @javax.annotation.Nullable String preferredEthnicity, @javax.annotation.Nullable String preferredLocation, @javax.annotation.Nullable Double preferredLocationRange, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean acceptedTerms, @javax.annotation.Nullable String charsetName, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String responseType, final ApiCallback<ProfileInfoResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = secureSignupValidateBeforeCall(version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, _callback);
+        okhttp3.Call localVarCall = secureSignupValidateBeforeCall(deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, _callback);
         Type localVarReturnType = new TypeToken<ProfileInfoResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for setMatchToken
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -5978,7 +5767,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setMatchTokenCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call setMatchTokenCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5995,8 +5784,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/profile/matchToken"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/profile/matchToken";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6052,20 +5840,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call setMatchTokenValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling setMatchToken(Async)");
-        }
-
-        return setMatchTokenCall(version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, _callback);
+    private okhttp3.Call setMatchTokenValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return setMatchTokenCall(deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, _callback);
 
     }
 
     /**
      * Save Match Token
      * Save user&#39;s match token to be used for profile match making
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -6082,15 +5864,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse setMatchToken(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = setMatchTokenWithHttpInfo(version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
+    public SirqulResponse setMatchToken(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = setMatchTokenWithHttpInfo(deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Save Match Token
      * Save user&#39;s match token to be used for profile match making
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -6107,8 +5888,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> setMatchTokenWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = setMatchTokenValidateBeforeCall(version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> setMatchTokenWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = setMatchTokenValidateBeforeCall(deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6116,7 +5897,6 @@ public class AccountApi {
     /**
      * Save Match Token (asynchronously)
      * Save user&#39;s match token to be used for profile match making
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param matchToken A string of numbers (optional)
@@ -6134,16 +5914,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setMatchTokenAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call setMatchTokenAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String matchToken, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = setMatchTokenValidateBeforeCall(version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = setMatchTokenValidateBeforeCall(deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateActveStatus
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param active true will activate the user and false will deactivate (required)
@@ -6159,7 +5938,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateActveStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateActveStatusCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6176,8 +5955,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/active/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/active/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6225,12 +6003,7 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateActveStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateActveStatus(Async)");
-        }
-
+    private okhttp3.Call updateActveStatusValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateActveStatus(Async)");
@@ -6246,14 +6019,13 @@ public class AccountApi {
             throw new ApiException("Missing the required parameter 'active' when calling updateActveStatus(Async)");
         }
 
-        return updateActveStatusCall(version, accountId, connectionAccountId, active, deviceId, appKey, _callback);
+        return updateActveStatusCall(accountId, connectionAccountId, active, deviceId, appKey, _callback);
 
     }
 
     /**
      * Update Account Active Status
      * Activate or deactivate an account (requires appropriate permissions).
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param active true will activate the user and false will deactivate (required)
@@ -6268,15 +6040,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateActveStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateActveStatusWithHttpInfo(version, accountId, connectionAccountId, active, deviceId, appKey);
+    public SirqulResponse updateActveStatus(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateActveStatusWithHttpInfo(accountId, connectionAccountId, active, deviceId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Update Account Active Status
      * Activate or deactivate an account (requires appropriate permissions).
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param active true will activate the user and false will deactivate (required)
@@ -6291,8 +6062,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateActveStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = updateActveStatusValidateBeforeCall(version, accountId, connectionAccountId, active, deviceId, appKey, null);
+    public ApiResponse<SirqulResponse> updateActveStatusWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = updateActveStatusValidateBeforeCall(accountId, connectionAccountId, active, deviceId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6300,7 +6071,6 @@ public class AccountApi {
     /**
      * Update Account Active Status (asynchronously)
      * Activate or deactivate an account (requires appropriate permissions).
-     * @param version  (required)
      * @param accountId the account id of the user (deviceId or accountId required) (required)
      * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
      * @param active true will activate the user and false will deactivate (required)
@@ -6316,16 +6086,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateActveStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateActveStatusAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long connectionAccountId, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateActveStatusValidateBeforeCall(version, accountId, connectionAccountId, active, deviceId, appKey, _callback);
+        okhttp3.Call localVarCall = updateActveStatusValidateBeforeCall(accountId, connectionAccountId, active, deviceId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateLocation
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -6341,7 +6110,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLocationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateLocationCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6358,8 +6127,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/location/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/location/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6407,20 +6175,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateLocationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateLocation(Async)");
-        }
-
-        return updateLocationCall(version, deviceId, accountId, latitude, longitude, clientTime, _callback);
+    private okhttp3.Call updateLocationValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime, final ApiCallback _callback) throws ApiException {
+        return updateLocationCall(deviceId, accountId, latitude, longitude, clientTime, _callback);
 
     }
 
     /**
      * Update Location
      * Update the account location
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -6435,15 +6197,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateLocation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateLocationWithHttpInfo(version, deviceId, accountId, latitude, longitude, clientTime);
+    public SirqulResponse updateLocation(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateLocationWithHttpInfo(deviceId, accountId, latitude, longitude, clientTime);
         return localVarResp.getData();
     }
 
     /**
      * Update Location
      * Update the account location
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -6458,8 +6219,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateLocationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime) throws ApiException {
-        okhttp3.Call localVarCall = updateLocationValidateBeforeCall(version, deviceId, accountId, latitude, longitude, clientTime, null);
+    public ApiResponse<SirqulResponse> updateLocationWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime) throws ApiException {
+        okhttp3.Call localVarCall = updateLocationValidateBeforeCall(deviceId, accountId, latitude, longitude, clientTime, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6467,7 +6228,6 @@ public class AccountApi {
     /**
      * Update Location (asynchronously)
      * Update the account location
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude The current latitude of the user (optional)
@@ -6483,16 +6243,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLocationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateLocationAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long clientTime, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateLocationValidateBeforeCall(version, deviceId, accountId, latitude, longitude, clientTime, _callback);
+        okhttp3.Call localVarCall = updateLocationValidateBeforeCall(deviceId, accountId, latitude, longitude, clientTime, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateSettings
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -6515,7 +6274,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSettingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSettingsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6532,8 +6291,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/settings/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/settings/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6609,20 +6367,14 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSettingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateSettings(Async)");
-        }
-
-        return updateSettingsCall(version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, _callback);
+    private okhttp3.Call updateSettingsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return updateSettingsCall(deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, _callback);
 
     }
 
     /**
      * Update Account Settings
      * Update the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -6644,15 +6396,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public UserSettingsResponse updateSettings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<UserSettingsResponse> localVarResp = updateSettingsWithHttpInfo(version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
+    public UserSettingsResponse updateSettings(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<UserSettingsResponse> localVarResp = updateSettingsWithHttpInfo(deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Update Account Settings
      * Update the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -6674,8 +6425,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UserSettingsResponse> updateSettingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = updateSettingsValidateBeforeCall(version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, null);
+    public ApiResponse<UserSettingsResponse> updateSettingsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = updateSettingsValidateBeforeCall(deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<UserSettingsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6683,7 +6434,6 @@ public class AccountApi {
     /**
      * Update Account Settings (asynchronously)
      * Update the account settings for a user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param blockedNotifications The notifications to be blocked (optional)
@@ -6706,16 +6456,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSettingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<UserSettingsResponse> _callback) throws ApiException {
+    public okhttp3.Call updateSettingsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String blockedNotifications, @javax.annotation.Nullable String suggestionMethod, @javax.annotation.Nullable Integer suggestionCount, @javax.annotation.Nullable Integer suggestionTimeFrame, @javax.annotation.Nullable Boolean showOthersExactLocation, @javax.annotation.Nullable Boolean showAsZipcode, @javax.annotation.Nullable Boolean showExactLocation, @javax.annotation.Nullable String favoriteVisibility, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<UserSettingsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateSettingsValidateBeforeCall(version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = updateSettingsValidateBeforeCall(deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<UserSettingsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for validateAccountSignup
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6727,7 +6476,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call validateAccountSignupCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call validateAccountSignupCall(@javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6744,8 +6493,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/validateAccountSignup"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/validateAccountSignup";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6777,25 +6525,19 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call validateAccountSignupValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling validateAccountSignup(Async)");
-        }
-
+    private okhttp3.Call validateAccountSignupValidateBeforeCall(@javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'token' is set
         if (token == null) {
             throw new ApiException("Missing the required parameter 'token' when calling validateAccountSignup(Async)");
         }
 
-        return validateAccountSignupCall(version, token, _callback);
+        return validateAccountSignupCall(token, _callback);
 
     }
 
     /**
      * Save Validation Status
      * Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @return AccountLoginResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6806,15 +6548,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AccountLoginResponse validateAccountSignup(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token) throws ApiException {
-        ApiResponse<AccountLoginResponse> localVarResp = validateAccountSignupWithHttpInfo(version, token);
+    public AccountLoginResponse validateAccountSignup(@javax.annotation.Nonnull String token) throws ApiException {
+        ApiResponse<AccountLoginResponse> localVarResp = validateAccountSignupWithHttpInfo(token);
         return localVarResp.getData();
     }
 
     /**
      * Save Validation Status
      * Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @return ApiResponse&lt;AccountLoginResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6825,8 +6566,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountLoginResponse> validateAccountSignupWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token) throws ApiException {
-        okhttp3.Call localVarCall = validateAccountSignupValidateBeforeCall(version, token, null);
+    public ApiResponse<AccountLoginResponse> validateAccountSignupWithHttpInfo(@javax.annotation.Nonnull String token) throws ApiException {
+        okhttp3.Call localVarCall = validateAccountSignupValidateBeforeCall(token, null);
         Type localVarReturnType = new TypeToken<AccountLoginResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6834,7 +6575,6 @@ public class AccountApi {
     /**
      * Save Validation Status (asynchronously)
      * Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6846,16 +6586,15 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call validateAccountSignupAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, final ApiCallback<AccountLoginResponse> _callback) throws ApiException {
+    public okhttp3.Call validateAccountSignupAsync(@javax.annotation.Nonnull String token, final ApiCallback<AccountLoginResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = validateAccountSignupValidateBeforeCall(version, token, _callback);
+        okhttp3.Call localVarCall = validateAccountSignupValidateBeforeCall(token, _callback);
         Type localVarReturnType = new TypeToken<AccountLoginResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for validatePasswordReset
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6867,7 +6606,7 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call validatePasswordResetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call validatePasswordResetCall(@javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6884,8 +6623,7 @@ public class AccountApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/validatepasswordreset"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/validatepasswordreset";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6917,25 +6655,19 @@ public class AccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call validatePasswordResetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling validatePasswordReset(Async)");
-        }
-
+    private okhttp3.Call validatePasswordResetValidateBeforeCall(@javax.annotation.Nonnull String token, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'token' is set
         if (token == null) {
             throw new ApiException("Missing the required parameter 'token' when calling validatePasswordReset(Async)");
         }
 
-        return validatePasswordResetCall(version, token, _callback);
+        return validatePasswordResetCall(token, _callback);
 
     }
 
     /**
      * Validate Password Reset Token
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6946,15 +6678,14 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse validatePasswordReset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = validatePasswordResetWithHttpInfo(version, token);
+    public SirqulResponse validatePasswordReset(@javax.annotation.Nonnull String token) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = validatePasswordResetWithHttpInfo(token);
         return localVarResp.getData();
     }
 
     /**
      * Validate Password Reset Token
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6965,8 +6696,8 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> validatePasswordResetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token) throws ApiException {
-        okhttp3.Call localVarCall = validatePasswordResetValidateBeforeCall(version, token, null);
+    public ApiResponse<SirqulResponse> validatePasswordResetWithHttpInfo(@javax.annotation.Nonnull String token) throws ApiException {
+        okhttp3.Call localVarCall = validatePasswordResetValidateBeforeCall(token, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6974,7 +6705,6 @@ public class AccountApi {
     /**
      * Validate Password Reset Token (asynchronously)
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @param version  (required)
      * @param token The token associated with the account to update, good for 24 hours (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6986,9 +6716,9 @@ public class AccountApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call validatePasswordResetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call validatePasswordResetAsync(@javax.annotation.Nonnull String token, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = validatePasswordResetValidateBeforeCall(version, token, _callback);
+        okhttp3.Call localVarCall = validatePasswordResetValidateBeforeCall(token, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

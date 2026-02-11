@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PreviewPersonaResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class PreviewPersonaApi {
 
     /**
      * Build call for createPersona
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param title the title of the persona (required)
      * @param previewAccounts the accounts that are able to preview from this persona (optional)
@@ -96,7 +94,7 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPersonaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPersonaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,8 +111,7 @@ public class PreviewPersonaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/persona/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/persona/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -178,12 +175,7 @@ public class PreviewPersonaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPersonaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createPersona(Async)");
-        }
-
+    private okhttp3.Call createPersonaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createPersona(Async)");
@@ -194,14 +186,13 @@ public class PreviewPersonaApi {
             throw new ApiException("Missing the required parameter 'title' when calling createPersona(Async)");
         }
 
-        return createPersonaCall(version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
+        return createPersonaCall(accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
 
     }
 
     /**
      * Create Persona
      * Creates a new persona. If the given params are null those attributes will be override by null.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param title the title of the persona (required)
      * @param previewAccounts the accounts that are able to preview from this persona (optional)
@@ -220,15 +211,14 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PreviewPersonaResponse createPersona(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<PreviewPersonaResponse> localVarResp = createPersonaWithHttpInfo(version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
+    public PreviewPersonaResponse createPersona(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<PreviewPersonaResponse> localVarResp = createPersonaWithHttpInfo(accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Persona
      * Creates a new persona. If the given params are null those attributes will be override by null.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param title the title of the persona (required)
      * @param previewAccounts the accounts that are able to preview from this persona (optional)
@@ -247,8 +237,8 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PreviewPersonaResponse> createPersonaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = createPersonaValidateBeforeCall(version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, null);
+    public ApiResponse<PreviewPersonaResponse> createPersonaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = createPersonaValidateBeforeCall(accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -256,7 +246,6 @@ public class PreviewPersonaApi {
     /**
      * Create Persona (asynchronously)
      * Creates a new persona. If the given params are null those attributes will be override by null.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param title the title of the persona (required)
      * @param previewAccounts the accounts that are able to preview from this persona (optional)
@@ -276,16 +265,15 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPersonaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
+    public okhttp3.Call createPersonaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPersonaValidateBeforeCall(version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = createPersonaValidateBeforeCall(accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deletePersona
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param personaId the id of the persona to delete (required)
      * @param _callback Callback for upload/download progress
@@ -298,7 +286,7 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePersonaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deletePersonaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -315,8 +303,7 @@ public class PreviewPersonaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/persona/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/persona/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -352,12 +339,7 @@ public class PreviewPersonaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePersonaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deletePersona(Async)");
-        }
-
+    private okhttp3.Call deletePersonaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deletePersona(Async)");
@@ -368,14 +350,13 @@ public class PreviewPersonaApi {
             throw new ApiException("Missing the required parameter 'personaId' when calling deletePersona(Async)");
         }
 
-        return deletePersonaCall(version, accountId, personaId, _callback);
+        return deletePersonaCall(accountId, personaId, _callback);
 
     }
 
     /**
      * Delete Persona
      * Mark the persona for deletion.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param personaId the id of the persona to delete (required)
      * @return SirqulResponse
@@ -387,15 +368,14 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deletePersona(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deletePersonaWithHttpInfo(version, accountId, personaId);
+    public SirqulResponse deletePersona(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deletePersonaWithHttpInfo(accountId, personaId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Persona
      * Mark the persona for deletion.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param personaId the id of the persona to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -407,8 +387,8 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deletePersonaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
-        okhttp3.Call localVarCall = deletePersonaValidateBeforeCall(version, accountId, personaId, null);
+    public ApiResponse<SirqulResponse> deletePersonaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
+        okhttp3.Call localVarCall = deletePersonaValidateBeforeCall(accountId, personaId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -416,7 +396,6 @@ public class PreviewPersonaApi {
     /**
      * Delete Persona (asynchronously)
      * Mark the persona for deletion.
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param personaId the id of the persona to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -429,16 +408,15 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePersonaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deletePersonaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePersonaValidateBeforeCall(version, accountId, personaId, _callback);
+        okhttp3.Call localVarCall = deletePersonaValidateBeforeCall(accountId, personaId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPersonaList
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona (required)
      * @param _callback Callback for upload/download progress
@@ -451,7 +429,7 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPersonaListCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPersonaListCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -468,8 +446,7 @@ public class PreviewPersonaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/persona/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/persona/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -505,12 +482,7 @@ public class PreviewPersonaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPersonaListValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPersonaList(Async)");
-        }
-
+    private okhttp3.Call getPersonaListValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPersonaList(Async)");
@@ -521,14 +493,13 @@ public class PreviewPersonaApi {
             throw new ApiException("Missing the required parameter 'personaId' when calling getPersonaList(Async)");
         }
 
-        return getPersonaListCall(version, accountId, personaId, _callback);
+        return getPersonaListCall(accountId, personaId, _callback);
 
     }
 
     /**
      * Get Persona
      * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona (required)
      * @return PreviewPersonaResponse
@@ -540,15 +511,14 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PreviewPersonaResponse getPersonaList(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
-        ApiResponse<PreviewPersonaResponse> localVarResp = getPersonaListWithHttpInfo(version, accountId, personaId);
+    public PreviewPersonaResponse getPersonaList(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
+        ApiResponse<PreviewPersonaResponse> localVarResp = getPersonaListWithHttpInfo(accountId, personaId);
         return localVarResp.getData();
     }
 
     /**
      * Get Persona
      * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona (required)
      * @return ApiResponse&lt;PreviewPersonaResponse&gt;
@@ -560,8 +530,8 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PreviewPersonaResponse> getPersonaListWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
-        okhttp3.Call localVarCall = getPersonaListValidateBeforeCall(version, accountId, personaId, null);
+    public ApiResponse<PreviewPersonaResponse> getPersonaListWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId) throws ApiException {
+        okhttp3.Call localVarCall = getPersonaListValidateBeforeCall(accountId, personaId, null);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -569,7 +539,6 @@ public class PreviewPersonaApi {
     /**
      * Get Persona (asynchronously)
      * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -582,16 +551,15 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPersonaListAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
+    public okhttp3.Call getPersonaListAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPersonaListValidateBeforeCall(version, accountId, personaId, _callback);
+        okhttp3.Call localVarCall = getPersonaListValidateBeforeCall(accountId, personaId, _callback);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchPersona
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param start the start index for pagination (required)
      * @param limit the limit for pagination (There is a hard limit of 100) (required)
@@ -605,7 +573,7 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPersonaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchPersonaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -622,8 +590,7 @@ public class PreviewPersonaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/persona/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/persona/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -663,12 +630,7 @@ public class PreviewPersonaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchPersonaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchPersona(Async)");
-        }
-
+    private okhttp3.Call searchPersonaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchPersona(Async)");
@@ -684,14 +646,13 @@ public class PreviewPersonaApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchPersona(Async)");
         }
 
-        return searchPersonaCall(version, accountId, start, limit, _callback);
+        return searchPersonaCall(accountId, start, limit, _callback);
 
     }
 
     /**
      * Search Personas
      * Search for persona that the account owns by the given account ID.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param start the start index for pagination (required)
      * @param limit the limit for pagination (There is a hard limit of 100) (required)
@@ -704,15 +665,14 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PreviewPersonaResponse searchPersona(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        ApiResponse<PreviewPersonaResponse> localVarResp = searchPersonaWithHttpInfo(version, accountId, start, limit);
+    public PreviewPersonaResponse searchPersona(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        ApiResponse<PreviewPersonaResponse> localVarResp = searchPersonaWithHttpInfo(accountId, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Personas
      * Search for persona that the account owns by the given account ID.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param start the start index for pagination (required)
      * @param limit the limit for pagination (There is a hard limit of 100) (required)
@@ -725,8 +685,8 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PreviewPersonaResponse> searchPersonaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchPersonaValidateBeforeCall(version, accountId, start, limit, null);
+    public ApiResponse<PreviewPersonaResponse> searchPersonaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchPersonaValidateBeforeCall(accountId, start, limit, null);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -734,7 +694,6 @@ public class PreviewPersonaApi {
     /**
      * Search Personas (asynchronously)
      * Search for persona that the account owns by the given account ID.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param start the start index for pagination (required)
      * @param limit the limit for pagination (There is a hard limit of 100) (required)
@@ -748,16 +707,15 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPersonaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
+    public okhttp3.Call searchPersonaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchPersonaValidateBeforeCall(version, accountId, start, limit, _callback);
+        okhttp3.Call localVarCall = searchPersonaValidateBeforeCall(accountId, start, limit, _callback);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updatePersona
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona to update (required)
      * @param title the title of the persona (optional)
@@ -779,7 +737,7 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePersonaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePersonaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -796,8 +754,7 @@ public class PreviewPersonaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/persona/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/persona/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -869,12 +826,7 @@ public class PreviewPersonaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePersonaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updatePersona(Async)");
-        }
-
+    private okhttp3.Call updatePersonaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updatePersona(Async)");
@@ -885,14 +837,13 @@ public class PreviewPersonaApi {
             throw new ApiException("Missing the required parameter 'personaId' when calling updatePersona(Async)");
         }
 
-        return updatePersonaCall(version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
+        return updatePersonaCall(accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
 
     }
 
     /**
      * Update Persona
      * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona to update (required)
      * @param title the title of the persona (optional)
@@ -913,15 +864,14 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PreviewPersonaResponse updatePersona(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<PreviewPersonaResponse> localVarResp = updatePersonaWithHttpInfo(version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
+    public PreviewPersonaResponse updatePersona(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<PreviewPersonaResponse> localVarResp = updatePersonaWithHttpInfo(accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Update Persona
      * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona to update (required)
      * @param title the title of the persona (optional)
@@ -942,8 +892,8 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PreviewPersonaResponse> updatePersonaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = updatePersonaValidateBeforeCall(version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, null);
+    public ApiResponse<PreviewPersonaResponse> updatePersonaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = updatePersonaValidateBeforeCall(accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -951,7 +901,6 @@ public class PreviewPersonaApi {
     /**
      * Update Persona (asynchronously)
      * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param personaId the persona ID of the persona to update (required)
      * @param title the title of the persona (optional)
@@ -973,9 +922,9 @@ public class PreviewPersonaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePersonaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
+    public okhttp3.Call updatePersonaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long personaId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String previewAccounts, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long date, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PreviewPersonaResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updatePersonaValidateBeforeCall(version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = updatePersonaValidateBeforeCall(accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<PreviewPersonaResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

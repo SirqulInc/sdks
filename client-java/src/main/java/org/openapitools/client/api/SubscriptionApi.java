@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.ApplicationUsageResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.SubscriptionPlanResponse;
 import org.openapitools.client.model.SubscriptionResponse;
@@ -78,7 +77,6 @@ public class SubscriptionApi {
 
     /**
      * Build call for createSubscription
-     * @param version  (required)
      * @param accountId The account used to perform the create, must be the responsible manager (required)
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -92,7 +90,7 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSubscriptionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSubscriptionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,8 +107,7 @@ public class SubscriptionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/subscription/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/subscription/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -150,25 +147,19 @@ public class SubscriptionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSubscriptionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createSubscription(Async)");
-        }
-
+    private okhttp3.Call createSubscriptionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createSubscription(Async)");
         }
 
-        return createSubscriptionCall(version, accountId, planId, promoCode, _callback);
+        return createSubscriptionCall(accountId, planId, promoCode, _callback);
 
     }
 
     /**
      * Create Subscription
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @param version  (required)
      * @param accountId The account used to perform the create, must be the responsible manager (required)
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -181,15 +172,14 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SubscriptionResponse createSubscription(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode) throws ApiException {
-        ApiResponse<SubscriptionResponse> localVarResp = createSubscriptionWithHttpInfo(version, accountId, planId, promoCode);
+    public SubscriptionResponse createSubscription(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode) throws ApiException {
+        ApiResponse<SubscriptionResponse> localVarResp = createSubscriptionWithHttpInfo(accountId, planId, promoCode);
         return localVarResp.getData();
     }
 
     /**
      * Create Subscription
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @param version  (required)
      * @param accountId The account used to perform the create, must be the responsible manager (required)
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -202,8 +192,8 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SubscriptionResponse> createSubscriptionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode) throws ApiException {
-        okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(version, accountId, planId, promoCode, null);
+    public ApiResponse<SubscriptionResponse> createSubscriptionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode) throws ApiException {
+        okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(accountId, planId, promoCode, null);
         Type localVarReturnType = new TypeToken<SubscriptionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -211,7 +201,6 @@ public class SubscriptionApi {
     /**
      * Create Subscription (asynchronously)
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @param version  (required)
      * @param accountId The account used to perform the create, must be the responsible manager (required)
      * @param planId The plan to subscribe to, if null use default plan (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -225,16 +214,15 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSubscriptionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, final ApiCallback<SubscriptionResponse> _callback) throws ApiException {
+    public okhttp3.Call createSubscriptionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, final ApiCallback<SubscriptionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(version, accountId, planId, promoCode, _callback);
+        okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(accountId, planId, promoCode, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteSubscription
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must be the responsible manager (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -246,7 +234,7 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSubscriptionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteSubscriptionCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -263,8 +251,7 @@ public class SubscriptionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/subscription/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/subscription/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -296,25 +283,19 @@ public class SubscriptionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteSubscriptionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteSubscription(Async)");
-        }
-
+    private okhttp3.Call deleteSubscriptionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteSubscription(Async)");
         }
 
-        return deleteSubscriptionCall(version, accountId, _callback);
+        return deleteSubscriptionCall(accountId, _callback);
 
     }
 
     /**
      * Delete Subscription
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must be the responsible manager (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -325,15 +306,14 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteSubscription(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteSubscriptionWithHttpInfo(version, accountId);
+    public SirqulResponse deleteSubscription(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteSubscriptionWithHttpInfo(accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Subscription
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must be the responsible manager (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -344,8 +324,8 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteSubscriptionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(version, accountId, null);
+    public ApiResponse<SirqulResponse> deleteSubscriptionWithHttpInfo(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -353,7 +333,6 @@ public class SubscriptionApi {
     /**
      * Delete Subscription (asynchronously)
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @param version  (required)
      * @param accountId The account used to perform the delete, must be the responsible manager (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -365,16 +344,15 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSubscriptionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteSubscriptionAsync(@javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(version, accountId, _callback);
+        okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSubscription
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -386,7 +364,7 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -403,8 +381,7 @@ public class SubscriptionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/subscription/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/subscription/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -436,25 +413,19 @@ public class SubscriptionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getSubscription(Async)");
-        }
-
+    private okhttp3.Call getSubscriptionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getSubscription(Async)");
         }
 
-        return getSubscriptionCall(version, accountId, _callback);
+        return getSubscriptionCall(accountId, _callback);
 
     }
 
     /**
      * Get Subscription
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @return SubscriptionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -465,15 +436,14 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SubscriptionResponse getSubscription(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<SubscriptionResponse> localVarResp = getSubscriptionWithHttpInfo(version, accountId);
+    public SubscriptionResponse getSubscription(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<SubscriptionResponse> localVarResp = getSubscriptionWithHttpInfo(accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Subscription
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @return ApiResponse&lt;SubscriptionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -484,8 +454,8 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SubscriptionResponse> getSubscriptionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionValidateBeforeCall(version, accountId, null);
+    public ApiResponse<SubscriptionResponse> getSubscriptionWithHttpInfo(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionValidateBeforeCall(accountId, null);
         Type localVarReturnType = new TypeToken<SubscriptionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -493,7 +463,6 @@ public class SubscriptionApi {
     /**
      * Get Subscription (asynchronously)
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -505,16 +474,15 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback<SubscriptionResponse> _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionAsync(@javax.annotation.Nonnull Long accountId, final ApiCallback<SubscriptionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionValidateBeforeCall(version, accountId, _callback);
+        okhttp3.Call localVarCall = getSubscriptionValidateBeforeCall(accountId, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSubscriptionPlan
-     * @param version  (required)
      * @param planId The ID of the plan to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -526,7 +494,7 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionPlanCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long planId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionPlanCall(@javax.annotation.Nonnull Long planId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -543,8 +511,7 @@ public class SubscriptionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/subscription/plan/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/subscription/plan/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -576,25 +543,19 @@ public class SubscriptionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionPlanValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long planId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getSubscriptionPlan(Async)");
-        }
-
+    private okhttp3.Call getSubscriptionPlanValidateBeforeCall(@javax.annotation.Nonnull Long planId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'planId' is set
         if (planId == null) {
             throw new ApiException("Missing the required parameter 'planId' when calling getSubscriptionPlan(Async)");
         }
 
-        return getSubscriptionPlanCall(version, planId, _callback);
+        return getSubscriptionPlanCall(planId, _callback);
 
     }
 
     /**
      * Get Subscription Plan
      * Get the matched subscription plan
-     * @param version  (required)
      * @param planId The ID of the plan to get (required)
      * @return SubscriptionPlanResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -605,15 +566,14 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SubscriptionPlanResponse getSubscriptionPlan(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long planId) throws ApiException {
-        ApiResponse<SubscriptionPlanResponse> localVarResp = getSubscriptionPlanWithHttpInfo(version, planId);
+    public SubscriptionPlanResponse getSubscriptionPlan(@javax.annotation.Nonnull Long planId) throws ApiException {
+        ApiResponse<SubscriptionPlanResponse> localVarResp = getSubscriptionPlanWithHttpInfo(planId);
         return localVarResp.getData();
     }
 
     /**
      * Get Subscription Plan
      * Get the matched subscription plan
-     * @param version  (required)
      * @param planId The ID of the plan to get (required)
      * @return ApiResponse&lt;SubscriptionPlanResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -624,8 +584,8 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SubscriptionPlanResponse> getSubscriptionPlanWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long planId) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionPlanValidateBeforeCall(version, planId, null);
+    public ApiResponse<SubscriptionPlanResponse> getSubscriptionPlanWithHttpInfo(@javax.annotation.Nonnull Long planId) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionPlanValidateBeforeCall(planId, null);
         Type localVarReturnType = new TypeToken<SubscriptionPlanResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -633,7 +593,6 @@ public class SubscriptionApi {
     /**
      * Get Subscription Plan (asynchronously)
      * Get the matched subscription plan
-     * @param version  (required)
      * @param planId The ID of the plan to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -645,16 +604,15 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionPlanAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long planId, final ApiCallback<SubscriptionPlanResponse> _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionPlanAsync(@javax.annotation.Nonnull Long planId, final ApiCallback<SubscriptionPlanResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionPlanValidateBeforeCall(version, planId, _callback);
+        okhttp3.Call localVarCall = getSubscriptionPlanValidateBeforeCall(planId, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionPlanResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSubscriptionPlans
-     * @param version  (required)
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @param _callback Callback for upload/download progress
@@ -667,7 +625,7 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionPlansCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionPlansCall(@javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -684,8 +642,7 @@ public class SubscriptionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/subscription/plan/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/subscription/plan/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -721,20 +678,14 @@ public class SubscriptionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionPlansValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getSubscriptionPlans(Async)");
-        }
-
-        return getSubscriptionPlansCall(version, visible, role, _callback);
+    private okhttp3.Call getSubscriptionPlansValidateBeforeCall(@javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role, final ApiCallback _callback) throws ApiException {
+        return getSubscriptionPlansCall(visible, role, _callback);
 
     }
 
     /**
      * List Subscription Plans
      * Get the matched subscription plan
-     * @param version  (required)
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @return List&lt;SubscriptionPlanResponse&gt;
@@ -746,15 +697,14 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<SubscriptionPlanResponse> getSubscriptionPlans(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role) throws ApiException {
-        ApiResponse<List<SubscriptionPlanResponse>> localVarResp = getSubscriptionPlansWithHttpInfo(version, visible, role);
+    public List<SubscriptionPlanResponse> getSubscriptionPlans(@javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role) throws ApiException {
+        ApiResponse<List<SubscriptionPlanResponse>> localVarResp = getSubscriptionPlansWithHttpInfo(visible, role);
         return localVarResp.getData();
     }
 
     /**
      * List Subscription Plans
      * Get the matched subscription plan
-     * @param version  (required)
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @return ApiResponse&lt;List&lt;SubscriptionPlanResponse&gt;&gt;
@@ -766,8 +716,8 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<SubscriptionPlanResponse>> getSubscriptionPlansWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionPlansValidateBeforeCall(version, visible, role, null);
+    public ApiResponse<List<SubscriptionPlanResponse>> getSubscriptionPlansWithHttpInfo(@javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionPlansValidateBeforeCall(visible, role, null);
         Type localVarReturnType = new TypeToken<List<SubscriptionPlanResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -775,7 +725,6 @@ public class SubscriptionApi {
     /**
      * List Subscription Plans (asynchronously)
      * Get the matched subscription plan
-     * @param version  (required)
      * @param visible Include visible only (true), hidden only (false), or all (null) (optional)
      * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -788,16 +737,15 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionPlansAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role, final ApiCallback<List<SubscriptionPlanResponse>> _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionPlansAsync(@javax.annotation.Nullable Boolean visible, @javax.annotation.Nullable String role, final ApiCallback<List<SubscriptionPlanResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionPlansValidateBeforeCall(version, visible, role, _callback);
+        okhttp3.Call localVarCall = getSubscriptionPlansValidateBeforeCall(visible, role, _callback);
         Type localVarReturnType = new TypeToken<List<SubscriptionPlanResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSubscriptionUsage
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
@@ -812,7 +760,7 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionUsageCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionUsageCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -829,8 +777,7 @@ public class SubscriptionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/subscription/usage/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/subscription/usage/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -874,25 +821,19 @@ public class SubscriptionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionUsageValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getSubscriptionUsage(Async)");
-        }
-
+    private okhttp3.Call getSubscriptionUsageValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getSubscriptionUsage(Async)");
         }
 
-        return getSubscriptionUsageCall(version, accountId, applicationId, start, end, _callback);
+        return getSubscriptionUsageCall(accountId, applicationId, start, end, _callback);
 
     }
 
     /**
      * Get Subscription Usage
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
@@ -906,15 +847,14 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationUsageResponse getSubscriptionUsage(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end) throws ApiException {
-        ApiResponse<ApplicationUsageResponse> localVarResp = getSubscriptionUsageWithHttpInfo(version, accountId, applicationId, start, end);
+    public ApplicationUsageResponse getSubscriptionUsage(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end) throws ApiException {
+        ApiResponse<ApplicationUsageResponse> localVarResp = getSubscriptionUsageWithHttpInfo(accountId, applicationId, start, end);
         return localVarResp.getData();
     }
 
     /**
      * Get Subscription Usage
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
@@ -928,8 +868,8 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationUsageResponse> getSubscriptionUsageWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end) throws ApiException {
-        okhttp3.Call localVarCall = getSubscriptionUsageValidateBeforeCall(version, accountId, applicationId, start, end, null);
+    public ApiResponse<ApplicationUsageResponse> getSubscriptionUsageWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionUsageValidateBeforeCall(accountId, applicationId, start, end, null);
         Type localVarReturnType = new TypeToken<ApplicationUsageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -937,7 +877,6 @@ public class SubscriptionApi {
     /**
      * Get Subscription Usage (asynchronously)
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @param version  (required)
      * @param accountId The account used to perform the lookup (required)
      * @param applicationId Get for just 1 application instead of the BillableEntity (optional)
      * @param start The start time frame (optional)
@@ -952,16 +891,15 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubscriptionUsageAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, final ApiCallback<ApplicationUsageResponse> _callback) throws ApiException {
+    public okhttp3.Call getSubscriptionUsageAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, final ApiCallback<ApplicationUsageResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubscriptionUsageValidateBeforeCall(version, accountId, applicationId, start, end, _callback);
+        okhttp3.Call localVarCall = getSubscriptionUsageValidateBeforeCall(accountId, applicationId, start, end, _callback);
         Type localVarReturnType = new TypeToken<ApplicationUsageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateSubscription
-     * @param version  (required)
      * @param accountId The account used to perform the update, must be the responsible manager (required)
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -976,7 +914,7 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSubscriptionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSubscriptionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -993,8 +931,7 @@ public class SubscriptionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/subscription/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/subscription/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1038,25 +975,19 @@ public class SubscriptionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSubscriptionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateSubscription(Async)");
-        }
-
+    private okhttp3.Call updateSubscriptionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateSubscription(Async)");
         }
 
-        return updateSubscriptionCall(version, accountId, planId, promoCode, active, _callback);
+        return updateSubscriptionCall(accountId, planId, promoCode, active, _callback);
 
     }
 
     /**
      * Update Subscription
      * Updates the subscription for the billable entity for an account
-     * @param version  (required)
      * @param accountId The account used to perform the update, must be the responsible manager (required)
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -1070,15 +1001,14 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SubscriptionResponse updateSubscription(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<SubscriptionResponse> localVarResp = updateSubscriptionWithHttpInfo(version, accountId, planId, promoCode, active);
+    public SubscriptionResponse updateSubscription(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<SubscriptionResponse> localVarResp = updateSubscriptionWithHttpInfo(accountId, planId, promoCode, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Subscription
      * Updates the subscription for the billable entity for an account
-     * @param version  (required)
      * @param accountId The account used to perform the update, must be the responsible manager (required)
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -1092,8 +1022,8 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SubscriptionResponse> updateSubscriptionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = updateSubscriptionValidateBeforeCall(version, accountId, planId, promoCode, active, null);
+    public ApiResponse<SubscriptionResponse> updateSubscriptionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = updateSubscriptionValidateBeforeCall(accountId, planId, promoCode, active, null);
         Type localVarReturnType = new TypeToken<SubscriptionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1101,7 +1031,6 @@ public class SubscriptionApi {
     /**
      * Update Subscription (asynchronously)
      * Updates the subscription for the billable entity for an account
-     * @param version  (required)
      * @param accountId The account used to perform the update, must be the responsible manager (required)
      * @param planId The plan to subscribe to (optional)
      * @param promoCode Set a promo code for a discount. (optional)
@@ -1116,9 +1045,9 @@ public class SubscriptionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSubscriptionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active, final ApiCallback<SubscriptionResponse> _callback) throws ApiException {
+    public okhttp3.Call updateSubscriptionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long planId, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable Boolean active, final ApiCallback<SubscriptionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateSubscriptionValidateBeforeCall(version, accountId, planId, promoCode, active, _callback);
+        okhttp3.Call localVarCall = updateSubscriptionValidateBeforeCall(accountId, planId, promoCode, active, _callback);
         Type localVarReturnType = new TypeToken<SubscriptionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

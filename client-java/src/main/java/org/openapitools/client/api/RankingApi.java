@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.RankFullResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class RankingApi {
 
     /**
      * Build call for getHistoricalRankings
-     * @param version  (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType the rank type to return (required)
      * @param startDate timestamp in milliseconds to filter results with (required)
@@ -97,7 +95,7 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getHistoricalRankingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getHistoricalRankingsCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -114,8 +112,7 @@ public class RankingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ranking/historical/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ranking/historical/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -183,12 +180,7 @@ public class RankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getHistoricalRankingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getHistoricalRankings(Async)");
-        }
-
+    private okhttp3.Call getHistoricalRankingsValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling getHistoricalRankings(Async)");
@@ -209,14 +201,13 @@ public class RankingApi {
             throw new ApiException("Missing the required parameter 'endDate' when calling getHistoricalRankings(Async)");
         }
 
-        return getHistoricalRankingsCall(version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, _callback);
+        return getHistoricalRankingsCall(appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search Historical Rankings
      * Get historical leaderboard rankings by time-frame.
-     * @param version  (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType the rank type to return (required)
      * @param startDate timestamp in milliseconds to filter results with (required)
@@ -236,15 +227,14 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RankFullResponse getHistoricalRankings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<RankFullResponse> localVarResp = getHistoricalRankingsWithHttpInfo(version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
+    public RankFullResponse getHistoricalRankings(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<RankFullResponse> localVarResp = getHistoricalRankingsWithHttpInfo(appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Historical Rankings
      * Get historical leaderboard rankings by time-frame.
-     * @param version  (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType the rank type to return (required)
      * @param startDate timestamp in milliseconds to filter results with (required)
@@ -264,8 +254,8 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RankFullResponse> getHistoricalRankingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getHistoricalRankingsValidateBeforeCall(version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, null);
+    public ApiResponse<RankFullResponse> getHistoricalRankingsWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getHistoricalRankingsValidateBeforeCall(appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<RankFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -273,7 +263,6 @@ public class RankingApi {
     /**
      * Search Historical Rankings (asynchronously)
      * Get historical leaderboard rankings by time-frame.
-     * @param version  (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType the rank type to return (required)
      * @param startDate timestamp in milliseconds to filter results with (required)
@@ -294,16 +283,15 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getHistoricalRankingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<RankFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getHistoricalRankingsAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<RankFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getHistoricalRankingsValidateBeforeCall(version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = getHistoricalRankingsValidateBeforeCall(appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<RankFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRankings
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -332,7 +320,7 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRankingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRankingsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -349,8 +337,7 @@ public class RankingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ranking/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ranking/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -450,20 +437,14 @@ public class RankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRankingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRankings(Async)");
-        }
-
-        return getRankingsCall(version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, _callback);
+    private okhttp3.Call getRankingsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return getRankingsCall(deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, _callback);
 
     }
 
     /**
      * Search Rankings
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -491,15 +472,14 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RankFullResponse getRankings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<RankFullResponse> localVarResp = getRankingsWithHttpInfo(version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
+    public RankFullResponse getRankings(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<RankFullResponse> localVarResp = getRankingsWithHttpInfo(deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Rankings
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -527,8 +507,8 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RankFullResponse> getRankingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getRankingsValidateBeforeCall(version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, null);
+    public ApiResponse<RankFullResponse> getRankingsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getRankingsValidateBeforeCall(deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, null);
         Type localVarReturnType = new TypeToken<RankFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -536,7 +516,6 @@ public class RankingApi {
     /**
      * Search Rankings (asynchronously)
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param gameType This parameter is deprecated. (optional)
@@ -565,16 +544,15 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRankingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<RankFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getRankingsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String withinAccountIds, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<RankFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRankingsValidateBeforeCall(version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, _callback);
+        okhttp3.Call localVarCall = getRankingsValidateBeforeCall(deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, _callback);
         Type localVarReturnType = new TypeToken<RankFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserRank
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -596,7 +574,7 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserRankCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserRankCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -613,8 +591,7 @@ public class RankingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ranking/personal/ranks"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ranking/personal/ranks";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -686,20 +663,14 @@ public class RankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserRankValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getUserRank(Async)");
-        }
-
-        return getUserRankCall(version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, _callback);
+    private okhttp3.Call getUserRankValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return getUserRankCall(deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, _callback);
 
     }
 
     /**
      * Get Personal Rankings
      * Returns the user&#39;s ranks for one or more rank types and modes.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -720,15 +691,14 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Object getUserRank(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<Object> localVarResp = getUserRankWithHttpInfo(version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
+    public Object getUserRank(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<Object> localVarResp = getUserRankWithHttpInfo(deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Get Personal Rankings
      * Returns the user&#39;s ranks for one or more rank types and modes.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -749,8 +719,8 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getUserRankWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getUserRankValidateBeforeCall(version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, null);
+    public ApiResponse<Object> getUserRankWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getUserRankValidateBeforeCall(deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -758,7 +728,6 @@ public class RankingApi {
     /**
      * Get Personal Rankings (asynchronously)
      * Returns the user&#39;s ranks for one or more rank types and modes.
-     * @param version  (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (optional)
      * @param appKey the application key for filtering results by application (required) (optional)
@@ -780,16 +749,15 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserRankAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getUserRankAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable Boolean returnUserRank, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserRankValidateBeforeCall(version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = getUserRankValidateBeforeCall(deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for overrideUserRank
-     * @param version  (required)
      * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param ownerAccountId the end user&#39;s account id to override (required)
      * @param appKey the application key the leaderboard is for (required)
@@ -822,7 +790,7 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call overrideUserRankCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call overrideUserRankCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -839,8 +807,7 @@ public class RankingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ranking/override"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ranking/override";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -956,12 +923,7 @@ public class RankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call overrideUserRankValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling overrideUserRank(Async)");
-        }
-
+    private okhttp3.Call overrideUserRankValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling overrideUserRank(Async)");
@@ -982,14 +944,13 @@ public class RankingApi {
             throw new ApiException("Missing the required parameter 'rankType' when calling overrideUserRank(Async)");
         }
 
-        return overrideUserRankCall(version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, _callback);
+        return overrideUserRankCall(accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, _callback);
 
     }
 
     /**
      * Override User Rank
      * Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-     * @param version  (required)
      * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param ownerAccountId the end user&#39;s account id to override (required)
      * @param appKey the application key the leaderboard is for (required)
@@ -1021,15 +982,14 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse overrideUserRank(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = overrideUserRankWithHttpInfo(version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
+    public SirqulResponse overrideUserRank(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = overrideUserRankWithHttpInfo(accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
         return localVarResp.getData();
     }
 
     /**
      * Override User Rank
      * Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-     * @param version  (required)
      * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param ownerAccountId the end user&#39;s account id to override (required)
      * @param appKey the application key the leaderboard is for (required)
@@ -1061,8 +1021,8 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> overrideUserRankWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
-        okhttp3.Call localVarCall = overrideUserRankValidateBeforeCall(version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, null);
+    public ApiResponse<SirqulResponse> overrideUserRankWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
+        okhttp3.Call localVarCall = overrideUserRankValidateBeforeCall(accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1070,7 +1030,6 @@ public class RankingApi {
     /**
      * Override User Rank (asynchronously)
      * Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-     * @param version  (required)
      * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application) (required)
      * @param ownerAccountId the end user&#39;s account id to override (required)
      * @param appKey the application key the leaderboard is for (required)
@@ -1103,16 +1062,15 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call overrideUserRankAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call overrideUserRankAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long ownerAccountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long totalScore, @javax.annotation.Nullable Long totalCount, @javax.annotation.Nullable Long totalTime, @javax.annotation.Nullable Long dailyScore, @javax.annotation.Nullable Long dailyCount, @javax.annotation.Nullable Long dailyTime, @javax.annotation.Nullable Long weeklyScore, @javax.annotation.Nullable Long weeklyCount, @javax.annotation.Nullable Long weeklyTime, @javax.annotation.Nullable Long monthlyScore, @javax.annotation.Nullable Long monthlyCount, @javax.annotation.Nullable Long monthlyTime, @javax.annotation.Nullable Long topScore, @javax.annotation.Nullable Long lowestScore, @javax.annotation.Nullable Long streakCount, @javax.annotation.Nullable Long streakBestCount, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = overrideUserRankValidateBeforeCall(version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, _callback);
+        okhttp3.Call localVarCall = overrideUserRankValidateBeforeCall(accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRankings
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -1133,7 +1091,7 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRankingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRankingsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1150,8 +1108,7 @@ public class RankingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ranking/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ranking/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1219,12 +1176,7 @@ public class RankingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRankingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRankings(Async)");
-        }
-
+    private okhttp3.Call updateRankingsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateRankings(Async)");
@@ -1240,14 +1192,13 @@ public class RankingApi {
             throw new ApiException("Missing the required parameter 'rankType' when calling updateRankings(Async)");
         }
 
-        return updateRankingsCall(version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, _callback);
+        return updateRankingsCall(accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, _callback);
 
     }
 
     /**
      * Update Ranking
      * Update the rank value 
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -1267,15 +1218,14 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateRankings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateRankingsWithHttpInfo(version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
+    public SirqulResponse updateRankings(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateRankingsWithHttpInfo(accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
         return localVarResp.getData();
     }
 
     /**
      * Update Ranking
      * Update the rank value 
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -1295,8 +1245,8 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateRankingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard) throws ApiException {
-        okhttp3.Call localVarCall = updateRankingsValidateBeforeCall(version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, null);
+    public ApiResponse<SirqulResponse> updateRankingsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard) throws ApiException {
+        okhttp3.Call localVarCall = updateRankingsValidateBeforeCall(accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1304,7 +1254,6 @@ public class RankingApi {
     /**
      * Update Ranking (asynchronously)
      * Update the rank value 
-     * @param version  (required)
      * @param accountId the account id of the user (required)
      * @param appKey the application key for filtering results by application (required)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (required)
@@ -1325,9 +1274,9 @@ public class RankingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRankingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateRankingsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String rankType, @javax.annotation.Nullable Long increment, @javax.annotation.Nullable Long timeIncrement, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean updateGlobal, @javax.annotation.Nullable Boolean createLeaderboard, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRankingsValidateBeforeCall(version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, _callback);
+        okhttp3.Call localVarCall = updateRankingsValidateBeforeCall(accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

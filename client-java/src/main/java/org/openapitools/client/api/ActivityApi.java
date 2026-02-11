@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.ActivityResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.EntityReference;
 
 import java.lang.reflect.Type;
@@ -76,7 +75,6 @@ public class ActivityApi {
 
     /**
      * Build call for createEntityReference
-     * @param version  (required)
      * @param body The entity reference object (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -88,7 +86,7 @@ public class ActivityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEntityReferenceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull EntityReference body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEntityReferenceCall(@javax.annotation.Nonnull EntityReference body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,8 +103,7 @@ public class ActivityApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/entity/reference"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/entity/reference";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -135,25 +132,19 @@ public class ActivityApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEntityReferenceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull EntityReference body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createEntityReference(Async)");
-        }
-
+    private okhttp3.Call createEntityReferenceValidateBeforeCall(@javax.annotation.Nonnull EntityReference body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createEntityReference(Async)");
         }
 
-        return createEntityReferenceCall(version, body, _callback);
+        return createEntityReferenceCall(body, _callback);
 
     }
 
     /**
      * Create an entity reference.
      * Creates a reference for an entity for syncing data between servers.
-     * @param version  (required)
      * @param body The entity reference object (required)
      * @return ActivityResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -164,15 +155,14 @@ public class ActivityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ActivityResponse createEntityReference(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull EntityReference body) throws ApiException {
-        ApiResponse<ActivityResponse> localVarResp = createEntityReferenceWithHttpInfo(version, body);
+    public ActivityResponse createEntityReference(@javax.annotation.Nonnull EntityReference body) throws ApiException {
+        ApiResponse<ActivityResponse> localVarResp = createEntityReferenceWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create an entity reference.
      * Creates a reference for an entity for syncing data between servers.
-     * @param version  (required)
      * @param body The entity reference object (required)
      * @return ApiResponse&lt;ActivityResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -183,8 +173,8 @@ public class ActivityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ActivityResponse> createEntityReferenceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull EntityReference body) throws ApiException {
-        okhttp3.Call localVarCall = createEntityReferenceValidateBeforeCall(version, body, null);
+    public ApiResponse<ActivityResponse> createEntityReferenceWithHttpInfo(@javax.annotation.Nonnull EntityReference body) throws ApiException {
+        okhttp3.Call localVarCall = createEntityReferenceValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<ActivityResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -192,7 +182,6 @@ public class ActivityApi {
     /**
      * Create an entity reference. (asynchronously)
      * Creates a reference for an entity for syncing data between servers.
-     * @param version  (required)
      * @param body The entity reference object (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -204,9 +193,9 @@ public class ActivityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEntityReferenceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull EntityReference body, final ApiCallback<ActivityResponse> _callback) throws ApiException {
+    public okhttp3.Call createEntityReferenceAsync(@javax.annotation.Nonnull EntityReference body, final ApiCallback<ActivityResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createEntityReferenceValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createEntityReferenceValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ActivityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ImportStatuses;
 import org.openapitools.client.model.Orders;
 import org.openapitools.client.model.ShipmentOrder;
@@ -77,7 +76,6 @@ public class OptimizeApi {
 
     /**
      * Build call for getOptimizationResult
-     * @param version  (required)
      * @param batchID The batchID for getting the import status of. (required)
      * @param start The start index for pagination (required)
      * @param limit The limit for pagination (required)
@@ -91,7 +89,7 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOptimizationResultCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOptimizationResultCall(@javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class OptimizeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/optimize/result/{batchID}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/optimize/result/{batchID}"
             .replace("{" + "batchID" + "}", localVarApiClient.escapeString(batchID.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -146,12 +143,7 @@ public class OptimizeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOptimizationResultValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOptimizationResult(Async)");
-        }
-
+    private okhttp3.Call getOptimizationResultValidateBeforeCall(@javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'batchID' is set
         if (batchID == null) {
             throw new ApiException("Missing the required parameter 'batchID' when calling getOptimizationResult(Async)");
@@ -167,14 +159,13 @@ public class OptimizeApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getOptimizationResult(Async)");
         }
 
-        return getOptimizationResultCall(version, batchID, start, limit, _callback);
+        return getOptimizationResultCall(batchID, start, limit, _callback);
 
     }
 
     /**
      * Get Optimization Result
      * Get the results of the import batch.
-     * @param version  (required)
      * @param batchID The batchID for getting the import status of. (required)
      * @param start The start index for pagination (required)
      * @param limit The limit for pagination (required)
@@ -187,15 +178,14 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Map<String, ShipmentOrder> getOptimizationResult(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        ApiResponse<Map<String, ShipmentOrder>> localVarResp = getOptimizationResultWithHttpInfo(version, batchID, start, limit);
+    public Map<String, ShipmentOrder> getOptimizationResult(@javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        ApiResponse<Map<String, ShipmentOrder>> localVarResp = getOptimizationResultWithHttpInfo(batchID, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Get Optimization Result
      * Get the results of the import batch.
-     * @param version  (required)
      * @param batchID The batchID for getting the import status of. (required)
      * @param start The start index for pagination (required)
      * @param limit The limit for pagination (required)
@@ -208,8 +198,8 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Map<String, ShipmentOrder>> getOptimizationResultWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getOptimizationResultValidateBeforeCall(version, batchID, start, limit, null);
+    public ApiResponse<Map<String, ShipmentOrder>> getOptimizationResultWithHttpInfo(@javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getOptimizationResultValidateBeforeCall(batchID, start, limit, null);
         Type localVarReturnType = new TypeToken<Map<String, ShipmentOrder>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -217,7 +207,6 @@ public class OptimizeApi {
     /**
      * Get Optimization Result (asynchronously)
      * Get the results of the import batch.
-     * @param version  (required)
      * @param batchID The batchID for getting the import status of. (required)
      * @param start The start index for pagination (required)
      * @param limit The limit for pagination (required)
@@ -231,16 +220,15 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOptimizationResultAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<Map<String, ShipmentOrder>> _callback) throws ApiException {
+    public okhttp3.Call getOptimizationResultAsync(@javax.annotation.Nonnull String batchID, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<Map<String, ShipmentOrder>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOptimizationResultValidateBeforeCall(version, batchID, start, limit, _callback);
+        okhttp3.Call localVarCall = getOptimizationResultValidateBeforeCall(batchID, start, limit, _callback);
         Type localVarReturnType = new TypeToken<Map<String, ShipmentOrder>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for requestOptimization
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -252,7 +240,7 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOptimizationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Orders body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestOptimizationCall(@javax.annotation.Nullable Orders body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -269,8 +257,7 @@ public class OptimizeApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/optimize/request"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/optimize/request";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -298,20 +285,14 @@ public class OptimizeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestOptimizationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Orders body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling requestOptimization(Async)");
-        }
-
-        return requestOptimizationCall(version, body, _callback);
+    private okhttp3.Call requestOptimizationValidateBeforeCall(@javax.annotation.Nullable Orders body, final ApiCallback _callback) throws ApiException {
+        return requestOptimizationCall(body, _callback);
 
     }
 
     /**
      * Request Optimization
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @param version  (required)
      * @param body  (optional)
      * @return ImportStatuses
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -322,15 +303,14 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ImportStatuses requestOptimization(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Orders body) throws ApiException {
-        ApiResponse<ImportStatuses> localVarResp = requestOptimizationWithHttpInfo(version, body);
+    public ImportStatuses requestOptimization(@javax.annotation.Nullable Orders body) throws ApiException {
+        ApiResponse<ImportStatuses> localVarResp = requestOptimizationWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Request Optimization
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;ImportStatuses&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -341,8 +321,8 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ImportStatuses> requestOptimizationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Orders body) throws ApiException {
-        okhttp3.Call localVarCall = requestOptimizationValidateBeforeCall(version, body, null);
+    public ApiResponse<ImportStatuses> requestOptimizationWithHttpInfo(@javax.annotation.Nullable Orders body) throws ApiException {
+        okhttp3.Call localVarCall = requestOptimizationValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<ImportStatuses>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -350,7 +330,6 @@ public class OptimizeApi {
     /**
      * Request Optimization (asynchronously)
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -362,9 +341,9 @@ public class OptimizeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOptimizationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Orders body, final ApiCallback<ImportStatuses> _callback) throws ApiException {
+    public okhttp3.Call requestOptimizationAsync(@javax.annotation.Nullable Orders body, final ApiCallback<ImportStatuses> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestOptimizationValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = requestOptimizationValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ImportStatuses>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

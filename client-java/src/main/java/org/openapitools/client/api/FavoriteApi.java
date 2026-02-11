@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AccountResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SearchResponse;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.WrappedResponse;
@@ -78,7 +77,6 @@ public class FavoriteApi {
 
     /**
      * Build call for addFavorite
-     * @param version  (required)
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -95,7 +93,7 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addFavoriteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addFavoriteCall(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,8 +110,7 @@ public class FavoriteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/favorite/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/favorite/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -165,12 +162,7 @@ public class FavoriteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addFavoriteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addFavorite(Async)");
-        }
-
+    private okhttp3.Call addFavoriteValidateBeforeCall(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'favoritableId' is set
         if (favoritableId == null) {
             throw new ApiException("Missing the required parameter 'favoritableId' when calling addFavorite(Async)");
@@ -181,14 +173,13 @@ public class FavoriteApi {
             throw new ApiException("Missing the required parameter 'favoritableType' when calling addFavorite(Async)");
         }
 
-        return addFavoriteCall(version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude, _callback);
+        return addFavoriteCall(favoritableId, favoritableType, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Create Favorite
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @param version  (required)
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -204,15 +195,14 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WrappedResponse addFavorite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<WrappedResponse> localVarResp = addFavoriteWithHttpInfo(version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
+    public WrappedResponse addFavorite(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<WrappedResponse> localVarResp = addFavoriteWithHttpInfo(favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Favorite
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @param version  (required)
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -228,8 +218,8 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WrappedResponse> addFavoriteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = addFavoriteValidateBeforeCall(version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<WrappedResponse> addFavoriteWithHttpInfo(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = addFavoriteValidateBeforeCall(favoritableId, favoritableType, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<WrappedResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -237,7 +227,6 @@ public class FavoriteApi {
     /**
      * Create Favorite (asynchronously)
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @param version  (required)
      * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
@@ -254,16 +243,15 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addFavoriteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<WrappedResponse> _callback) throws ApiException {
+    public okhttp3.Call addFavoriteAsync(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<WrappedResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addFavoriteValidateBeforeCall(version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = addFavoriteValidateBeforeCall(favoritableId, favoritableType, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<WrappedResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteFavorite
-     * @param version  (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -279,7 +267,7 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFavoriteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteFavoriteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -296,8 +284,7 @@ public class FavoriteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/favorite/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/favorite/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -345,20 +332,14 @@ public class FavoriteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFavoriteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteFavorite(Async)");
-        }
-
-        return deleteFavoriteCall(version, deviceId, accountId, favoriteId, favoritableId, favoritableType, _callback);
+    private okhttp3.Call deleteFavoriteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType, final ApiCallback _callback) throws ApiException {
+        return deleteFavoriteCall(deviceId, accountId, favoriteId, favoritableId, favoritableType, _callback);
 
     }
 
     /**
      * Delete Favorite
      * Removes a favorited item from the user&#39;s favorites list.
-     * @param version  (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -373,15 +354,14 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteFavorite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteFavoriteWithHttpInfo(version, deviceId, accountId, favoriteId, favoritableId, favoritableType);
+    public SirqulResponse deleteFavorite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteFavoriteWithHttpInfo(deviceId, accountId, favoriteId, favoritableId, favoritableType);
         return localVarResp.getData();
     }
 
     /**
      * Delete Favorite
      * Removes a favorited item from the user&#39;s favorites list.
-     * @param version  (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -396,8 +376,8 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteFavoriteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType) throws ApiException {
-        okhttp3.Call localVarCall = deleteFavoriteValidateBeforeCall(version, deviceId, accountId, favoriteId, favoritableId, favoritableType, null);
+    public ApiResponse<SirqulResponse> deleteFavoriteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType) throws ApiException {
+        okhttp3.Call localVarCall = deleteFavoriteValidateBeforeCall(deviceId, accountId, favoriteId, favoritableId, favoritableType, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -405,7 +385,6 @@ public class FavoriteApi {
     /**
      * Delete Favorite (asynchronously)
      * Removes a favorited item from the user&#39;s favorites list.
-     * @param version  (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
      * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
@@ -421,16 +400,15 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFavoriteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteFavoriteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long favoriteId, @javax.annotation.Nullable Long favoritableId, @javax.annotation.Nullable String favoritableType, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFavoriteValidateBeforeCall(version, deviceId, accountId, favoriteId, favoritableId, favoritableType, _callback);
+        okhttp3.Call localVarCall = deleteFavoriteValidateBeforeCall(deviceId, accountId, favoriteId, favoritableId, favoritableType, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getFavorite
-     * @param version  (required)
      * @param favoriteId The ID of the favorite reference record (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -446,7 +424,7 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFavoriteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFavoriteCall(@javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -463,8 +441,7 @@ public class FavoriteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/favorite/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/favorite/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -512,25 +489,19 @@ public class FavoriteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFavoriteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getFavorite(Async)");
-        }
-
+    private okhttp3.Call getFavoriteValidateBeforeCall(@javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'favoriteId' is set
         if (favoriteId == null) {
             throw new ApiException("Missing the required parameter 'favoriteId' when calling getFavorite(Async)");
         }
 
-        return getFavoriteCall(version, favoriteId, deviceId, accountId, latitude, longitude, _callback);
+        return getFavoriteCall(favoriteId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Favorite
      * Retrieves a single favorited item.
-     * @param version  (required)
      * @param favoriteId The ID of the favorite reference record (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -545,15 +516,14 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WrappedResponse getFavorite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<WrappedResponse> localVarResp = getFavoriteWithHttpInfo(version, favoriteId, deviceId, accountId, latitude, longitude);
+    public WrappedResponse getFavorite(@javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<WrappedResponse> localVarResp = getFavoriteWithHttpInfo(favoriteId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Favorite
      * Retrieves a single favorited item.
-     * @param version  (required)
      * @param favoriteId The ID of the favorite reference record (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -568,8 +538,8 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WrappedResponse> getFavoriteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getFavoriteValidateBeforeCall(version, favoriteId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<WrappedResponse> getFavoriteWithHttpInfo(@javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getFavoriteValidateBeforeCall(favoriteId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<WrappedResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -577,7 +547,6 @@ public class FavoriteApi {
     /**
      * Get Favorite (asynchronously)
      * Retrieves a single favorited item.
-     * @param version  (required)
      * @param favoriteId The ID of the favorite reference record (required)
      * @param deviceId The unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -593,16 +562,15 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFavoriteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<WrappedResponse> _callback) throws ApiException {
+    public okhttp3.Call getFavoriteAsync(@javax.annotation.Nonnull Long favoriteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<WrappedResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFavoriteValidateBeforeCall(version, favoriteId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getFavoriteValidateBeforeCall(favoriteId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<WrappedResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchFavorites
-     * @param version  (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
@@ -627,7 +595,7 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchFavoritesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchFavoritesCall(@javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -644,8 +612,7 @@ public class FavoriteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/favorite/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/favorite/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -729,12 +696,7 @@ public class FavoriteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchFavoritesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchFavorites(Async)");
-        }
-
+    private okhttp3.Call searchFavoritesValidateBeforeCall(@javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'favoritableType' is set
         if (favoritableType == null) {
             throw new ApiException("Missing the required parameter 'favoritableType' when calling searchFavorites(Async)");
@@ -770,14 +732,13 @@ public class FavoriteApi {
             throw new ApiException("Missing the required parameter 'returnFullResponse' when calling searchFavorites(Async)");
         }
 
-        return searchFavoritesCall(version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, _callback);
+        return searchFavoritesCall(favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, _callback);
 
     }
 
     /**
      * Search Favorites
      * Searches on the user&#39;s favorites.
-     * @param version  (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
@@ -801,15 +762,14 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SearchResponse searchFavorites(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SearchResponse> localVarResp = searchFavoritesWithHttpInfo(version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
+    public SearchResponse searchFavorites(@javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SearchResponse> localVarResp = searchFavoritesWithHttpInfo(favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Search Favorites
      * Searches on the user&#39;s favorites.
-     * @param version  (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
@@ -833,8 +793,8 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SearchResponse> searchFavoritesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = searchFavoritesValidateBeforeCall(version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, null);
+    public ApiResponse<SearchResponse> searchFavoritesWithHttpInfo(@javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = searchFavoritesValidateBeforeCall(favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -842,7 +802,6 @@ public class FavoriteApi {
     /**
      * Search Favorites (asynchronously)
      * Searches on the user&#39;s favorites.
-     * @param version  (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
@@ -867,16 +826,15 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchFavoritesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SearchResponse> _callback) throws ApiException {
+    public okhttp3.Call searchFavoritesAsync(@javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean returnFullResponse, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable String secondaryType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchFavoritesValidateBeforeCall(version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = searchFavoritesValidateBeforeCall(favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for whoHasFavorited
-     * @param version  (required)
      * @param favoritableId The ID of the favoritableType to search on (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param start The start index for pagination (required)
@@ -896,7 +854,7 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call whoHasFavoritedCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call whoHasFavoritedCall(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -913,8 +871,7 @@ public class FavoriteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/favorite/whois"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/favorite/whois";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -978,12 +935,7 @@ public class FavoriteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call whoHasFavoritedValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling whoHasFavorited(Async)");
-        }
-
+    private okhttp3.Call whoHasFavoritedValidateBeforeCall(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'favoritableId' is set
         if (favoritableId == null) {
             throw new ApiException("Missing the required parameter 'favoritableId' when calling whoHasFavorited(Async)");
@@ -1004,14 +956,13 @@ public class FavoriteApi {
             throw new ApiException("Missing the required parameter 'limit' when calling whoHasFavorited(Async)");
         }
 
-        return whoHasFavoritedCall(version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
+        return whoHasFavoritedCall(favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
 
     }
 
     /**
      * Who has Favorited
      * Searches for everyone that has favorited an item
-     * @param version  (required)
      * @param favoritableId The ID of the favoritableType to search on (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param start The start index for pagination (required)
@@ -1030,15 +981,14 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AccountResponse> whoHasFavorited(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<AccountResponse>> localVarResp = whoHasFavoritedWithHttpInfo(version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
+    public List<AccountResponse> whoHasFavorited(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<AccountResponse>> localVarResp = whoHasFavoritedWithHttpInfo(favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Who has Favorited
      * Searches for everyone that has favorited an item
-     * @param version  (required)
      * @param favoritableId The ID of the favoritableType to search on (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param start The start index for pagination (required)
@@ -1057,8 +1007,8 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AccountResponse>> whoHasFavoritedWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = whoHasFavoritedValidateBeforeCall(version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, null);
+    public ApiResponse<List<AccountResponse>> whoHasFavoritedWithHttpInfo(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = whoHasFavoritedValidateBeforeCall(favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, null);
         Type localVarReturnType = new TypeToken<List<AccountResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1066,7 +1016,6 @@ public class FavoriteApi {
     /**
      * Who has Favorited (asynchronously)
      * Searches for everyone that has favorited an item
-     * @param version  (required)
      * @param favoritableId The ID of the favoritableType to search on (required)
      * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
      * @param start The start index for pagination (required)
@@ -1086,9 +1035,9 @@ public class FavoriteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call whoHasFavoritedAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback<List<AccountResponse>> _callback) throws ApiException {
+    public okhttp3.Call whoHasFavoritedAsync(@javax.annotation.Nonnull Long favoritableId, @javax.annotation.Nonnull String favoritableType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, final ApiCallback<List<AccountResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = whoHasFavoritedValidateBeforeCall(version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
+        okhttp3.Call localVarCall = whoHasFavoritedValidateBeforeCall(favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<AccountResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

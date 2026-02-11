@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TriggerResponse;
 
@@ -76,7 +75,6 @@ public class TriggerApi {
 
     /**
      * Build call for createTrigger
-     * @param version  (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (required)
      * @param appKey The application to target (optional)
@@ -100,7 +98,7 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTriggerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTriggerCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -117,8 +115,7 @@ public class TriggerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trigger/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trigger/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -198,12 +195,7 @@ public class TriggerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTriggerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createTrigger(Async)");
-        }
-
+    private okhttp3.Call createTriggerValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createTrigger(Async)");
@@ -214,14 +206,13 @@ public class TriggerApi {
             throw new ApiException("Missing the required parameter 'name' when calling createTrigger(Async)");
         }
 
-        return createTriggerCall(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
+        return createTriggerCall(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
 
     }
 
     /**
      * Create Trigger
      * Create a trigger
-     * @param version  (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (required)
      * @param appKey The application to target (optional)
@@ -244,15 +235,14 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerResponse createTrigger(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<TriggerResponse> localVarResp = createTriggerWithHttpInfo(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+    public TriggerResponse createTrigger(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<TriggerResponse> localVarResp = createTriggerWithHttpInfo(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Trigger
      * Create a trigger
-     * @param version  (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (required)
      * @param appKey The application to target (optional)
@@ -275,8 +265,8 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerResponse> createTriggerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = createTriggerValidateBeforeCall(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, null);
+    public ApiResponse<TriggerResponse> createTriggerWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = createTriggerValidateBeforeCall(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, null);
         Type localVarReturnType = new TypeToken<TriggerResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -284,7 +274,6 @@ public class TriggerApi {
     /**
      * Create Trigger (asynchronously)
      * Create a trigger
-     * @param version  (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (required)
      * @param appKey The application to target (optional)
@@ -308,16 +297,15 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTriggerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TriggerResponse> _callback) throws ApiException {
+    public okhttp3.Call createTriggerAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TriggerResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTriggerValidateBeforeCall(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
+        okhttp3.Call localVarCall = createTriggerValidateBeforeCall(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
         Type localVarReturnType = new TypeToken<TriggerResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteTrigger
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the trigger to delete. (required)
      * @param _callback Callback for upload/download progress
@@ -330,7 +318,7 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTriggerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteTriggerCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -347,8 +335,7 @@ public class TriggerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trigger/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trigger/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -384,12 +371,7 @@ public class TriggerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTriggerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteTrigger(Async)");
-        }
-
+    private okhttp3.Call deleteTriggerValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteTrigger(Async)");
@@ -400,14 +382,13 @@ public class TriggerApi {
             throw new ApiException("Missing the required parameter 'triggerId' when calling deleteTrigger(Async)");
         }
 
-        return deleteTriggerCall(version, accountId, triggerId, _callback);
+        return deleteTriggerCall(accountId, triggerId, _callback);
 
     }
 
     /**
      * Delete Trigger
      * Mark a trigger as deleted.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the trigger to delete. (required)
      * @return SirqulResponse
@@ -419,15 +400,14 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteTrigger(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteTriggerWithHttpInfo(version, accountId, triggerId);
+    public SirqulResponse deleteTrigger(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteTriggerWithHttpInfo(accountId, triggerId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Trigger
      * Mark a trigger as deleted.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the trigger to delete. (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -439,8 +419,8 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteTriggerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
-        okhttp3.Call localVarCall = deleteTriggerValidateBeforeCall(version, accountId, triggerId, null);
+    public ApiResponse<SirqulResponse> deleteTriggerWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
+        okhttp3.Call localVarCall = deleteTriggerValidateBeforeCall(accountId, triggerId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -448,7 +428,6 @@ public class TriggerApi {
     /**
      * Delete Trigger (asynchronously)
      * Mark a trigger as deleted.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the trigger to delete. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -461,16 +440,15 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteTriggerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteTriggerAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteTriggerValidateBeforeCall(version, accountId, triggerId, _callback);
+        okhttp3.Call localVarCall = deleteTriggerValidateBeforeCall(accountId, triggerId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTrigger
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the Trigger to return. (required)
      * @param _callback Callback for upload/download progress
@@ -483,7 +461,7 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTriggerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTriggerCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -500,8 +478,7 @@ public class TriggerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trigger/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trigger/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -537,12 +514,7 @@ public class TriggerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTriggerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTrigger(Async)");
-        }
-
+    private okhttp3.Call getTriggerValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getTrigger(Async)");
@@ -553,14 +525,13 @@ public class TriggerApi {
             throw new ApiException("Missing the required parameter 'triggerId' when calling getTrigger(Async)");
         }
 
-        return getTriggerCall(version, accountId, triggerId, _callback);
+        return getTriggerCall(accountId, triggerId, _callback);
 
     }
 
     /**
      * Get Trigger
      * Get a trigger
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the Trigger to return. (required)
      * @return TriggerResponse
@@ -572,15 +543,14 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerResponse getTrigger(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
-        ApiResponse<TriggerResponse> localVarResp = getTriggerWithHttpInfo(version, accountId, triggerId);
+    public TriggerResponse getTrigger(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
+        ApiResponse<TriggerResponse> localVarResp = getTriggerWithHttpInfo(accountId, triggerId);
         return localVarResp.getData();
     }
 
     /**
      * Get Trigger
      * Get a trigger
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the Trigger to return. (required)
      * @return ApiResponse&lt;TriggerResponse&gt;
@@ -592,8 +562,8 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerResponse> getTriggerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
-        okhttp3.Call localVarCall = getTriggerValidateBeforeCall(version, accountId, triggerId, null);
+    public ApiResponse<TriggerResponse> getTriggerWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId) throws ApiException {
+        okhttp3.Call localVarCall = getTriggerValidateBeforeCall(accountId, triggerId, null);
         Type localVarReturnType = new TypeToken<TriggerResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -601,7 +571,6 @@ public class TriggerApi {
     /**
      * Get Trigger (asynchronously)
      * Get a trigger
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param triggerId The id of the Trigger to return. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -614,16 +583,15 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTriggerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback<TriggerResponse> _callback) throws ApiException {
+    public okhttp3.Call getTriggerAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long triggerId, final ApiCallback<TriggerResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTriggerValidateBeforeCall(version, accountId, triggerId, _callback);
+        okhttp3.Call localVarCall = getTriggerValidateBeforeCall(accountId, triggerId, _callback);
         Type localVarReturnType = new TypeToken<TriggerResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchTriggers
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to MINE)
@@ -646,7 +614,7 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTriggersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTriggersCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -663,8 +631,7 @@ public class TriggerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trigger/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trigger/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -740,25 +707,19 @@ public class TriggerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTriggersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchTriggers(Async)");
-        }
-
+    private okhttp3.Call searchTriggersValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchTriggers(Async)");
         }
 
-        return searchTriggersCall(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
+        return searchTriggersCall(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
 
     }
 
     /**
      * Search Triggers
      * Search for triggers
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to MINE)
@@ -780,15 +741,14 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<TriggerResponse> searchTriggers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<TriggerResponse>> localVarResp = searchTriggersWithHttpInfo(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+    public List<TriggerResponse> searchTriggers(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<TriggerResponse>> localVarResp = searchTriggersWithHttpInfo(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Triggers
      * Search for triggers
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to MINE)
@@ -810,8 +770,8 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TriggerResponse>> searchTriggersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchTriggersValidateBeforeCall(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, null);
+    public ApiResponse<List<TriggerResponse>> searchTriggersWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchTriggersValidateBeforeCall(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<TriggerResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -819,7 +779,6 @@ public class TriggerApi {
     /**
      * Search Triggers (asynchronously)
      * Search for triggers
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to MINE)
@@ -842,16 +801,15 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTriggersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<TriggerResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchTriggersAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<TriggerResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTriggersValidateBeforeCall(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchTriggersValidateBeforeCall(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<TriggerResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateTrigger
-     * @param version  (required)
      * @param triggerId The trigger to update (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (optional)
@@ -876,7 +834,7 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTriggerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTriggerCall(@javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -893,8 +851,7 @@ public class TriggerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trigger/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trigger/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -978,12 +935,7 @@ public class TriggerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTriggerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateTrigger(Async)");
-        }
-
+    private okhttp3.Call updateTriggerValidateBeforeCall(@javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'triggerId' is set
         if (triggerId == null) {
             throw new ApiException("Missing the required parameter 'triggerId' when calling updateTrigger(Async)");
@@ -994,14 +946,13 @@ public class TriggerApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateTrigger(Async)");
         }
 
-        return updateTriggerCall(version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
+        return updateTriggerCall(triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
 
     }
 
     /**
      * Update Trigger
      * Update a trigger
-     * @param version  (required)
      * @param triggerId The trigger to update (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (optional)
@@ -1025,15 +976,14 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TriggerResponse updateTrigger(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<TriggerResponse> localVarResp = updateTriggerWithHttpInfo(version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+    public TriggerResponse updateTrigger(@javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<TriggerResponse> localVarResp = updateTriggerWithHttpInfo(triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Trigger
      * Update a trigger
-     * @param version  (required)
      * @param triggerId The trigger to update (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (optional)
@@ -1057,8 +1007,8 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TriggerResponse> updateTriggerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = updateTriggerValidateBeforeCall(version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, null);
+    public ApiResponse<TriggerResponse> updateTriggerWithHttpInfo(@javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = updateTriggerValidateBeforeCall(triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, null);
         Type localVarReturnType = new TypeToken<TriggerResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1066,7 +1016,6 @@ public class TriggerApi {
     /**
      * Update Trigger (asynchronously)
      * Update a trigger
-     * @param version  (required)
      * @param triggerId The trigger to update (required)
      * @param accountId The logged in user (required)
      * @param name The name of the trigger (optional)
@@ -1091,9 +1040,9 @@ public class TriggerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTriggerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TriggerResponse> _callback) throws ApiException {
+    public okhttp3.Call updateTriggerAsync(@javax.annotation.Nonnull Long triggerId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, final ApiCallback<TriggerResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTriggerValidateBeforeCall(version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
+        okhttp3.Call localVarCall = updateTriggerValidateBeforeCall(triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, _callback);
         Type localVarReturnType = new TypeToken<TriggerResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

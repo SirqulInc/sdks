@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.PurchaseItemListResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -78,7 +77,6 @@ public class ThemeDescriptorApi {
 
     /**
      * Build call for addOrUpdateThemeDescriptor
-     * @param version  (required)
      * @param publicRead determines whether the theme&#39;s participants have read permissions (required)
      * @param publicWrite determines whether the theme&#39;s participants have write permissions (required)
      * @param publicDelete determines whether the theme&#39;s participants have delete permissions (required)
@@ -116,7 +114,7 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addOrUpdateThemeDescriptorCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addOrUpdateThemeDescriptorCall(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,8 +131,7 @@ public class ThemeDescriptorApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/theme"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/theme";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -270,12 +267,7 @@ public class ThemeDescriptorApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addOrUpdateThemeDescriptorValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addOrUpdateThemeDescriptor(Async)");
-        }
-
+    private okhttp3.Call addOrUpdateThemeDescriptorValidateBeforeCall(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'publicRead' is set
         if (publicRead == null) {
             throw new ApiException("Missing the required parameter 'publicRead' when calling addOrUpdateThemeDescriptor(Async)");
@@ -311,14 +303,13 @@ public class ThemeDescriptorApi {
             throw new ApiException("Missing the required parameter 'completeWithDefaultValues' when calling addOrUpdateThemeDescriptor(Async)");
         }
 
-        return addOrUpdateThemeDescriptorCall(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, _callback);
+        return addOrUpdateThemeDescriptorCall(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, _callback);
 
     }
 
     /**
      * Create/Update Theme
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @param version  (required)
      * @param publicRead determines whether the theme&#39;s participants have read permissions (required)
      * @param publicWrite determines whether the theme&#39;s participants have write permissions (required)
      * @param publicDelete determines whether the theme&#39;s participants have delete permissions (required)
@@ -355,15 +346,14 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ThemeDescriptorResponse addOrUpdateThemeDescriptor(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ThemeDescriptorResponse> localVarResp = addOrUpdateThemeDescriptorWithHttpInfo(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
+    public ThemeDescriptorResponse addOrUpdateThemeDescriptor(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ThemeDescriptorResponse> localVarResp = addOrUpdateThemeDescriptorWithHttpInfo(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create/Update Theme
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @param version  (required)
      * @param publicRead determines whether the theme&#39;s participants have read permissions (required)
      * @param publicWrite determines whether the theme&#39;s participants have write permissions (required)
      * @param publicDelete determines whether the theme&#39;s participants have delete permissions (required)
@@ -400,8 +390,8 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ThemeDescriptorResponse> addOrUpdateThemeDescriptorWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = addOrUpdateThemeDescriptorValidateBeforeCall(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, null);
+    public ApiResponse<ThemeDescriptorResponse> addOrUpdateThemeDescriptorWithHttpInfo(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = addOrUpdateThemeDescriptorValidateBeforeCall(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ThemeDescriptorResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -409,7 +399,6 @@ public class ThemeDescriptorApi {
     /**
      * Create/Update Theme (asynchronously)
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @param version  (required)
      * @param publicRead determines whether the theme&#39;s participants have read permissions (required)
      * @param publicWrite determines whether the theme&#39;s participants have write permissions (required)
      * @param publicDelete determines whether the theme&#39;s participants have delete permissions (required)
@@ -447,16 +436,15 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addOrUpdateThemeDescriptorAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ThemeDescriptorResponse> _callback) throws ApiException {
+    public okhttp3.Call addOrUpdateThemeDescriptorAsync(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nonnull Boolean completeWithDefaultValues, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Long themeDescriptorId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String colorValueJson, @javax.annotation.Nullable String stringReplacerJson, @javax.annotation.Nullable String customJsonObjects, @javax.annotation.Nullable File iconImage, @javax.annotation.Nullable File sceneAtlasImage, @javax.annotation.Nullable File bgImage, @javax.annotation.Nullable File bgSound, @javax.annotation.Nullable String musicSelection, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ThemeDescriptorResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addOrUpdateThemeDescriptorValidateBeforeCall(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = addOrUpdateThemeDescriptorValidateBeforeCall(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ThemeDescriptorResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getThemeDescriptor
-     * @param version  (required)
      * @param themeDescriptorId the theme id (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -473,7 +461,7 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getThemeDescriptorCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getThemeDescriptorCall(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -490,8 +478,7 @@ public class ThemeDescriptorApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/theme/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/theme/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -543,25 +530,19 @@ public class ThemeDescriptorApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getThemeDescriptorValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getThemeDescriptor(Async)");
-        }
-
+    private okhttp3.Call getThemeDescriptorValidateBeforeCall(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'themeDescriptorId' is set
         if (themeDescriptorId == null) {
             throw new ApiException("Missing the required parameter 'themeDescriptorId' when calling getThemeDescriptor(Async)");
         }
 
-        return getThemeDescriptorCall(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
+        return getThemeDescriptorCall(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Theme
      * Gets a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -577,15 +558,14 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PurchaseItemListResponse getThemeDescriptor(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<PurchaseItemListResponse> localVarResp = getThemeDescriptorWithHttpInfo(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+    public PurchaseItemListResponse getThemeDescriptor(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<PurchaseItemListResponse> localVarResp = getThemeDescriptorWithHttpInfo(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Theme
      * Gets a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -601,8 +581,8 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PurchaseItemListResponse> getThemeDescriptorWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getThemeDescriptorValidateBeforeCall(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, null);
+    public ApiResponse<PurchaseItemListResponse> getThemeDescriptorWithHttpInfo(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getThemeDescriptorValidateBeforeCall(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<PurchaseItemListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -610,7 +590,6 @@ public class ThemeDescriptorApi {
     /**
      * Get Theme (asynchronously)
      * Gets a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -627,16 +606,15 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getThemeDescriptorAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PurchaseItemListResponse> _callback) throws ApiException {
+    public okhttp3.Call getThemeDescriptorAsync(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PurchaseItemListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getThemeDescriptorValidateBeforeCall(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getThemeDescriptorValidateBeforeCall(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<PurchaseItemListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getThemeDescriptors
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See ThemeDescriptorApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -665,7 +643,7 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getThemeDescriptorsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getThemeDescriptorsCall(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -682,8 +660,7 @@ public class ThemeDescriptorApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/theme/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/theme/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -783,12 +760,7 @@ public class ThemeDescriptorApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getThemeDescriptorsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getThemeDescriptors(Async)");
-        }
-
+    private okhttp3.Call getThemeDescriptorsValidateBeforeCall(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'filter' is set
         if (filter == null) {
             throw new ApiException("Missing the required parameter 'filter' when calling getThemeDescriptors(Async)");
@@ -814,14 +786,13 @@ public class ThemeDescriptorApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getThemeDescriptors(Async)");
         }
 
-        return getThemeDescriptorsCall(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, _callback);
+        return getThemeDescriptorsCall(filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, _callback);
 
     }
 
     /**
      * Search Themes
      * Searches for themes.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See ThemeDescriptorApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -849,15 +820,14 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PurchaseItemListResponse getThemeDescriptors(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<PurchaseItemListResponse> localVarResp = getThemeDescriptorsWithHttpInfo(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
+    public PurchaseItemListResponse getThemeDescriptors(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<PurchaseItemListResponse> localVarResp = getThemeDescriptorsWithHttpInfo(filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Search Themes
      * Searches for themes.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See ThemeDescriptorApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -885,8 +855,8 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PurchaseItemListResponse> getThemeDescriptorsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getThemeDescriptorsValidateBeforeCall(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, null);
+    public ApiResponse<PurchaseItemListResponse> getThemeDescriptorsWithHttpInfo(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getThemeDescriptorsValidateBeforeCall(filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<PurchaseItemListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -894,7 +864,6 @@ public class ThemeDescriptorApi {
     /**
      * Search Themes (asynchronously)
      * Searches for themes.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See ThemeDescriptorApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -923,16 +892,15 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getThemeDescriptorsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PurchaseItemListResponse> _callback) throws ApiException {
+    public okhttp3.Call getThemeDescriptorsAsync(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<PurchaseItemListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getThemeDescriptorsValidateBeforeCall(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getThemeDescriptorsValidateBeforeCall(filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<PurchaseItemListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeThemeDescriptor
-     * @param version  (required)
      * @param themeDescriptorId the theme id to remove (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -949,7 +917,7 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeThemeDescriptorCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeThemeDescriptorCall(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -966,8 +934,7 @@ public class ThemeDescriptorApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/theme/remove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/theme/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1019,25 +986,19 @@ public class ThemeDescriptorApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeThemeDescriptorValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeThemeDescriptor(Async)");
-        }
-
+    private okhttp3.Call removeThemeDescriptorValidateBeforeCall(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'themeDescriptorId' is set
         if (themeDescriptorId == null) {
             throw new ApiException("Missing the required parameter 'themeDescriptorId' when calling removeThemeDescriptor(Async)");
         }
 
-        return removeThemeDescriptorCall(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
+        return removeThemeDescriptorCall(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
 
     }
 
     /**
      * Delete Theme
      * Removes a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id to remove (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1053,15 +1014,14 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeThemeDescriptor(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeThemeDescriptorWithHttpInfo(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+    public SirqulResponse removeThemeDescriptor(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeThemeDescriptorWithHttpInfo(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Delete Theme
      * Removes a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id to remove (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1077,8 +1037,8 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeThemeDescriptorWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = removeThemeDescriptorValidateBeforeCall(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> removeThemeDescriptorWithHttpInfo(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = removeThemeDescriptorValidateBeforeCall(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1086,7 +1046,6 @@ public class ThemeDescriptorApi {
     /**
      * Delete Theme (asynchronously)
      * Removes a theme.
-     * @param version  (required)
      * @param themeDescriptorId the theme id to remove (required)
      * @param deviceId a unique id given by the device (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1103,9 +1062,9 @@ public class ThemeDescriptorApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeThemeDescriptorAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeThemeDescriptorAsync(@javax.annotation.Nonnull Long themeDescriptorId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeThemeDescriptorValidateBeforeCall(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = removeThemeDescriptorValidateBeforeCall(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

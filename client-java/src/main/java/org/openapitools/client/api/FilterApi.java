@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.FilterResponse;
 import org.openapitools.client.model.FilterTreeResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class FilterApi {
 
     /**
      * Build call for createFilter
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the filter (required)
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -97,7 +95,7 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFilterCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createFilterCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -114,8 +112,7 @@ public class FilterApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/filter/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/filter/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -179,12 +176,7 @@ public class FilterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFilterValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createFilter(Async)");
-        }
-
+    private okhttp3.Call createFilterValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createFilter(Async)");
@@ -195,14 +187,13 @@ public class FilterApi {
             throw new ApiException("Missing the required parameter 'name' when calling createFilter(Async)");
         }
 
-        return createFilterCall(version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, _callback);
+        return createFilterCall(accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, _callback);
 
     }
 
     /**
      * Create Filter
      * Create a filter
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the filter (required)
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -221,15 +212,14 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public FilterTreeResponse createFilter(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<FilterTreeResponse> localVarResp = createFilterWithHttpInfo(version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
+    public FilterTreeResponse createFilter(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<FilterTreeResponse> localVarResp = createFilterWithHttpInfo(accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Create Filter
      * Create a filter
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the filter (required)
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -248,8 +238,8 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FilterTreeResponse> createFilterWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = createFilterValidateBeforeCall(version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, null);
+    public ApiResponse<FilterTreeResponse> createFilterWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, null);
         Type localVarReturnType = new TypeToken<FilterTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -257,7 +247,6 @@ public class FilterApi {
     /**
      * Create Filter (asynchronously)
      * Create a filter
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the filter (required)
      * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -277,16 +266,15 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFilterAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<FilterTreeResponse> _callback) throws ApiException {
+    public okhttp3.Call createFilterAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<FilterTreeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createFilterValidateBeforeCall(version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, _callback);
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, _callback);
         Type localVarReturnType = new TypeToken<FilterTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteFilter
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param filterId The ID of the filter to delete (required)
      * @param _callback Callback for upload/download progress
@@ -299,7 +287,7 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFilterCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteFilterCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -316,8 +304,7 @@ public class FilterApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/filter/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/filter/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -353,12 +340,7 @@ public class FilterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFilterValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteFilter(Async)");
-        }
-
+    private okhttp3.Call deleteFilterValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteFilter(Async)");
@@ -369,14 +351,13 @@ public class FilterApi {
             throw new ApiException("Missing the required parameter 'filterId' when calling deleteFilter(Async)");
         }
 
-        return deleteFilterCall(version, accountId, filterId, _callback);
+        return deleteFilterCall(accountId, filterId, _callback);
 
     }
 
     /**
      * Delete Filter
      * Delete a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param filterId The ID of the filter to delete (required)
      * @return SirqulResponse
@@ -388,15 +369,14 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteFilter(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteFilterWithHttpInfo(version, accountId, filterId);
+    public SirqulResponse deleteFilter(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteFilterWithHttpInfo(accountId, filterId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Filter
      * Delete a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param filterId The ID of the filter to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -408,8 +388,8 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteFilterWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId) throws ApiException {
-        okhttp3.Call localVarCall = deleteFilterValidateBeforeCall(version, accountId, filterId, null);
+    public ApiResponse<SirqulResponse> deleteFilterWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId) throws ApiException {
+        okhttp3.Call localVarCall = deleteFilterValidateBeforeCall(accountId, filterId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -417,7 +397,6 @@ public class FilterApi {
     /**
      * Delete Filter (asynchronously)
      * Delete a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application) (required)
      * @param filterId The ID of the filter to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -430,16 +409,15 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFilterAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteFilterAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFilterValidateBeforeCall(version, accountId, filterId, _callback);
+        okhttp3.Call localVarCall = deleteFilterValidateBeforeCall(accountId, filterId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getFilter
-     * @param version  (required)
      * @param filterId the id of the filter to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -451,7 +429,7 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFilterCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFilterCall(@javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -468,8 +446,7 @@ public class FilterApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/filter/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/filter/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -501,25 +478,19 @@ public class FilterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFilterValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getFilter(Async)");
-        }
-
+    private okhttp3.Call getFilterValidateBeforeCall(@javax.annotation.Nonnull Long filterId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'filterId' is set
         if (filterId == null) {
             throw new ApiException("Missing the required parameter 'filterId' when calling getFilter(Async)");
         }
 
-        return getFilterCall(version, filterId, _callback);
+        return getFilterCall(filterId, _callback);
 
     }
 
     /**
      * Get Filter
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @param version  (required)
      * @param filterId the id of the filter to get (required)
      * @return FilterTreeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -530,15 +501,14 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public FilterTreeResponse getFilter(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long filterId) throws ApiException {
-        ApiResponse<FilterTreeResponse> localVarResp = getFilterWithHttpInfo(version, filterId);
+    public FilterTreeResponse getFilter(@javax.annotation.Nonnull Long filterId) throws ApiException {
+        ApiResponse<FilterTreeResponse> localVarResp = getFilterWithHttpInfo(filterId);
         return localVarResp.getData();
     }
 
     /**
      * Get Filter
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @param version  (required)
      * @param filterId the id of the filter to get (required)
      * @return ApiResponse&lt;FilterTreeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -549,8 +519,8 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FilterTreeResponse> getFilterWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long filterId) throws ApiException {
-        okhttp3.Call localVarCall = getFilterValidateBeforeCall(version, filterId, null);
+    public ApiResponse<FilterTreeResponse> getFilterWithHttpInfo(@javax.annotation.Nonnull Long filterId) throws ApiException {
+        okhttp3.Call localVarCall = getFilterValidateBeforeCall(filterId, null);
         Type localVarReturnType = new TypeToken<FilterTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -558,7 +528,6 @@ public class FilterApi {
     /**
      * Get Filter (asynchronously)
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @param version  (required)
      * @param filterId the id of the filter to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -570,16 +539,15 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFilterAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long filterId, final ApiCallback<FilterTreeResponse> _callback) throws ApiException {
+    public okhttp3.Call getFilterAsync(@javax.annotation.Nonnull Long filterId, final ApiCallback<FilterTreeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFilterValidateBeforeCall(version, filterId, _callback);
+        okhttp3.Call localVarCall = getFilterValidateBeforeCall(filterId, _callback);
         Type localVarReturnType = new TypeToken<FilterTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchFilters
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -600,7 +568,7 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchFiltersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchFiltersCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -617,8 +585,7 @@ public class FilterApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/filter/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/filter/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -686,20 +653,14 @@ public class FilterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchFiltersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchFilters(Async)");
-        }
-
-        return searchFiltersCall(version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, _callback);
+    private okhttp3.Call searchFiltersValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+        return searchFiltersCall(accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, _callback);
 
     }
 
     /**
      * Search Filters
      * Search for filters.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -719,15 +680,14 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<FilterResponse> searchFilters(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<FilterResponse>> localVarResp = searchFiltersWithHttpInfo(version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
+    public List<FilterResponse> searchFilters(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<FilterResponse>> localVarResp = searchFiltersWithHttpInfo(accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Filters
      * Search for filters.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -747,8 +707,8 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<FilterResponse>> searchFiltersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchFiltersValidateBeforeCall(version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, null);
+    public ApiResponse<List<FilterResponse>> searchFiltersWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchFiltersValidateBeforeCall(accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<FilterResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -756,7 +716,6 @@ public class FilterApi {
     /**
      * Search Filters (asynchronously)
      * Search for filters.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve filters for (optional)
@@ -777,16 +736,15 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchFiltersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<FilterResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchFiltersAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<FilterResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchFiltersValidateBeforeCall(version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchFiltersValidateBeforeCall(accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<FilterResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateFilter
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param filterId The ID of the filter to edit (required)
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -806,7 +764,7 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateFilterCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateFilterCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -823,8 +781,7 @@ public class FilterApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/filter/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/filter/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -888,12 +845,7 @@ public class FilterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateFilterValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateFilter(Async)");
-        }
-
+    private okhttp3.Call updateFilterValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateFilter(Async)");
@@ -904,14 +856,13 @@ public class FilterApi {
             throw new ApiException("Missing the required parameter 'filterId' when calling updateFilter(Async)");
         }
 
-        return updateFilterCall(version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, _callback);
+        return updateFilterCall(accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, _callback);
 
     }
 
     /**
      * Update Filter
      * Update a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param filterId The ID of the filter to edit (required)
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -930,15 +881,14 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public FilterTreeResponse updateFilter(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<FilterTreeResponse> localVarResp = updateFilterWithHttpInfo(version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
+    public FilterTreeResponse updateFilter(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<FilterTreeResponse> localVarResp = updateFilterWithHttpInfo(accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Update Filter
      * Update a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param filterId The ID of the filter to edit (required)
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -957,8 +907,8 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FilterTreeResponse> updateFilterWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = updateFilterValidateBeforeCall(version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, null);
+    public ApiResponse<FilterTreeResponse> updateFilterWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = updateFilterValidateBeforeCall(accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, null);
         Type localVarReturnType = new TypeToken<FilterTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -966,7 +916,6 @@ public class FilterApi {
     /**
      * Update Filter (asynchronously)
      * Update a filter.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param filterId The ID of the filter to edit (required)
      * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -986,9 +935,9 @@ public class FilterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateFilterAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<FilterTreeResponse> _callback) throws ApiException {
+    public okhttp3.Call updateFilterAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long filterId, @javax.annotation.Nullable Long parentFilterId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<FilterTreeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateFilterValidateBeforeCall(version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, _callback);
+        okhttp3.Call localVarCall = updateFilterValidateBeforeCall(accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, _callback);
         Type localVarReturnType = new TypeToken<FilterTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

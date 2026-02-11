@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.WeatherResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class WeatherApi {
 
     /**
      * Build call for searchWeather
-     * @param version  (required)
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
@@ -90,7 +88,7 @@ public class WeatherApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchWeatherCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchWeatherCall(@javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,8 +105,7 @@ public class WeatherApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/weather/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/weather/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -152,20 +149,14 @@ public class WeatherApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchWeatherValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchWeather(Async)");
-        }
-
-        return searchWeatherCall(version, regionId, latitude, longitude, timezoneOffset, _callback);
+    private okhttp3.Call searchWeatherValidateBeforeCall(@javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset, final ApiCallback _callback) throws ApiException {
+        return searchWeatherCall(regionId, latitude, longitude, timezoneOffset, _callback);
 
     }
 
     /**
      * Search Weather
      * Search the weather forcast for the next 5 days
-     * @param version  (required)
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
@@ -179,15 +170,14 @@ public class WeatherApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WeatherResponse searchWeather(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset) throws ApiException {
-        ApiResponse<WeatherResponse> localVarResp = searchWeatherWithHttpInfo(version, regionId, latitude, longitude, timezoneOffset);
+    public WeatherResponse searchWeather(@javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset) throws ApiException {
+        ApiResponse<WeatherResponse> localVarResp = searchWeatherWithHttpInfo(regionId, latitude, longitude, timezoneOffset);
         return localVarResp.getData();
     }
 
     /**
      * Search Weather
      * Search the weather forcast for the next 5 days
-     * @param version  (required)
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
@@ -201,8 +191,8 @@ public class WeatherApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WeatherResponse> searchWeatherWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset) throws ApiException {
-        okhttp3.Call localVarCall = searchWeatherValidateBeforeCall(version, regionId, latitude, longitude, timezoneOffset, null);
+    public ApiResponse<WeatherResponse> searchWeatherWithHttpInfo(@javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset) throws ApiException {
+        okhttp3.Call localVarCall = searchWeatherValidateBeforeCall(regionId, latitude, longitude, timezoneOffset, null);
         Type localVarReturnType = new TypeToken<WeatherResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -210,7 +200,6 @@ public class WeatherApi {
     /**
      * Search Weather (asynchronously)
      * Search the weather forcast for the next 5 days
-     * @param version  (required)
      * @param regionId Region Id (optional)
      * @param latitude Latitude (optional)
      * @param longitude Longitude (optional)
@@ -225,9 +214,9 @@ public class WeatherApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchWeatherAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset, final ApiCallback<WeatherResponse> _callback) throws ApiException {
+    public okhttp3.Call searchWeatherAsync(@javax.annotation.Nullable Long regionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long timezoneOffset, final ApiCallback<WeatherResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchWeatherValidateBeforeCall(version, regionId, latitude, longitude, timezoneOffset, _callback);
+        okhttp3.Call localVarCall = searchWeatherValidateBeforeCall(regionId, latitude, longitude, timezoneOffset, _callback);
         Type localVarReturnType = new TypeToken<WeatherResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

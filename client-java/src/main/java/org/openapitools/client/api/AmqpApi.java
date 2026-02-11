@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.QueueResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class AmqpApi {
 
     /**
      * Build call for consumerCreate
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param name The name of the queue to connect to (required)
      * @param hostname The hostname of the server the queue is hosted on (required)
@@ -101,7 +99,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call consumerCreateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerCreateCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,8 +116,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/consumer/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/consumer/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -203,12 +200,7 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call consumerCreateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling consumerCreate(Async)");
-        }
-
+    private okhttp3.Call consumerCreateValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling consumerCreate(Async)");
@@ -239,14 +231,13 @@ public class AmqpApi {
             throw new ApiException("Missing the required parameter 'dataMapping' when calling consumerCreate(Async)");
         }
 
-        return consumerCreateCall(version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, _callback);
+        return consumerCreateCall(appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, _callback);
 
     }
 
     /**
      * Create Consumer
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param name The name of the queue to connect to (required)
      * @param hostname The hostname of the server the queue is hosted on (required)
@@ -270,15 +261,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QueueResponse consumerCreate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        ApiResponse<QueueResponse> localVarResp = consumerCreateWithHttpInfo(version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
+    public QueueResponse consumerCreate(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        ApiResponse<QueueResponse> localVarResp = consumerCreateWithHttpInfo(appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
         return localVarResp.getData();
     }
 
     /**
      * Create Consumer
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param name The name of the queue to connect to (required)
      * @param hostname The hostname of the server the queue is hosted on (required)
@@ -302,8 +292,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueueResponse> consumerCreateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        okhttp3.Call localVarCall = consumerCreateValidateBeforeCall(version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, null);
+    public ApiResponse<QueueResponse> consumerCreateWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        okhttp3.Call localVarCall = consumerCreateValidateBeforeCall(appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, null);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -311,7 +301,6 @@ public class AmqpApi {
     /**
      * Create Consumer (asynchronously)
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param name The name of the queue to connect to (required)
      * @param hostname The hostname of the server the queue is hosted on (required)
@@ -336,16 +325,15 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call consumerCreateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerCreateAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String hostname, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable String exchanger, @javax.annotation.Nullable String exchangerType, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = consumerCreateValidateBeforeCall(version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, _callback);
+        okhttp3.Call localVarCall = consumerCreateValidateBeforeCall(appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, _callback);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for consumerUpdate
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param queueId The queue to update (required)
      * @param dataMapping The data mapping information in the format of AMQPRequest (required)
@@ -362,7 +350,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call consumerUpdateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call consumerUpdateCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -379,8 +367,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/consumer/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/consumer/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -432,12 +419,7 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call consumerUpdateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling consumerUpdate(Async)");
-        }
-
+    private okhttp3.Call consumerUpdateValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling consumerUpdate(Async)");
@@ -453,14 +435,13 @@ public class AmqpApi {
             throw new ApiException("Missing the required parameter 'dataMapping' when calling consumerUpdate(Async)");
         }
 
-        return consumerUpdateCall(version, appKey, queueId, dataMapping, deviceId, accountId, useSSL, _callback);
+        return consumerUpdateCall(appKey, queueId, dataMapping, deviceId, accountId, useSSL, _callback);
 
     }
 
     /**
      * Update Consumer
      * Update an existing amqp queue&#39;s data mapping.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param queueId The queue to update (required)
      * @param dataMapping The data mapping information in the format of AMQPRequest (required)
@@ -476,15 +457,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QueueResponse consumerUpdate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        ApiResponse<QueueResponse> localVarResp = consumerUpdateWithHttpInfo(version, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
+    public QueueResponse consumerUpdate(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        ApiResponse<QueueResponse> localVarResp = consumerUpdateWithHttpInfo(appKey, queueId, dataMapping, deviceId, accountId, useSSL);
         return localVarResp.getData();
     }
 
     /**
      * Update Consumer
      * Update an existing amqp queue&#39;s data mapping.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param queueId The queue to update (required)
      * @param dataMapping The data mapping information in the format of AMQPRequest (required)
@@ -500,8 +480,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueueResponse> consumerUpdateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        okhttp3.Call localVarCall = consumerUpdateValidateBeforeCall(version, appKey, queueId, dataMapping, deviceId, accountId, useSSL, null);
+    public ApiResponse<QueueResponse> consumerUpdateWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        okhttp3.Call localVarCall = consumerUpdateValidateBeforeCall(appKey, queueId, dataMapping, deviceId, accountId, useSSL, null);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -509,7 +489,6 @@ public class AmqpApi {
     /**
      * Update Consumer (asynchronously)
      * Update an existing amqp queue&#39;s data mapping.
-     * @param version  (required)
      * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
      * @param queueId The queue to update (required)
      * @param dataMapping The data mapping information in the format of AMQPRequest (required)
@@ -526,16 +505,15 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call consumerUpdateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
+    public okhttp3.Call consumerUpdateAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nonnull String dataMapping, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = consumerUpdateValidateBeforeCall(version, appKey, queueId, dataMapping, deviceId, accountId, useSSL, _callback);
+        okhttp3.Call localVarCall = consumerUpdateValidateBeforeCall(appKey, queueId, dataMapping, deviceId, accountId, useSSL, _callback);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for queueCreate
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param name The name of the queue to create (required)
      * @param deviceId The client deviceID (optional)
@@ -558,7 +536,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueCreateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queueCreateCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -575,8 +553,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -652,12 +629,7 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queueCreateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling queueCreate(Async)");
-        }
-
+    private okhttp3.Call queueCreateValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling queueCreate(Async)");
@@ -668,14 +640,13 @@ public class AmqpApi {
             throw new ApiException("Missing the required parameter 'name' when calling queueCreate(Async)");
         }
 
-        return queueCreateCall(version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
+        return queueCreateCall(appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
 
     }
 
     /**
      * Create Queue
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param name The name of the queue to create (required)
      * @param deviceId The client deviceID (optional)
@@ -697,15 +668,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QueueResponse queueCreate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        ApiResponse<QueueResponse> localVarResp = queueCreateWithHttpInfo(version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+    public QueueResponse queueCreate(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        ApiResponse<QueueResponse> localVarResp = queueCreateWithHttpInfo(appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
         return localVarResp.getData();
     }
 
     /**
      * Create Queue
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param name The name of the queue to create (required)
      * @param deviceId The client deviceID (optional)
@@ -727,8 +697,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueueResponse> queueCreateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        okhttp3.Call localVarCall = queueCreateValidateBeforeCall(version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, null);
+    public ApiResponse<QueueResponse> queueCreateWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        okhttp3.Call localVarCall = queueCreateValidateBeforeCall(appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, null);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -736,7 +706,6 @@ public class AmqpApi {
     /**
      * Create Queue (asynchronously)
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param name The name of the queue to create (required)
      * @param deviceId The client deviceID (optional)
@@ -759,16 +728,15 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueCreateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
+    public okhttp3.Call queueCreateAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = queueCreateValidateBeforeCall(version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
+        okhttp3.Call localVarCall = queueCreateValidateBeforeCall(appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for queueDelete
-     * @param version  (required)
      * @param queueId The id of the queue to find (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -782,7 +750,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueDeleteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queueDeleteCall(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -799,8 +767,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -840,25 +807,19 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queueDeleteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling queueDelete(Async)");
-        }
-
+    private okhttp3.Call queueDeleteValidateBeforeCall(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'queueId' is set
         if (queueId == null) {
             throw new ApiException("Missing the required parameter 'queueId' when calling queueDelete(Async)");
         }
 
-        return queueDeleteCall(version, queueId, deviceId, accountId, _callback);
+        return queueDeleteCall(queueId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Queue
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @param version  (required)
      * @param queueId The id of the queue to find (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -871,15 +832,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse queueDelete(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = queueDeleteWithHttpInfo(version, queueId, deviceId, accountId);
+    public SirqulResponse queueDelete(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = queueDeleteWithHttpInfo(queueId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Queue
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @param version  (required)
      * @param queueId The id of the queue to find (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -892,8 +852,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> queueDeleteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = queueDeleteValidateBeforeCall(version, queueId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> queueDeleteWithHttpInfo(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = queueDeleteValidateBeforeCall(queueId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -901,7 +861,6 @@ public class AmqpApi {
     /**
      * Delete Queue (asynchronously)
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @param version  (required)
      * @param queueId The id of the queue to find (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -915,16 +874,15 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueDeleteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call queueDeleteAsync(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = queueDeleteValidateBeforeCall(version, queueId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = queueDeleteValidateBeforeCall(queueId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for queueGet
-     * @param version  (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -942,7 +900,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueGetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queueGetCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -959,8 +917,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1016,20 +973,14 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queueGetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling queueGet(Async)");
-        }
-
-        return queueGetCall(version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost, _callback);
+    private okhttp3.Call queueGetValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
+        return queueGetCall(deviceId, accountId, queueId, appKey, name, hostname, virtualHost, _callback);
 
     }
 
     /**
      * Get Queue
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -1046,15 +997,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QueueResponse queueGet(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
-        ApiResponse<QueueResponse> localVarResp = queueGetWithHttpInfo(version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
+    public QueueResponse queueGet(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
+        ApiResponse<QueueResponse> localVarResp = queueGetWithHttpInfo(deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
         return localVarResp.getData();
     }
 
     /**
      * Get Queue
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -1071,8 +1021,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueueResponse> queueGetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
-        okhttp3.Call localVarCall = queueGetValidateBeforeCall(version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost, null);
+    public ApiResponse<QueueResponse> queueGetWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
+        okhttp3.Call localVarCall = queueGetValidateBeforeCall(deviceId, accountId, queueId, appKey, name, hostname, virtualHost, null);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1080,7 +1030,6 @@ public class AmqpApi {
     /**
      * Get Queue (asynchronously)
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
      * @param queueId The id of the queue to find (optional)
@@ -1098,16 +1047,15 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueGetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback<QueueResponse> _callback) throws ApiException {
+    public okhttp3.Call queueGetAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback<QueueResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = queueGetValidateBeforeCall(version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost, _callback);
+        okhttp3.Call localVarCall = queueGetValidateBeforeCall(deviceId, accountId, queueId, appKey, name, hostname, virtualHost, _callback);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for queuePublish
-     * @param version  (required)
      * @param message The payload to send to the queue (required)
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -1124,7 +1072,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queuePublishCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queuePublishCall(@javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1141,8 +1089,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/publish"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/publish";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1194,25 +1141,19 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queuePublishValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling queuePublish(Async)");
-        }
-
+    private okhttp3.Call queuePublishValidateBeforeCall(@javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'message' is set
         if (message == null) {
             throw new ApiException("Missing the required parameter 'message' when calling queuePublish(Async)");
         }
 
-        return queuePublishCall(version, message, queueId, appKey, name, hostname, virtualHost, _callback);
+        return queuePublishCall(message, queueId, appKey, name, hostname, virtualHost, _callback);
 
     }
 
     /**
      * Publish Queue
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param message The payload to send to the queue (required)
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -1228,15 +1169,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse queuePublish(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = queuePublishWithHttpInfo(version, message, queueId, appKey, name, hostname, virtualHost);
+    public SirqulResponse queuePublish(@javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = queuePublishWithHttpInfo(message, queueId, appKey, name, hostname, virtualHost);
         return localVarResp.getData();
     }
 
     /**
      * Publish Queue
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param message The payload to send to the queue (required)
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -1252,8 +1192,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> queuePublishWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
-        okhttp3.Call localVarCall = queuePublishValidateBeforeCall(version, message, queueId, appKey, name, hostname, virtualHost, null);
+    public ApiResponse<SirqulResponse> queuePublishWithHttpInfo(@javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost) throws ApiException {
+        okhttp3.Call localVarCall = queuePublishValidateBeforeCall(message, queueId, appKey, name, hostname, virtualHost, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1261,7 +1201,6 @@ public class AmqpApi {
     /**
      * Publish Queue (asynchronously)
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param version  (required)
      * @param message The payload to send to the queue (required)
      * @param queueId The id of the queue to publish to (optional)
      * @param appKey The application key the queue was assigned to (optional)
@@ -1278,16 +1217,15 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queuePublishAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call queuePublishAsync(@javax.annotation.Nonnull String message, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String name, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable String virtualHost, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = queuePublishValidateBeforeCall(version, message, queueId, appKey, name, hostname, virtualHost, _callback);
+        okhttp3.Call localVarCall = queuePublishValidateBeforeCall(message, queueId, appKey, name, hostname, virtualHost, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for queueSearch
-     * @param version  (required)
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1304,7 +1242,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queueSearchCall(@javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1321,8 +1259,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1374,20 +1311,14 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queueSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling queueSearch(Async)");
-        }
-
-        return queueSearchCall(version, queueId, deviceId, accountId, name, start, limit, _callback);
+    private okhttp3.Call queueSearchValidateBeforeCall(@javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return queueSearchCall(queueId, deviceId, accountId, name, start, limit, _callback);
 
     }
 
     /**
      * Search Queue
      * Get the queues setup for the BillableEntity&#39;s applications.
-     * @param version  (required)
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1403,15 +1334,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QueueResponse queueSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<QueueResponse> localVarResp = queueSearchWithHttpInfo(version, queueId, deviceId, accountId, name, start, limit);
+    public QueueResponse queueSearch(@javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<QueueResponse> localVarResp = queueSearchWithHttpInfo(queueId, deviceId, accountId, name, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Queue
      * Get the queues setup for the BillableEntity&#39;s applications.
-     * @param version  (required)
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1427,8 +1357,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueueResponse> queueSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = queueSearchValidateBeforeCall(version, queueId, deviceId, accountId, name, start, limit, null);
+    public ApiResponse<QueueResponse> queueSearchWithHttpInfo(@javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = queueSearchValidateBeforeCall(queueId, deviceId, accountId, name, start, limit, null);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1436,7 +1366,6 @@ public class AmqpApi {
     /**
      * Search Queue (asynchronously)
      * Get the queues setup for the BillableEntity&#39;s applications.
-     * @param version  (required)
      * @param queueId The id of the queue to find (optional)
      * @param deviceId The client device ID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1453,16 +1382,15 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<QueueResponse> _callback) throws ApiException {
+    public okhttp3.Call queueSearchAsync(@javax.annotation.Nullable Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<QueueResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = queueSearchValidateBeforeCall(version, queueId, deviceId, accountId, name, start, limit, _callback);
+        okhttp3.Call localVarCall = queueSearchValidateBeforeCall(queueId, deviceId, accountId, name, start, limit, _callback);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for queueUpdate
-     * @param version  (required)
      * @param queueId The id of the queue to update (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1485,7 +1413,7 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueUpdateCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call queueUpdateCall(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1502,8 +1430,7 @@ public class AmqpApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/queue/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/queue/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1579,25 +1506,19 @@ public class AmqpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queueUpdateValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling queueUpdate(Async)");
-        }
-
+    private okhttp3.Call queueUpdateValidateBeforeCall(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'queueId' is set
         if (queueId == null) {
             throw new ApiException("Missing the required parameter 'queueId' when calling queueUpdate(Async)");
         }
 
-        return queueUpdateCall(version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
+        return queueUpdateCall(queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
 
     }
 
     /**
      * Update Queue
      * Update the basic AMQP queue.
-     * @param version  (required)
      * @param queueId The id of the queue to update (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1619,15 +1540,14 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public QueueResponse queueUpdate(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        ApiResponse<QueueResponse> localVarResp = queueUpdateWithHttpInfo(version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+    public QueueResponse queueUpdate(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        ApiResponse<QueueResponse> localVarResp = queueUpdateWithHttpInfo(queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
         return localVarResp.getData();
     }
 
     /**
      * Update Queue
      * Update the basic AMQP queue.
-     * @param version  (required)
      * @param queueId The id of the queue to update (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1649,8 +1569,8 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueueResponse> queueUpdateWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
-        okhttp3.Call localVarCall = queueUpdateValidateBeforeCall(version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, null);
+    public ApiResponse<QueueResponse> queueUpdateWithHttpInfo(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL) throws ApiException {
+        okhttp3.Call localVarCall = queueUpdateValidateBeforeCall(queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, null);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1658,7 +1578,6 @@ public class AmqpApi {
     /**
      * Update Queue (asynchronously)
      * Update the basic AMQP queue.
-     * @param version  (required)
      * @param queueId The id of the queue to update (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1681,9 +1600,9 @@ public class AmqpApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call queueUpdateAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
+    public okhttp3.Call queueUpdateAsync(@javax.annotation.Nonnull Long queueId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer workers, @javax.annotation.Nullable String analyticTags, @javax.annotation.Nullable String hostname, @javax.annotation.Nullable Integer port, @javax.annotation.Nullable String username, @javax.annotation.Nullable String password, @javax.annotation.Nullable String virtualHost, @javax.annotation.Nullable Boolean useSSL, final ApiCallback<QueueResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = queueUpdateValidateBeforeCall(version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
+        okhttp3.Call localVarCall = queueUpdateValidateBeforeCall(queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, _callback);
         Type localVarReturnType = new TypeToken<QueueResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

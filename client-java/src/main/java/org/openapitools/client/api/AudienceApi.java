@@ -30,7 +30,6 @@ import java.io.IOException;
 import org.openapitools.client.model.AgeGroupResponse;
 import org.openapitools.client.model.AudienceDeviceResponse;
 import org.openapitools.client.model.AudienceResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.OfferListResponse;
 import org.openapitools.client.model.SearchResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -80,7 +79,6 @@ public class AudienceApi {
 
     /**
      * Build call for createAudience
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the audience (required)
      * @param description The description of the audience (optional)
@@ -120,7 +118,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAudienceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAudienceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -137,8 +135,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -282,12 +279,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAudienceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createAudience(Async)");
-        }
-
+    private okhttp3.Call createAudienceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createAudience(Async)");
@@ -298,14 +290,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'name' when calling createAudience(Async)");
         }
 
-        return createAudienceCall(version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
+        return createAudienceCall(accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
 
     }
 
     /**
      * Create Audience
      * Create a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the audience (required)
      * @param description The description of the audience (optional)
@@ -344,15 +335,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AudienceResponse createAudience(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
-        ApiResponse<AudienceResponse> localVarResp = createAudienceWithHttpInfo(version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+    public AudienceResponse createAudience(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
+        ApiResponse<AudienceResponse> localVarResp = createAudienceWithHttpInfo(accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
         return localVarResp.getData();
     }
 
     /**
      * Create Audience
      * Create a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the audience (required)
      * @param description The description of the audience (optional)
@@ -391,8 +381,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AudienceResponse> createAudienceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
-        okhttp3.Call localVarCall = createAudienceValidateBeforeCall(version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, null);
+    public ApiResponse<AudienceResponse> createAudienceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
+        okhttp3.Call localVarCall = createAudienceValidateBeforeCall(accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, null);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -400,7 +390,6 @@ public class AudienceApi {
     /**
      * Create Audience (asynchronously)
      * Create a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the audience (required)
      * @param description The description of the audience (optional)
@@ -440,16 +429,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAudienceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback<AudienceResponse> _callback) throws ApiException {
+    public okhttp3.Call createAudienceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback<AudienceResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAudienceValidateBeforeCall(version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
+        okhttp3.Call localVarCall = createAudienceValidateBeforeCall(accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteAudience
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to delete. (required)
      * @param _callback Callback for upload/download progress
@@ -462,7 +450,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAudienceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAudienceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -479,8 +467,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -516,12 +503,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAudienceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteAudience(Async)");
-        }
-
+    private okhttp3.Call deleteAudienceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteAudience(Async)");
@@ -532,14 +514,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'audienceId' when calling deleteAudience(Async)");
         }
 
-        return deleteAudienceCall(version, accountId, audienceId, _callback);
+        return deleteAudienceCall(accountId, audienceId, _callback);
 
     }
 
     /**
      * Delete Audience
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to delete. (required)
      * @return SirqulResponse
@@ -551,15 +532,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteAudience(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteAudienceWithHttpInfo(version, accountId, audienceId);
+    public SirqulResponse deleteAudience(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteAudienceWithHttpInfo(accountId, audienceId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Audience
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to delete. (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -571,8 +551,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteAudienceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId) throws ApiException {
-        okhttp3.Call localVarCall = deleteAudienceValidateBeforeCall(version, accountId, audienceId, null);
+    public ApiResponse<SirqulResponse> deleteAudienceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId) throws ApiException {
+        okhttp3.Call localVarCall = deleteAudienceValidateBeforeCall(accountId, audienceId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -580,7 +560,6 @@ public class AudienceApi {
     /**
      * Delete Audience (asynchronously)
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to delete. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -593,16 +572,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAudienceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteAudienceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAudienceValidateBeforeCall(version, accountId, audienceId, _callback);
+        okhttp3.Call localVarCall = deleteAudienceValidateBeforeCall(accountId, audienceId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAgeGroups
-     * @param version  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -613,7 +591,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAgeGroupsCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAgeGroupsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -630,8 +608,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/ageGroups"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/ageGroups";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -659,20 +636,14 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAgeGroupsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAgeGroups(Async)");
-        }
-
-        return getAgeGroupsCall(version, _callback);
+    private okhttp3.Call getAgeGroupsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getAgeGroupsCall(_callback);
 
     }
 
     /**
      * Get Age Groups
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @param version  (required)
      * @return List&lt;AgeGroupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -682,15 +653,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AgeGroupResponse> getAgeGroups(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        ApiResponse<List<AgeGroupResponse>> localVarResp = getAgeGroupsWithHttpInfo(version);
+    public List<AgeGroupResponse> getAgeGroups() throws ApiException {
+        ApiResponse<List<AgeGroupResponse>> localVarResp = getAgeGroupsWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get Age Groups
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @param version  (required)
      * @return ApiResponse&lt;List&lt;AgeGroupResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -700,8 +670,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AgeGroupResponse>> getAgeGroupsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        okhttp3.Call localVarCall = getAgeGroupsValidateBeforeCall(version, null);
+    public ApiResponse<List<AgeGroupResponse>> getAgeGroupsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAgeGroupsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<AgeGroupResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -709,7 +679,6 @@ public class AudienceApi {
     /**
      * Get Age Groups (asynchronously)
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @param version  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -720,16 +689,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAgeGroupsAsync(@javax.annotation.Nonnull BigDecimal version, final ApiCallback<List<AgeGroupResponse>> _callback) throws ApiException {
+    public okhttp3.Call getAgeGroupsAsync(final ApiCallback<List<AgeGroupResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAgeGroupsValidateBeforeCall(version, _callback);
+        okhttp3.Call localVarCall = getAgeGroupsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<AgeGroupResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAudience
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to return. (required)
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -746,7 +714,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudienceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAudienceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -763,8 +731,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -816,12 +783,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAudienceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAudience(Async)");
-        }
-
+    private okhttp3.Call getAudienceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getAudience(Async)");
@@ -832,14 +794,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'audienceId' when calling getAudience(Async)");
         }
 
-        return getAudienceCall(version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
+        return getAudienceCall(accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
 
     }
 
     /**
      * Get Audience
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to return. (required)
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -855,15 +816,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AudienceResponse getAudience(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
-        ApiResponse<AudienceResponse> localVarResp = getAudienceWithHttpInfo(version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
+    public AudienceResponse getAudience(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
+        ApiResponse<AudienceResponse> localVarResp = getAudienceWithHttpInfo(accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
         return localVarResp.getData();
     }
 
     /**
      * Get Audience
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to return. (required)
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -879,8 +839,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AudienceResponse> getAudienceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
-        okhttp3.Call localVarCall = getAudienceValidateBeforeCall(version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, null);
+    public ApiResponse<AudienceResponse> getAudienceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
+        okhttp3.Call localVarCall = getAudienceValidateBeforeCall(accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, null);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -888,7 +848,6 @@ public class AudienceApi {
     /**
      * Get Audience (asynchronously)
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to return. (required)
      * @param appKey The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -905,16 +864,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudienceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback<AudienceResponse> _callback) throws ApiException {
+    public okhttp3.Call getAudienceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback<AudienceResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAudienceValidateBeforeCall(version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
+        okhttp3.Call localVarCall = getAudienceValidateBeforeCall(accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAudienceList
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -944,7 +902,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudienceListCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAudienceListCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -961,8 +919,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1066,20 +1023,14 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAudienceListValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAudienceList(Async)");
-        }
-
-        return getAudienceListCall(version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
+    private okhttp3.Call getAudienceListValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback _callback) throws ApiException {
+        return getAudienceListCall(accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
 
     }
 
     /**
      * Search Audiences
      * Get the list audiences owned by the account
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -1108,15 +1059,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<SearchResponse> getAudienceList(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
-        ApiResponse<List<SearchResponse>> localVarResp = getAudienceListWithHttpInfo(version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
+    public List<SearchResponse> getAudienceList(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
+        ApiResponse<List<SearchResponse>> localVarResp = getAudienceListWithHttpInfo(accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
         return localVarResp.getData();
     }
 
     /**
      * Search Audiences
      * Get the list audiences owned by the account
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -1145,8 +1095,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<SearchResponse>> getAudienceListWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
-        okhttp3.Call localVarCall = getAudienceListValidateBeforeCall(version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, null);
+    public ApiResponse<List<SearchResponse>> getAudienceListWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount) throws ApiException {
+        okhttp3.Call localVarCall = getAudienceListValidateBeforeCall(accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, null);
         Type localVarReturnType = new TypeToken<List<SearchResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1154,7 +1104,6 @@ public class AudienceApi {
     /**
      * Search Audiences (asynchronously)
      * Get the list audiences owned by the account
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param albumIds Comma separated list of album IDs to filter results with (optional)
      * @param keyword The keyword used to search (optional)
@@ -1184,16 +1133,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAudienceListAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback<List<SearchResponse>> _callback) throws ApiException {
+    public okhttp3.Call getAudienceListAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordFields, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean returnGlobal, @javax.annotation.Nullable Boolean exactKeyword, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable String audienceTypes, @javax.annotation.Nullable Boolean returnAccountCount, @javax.annotation.Nullable Boolean returnAlbumCount, @javax.annotation.Nullable String albumTypesForCount, final ApiCallback<List<SearchResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAudienceListValidateBeforeCall(version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
+        okhttp3.Call localVarCall = getAudienceListValidateBeforeCall(accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, _callback);
         Type localVarReturnType = new TypeToken<List<SearchResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getDevices
-     * @param version  (required)
      * @param includeInactive If true return inactive record as well. default is false. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1205,7 +1153,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDevicesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeInactive, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDevicesCall(@javax.annotation.Nonnull Boolean includeInactive, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1222,8 +1170,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/devices"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/devices";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1255,25 +1202,19 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDevicesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeInactive, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getDevices(Async)");
-        }
-
+    private okhttp3.Call getDevicesValidateBeforeCall(@javax.annotation.Nonnull Boolean includeInactive, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'includeInactive' is set
         if (includeInactive == null) {
             throw new ApiException("Missing the required parameter 'includeInactive' when calling getDevices(Async)");
         }
 
-        return getDevicesCall(version, includeInactive, _callback);
+        return getDevicesCall(includeInactive, _callback);
 
     }
 
     /**
      * Get Devices
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @param version  (required)
      * @param includeInactive If true return inactive record as well. default is false. (required)
      * @return List&lt;AudienceDeviceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1284,15 +1225,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AudienceDeviceResponse> getDevices(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeInactive) throws ApiException {
-        ApiResponse<List<AudienceDeviceResponse>> localVarResp = getDevicesWithHttpInfo(version, includeInactive);
+    public List<AudienceDeviceResponse> getDevices(@javax.annotation.Nonnull Boolean includeInactive) throws ApiException {
+        ApiResponse<List<AudienceDeviceResponse>> localVarResp = getDevicesWithHttpInfo(includeInactive);
         return localVarResp.getData();
     }
 
     /**
      * Get Devices
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @param version  (required)
      * @param includeInactive If true return inactive record as well. default is false. (required)
      * @return ApiResponse&lt;List&lt;AudienceDeviceResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1303,8 +1243,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AudienceDeviceResponse>> getDevicesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeInactive) throws ApiException {
-        okhttp3.Call localVarCall = getDevicesValidateBeforeCall(version, includeInactive, null);
+    public ApiResponse<List<AudienceDeviceResponse>> getDevicesWithHttpInfo(@javax.annotation.Nonnull Boolean includeInactive) throws ApiException {
+        okhttp3.Call localVarCall = getDevicesValidateBeforeCall(includeInactive, null);
         Type localVarReturnType = new TypeToken<List<AudienceDeviceResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1312,7 +1252,6 @@ public class AudienceApi {
     /**
      * Get Devices (asynchronously)
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @param version  (required)
      * @param includeInactive If true return inactive record as well. default is false. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1324,16 +1263,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDevicesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeInactive, final ApiCallback<List<AudienceDeviceResponse>> _callback) throws ApiException {
+    public okhttp3.Call getDevicesAsync(@javax.annotation.Nonnull Boolean includeInactive, final ApiCallback<List<AudienceDeviceResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDevicesValidateBeforeCall(version, includeInactive, _callback);
+        okhttp3.Call localVarCall = getDevicesValidateBeforeCall(includeInactive, _callback);
         Type localVarReturnType = new TypeToken<List<AudienceDeviceResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getExperiences
-     * @param version  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1344,7 +1282,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExperiencesCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getExperiencesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1361,8 +1299,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/experiences"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/experiences";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1390,20 +1327,14 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getExperiencesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getExperiences(Async)");
-        }
-
-        return getExperiencesCall(version, _callback);
+    private okhttp3.Call getExperiencesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getExperiencesCall(_callback);
 
     }
 
     /**
      * Get Experiences
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @param version  (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1413,15 +1344,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse getExperiences(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = getExperiencesWithHttpInfo(version);
+    public SirqulResponse getExperiences() throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = getExperiencesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get Experiences
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @param version  (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1431,8 +1361,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> getExperiencesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version) throws ApiException {
-        okhttp3.Call localVarCall = getExperiencesValidateBeforeCall(version, null);
+    public ApiResponse<SirqulResponse> getExperiencesWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getExperiencesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1440,7 +1370,6 @@ public class AudienceApi {
     /**
      * Get Experiences (asynchronously)
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @param version  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1451,16 +1380,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getExperiencesAsync(@javax.annotation.Nonnull BigDecimal version, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call getExperiencesAsync(final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getExperiencesValidateBeforeCall(version, _callback);
+        okhttp3.Call localVarCall = getExperiencesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getGroupedAudiences
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceGroupingId The audience grouping id to return. (required)
      * @param _callback Callback for upload/download progress
@@ -1473,7 +1401,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGroupedAudiencesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGroupedAudiencesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1490,8 +1418,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/grouped/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/grouped/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1527,12 +1454,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGroupedAudiencesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getGroupedAudiences(Async)");
-        }
-
+    private okhttp3.Call getGroupedAudiencesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getGroupedAudiences(Async)");
@@ -1543,14 +1465,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'audienceGroupingId' when calling getGroupedAudiences(Async)");
         }
 
-        return getGroupedAudiencesCall(version, accountId, audienceGroupingId, _callback);
+        return getGroupedAudiencesCall(accountId, audienceGroupingId, _callback);
 
     }
 
     /**
      * Get GroupedAudiences
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceGroupingId The audience grouping id to return. (required)
      * @return AudienceResponse
@@ -1562,15 +1483,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AudienceResponse getGroupedAudiences(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId) throws ApiException {
-        ApiResponse<AudienceResponse> localVarResp = getGroupedAudiencesWithHttpInfo(version, accountId, audienceGroupingId);
+    public AudienceResponse getGroupedAudiences(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId) throws ApiException {
+        ApiResponse<AudienceResponse> localVarResp = getGroupedAudiencesWithHttpInfo(accountId, audienceGroupingId);
         return localVarResp.getData();
     }
 
     /**
      * Get GroupedAudiences
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceGroupingId The audience grouping id to return. (required)
      * @return ApiResponse&lt;AudienceResponse&gt;
@@ -1582,8 +1502,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AudienceResponse> getGroupedAudiencesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId) throws ApiException {
-        okhttp3.Call localVarCall = getGroupedAudiencesValidateBeforeCall(version, accountId, audienceGroupingId, null);
+    public ApiResponse<AudienceResponse> getGroupedAudiencesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId) throws ApiException {
+        okhttp3.Call localVarCall = getGroupedAudiencesValidateBeforeCall(accountId, audienceGroupingId, null);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1591,7 +1511,6 @@ public class AudienceApi {
     /**
      * Get GroupedAudiences (asynchronously)
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceGroupingId The audience grouping id to return. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1604,16 +1523,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGroupedAudiencesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId, final ApiCallback<AudienceResponse> _callback) throws ApiException {
+    public okhttp3.Call getGroupedAudiencesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String audienceGroupingId, final ApiCallback<AudienceResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGroupedAudiencesValidateBeforeCall(version, accountId, audienceGroupingId, _callback);
+        okhttp3.Call localVarCall = getGroupedAudiencesValidateBeforeCall(accountId, audienceGroupingId, _callback);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listByAccount
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param limit the limit of the index (required)
      * @param suggestionType the type of suggestion (required)
@@ -1627,7 +1545,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listByAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listByAccountCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1644,8 +1562,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/suggestion/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/suggestion/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1685,12 +1602,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listByAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listByAccount(Async)");
-        }
-
+    private okhttp3.Call listByAccountValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listByAccount(Async)");
@@ -1706,14 +1618,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'suggestionType' when calling listByAccount(Async)");
         }
 
-        return listByAccountCall(version, accountId, limit, suggestionType, _callback);
+        return listByAccountCall(accountId, limit, suggestionType, _callback);
 
     }
 
     /**
      * List Suggestions by Audience
      * List either Missions or Offers that the user matches the assigned audience.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param limit the limit of the index (required)
      * @param suggestionType the type of suggestion (required)
@@ -1726,15 +1637,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferListResponse listByAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType) throws ApiException {
-        ApiResponse<OfferListResponse> localVarResp = listByAccountWithHttpInfo(version, accountId, limit, suggestionType);
+    public OfferListResponse listByAccount(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType) throws ApiException {
+        ApiResponse<OfferListResponse> localVarResp = listByAccountWithHttpInfo(accountId, limit, suggestionType);
         return localVarResp.getData();
     }
 
     /**
      * List Suggestions by Audience
      * List either Missions or Offers that the user matches the assigned audience.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param limit the limit of the index (required)
      * @param suggestionType the type of suggestion (required)
@@ -1747,8 +1657,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferListResponse> listByAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType) throws ApiException {
-        okhttp3.Call localVarCall = listByAccountValidateBeforeCall(version, accountId, limit, suggestionType, null);
+    public ApiResponse<OfferListResponse> listByAccountWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType) throws ApiException {
+        okhttp3.Call localVarCall = listByAccountValidateBeforeCall(accountId, limit, suggestionType, null);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1756,7 +1666,6 @@ public class AudienceApi {
     /**
      * List Suggestions by Audience (asynchronously)
      * List either Missions or Offers that the user matches the assigned audience.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param limit the limit of the index (required)
      * @param suggestionType the type of suggestion (required)
@@ -1770,16 +1679,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listByAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType, final ApiCallback<OfferListResponse> _callback) throws ApiException {
+    public okhttp3.Call listByAccountAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String suggestionType, final ApiCallback<OfferListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listByAccountValidateBeforeCall(version, accountId, limit, suggestionType, _callback);
+        okhttp3.Call localVarCall = listByAccountValidateBeforeCall(accountId, limit, suggestionType, _callback);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listByAudience
-     * @param version  (required)
      * @param limit this is the limit of the index (required)
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -1796,7 +1704,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listByAudienceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listByAudienceCall(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1813,8 +1721,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/suggestion/offersByAudience"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/suggestion/offersByAudience";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1866,25 +1773,19 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listByAudienceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listByAudience(Async)");
-        }
-
+    private okhttp3.Call listByAudienceValidateBeforeCall(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'limit' is set
         if (limit == null) {
             throw new ApiException("Missing the required parameter 'limit' when calling listByAudience(Async)");
         }
 
-        return listByAudienceCall(version, limit, gender, age, categoryIds, latitude, longitude, _callback);
+        return listByAudienceCall(limit, gender, age, categoryIds, latitude, longitude, _callback);
 
     }
 
     /**
      * List Offers by Audience
      * Get a list of offer locations based on audience information provided.
-     * @param version  (required)
      * @param limit this is the limit of the index (required)
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -1900,15 +1801,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferListResponse listByAudience(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<OfferListResponse> localVarResp = listByAudienceWithHttpInfo(version, limit, gender, age, categoryIds, latitude, longitude);
+    public OfferListResponse listByAudience(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<OfferListResponse> localVarResp = listByAudienceWithHttpInfo(limit, gender, age, categoryIds, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * List Offers by Audience
      * Get a list of offer locations based on audience information provided.
-     * @param version  (required)
      * @param limit this is the limit of the index (required)
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -1924,8 +1824,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferListResponse> listByAudienceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = listByAudienceValidateBeforeCall(version, limit, gender, age, categoryIds, latitude, longitude, null);
+    public ApiResponse<OfferListResponse> listByAudienceWithHttpInfo(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = listByAudienceValidateBeforeCall(limit, gender, age, categoryIds, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1933,7 +1833,6 @@ public class AudienceApi {
     /**
      * List Offers by Audience (asynchronously)
      * Get a list of offer locations based on audience information provided.
-     * @param version  (required)
      * @param limit this is the limit of the index (required)
      * @param gender this is the gender to list offers by (optional)
      * @param age this is the age to list offers by (optional)
@@ -1950,16 +1849,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listByAudienceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<OfferListResponse> _callback) throws ApiException {
+    public okhttp3.Call listByAudienceAsync(@javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String gender, @javax.annotation.Nullable Integer age, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<OfferListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listByAudienceValidateBeforeCall(version, limit, gender, age, categoryIds, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = listByAudienceValidateBeforeCall(limit, gender, age, categoryIds, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listLastestByAccount
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param timeframe The timeframe in seconds of the latest suggestions (required)
      * @param suggestionType The type of trigger suggestions to return (required)
@@ -1973,7 +1871,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLastestByAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLastestByAccountCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1990,8 +1888,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/suggestion/latest"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/suggestion/latest";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2031,12 +1928,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLastestByAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listLastestByAccount(Async)");
-        }
-
+    private okhttp3.Call listLastestByAccountValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listLastestByAccount(Async)");
@@ -2052,14 +1944,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'suggestionType' when calling listLastestByAccount(Async)");
         }
 
-        return listLastestByAccountCall(version, accountId, timeframe, suggestionType, _callback);
+        return listLastestByAccountCall(accountId, timeframe, suggestionType, _callback);
 
     }
 
     /**
      * List Sent Suggestions 
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param timeframe The timeframe in seconds of the latest suggestions (required)
      * @param suggestionType The type of trigger suggestions to return (required)
@@ -2072,15 +1963,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferListResponse listLastestByAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType) throws ApiException {
-        ApiResponse<OfferListResponse> localVarResp = listLastestByAccountWithHttpInfo(version, accountId, timeframe, suggestionType);
+    public OfferListResponse listLastestByAccount(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType) throws ApiException {
+        ApiResponse<OfferListResponse> localVarResp = listLastestByAccountWithHttpInfo(accountId, timeframe, suggestionType);
         return localVarResp.getData();
     }
 
     /**
      * List Sent Suggestions 
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param timeframe The timeframe in seconds of the latest suggestions (required)
      * @param suggestionType The type of trigger suggestions to return (required)
@@ -2093,8 +1983,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferListResponse> listLastestByAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType) throws ApiException {
-        okhttp3.Call localVarCall = listLastestByAccountValidateBeforeCall(version, accountId, timeframe, suggestionType, null);
+    public ApiResponse<OfferListResponse> listLastestByAccountWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType) throws ApiException {
+        okhttp3.Call localVarCall = listLastestByAccountValidateBeforeCall(accountId, timeframe, suggestionType, null);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2102,7 +1992,6 @@ public class AudienceApi {
     /**
      * List Sent Suggestions  (asynchronously)
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param timeframe The timeframe in seconds of the latest suggestions (required)
      * @param suggestionType The type of trigger suggestions to return (required)
@@ -2116,16 +2005,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLastestByAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType, final ApiCallback<OfferListResponse> _callback) throws ApiException {
+    public okhttp3.Call listLastestByAccountAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer timeframe, @javax.annotation.Nonnull String suggestionType, final ApiCallback<OfferListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLastestByAccountValidateBeforeCall(version, accountId, timeframe, suggestionType, _callback);
+        okhttp3.Call localVarCall = listLastestByAccountValidateBeforeCall(accountId, timeframe, suggestionType, _callback);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for sendByAccount
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param latitude the latitude (required)
      * @param longitude the longitude (required)
@@ -2139,7 +2027,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendByAccountCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendByAccountCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2156,8 +2044,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/suggestion/send"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/suggestion/send";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2197,12 +2084,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendByAccountValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling sendByAccount(Async)");
-        }
-
+    private okhttp3.Call sendByAccountValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling sendByAccount(Async)");
@@ -2218,14 +2100,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'longitude' when calling sendByAccount(Async)");
         }
 
-        return sendByAccountCall(version, accountId, latitude, longitude, _callback);
+        return sendByAccountCall(accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Send Suggestions
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param latitude the latitude (required)
      * @param longitude the longitude (required)
@@ -2238,15 +2119,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse sendByAccount(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = sendByAccountWithHttpInfo(version, accountId, latitude, longitude);
+    public SirqulResponse sendByAccount(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = sendByAccountWithHttpInfo(accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Send Suggestions
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param latitude the latitude (required)
      * @param longitude the longitude (required)
@@ -2259,8 +2139,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> sendByAccountWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = sendByAccountValidateBeforeCall(version, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> sendByAccountWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = sendByAccountValidateBeforeCall(accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2268,7 +2148,6 @@ public class AudienceApi {
     /**
      * Send Suggestions (asynchronously)
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @param version  (required)
      * @param accountId The account to match offers for. (required)
      * @param latitude the latitude (required)
      * @param longitude the longitude (required)
@@ -2282,16 +2161,15 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendByAccountAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call sendByAccountAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sendByAccountValidateBeforeCall(version, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = sendByAccountValidateBeforeCall(accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateAudience
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to update. (required)
      * @param name The name of the audience (optional)
@@ -2333,7 +2211,7 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAudienceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAudienceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2350,8 +2228,7 @@ public class AudienceApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/audience/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/audience/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2503,12 +2380,7 @@ public class AudienceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAudienceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateAudience(Async)");
-        }
-
+    private okhttp3.Call updateAudienceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateAudience(Async)");
@@ -2519,14 +2391,13 @@ public class AudienceApi {
             throw new ApiException("Missing the required parameter 'audienceId' when calling updateAudience(Async)");
         }
 
-        return updateAudienceCall(version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
+        return updateAudienceCall(accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
 
     }
 
     /**
      * Update Audience
      * Update a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to update. (required)
      * @param name The name of the audience (optional)
@@ -2567,15 +2438,14 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AudienceResponse updateAudience(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
-        ApiResponse<AudienceResponse> localVarResp = updateAudienceWithHttpInfo(version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+    public AudienceResponse updateAudience(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
+        ApiResponse<AudienceResponse> localVarResp = updateAudienceWithHttpInfo(accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
         return localVarResp.getData();
     }
 
     /**
      * Update Audience
      * Update a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to update. (required)
      * @param name The name of the audience (optional)
@@ -2616,8 +2486,8 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AudienceResponse> updateAudienceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
-        okhttp3.Call localVarCall = updateAudienceValidateBeforeCall(version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, null);
+    public ApiResponse<AudienceResponse> updateAudienceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName) throws ApiException {
+        okhttp3.Call localVarCall = updateAudienceValidateBeforeCall(accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, null);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2625,7 +2495,6 @@ public class AudienceApi {
     /**
      * Update Audience (asynchronously)
      * Update a user defined audience.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param audienceId The id of the audience to update. (required)
      * @param name The name of the audience (optional)
@@ -2667,9 +2536,9 @@ public class AudienceApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAudienceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback<AudienceResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAudienceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long audienceId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroups, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String gameExperienceLevel, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendSuggestion, @javax.annotation.Nullable Integer startTimeOffset, @javax.annotation.Nullable Integer endTimeOffset, @javax.annotation.Nullable String associateDescription, @javax.annotation.Nullable String associateType, @javax.annotation.Nullable Long associateId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String audienceType, @javax.annotation.Nullable Boolean useOrder, @javax.annotation.Nullable String cohortRegionsData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String trilaterationTypes, @javax.annotation.Nullable Boolean uniqueName, final ApiCallback<AudienceResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAudienceValidateBeforeCall(version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
+        okhttp3.Call localVarCall = updateAudienceValidateBeforeCall(accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, _callback);
         Type localVarReturnType = new TypeToken<AudienceResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

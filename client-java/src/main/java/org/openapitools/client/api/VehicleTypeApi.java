@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.VehicleType;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class VehicleTypeApi {
 
     /**
      * Build call for createVehicleType
-     * @param version  (required)
      * @param vehicleType A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -88,7 +86,7 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createVehicleTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createVehicleTypeCall(@javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,8 +103,7 @@ public class VehicleTypeApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vehicle/type"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vehicle/type";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -138,25 +135,19 @@ public class VehicleTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createVehicleType(Async)");
-        }
-
+    private okhttp3.Call createVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'vehicleType' is set
         if (vehicleType == null) {
             throw new ApiException("Missing the required parameter 'vehicleType' when calling createVehicleType(Async)");
         }
 
-        return createVehicleTypeCall(version, vehicleType, body, _callback);
+        return createVehicleTypeCall(vehicleType, body, _callback);
 
     }
 
     /**
      * Create Vehicle Type
      * Create a new vehicle type
-     * @param version  (required)
      * @param vehicleType A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
      * @return VehicleType
@@ -168,15 +159,14 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public VehicleType createVehicleType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
-        ApiResponse<VehicleType> localVarResp = createVehicleTypeWithHttpInfo(version, vehicleType, body);
+    public VehicleType createVehicleType(@javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
+        ApiResponse<VehicleType> localVarResp = createVehicleTypeWithHttpInfo(vehicleType, body);
         return localVarResp.getData();
     }
 
     /**
      * Create Vehicle Type
      * Create a new vehicle type
-     * @param version  (required)
      * @param vehicleType A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;VehicleType&gt;
@@ -188,8 +178,8 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<VehicleType> createVehicleTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
-        okhttp3.Call localVarCall = createVehicleTypeValidateBeforeCall(version, vehicleType, body, null);
+    public ApiResponse<VehicleType> createVehicleTypeWithHttpInfo(@javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
+        okhttp3.Call localVarCall = createVehicleTypeValidateBeforeCall(vehicleType, body, null);
         Type localVarReturnType = new TypeToken<VehicleType>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -197,7 +187,6 @@ public class VehicleTypeApi {
     /**
      * Create Vehicle Type (asynchronously)
      * Create a new vehicle type
-     * @param version  (required)
      * @param vehicleType A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -210,16 +199,15 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createVehicleTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback<VehicleType> _callback) throws ApiException {
+    public okhttp3.Call createVehicleTypeAsync(@javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback<VehicleType> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createVehicleTypeValidateBeforeCall(version, vehicleType, body, _callback);
+        okhttp3.Call localVarCall = createVehicleTypeValidateBeforeCall(vehicleType, body, _callback);
         Type localVarReturnType = new TypeToken<VehicleType>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteVehicleType
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -231,7 +219,7 @@ public class VehicleTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteVehicleTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteVehicleTypeCall(@javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -248,8 +236,7 @@ public class VehicleTypeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/vehicle/type/{vehicleTypeId}"
             .replace("{" + "vehicleTypeId" + "}", localVarApiClient.escapeString(vehicleTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -277,25 +264,19 @@ public class VehicleTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteVehicleType(Async)");
-        }
-
+    private okhttp3.Call deleteVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'vehicleTypeId' is set
         if (vehicleTypeId == null) {
             throw new ApiException("Missing the required parameter 'vehicleTypeId' when calling deleteVehicleType(Async)");
         }
 
-        return deleteVehicleTypeCall(version, vehicleTypeId, _callback);
+        return deleteVehicleTypeCall(vehicleTypeId, _callback);
 
     }
 
     /**
      * Delete Vehicle Type
      * Delete a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -305,14 +286,13 @@ public class VehicleTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteVehicleType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
-        deleteVehicleTypeWithHttpInfo(version, vehicleTypeId);
+    public void deleteVehicleType(@javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
+        deleteVehicleTypeWithHttpInfo(vehicleTypeId);
     }
 
     /**
      * Delete Vehicle Type
      * Delete a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -323,15 +303,14 @@ public class VehicleTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteVehicleTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
-        okhttp3.Call localVarCall = deleteVehicleTypeValidateBeforeCall(version, vehicleTypeId, null);
+    public ApiResponse<Void> deleteVehicleTypeWithHttpInfo(@javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
+        okhttp3.Call localVarCall = deleteVehicleTypeValidateBeforeCall(vehicleTypeId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Vehicle Type (asynchronously)
      * Delete a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -343,15 +322,14 @@ public class VehicleTypeApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteVehicleTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteVehicleTypeAsync(@javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteVehicleTypeValidateBeforeCall(version, vehicleTypeId, _callback);
+        okhttp3.Call localVarCall = deleteVehicleTypeValidateBeforeCall(vehicleTypeId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getVehicleType
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -363,7 +341,7 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVehicleTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVehicleTypeCall(@javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -380,8 +358,7 @@ public class VehicleTypeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/vehicle/type/{vehicleTypeId}"
             .replace("{" + "vehicleTypeId" + "}", localVarApiClient.escapeString(vehicleTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -410,25 +387,19 @@ public class VehicleTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getVehicleType(Async)");
-        }
-
+    private okhttp3.Call getVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'vehicleTypeId' is set
         if (vehicleTypeId == null) {
             throw new ApiException("Missing the required parameter 'vehicleTypeId' when calling getVehicleType(Async)");
         }
 
-        return getVehicleTypeCall(version, vehicleTypeId, _callback);
+        return getVehicleTypeCall(vehicleTypeId, _callback);
 
     }
 
     /**
      * Get Vehicle Type
      * Get a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @return VehicleType
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -439,15 +410,14 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public VehicleType getVehicleType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
-        ApiResponse<VehicleType> localVarResp = getVehicleTypeWithHttpInfo(version, vehicleTypeId);
+    public VehicleType getVehicleType(@javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
+        ApiResponse<VehicleType> localVarResp = getVehicleTypeWithHttpInfo(vehicleTypeId);
         return localVarResp.getData();
     }
 
     /**
      * Get Vehicle Type
      * Get a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @return ApiResponse&lt;VehicleType&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -458,8 +428,8 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<VehicleType> getVehicleTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
-        okhttp3.Call localVarCall = getVehicleTypeValidateBeforeCall(version, vehicleTypeId, null);
+    public ApiResponse<VehicleType> getVehicleTypeWithHttpInfo(@javax.annotation.Nonnull Long vehicleTypeId) throws ApiException {
+        okhttp3.Call localVarCall = getVehicleTypeValidateBeforeCall(vehicleTypeId, null);
         Type localVarReturnType = new TypeToken<VehicleType>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -467,7 +437,6 @@ public class VehicleTypeApi {
     /**
      * Get Vehicle Type (asynchronously)
      * Get a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the requested vehicle type (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -479,16 +448,15 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVehicleTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback<VehicleType> _callback) throws ApiException {
+    public okhttp3.Call getVehicleTypeAsync(@javax.annotation.Nonnull Long vehicleTypeId, final ApiCallback<VehicleType> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVehicleTypeValidateBeforeCall(version, vehicleTypeId, _callback);
+        okhttp3.Call localVarCall = getVehicleTypeValidateBeforeCall(vehicleTypeId, _callback);
         Type localVarReturnType = new TypeToken<VehicleType>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchVehicleTypes
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -506,7 +474,7 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchVehicleTypesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchVehicleTypesCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -523,8 +491,7 @@ public class VehicleTypeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vehicle/type"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/vehicle/type";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -580,12 +547,7 @@ public class VehicleTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchVehicleTypesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchVehicleTypes(Async)");
-        }
-
+    private okhttp3.Call searchVehicleTypesValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchVehicleTypes(Async)");
@@ -611,14 +573,13 @@ public class VehicleTypeApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchVehicleTypes(Async)");
         }
 
-        return searchVehicleTypesCall(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
+        return searchVehicleTypesCall(sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
 
     }
 
     /**
      * Search Vehicle Type
      * Search for types of vehicles
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -635,15 +596,14 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<VehicleType> searchVehicleTypes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
-        ApiResponse<List<VehicleType>> localVarResp = searchVehicleTypesWithHttpInfo(version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+    public List<VehicleType> searchVehicleTypes(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
+        ApiResponse<List<VehicleType>> localVarResp = searchVehicleTypesWithHttpInfo(sortField, descending, start, limit, activeOnly, retailerId, hubId);
         return localVarResp.getData();
     }
 
     /**
      * Search Vehicle Type
      * Search for types of vehicles
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -660,8 +620,8 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<VehicleType>> searchVehicleTypesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
-        okhttp3.Call localVarCall = searchVehicleTypesValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, null);
+    public ApiResponse<List<VehicleType>> searchVehicleTypesWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId) throws ApiException {
+        okhttp3.Call localVarCall = searchVehicleTypesValidateBeforeCall(sortField, descending, start, limit, activeOnly, retailerId, hubId, null);
         Type localVarReturnType = new TypeToken<List<VehicleType>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -669,7 +629,6 @@ public class VehicleTypeApi {
     /**
      * Search Vehicle Type (asynchronously)
      * Search for types of vehicles
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -687,16 +646,15 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchVehicleTypesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback<List<VehicleType>> _callback) throws ApiException {
+    public okhttp3.Call searchVehicleTypesAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long hubId, final ApiCallback<List<VehicleType>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchVehicleTypesValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
+        okhttp3.Call localVarCall = searchVehicleTypesValidateBeforeCall(sortField, descending, start, limit, activeOnly, retailerId, hubId, _callback);
         Type localVarReturnType = new TypeToken<List<VehicleType>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateVehicleType
-     * @param version  (required)
      * @param vehicleTypeId The id of the vehicle type to update (required)
      * @param vehicleType The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
@@ -710,7 +668,7 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVehicleTypeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateVehicleTypeCall(@javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -727,8 +685,7 @@ public class VehicleTypeApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/vehicle/type/{vehicleTypeId}"
             .replace("{" + "vehicleTypeId" + "}", localVarApiClient.escapeString(vehicleTypeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -761,12 +718,7 @@ public class VehicleTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateVehicleType(Async)");
-        }
-
+    private okhttp3.Call updateVehicleTypeValidateBeforeCall(@javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'vehicleTypeId' is set
         if (vehicleTypeId == null) {
             throw new ApiException("Missing the required parameter 'vehicleTypeId' when calling updateVehicleType(Async)");
@@ -777,14 +729,13 @@ public class VehicleTypeApi {
             throw new ApiException("Missing the required parameter 'vehicleType' when calling updateVehicleType(Async)");
         }
 
-        return updateVehicleTypeCall(version, vehicleTypeId, vehicleType, body, _callback);
+        return updateVehicleTypeCall(vehicleTypeId, vehicleType, body, _callback);
 
     }
 
     /**
      * Update Vehicle Type
      * Update a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the vehicle type to update (required)
      * @param vehicleType The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
@@ -797,15 +748,14 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public VehicleType updateVehicleType(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
-        ApiResponse<VehicleType> localVarResp = updateVehicleTypeWithHttpInfo(version, vehicleTypeId, vehicleType, body);
+    public VehicleType updateVehicleType(@javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
+        ApiResponse<VehicleType> localVarResp = updateVehicleTypeWithHttpInfo(vehicleTypeId, vehicleType, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Vehicle Type
      * Update a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the vehicle type to update (required)
      * @param vehicleType The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
@@ -818,8 +768,8 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<VehicleType> updateVehicleTypeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
-        okhttp3.Call localVarCall = updateVehicleTypeValidateBeforeCall(version, vehicleTypeId, vehicleType, body, null);
+    public ApiResponse<VehicleType> updateVehicleTypeWithHttpInfo(@javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body) throws ApiException {
+        okhttp3.Call localVarCall = updateVehicleTypeValidateBeforeCall(vehicleTypeId, vehicleType, body, null);
         Type localVarReturnType = new TypeToken<VehicleType>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -827,7 +777,6 @@ public class VehicleTypeApi {
     /**
      * Update Vehicle Type (asynchronously)
      * Update a vehicle type
-     * @param version  (required)
      * @param vehicleTypeId The id of the vehicle type to update (required)
      * @param vehicleType The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  (required)
      * @param body  (optional)
@@ -841,9 +790,9 @@ public class VehicleTypeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateVehicleTypeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback<VehicleType> _callback) throws ApiException {
+    public okhttp3.Call updateVehicleTypeAsync(@javax.annotation.Nonnull Long vehicleTypeId, @javax.annotation.Nonnull String vehicleType, @javax.annotation.Nullable VehicleType body, final ApiCallback<VehicleType> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateVehicleTypeValidateBeforeCall(version, vehicleTypeId, vehicleType, body, _callback);
+        okhttp3.Call localVarCall = updateVehicleTypeValidateBeforeCall(vehicleTypeId, vehicleType, body, _callback);
         Type localVarReturnType = new TypeToken<VehicleType>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

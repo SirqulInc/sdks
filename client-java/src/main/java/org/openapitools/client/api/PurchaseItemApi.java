@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PurchaseItemFullResponse;
 import org.openapitools.client.model.PurchaseItemResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class PurchaseItemApi {
 
     /**
      * Build call for createPurchaseItem
-     * @param version  (required)
      * @param appKey The application key that the purchase can be used in (required)
      * @param name The name of the purchase item (required)
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -108,7 +106,7 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPurchaseItemCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPurchaseItemCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,8 +123,7 @@ public class PurchaseItemApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/purchase/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/purchase/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -234,12 +231,7 @@ public class PurchaseItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPurchaseItemValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createPurchaseItem(Async)");
-        }
-
+    private okhttp3.Call createPurchaseItemValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling createPurchaseItem(Async)");
@@ -255,14 +247,13 @@ public class PurchaseItemApi {
             throw new ApiException("Missing the required parameter 'purchaseType' when calling createPurchaseItem(Async)");
         }
 
-        return createPurchaseItemCall(version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, _callback);
+        return createPurchaseItemCall(appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, _callback);
 
     }
 
     /**
      * Create Purchase
      * Creates a purchase item for in app purchases
-     * @param version  (required)
      * @param appKey The application key that the purchase can be used in (required)
      * @param name The name of the purchase item (required)
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -292,15 +283,14 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PurchaseItemFullResponse createPurchaseItem(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
-        ApiResponse<PurchaseItemFullResponse> localVarResp = createPurchaseItemWithHttpInfo(version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
+    public PurchaseItemFullResponse createPurchaseItem(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
+        ApiResponse<PurchaseItemFullResponse> localVarResp = createPurchaseItemWithHttpInfo(appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
         return localVarResp.getData();
     }
 
     /**
      * Create Purchase
      * Creates a purchase item for in app purchases
-     * @param version  (required)
      * @param appKey The application key that the purchase can be used in (required)
      * @param name The name of the purchase item (required)
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -330,8 +320,8 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PurchaseItemFullResponse> createPurchaseItemWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
-        okhttp3.Call localVarCall = createPurchaseItemValidateBeforeCall(version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, null);
+    public ApiResponse<PurchaseItemFullResponse> createPurchaseItemWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
+        okhttp3.Call localVarCall = createPurchaseItemValidateBeforeCall(appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, null);
         Type localVarReturnType = new TypeToken<PurchaseItemFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -339,7 +329,6 @@ public class PurchaseItemApi {
     /**
      * Create Purchase (asynchronously)
      * Creates a purchase item for in app purchases
-     * @param version  (required)
      * @param appKey The application key that the purchase can be used in (required)
      * @param name The name of the purchase item (required)
      * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; (required)
@@ -370,16 +359,15 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPurchaseItemAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback<PurchaseItemFullResponse> _callback) throws ApiException {
+    public okhttp3.Call createPurchaseItemAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String purchaseType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback<PurchaseItemFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPurchaseItemValidateBeforeCall(version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, _callback);
+        okhttp3.Call localVarCall = createPurchaseItemValidateBeforeCall(appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, _callback);
         Type localVarReturnType = new TypeToken<PurchaseItemFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deletePurchaseItem
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -393,7 +381,7 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePurchaseItemCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deletePurchaseItemCall(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -410,8 +398,7 @@ public class PurchaseItemApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/purchase/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/purchase/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -451,25 +438,19 @@ public class PurchaseItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePurchaseItemValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deletePurchaseItem(Async)");
-        }
-
+    private okhttp3.Call deletePurchaseItemValidateBeforeCall(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'purchaseItemId' is set
         if (purchaseItemId == null) {
             throw new ApiException("Missing the required parameter 'purchaseItemId' when calling deletePurchaseItem(Async)");
         }
 
-        return deletePurchaseItemCall(version, purchaseItemId, deviceId, accountId, _callback);
+        return deletePurchaseItemCall(purchaseItemId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Purchase
      * Marks the purchase item as deleted
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -482,15 +463,14 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deletePurchaseItem(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deletePurchaseItemWithHttpInfo(version, purchaseItemId, deviceId, accountId);
+    public SirqulResponse deletePurchaseItem(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deletePurchaseItemWithHttpInfo(purchaseItemId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Purchase
      * Marks the purchase item as deleted
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -503,8 +483,8 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deletePurchaseItemWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deletePurchaseItemValidateBeforeCall(version, purchaseItemId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deletePurchaseItemWithHttpInfo(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deletePurchaseItemValidateBeforeCall(purchaseItemId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -512,7 +492,6 @@ public class PurchaseItemApi {
     /**
      * Delete Purchase (asynchronously)
      * Marks the purchase item as deleted
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -526,16 +505,15 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePurchaseItemAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deletePurchaseItemAsync(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePurchaseItemValidateBeforeCall(version, purchaseItemId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deletePurchaseItemValidateBeforeCall(purchaseItemId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPurchaseItem
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -549,7 +527,7 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPurchaseItemCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPurchaseItemCall(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -566,8 +544,7 @@ public class PurchaseItemApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/purchase/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/purchase/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -607,25 +584,19 @@ public class PurchaseItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPurchaseItemValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPurchaseItem(Async)");
-        }
-
+    private okhttp3.Call getPurchaseItemValidateBeforeCall(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'purchaseItemId' is set
         if (purchaseItemId == null) {
             throw new ApiException("Missing the required parameter 'purchaseItemId' when calling getPurchaseItem(Async)");
         }
 
-        return getPurchaseItemCall(version, purchaseItemId, deviceId, accountId, _callback);
+        return getPurchaseItemCall(purchaseItemId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Get Purchase
      * Get detailed information about a purchase item
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -638,15 +609,14 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PurchaseItemFullResponse getPurchaseItem(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<PurchaseItemFullResponse> localVarResp = getPurchaseItemWithHttpInfo(version, purchaseItemId, deviceId, accountId);
+    public PurchaseItemFullResponse getPurchaseItem(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<PurchaseItemFullResponse> localVarResp = getPurchaseItemWithHttpInfo(purchaseItemId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Purchase
      * Get detailed information about a purchase item
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -659,8 +629,8 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PurchaseItemFullResponse> getPurchaseItemWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getPurchaseItemValidateBeforeCall(version, purchaseItemId, deviceId, accountId, null);
+    public ApiResponse<PurchaseItemFullResponse> getPurchaseItemWithHttpInfo(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getPurchaseItemValidateBeforeCall(purchaseItemId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<PurchaseItemFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -668,7 +638,6 @@ public class PurchaseItemApi {
     /**
      * Get Purchase (asynchronously)
      * Get detailed information about a purchase item
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -682,16 +651,15 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPurchaseItemAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<PurchaseItemFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getPurchaseItemAsync(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<PurchaseItemFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPurchaseItemValidateBeforeCall(version, purchaseItemId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = getPurchaseItemValidateBeforeCall(purchaseItemId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<PurchaseItemFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchPurchaseItems
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -714,7 +682,7 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPurchaseItemsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchPurchaseItemsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -731,8 +699,7 @@ public class PurchaseItemApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/purchase/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/purchase/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -808,20 +775,14 @@ public class PurchaseItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchPurchaseItemsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchPurchaseItems(Async)");
-        }
-
-        return searchPurchaseItemsCall(version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, _callback);
+    private okhttp3.Call searchPurchaseItemsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+        return searchPurchaseItemsCall(deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, _callback);
 
     }
 
     /**
      * Search Purchases
      * Search for purchasable items from the system
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -843,15 +804,14 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<PurchaseItemResponse> searchPurchaseItems(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<PurchaseItemResponse>> localVarResp = searchPurchaseItemsWithHttpInfo(version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
+    public List<PurchaseItemResponse> searchPurchaseItems(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<PurchaseItemResponse>> localVarResp = searchPurchaseItemsWithHttpInfo(deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Purchases
      * Search for purchasable items from the system
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -873,8 +833,8 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<PurchaseItemResponse>> searchPurchaseItemsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchPurchaseItemsValidateBeforeCall(version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, null);
+    public ApiResponse<List<PurchaseItemResponse>> searchPurchaseItemsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchPurchaseItemsValidateBeforeCall(deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<PurchaseItemResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -882,7 +842,6 @@ public class PurchaseItemApi {
     /**
      * Search Purchases (asynchronously)
      * Search for purchasable items from the system
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key to filter results by application (optional)
@@ -905,16 +864,15 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPurchaseItemsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<PurchaseItemResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchPurchaseItemsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<PurchaseItemResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchPurchaseItemsValidateBeforeCall(version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchPurchaseItemsValidateBeforeCall(deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<PurchaseItemResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updatePurchaseItem
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -946,7 +904,7 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePurchaseItemCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePurchaseItemCall(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -963,8 +921,7 @@ public class PurchaseItemApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/purchase/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/purchase/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1076,25 +1033,19 @@ public class PurchaseItemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePurchaseItemValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updatePurchaseItem(Async)");
-        }
-
+    private okhttp3.Call updatePurchaseItemValidateBeforeCall(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'purchaseItemId' is set
         if (purchaseItemId == null) {
             throw new ApiException("Missing the required parameter 'purchaseItemId' when calling updatePurchaseItem(Async)");
         }
 
-        return updatePurchaseItemCall(version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, _callback);
+        return updatePurchaseItemCall(purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, _callback);
 
     }
 
     /**
      * Update Purchase
      * Updates a purchase item for in app purchases
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1125,15 +1076,14 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PurchaseItemFullResponse updatePurchaseItem(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
-        ApiResponse<PurchaseItemFullResponse> localVarResp = updatePurchaseItemWithHttpInfo(version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
+    public PurchaseItemFullResponse updatePurchaseItem(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
+        ApiResponse<PurchaseItemFullResponse> localVarResp = updatePurchaseItemWithHttpInfo(purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
         return localVarResp.getData();
     }
 
     /**
      * Update Purchase
      * Updates a purchase item for in app purchases
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1164,8 +1114,8 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PurchaseItemFullResponse> updatePurchaseItemWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
-        okhttp3.Call localVarCall = updatePurchaseItemValidateBeforeCall(version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, null);
+    public ApiResponse<PurchaseItemFullResponse> updatePurchaseItemWithHttpInfo(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
+        okhttp3.Call localVarCall = updatePurchaseItemValidateBeforeCall(purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, null);
         Type localVarReturnType = new TypeToken<PurchaseItemFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1173,7 +1123,6 @@ public class PurchaseItemApi {
     /**
      * Update Purchase (asynchronously)
      * Updates a purchase item for in app purchases
-     * @param version  (required)
      * @param purchaseItemId The purchase item id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1205,9 +1154,9 @@ public class PurchaseItemApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePurchaseItemAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback<PurchaseItemFullResponse> _callback) throws ApiException {
+    public okhttp3.Call updatePurchaseItemAsync(@javax.annotation.Nonnull Long purchaseItemId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer tickets, @javax.annotation.Nullable Float price, @javax.annotation.Nullable String purchaseType, @javax.annotation.Nullable String purchaseCode, @javax.annotation.Nullable String secretKey, @javax.annotation.Nullable Integer purchaseLimit, @javax.annotation.Nullable String serviceAction, @javax.annotation.Nullable Long coverAssetId, @javax.annotation.Nullable Long promoAssetId, @javax.annotation.Nullable Boolean giftable, @javax.annotation.Nullable Boolean assetable, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable Long offerLocationId, final ApiCallback<PurchaseItemFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updatePurchaseItemValidateBeforeCall(version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, _callback);
+        okhttp3.Call localVarCall = updatePurchaseItemValidateBeforeCall(purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, _callback);
         Type localVarReturnType = new TypeToken<PurchaseItemFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

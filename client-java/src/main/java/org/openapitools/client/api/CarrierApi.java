@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CellCarrierResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class CarrierApi {
 
     /**
      * Build call for searchCarriers
-     * @param version  (required)
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -91,7 +89,7 @@ public class CarrierApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCarriersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCarriersCall(@javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class CarrierApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/carrier/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/carrier/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -157,20 +154,14 @@ public class CarrierApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCarriersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchCarriers(Async)");
-        }
-
-        return searchCarriersCall(version, keyword, descending, start, limit, activeOnly, _callback);
+    private okhttp3.Call searchCarriersValidateBeforeCall(@javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+        return searchCarriersCall(keyword, descending, start, limit, activeOnly, _callback);
 
     }
 
     /**
      * Search Carriers
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @param version  (required)
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -185,15 +176,14 @@ public class CarrierApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<CellCarrierResponse> searchCarriers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<CellCarrierResponse>> localVarResp = searchCarriersWithHttpInfo(version, keyword, descending, start, limit, activeOnly);
+    public List<CellCarrierResponse> searchCarriers(@javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<CellCarrierResponse>> localVarResp = searchCarriersWithHttpInfo(keyword, descending, start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Carriers
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @param version  (required)
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -208,8 +198,8 @@ public class CarrierApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CellCarrierResponse>> searchCarriersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchCarriersValidateBeforeCall(version, keyword, descending, start, limit, activeOnly, null);
+    public ApiResponse<List<CellCarrierResponse>> searchCarriersWithHttpInfo(@javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchCarriersValidateBeforeCall(keyword, descending, start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<CellCarrierResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -217,7 +207,6 @@ public class CarrierApi {
     /**
      * Search Carriers (asynchronously)
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @param version  (required)
      * @param keyword The keyword to search on (optional)
      * @param descending Determines whether the sorted list is in descending or ascending order (optional, default to false)
      * @param start The start index for pagination (optional, default to 0)
@@ -233,9 +222,9 @@ public class CarrierApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCarriersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<CellCarrierResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchCarriersAsync(@javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<CellCarrierResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCarriersValidateBeforeCall(version, keyword, descending, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchCarriersValidateBeforeCall(keyword, descending, start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<CellCarrierResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

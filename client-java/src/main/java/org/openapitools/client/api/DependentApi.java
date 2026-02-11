@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.Account;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -76,7 +75,6 @@ public class DependentApi {
 
     /**
      * Build call for create
-     * @param version  (required)
      * @param accountId the id of the parent account to create a dependent for (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -89,7 +87,7 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -106,8 +104,7 @@ public class DependentApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/dependent/{accountId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/cargo/dependent/{accountId}"
             .replace("{" + "accountId" + "}", localVarApiClient.escapeString(accountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -136,25 +133,19 @@ public class DependentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling create(Async)");
-        }
-
+    private okhttp3.Call createValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling create(Async)");
         }
 
-        return createCall(version, accountId, body, _callback);
+        return createCall(accountId, body, _callback);
 
     }
 
     /**
      * Create Dependent
      * Create dependent of the account
-     * @param version  (required)
      * @param accountId the id of the parent account to create a dependent for (required)
      * @param body  (optional)
      * @return SirqulResponse
@@ -166,15 +157,14 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse create(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = createWithHttpInfo(version, accountId, body);
+    public SirqulResponse create(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = createWithHttpInfo(accountId, body);
         return localVarResp.getData();
     }
 
     /**
      * Create Dependent
      * Create dependent of the account
-     * @param version  (required)
      * @param accountId the id of the parent account to create a dependent for (required)
      * @param body  (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -186,8 +176,8 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> createWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body) throws ApiException {
-        okhttp3.Call localVarCall = createValidateBeforeCall(version, accountId, body, null);
+    public ApiResponse<SirqulResponse> createWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body) throws ApiException {
+        okhttp3.Call localVarCall = createValidateBeforeCall(accountId, body, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,7 +185,6 @@ public class DependentApi {
     /**
      * Create Dependent (asynchronously)
      * Create dependent of the account
-     * @param version  (required)
      * @param accountId the id of the parent account to create a dependent for (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -208,16 +197,15 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call createAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Account body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createValidateBeforeCall(version, accountId, body, _callback);
+        okhttp3.Call localVarCall = createValidateBeforeCall(accountId, body, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getDependents
-     * @param version  (required)
      * @param accountId the id of the parent account to get a list of dependents (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -229,7 +217,7 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDependentsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDependentsCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -246,8 +234,7 @@ public class DependentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/dependent/{accountId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/cargo/dependent/{accountId}"
             .replace("{" + "accountId" + "}", localVarApiClient.escapeString(accountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -276,25 +263,19 @@ public class DependentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDependentsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getDependents(Async)");
-        }
-
+    private okhttp3.Call getDependentsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getDependents(Async)");
         }
 
-        return getDependentsCall(version, accountId, _callback);
+        return getDependentsCall(accountId, _callback);
 
     }
 
     /**
      * Get dependent list of an account
      * Get the dependent list of an account
-     * @param version  (required)
      * @param accountId the id of the parent account to get a list of dependents (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -305,15 +286,14 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse getDependents(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = getDependentsWithHttpInfo(version, accountId);
+    public SirqulResponse getDependents(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = getDependentsWithHttpInfo(accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get dependent list of an account
      * Get the dependent list of an account
-     * @param version  (required)
      * @param accountId the id of the parent account to get a list of dependents (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -324,8 +304,8 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> getDependentsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getDependentsValidateBeforeCall(version, accountId, null);
+    public ApiResponse<SirqulResponse> getDependentsWithHttpInfo(@javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getDependentsValidateBeforeCall(accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -333,7 +313,6 @@ public class DependentApi {
     /**
      * Get dependent list of an account (asynchronously)
      * Get the dependent list of an account
-     * @param version  (required)
      * @param accountId the id of the parent account to get a list of dependents (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -345,16 +324,15 @@ public class DependentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDependentsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call getDependentsAsync(@javax.annotation.Nonnull Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDependentsValidateBeforeCall(version, accountId, _callback);
+        okhttp3.Call localVarCall = getDependentsValidateBeforeCall(accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeDependent
-     * @param version  (required)
      * @param accountId the id of the parent account tied to the dependent (required)
      * @param dependentId the id of the dependent to delete (required)
      * @param _callback Callback for upload/download progress
@@ -367,7 +345,7 @@ public class DependentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeDependentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeDependentCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -384,8 +362,7 @@ public class DependentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/cargo/dependent/{accountId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/cargo/dependent/{accountId}"
             .replace("{" + "accountId" + "}", localVarApiClient.escapeString(accountId.toString()))
             .replace("{" + "dependentId" + "}", localVarApiClient.escapeString(dependentId.toString()));
 
@@ -414,12 +391,7 @@ public class DependentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeDependentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeDependent(Async)");
-        }
-
+    private okhttp3.Call removeDependentValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling removeDependent(Async)");
@@ -430,14 +402,13 @@ public class DependentApi {
             throw new ApiException("Missing the required parameter 'dependentId' when calling removeDependent(Async)");
         }
 
-        return removeDependentCall(version, accountId, dependentId, _callback);
+        return removeDependentCall(accountId, dependentId, _callback);
 
     }
 
     /**
      * Delete Dependent
      * Delete the Dependent
-     * @param version  (required)
      * @param accountId the id of the parent account tied to the dependent (required)
      * @param dependentId the id of the dependent to delete (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -448,14 +419,13 @@ public class DependentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void removeDependent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId) throws ApiException {
-        removeDependentWithHttpInfo(version, accountId, dependentId);
+    public void removeDependent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId) throws ApiException {
+        removeDependentWithHttpInfo(accountId, dependentId);
     }
 
     /**
      * Delete Dependent
      * Delete the Dependent
-     * @param version  (required)
      * @param accountId the id of the parent account tied to the dependent (required)
      * @param dependentId the id of the dependent to delete (required)
      * @return ApiResponse&lt;Void&gt;
@@ -467,15 +437,14 @@ public class DependentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> removeDependentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId) throws ApiException {
-        okhttp3.Call localVarCall = removeDependentValidateBeforeCall(version, accountId, dependentId, null);
+    public ApiResponse<Void> removeDependentWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId) throws ApiException {
+        okhttp3.Call localVarCall = removeDependentValidateBeforeCall(accountId, dependentId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Dependent (asynchronously)
      * Delete the Dependent
-     * @param version  (required)
      * @param accountId the id of the parent account tied to the dependent (required)
      * @param dependentId the id of the dependent to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -488,9 +457,9 @@ public class DependentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeDependentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call removeDependentAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long dependentId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeDependentValidateBeforeCall(version, accountId, dependentId, _callback);
+        okhttp3.Call localVarCall = removeDependentValidateBeforeCall(accountId, dependentId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

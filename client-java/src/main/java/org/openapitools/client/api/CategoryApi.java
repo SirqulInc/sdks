@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CategoryResponse;
 import org.openapitools.client.model.CategoryTreeResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class CategoryApi {
 
     /**
      * Build call for categoryDistanceSearch
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -108,7 +106,7 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call categoryDistanceSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call categoryDistanceSearchCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,8 +123,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/category/distancesearch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/category/distancesearch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -234,20 +231,14 @@ public class CategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call categoryDistanceSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling categoryDistanceSearch(Async)");
-        }
-
-        return categoryDistanceSearchCall(version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, _callback);
+    private okhttp3.Call categoryDistanceSearchValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, final ApiCallback _callback) throws ApiException {
+        return categoryDistanceSearchCall(accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, _callback);
 
     }
 
     /**
      * Search Categories by Distance
      * Search for categories by distance.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -277,15 +268,14 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<CategoryResponse> categoryDistanceSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range) throws ApiException {
-        ApiResponse<List<CategoryResponse>> localVarResp = categoryDistanceSearchWithHttpInfo(version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
+    public List<CategoryResponse> categoryDistanceSearch(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range) throws ApiException {
+        ApiResponse<List<CategoryResponse>> localVarResp = categoryDistanceSearchWithHttpInfo(accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
         return localVarResp.getData();
     }
 
     /**
      * Search Categories by Distance
      * Search for categories by distance.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -315,8 +305,8 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CategoryResponse>> categoryDistanceSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range) throws ApiException {
-        okhttp3.Call localVarCall = categoryDistanceSearchValidateBeforeCall(version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, null);
+    public ApiResponse<List<CategoryResponse>> categoryDistanceSearchWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range) throws ApiException {
+        okhttp3.Call localVarCall = categoryDistanceSearchValidateBeforeCall(accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, null);
         Type localVarReturnType = new TypeToken<List<CategoryResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -324,7 +314,6 @@ public class CategoryApi {
     /**
      * Search Categories by Distance (asynchronously)
      * Search for categories by distance.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The keyword string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -355,16 +344,15 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call categoryDistanceSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, final ApiCallback<List<CategoryResponse>> _callback) throws ApiException {
+    public okhttp3.Call categoryDistanceSearchAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, final ApiCallback<List<CategoryResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = categoryDistanceSearchValidateBeforeCall(version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, _callback);
+        okhttp3.Call localVarCall = categoryDistanceSearchValidateBeforeCall(accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, _callback);
         Type localVarReturnType = new TypeToken<List<CategoryResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createCategory
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the category (required)
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -389,7 +377,7 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCategoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCategoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -406,8 +394,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/category/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/category/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -491,12 +478,7 @@ public class CategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCategoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createCategory(Async)");
-        }
-
+    private okhttp3.Call createCategoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createCategory(Async)");
@@ -507,14 +489,13 @@ public class CategoryApi {
             throw new ApiException("Missing the required parameter 'name' when calling createCategory(Async)");
         }
 
-        return createCategoryCall(version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
+        return createCategoryCall(accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
 
     }
 
     /**
      * Create Category
      * Create a new category.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the category (required)
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -538,15 +519,14 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CategoryTreeResponse createCategory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
-        ApiResponse<CategoryTreeResponse> localVarResp = createCategoryWithHttpInfo(version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+    public CategoryTreeResponse createCategory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
+        ApiResponse<CategoryTreeResponse> localVarResp = createCategoryWithHttpInfo(accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
         return localVarResp.getData();
     }
 
     /**
      * Create Category
      * Create a new category.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the category (required)
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -570,8 +550,8 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CategoryTreeResponse> createCategoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
-        okhttp3.Call localVarCall = createCategoryValidateBeforeCall(version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, null);
+    public ApiResponse<CategoryTreeResponse> createCategoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
+        okhttp3.Call localVarCall = createCategoryValidateBeforeCall(accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, null);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -579,7 +559,6 @@ public class CategoryApi {
     /**
      * Create Category (asynchronously)
      * Create a new category.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param name The name of the category (required)
      * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -604,16 +583,15 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCategoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
+    public okhttp3.Call createCategoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCategoryValidateBeforeCall(version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
+        okhttp3.Call localVarCall = createCategoryValidateBeforeCall(accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteCategory
-     * @param version  (required)
      * @param accountId the ID of the account (required)
      * @param categoryId the ID of the category (required)
      * @param _callback Callback for upload/download progress
@@ -626,7 +604,7 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCategoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCategoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -643,8 +621,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/category/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/category/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -680,12 +657,7 @@ public class CategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCategoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteCategory(Async)");
-        }
-
+    private okhttp3.Call deleteCategoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteCategory(Async)");
@@ -696,14 +668,13 @@ public class CategoryApi {
             throw new ApiException("Missing the required parameter 'categoryId' when calling deleteCategory(Async)");
         }
 
-        return deleteCategoryCall(version, accountId, categoryId, _callback);
+        return deleteCategoryCall(accountId, categoryId, _callback);
 
     }
 
     /**
      * Delete Category
      * Delete a category.
-     * @param version  (required)
      * @param accountId the ID of the account (required)
      * @param categoryId the ID of the category (required)
      * @return SirqulResponse
@@ -715,15 +686,14 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteCategory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteCategoryWithHttpInfo(version, accountId, categoryId);
+    public SirqulResponse deleteCategory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteCategoryWithHttpInfo(accountId, categoryId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Category
      * Delete a category.
-     * @param version  (required)
      * @param accountId the ID of the account (required)
      * @param categoryId the ID of the category (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -735,8 +705,8 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteCategoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId) throws ApiException {
-        okhttp3.Call localVarCall = deleteCategoryValidateBeforeCall(version, accountId, categoryId, null);
+    public ApiResponse<SirqulResponse> deleteCategoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId) throws ApiException {
+        okhttp3.Call localVarCall = deleteCategoryValidateBeforeCall(accountId, categoryId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -744,7 +714,6 @@ public class CategoryApi {
     /**
      * Delete Category (asynchronously)
      * Delete a category.
-     * @param version  (required)
      * @param accountId the ID of the account (required)
      * @param categoryId the ID of the category (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -757,16 +726,15 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCategoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteCategoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCategoryValidateBeforeCall(version, accountId, categoryId, _callback);
+        okhttp3.Call localVarCall = deleteCategoryValidateBeforeCall(accountId, categoryId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for duplicateCategory
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param categoryId The category ID to duplicate (includes all children) (required)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -781,7 +749,7 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call duplicateCategoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call duplicateCategoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -798,8 +766,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/category/duplicate"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/category/duplicate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -843,12 +810,7 @@ public class CategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call duplicateCategoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling duplicateCategory(Async)");
-        }
-
+    private okhttp3.Call duplicateCategoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling duplicateCategory(Async)");
@@ -859,14 +821,13 @@ public class CategoryApi {
             throw new ApiException("Missing the required parameter 'categoryId' when calling duplicateCategory(Async)");
         }
 
-        return duplicateCategoryCall(version, accountId, categoryId, appKey, parentCategoryId, _callback);
+        return duplicateCategoryCall(accountId, categoryId, appKey, parentCategoryId, _callback);
 
     }
 
     /**
      * Duplicate Category
      * Duplicate a category, including all its children.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param categoryId The category ID to duplicate (includes all children) (required)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -880,15 +841,14 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CategoryTreeResponse duplicateCategory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId) throws ApiException {
-        ApiResponse<CategoryTreeResponse> localVarResp = duplicateCategoryWithHttpInfo(version, accountId, categoryId, appKey, parentCategoryId);
+    public CategoryTreeResponse duplicateCategory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId) throws ApiException {
+        ApiResponse<CategoryTreeResponse> localVarResp = duplicateCategoryWithHttpInfo(accountId, categoryId, appKey, parentCategoryId);
         return localVarResp.getData();
     }
 
     /**
      * Duplicate Category
      * Duplicate a category, including all its children.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param categoryId The category ID to duplicate (includes all children) (required)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -902,8 +862,8 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CategoryTreeResponse> duplicateCategoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId) throws ApiException {
-        okhttp3.Call localVarCall = duplicateCategoryValidateBeforeCall(version, accountId, categoryId, appKey, parentCategoryId, null);
+    public ApiResponse<CategoryTreeResponse> duplicateCategoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId) throws ApiException {
+        okhttp3.Call localVarCall = duplicateCategoryValidateBeforeCall(accountId, categoryId, appKey, parentCategoryId, null);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -911,7 +871,6 @@ public class CategoryApi {
     /**
      * Duplicate Category (asynchronously)
      * Duplicate a category, including all its children.
-     * @param version  (required)
      * @param accountId The account id of the user (must have permissions to the target application) (required)
      * @param categoryId The category ID to duplicate (includes all children) (required)
      * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to (optional)
@@ -926,16 +885,15 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call duplicateCategoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
+    public okhttp3.Call duplicateCategoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long parentCategoryId, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = duplicateCategoryValidateBeforeCall(version, accountId, categoryId, appKey, parentCategoryId, _callback);
+        okhttp3.Call localVarCall = duplicateCategoryValidateBeforeCall(accountId, categoryId, appKey, parentCategoryId, _callback);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCategory
-     * @param version  (required)
      * @param categoryId the ID of the category (required)
      * @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @param _callback Callback for upload/download progress
@@ -948,7 +906,7 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCategoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCategoryCall(@javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -965,8 +923,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/category/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/category/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1002,25 +959,19 @@ public class CategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCategoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCategory(Async)");
-        }
-
+    private okhttp3.Call getCategoryValidateBeforeCall(@javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'categoryId' is set
         if (categoryId == null) {
             throw new ApiException("Missing the required parameter 'categoryId' when calling getCategory(Async)");
         }
 
-        return getCategoryCall(version, categoryId, returnExternal, _callback);
+        return getCategoryCall(categoryId, returnExternal, _callback);
 
     }
 
     /**
      * Get Category
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @param version  (required)
      * @param categoryId the ID of the category (required)
      * @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @return CategoryTreeResponse
@@ -1032,15 +983,14 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CategoryTreeResponse getCategory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal) throws ApiException {
-        ApiResponse<CategoryTreeResponse> localVarResp = getCategoryWithHttpInfo(version, categoryId, returnExternal);
+    public CategoryTreeResponse getCategory(@javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal) throws ApiException {
+        ApiResponse<CategoryTreeResponse> localVarResp = getCategoryWithHttpInfo(categoryId, returnExternal);
         return localVarResp.getData();
     }
 
     /**
      * Get Category
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @param version  (required)
      * @param categoryId the ID of the category (required)
      * @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @return ApiResponse&lt;CategoryTreeResponse&gt;
@@ -1052,8 +1002,8 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CategoryTreeResponse> getCategoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal) throws ApiException {
-        okhttp3.Call localVarCall = getCategoryValidateBeforeCall(version, categoryId, returnExternal, null);
+    public ApiResponse<CategoryTreeResponse> getCategoryWithHttpInfo(@javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal) throws ApiException {
+        okhttp3.Call localVarCall = getCategoryValidateBeforeCall(categoryId, returnExternal, null);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1061,7 +1011,6 @@ public class CategoryApi {
     /**
      * Get Category (asynchronously)
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @param version  (required)
      * @param categoryId the ID of the category (required)
      * @param returnExternal Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
@@ -1074,16 +1023,15 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCategoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
+    public okhttp3.Call getCategoryAsync(@javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Boolean returnExternal, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCategoryValidateBeforeCall(version, categoryId, returnExternal, _callback);
+        okhttp3.Call localVarCall = getCategoryValidateBeforeCall(categoryId, returnExternal, _callback);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchCategories
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -1115,7 +1063,7 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCategoriesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCategoriesCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1132,8 +1080,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/category/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/category/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1245,20 +1192,14 @@ public class CategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCategoriesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchCategories(Async)");
-        }
-
-        return searchCategoriesCall(version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, _callback);
+    private okhttp3.Call searchCategoriesValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode, final ApiCallback _callback) throws ApiException {
+        return searchCategoriesCall(accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, _callback);
 
     }
 
     /**
      * Search Categories
      * Search for categories.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -1289,15 +1230,14 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<CategoryResponse> searchCategories(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode) throws ApiException {
-        ApiResponse<List<CategoryResponse>> localVarResp = searchCategoriesWithHttpInfo(version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
+    public List<CategoryResponse> searchCategories(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode) throws ApiException {
+        ApiResponse<List<CategoryResponse>> localVarResp = searchCategoriesWithHttpInfo(accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
         return localVarResp.getData();
     }
 
     /**
      * Search Categories
      * Search for categories.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -1328,8 +1268,8 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CategoryResponse>> searchCategoriesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode) throws ApiException {
-        okhttp3.Call localVarCall = searchCategoriesValidateBeforeCall(version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, null);
+    public ApiResponse<List<CategoryResponse>> searchCategoriesWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode) throws ApiException {
+        okhttp3.Call localVarCall = searchCategoriesValidateBeforeCall(accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, null);
         Type localVarReturnType = new TypeToken<List<CategoryResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1337,7 +1277,6 @@ public class CategoryApi {
     /**
      * Search Categories (asynchronously)
      * Search for categories.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param keyword The string to search on (optional)
      * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -1369,16 +1308,15 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCategoriesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode, final ApiCallback<List<CategoryResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchCategoriesAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String parentCategoryIds, @javax.annotation.Nullable Boolean rootOnly, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String responseGroup, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnExternal, @javax.annotation.Nullable Boolean exactMatch, @javax.annotation.Nullable String type, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable Boolean excludeExternalType, @javax.annotation.Nullable Integer minOfferCount, @javax.annotation.Nullable Integer searchDepth, @javax.annotation.Nullable String searchMode, final ApiCallback<List<CategoryResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCategoriesValidateBeforeCall(version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, _callback);
+        okhttp3.Call localVarCall = searchCategoriesValidateBeforeCall(accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, _callback);
         Type localVarReturnType = new TypeToken<List<CategoryResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateCategory
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param categoryId The ID of the category to edit (required)
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -1403,7 +1341,7 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCategoryCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCategoryCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1420,8 +1358,7 @@ public class CategoryApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/category/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/category/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1505,12 +1442,7 @@ public class CategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCategoryValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateCategory(Async)");
-        }
-
+    private okhttp3.Call updateCategoryValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateCategory(Async)");
@@ -1521,14 +1453,13 @@ public class CategoryApi {
             throw new ApiException("Missing the required parameter 'categoryId' when calling updateCategory(Async)");
         }
 
-        return updateCategoryCall(version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
+        return updateCategoryCall(accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
 
     }
 
     /**
      * Update Category
      * Update a category.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param categoryId The ID of the category to edit (required)
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -1552,15 +1483,14 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CategoryTreeResponse updateCategory(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
-        ApiResponse<CategoryTreeResponse> localVarResp = updateCategoryWithHttpInfo(version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+    public CategoryTreeResponse updateCategory(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
+        ApiResponse<CategoryTreeResponse> localVarResp = updateCategoryWithHttpInfo(accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
         return localVarResp.getData();
     }
 
     /**
      * Update Category
      * Update a category.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param categoryId The ID of the category to edit (required)
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -1584,8 +1514,8 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CategoryTreeResponse> updateCategoryWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
-        okhttp3.Call localVarCall = updateCategoryValidateBeforeCall(version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, null);
+    public ApiResponse<CategoryTreeResponse> updateCategoryWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags) throws ApiException {
+        okhttp3.Call localVarCall = updateCategoryValidateBeforeCall(accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, null);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1593,7 +1523,6 @@ public class CategoryApi {
     /**
      * Update Category (asynchronously)
      * Update a category.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param categoryId The ID of the category to edit (required)
      * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -1618,9 +1547,9 @@ public class CategoryApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCategoryAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
+    public okhttp3.Call updateCategoryAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long categoryId, @javax.annotation.Nullable Long parentCategoryId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalType, @javax.annotation.Nullable String externalCategorySlug, @javax.annotation.Nullable String sqootSlug, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, final ApiCallback<CategoryTreeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCategoryValidateBeforeCall(version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
+        okhttp3.Call localVarCall = updateCategoryValidateBeforeCall(accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, _callback);
         Type localVarReturnType = new TypeToken<CategoryTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

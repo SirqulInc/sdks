@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ListingFullResponse;
 import org.openapitools.client.model.ListingGroupResponse;
 import org.openapitools.client.model.ListingResponse;
@@ -78,7 +77,6 @@ public class ListingApi {
 
     /**
      * Build call for createListing
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param name the name of the listing (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -103,7 +101,7 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createListingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createListingCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -120,8 +118,7 @@ public class ListingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/listing/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/listing/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -205,12 +202,7 @@ public class ListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createListingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createListing(Async)");
-        }
-
+    private okhttp3.Call createListingValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createListing(Async)");
@@ -221,14 +213,13 @@ public class ListingApi {
             throw new ApiException("Missing the required parameter 'name' when calling createListing(Async)");
         }
 
-        return createListingCall(version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
+        return createListingCall(accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
 
     }
 
     /**
      * Create Listing
      * Creates a listing.
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param name the name of the listing (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -252,15 +243,14 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ListingFullResponse createListing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<ListingFullResponse> localVarResp = createListingWithHttpInfo(version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+    public ListingFullResponse createListing(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<ListingFullResponse> localVarResp = createListingWithHttpInfo(accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Create Listing
      * Creates a listing.
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param name the name of the listing (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -284,8 +274,8 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingFullResponse> createListingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = createListingValidateBeforeCall(version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, null);
+    public ApiResponse<ListingFullResponse> createListingWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = createListingValidateBeforeCall(accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, null);
         Type localVarReturnType = new TypeToken<ListingFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -293,7 +283,6 @@ public class ListingApi {
     /**
      * Create Listing (asynchronously)
      * Creates a listing.
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param name the name of the listing (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -318,16 +307,15 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createListingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<ListingFullResponse> _callback) throws ApiException {
+    public okhttp3.Call createListingAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<ListingFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createListingValidateBeforeCall(version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
+        okhttp3.Call localVarCall = createListingValidateBeforeCall(accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
         Type localVarReturnType = new TypeToken<ListingFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteListing
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param listingId the id of the listing to delete (required)
      * @param _callback Callback for upload/download progress
@@ -340,7 +328,7 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteListingCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -357,8 +345,7 @@ public class ListingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/listing/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/listing/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -394,12 +381,7 @@ public class ListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteListingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteListing(Async)");
-        }
-
+    private okhttp3.Call deleteListingValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteListing(Async)");
@@ -410,14 +392,13 @@ public class ListingApi {
             throw new ApiException("Missing the required parameter 'listingId' when calling deleteListing(Async)");
         }
 
-        return deleteListingCall(version, accountId, listingId, _callback);
+        return deleteListingCall(accountId, listingId, _callback);
 
     }
 
     /**
      * Delete Listing
      * Delete a listing.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param listingId the id of the listing to delete (required)
      * @return SirqulResponse
@@ -429,15 +410,14 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteListing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteListingWithHttpInfo(version, accountId, listingId);
+    public SirqulResponse deleteListing(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteListingWithHttpInfo(accountId, listingId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Listing
      * Delete a listing.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param listingId the id of the listing to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -449,8 +429,8 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteListingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId) throws ApiException {
-        okhttp3.Call localVarCall = deleteListingValidateBeforeCall(version, accountId, listingId, null);
+    public ApiResponse<SirqulResponse> deleteListingWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId) throws ApiException {
+        okhttp3.Call localVarCall = deleteListingValidateBeforeCall(accountId, listingId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -458,7 +438,6 @@ public class ListingApi {
     /**
      * Delete Listing (asynchronously)
      * Delete a listing.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param listingId the id of the listing to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -471,16 +450,15 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteListingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteListingAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteListingValidateBeforeCall(version, accountId, listingId, _callback);
+        okhttp3.Call localVarCall = deleteListingValidateBeforeCall(accountId, listingId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getListing
-     * @param version  (required)
      * @param listingId the id of the listing to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -492,7 +470,7 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getListingCall(@javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -509,8 +487,7 @@ public class ListingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/listing/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/listing/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -542,25 +519,19 @@ public class ListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getListingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getListing(Async)");
-        }
-
+    private okhttp3.Call getListingValidateBeforeCall(@javax.annotation.Nonnull Long listingId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'listingId' is set
         if (listingId == null) {
             throw new ApiException("Missing the required parameter 'listingId' when calling getListing(Async)");
         }
 
-        return getListingCall(version, listingId, _callback);
+        return getListingCall(listingId, _callback);
 
     }
 
     /**
      * Get Listing
      * Get a listing by id.
-     * @param version  (required)
      * @param listingId the id of the listing to get (required)
      * @return ListingFullResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -571,15 +542,14 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ListingFullResponse getListing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long listingId) throws ApiException {
-        ApiResponse<ListingFullResponse> localVarResp = getListingWithHttpInfo(version, listingId);
+    public ListingFullResponse getListing(@javax.annotation.Nonnull Long listingId) throws ApiException {
+        ApiResponse<ListingFullResponse> localVarResp = getListingWithHttpInfo(listingId);
         return localVarResp.getData();
     }
 
     /**
      * Get Listing
      * Get a listing by id.
-     * @param version  (required)
      * @param listingId the id of the listing to get (required)
      * @return ApiResponse&lt;ListingFullResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -590,8 +560,8 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingFullResponse> getListingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long listingId) throws ApiException {
-        okhttp3.Call localVarCall = getListingValidateBeforeCall(version, listingId, null);
+    public ApiResponse<ListingFullResponse> getListingWithHttpInfo(@javax.annotation.Nonnull Long listingId) throws ApiException {
+        okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, null);
         Type localVarReturnType = new TypeToken<ListingFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -599,7 +569,6 @@ public class ListingApi {
     /**
      * Get Listing (asynchronously)
      * Get a listing by id.
-     * @param version  (required)
      * @param listingId the id of the listing to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -611,16 +580,15 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getListingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long listingId, final ApiCallback<ListingFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getListingAsync(@javax.annotation.Nonnull Long listingId, final ApiCallback<ListingFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getListingValidateBeforeCall(version, listingId, _callback);
+        okhttp3.Call localVarCall = getListingValidateBeforeCall(listingId, _callback);
         Type localVarReturnType = new TypeToken<ListingFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchListing
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -646,7 +614,7 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchListingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchListingCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -663,8 +631,7 @@ public class ListingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/listing/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/listing/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -752,20 +719,14 @@ public class ListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchListingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchListing(Async)");
-        }
-
-        return searchListingCall(version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, _callback);
+    private okhttp3.Call searchListingValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, final ApiCallback _callback) throws ApiException {
+        return searchListingCall(accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, _callback);
 
     }
 
     /**
      * Search Listings
      * Search for event listings from the start time to end time
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -790,15 +751,14 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ListingResponse> searchListing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId) throws ApiException {
-        ApiResponse<List<ListingResponse>> localVarResp = searchListingWithHttpInfo(version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
+    public List<ListingResponse> searchListing(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId) throws ApiException {
+        ApiResponse<List<ListingResponse>> localVarResp = searchListingWithHttpInfo(accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
         return localVarResp.getData();
     }
 
     /**
      * Search Listings
      * Search for event listings from the start time to end time
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -823,8 +783,8 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ListingResponse>> searchListingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId) throws ApiException {
-        okhttp3.Call localVarCall = searchListingValidateBeforeCall(version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, null);
+    public ApiResponse<List<ListingResponse>> searchListingWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId) throws ApiException {
+        okhttp3.Call localVarCall = searchListingValidateBeforeCall(accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, null);
         Type localVarReturnType = new TypeToken<List<ListingResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -832,7 +792,6 @@ public class ListingApi {
     /**
      * Search Listings (asynchronously)
      * Search for event listings from the start time to end time
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param keyword search the event name and description for this keyword (optional)
      * @param start the record to begin the return set on (optional, default to 0)
@@ -858,16 +817,15 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchListingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, final ApiCallback<List<ListingResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchListingAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean useListingOrderIds, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, final ApiCallback<List<ListingResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchListingValidateBeforeCall(version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, _callback);
+        okhttp3.Call localVarCall = searchListingValidateBeforeCall(accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, _callback);
         Type localVarReturnType = new TypeToken<List<ListingResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for summaryListing
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -883,7 +841,7 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call summaryListingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call summaryListingCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -900,8 +858,7 @@ public class ListingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/listing/summary"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/listing/summary";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -949,20 +906,14 @@ public class ListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call summaryListingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling summaryListing(Async)");
-        }
-
-        return summaryListingCall(version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, _callback);
+    private okhttp3.Call summaryListingValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds, final ApiCallback _callback) throws ApiException {
+        return summaryListingCall(accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, _callback);
 
     }
 
     /**
      * Summary Listing
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -977,15 +928,14 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ListingGroupResponse> summaryListing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds) throws ApiException {
-        ApiResponse<List<ListingGroupResponse>> localVarResp = summaryListingWithHttpInfo(version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
+    public List<ListingGroupResponse> summaryListing(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds) throws ApiException {
+        ApiResponse<List<ListingGroupResponse>> localVarResp = summaryListingWithHttpInfo(accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
         return localVarResp.getData();
     }
 
     /**
      * Summary Listing
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -1000,8 +950,8 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ListingGroupResponse>> summaryListingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds) throws ApiException {
-        okhttp3.Call localVarCall = summaryListingValidateBeforeCall(version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, null);
+    public ApiResponse<List<ListingGroupResponse>> summaryListingWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds) throws ApiException {
+        okhttp3.Call localVarCall = summaryListingValidateBeforeCall(accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, null);
         Type localVarReturnType = new TypeToken<List<ListingGroupResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +959,6 @@ public class ListingApi {
     /**
      * Summary Listing (asynchronously)
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param startDate the start date to search from (optional)
      * @param categoryIds the list of categories to search on (optional)
@@ -1025,16 +974,15 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call summaryListingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds, final ApiCallback<List<ListingGroupResponse>> _callback) throws ApiException {
+    public okhttp3.Call summaryListingAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Integer daysToInclude, @javax.annotation.Nullable Boolean useListingOrderIds, final ApiCallback<List<ListingGroupResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = summaryListingValidateBeforeCall(version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, _callback);
+        okhttp3.Call localVarCall = summaryListingValidateBeforeCall(accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, _callback);
         Type localVarReturnType = new TypeToken<List<ListingGroupResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateListing
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param listingId the listing to update (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -1060,7 +1008,7 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateListingCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1077,8 +1025,7 @@ public class ListingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/listing/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/listing/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1166,12 +1113,7 @@ public class ListingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateListingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateListing(Async)");
-        }
-
+    private okhttp3.Call updateListingValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateListing(Async)");
@@ -1182,14 +1124,13 @@ public class ListingApi {
             throw new ApiException("Missing the required parameter 'listingId' when calling updateListing(Async)");
         }
 
-        return updateListingCall(version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
+        return updateListingCall(accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
 
     }
 
     /**
      * Update Listing
      * Updates a listing.
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param listingId the listing to update (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -1214,15 +1155,14 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ListingFullResponse updateListing(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<ListingFullResponse> localVarResp = updateListingWithHttpInfo(version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+    public ListingFullResponse updateListing(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<ListingFullResponse> localVarResp = updateListingWithHttpInfo(accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Update Listing
      * Updates a listing.
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param listingId the listing to update (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -1247,8 +1187,8 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListingFullResponse> updateListingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = updateListingValidateBeforeCall(version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, null);
+    public ApiResponse<ListingFullResponse> updateListingWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = updateListingValidateBeforeCall(accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, null);
         Type localVarReturnType = new TypeToken<ListingFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1256,7 +1196,6 @@ public class ListingApi {
     /**
      * Update Listing (asynchronously)
      * Updates a listing.
-     * @param version  (required)
      * @param accountId the user&#39;s account ID (required)
      * @param listingId the listing to update (required)
      * @param filterIds comma separated list of filter IDs (optional)
@@ -1282,9 +1221,9 @@ public class ListingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateListingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<ListingFullResponse> _callback) throws ApiException {
+    public okhttp3.Call updateListingAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String locationName, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Boolean isPrivate, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String externalId2, @javax.annotation.Nullable String externalGroupId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String metaData, final ApiCallback<ListingFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateListingValidateBeforeCall(version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
+        okhttp3.Call localVarCall = updateListingValidateBeforeCall(accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, _callback);
         Type localVarReturnType = new TypeToken<ListingFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

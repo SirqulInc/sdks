@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Shipment;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class ShipmentApi {
 
     /**
      * Build call for cancelShipment
-     * @param version  (required)
      * @param id the id of the shipment to cancel (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +85,7 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelShipmentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelShipmentCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +102,7 @@ public class ShipmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/{id}/cancel"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/{id}/cancel"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -133,25 +130,19 @@ public class ShipmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelShipmentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling cancelShipment(Async)");
-        }
-
+    private okhttp3.Call cancelShipmentValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling cancelShipment(Async)");
         }
 
-        return cancelShipmentCall(version, id, _callback);
+        return cancelShipmentCall(id, _callback);
 
     }
 
     /**
      * Cancel Shipment
      * Remove shipment from route
-     * @param version  (required)
      * @param id the id of the shipment to cancel (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -161,14 +152,13 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void cancelShipment(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        cancelShipmentWithHttpInfo(version, id);
+    public void cancelShipment(@javax.annotation.Nonnull Long id) throws ApiException {
+        cancelShipmentWithHttpInfo(id);
     }
 
     /**
      * Cancel Shipment
      * Remove shipment from route
-     * @param version  (required)
      * @param id the id of the shipment to cancel (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -179,15 +169,14 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> cancelShipmentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = cancelShipmentValidateBeforeCall(version, id, null);
+    public ApiResponse<Void> cancelShipmentWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = cancelShipmentValidateBeforeCall(id, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Cancel Shipment (asynchronously)
      * Remove shipment from route
-     * @param version  (required)
      * @param id the id of the shipment to cancel (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -199,15 +188,14 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelShipmentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call cancelShipmentAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = cancelShipmentValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = cancelShipmentValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for createShipment
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -219,7 +207,7 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShipmentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createShipmentCall(@javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -236,8 +224,7 @@ public class ShipmentApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/shipment";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -265,20 +252,14 @@ public class ShipmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createShipmentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createShipment(Async)");
-        }
-
-        return createShipmentCall(version, body, _callback);
+    private okhttp3.Call createShipmentValidateBeforeCall(@javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
+        return createShipmentCall(body, _callback);
 
     }
 
     /**
      * Create Shipment
      * Create new shipment
-     * @param version  (required)
      * @param body  (optional)
      * @return Shipment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -289,15 +270,14 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Shipment createShipment(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Shipment body) throws ApiException {
-        ApiResponse<Shipment> localVarResp = createShipmentWithHttpInfo(version, body);
+    public Shipment createShipment(@javax.annotation.Nullable Shipment body) throws ApiException {
+        ApiResponse<Shipment> localVarResp = createShipmentWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Shipment
      * Create new shipment
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Shipment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -308,8 +288,8 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Shipment> createShipmentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Shipment body) throws ApiException {
-        okhttp3.Call localVarCall = createShipmentValidateBeforeCall(version, body, null);
+    public ApiResponse<Shipment> createShipmentWithHttpInfo(@javax.annotation.Nullable Shipment body) throws ApiException {
+        okhttp3.Call localVarCall = createShipmentValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<Shipment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -317,7 +297,6 @@ public class ShipmentApi {
     /**
      * Create Shipment (asynchronously)
      * Create new shipment
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -329,16 +308,15 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createShipmentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Shipment body, final ApiCallback<Shipment> _callback) throws ApiException {
+    public okhttp3.Call createShipmentAsync(@javax.annotation.Nullable Shipment body, final ApiCallback<Shipment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createShipmentValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createShipmentValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<Shipment>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteShipment
-     * @param version  (required)
      * @param id the id of the shipment to delete (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -350,7 +328,7 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShipmentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteShipmentCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -367,8 +345,7 @@ public class ShipmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -396,25 +373,19 @@ public class ShipmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteShipmentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteShipment(Async)");
-        }
-
+    private okhttp3.Call deleteShipmentValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteShipment(Async)");
         }
 
-        return deleteShipmentCall(version, id, _callback);
+        return deleteShipmentCall(id, _callback);
 
     }
 
     /**
      * Delete Shipment
      * Delete an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to delete (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -424,14 +395,13 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteShipment(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        deleteShipmentWithHttpInfo(version, id);
+    public void deleteShipment(@javax.annotation.Nonnull Long id) throws ApiException {
+        deleteShipmentWithHttpInfo(id);
     }
 
     /**
      * Delete Shipment
      * Delete an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to delete (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -442,15 +412,14 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteShipmentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = deleteShipmentValidateBeforeCall(version, id, null);
+    public ApiResponse<Void> deleteShipmentWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = deleteShipmentValidateBeforeCall(id, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Shipment (asynchronously)
      * Delete an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to delete (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -462,15 +431,14 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteShipmentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteShipmentAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteShipmentValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = deleteShipmentValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getShipment
-     * @param version  (required)
      * @param id the id of the shipment to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -482,7 +450,7 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShipmentCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -499,8 +467,7 @@ public class ShipmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -529,25 +496,19 @@ public class ShipmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShipmentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getShipment(Async)");
-        }
-
+    private okhttp3.Call getShipmentValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getShipment(Async)");
         }
 
-        return getShipmentCall(version, id, _callback);
+        return getShipmentCall(id, _callback);
 
     }
 
     /**
      * Get Shipment
      * Get an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to get (required)
      * @return Shipment
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -558,15 +519,14 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Shipment getShipment(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        ApiResponse<Shipment> localVarResp = getShipmentWithHttpInfo(version, id);
+    public Shipment getShipment(@javax.annotation.Nonnull Long id) throws ApiException {
+        ApiResponse<Shipment> localVarResp = getShipmentWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get Shipment
      * Get an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to get (required)
      * @return ApiResponse&lt;Shipment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -577,8 +537,8 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Shipment> getShipmentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = getShipmentValidateBeforeCall(version, id, null);
+    public ApiResponse<Shipment> getShipmentWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = getShipmentValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<Shipment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -586,7 +546,6 @@ public class ShipmentApi {
     /**
      * Get Shipment (asynchronously)
      * Get an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -598,16 +557,15 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Shipment> _callback) throws ApiException {
+    public okhttp3.Call getShipmentAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Shipment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShipmentValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = getShipmentValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Shipment>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchShipments
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -626,7 +584,7 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchShipmentsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchShipmentsCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -643,8 +601,7 @@ public class ShipmentApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/shipment";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -704,12 +661,7 @@ public class ShipmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchShipmentsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchShipments(Async)");
-        }
-
+    private okhttp3.Call searchShipmentsValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchShipments(Async)");
@@ -735,14 +687,13 @@ public class ShipmentApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchShipments(Async)");
         }
 
-        return searchShipmentsCall(version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, _callback);
+        return searchShipmentsCall(sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, _callback);
 
     }
 
     /**
      * Search Shipments
      * Search for shipments
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -760,15 +711,14 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Shipment> searchShipments(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId) throws ApiException {
-        ApiResponse<List<Shipment>> localVarResp = searchShipmentsWithHttpInfo(version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
+    public List<Shipment> searchShipments(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId) throws ApiException {
+        ApiResponse<List<Shipment>> localVarResp = searchShipmentsWithHttpInfo(sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
         return localVarResp.getData();
     }
 
     /**
      * Search Shipments
      * Search for shipments
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -786,8 +736,8 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Shipment>> searchShipmentsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = searchShipmentsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, null);
+    public ApiResponse<List<Shipment>> searchShipmentsWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = searchShipmentsValidateBeforeCall(sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, null);
         Type localVarReturnType = new TypeToken<List<Shipment>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -795,7 +745,6 @@ public class ShipmentApi {
     /**
      * Search Shipments (asynchronously)
      * Search for shipments
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -814,16 +763,15 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchShipmentsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId, final ApiCallback<List<Shipment>> _callback) throws ApiException {
+    public okhttp3.Call searchShipmentsAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable Long riderId, @javax.annotation.Nullable Long routeId, final ApiCallback<List<Shipment>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchShipmentsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, _callback);
+        okhttp3.Call localVarCall = searchShipmentsValidateBeforeCall(sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, _callback);
         Type localVarReturnType = new TypeToken<List<Shipment>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateShipment
-     * @param version  (required)
      * @param id the id of the shipment to update (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -836,7 +784,7 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShipmentCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateShipmentCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -853,8 +801,7 @@ public class ShipmentApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -883,25 +830,19 @@ public class ShipmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateShipmentValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateShipment(Async)");
-        }
-
+    private okhttp3.Call updateShipmentValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateShipment(Async)");
         }
 
-        return updateShipmentCall(version, id, body, _callback);
+        return updateShipmentCall(id, body, _callback);
 
     }
 
     /**
      * Update Shipment
      * Update an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update (required)
      * @param body  (optional)
      * @return Shipment
@@ -913,15 +854,14 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Shipment updateShipment(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body) throws ApiException {
-        ApiResponse<Shipment> localVarResp = updateShipmentWithHttpInfo(version, id, body);
+    public Shipment updateShipment(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body) throws ApiException {
+        ApiResponse<Shipment> localVarResp = updateShipmentWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Shipment
      * Update an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Shipment&gt;
@@ -933,8 +873,8 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Shipment> updateShipmentWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body) throws ApiException {
-        okhttp3.Call localVarCall = updateShipmentValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Shipment> updateShipmentWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body) throws ApiException {
+        okhttp3.Call localVarCall = updateShipmentValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<Shipment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -942,7 +882,6 @@ public class ShipmentApi {
     /**
      * Update Shipment (asynchronously)
      * Update an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -955,16 +894,15 @@ public class ShipmentApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShipmentAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body, final ApiCallback<Shipment> _callback) throws ApiException {
+    public okhttp3.Call updateShipmentAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Shipment body, final ApiCallback<Shipment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateShipmentValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateShipmentValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<Shipment>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateShipmentStatus
-     * @param version  (required)
      * @param id the id of the shipment to update status (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -977,7 +915,7 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShipmentStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateShipmentStatusCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -994,8 +932,7 @@ public class ShipmentApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/shipment/{id}/status"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/shipment/{id}/status"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1023,25 +960,19 @@ public class ShipmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateShipmentStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateShipmentStatus(Async)");
-        }
-
+    private okhttp3.Call updateShipmentStatusValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateShipmentStatus(Async)");
         }
 
-        return updateShipmentStatusCall(version, id, body, _callback);
+        return updateShipmentStatusCall(id, body, _callback);
 
     }
 
     /**
      * Uupdate Shipment Status
      * Update status of an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update status (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1052,14 +983,13 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateShipmentStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body) throws ApiException {
-        updateShipmentStatusWithHttpInfo(version, id, body);
+    public void updateShipmentStatus(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body) throws ApiException {
+        updateShipmentStatusWithHttpInfo(id, body);
     }
 
     /**
      * Uupdate Shipment Status
      * Update status of an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update status (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1071,15 +1001,14 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateShipmentStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body) throws ApiException {
-        okhttp3.Call localVarCall = updateShipmentStatusValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Void> updateShipmentStatusWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body) throws ApiException {
+        okhttp3.Call localVarCall = updateShipmentStatusValidateBeforeCall(id, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Uupdate Shipment Status (asynchronously)
      * Update status of an existing shipment
-     * @param version  (required)
      * @param id the id of the shipment to update status (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1092,9 +1021,9 @@ public class ShipmentApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShipmentStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateShipmentStatusAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Map<String, Boolean> body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateShipmentStatusValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateShipmentStatusValidateBeforeCall(id, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

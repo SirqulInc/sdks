@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CountResponse;
 import org.openapitools.client.model.FlagResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class FlagApi {
 
     /**
      * Build call for createFlag
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -95,7 +93,7 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFlagCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createFlagCall(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,8 +110,7 @@ public class FlagApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/flag/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/flag/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -169,12 +166,7 @@ public class FlagApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFlagValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createFlag(Async)");
-        }
-
+    private okhttp3.Call createFlagValidateBeforeCall(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'flagableType' is set
         if (flagableType == null) {
             throw new ApiException("Missing the required parameter 'flagableType' when calling createFlag(Async)");
@@ -185,14 +177,13 @@ public class FlagApi {
             throw new ApiException("Missing the required parameter 'flagableId' when calling createFlag(Async)");
         }
 
-        return createFlagCall(version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, _callback);
+        return createFlagCall(flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, _callback);
 
     }
 
     /**
      * Create Flag
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -209,15 +200,14 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse createFlag(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = createFlagWithHttpInfo(version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
+    public SirqulResponse createFlag(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = createFlagWithHttpInfo(flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Flag
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -234,8 +224,8 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> createFlagWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = createFlagValidateBeforeCall(version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> createFlagWithHttpInfo(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = createFlagValidateBeforeCall(flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -243,7 +233,6 @@ public class FlagApi {
     /**
      * Create Flag (asynchronously)
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -261,16 +250,15 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFlagAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call createFlagAsync(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String flagDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createFlagValidateBeforeCall(version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = createFlagValidateBeforeCall(flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteFlag
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -287,7 +275,7 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFlagCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteFlagCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -304,8 +292,7 @@ public class FlagApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/flag/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/flag/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -357,20 +344,14 @@ public class FlagApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFlagValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteFlag(Async)");
-        }
-
-        return deleteFlagCall(version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, _callback);
+    private okhttp3.Call deleteFlagValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId, final ApiCallback _callback) throws ApiException {
+        return deleteFlagCall(deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, _callback);
 
     }
 
     /**
      * Delete Flag
      * Deletes a flag.
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -386,15 +367,14 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteFlag(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteFlagWithHttpInfo(version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
+    public SirqulResponse deleteFlag(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteFlagWithHttpInfo(deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Flag
      * Deletes a flag.
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -410,8 +390,8 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteFlagWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId) throws ApiException {
-        okhttp3.Call localVarCall = deleteFlagValidateBeforeCall(version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, null);
+    public ApiResponse<SirqulResponse> deleteFlagWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId) throws ApiException {
+        okhttp3.Call localVarCall = deleteFlagValidateBeforeCall(deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -419,7 +399,6 @@ public class FlagApi {
     /**
      * Delete Flag (asynchronously)
      * Deletes a flag.
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param itemBeingFlaggedType This parameter is deprecated. (optional)
@@ -436,16 +415,15 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFlagAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteFlagAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String itemBeingFlaggedType, @javax.annotation.Nullable Long itemBeingFlaggedId, @javax.annotation.Nullable String flagableType, @javax.annotation.Nullable Long flagableId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFlagValidateBeforeCall(version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, _callback);
+        okhttp3.Call localVarCall = deleteFlagValidateBeforeCall(deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getFlag
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -462,7 +440,7 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFlagCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFlagCall(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -479,8 +457,7 @@ public class FlagApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/flag/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/flag/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -532,12 +509,7 @@ public class FlagApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFlagValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getFlag(Async)");
-        }
-
+    private okhttp3.Call getFlagValidateBeforeCall(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'flagableType' is set
         if (flagableType == null) {
             throw new ApiException("Missing the required parameter 'flagableType' when calling getFlag(Async)");
@@ -548,14 +520,13 @@ public class FlagApi {
             throw new ApiException("Missing the required parameter 'flagableId' when calling getFlag(Async)");
         }
 
-        return getFlagCall(version, flagableType, flagableId, deviceId, accountId, latitude, longitude, _callback);
+        return getFlagCall(flagableType, flagableId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Flag
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -571,15 +542,14 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public FlagResponse getFlag(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<FlagResponse> localVarResp = getFlagWithHttpInfo(version, flagableType, flagableId, deviceId, accountId, latitude, longitude);
+    public FlagResponse getFlag(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<FlagResponse> localVarResp = getFlagWithHttpInfo(flagableType, flagableId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Flag
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -595,8 +565,8 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FlagResponse> getFlagWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getFlagValidateBeforeCall(version, flagableType, flagableId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<FlagResponse> getFlagWithHttpInfo(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getFlagValidateBeforeCall(flagableType, flagableId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<FlagResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -604,7 +574,6 @@ public class FlagApi {
     /**
      * Get Flag (asynchronously)
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @param version  (required)
      * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
      * @param flagableId The flagable object id (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -621,16 +590,15 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFlagAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<FlagResponse> _callback) throws ApiException {
+    public okhttp3.Call getFlagAsync(@javax.annotation.Nonnull String flagableType, @javax.annotation.Nonnull Long flagableId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<FlagResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFlagValidateBeforeCall(version, flagableType, flagableId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getFlagValidateBeforeCall(flagableType, flagableId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<FlagResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getFlagThreshold
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param appKey The application key (required)
      * @param _callback Callback for upload/download progress
@@ -643,7 +611,7 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFlagThresholdCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFlagThresholdCall(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -660,8 +628,7 @@ public class FlagApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/flag/threshold/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/flag/threshold/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -697,12 +664,7 @@ public class FlagApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFlagThresholdValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getFlagThreshold(Async)");
-        }
-
+    private okhttp3.Call getFlagThresholdValidateBeforeCall(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'itemBeingFlaggedType' is set
         if (itemBeingFlaggedType == null) {
             throw new ApiException("Missing the required parameter 'itemBeingFlaggedType' when calling getFlagThreshold(Async)");
@@ -713,14 +675,13 @@ public class FlagApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getFlagThreshold(Async)");
         }
 
-        return getFlagThresholdCall(version, itemBeingFlaggedType, appKey, _callback);
+        return getFlagThresholdCall(itemBeingFlaggedType, appKey, _callback);
 
     }
 
     /**
      * Get Flag Threshold
      * Get the flag threshold value on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param appKey The application key (required)
      * @return CountResponse
@@ -732,15 +693,14 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CountResponse getFlagThreshold(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<CountResponse> localVarResp = getFlagThresholdWithHttpInfo(version, itemBeingFlaggedType, appKey);
+    public CountResponse getFlagThreshold(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<CountResponse> localVarResp = getFlagThresholdWithHttpInfo(itemBeingFlaggedType, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Get Flag Threshold
      * Get the flag threshold value on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param appKey The application key (required)
      * @return ApiResponse&lt;CountResponse&gt;
@@ -752,8 +712,8 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountResponse> getFlagThresholdWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = getFlagThresholdValidateBeforeCall(version, itemBeingFlaggedType, appKey, null);
+    public ApiResponse<CountResponse> getFlagThresholdWithHttpInfo(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = getFlagThresholdValidateBeforeCall(itemBeingFlaggedType, appKey, null);
         Type localVarReturnType = new TypeToken<CountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -761,7 +721,6 @@ public class FlagApi {
     /**
      * Get Flag Threshold (asynchronously)
      * Get the flag threshold value on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param appKey The application key (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -774,16 +733,15 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFlagThresholdAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey, final ApiCallback<CountResponse> _callback) throws ApiException {
+    public okhttp3.Call getFlagThresholdAsync(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull String appKey, final ApiCallback<CountResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFlagThresholdValidateBeforeCall(version, itemBeingFlaggedType, appKey, _callback);
+        okhttp3.Call localVarCall = getFlagThresholdValidateBeforeCall(itemBeingFlaggedType, appKey, _callback);
         Type localVarReturnType = new TypeToken<CountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateFlagThreshold
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param threshold The threshold value (required)
      * @param appKey The application key (required)
@@ -799,7 +757,7 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateFlagThresholdCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateFlagThresholdCall(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -816,8 +774,7 @@ public class FlagApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/flag/threshold/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/flag/threshold/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -865,12 +822,7 @@ public class FlagApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateFlagThresholdValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateFlagThreshold(Async)");
-        }
-
+    private okhttp3.Call updateFlagThresholdValidateBeforeCall(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'itemBeingFlaggedType' is set
         if (itemBeingFlaggedType == null) {
             throw new ApiException("Missing the required parameter 'itemBeingFlaggedType' when calling updateFlagThreshold(Async)");
@@ -886,14 +838,13 @@ public class FlagApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling updateFlagThreshold(Async)");
         }
 
-        return updateFlagThresholdCall(version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId, _callback);
+        return updateFlagThresholdCall(itemBeingFlaggedType, threshold, appKey, deviceId, accountId, _callback);
 
     }
 
     /**
      * Update Flag Threshold
      * Update the flag threshold on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param threshold The threshold value (required)
      * @param appKey The application key (required)
@@ -908,15 +859,14 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CountResponse updateFlagThreshold(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<CountResponse> localVarResp = updateFlagThresholdWithHttpInfo(version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
+    public CountResponse updateFlagThreshold(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<CountResponse> localVarResp = updateFlagThresholdWithHttpInfo(itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Update Flag Threshold
      * Update the flag threshold on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param threshold The threshold value (required)
      * @param appKey The application key (required)
@@ -931,8 +881,8 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CountResponse> updateFlagThresholdWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = updateFlagThresholdValidateBeforeCall(version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId, null);
+    public ApiResponse<CountResponse> updateFlagThresholdWithHttpInfo(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = updateFlagThresholdValidateBeforeCall(itemBeingFlaggedType, threshold, appKey, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<CountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -940,7 +890,6 @@ public class FlagApi {
     /**
      * Update Flag Threshold (asynchronously)
      * Update the flag threshold on an object type for a particular application.
-     * @param version  (required)
      * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
      * @param threshold The threshold value (required)
      * @param appKey The application key (required)
@@ -956,9 +905,9 @@ public class FlagApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateFlagThresholdAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<CountResponse> _callback) throws ApiException {
+    public okhttp3.Call updateFlagThresholdAsync(@javax.annotation.Nonnull String itemBeingFlaggedType, @javax.annotation.Nonnull Long threshold, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<CountResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateFlagThresholdValidateBeforeCall(version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = updateFlagThresholdValidateBeforeCall(itemBeingFlaggedType, threshold, appKey, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<CountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

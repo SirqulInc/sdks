@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ChartData;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.UserActivityResponse;
@@ -77,7 +76,6 @@ public class AnalyticsApi {
 
     /**
      * Build call for activities
-     * @param version  (required)
      * @param start The start of the pagination (required)
      * @param limit The limit of the pagination (required)
      * @param accountId the account id of the user (required)
@@ -91,7 +89,7 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call activitiesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call activitiesCall(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class AnalyticsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/analytics/useractivity"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/analytics/useractivity";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -149,12 +146,7 @@ public class AnalyticsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call activitiesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling activities(Async)");
-        }
-
+    private okhttp3.Call activitiesValidateBeforeCall(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'start' is set
         if (start == null) {
             throw new ApiException("Missing the required parameter 'start' when calling activities(Async)");
@@ -170,14 +162,13 @@ public class AnalyticsApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling activities(Async)");
         }
 
-        return activitiesCall(version, start, limit, accountId, _callback);
+        return activitiesCall(start, limit, accountId, _callback);
 
     }
 
     /**
      * Get User Activity
      * Get an activity feed by user.
-     * @param version  (required)
      * @param start The start of the pagination (required)
      * @param limit The limit of the pagination (required)
      * @param accountId the account id of the user (required)
@@ -190,15 +181,14 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<UserActivityResponse> activities(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        ApiResponse<List<UserActivityResponse>> localVarResp = activitiesWithHttpInfo(version, start, limit, accountId);
+    public List<UserActivityResponse> activities(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        ApiResponse<List<UserActivityResponse>> localVarResp = activitiesWithHttpInfo(start, limit, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get User Activity
      * Get an activity feed by user.
-     * @param version  (required)
      * @param start The start of the pagination (required)
      * @param limit The limit of the pagination (required)
      * @param accountId the account id of the user (required)
@@ -211,8 +201,8 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<UserActivityResponse>> activitiesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = activitiesValidateBeforeCall(version, start, limit, accountId, null);
+    public ApiResponse<List<UserActivityResponse>> activitiesWithHttpInfo(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = activitiesValidateBeforeCall(start, limit, accountId, null);
         Type localVarReturnType = new TypeToken<List<UserActivityResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -220,7 +210,6 @@ public class AnalyticsApi {
     /**
      * Get User Activity (asynchronously)
      * Get an activity feed by user.
-     * @param version  (required)
      * @param start The start of the pagination (required)
      * @param limit The limit of the pagination (required)
      * @param accountId the account id of the user (required)
@@ -234,16 +223,15 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call activitiesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId, final ApiCallback<List<UserActivityResponse>> _callback) throws ApiException {
+    public okhttp3.Call activitiesAsync(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long accountId, final ApiCallback<List<UserActivityResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = activitiesValidateBeforeCall(version, start, limit, accountId, _callback);
+        okhttp3.Call localVarCall = activitiesValidateBeforeCall(start, limit, accountId, _callback);
         Type localVarReturnType = new TypeToken<List<UserActivityResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for aggregatedFilteredUsage
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -285,7 +273,7 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregatedFilteredUsageCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aggregatedFilteredUsageCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -302,8 +290,7 @@ public class AnalyticsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/analytics/aggregatedFilteredUsage"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/analytics/aggregatedFilteredUsage";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -455,20 +442,14 @@ public class AnalyticsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aggregatedFilteredUsageValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling aggregatedFilteredUsage(Async)");
-        }
-
-        return aggregatedFilteredUsageCall(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
+    private okhttp3.Call aggregatedFilteredUsageValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return aggregatedFilteredUsageCall(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Aggregated Filtered Usage
      * Query analytics to get data used for nested graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -509,15 +490,14 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ChartData aggregatedFilteredUsage(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ChartData> localVarResp = aggregatedFilteredUsageWithHttpInfo(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+    public ChartData aggregatedFilteredUsage(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ChartData> localVarResp = aggregatedFilteredUsageWithHttpInfo(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Aggregated Filtered Usage
      * Query analytics to get data used for nested graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -558,8 +538,8 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ChartData> aggregatedFilteredUsageWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = aggregatedFilteredUsageValidateBeforeCall(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, null);
+    public ApiResponse<ChartData> aggregatedFilteredUsageWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = aggregatedFilteredUsageValidateBeforeCall(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ChartData>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -567,7 +547,6 @@ public class AnalyticsApi {
     /**
      * Get Aggregated Filtered Usage (asynchronously)
      * Query analytics to get data used for nested graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -609,16 +588,15 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregatedFilteredUsageAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ChartData> _callback) throws ApiException {
+    public okhttp3.Call aggregatedFilteredUsageAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable String groupByRoot, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ChartData> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aggregatedFilteredUsageValidateBeforeCall(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = aggregatedFilteredUsageValidateBeforeCall(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ChartData>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for filteredUsage
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -668,7 +646,7 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call filteredUsageCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call filteredUsageCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -685,8 +663,7 @@ public class AnalyticsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/analytics/filteredUsage"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/analytics/filteredUsage";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -870,20 +847,14 @@ public class AnalyticsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call filteredUsageValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling filteredUsage(Async)");
-        }
-
-        return filteredUsageCall(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
+    private okhttp3.Call filteredUsageValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return filteredUsageCall(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Filtered Usage
      * Query analytics to get data used for graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -932,15 +903,14 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ChartData filteredUsage(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ChartData> localVarResp = filteredUsageWithHttpInfo(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+    public ChartData filteredUsage(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ChartData> localVarResp = filteredUsageWithHttpInfo(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Filtered Usage
      * Query analytics to get data used for graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -989,8 +959,8 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ChartData> filteredUsageWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = filteredUsageValidateBeforeCall(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, null);
+    public ApiResponse<ChartData> filteredUsageWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = filteredUsageValidateBeforeCall(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ChartData>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -998,7 +968,6 @@ public class AnalyticsApi {
     /**
      * Get Filtered Usage (asynchronously)
      * Query analytics to get data used for graphs and charts
-     * @param version  (required)
      * @param deviceId The unique id of the device making the request (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param applicationId This parameter is deprecated. (optional)
@@ -1048,16 +1017,15 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call filteredUsageAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ChartData> _callback) throws ApiException {
+    public okhttp3.Call filteredUsageAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String gender, @javax.annotation.Nullable String ageGroup, @javax.annotation.Nullable String country, @javax.annotation.Nullable String state, @javax.annotation.Nullable String city, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String model, @javax.annotation.Nullable String tag, @javax.annotation.Nullable Long userAccountId, @javax.annotation.Nullable String userAccountDisplay, @javax.annotation.Nullable String userAccountUsername, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable String groupBy, @javax.annotation.Nullable String distinctCount, @javax.annotation.Nullable String sumColumn, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean hideUnknown, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ChartData> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = filteredUsageValidateBeforeCall(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = filteredUsageValidateBeforeCall(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ChartData>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for usage
-     * @param version  (required)
      * @param tag The tag to apply: the name of the action or thing being logged. (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1099,7 +1067,7 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call usageCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call usageCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1116,8 +1084,7 @@ public class AnalyticsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/analytics/usage"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/analytics/usage";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1269,25 +1236,19 @@ public class AnalyticsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call usageValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling usage(Async)");
-        }
-
+    private okhttp3.Call usageValidateBeforeCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tag' is set
         if (tag == null) {
             throw new ApiException("Missing the required parameter 'tag' when calling usage(Async)");
         }
 
-        return usageCall(version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, _callback);
+        return usageCall(tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, _callback);
 
     }
 
     /**
      * Create Usage Record
      * Record an analytic record for a known state within the application.
-     * @param version  (required)
      * @param tag The tag to apply: the name of the action or thing being logged. (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1328,15 +1289,14 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse usage(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = usageWithHttpInfo(version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
+    public SirqulResponse usage(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = usageWithHttpInfo(tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
         return localVarResp.getData();
     }
 
     /**
      * Create Usage Record
      * Record an analytic record for a known state within the application.
-     * @param version  (required)
      * @param tag The tag to apply: the name of the action or thing being logged. (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1377,8 +1337,8 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> usageWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2) throws ApiException {
-        okhttp3.Call localVarCall = usageValidateBeforeCall(version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, null);
+    public ApiResponse<SirqulResponse> usageWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2) throws ApiException {
+        okhttp3.Call localVarCall = usageValidateBeforeCall(tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1386,7 +1346,6 @@ public class AnalyticsApi {
     /**
      * Create Usage Record (asynchronously)
      * Record an analytic record for a known state within the application.
-     * @param version  (required)
      * @param tag The tag to apply: the name of the action or thing being logged. (required)
      * @param deviceId The client deviceID (optional)
      * @param accountId The logged in user ID (optional)
@@ -1428,16 +1387,15 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call usageAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call usageAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long applicationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String device, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long customId, @javax.annotation.Nullable String customType, @javax.annotation.Nullable Long achievementIncrement, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String country, @javax.annotation.Nullable String zip, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Long clientTime, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String ip, @javax.annotation.Nullable String userAgent, @javax.annotation.Nullable Boolean backgroundEvent, @javax.annotation.Nullable String customMessage, @javax.annotation.Nullable String customMessage2, @javax.annotation.Nullable Double customValue, @javax.annotation.Nullable Double customValue2, @javax.annotation.Nullable Long customLong, @javax.annotation.Nullable Long customLong2, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = usageValidateBeforeCall(version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, _callback);
+        okhttp3.Call localVarCall = usageValidateBeforeCall(tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for usageBatch
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param data The analytic data AnalyticListResponse (required)
@@ -1459,7 +1417,7 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call usageBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call usageBatchCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1476,8 +1434,7 @@ public class AnalyticsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/analytics/usage/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/analytics/usage/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1549,12 +1506,7 @@ public class AnalyticsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call usageBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling usageBatch(Async)");
-        }
-
+    private okhttp3.Call usageBatchValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling usageBatch(Async)");
@@ -1570,14 +1522,13 @@ public class AnalyticsApi {
             throw new ApiException("Missing the required parameter 'data' when calling usageBatch(Async)");
         }
 
-        return usageBatchCall(version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, _callback);
+        return usageBatchCall(appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, _callback);
 
     }
 
     /**
      * Create Multiple Usage Records
      * Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param data The analytic data AnalyticListResponse (required)
@@ -1598,15 +1549,14 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse usageBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = usageBatchWithHttpInfo(version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
+    public SirqulResponse usageBatch(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = usageBatchWithHttpInfo(appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
         return localVarResp.getData();
     }
 
     /**
      * Create Multiple Usage Records
      * Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param data The analytic data AnalyticListResponse (required)
@@ -1627,8 +1577,8 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> usageBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse) throws ApiException {
-        okhttp3.Call localVarCall = usageBatchValidateBeforeCall(version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, null);
+    public ApiResponse<SirqulResponse> usageBatchWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse) throws ApiException {
+        okhttp3.Call localVarCall = usageBatchValidateBeforeCall(appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1636,7 +1586,6 @@ public class AnalyticsApi {
     /**
      * Create Multiple Usage Records (asynchronously)
      * Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     * @param version  (required)
      * @param appKey The application key unique to each application. (required)
      * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
      * @param data The analytic data AnalyticListResponse (required)
@@ -1658,9 +1607,9 @@ public class AnalyticsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call usageBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call usageBatchAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String device, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable String deviceOS, @javax.annotation.Nullable String model, @javax.annotation.Nullable Boolean updateRanking, @javax.annotation.Nullable Boolean returnSummaryResponse, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = usageBatchValidateBeforeCall(version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, _callback);
+        okhttp3.Call localVarCall = usageBatchValidateBeforeCall(appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

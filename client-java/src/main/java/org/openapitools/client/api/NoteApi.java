@@ -77,7 +77,6 @@ public class NoteApi {
 
     /**
      * Build call for batchOperation
-     * @param version  (required)
      * @param notableId The id of the notable object the batch operation will affect (required)
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -93,7 +92,7 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchOperationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call batchOperationCall(@javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,8 +109,7 @@ public class NoteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/note/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/note/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -159,12 +157,7 @@ public class NoteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchOperationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling batchOperation(Async)");
-        }
-
+    private okhttp3.Call batchOperationValidateBeforeCall(@javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'notableId' is set
         if (notableId == null) {
             throw new ApiException("Missing the required parameter 'notableId' when calling batchOperation(Async)");
@@ -175,14 +168,13 @@ public class NoteApi {
             throw new ApiException("Missing the required parameter 'notableType' when calling batchOperation(Async)");
         }
 
-        return batchOperationCall(version, notableId, notableType, deviceId, accountId, batchOperation, _callback);
+        return batchOperationCall(notableId, notableType, deviceId, accountId, batchOperation, _callback);
 
     }
 
     /**
      * Batch Note Operation
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     * @param version  (required)
      * @param notableId The id of the notable object the batch operation will affect (required)
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -197,15 +189,14 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse batchOperation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = batchOperationWithHttpInfo(version, notableId, notableType, deviceId, accountId, batchOperation);
+    public SirqulResponse batchOperation(@javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = batchOperationWithHttpInfo(notableId, notableType, deviceId, accountId, batchOperation);
         return localVarResp.getData();
     }
 
     /**
      * Batch Note Operation
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     * @param version  (required)
      * @param notableId The id of the notable object the batch operation will affect (required)
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -220,8 +211,8 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> batchOperationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation) throws ApiException {
-        okhttp3.Call localVarCall = batchOperationValidateBeforeCall(version, notableId, notableType, deviceId, accountId, batchOperation, null);
+    public ApiResponse<SirqulResponse> batchOperationWithHttpInfo(@javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation) throws ApiException {
+        okhttp3.Call localVarCall = batchOperationValidateBeforeCall(notableId, notableType, deviceId, accountId, batchOperation, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -229,7 +220,6 @@ public class NoteApi {
     /**
      * Batch Note Operation (asynchronously)
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     * @param version  (required)
      * @param notableId The id of the notable object the batch operation will affect (required)
      * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -245,16 +235,15 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchOperationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call batchOperationAsync(@javax.annotation.Nonnull Long notableId, @javax.annotation.Nonnull String notableType, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String batchOperation, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = batchOperationValidateBeforeCall(version, notableId, notableType, deviceId, accountId, batchOperation, _callback);
+        okhttp3.Call localVarCall = batchOperationValidateBeforeCall(notableId, notableType, deviceId, accountId, batchOperation, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createNote
-     * @param version  (required)
      * @param comment The message the user wishes to leave a comment on (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -307,7 +296,7 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNoteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createNoteCall(@javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -324,8 +313,7 @@ public class NoteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/note/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/note/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -521,25 +509,19 @@ public class NoteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNoteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createNote(Async)");
-        }
-
+    private okhttp3.Call createNoteValidateBeforeCall(@javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'comment' is set
         if (comment == null) {
             throw new ApiException("Missing the required parameter 'comment' when calling createNote(Async)");
         }
 
-        return createNoteCall(version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
+        return createNoteCall(comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
 
     }
 
     /**
      * Create Note
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @param version  (required)
      * @param comment The message the user wishes to leave a comment on (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -591,15 +573,14 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NoteResponse createNote(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude) throws ApiException {
-        ApiResponse<NoteResponse> localVarResp = createNoteWithHttpInfo(version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+    public NoteResponse createNote(@javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude) throws ApiException {
+        ApiResponse<NoteResponse> localVarResp = createNoteWithHttpInfo(comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Note
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @param version  (required)
      * @param comment The message the user wishes to leave a comment on (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -651,8 +632,8 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NoteResponse> createNoteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude) throws ApiException {
-        okhttp3.Call localVarCall = createNoteValidateBeforeCall(version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, null);
+    public ApiResponse<NoteResponse> createNoteWithHttpInfo(@javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude) throws ApiException {
+        okhttp3.Call localVarCall = createNoteValidateBeforeCall(comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, null);
         Type localVarReturnType = new TypeToken<NoteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -660,7 +641,6 @@ public class NoteApi {
     /**
      * Create Note (asynchronously)
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @param version  (required)
      * @param comment The message the user wishes to leave a comment on (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -713,16 +693,15 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNoteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude, final ApiCallback<NoteResponse> _callback) throws ApiException {
+    public okhttp3.Call createNoteAsync(@javax.annotation.Nonnull String comment, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean initializeAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable BigDecimal assetLongitude, final ApiCallback<NoteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createNoteValidateBeforeCall(version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
+        okhttp3.Call localVarCall = createNoteValidateBeforeCall(comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
         Type localVarReturnType = new TypeToken<NoteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteNote
-     * @param version  (required)
      * @param noteId The ID of the note to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -739,7 +718,7 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteNoteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteNoteCall(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -756,8 +735,7 @@ public class NoteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/note/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/note/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -809,25 +787,19 @@ public class NoteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNoteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteNote(Async)");
-        }
-
+    private okhttp3.Call deleteNoteValidateBeforeCall(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'noteId' is set
         if (noteId == null) {
             throw new ApiException("Missing the required parameter 'noteId' when calling deleteNote(Async)");
         }
 
-        return deleteNoteCall(version, noteId, deviceId, accountId, latitude, longitude, appKey, _callback);
+        return deleteNoteCall(noteId, deviceId, accountId, latitude, longitude, appKey, _callback);
 
     }
 
     /**
      * Delete Note
      * Sets a comment (note) as deleted.
-     * @param version  (required)
      * @param noteId The ID of the note to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -843,15 +815,14 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteNote(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteNoteWithHttpInfo(version, noteId, deviceId, accountId, latitude, longitude, appKey);
+    public SirqulResponse deleteNote(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteNoteWithHttpInfo(noteId, deviceId, accountId, latitude, longitude, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Delete Note
      * Sets a comment (note) as deleted.
-     * @param version  (required)
      * @param noteId The ID of the note to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -867,8 +838,8 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteNoteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = deleteNoteValidateBeforeCall(version, noteId, deviceId, accountId, latitude, longitude, appKey, null);
+    public ApiResponse<SirqulResponse> deleteNoteWithHttpInfo(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = deleteNoteValidateBeforeCall(noteId, deviceId, accountId, latitude, longitude, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -876,7 +847,6 @@ public class NoteApi {
     /**
      * Delete Note (asynchronously)
      * Sets a comment (note) as deleted.
-     * @param version  (required)
      * @param noteId The ID of the note to delete (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -893,16 +863,15 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteNoteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteNoteAsync(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteNoteValidateBeforeCall(version, noteId, deviceId, accountId, latitude, longitude, appKey, _callback);
+        okhttp3.Call localVarCall = deleteNoteValidateBeforeCall(noteId, deviceId, accountId, latitude, longitude, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getNote
-     * @param version  (required)
      * @param noteId the id of the note to get (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -917,7 +886,7 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNoteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNoteCall(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -934,8 +903,7 @@ public class NoteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/note/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/note/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -979,25 +947,19 @@ public class NoteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNoteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getNote(Async)");
-        }
-
+    private okhttp3.Call getNoteValidateBeforeCall(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'noteId' is set
         if (noteId == null) {
             throw new ApiException("Missing the required parameter 'noteId' when calling getNote(Async)");
         }
 
-        return getNoteCall(version, noteId, deviceId, accountId, returnFullResponse, _callback);
+        return getNoteCall(noteId, deviceId, accountId, returnFullResponse, _callback);
 
     }
 
     /**
      * Get Note
      * Get for a note based on its Id.
-     * @param version  (required)
      * @param noteId the id of the note to get (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1011,15 +973,14 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse getNote(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = getNoteWithHttpInfo(version, noteId, deviceId, accountId, returnFullResponse);
+    public SirqulResponse getNote(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = getNoteWithHttpInfo(noteId, deviceId, accountId, returnFullResponse);
         return localVarResp.getData();
     }
 
     /**
      * Get Note
      * Get for a note based on its Id.
-     * @param version  (required)
      * @param noteId the id of the note to get (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1033,8 +994,8 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> getNoteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
-        okhttp3.Call localVarCall = getNoteValidateBeforeCall(version, noteId, deviceId, accountId, returnFullResponse, null);
+    public ApiResponse<SirqulResponse> getNoteWithHttpInfo(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
+        okhttp3.Call localVarCall = getNoteValidateBeforeCall(noteId, deviceId, accountId, returnFullResponse, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1042,7 +1003,6 @@ public class NoteApi {
     /**
      * Get Note (asynchronously)
      * Get for a note based on its Id.
-     * @param version  (required)
      * @param noteId the id of the note to get (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1057,16 +1017,15 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNoteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call getNoteAsync(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNoteValidateBeforeCall(version, noteId, deviceId, accountId, returnFullResponse, _callback);
+        okhttp3.Call localVarCall = getNoteValidateBeforeCall(noteId, deviceId, accountId, returnFullResponse, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchNotes
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -1094,7 +1053,7 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchNotesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchNotesCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1111,8 +1070,7 @@ public class NoteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/note/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/note/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1208,20 +1166,14 @@ public class NoteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchNotesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchNotes(Async)");
-        }
-
-        return searchNotesCall(version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, _callback);
+    private okhttp3.Call searchNotesValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchNotesCall(deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, _callback);
 
     }
 
     /**
      * Search Notes
      * Search for notes on a notable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -1248,15 +1200,14 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<NoteResponse> searchNotes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<NoteResponse>> localVarResp = searchNotesWithHttpInfo(version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
+    public List<NoteResponse> searchNotes(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<NoteResponse>> localVarResp = searchNotesWithHttpInfo(deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Notes
      * Search for notes on a notable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -1283,8 +1234,8 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<NoteResponse>> searchNotesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchNotesValidateBeforeCall(version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, null);
+    public ApiResponse<List<NoteResponse>> searchNotesWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchNotesValidateBeforeCall(deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, null);
         Type localVarReturnType = new TypeToken<List<NoteResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1292,7 +1243,6 @@ public class NoteApi {
     /**
      * Search Notes (asynchronously)
      * Search for notes on a notable object.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -1320,16 +1270,15 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchNotesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<NoteResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchNotesAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String notableType, @javax.annotation.Nullable Long notableId, @javax.annotation.Nullable String noteTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean flagsExceedThreshold, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<NoteResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchNotesValidateBeforeCall(version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, _callback);
+        okhttp3.Call localVarCall = searchNotesValidateBeforeCall(deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<NoteResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateNote
-     * @param version  (required)
      * @param noteId The id of the note, used when editing a comment (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1381,7 +1330,7 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateNoteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateNoteCall(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1398,8 +1347,7 @@ public class NoteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/note/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/note/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1591,25 +1539,19 @@ public class NoteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateNoteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateNote(Async)");
-        }
-
+    private okhttp3.Call updateNoteValidateBeforeCall(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'noteId' is set
         if (noteId == null) {
             throw new ApiException("Missing the required parameter 'noteId' when calling updateNote(Async)");
         }
 
-        return updateNoteCall(version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
+        return updateNoteCall(noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
 
     }
 
     /**
      * Update Note
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @param version  (required)
      * @param noteId The id of the note, used when editing a comment (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1660,15 +1602,14 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public NoteResponse updateNote(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude) throws ApiException {
-        ApiResponse<NoteResponse> localVarResp = updateNoteWithHttpInfo(version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+    public NoteResponse updateNote(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude) throws ApiException {
+        ApiResponse<NoteResponse> localVarResp = updateNoteWithHttpInfo(noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
         return localVarResp.getData();
     }
 
     /**
      * Update Note
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @param version  (required)
      * @param noteId The id of the note, used when editing a comment (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1719,8 +1660,8 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<NoteResponse> updateNoteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude) throws ApiException {
-        okhttp3.Call localVarCall = updateNoteValidateBeforeCall(version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, null);
+    public ApiResponse<NoteResponse> updateNoteWithHttpInfo(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude) throws ApiException {
+        okhttp3.Call localVarCall = updateNoteValidateBeforeCall(noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, null);
         Type localVarReturnType = new TypeToken<NoteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1728,7 +1669,6 @@ public class NoteApi {
     /**
      * Update Note (asynchronously)
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @param version  (required)
      * @param noteId The id of the note, used when editing a comment (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -1780,9 +1720,9 @@ public class NoteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateNoteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude, final ApiCallback<NoteResponse> _callback) throws ApiException {
+    public okhttp3.Call updateNoteAsync(@javax.annotation.Nonnull Long noteId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String noteType, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String permissionableType, @javax.annotation.Nullable Long permissionableId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean updateAsset, @javax.annotation.Nullable Boolean assetReturnNulls, @javax.annotation.Nullable Long assetAlbumId, @javax.annotation.Nullable Long assetCollectionId, @javax.annotation.Nullable String assetAddToDefaultAlbum, @javax.annotation.Nullable Boolean assetAddToMediaLibrary, @javax.annotation.Nullable Integer assetVersionCode, @javax.annotation.Nullable String assetVersionName, @javax.annotation.Nullable String assetMetaData, @javax.annotation.Nullable String assetCaption, @javax.annotation.Nullable File assetMedia, @javax.annotation.Nullable String assetMediaUrl, @javax.annotation.Nullable String assetMediaString, @javax.annotation.Nullable String assetMediaStringFileName, @javax.annotation.Nullable String assetMediaStringContentType, @javax.annotation.Nullable File assetAttachedMedia, @javax.annotation.Nullable String assetAttachedMediaUrl, @javax.annotation.Nullable String assetAttachedMediaString, @javax.annotation.Nullable String assetAttachedMediaStringFileName, @javax.annotation.Nullable String assetAttachedMediaStringContentType, @javax.annotation.Nullable String assetLocationDescription, @javax.annotation.Nullable String assetApp, @javax.annotation.Nullable String assetSearchTags, @javax.annotation.Nullable Double assetLatitude, @javax.annotation.Nullable Double assetLongitude, final ApiCallback<NoteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateNoteValidateBeforeCall(version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
+        okhttp3.Call localVarCall = updateNoteValidateBeforeCall(noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, _callback);
         Type localVarReturnType = new TypeToken<NoteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

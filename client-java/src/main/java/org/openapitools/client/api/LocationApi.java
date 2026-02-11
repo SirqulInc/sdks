@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CoordsResponse;
 import java.io.File;
 import org.openapitools.client.model.GeoPointResponse;
@@ -80,7 +79,6 @@ public class LocationApi {
 
     /**
      * Build call for cacheTrilaterationData
-     * @param version  (required)
      * @param udid The unique identifier of the source device (required)
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -96,7 +94,7 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cacheTrilaterationDataCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cacheTrilaterationDataCall(@javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,8 +111,7 @@ public class LocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/trilaterate/cache"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location/trilaterate/cache";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -162,25 +159,19 @@ public class LocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cacheTrilaterationDataValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling cacheTrilaterationData(Async)");
-        }
-
+    private okhttp3.Call cacheTrilaterationDataValidateBeforeCall(@javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'udid' is set
         if (udid == null) {
             throw new ApiException("Missing the required parameter 'udid' when calling cacheTrilaterationData(Async)");
         }
 
-        return cacheTrilaterationDataCall(version, udid, sourceTime, minimumSampleSize, data, dataFile, _callback);
+        return cacheTrilaterationDataCall(udid, sourceTime, minimumSampleSize, data, dataFile, _callback);
 
     }
 
     /**
      * Create Trilateration Data with File
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param udid The unique identifier of the source device (required)
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -195,15 +186,14 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse cacheTrilaterationData(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = cacheTrilaterationDataWithHttpInfo(version, udid, sourceTime, minimumSampleSize, data, dataFile);
+    public SirqulResponse cacheTrilaterationData(@javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = cacheTrilaterationDataWithHttpInfo(udid, sourceTime, minimumSampleSize, data, dataFile);
         return localVarResp.getData();
     }
 
     /**
      * Create Trilateration Data with File
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param udid The unique identifier of the source device (required)
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -218,8 +208,8 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> cacheTrilaterationDataWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile) throws ApiException {
-        okhttp3.Call localVarCall = cacheTrilaterationDataValidateBeforeCall(version, udid, sourceTime, minimumSampleSize, data, dataFile, null);
+    public ApiResponse<SirqulResponse> cacheTrilaterationDataWithHttpInfo(@javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile) throws ApiException {
+        okhttp3.Call localVarCall = cacheTrilaterationDataValidateBeforeCall(udid, sourceTime, minimumSampleSize, data, dataFile, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -227,7 +217,6 @@ public class LocationApi {
     /**
      * Create Trilateration Data with File (asynchronously)
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param udid The unique identifier of the source device (required)
      * @param sourceTime The current timestamp of the source device (optional)
      * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
@@ -243,16 +232,15 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cacheTrilaterationDataAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call cacheTrilaterationDataAsync(@javax.annotation.Nonnull String udid, @javax.annotation.Nullable Long sourceTime, @javax.annotation.Nullable Integer minimumSampleSize, @javax.annotation.Nullable String data, @javax.annotation.Nullable File dataFile, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = cacheTrilaterationDataValidateBeforeCall(version, udid, sourceTime, minimumSampleSize, data, dataFile, _callback);
+        okhttp3.Call localVarCall = cacheTrilaterationDataValidateBeforeCall(udid, sourceTime, minimumSampleSize, data, dataFile, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for cacheTrilaterationDataGzip
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -264,7 +252,7 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cacheTrilaterationDataGzipCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable TrilatCacheRequest body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cacheTrilaterationDataGzipCall(@javax.annotation.Nullable TrilatCacheRequest body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -281,8 +269,7 @@ public class LocationApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/trilaterate/cache/submit"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location/trilaterate/cache/submit";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -310,20 +297,14 @@ public class LocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cacheTrilaterationDataGzipValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable TrilatCacheRequest body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling cacheTrilaterationDataGzip(Async)");
-        }
-
-        return cacheTrilaterationDataGzipCall(version, body, _callback);
+    private okhttp3.Call cacheTrilaterationDataGzipValidateBeforeCall(@javax.annotation.Nullable TrilatCacheRequest body, final ApiCallback _callback) throws ApiException {
+        return cacheTrilaterationDataGzipCall(body, _callback);
 
     }
 
     /**
      * Create Trilateration Data with Rest
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param body  (optional)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -334,15 +315,14 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse cacheTrilaterationDataGzip(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable TrilatCacheRequest body) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = cacheTrilaterationDataGzipWithHttpInfo(version, body);
+    public SirqulResponse cacheTrilaterationDataGzip(@javax.annotation.Nullable TrilatCacheRequest body) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = cacheTrilaterationDataGzipWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Trilateration Data with Rest
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -353,8 +333,8 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> cacheTrilaterationDataGzipWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable TrilatCacheRequest body) throws ApiException {
-        okhttp3.Call localVarCall = cacheTrilaterationDataGzipValidateBeforeCall(version, body, null);
+    public ApiResponse<SirqulResponse> cacheTrilaterationDataGzipWithHttpInfo(@javax.annotation.Nullable TrilatCacheRequest body) throws ApiException {
+        okhttp3.Call localVarCall = cacheTrilaterationDataGzipValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -362,7 +342,6 @@ public class LocationApi {
     /**
      * Create Trilateration Data with Rest (asynchronously)
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -374,16 +353,15 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cacheTrilaterationDataGzipAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable TrilatCacheRequest body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call cacheTrilaterationDataGzipAsync(@javax.annotation.Nullable TrilatCacheRequest body, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = cacheTrilaterationDataGzipValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = cacheTrilaterationDataGzipValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getLocationByIp
-     * @param version  (required)
      * @param ip the ip address of the client device (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -395,7 +373,7 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationByIpCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String ip, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocationByIpCall(@javax.annotation.Nullable String ip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -412,8 +390,7 @@ public class LocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/ip"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location/ip";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -445,20 +422,14 @@ public class LocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocationByIpValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String ip, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getLocationByIp(Async)");
-        }
-
-        return getLocationByIpCall(version, ip, _callback);
+    private okhttp3.Call getLocationByIpValidateBeforeCall(@javax.annotation.Nullable String ip, final ApiCallback _callback) throws ApiException {
+        return getLocationByIpCall(ip, _callback);
 
     }
 
     /**
      * Get Location by IP
      * Get location information based on an IP address.
-     * @param version  (required)
      * @param ip the ip address of the client device (optional)
      * @return CoordsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -469,15 +440,14 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CoordsResponse getLocationByIp(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String ip) throws ApiException {
-        ApiResponse<CoordsResponse> localVarResp = getLocationByIpWithHttpInfo(version, ip);
+    public CoordsResponse getLocationByIp(@javax.annotation.Nullable String ip) throws ApiException {
+        ApiResponse<CoordsResponse> localVarResp = getLocationByIpWithHttpInfo(ip);
         return localVarResp.getData();
     }
 
     /**
      * Get Location by IP
      * Get location information based on an IP address.
-     * @param version  (required)
      * @param ip the ip address of the client device (optional)
      * @return ApiResponse&lt;CoordsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -488,8 +458,8 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CoordsResponse> getLocationByIpWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String ip) throws ApiException {
-        okhttp3.Call localVarCall = getLocationByIpValidateBeforeCall(version, ip, null);
+    public ApiResponse<CoordsResponse> getLocationByIpWithHttpInfo(@javax.annotation.Nullable String ip) throws ApiException {
+        okhttp3.Call localVarCall = getLocationByIpValidateBeforeCall(ip, null);
         Type localVarReturnType = new TypeToken<CoordsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -497,7 +467,6 @@ public class LocationApi {
     /**
      * Get Location by IP (asynchronously)
      * Get location information based on an IP address.
-     * @param version  (required)
      * @param ip the ip address of the client device (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -509,16 +478,15 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationByIpAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String ip, final ApiCallback<CoordsResponse> _callback) throws ApiException {
+    public okhttp3.Call getLocationByIpAsync(@javax.annotation.Nullable String ip, final ApiCallback<CoordsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocationByIpValidateBeforeCall(version, ip, _callback);
+        okhttp3.Call localVarCall = getLocationByIpValidateBeforeCall(ip, _callback);
         Type localVarReturnType = new TypeToken<CoordsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getLocationByTrilateration
-     * @param version  (required)
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -534,7 +502,7 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationByTrilaterationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocationByTrilaterationCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -551,8 +519,7 @@ public class LocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/account/location/trilaterate"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/account/location/trilaterate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -600,20 +567,14 @@ public class LocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocationByTrilaterationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getLocationByTrilateration(Async)");
-        }
-
-        return getLocationByTrilaterationCall(version, accountId, latitude, longitude, data, responseFilters, _callback);
+    private okhttp3.Call getLocationByTrilaterationValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters, final ApiCallback _callback) throws ApiException {
+        return getLocationByTrilaterationCall(accountId, latitude, longitude, data, responseFilters, _callback);
 
     }
 
     /**
      * Get Location by Trilateration
      * Send in device data and calculate a position based on signal strengths.
-     * @param version  (required)
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -628,15 +589,14 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GeoPointResponse getLocationByTrilateration(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters) throws ApiException {
-        ApiResponse<GeoPointResponse> localVarResp = getLocationByTrilaterationWithHttpInfo(version, accountId, latitude, longitude, data, responseFilters);
+    public GeoPointResponse getLocationByTrilateration(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters) throws ApiException {
+        ApiResponse<GeoPointResponse> localVarResp = getLocationByTrilaterationWithHttpInfo(accountId, latitude, longitude, data, responseFilters);
         return localVarResp.getData();
     }
 
     /**
      * Get Location by Trilateration
      * Send in device data and calculate a position based on signal strengths.
-     * @param version  (required)
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -651,8 +611,8 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GeoPointResponse> getLocationByTrilaterationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters) throws ApiException {
-        okhttp3.Call localVarCall = getLocationByTrilaterationValidateBeforeCall(version, accountId, latitude, longitude, data, responseFilters, null);
+    public ApiResponse<GeoPointResponse> getLocationByTrilaterationWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters) throws ApiException {
+        okhttp3.Call localVarCall = getLocationByTrilaterationValidateBeforeCall(accountId, latitude, longitude, data, responseFilters, null);
         Type localVarReturnType = new TypeToken<GeoPointResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -660,7 +620,6 @@ public class LocationApi {
     /**
      * Get Location by Trilateration (asynchronously)
      * Send in device data and calculate a position based on signal strengths.
-     * @param version  (required)
      * @param accountId The account making the request, if provided the last know location will be updated (optional)
      * @param latitude The known GPS latitude to compare to the calculated version (optional)
      * @param longitude The known GPS longitude to compare to the calculated version (optional)
@@ -676,16 +635,15 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationByTrilaterationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters, final ApiCallback<GeoPointResponse> _callback) throws ApiException {
+    public okhttp3.Call getLocationByTrilaterationAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String data, @javax.annotation.Nullable String responseFilters, final ApiCallback<GeoPointResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocationByTrilaterationValidateBeforeCall(version, accountId, latitude, longitude, data, responseFilters, _callback);
+        okhttp3.Call localVarCall = getLocationByTrilaterationValidateBeforeCall(accountId, latitude, longitude, data, responseFilters, _callback);
         Type localVarReturnType = new TypeToken<GeoPointResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getLocations
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -715,7 +673,7 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLocationsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -732,8 +690,7 @@ public class LocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -837,20 +794,14 @@ public class LocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getLocations(Async)");
-        }
-
-        return getLocationsCall(version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, _callback);
+    private okhttp3.Call getLocationsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return getLocationsCall(deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, _callback);
 
     }
 
     /**
      * Search Regions or Postal Codes
      * Searches geographic locations by proximity via address or keyword.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -879,15 +830,14 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public LocationSearchResponse getLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<LocationSearchResponse> localVarResp = getLocationsWithHttpInfo(version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
+    public LocationSearchResponse getLocations(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<LocationSearchResponse> localVarResp = getLocationsWithHttpInfo(deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Regions or Postal Codes
      * Searches geographic locations by proximity via address or keyword.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -916,8 +866,8 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LocationSearchResponse> getLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getLocationsValidateBeforeCall(version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, null);
+    public ApiResponse<LocationSearchResponse> getLocationsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getLocationsValidateBeforeCall(deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, null);
         Type localVarReturnType = new TypeToken<LocationSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -925,7 +875,6 @@ public class LocationApi {
     /**
      * Search Regions or Postal Codes (asynchronously)
      * Searches geographic locations by proximity via address or keyword.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the account id (optional)
      * @param currentlatitude This parameter is deprecated. (optional)
@@ -955,9 +904,9 @@ public class LocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<LocationSearchResponse> _callback) throws ApiException {
+    public okhttp3.Call getLocationsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double currentlatitude, @javax.annotation.Nullable Double currentlongitude, @javax.annotation.Nullable Double currentLatitude, @javax.annotation.Nullable Double currentLongitude, @javax.annotation.Nullable String query, @javax.annotation.Nullable String zipcode, @javax.annotation.Nullable String zipCode, @javax.annotation.Nullable Double selectedMaplatitude, @javax.annotation.Nullable Double selectedMaplongitude, @javax.annotation.Nullable Double selectedMapLatitude, @javax.annotation.Nullable Double selectedMapLongitude, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable Boolean useGeocode, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, final ApiCallback<LocationSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLocationsValidateBeforeCall(version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, _callback);
+        okhttp3.Call localVarCall = getLocationsValidateBeforeCall(deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, _callback);
         Type localVarReturnType = new TypeToken<LocationSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

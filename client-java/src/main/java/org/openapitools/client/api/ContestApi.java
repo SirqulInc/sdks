@@ -29,7 +29,6 @@ import java.io.IOException;
 
 import org.openapitools.client.model.AlbumContestListResponse;
 import org.openapitools.client.model.AlbumContestResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -77,7 +76,6 @@ public class ContestApi {
 
     /**
      * Build call for addOrUpdateAlbumContest
-     * @param version  (required)
      * @param publicRead determines whether the contest&#39;s participants has read permissions (required)
      * @param publicWrite determines whether the contest&#39;s participants has write permissions (required)
      * @param publicDelete determines whether the contest&#39;s participants has delete permissions (required)
@@ -113,7 +111,7 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addOrUpdateAlbumContestCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addOrUpdateAlbumContestCall(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -130,8 +128,7 @@ public class ContestApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/album/contest"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/album/contest";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -259,12 +256,7 @@ public class ContestApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addOrUpdateAlbumContestValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addOrUpdateAlbumContest(Async)");
-        }
-
+    private okhttp3.Call addOrUpdateAlbumContestValidateBeforeCall(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'publicRead' is set
         if (publicRead == null) {
             throw new ApiException("Missing the required parameter 'publicRead' when calling addOrUpdateAlbumContest(Async)");
@@ -295,14 +287,13 @@ public class ContestApi {
             throw new ApiException("Missing the required parameter 'includeFriendGroup' when calling addOrUpdateAlbumContest(Async)");
         }
 
-        return addOrUpdateAlbumContestCall(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, _callback);
+        return addOrUpdateAlbumContestCall(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, _callback);
 
     }
 
     /**
      * Create or Update Contest
      * Creates or updates a contest.
-     * @param version  (required)
      * @param publicRead determines whether the contest&#39;s participants has read permissions (required)
      * @param publicWrite determines whether the contest&#39;s participants has write permissions (required)
      * @param publicDelete determines whether the contest&#39;s participants has delete permissions (required)
@@ -337,15 +328,14 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AlbumContestResponse addOrUpdateAlbumContest(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<AlbumContestResponse> localVarResp = addOrUpdateAlbumContestWithHttpInfo(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
+    public AlbumContestResponse addOrUpdateAlbumContest(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<AlbumContestResponse> localVarResp = addOrUpdateAlbumContestWithHttpInfo(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create or Update Contest
      * Creates or updates a contest.
-     * @param version  (required)
      * @param publicRead determines whether the contest&#39;s participants has read permissions (required)
      * @param publicWrite determines whether the contest&#39;s participants has write permissions (required)
      * @param publicDelete determines whether the contest&#39;s participants has delete permissions (required)
@@ -380,8 +370,8 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AlbumContestResponse> addOrUpdateAlbumContestWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = addOrUpdateAlbumContestValidateBeforeCall(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, null);
+    public ApiResponse<AlbumContestResponse> addOrUpdateAlbumContestWithHttpInfo(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = addOrUpdateAlbumContestValidateBeforeCall(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<AlbumContestResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -389,7 +379,6 @@ public class ContestApi {
     /**
      * Create or Update Contest (asynchronously)
      * Creates or updates a contest.
-     * @param version  (required)
      * @param publicRead determines whether the contest&#39;s participants has read permissions (required)
      * @param publicWrite determines whether the contest&#39;s participants has write permissions (required)
      * @param publicDelete determines whether the contest&#39;s participants has delete permissions (required)
@@ -425,16 +414,15 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addOrUpdateAlbumContestAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestResponse> _callback) throws ApiException {
+    public okhttp3.Call addOrUpdateAlbumContestAsync(@javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long albumId1, @javax.annotation.Nullable Boolean removeAlbum1, @javax.annotation.Nullable Long albumId2, @javax.annotation.Nullable Boolean removeAlbum2, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String connectionIdsToAdd, @javax.annotation.Nullable String connectionGroupIdsToAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addOrUpdateAlbumContestValidateBeforeCall(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = addOrUpdateAlbumContestValidateBeforeCall(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<AlbumContestResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for approveAlbumContest
-     * @param version  (required)
      * @param albumContestId The ID of the album contest (required)
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -449,7 +437,7 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveAlbumContestCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call approveAlbumContestCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -466,8 +454,7 @@ public class ContestApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/album/contest/approve"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/album/contest/approve";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -511,12 +498,7 @@ public class ContestApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call approveAlbumContestValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling approveAlbumContest(Async)");
-        }
-
+    private okhttp3.Call approveAlbumContestValidateBeforeCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumContestId' is set
         if (albumContestId == null) {
             throw new ApiException("Missing the required parameter 'albumContestId' when calling approveAlbumContest(Async)");
@@ -527,14 +509,13 @@ public class ContestApi {
             throw new ApiException("Missing the required parameter 'approvalStatus' when calling approveAlbumContest(Async)");
         }
 
-        return approveAlbumContestCall(version, albumContestId, approvalStatus, deviceId, accountId, _callback);
+        return approveAlbumContestCall(albumContestId, approvalStatus, deviceId, accountId, _callback);
 
     }
 
     /**
      * Approve Contest
      * Sets the approval status of a contest.
-     * @param version  (required)
      * @param albumContestId The ID of the album contest (required)
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -548,15 +529,14 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse approveAlbumContest(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = approveAlbumContestWithHttpInfo(version, albumContestId, approvalStatus, deviceId, accountId);
+    public SirqulResponse approveAlbumContest(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = approveAlbumContestWithHttpInfo(albumContestId, approvalStatus, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Approve Contest
      * Sets the approval status of a contest.
-     * @param version  (required)
      * @param albumContestId The ID of the album contest (required)
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -570,8 +550,8 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> approveAlbumContestWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = approveAlbumContestValidateBeforeCall(version, albumContestId, approvalStatus, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> approveAlbumContestWithHttpInfo(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = approveAlbumContestValidateBeforeCall(albumContestId, approvalStatus, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -579,7 +559,6 @@ public class ContestApi {
     /**
      * Approve Contest (asynchronously)
      * Sets the approval status of a contest.
-     * @param version  (required)
      * @param albumContestId The ID of the album contest (required)
      * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
@@ -594,16 +573,15 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveAlbumContestAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call approveAlbumContestAsync(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull String approvalStatus, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = approveAlbumContestValidateBeforeCall(version, albumContestId, approvalStatus, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = approveAlbumContestValidateBeforeCall(albumContestId, approvalStatus, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteContest
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -619,7 +597,7 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteContestCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteContestCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -636,8 +614,7 @@ public class ContestApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/album/contest/remove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/album/contest/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -685,25 +662,19 @@ public class ContestApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteContestValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteContest(Async)");
-        }
-
+    private okhttp3.Call deleteContestValidateBeforeCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumContestId' is set
         if (albumContestId == null) {
             throw new ApiException("Missing the required parameter 'albumContestId' when calling deleteContest(Async)");
         }
 
-        return deleteContestCall(version, albumContestId, deviceId, accountId, latitude, longitude, _callback);
+        return deleteContestCall(albumContestId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Delete Contest
      * Deletes a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -718,15 +689,14 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteContest(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteContestWithHttpInfo(version, albumContestId, deviceId, accountId, latitude, longitude);
+    public SirqulResponse deleteContest(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteContestWithHttpInfo(albumContestId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Delete Contest
      * Deletes a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -741,8 +711,8 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteContestWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = deleteContestValidateBeforeCall(version, albumContestId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> deleteContestWithHttpInfo(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = deleteContestValidateBeforeCall(albumContestId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -750,7 +720,6 @@ public class ContestApi {
     /**
      * Delete Contest (asynchronously)
      * Deletes a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -766,16 +735,15 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteContestAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteContestAsync(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteContestValidateBeforeCall(version, albumContestId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = deleteContestValidateBeforeCall(albumContestId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAlbumContest
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -791,7 +759,7 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAlbumContestCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAlbumContestCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -808,8 +776,7 @@ public class ContestApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/album/contest/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/album/contest/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -857,25 +824,19 @@ public class ContestApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAlbumContestValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAlbumContest(Async)");
-        }
-
+    private okhttp3.Call getAlbumContestValidateBeforeCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumContestId' is set
         if (albumContestId == null) {
             throw new ApiException("Missing the required parameter 'albumContestId' when calling getAlbumContest(Async)");
         }
 
-        return getAlbumContestCall(version, albumContestId, deviceId, accountId, latitude, longitude, _callback);
+        return getAlbumContestCall(albumContestId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Contest
      * Gets the contest object including the likes and notes
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -890,15 +851,14 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AlbumContestResponse getAlbumContest(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<AlbumContestResponse> localVarResp = getAlbumContestWithHttpInfo(version, albumContestId, deviceId, accountId, latitude, longitude);
+    public AlbumContestResponse getAlbumContest(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<AlbumContestResponse> localVarResp = getAlbumContestWithHttpInfo(albumContestId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Contest
      * Gets the contest object including the likes and notes
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -913,8 +873,8 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AlbumContestResponse> getAlbumContestWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getAlbumContestValidateBeforeCall(version, albumContestId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<AlbumContestResponse> getAlbumContestWithHttpInfo(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getAlbumContestValidateBeforeCall(albumContestId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<AlbumContestResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -922,7 +882,6 @@ public class ContestApi {
     /**
      * Get Contest (asynchronously)
      * Gets the contest object including the likes and notes
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -938,16 +897,15 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAlbumContestAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestResponse> _callback) throws ApiException {
+    public okhttp3.Call getAlbumContestAsync(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAlbumContestValidateBeforeCall(version, albumContestId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getAlbumContestValidateBeforeCall(albumContestId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<AlbumContestResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAlbumContests
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See AlbumContestApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -977,7 +935,7 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAlbumContestsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAlbumContestsCall(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -994,8 +952,7 @@ public class ContestApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/album/contest/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/album/contest/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1099,12 +1056,7 @@ public class ContestApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAlbumContestsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAlbumContests(Async)");
-        }
-
+    private okhttp3.Call getAlbumContestsValidateBeforeCall(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'filter' is set
         if (filter == null) {
             throw new ApiException("Missing the required parameter 'filter' when calling getAlbumContests(Async)");
@@ -1130,14 +1082,13 @@ public class ContestApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getAlbumContests(Async)");
         }
 
-        return getAlbumContestsCall(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, _callback);
+        return getAlbumContestsCall(filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, _callback);
 
     }
 
     /**
      * Search Contests
      * Searches on contests.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See AlbumContestApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -1166,15 +1117,14 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AlbumContestListResponse getAlbumContests(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<AlbumContestListResponse> localVarResp = getAlbumContestsWithHttpInfo(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
+    public AlbumContestListResponse getAlbumContests(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<AlbumContestListResponse> localVarResp = getAlbumContestsWithHttpInfo(filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Search Contests
      * Searches on contests.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See AlbumContestApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -1203,8 +1153,8 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AlbumContestListResponse> getAlbumContestsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getAlbumContestsValidateBeforeCall(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, null);
+    public ApiResponse<AlbumContestListResponse> getAlbumContestsWithHttpInfo(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getAlbumContestsValidateBeforeCall(filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<AlbumContestListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1212,7 +1162,6 @@ public class ContestApi {
     /**
      * Search Contests (asynchronously)
      * Searches on contests.
-     * @param version  (required)
      * @param filter a comma separated list of Ownership (required)
      * @param sortField the field to sort by. See AlbumContestApiMap (required)
      * @param descending determines whether the sorted list is in descending or ascending order (required)
@@ -1242,16 +1191,15 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAlbumContestsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestListResponse> _callback) throws ApiException {
+    public okhttp3.Call getAlbumContestsAsync(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String appType, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAlbumContestsValidateBeforeCall(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getAlbumContestsValidateBeforeCall(filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<AlbumContestListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for voteOnAlbumContest
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param albumId the ID of the album to vote on (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1269,7 +1217,7 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call voteOnAlbumContestCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call voteOnAlbumContestCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1286,8 +1234,7 @@ public class ContestApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/consumer/album/contest/vote"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/consumer/album/contest/vote";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1343,12 +1290,7 @@ public class ContestApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call voteOnAlbumContestValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling voteOnAlbumContest(Async)");
-        }
-
+    private okhttp3.Call voteOnAlbumContestValidateBeforeCall(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumContestId' is set
         if (albumContestId == null) {
             throw new ApiException("Missing the required parameter 'albumContestId' when calling voteOnAlbumContest(Async)");
@@ -1359,14 +1301,13 @@ public class ContestApi {
             throw new ApiException("Missing the required parameter 'albumId' when calling voteOnAlbumContest(Async)");
         }
 
-        return voteOnAlbumContestCall(version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, _callback);
+        return voteOnAlbumContestCall(albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, _callback);
 
     }
 
     /**
      * Vote on Contest
      * Vote on a collection in a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param albumId the ID of the album to vote on (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1383,15 +1324,14 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AlbumContestResponse voteOnAlbumContest(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<AlbumContestResponse> localVarResp = voteOnAlbumContestWithHttpInfo(version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
+    public AlbumContestResponse voteOnAlbumContest(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<AlbumContestResponse> localVarResp = voteOnAlbumContestWithHttpInfo(albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Vote on Contest
      * Vote on a collection in a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param albumId the ID of the album to vote on (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1408,8 +1348,8 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AlbumContestResponse> voteOnAlbumContestWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = voteOnAlbumContestValidateBeforeCall(version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, null);
+    public ApiResponse<AlbumContestResponse> voteOnAlbumContestWithHttpInfo(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = voteOnAlbumContestValidateBeforeCall(albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<AlbumContestResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1417,7 +1357,6 @@ public class ContestApi {
     /**
      * Vote on Contest (asynchronously)
      * Vote on a collection in a contest.
-     * @param version  (required)
      * @param albumContestId the album contest ID (required)
      * @param albumId the ID of the album to vote on (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1435,9 +1374,9 @@ public class ContestApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call voteOnAlbumContestAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestResponse> _callback) throws ApiException {
+    public okhttp3.Call voteOnAlbumContestAsync(@javax.annotation.Nonnull Long albumContestId, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String contestType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AlbumContestResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = voteOnAlbumContestValidateBeforeCall(version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = voteOnAlbumContestValidateBeforeCall(albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<AlbumContestResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.ApplicationConfigResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -76,7 +75,6 @@ public class ApplicationConfigApi {
 
     /**
      * Build call for createApplicationConfig
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key that the newly created applicationConfig will be associated to (required)
      * @param configVersion The application configuration, has to be unique within the application (required)
@@ -94,7 +92,7 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createApplicationConfigCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createApplicationConfigCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -111,8 +109,7 @@ public class ApplicationConfigApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/appconfig/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/appconfig/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -168,12 +165,7 @@ public class ApplicationConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createApplicationConfig(Async)");
-        }
-
+    private okhttp3.Call createApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createApplicationConfig(Async)");
@@ -194,14 +186,13 @@ public class ApplicationConfigApi {
             throw new ApiException("Missing the required parameter 'assetId' when calling createApplicationConfig(Async)");
         }
 
-        return createApplicationConfigCall(version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
+        return createApplicationConfigCall(accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
 
     }
 
     /**
      * Create AppConfig
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key that the newly created applicationConfig will be associated to (required)
      * @param configVersion The application configuration, has to be unique within the application (required)
@@ -218,15 +209,14 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationConfigResponse createApplicationConfig(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
-        ApiResponse<ApplicationConfigResponse> localVarResp = createApplicationConfigWithHttpInfo(version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+    public ApplicationConfigResponse createApplicationConfig(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
+        ApiResponse<ApplicationConfigResponse> localVarResp = createApplicationConfigWithHttpInfo(accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
         return localVarResp.getData();
     }
 
     /**
      * Create AppConfig
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key that the newly created applicationConfig will be associated to (required)
      * @param configVersion The application configuration, has to be unique within the application (required)
@@ -243,8 +233,8 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationConfigResponse> createApplicationConfigWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
-        okhttp3.Call localVarCall = createApplicationConfigValidateBeforeCall(version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, null);
+    public ApiResponse<ApplicationConfigResponse> createApplicationConfigWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
+        okhttp3.Call localVarCall = createApplicationConfigValidateBeforeCall(accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, null);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -252,7 +242,6 @@ public class ApplicationConfigApi {
     /**
      * Create AppConfig (asynchronously)
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key that the newly created applicationConfig will be associated to (required)
      * @param configVersion The application configuration, has to be unique within the application (required)
@@ -270,16 +259,15 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createApplicationConfigAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
+    public okhttp3.Call createApplicationConfigAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createApplicationConfigValidateBeforeCall(version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
+        okhttp3.Call localVarCall = createApplicationConfigValidateBeforeCall(accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteApplicationConfig
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to delete (required)
      * @param _callback Callback for upload/download progress
@@ -292,7 +280,7 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteApplicationConfigCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteApplicationConfigCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -309,8 +297,7 @@ public class ApplicationConfigApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/appconfig/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/appconfig/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -346,12 +333,7 @@ public class ApplicationConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteApplicationConfig(Async)");
-        }
-
+    private okhttp3.Call deleteApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteApplicationConfig(Async)");
@@ -362,14 +344,13 @@ public class ApplicationConfigApi {
             throw new ApiException("Missing the required parameter 'configId' when calling deleteApplicationConfig(Async)");
         }
 
-        return deleteApplicationConfigCall(version, accountId, configId, _callback);
+        return deleteApplicationConfigCall(accountId, configId, _callback);
 
     }
 
     /**
      * Delete AppConfig
      * Mark the application configuration for deletion.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to delete (required)
      * @return SirqulResponse
@@ -381,15 +362,14 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteApplicationConfig(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteApplicationConfigWithHttpInfo(version, accountId, configId);
+    public SirqulResponse deleteApplicationConfig(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteApplicationConfigWithHttpInfo(accountId, configId);
         return localVarResp.getData();
     }
 
     /**
      * Delete AppConfig
      * Mark the application configuration for deletion.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -401,8 +381,8 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteApplicationConfigWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
-        okhttp3.Call localVarCall = deleteApplicationConfigValidateBeforeCall(version, accountId, configId, null);
+    public ApiResponse<SirqulResponse> deleteApplicationConfigWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
+        okhttp3.Call localVarCall = deleteApplicationConfigValidateBeforeCall(accountId, configId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -410,7 +390,6 @@ public class ApplicationConfigApi {
     /**
      * Delete AppConfig (asynchronously)
      * Mark the application configuration for deletion.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -423,16 +402,15 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteApplicationConfigAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteApplicationConfigAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteApplicationConfigValidateBeforeCall(version, accountId, configId, _callback);
+        okhttp3.Call localVarCall = deleteApplicationConfigValidateBeforeCall(accountId, configId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getApplicationConfig
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration (required)
      * @param _callback Callback for upload/download progress
@@ -445,7 +423,7 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationConfigCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationConfigCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -462,8 +440,7 @@ public class ApplicationConfigApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/appconfig/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/appconfig/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -499,12 +476,7 @@ public class ApplicationConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getApplicationConfig(Async)");
-        }
-
+    private okhttp3.Call getApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getApplicationConfig(Async)");
@@ -515,14 +487,13 @@ public class ApplicationConfigApi {
             throw new ApiException("Missing the required parameter 'configId' when calling getApplicationConfig(Async)");
         }
 
-        return getApplicationConfigCall(version, accountId, configId, _callback);
+        return getApplicationConfigCall(accountId, configId, _callback);
 
     }
 
     /**
      * Get AppConfig
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration (required)
      * @return ApplicationConfigResponse
@@ -534,15 +505,14 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationConfigResponse getApplicationConfig(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
-        ApiResponse<ApplicationConfigResponse> localVarResp = getApplicationConfigWithHttpInfo(version, accountId, configId);
+    public ApplicationConfigResponse getApplicationConfig(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
+        ApiResponse<ApplicationConfigResponse> localVarResp = getApplicationConfigWithHttpInfo(accountId, configId);
         return localVarResp.getData();
     }
 
     /**
      * Get AppConfig
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration (required)
      * @return ApiResponse&lt;ApplicationConfigResponse&gt;
@@ -554,8 +524,8 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationConfigResponse> getApplicationConfigWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
-        okhttp3.Call localVarCall = getApplicationConfigValidateBeforeCall(version, accountId, configId, null);
+    public ApiResponse<ApplicationConfigResponse> getApplicationConfigWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId) throws ApiException {
+        okhttp3.Call localVarCall = getApplicationConfigValidateBeforeCall(accountId, configId, null);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -563,7 +533,6 @@ public class ApplicationConfigApi {
     /**
      * Get AppConfig (asynchronously)
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -576,16 +545,15 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationConfigAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
+    public okhttp3.Call getApplicationConfigAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApplicationConfigValidateBeforeCall(version, accountId, configId, _callback);
+        okhttp3.Call localVarCall = getApplicationConfigValidateBeforeCall(accountId, configId, _callback);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getApplicationConfigByConfigVersion
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param configVersion The version of the application configuration (required)
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -602,7 +570,7 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationConfigByConfigVersionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApplicationConfigByConfigVersionCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -619,8 +587,7 @@ public class ApplicationConfigApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/appconfig/getbyversion"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/appconfig/getbyversion";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -672,12 +639,7 @@ public class ApplicationConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApplicationConfigByConfigVersionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getApplicationConfigByConfigVersion(Async)");
-        }
-
+    private okhttp3.Call getApplicationConfigByConfigVersionValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling getApplicationConfigByConfigVersion(Async)");
@@ -688,14 +650,13 @@ public class ApplicationConfigApi {
             throw new ApiException("Missing the required parameter 'configVersion' when calling getApplicationConfigByConfigVersion(Async)");
         }
 
-        return getApplicationConfigByConfigVersionCall(version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, _callback);
+        return getApplicationConfigByConfigVersionCall(appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, _callback);
 
     }
 
     /**
      * Get AppConfig by Version
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param configVersion The version of the application configuration (required)
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -711,15 +672,14 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationConfigResponse getApplicationConfigByConfigVersion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions) throws ApiException {
-        ApiResponse<ApplicationConfigResponse> localVarResp = getApplicationConfigByConfigVersionWithHttpInfo(version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
+    public ApplicationConfigResponse getApplicationConfigByConfigVersion(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions) throws ApiException {
+        ApiResponse<ApplicationConfigResponse> localVarResp = getApplicationConfigByConfigVersionWithHttpInfo(appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
         return localVarResp.getData();
     }
 
     /**
      * Get AppConfig by Version
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param configVersion The version of the application configuration (required)
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -735,8 +695,8 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationConfigResponse> getApplicationConfigByConfigVersionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions) throws ApiException {
-        okhttp3.Call localVarCall = getApplicationConfigByConfigVersionValidateBeforeCall(version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, null);
+    public ApiResponse<ApplicationConfigResponse> getApplicationConfigByConfigVersionWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions) throws ApiException {
+        okhttp3.Call localVarCall = getApplicationConfigByConfigVersionValidateBeforeCall(appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, null);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -744,7 +704,6 @@ public class ApplicationConfigApi {
     /**
      * Get AppConfig by Version (asynchronously)
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @param version  (required)
      * @param appKey The application key (required)
      * @param configVersion The version of the application configuration (required)
      * @param retailerId Only returns the config that matches the given retailer (optional)
@@ -761,16 +720,15 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApplicationConfigByConfigVersionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
+    public okhttp3.Call getApplicationConfigByConfigVersionAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String configVersion, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable Boolean allowOlderVersions, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApplicationConfigByConfigVersionValidateBeforeCall(version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, _callback);
+        okhttp3.Call localVarCall = getApplicationConfigByConfigVersionValidateBeforeCall(appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, _callback);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchApplicationConfig
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -791,7 +749,7 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationConfigCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchApplicationConfigCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -808,8 +766,7 @@ public class ApplicationConfigApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/appconfig/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/appconfig/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -877,25 +834,19 @@ public class ApplicationConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchApplicationConfig(Async)");
-        }
-
+    private okhttp3.Call searchApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchApplicationConfig(Async)");
         }
 
-        return searchApplicationConfigCall(version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, _callback);
+        return searchApplicationConfigCall(accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search AppConfigs
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -915,15 +866,14 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ApplicationConfigResponse> searchApplicationConfig(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<ApplicationConfigResponse>> localVarResp = searchApplicationConfigWithHttpInfo(version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
+    public List<ApplicationConfigResponse> searchApplicationConfig(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<ApplicationConfigResponse>> localVarResp = searchApplicationConfigWithHttpInfo(accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search AppConfigs
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -943,8 +893,8 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ApplicationConfigResponse>> searchApplicationConfigWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchApplicationConfigValidateBeforeCall(version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, null);
+    public ApiResponse<List<ApplicationConfigResponse>> searchApplicationConfigWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchApplicationConfigValidateBeforeCall(accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<List<ApplicationConfigResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -952,7 +902,6 @@ public class ApplicationConfigApi {
     /**
      * Search AppConfigs (asynchronously)
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
      * @param retailerId Only returns the configs that matches the given retailer (optional)
@@ -973,16 +922,15 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchApplicationConfigAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<ApplicationConfigResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchApplicationConfigAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<ApplicationConfigResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchApplicationConfigValidateBeforeCall(version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchApplicationConfigValidateBeforeCall(accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<ApplicationConfigResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateApplicationConfig
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to update (required)
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -1001,7 +949,7 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationConfigCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateApplicationConfigCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1018,8 +966,7 @@ public class ApplicationConfigApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/appconfig/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/appconfig/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1079,12 +1026,7 @@ public class ApplicationConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateApplicationConfig(Async)");
-        }
-
+    private okhttp3.Call updateApplicationConfigValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateApplicationConfig(Async)");
@@ -1095,14 +1037,13 @@ public class ApplicationConfigApi {
             throw new ApiException("Missing the required parameter 'configId' when calling updateApplicationConfig(Async)");
         }
 
-        return updateApplicationConfigCall(version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
+        return updateApplicationConfigCall(accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
 
     }
 
     /**
      * Update AppConfig
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to update (required)
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -1120,15 +1061,14 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationConfigResponse updateApplicationConfig(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
-        ApiResponse<ApplicationConfigResponse> localVarResp = updateApplicationConfigWithHttpInfo(version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+    public ApplicationConfigResponse updateApplicationConfig(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
+        ApiResponse<ApplicationConfigResponse> localVarResp = updateApplicationConfigWithHttpInfo(accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
         return localVarResp.getData();
     }
 
     /**
      * Update AppConfig
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to update (required)
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -1146,8 +1086,8 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationConfigResponse> updateApplicationConfigWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
-        okhttp3.Call localVarCall = updateApplicationConfigValidateBeforeCall(version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, null);
+    public ApiResponse<ApplicationConfigResponse> updateApplicationConfigWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
+        okhttp3.Call localVarCall = updateApplicationConfigValidateBeforeCall(accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, null);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1155,7 +1095,6 @@ public class ApplicationConfigApi {
     /**
      * Update AppConfig (asynchronously)
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-     * @param version  (required)
      * @param accountId The account ID of the user (required)
      * @param configId The config ID of the application configuration to update (required)
      * @param appKey The application key that the updated applicationConfig will be associated to (optional)
@@ -1174,9 +1113,9 @@ public class ApplicationConfigApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateApplicationConfigAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
+    public okhttp3.Call updateApplicationConfigAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long configId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String configVersion, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String udid, final ApiCallback<ApplicationConfigResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateApplicationConfigValidateBeforeCall(version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
+        okhttp3.Call localVarCall = updateApplicationConfigValidateBeforeCall(accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, _callback);
         Type localVarReturnType = new TypeToken<ApplicationConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

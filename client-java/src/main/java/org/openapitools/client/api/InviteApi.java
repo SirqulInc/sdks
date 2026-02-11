@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ConsumerInviteResponse;
 import org.openapitools.client.model.InviteResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class InviteApi {
 
     /**
      * Build call for acceptInvite
-     * @param version  (required)
      * @param token the invite token (required)
      * @param accountId the accountId of the user who is accepting the invite (required)
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -102,7 +100,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call acceptInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call acceptInviteCall(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -119,8 +117,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/accept"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/accept";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -204,12 +201,7 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call acceptInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling acceptInvite(Async)");
-        }
-
+    private okhttp3.Call acceptInviteValidateBeforeCall(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'token' is set
         if (token == null) {
             throw new ApiException("Missing the required parameter 'token' when calling acceptInvite(Async)");
@@ -220,14 +212,13 @@ public class InviteApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling acceptInvite(Async)");
         }
 
-        return acceptInviteCall(version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, _callback);
+        return acceptInviteCall(token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, _callback);
 
     }
 
     /**
      * Accept Invite
      * Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-     * @param version  (required)
      * @param token the invite token (required)
      * @param accountId the accountId of the user who is accepting the invite (required)
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -251,15 +242,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ConsumerInviteResponse acceptInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation) throws ApiException {
-        ApiResponse<ConsumerInviteResponse> localVarResp = acceptInviteWithHttpInfo(version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
+    public ConsumerInviteResponse acceptInvite(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation) throws ApiException {
+        ApiResponse<ConsumerInviteResponse> localVarResp = acceptInviteWithHttpInfo(token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
         return localVarResp.getData();
     }
 
     /**
      * Accept Invite
      * Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-     * @param version  (required)
      * @param token the invite token (required)
      * @param accountId the accountId of the user who is accepting the invite (required)
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -283,8 +273,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConsumerInviteResponse> acceptInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation) throws ApiException {
-        okhttp3.Call localVarCall = acceptInviteValidateBeforeCall(version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, null);
+    public ApiResponse<ConsumerInviteResponse> acceptInviteWithHttpInfo(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation) throws ApiException {
+        okhttp3.Call localVarCall = acceptInviteValidateBeforeCall(token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, null);
         Type localVarReturnType = new TypeToken<ConsumerInviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -292,7 +282,6 @@ public class InviteApi {
     /**
      * Accept Invite (asynchronously)
      * Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-     * @param version  (required)
      * @param token the invite token (required)
      * @param accountId the accountId of the user who is accepting the invite (required)
      * @param albumId the album id associated with this invite (if applicable) (optional)
@@ -317,16 +306,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call acceptInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation, final ApiCallback<ConsumerInviteResponse> _callback) throws ApiException {
+    public okhttp3.Call acceptInviteAsync(@javax.annotation.Nonnull String token, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean autoFriend, @javax.annotation.Nullable Boolean autoAttendEvent, @javax.annotation.Nullable Boolean autoFavoriteOffer, @javax.annotation.Nullable Boolean autoFavoriteOfferLocation, @javax.annotation.Nullable Boolean autoFavoriteRetailerLocation, final ApiCallback<ConsumerInviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = acceptInviteValidateBeforeCall(version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, _callback);
+        okhttp3.Call localVarCall = acceptInviteValidateBeforeCall(token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, _callback);
         Type localVarReturnType = new TypeToken<ConsumerInviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for albumContestInvite
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -344,7 +332,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call albumContestInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call albumContestInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -361,8 +349,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/albumContest"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/albumContest";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -418,20 +405,14 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call albumContestInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling albumContestInvite(Async)");
-        }
-
-        return albumContestInviteCall(version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, _callback);
+    private okhttp3.Call albumContestInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return albumContestInviteCall(deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, _callback);
 
     }
 
     /**
      * Invite to Contest
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -448,15 +429,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse albumContestInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = albumContestInviteWithHttpInfo(version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
+    public InviteResponse albumContestInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = albumContestInviteWithHttpInfo(deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Contest
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -473,8 +453,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> albumContestInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = albumContestInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, null);
+    public ApiResponse<InviteResponse> albumContestInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = albumContestInviteValidateBeforeCall(deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -482,7 +462,6 @@ public class InviteApi {
     /**
      * Invite to Contest (asynchronously)
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -500,16 +479,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call albumContestInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call albumContestInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = albumContestInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = albumContestInviteValidateBeforeCall(deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for albumInvite
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -527,7 +505,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call albumInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call albumInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -544,8 +522,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/album"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/album";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -601,20 +578,14 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call albumInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling albumInvite(Async)");
-        }
-
-        return albumInviteCall(version, deviceId, accountId, appId, appKey, albumId, latitude, longitude, _callback);
+    private okhttp3.Call albumInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return albumInviteCall(deviceId, accountId, appId, appKey, albumId, latitude, longitude, _callback);
 
     }
 
     /**
      * Invite to Collection
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -631,15 +602,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse albumInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = albumInviteWithHttpInfo(version, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
+    public InviteResponse albumInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = albumInviteWithHttpInfo(deviceId, accountId, appId, appKey, albumId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Collection
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -656,8 +626,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> albumInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = albumInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, albumId, latitude, longitude, null);
+    public ApiResponse<InviteResponse> albumInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = albumInviteValidateBeforeCall(deviceId, accountId, appId, appKey, albumId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -665,7 +635,6 @@ public class InviteApi {
     /**
      * Invite to Collection (asynchronously)
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -683,16 +652,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call albumInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call albumInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = albumInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, albumId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = albumInviteValidateBeforeCall(deviceId, accountId, appId, appKey, albumId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for eventInvite
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param listingId The ID of the event listing (required)
@@ -708,7 +676,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call eventInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call eventInviteCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -725,8 +693,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/event"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/event";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -774,12 +741,7 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call eventInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling eventInvite(Async)");
-        }
-
+    private okhttp3.Call eventInviteValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling eventInvite(Async)");
@@ -795,14 +757,13 @@ public class InviteApi {
             throw new ApiException("Missing the required parameter 'listingId' when calling eventInvite(Async)");
         }
 
-        return eventInviteCall(version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId, _callback);
+        return eventInviteCall(accountId, appKey, listingId, receiverAccountIds, retailerLocationId, _callback);
 
     }
 
     /**
      * Invite to Event
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param listingId The ID of the event listing (required)
@@ -817,15 +778,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse eventInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = eventInviteWithHttpInfo(version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
+    public InviteResponse eventInvite(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = eventInviteWithHttpInfo(accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Event
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param listingId The ID of the event listing (required)
@@ -840,8 +800,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> eventInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
-        okhttp3.Call localVarCall = eventInviteValidateBeforeCall(version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId, null);
+    public ApiResponse<InviteResponse> eventInviteWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
+        okhttp3.Call localVarCall = eventInviteValidateBeforeCall(accountId, appKey, listingId, receiverAccountIds, retailerLocationId, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -849,7 +809,6 @@ public class InviteApi {
     /**
      * Invite to Event (asynchronously)
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param listingId The ID of the event listing (required)
@@ -865,16 +824,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call eventInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call eventInviteAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long listingId, @javax.annotation.Nullable String receiverAccountIds, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = eventInviteValidateBeforeCall(version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId, _callback);
+        okhttp3.Call localVarCall = eventInviteValidateBeforeCall(accountId, appKey, listingId, receiverAccountIds, retailerLocationId, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for gameInvite
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -892,7 +850,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gameInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call gameInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -909,8 +867,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/gameLevel"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/gameLevel";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -966,20 +923,14 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call gameInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling gameInvite(Async)");
-        }
-
-        return gameInviteCall(version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, _callback);
+    private okhttp3.Call gameInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return gameInviteCall(deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, _callback);
 
     }
 
     /**
      * Invite to Game Level
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -996,15 +947,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse gameInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = gameInviteWithHttpInfo(version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
+    public InviteResponse gameInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = gameInviteWithHttpInfo(deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Game Level
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -1021,8 +971,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> gameInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = gameInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, null);
+    public ApiResponse<InviteResponse> gameInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = gameInviteValidateBeforeCall(deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1030,7 +980,6 @@ public class InviteApi {
     /**
      * Invite to Game Level (asynchronously)
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -1048,16 +997,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call gameInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call gameInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long gameLevelId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = gameInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = gameInviteValidateBeforeCall(deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getInvite
-     * @param version  (required)
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -1077,7 +1025,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInviteCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1094,8 +1042,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1159,20 +1106,14 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getInvite(Async)");
-        }
-
-        return getInviteCall(version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, _callback);
+    private okhttp3.Call getInviteValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+        return getInviteCall(accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, _callback);
 
     }
 
     /**
      * Get Invite
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @param version  (required)
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -1191,15 +1132,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse getInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = getInviteWithHttpInfo(version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
+    public SirqulResponse getInvite(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = getInviteWithHttpInfo(accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Get Invite
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @param version  (required)
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -1218,8 +1158,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> getInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = getInviteValidateBeforeCall(version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, null);
+    public ApiResponse<SirqulResponse> getInviteWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = getInviteValidateBeforeCall(accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1227,7 +1167,6 @@ public class InviteApi {
     /**
      * Get Invite (asynchronously)
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @param version  (required)
      * @param accountId Account ID of the user if they are logged in (optional)
      * @param token the invite token (optional)
      * @param albumId album id to match the invite against (if applicable) (optional)
@@ -1247,16 +1186,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call getInviteAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String token, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long albumContestId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInviteValidateBeforeCall(version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, _callback);
+        okhttp3.Call localVarCall = getInviteValidateBeforeCall(accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for missionInvite
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -1274,7 +1212,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call missionInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call missionInviteCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1291,8 +1229,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/mission"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/mission";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1348,20 +1285,14 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call missionInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling missionInvite(Async)");
-        }
-
-        return missionInviteCall(version, deviceId, accountId, appId, appKey, missionId, latitude, longitude, _callback);
+    private okhttp3.Call missionInviteValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return missionInviteCall(deviceId, accountId, appId, appKey, missionId, latitude, longitude, _callback);
 
     }
 
     /**
      * Invite to Mission
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -1378,15 +1309,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse missionInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = missionInviteWithHttpInfo(version, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
+    public InviteResponse missionInvite(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = missionInviteWithHttpInfo(deviceId, accountId, appId, appKey, missionId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Mission
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -1403,8 +1333,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> missionInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = missionInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, missionId, latitude, longitude, null);
+    public ApiResponse<InviteResponse> missionInviteWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = missionInviteValidateBeforeCall(deviceId, accountId, appId, appKey, missionId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1412,7 +1342,6 @@ public class InviteApi {
     /**
      * Invite to Mission (asynchronously)
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param appId This parameter is deprecated. (optional)
@@ -1430,16 +1359,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call missionInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call missionInviteAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long appId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = missionInviteValidateBeforeCall(version, deviceId, accountId, appId, appKey, missionId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = missionInviteValidateBeforeCall(deviceId, accountId, appId, appKey, missionId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for offerInvite
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerId the ID of the offer used to invite to favorite (required)
@@ -1453,7 +1381,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call offerInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call offerInviteCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1470,8 +1398,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/offer"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/offer";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1511,12 +1438,7 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call offerInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling offerInvite(Async)");
-        }
-
+    private okhttp3.Call offerInviteValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling offerInvite(Async)");
@@ -1532,14 +1454,13 @@ public class InviteApi {
             throw new ApiException("Missing the required parameter 'offerId' when calling offerInvite(Async)");
         }
 
-        return offerInviteCall(version, accountId, appKey, offerId, _callback);
+        return offerInviteCall(accountId, appKey, offerId, _callback);
 
     }
 
     /**
      * Invite to Offer
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerId the ID of the offer used to invite to favorite (required)
@@ -1552,15 +1473,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse offerInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = offerInviteWithHttpInfo(version, accountId, appKey, offerId);
+    public InviteResponse offerInvite(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = offerInviteWithHttpInfo(accountId, appKey, offerId);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Offer
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerId the ID of the offer used to invite to favorite (required)
@@ -1573,8 +1493,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> offerInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId) throws ApiException {
-        okhttp3.Call localVarCall = offerInviteValidateBeforeCall(version, accountId, appKey, offerId, null);
+    public ApiResponse<InviteResponse> offerInviteWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId) throws ApiException {
+        okhttp3.Call localVarCall = offerInviteValidateBeforeCall(accountId, appKey, offerId, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1582,7 +1502,6 @@ public class InviteApi {
     /**
      * Invite to Offer (asynchronously)
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerId the ID of the offer used to invite to favorite (required)
@@ -1596,16 +1515,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call offerInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call offerInviteAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerId, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = offerInviteValidateBeforeCall(version, accountId, appKey, offerId, _callback);
+        okhttp3.Call localVarCall = offerInviteValidateBeforeCall(accountId, appKey, offerId, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for offerLocationInvite
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerLocationId the id of the offer location to share (required)
@@ -1619,7 +1537,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call offerLocationInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call offerLocationInviteCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1636,8 +1554,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/offerLocation"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/offerLocation";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1677,12 +1594,7 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call offerLocationInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling offerLocationInvite(Async)");
-        }
-
+    private okhttp3.Call offerLocationInviteValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling offerLocationInvite(Async)");
@@ -1698,14 +1610,13 @@ public class InviteApi {
             throw new ApiException("Missing the required parameter 'offerLocationId' when calling offerLocationInvite(Async)");
         }
 
-        return offerLocationInviteCall(version, accountId, appKey, offerLocationId, _callback);
+        return offerLocationInviteCall(accountId, appKey, offerLocationId, _callback);
 
     }
 
     /**
      * Invite to Offer Location
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerLocationId the id of the offer location to share (required)
@@ -1718,15 +1629,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse offerLocationInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = offerLocationInviteWithHttpInfo(version, accountId, appKey, offerLocationId);
+    public InviteResponse offerLocationInvite(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = offerLocationInviteWithHttpInfo(accountId, appKey, offerLocationId);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Offer Location
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerLocationId the id of the offer location to share (required)
@@ -1739,8 +1649,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> offerLocationInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId) throws ApiException {
-        okhttp3.Call localVarCall = offerLocationInviteValidateBeforeCall(version, accountId, appKey, offerLocationId, null);
+    public ApiResponse<InviteResponse> offerLocationInviteWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId) throws ApiException {
+        okhttp3.Call localVarCall = offerLocationInviteValidateBeforeCall(accountId, appKey, offerLocationId, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1748,7 +1658,6 @@ public class InviteApi {
     /**
      * Invite to Offer Location (asynchronously)
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param offerLocationId the id of the offer location to share (required)
@@ -1762,16 +1671,15 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call offerLocationInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call offerLocationInviteAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long offerLocationId, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = offerLocationInviteValidateBeforeCall(version, accountId, appKey, offerLocationId, _callback);
+        okhttp3.Call localVarCall = offerLocationInviteValidateBeforeCall(accountId, appKey, offerLocationId, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for retailerLocationInvite
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param retailerLocationId The retailer location id of where the event will take place (required)
@@ -1786,7 +1694,7 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retailerLocationInviteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call retailerLocationInviteCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1803,8 +1711,7 @@ public class InviteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/invite/retailerLocation"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/invite/retailerLocation";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1848,12 +1755,7 @@ public class InviteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call retailerLocationInviteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling retailerLocationInvite(Async)");
-        }
-
+    private okhttp3.Call retailerLocationInviteValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling retailerLocationInvite(Async)");
@@ -1869,14 +1771,13 @@ public class InviteApi {
             throw new ApiException("Missing the required parameter 'retailerLocationId' when calling retailerLocationInvite(Async)");
         }
 
-        return retailerLocationInviteCall(version, accountId, appKey, retailerLocationId, albumId, _callback);
+        return retailerLocationInviteCall(accountId, appKey, retailerLocationId, albumId, _callback);
 
     }
 
     /**
      * Invite to Retailer Location
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param retailerLocationId The retailer location id of where the event will take place (required)
@@ -1890,15 +1791,14 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public InviteResponse retailerLocationInvite(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId) throws ApiException {
-        ApiResponse<InviteResponse> localVarResp = retailerLocationInviteWithHttpInfo(version, accountId, appKey, retailerLocationId, albumId);
+    public InviteResponse retailerLocationInvite(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId) throws ApiException {
+        ApiResponse<InviteResponse> localVarResp = retailerLocationInviteWithHttpInfo(accountId, appKey, retailerLocationId, albumId);
         return localVarResp.getData();
     }
 
     /**
      * Invite to Retailer Location
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param retailerLocationId The retailer location id of where the event will take place (required)
@@ -1912,8 +1812,8 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InviteResponse> retailerLocationInviteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId) throws ApiException {
-        okhttp3.Call localVarCall = retailerLocationInviteValidateBeforeCall(version, accountId, appKey, retailerLocationId, albumId, null);
+    public ApiResponse<InviteResponse> retailerLocationInviteWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId) throws ApiException {
+        okhttp3.Call localVarCall = retailerLocationInviteValidateBeforeCall(accountId, appKey, retailerLocationId, albumId, null);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1921,7 +1821,6 @@ public class InviteApi {
     /**
      * Invite to Retailer Location (asynchronously)
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-     * @param version  (required)
      * @param accountId the account ID of the user making the share (required)
      * @param appKey the application key (required)
      * @param retailerLocationId The retailer location id of where the event will take place (required)
@@ -1936,9 +1835,9 @@ public class InviteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retailerLocationInviteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId, final ApiCallback<InviteResponse> _callback) throws ApiException {
+    public okhttp3.Call retailerLocationInviteAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable Long albumId, final ApiCallback<InviteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = retailerLocationInviteValidateBeforeCall(version, accountId, appKey, retailerLocationId, albumId, _callback);
+        okhttp3.Call localVarCall = retailerLocationInviteValidateBeforeCall(accountId, appKey, retailerLocationId, albumId, _callback);
         Type localVarReturnType = new TypeToken<InviteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

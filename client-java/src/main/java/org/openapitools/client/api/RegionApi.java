@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.RegionResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class RegionApi {
 
     /**
      * Build call for createRegion
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionClass RegionClass of this region (required)
      * @param shortName Short name of the region. This is optimized for search (required)
@@ -107,7 +105,7 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRegionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRegionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -124,8 +122,7 @@ public class RegionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/region/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/region/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -237,12 +234,7 @@ public class RegionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRegionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRegion(Async)");
-        }
-
+    private okhttp3.Call createRegionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createRegion(Async)");
@@ -258,14 +250,13 @@ public class RegionApi {
             throw new ApiException("Missing the required parameter 'shortName' when calling createRegion(Async)");
         }
 
-        return createRegionCall(version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, _callback);
+        return createRegionCall(accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, _callback);
 
     }
 
     /**
      * Create Region
      * Create a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionClass RegionClass of this region (required)
      * @param shortName Short name of the region. This is optimized for search (required)
@@ -296,15 +287,14 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RegionResponse createRegion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<RegionResponse> localVarResp = createRegionWithHttpInfo(version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
+    public RegionResponse createRegion(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<RegionResponse> localVarResp = createRegionWithHttpInfo(accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Region
      * Create a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionClass RegionClass of this region (required)
      * @param shortName Short name of the region. This is optimized for search (required)
@@ -335,8 +325,8 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RegionResponse> createRegionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = createRegionValidateBeforeCall(version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, null);
+    public ApiResponse<RegionResponse> createRegionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = createRegionValidateBeforeCall(accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, null);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -344,7 +334,6 @@ public class RegionApi {
     /**
      * Create Region (asynchronously)
      * Create a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionClass RegionClass of this region (required)
      * @param shortName Short name of the region. This is optimized for search (required)
@@ -376,16 +365,15 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRegionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, final ApiCallback<RegionResponse> _callback) throws ApiException {
+    public okhttp3.Call createRegionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String regionClass, @javax.annotation.Nonnull String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, final ApiCallback<RegionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRegionValidateBeforeCall(version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, _callback);
+        okhttp3.Call localVarCall = createRegionValidateBeforeCall(accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, _callback);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteRegion
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param regionId the id of the region (required)
      * @param _callback Callback for upload/download progress
@@ -398,7 +386,7 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRegionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteRegionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -415,8 +403,7 @@ public class RegionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/region/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/region/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -452,12 +439,7 @@ public class RegionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRegionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteRegion(Async)");
-        }
-
+    private okhttp3.Call deleteRegionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteRegion(Async)");
@@ -468,14 +450,13 @@ public class RegionApi {
             throw new ApiException("Missing the required parameter 'regionId' when calling deleteRegion(Async)");
         }
 
-        return deleteRegionCall(version, accountId, regionId, _callback);
+        return deleteRegionCall(accountId, regionId, _callback);
 
     }
 
     /**
      * Delete Region
      * Delete a region.
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param regionId the id of the region (required)
      * @return RegionResponse
@@ -487,15 +468,14 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RegionResponse deleteRegion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId) throws ApiException {
-        ApiResponse<RegionResponse> localVarResp = deleteRegionWithHttpInfo(version, accountId, regionId);
+    public RegionResponse deleteRegion(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId) throws ApiException {
+        ApiResponse<RegionResponse> localVarResp = deleteRegionWithHttpInfo(accountId, regionId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Region
      * Delete a region.
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param regionId the id of the region (required)
      * @return ApiResponse&lt;RegionResponse&gt;
@@ -507,8 +487,8 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RegionResponse> deleteRegionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId) throws ApiException {
-        okhttp3.Call localVarCall = deleteRegionValidateBeforeCall(version, accountId, regionId, null);
+    public ApiResponse<RegionResponse> deleteRegionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId) throws ApiException {
+        okhttp3.Call localVarCall = deleteRegionValidateBeforeCall(accountId, regionId, null);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -516,7 +496,6 @@ public class RegionApi {
     /**
      * Delete Region (asynchronously)
      * Delete a region.
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param regionId the id of the region (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -529,16 +508,15 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRegionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, final ApiCallback<RegionResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteRegionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, final ApiCallback<RegionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRegionValidateBeforeCall(version, accountId, regionId, _callback);
+        okhttp3.Call localVarCall = deleteRegionValidateBeforeCall(accountId, regionId, _callback);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRegion
-     * @param version  (required)
      * @param regionId the id of the region to get (required)
      * @param accountId the id of the logged in user (optional)
      * @param _callback Callback for upload/download progress
@@ -551,7 +529,7 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRegionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRegionCall(@javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -568,8 +546,7 @@ public class RegionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/region/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/region/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -605,25 +582,19 @@ public class RegionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRegionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRegion(Async)");
-        }
-
+    private okhttp3.Call getRegionValidateBeforeCall(@javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'regionId' is set
         if (regionId == null) {
             throw new ApiException("Missing the required parameter 'regionId' when calling getRegion(Async)");
         }
 
-        return getRegionCall(version, regionId, accountId, _callback);
+        return getRegionCall(regionId, accountId, _callback);
 
     }
 
     /**
      * Get Region
      * Get a region.
-     * @param version  (required)
      * @param regionId the id of the region to get (required)
      * @param accountId the id of the logged in user (optional)
      * @return RegionResponse
@@ -635,15 +606,14 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RegionResponse getRegion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<RegionResponse> localVarResp = getRegionWithHttpInfo(version, regionId, accountId);
+    public RegionResponse getRegion(@javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<RegionResponse> localVarResp = getRegionWithHttpInfo(regionId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Region
      * Get a region.
-     * @param version  (required)
      * @param regionId the id of the region to get (required)
      * @param accountId the id of the logged in user (optional)
      * @return ApiResponse&lt;RegionResponse&gt;
@@ -655,8 +625,8 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RegionResponse> getRegionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getRegionValidateBeforeCall(version, regionId, accountId, null);
+    public ApiResponse<RegionResponse> getRegionWithHttpInfo(@javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getRegionValidateBeforeCall(regionId, accountId, null);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -664,7 +634,6 @@ public class RegionApi {
     /**
      * Get Region (asynchronously)
      * Get a region.
-     * @param version  (required)
      * @param regionId the id of the region to get (required)
      * @param accountId the id of the logged in user (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -677,16 +646,15 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRegionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId, final ApiCallback<RegionResponse> _callback) throws ApiException {
+    public okhttp3.Call getRegionAsync(@javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable Long accountId, final ApiCallback<RegionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRegionValidateBeforeCall(version, regionId, accountId, _callback);
+        okhttp3.Call localVarCall = getRegionValidateBeforeCall(regionId, accountId, _callback);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRegions
-     * @param version  (required)
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -719,7 +687,7 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRegionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRegionsCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -736,8 +704,7 @@ public class RegionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/region/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/region/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -853,20 +820,14 @@ public class RegionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRegionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRegions(Async)");
-        }
-
-        return searchRegionsCall(version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, _callback);
+    private okhttp3.Call searchRegionsValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchRegionsCall(accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, _callback);
 
     }
 
     /**
      * Search Regions
      * Get the list of regions.
-     * @param version  (required)
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -898,15 +859,14 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RegionResponse> searchRegions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<RegionResponse>> localVarResp = searchRegionsWithHttpInfo(version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
+    public List<RegionResponse> searchRegions(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<RegionResponse>> localVarResp = searchRegionsWithHttpInfo(accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Regions
      * Get the list of regions.
-     * @param version  (required)
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -938,8 +898,8 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RegionResponse>> searchRegionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchRegionsValidateBeforeCall(version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, null);
+    public ApiResponse<List<RegionResponse>> searchRegionsWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchRegionsValidateBeforeCall(accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, null);
         Type localVarReturnType = new TypeToken<List<RegionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -947,7 +907,6 @@ public class RegionApi {
     /**
      * Search Regions (asynchronously)
      * Get the list of regions.
-     * @param version  (required)
      * @param accountId the owner account id of the region to be created (optional)
      * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
      * @param keyword the keyword to filter results on (optional)
@@ -980,16 +939,15 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRegionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<RegionResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchRegionsAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeParent, @javax.annotation.Nullable Boolean includeChildren, @javax.annotation.Nullable Boolean includePostalCodes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean showDeleted, @javax.annotation.Nullable Long lastUpdatedSince, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<RegionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRegionsValidateBeforeCall(version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, _callback);
+        okhttp3.Call localVarCall = searchRegionsValidateBeforeCall(accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<RegionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRegion
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionId The id of the region to be updated (required)
      * @param regionClass RegionClass of this region (optional)
@@ -1023,7 +981,7 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRegionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRegionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1040,8 +998,7 @@ public class RegionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/region/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/region/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1161,12 +1118,7 @@ public class RegionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRegionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRegion(Async)");
-        }
-
+    private okhttp3.Call updateRegionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateRegion(Async)");
@@ -1177,14 +1129,13 @@ public class RegionApi {
             throw new ApiException("Missing the required parameter 'regionId' when calling updateRegion(Async)");
         }
 
-        return updateRegionCall(version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, _callback);
+        return updateRegionCall(accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, _callback);
 
     }
 
     /**
      * Update Region
      * Update a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionId The id of the region to be updated (required)
      * @param regionClass RegionClass of this region (optional)
@@ -1217,15 +1168,14 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RegionResponse updateRegion(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists) throws ApiException {
-        ApiResponse<RegionResponse> localVarResp = updateRegionWithHttpInfo(version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
+    public RegionResponse updateRegion(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists) throws ApiException {
+        ApiResponse<RegionResponse> localVarResp = updateRegionWithHttpInfo(accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
         return localVarResp.getData();
     }
 
     /**
      * Update Region
      * Update a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionId The id of the region to be updated (required)
      * @param regionClass RegionClass of this region (optional)
@@ -1258,8 +1208,8 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RegionResponse> updateRegionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists) throws ApiException {
-        okhttp3.Call localVarCall = updateRegionValidateBeforeCall(version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, null);
+    public ApiResponse<RegionResponse> updateRegionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists) throws ApiException {
+        okhttp3.Call localVarCall = updateRegionValidateBeforeCall(accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, null);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1267,7 +1217,6 @@ public class RegionApi {
     /**
      * Update Region (asynchronously)
      * Update a region.
-     * @param version  (required)
      * @param accountId The id of the account sending the request (required)
      * @param regionId The id of the region to be updated (required)
      * @param regionClass RegionClass of this region (optional)
@@ -1301,9 +1250,9 @@ public class RegionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRegionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists, final ApiCallback<RegionResponse> _callback) throws ApiException {
+    public okhttp3.Call updateRegionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long regionId, @javax.annotation.Nullable String regionClass, @javax.annotation.Nullable String shortName, @javax.annotation.Nullable String fullName, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String childrenIds, @javax.annotation.Nullable String postalCodeIds, @javax.annotation.Nullable String locations, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long end, @javax.annotation.Nullable String polygon, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable Boolean root, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean clearLists, final ApiCallback<RegionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRegionValidateBeforeCall(version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, _callback);
+        okhttp3.Call localVarCall = updateRegionValidateBeforeCall(accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, _callback);
         Type localVarReturnType = new TypeToken<RegionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

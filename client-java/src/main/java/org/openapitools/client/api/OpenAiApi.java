@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.WrappedProxyItemResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class OpenAiApi {
 
     /**
      * Build call for imageGeneration
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param postBody Post Body Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -89,7 +87,7 @@ public class OpenAiApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call imageGenerationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call imageGenerationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -106,8 +104,7 @@ public class OpenAiApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/openai/v1/images/generations"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/openai/v1/images/generations";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -147,12 +144,7 @@ public class OpenAiApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call imageGenerationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling imageGeneration(Async)");
-        }
-
+    private okhttp3.Call imageGenerationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling imageGeneration(Async)");
@@ -163,14 +155,13 @@ public class OpenAiApi {
             throw new ApiException("Missing the required parameter 'postBody' when calling imageGeneration(Async)");
         }
 
-        return imageGenerationCall(version, accountId, postBody, returnRawResponse, _callback);
+        return imageGenerationCall(accountId, postBody, returnRawResponse, _callback);
 
     }
 
     /**
      * Generate images with OpenAI
      * Generate images with OpenAI.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param postBody Post Body Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -183,15 +174,14 @@ public class OpenAiApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public WrappedProxyItemResponse imageGeneration(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        ApiResponse<WrappedProxyItemResponse> localVarResp = imageGenerationWithHttpInfo(version, accountId, postBody, returnRawResponse);
+    public WrappedProxyItemResponse imageGeneration(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        ApiResponse<WrappedProxyItemResponse> localVarResp = imageGenerationWithHttpInfo(accountId, postBody, returnRawResponse);
         return localVarResp.getData();
     }
 
     /**
      * Generate images with OpenAI
      * Generate images with OpenAI.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param postBody Post Body Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -204,8 +194,8 @@ public class OpenAiApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WrappedProxyItemResponse> imageGenerationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
-        okhttp3.Call localVarCall = imageGenerationValidateBeforeCall(version, accountId, postBody, returnRawResponse, null);
+    public ApiResponse<WrappedProxyItemResponse> imageGenerationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse) throws ApiException {
+        okhttp3.Call localVarCall = imageGenerationValidateBeforeCall(accountId, postBody, returnRawResponse, null);
         Type localVarReturnType = new TypeToken<WrappedProxyItemResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -213,7 +203,6 @@ public class OpenAiApi {
     /**
      * Generate images with OpenAI (asynchronously)
      * Generate images with OpenAI.
-     * @param version  (required)
      * @param accountId Sirqul Account Id (required)
      * @param postBody Post Body Parameters (required)
      * @param returnRawResponse Return raw response (optional)
@@ -227,9 +216,9 @@ public class OpenAiApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call imageGenerationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<WrappedProxyItemResponse> _callback) throws ApiException {
+    public okhttp3.Call imageGenerationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String postBody, @javax.annotation.Nullable Boolean returnRawResponse, final ApiCallback<WrappedProxyItemResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = imageGenerationValidateBeforeCall(version, accountId, postBody, returnRawResponse, _callback);
+        okhttp3.Call localVarCall = imageGenerationValidateBeforeCall(accountId, postBody, returnRawResponse, _callback);
         Type localVarReturnType = new TypeToken<WrappedProxyItemResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

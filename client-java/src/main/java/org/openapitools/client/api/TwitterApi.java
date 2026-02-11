@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ProfileResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class TwitterApi {
 
     /**
      * Build call for authorizeTwitter
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -88,7 +86,7 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call authorizeTwitterCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call authorizeTwitterCall(@javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,8 +103,7 @@ public class TwitterApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/twitter/authorize"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/twitter/authorize";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -138,25 +135,19 @@ public class TwitterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call authorizeTwitterValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling authorizeTwitter(Async)");
-        }
-
+    private okhttp3.Call authorizeTwitterValidateBeforeCall(@javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling authorizeTwitter(Async)");
         }
 
-        return authorizeTwitterCall(version, appKey, _callback);
+        return authorizeTwitterCall(appKey, _callback);
 
     }
 
     /**
      * Authorize Twitter
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -167,15 +158,14 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse authorizeTwitter(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = authorizeTwitterWithHttpInfo(version, appKey);
+    public SirqulResponse authorizeTwitter(@javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = authorizeTwitterWithHttpInfo(appKey);
         return localVarResp.getData();
     }
 
     /**
      * Authorize Twitter
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -186,8 +176,8 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> authorizeTwitterWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = authorizeTwitterValidateBeforeCall(version, appKey, null);
+    public ApiResponse<SirqulResponse> authorizeTwitterWithHttpInfo(@javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = authorizeTwitterValidateBeforeCall(appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,7 +185,6 @@ public class TwitterApi {
     /**
      * Authorize Twitter (asynchronously)
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -207,16 +196,15 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call authorizeTwitterAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call authorizeTwitterAsync(@javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = authorizeTwitterValidateBeforeCall(version, appKey, _callback);
+        okhttp3.Call localVarCall = authorizeTwitterValidateBeforeCall(appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for loginTwitter
-     * @param version  (required)
      * @param accessToken The access token (required)
      * @param accessTokenSecret The secret access token (required)
      * @param appKey The application key (required)
@@ -234,7 +222,7 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginTwitterCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call loginTwitterCall(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -251,8 +239,7 @@ public class TwitterApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/twitter/login"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/twitter/login";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -308,12 +295,7 @@ public class TwitterApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call loginTwitterValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling loginTwitter(Async)");
-        }
-
+    private okhttp3.Call loginTwitterValidateBeforeCall(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accessToken' is set
         if (accessToken == null) {
             throw new ApiException("Missing the required parameter 'accessToken' when calling loginTwitter(Async)");
@@ -334,14 +316,13 @@ public class TwitterApi {
             throw new ApiException("Missing the required parameter 'responseFilters' when calling loginTwitter(Async)");
         }
 
-        return loginTwitterCall(version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, _callback);
+        return loginTwitterCall(accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, _callback);
 
     }
 
     /**
      * Login Twitter
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @param version  (required)
      * @param accessToken The access token (required)
      * @param accessTokenSecret The secret access token (required)
      * @param appKey The application key (required)
@@ -358,15 +339,14 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse loginTwitter(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = loginTwitterWithHttpInfo(version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
+    public ProfileResponse loginTwitter(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = loginTwitterWithHttpInfo(accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Login Twitter
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @param version  (required)
      * @param accessToken The access token (required)
      * @param accessTokenSecret The secret access token (required)
      * @param appKey The application key (required)
@@ -383,8 +363,8 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> loginTwitterWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = loginTwitterValidateBeforeCall(version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, null);
+    public ApiResponse<ProfileResponse> loginTwitterWithHttpInfo(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = loginTwitterValidateBeforeCall(accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -392,7 +372,6 @@ public class TwitterApi {
     /**
      * Login Twitter (asynchronously)
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @param version  (required)
      * @param accessToken The access token (required)
      * @param accessTokenSecret The secret access token (required)
      * @param appKey The application key (required)
@@ -410,9 +389,9 @@ public class TwitterApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call loginTwitterAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call loginTwitterAsync(@javax.annotation.Nonnull String accessToken, @javax.annotation.Nonnull String accessTokenSecret, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String responseFilters, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = loginTwitterValidateBeforeCall(version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = loginTwitterValidateBeforeCall(accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

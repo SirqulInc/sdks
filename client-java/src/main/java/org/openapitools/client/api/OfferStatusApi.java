@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.OfferTransactionStatusResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class OfferStatusApi {
 
     /**
      * Build call for createOfferTransactionStatus
-     * @param version  (required)
      * @param name The name of the status (required)
      * @param code The status code, must be unique  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -97,7 +95,7 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOfferTransactionStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOfferTransactionStatusCall(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -114,8 +112,7 @@ public class OfferStatusApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/status/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/status/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -183,12 +180,7 @@ public class OfferStatusApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createOfferTransactionStatus(Async)");
-        }
-
+    private okhttp3.Call createOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling createOfferTransactionStatus(Async)");
@@ -199,14 +191,13 @@ public class OfferStatusApi {
             throw new ApiException("Missing the required parameter 'code' when calling createOfferTransactionStatus(Async)");
         }
 
-        return createOfferTransactionStatusCall(version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, _callback);
+        return createOfferTransactionStatusCall(name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, _callback);
 
     }
 
     /**
      * Create Offer Status
      * Create an offer status record
-     * @param version  (required)
      * @param name The name of the status (required)
      * @param code The status code, must be unique  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -226,15 +217,14 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferTransactionStatusResponse createOfferTransactionStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
-        ApiResponse<OfferTransactionStatusResponse> localVarResp = createOfferTransactionStatusWithHttpInfo(version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
+    public OfferTransactionStatusResponse createOfferTransactionStatus(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
+        ApiResponse<OfferTransactionStatusResponse> localVarResp = createOfferTransactionStatusWithHttpInfo(name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
         return localVarResp.getData();
     }
 
     /**
      * Create Offer Status
      * Create an offer status record
-     * @param version  (required)
      * @param name The name of the status (required)
      * @param code The status code, must be unique  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -254,8 +244,8 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferTransactionStatusResponse> createOfferTransactionStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
-        okhttp3.Call localVarCall = createOfferTransactionStatusValidateBeforeCall(version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, null);
+    public ApiResponse<OfferTransactionStatusResponse> createOfferTransactionStatusWithHttpInfo(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
+        okhttp3.Call localVarCall = createOfferTransactionStatusValidateBeforeCall(name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, null);
         Type localVarReturnType = new TypeToken<OfferTransactionStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -263,7 +253,6 @@ public class OfferStatusApi {
     /**
      * Create Offer Status (asynchronously)
      * Create an offer status record
-     * @param version  (required)
      * @param name The name of the status (required)
      * @param code The status code, must be unique  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -284,16 +273,15 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOfferTransactionStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback<OfferTransactionStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call createOfferTransactionStatusAsync(@javax.annotation.Nonnull String name, @javax.annotation.Nonnull Integer code, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String description, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback<OfferTransactionStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createOfferTransactionStatusValidateBeforeCall(version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, _callback);
+        okhttp3.Call localVarCall = createOfferTransactionStatusValidateBeforeCall(name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, _callback);
         Type localVarReturnType = new TypeToken<OfferTransactionStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteOfferTransactionStatus
-     * @param version  (required)
      * @param statusId The id of the record to delete (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -309,7 +297,7 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferTransactionStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteOfferTransactionStatusCall(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -326,8 +314,7 @@ public class OfferStatusApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/status/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/status/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -375,25 +362,19 @@ public class OfferStatusApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteOfferTransactionStatus(Async)");
-        }
-
+    private okhttp3.Call deleteOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'statusId' is set
         if (statusId == null) {
             throw new ApiException("Missing the required parameter 'statusId' when calling deleteOfferTransactionStatus(Async)");
         }
 
-        return deleteOfferTransactionStatusCall(version, statusId, deviceId, accountId, latitude, longitude, _callback);
+        return deleteOfferTransactionStatusCall(statusId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Delete Offer Status
      * Mark an offer status record as deleted
-     * @param version  (required)
      * @param statusId The id of the record to delete (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -408,15 +389,14 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteOfferTransactionStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteOfferTransactionStatusWithHttpInfo(version, statusId, deviceId, accountId, latitude, longitude);
+    public SirqulResponse deleteOfferTransactionStatus(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteOfferTransactionStatusWithHttpInfo(statusId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Delete Offer Status
      * Mark an offer status record as deleted
-     * @param version  (required)
      * @param statusId The id of the record to delete (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -431,8 +411,8 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteOfferTransactionStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = deleteOfferTransactionStatusValidateBeforeCall(version, statusId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> deleteOfferTransactionStatusWithHttpInfo(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = deleteOfferTransactionStatusValidateBeforeCall(statusId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -440,7 +420,6 @@ public class OfferStatusApi {
     /**
      * Delete Offer Status (asynchronously)
      * Mark an offer status record as deleted
-     * @param version  (required)
      * @param statusId The id of the record to delete (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -456,16 +435,15 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferTransactionStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteOfferTransactionStatusAsync(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteOfferTransactionStatusValidateBeforeCall(version, statusId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = deleteOfferTransactionStatusValidateBeforeCall(statusId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOfferTransactionStatus
-     * @param version  (required)
      * @param statusId The id of the record to get  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -481,7 +459,7 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferTransactionStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOfferTransactionStatusCall(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -498,8 +476,7 @@ public class OfferStatusApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/status/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/status/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -547,25 +524,19 @@ public class OfferStatusApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOfferTransactionStatus(Async)");
-        }
-
+    private okhttp3.Call getOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'statusId' is set
         if (statusId == null) {
             throw new ApiException("Missing the required parameter 'statusId' when calling getOfferTransactionStatus(Async)");
         }
 
-        return getOfferTransactionStatusCall(version, statusId, deviceId, accountId, latitude, longitude, _callback);
+        return getOfferTransactionStatusCall(statusId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Get Offer Status
      * Get an offer status record
-     * @param version  (required)
      * @param statusId The id of the record to get  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -580,15 +551,14 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferTransactionStatusResponse getOfferTransactionStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<OfferTransactionStatusResponse> localVarResp = getOfferTransactionStatusWithHttpInfo(version, statusId, deviceId, accountId, latitude, longitude);
+    public OfferTransactionStatusResponse getOfferTransactionStatus(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<OfferTransactionStatusResponse> localVarResp = getOfferTransactionStatusWithHttpInfo(statusId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Get Offer Status
      * Get an offer status record
-     * @param version  (required)
      * @param statusId The id of the record to get  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -603,8 +573,8 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferTransactionStatusResponse> getOfferTransactionStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = getOfferTransactionStatusValidateBeforeCall(version, statusId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<OfferTransactionStatusResponse> getOfferTransactionStatusWithHttpInfo(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = getOfferTransactionStatusValidateBeforeCall(statusId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<OfferTransactionStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -612,7 +582,6 @@ public class OfferStatusApi {
     /**
      * Get Offer Status (asynchronously)
      * Get an offer status record
-     * @param version  (required)
      * @param statusId The id of the record to get  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -628,16 +597,15 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferTransactionStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<OfferTransactionStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call getOfferTransactionStatusAsync(@javax.annotation.Nonnull Long statusId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<OfferTransactionStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOfferTransactionStatusValidateBeforeCall(version, statusId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = getOfferTransactionStatusValidateBeforeCall(statusId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<OfferTransactionStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchOfferTransactionStatuses
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -660,7 +628,7 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOfferTransactionStatusesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchOfferTransactionStatusesCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -677,8 +645,7 @@ public class OfferStatusApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/status/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/status/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -754,20 +721,14 @@ public class OfferStatusApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchOfferTransactionStatusesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchOfferTransactionStatuses(Async)");
-        }
-
-        return searchOfferTransactionStatusesCall(version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, _callback);
+    private okhttp3.Call searchOfferTransactionStatusesValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
+        return searchOfferTransactionStatusesCall(deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, _callback);
 
     }
 
     /**
      * Search Offer Status
      * Search for the available offer statuses
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -789,15 +750,14 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferTransactionStatusResponse> searchOfferTransactionStatuses(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
-        ApiResponse<List<OfferTransactionStatusResponse>> localVarResp = searchOfferTransactionStatusesWithHttpInfo(version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
+    public List<OfferTransactionStatusResponse> searchOfferTransactionStatuses(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
+        ApiResponse<List<OfferTransactionStatusResponse>> localVarResp = searchOfferTransactionStatusesWithHttpInfo(deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
         return localVarResp.getData();
     }
 
     /**
      * Search Offer Status
      * Search for the available offer statuses
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -819,8 +779,8 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferTransactionStatusResponse>> searchOfferTransactionStatusesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
-        okhttp3.Call localVarCall = searchOfferTransactionStatusesValidateBeforeCall(version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, null);
+    public ApiResponse<List<OfferTransactionStatusResponse>> searchOfferTransactionStatusesWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
+        okhttp3.Call localVarCall = searchOfferTransactionStatusesValidateBeforeCall(deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, null);
         Type localVarReturnType = new TypeToken<List<OfferTransactionStatusResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,7 +788,6 @@ public class OfferStatusApi {
     /**
      * Search Offer Status (asynchronously)
      * Search for the available offer statuses
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -851,16 +810,15 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOfferTransactionStatusesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback<List<OfferTransactionStatusResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchOfferTransactionStatusesAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String role, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback<List<OfferTransactionStatusResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchOfferTransactionStatusesValidateBeforeCall(version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, _callback);
+        okhttp3.Call localVarCall = searchOfferTransactionStatusesValidateBeforeCall(deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, _callback);
         Type localVarReturnType = new TypeToken<List<OfferTransactionStatusResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateOfferTransactionStatus
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -882,7 +840,7 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferTransactionStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateOfferTransactionStatusCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -899,8 +857,7 @@ public class OfferStatusApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/status/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/status/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -972,20 +929,14 @@ public class OfferStatusApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateOfferTransactionStatus(Async)");
-        }
-
-        return updateOfferTransactionStatusCall(version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, _callback);
+    private okhttp3.Call updateOfferTransactionStatusValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback _callback) throws ApiException {
+        return updateOfferTransactionStatusCall(deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, _callback);
 
     }
 
     /**
      * Update Offer Status
      * Update an offer status record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -1006,15 +957,14 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferTransactionStatusResponse updateOfferTransactionStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
-        ApiResponse<OfferTransactionStatusResponse> localVarResp = updateOfferTransactionStatusWithHttpInfo(version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
+    public OfferTransactionStatusResponse updateOfferTransactionStatus(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
+        ApiResponse<OfferTransactionStatusResponse> localVarResp = updateOfferTransactionStatusWithHttpInfo(deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
         return localVarResp.getData();
     }
 
     /**
      * Update Offer Status
      * Update an offer status record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -1035,8 +985,8 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferTransactionStatusResponse> updateOfferTransactionStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
-        okhttp3.Call localVarCall = updateOfferTransactionStatusValidateBeforeCall(version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, null);
+    public ApiResponse<OfferTransactionStatusResponse> updateOfferTransactionStatusWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds) throws ApiException {
+        okhttp3.Call localVarCall = updateOfferTransactionStatusValidateBeforeCall(deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, null);
         Type localVarReturnType = new TypeToken<OfferTransactionStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1044,7 +994,6 @@ public class OfferStatusApi {
     /**
      * Update Offer Status (asynchronously)
      * Update an offer status record
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param latitude Used to update the user&#39;s current location (optional)
@@ -1066,9 +1015,9 @@ public class OfferStatusApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferTransactionStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback<OfferTransactionStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call updateOfferTransactionStatusAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long statusId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Integer code, @javax.annotation.Nullable String role, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String applicationIds, final ApiCallback<OfferTransactionStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateOfferTransactionStatusValidateBeforeCall(version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, _callback);
+        okhttp3.Call localVarCall = updateOfferTransactionStatusValidateBeforeCall(deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, _callback);
         Type localVarReturnType = new TypeToken<OfferTransactionStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ScheduledNotificationFullResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class ScheduledNotificationApi {
 
     /**
      * Build call for createScheduledNotification
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (required)
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -121,7 +119,7 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createScheduledNotificationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createScheduledNotificationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -138,8 +136,7 @@ public class ScheduledNotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/schedule/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/schedule/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -303,12 +300,7 @@ public class ScheduledNotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createScheduledNotification(Async)");
-        }
-
+    private okhttp3.Call createScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createScheduledNotification(Async)");
@@ -329,14 +321,13 @@ public class ScheduledNotificationApi {
             throw new ApiException("Missing the required parameter 'message' when calling createScheduledNotification(Async)");
         }
 
-        return createScheduledNotificationCall(version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, _callback);
+        return createScheduledNotificationCall(accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, _callback);
 
     }
 
     /**
      * Create Scheduled Notification
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (required)
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -380,15 +371,14 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ScheduledNotificationFullResponse createScheduledNotification(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
-        ApiResponse<ScheduledNotificationFullResponse> localVarResp = createScheduledNotificationWithHttpInfo(version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
+    public ScheduledNotificationFullResponse createScheduledNotification(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
+        ApiResponse<ScheduledNotificationFullResponse> localVarResp = createScheduledNotificationWithHttpInfo(accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
         return localVarResp.getData();
     }
 
     /**
      * Create Scheduled Notification
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (required)
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -432,8 +422,8 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScheduledNotificationFullResponse> createScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
-        okhttp3.Call localVarCall = createScheduledNotificationValidateBeforeCall(version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, null);
+    public ApiResponse<ScheduledNotificationFullResponse> createScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
+        okhttp3.Call localVarCall = createScheduledNotificationValidateBeforeCall(accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, null);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -441,7 +431,6 @@ public class ScheduledNotificationApi {
     /**
      * Create Scheduled Notification (asynchronously)
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (required)
      * @param type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages (required)
@@ -486,16 +475,15 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createScheduledNotificationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
+    public okhttp3.Call createScheduledNotificationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull String message, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createScheduledNotificationValidateBeforeCall(version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, _callback);
+        okhttp3.Call localVarCall = createScheduledNotificationValidateBeforeCall(accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, _callback);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteScheduledNotification
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param scheduledNotificationId the id of the scheduled notification to delete (required)
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -509,7 +497,7 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteScheduledNotificationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteScheduledNotificationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -526,8 +514,7 @@ public class ScheduledNotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/schedule/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/schedule/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -567,12 +554,7 @@ public class ScheduledNotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteScheduledNotification(Async)");
-        }
-
+    private okhttp3.Call deleteScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteScheduledNotification(Async)");
@@ -583,14 +565,13 @@ public class ScheduledNotificationApi {
             throw new ApiException("Missing the required parameter 'scheduledNotificationId' when calling deleteScheduledNotification(Async)");
         }
 
-        return deleteScheduledNotificationCall(version, accountId, scheduledNotificationId, deleteByGroupingId, _callback);
+        return deleteScheduledNotificationCall(accountId, scheduledNotificationId, deleteByGroupingId, _callback);
 
     }
 
     /**
      * Delete Scheduled Notification
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param scheduledNotificationId the id of the scheduled notification to delete (required)
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -603,15 +584,14 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ScheduledNotificationFullResponse deleteScheduledNotification(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId) throws ApiException {
-        ApiResponse<ScheduledNotificationFullResponse> localVarResp = deleteScheduledNotificationWithHttpInfo(version, accountId, scheduledNotificationId, deleteByGroupingId);
+    public ScheduledNotificationFullResponse deleteScheduledNotification(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId) throws ApiException {
+        ApiResponse<ScheduledNotificationFullResponse> localVarResp = deleteScheduledNotificationWithHttpInfo(accountId, scheduledNotificationId, deleteByGroupingId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Scheduled Notification
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param scheduledNotificationId the id of the scheduled notification to delete (required)
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -624,8 +604,8 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScheduledNotificationFullResponse> deleteScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId) throws ApiException {
-        okhttp3.Call localVarCall = deleteScheduledNotificationValidateBeforeCall(version, accountId, scheduledNotificationId, deleteByGroupingId, null);
+    public ApiResponse<ScheduledNotificationFullResponse> deleteScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId) throws ApiException {
+        okhttp3.Call localVarCall = deleteScheduledNotificationValidateBeforeCall(accountId, scheduledNotificationId, deleteByGroupingId, null);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -633,7 +613,6 @@ public class ScheduledNotificationApi {
     /**
      * Delete Scheduled Notification (asynchronously)
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param scheduledNotificationId the id of the scheduled notification to delete (required)
      * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
@@ -647,16 +626,15 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteScheduledNotificationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteScheduledNotificationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nullable Boolean deleteByGroupingId, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteScheduledNotificationValidateBeforeCall(version, accountId, scheduledNotificationId, deleteByGroupingId, _callback);
+        okhttp3.Call localVarCall = deleteScheduledNotificationValidateBeforeCall(accountId, scheduledNotificationId, deleteByGroupingId, _callback);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getScheduledNotification
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param scheduledNotificationId the id of the scheduled notification to get (required)
      * @param _callback Callback for upload/download progress
@@ -669,7 +647,7 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getScheduledNotificationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getScheduledNotificationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -686,8 +664,7 @@ public class ScheduledNotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/schedule/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/schedule/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -723,12 +700,7 @@ public class ScheduledNotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getScheduledNotification(Async)");
-        }
-
+    private okhttp3.Call getScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getScheduledNotification(Async)");
@@ -739,14 +711,13 @@ public class ScheduledNotificationApi {
             throw new ApiException("Missing the required parameter 'scheduledNotificationId' when calling getScheduledNotification(Async)");
         }
 
-        return getScheduledNotificationCall(version, accountId, scheduledNotificationId, _callback);
+        return getScheduledNotificationCall(accountId, scheduledNotificationId, _callback);
 
     }
 
     /**
      * Get Scheduled Notification
      * Get a ScheduledNotification
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param scheduledNotificationId the id of the scheduled notification to get (required)
      * @return ScheduledNotificationFullResponse
@@ -758,15 +729,14 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ScheduledNotificationFullResponse getScheduledNotification(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId) throws ApiException {
-        ApiResponse<ScheduledNotificationFullResponse> localVarResp = getScheduledNotificationWithHttpInfo(version, accountId, scheduledNotificationId);
+    public ScheduledNotificationFullResponse getScheduledNotification(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId) throws ApiException {
+        ApiResponse<ScheduledNotificationFullResponse> localVarResp = getScheduledNotificationWithHttpInfo(accountId, scheduledNotificationId);
         return localVarResp.getData();
     }
 
     /**
      * Get Scheduled Notification
      * Get a ScheduledNotification
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param scheduledNotificationId the id of the scheduled notification to get (required)
      * @return ApiResponse&lt;ScheduledNotificationFullResponse&gt;
@@ -778,8 +748,8 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScheduledNotificationFullResponse> getScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId) throws ApiException {
-        okhttp3.Call localVarCall = getScheduledNotificationValidateBeforeCall(version, accountId, scheduledNotificationId, null);
+    public ApiResponse<ScheduledNotificationFullResponse> getScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId) throws ApiException {
+        okhttp3.Call localVarCall = getScheduledNotificationValidateBeforeCall(accountId, scheduledNotificationId, null);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -787,7 +757,6 @@ public class ScheduledNotificationApi {
     /**
      * Get Scheduled Notification (asynchronously)
      * Get a ScheduledNotification
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param scheduledNotificationId the id of the scheduled notification to get (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -800,16 +769,15 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getScheduledNotificationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getScheduledNotificationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long scheduledNotificationId, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getScheduledNotificationValidateBeforeCall(version, accountId, scheduledNotificationId, _callback);
+        okhttp3.Call localVarCall = getScheduledNotificationValidateBeforeCall(accountId, scheduledNotificationId, _callback);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for scheduleNotificationListings
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -828,7 +796,7 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scheduleNotificationListingsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call scheduleNotificationListingsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -845,8 +813,7 @@ public class ScheduledNotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/schedule/generate"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/schedule/generate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -906,12 +873,7 @@ public class ScheduledNotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call scheduleNotificationListingsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling scheduleNotificationListings(Async)");
-        }
-
+    private okhttp3.Call scheduleNotificationListingsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling scheduleNotificationListings(Async)");
@@ -942,14 +904,13 @@ public class ScheduledNotificationApi {
             throw new ApiException("Missing the required parameter 'recipientReportId' when calling scheduleNotificationListings(Async)");
         }
 
-        return scheduleNotificationListingsCall(version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, _callback);
+        return scheduleNotificationListingsCall(accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, _callback);
 
     }
 
     /**
      * Generate Schedule Notifications
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -967,15 +928,14 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse scheduleNotificationListings(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = scheduleNotificationListingsWithHttpInfo(version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
+    public SirqulResponse scheduleNotificationListings(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = scheduleNotificationListingsWithHttpInfo(accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
         return localVarResp.getData();
     }
 
     /**
      * Generate Schedule Notifications
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -993,8 +953,8 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> scheduleNotificationListingsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type) throws ApiException {
-        okhttp3.Call localVarCall = scheduleNotificationListingsValidateBeforeCall(version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, null);
+    public ApiResponse<SirqulResponse> scheduleNotificationListingsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type) throws ApiException {
+        okhttp3.Call localVarCall = scheduleNotificationListingsValidateBeforeCall(accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1002,7 +962,6 @@ public class ScheduledNotificationApi {
     /**
      * Generate Schedule Notifications (asynchronously)
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey The application to target (required)
      * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail (required)
@@ -1021,16 +980,15 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call scheduleNotificationListingsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call scheduleNotificationListingsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String reportName, @javax.annotation.Nonnull String message, @javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Long recipientReportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String type, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = scheduleNotificationListingsValidateBeforeCall(version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, _callback);
+        okhttp3.Call localVarCall = scheduleNotificationListingsValidateBeforeCall(accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchScheduledNotifications
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -1061,7 +1019,7 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchScheduledNotificationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchScheduledNotificationsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1078,8 +1036,7 @@ public class ScheduledNotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/schedule/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/schedule/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1187,25 +1144,19 @@ public class ScheduledNotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchScheduledNotificationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchScheduledNotifications(Async)");
-        }
-
+    private okhttp3.Call searchScheduledNotificationsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchScheduledNotifications(Async)");
         }
 
-        return searchScheduledNotificationsCall(version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, _callback);
+        return searchScheduledNotificationsCall(accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, _callback);
 
     }
 
     /**
      * Search Scheduled Notifications
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -1235,15 +1186,14 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ScheduledNotificationFullResponse searchScheduledNotifications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount) throws ApiException {
-        ApiResponse<ScheduledNotificationFullResponse> localVarResp = searchScheduledNotificationsWithHttpInfo(version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
+    public ScheduledNotificationFullResponse searchScheduledNotifications(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount) throws ApiException {
+        ApiResponse<ScheduledNotificationFullResponse> localVarResp = searchScheduledNotificationsWithHttpInfo(accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
         return localVarResp.getData();
     }
 
     /**
      * Search Scheduled Notifications
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -1273,8 +1223,8 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScheduledNotificationFullResponse> searchScheduledNotificationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount) throws ApiException {
-        okhttp3.Call localVarCall = searchScheduledNotificationsValidateBeforeCall(version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, null);
+    public ApiResponse<ScheduledNotificationFullResponse> searchScheduledNotificationsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount) throws ApiException {
+        okhttp3.Call localVarCall = searchScheduledNotificationsValidateBeforeCall(accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, null);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1282,7 +1232,6 @@ public class ScheduledNotificationApi {
     /**
      * Search Scheduled Notifications (asynchronously)
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param groupingId Filter results by a grouping identifier defined by the client (optional)
      * @param audienceId Filter results by audience (optional)
@@ -1313,16 +1262,15 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchScheduledNotificationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
+    public okhttp3.Call searchScheduledNotificationsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String types, @javax.annotation.Nullable String contentIds, @javax.annotation.Nullable String contentTypes, @javax.annotation.Nullable String parentIds, @javax.annotation.Nullable String parentTypes, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String templateTypes, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean groupByGroupingId, @javax.annotation.Nullable Boolean returnAudienceAccountCount, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchScheduledNotificationsValidateBeforeCall(version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, _callback);
+        okhttp3.Call localVarCall = searchScheduledNotificationsValidateBeforeCall(accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, _callback);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateScheduledNotification
-     * @param version  (required)
      * @param scheduledNotificationId The id of scheduled notification to update (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (optional)
@@ -1371,7 +1319,7 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateScheduledNotificationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateScheduledNotificationCall(@javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1388,8 +1336,7 @@ public class ScheduledNotificationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/notification/schedule/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/notification/schedule/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1569,12 +1516,7 @@ public class ScheduledNotificationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateScheduledNotification(Async)");
-        }
-
+    private okhttp3.Call updateScheduledNotificationValidateBeforeCall(@javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'scheduledNotificationId' is set
         if (scheduledNotificationId == null) {
             throw new ApiException("Missing the required parameter 'scheduledNotificationId' when calling updateScheduledNotification(Async)");
@@ -1585,14 +1527,13 @@ public class ScheduledNotificationApi {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateScheduledNotification(Async)");
         }
 
-        return updateScheduledNotificationCall(version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, _callback);
+        return updateScheduledNotificationCall(scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, _callback);
 
     }
 
     /**
      * Update Scheduled Notification
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @param version  (required)
      * @param scheduledNotificationId The id of scheduled notification to update (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (optional)
@@ -1640,15 +1581,14 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ScheduledNotificationFullResponse updateScheduledNotification(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
-        ApiResponse<ScheduledNotificationFullResponse> localVarResp = updateScheduledNotificationWithHttpInfo(version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
+    public ScheduledNotificationFullResponse updateScheduledNotification(@javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
+        ApiResponse<ScheduledNotificationFullResponse> localVarResp = updateScheduledNotificationWithHttpInfo(scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
         return localVarResp.getData();
     }
 
     /**
      * Update Scheduled Notification
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @param version  (required)
      * @param scheduledNotificationId The id of scheduled notification to update (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (optional)
@@ -1696,8 +1636,8 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScheduledNotificationFullResponse> updateScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
-        okhttp3.Call localVarCall = updateScheduledNotificationValidateBeforeCall(version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, null);
+    public ApiResponse<ScheduledNotificationFullResponse> updateScheduledNotificationWithHttpInfo(@javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll) throws ApiException {
+        okhttp3.Call localVarCall = updateScheduledNotificationValidateBeforeCall(scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, null);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1705,7 +1645,6 @@ public class ScheduledNotificationApi {
     /**
      * Update Scheduled Notification (asynchronously)
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @param version  (required)
      * @param scheduledNotificationId The id of scheduled notification to update (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the scheduled notification (optional)
@@ -1754,9 +1693,9 @@ public class ScheduledNotificationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateScheduledNotificationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
+    public okhttp3.Call updateScheduledNotificationAsync(@javax.annotation.Nonnull Long scheduledNotificationId, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String type, @javax.annotation.Nullable String message, @javax.annotation.Nullable String payload, @javax.annotation.Nullable Long contentId, @javax.annotation.Nullable String contentName, @javax.annotation.Nullable String contentType, @javax.annotation.Nullable Long parentId, @javax.annotation.Nullable String parentType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String groupingId, @javax.annotation.Nullable String connectionGroupIds, @javax.annotation.Nullable String connectionAccountIds, @javax.annotation.Nullable Long audienceId, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable Long reportId, @javax.annotation.Nullable String reportParams, @javax.annotation.Nullable String endpointURL, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String cronExpression, @javax.annotation.Nullable String cronType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String conditionalInput, @javax.annotation.Nullable String templateType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String errorMessage, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean updateByGroupingId, @javax.annotation.Nullable Boolean sendNow, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String deepLinkURI, @javax.annotation.Nullable Boolean sendToAll, final ApiCallback<ScheduledNotificationFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateScheduledNotificationValidateBeforeCall(version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, _callback);
+        okhttp3.Call localVarCall = updateScheduledNotificationValidateBeforeCall(scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, _callback);
         Type localVarReturnType = new TypeToken<ScheduledNotificationFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

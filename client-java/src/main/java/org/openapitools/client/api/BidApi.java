@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.BidResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -76,7 +75,6 @@ public class BidApi {
 
     /**
      * Build call for createBid
-     * @param version  (required)
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param biddableId The id of the biddable object (required)
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -95,7 +93,7 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBidCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBidCall(@javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,8 +110,7 @@ public class BidApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/bid/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/bid/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -173,12 +170,7 @@ public class BidApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBidValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createBid(Async)");
-        }
-
+    private okhttp3.Call createBidValidateBeforeCall(@javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'biddableType' is set
         if (biddableType == null) {
             throw new ApiException("Missing the required parameter 'biddableType' when calling createBid(Async)");
@@ -209,14 +201,13 @@ public class BidApi {
             throw new ApiException("Missing the required parameter 'budgetSchedule' when calling createBid(Async)");
         }
 
-        return createBidCall(version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, _callback);
+        return createBidCall(biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, _callback);
 
     }
 
     /**
      * Create Bid
      * Creates a bid on a biddable object
-     * @param version  (required)
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param biddableId The id of the biddable object (required)
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -234,15 +225,14 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BidResponse createBid(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<BidResponse> localVarResp = createBidWithHttpInfo(version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
+    public BidResponse createBid(@javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<BidResponse> localVarResp = createBidWithHttpInfo(biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Create Bid
      * Creates a bid on a biddable object
-     * @param version  (required)
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param biddableId The id of the biddable object (required)
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -260,8 +250,8 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BidResponse> createBidWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = createBidValidateBeforeCall(version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, null);
+    public ApiResponse<BidResponse> createBidWithHttpInfo(@javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = createBidValidateBeforeCall(biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<BidResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -269,7 +259,6 @@ public class BidApi {
     /**
      * Create Bid (asynchronously)
      * Creates a bid on a biddable object
-     * @param version  (required)
      * @param biddableType A biddable object type. Possible values include: CREATIVE (ads). (required)
      * @param biddableId The id of the biddable object (required)
      * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression. (required)
@@ -288,16 +277,15 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBidAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<BidResponse> _callback) throws ApiException {
+    public okhttp3.Call createBidAsync(@javax.annotation.Nonnull String biddableType, @javax.annotation.Nonnull Long biddableId, @javax.annotation.Nonnull Double amountPerView, @javax.annotation.Nonnull Double amountPerAction, @javax.annotation.Nonnull Double budgetAmount, @javax.annotation.Nonnull String budgetSchedule, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<BidResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createBidValidateBeforeCall(version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = createBidValidateBeforeCall(biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<BidResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteBid
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -311,7 +299,7 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteBidCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteBidCall(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -328,8 +316,7 @@ public class BidApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/bid/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/bid/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -369,25 +356,19 @@ public class BidApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteBidValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteBid(Async)");
-        }
-
+    private okhttp3.Call deleteBidValidateBeforeCall(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bidId' is set
         if (bidId == null) {
             throw new ApiException("Missing the required parameter 'bidId' when calling deleteBid(Async)");
         }
 
-        return deleteBidCall(version, bidId, deviceId, accountId, _callback);
+        return deleteBidCall(bidId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Bid
      * Deleted a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -400,15 +381,14 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteBid(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteBidWithHttpInfo(version, bidId, deviceId, accountId);
+    public SirqulResponse deleteBid(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteBidWithHttpInfo(bidId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Bid
      * Deleted a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -421,8 +401,8 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteBidWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteBidValidateBeforeCall(version, bidId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteBidWithHttpInfo(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteBidValidateBeforeCall(bidId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -430,7 +410,6 @@ public class BidApi {
     /**
      * Delete Bid (asynchronously)
      * Deleted a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -444,16 +423,15 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteBidAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteBidAsync(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteBidValidateBeforeCall(version, bidId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteBidValidateBeforeCall(bidId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBid
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -467,7 +445,7 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBidCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBidCall(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -484,8 +462,7 @@ public class BidApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/bid/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/bid/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -525,25 +502,19 @@ public class BidApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBidValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBid(Async)");
-        }
-
+    private okhttp3.Call getBidValidateBeforeCall(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bidId' is set
         if (bidId == null) {
             throw new ApiException("Missing the required parameter 'bidId' when calling getBid(Async)");
         }
 
-        return getBidCall(version, bidId, deviceId, accountId, _callback);
+        return getBidCall(bidId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Get Bid
      * Get the bid details of a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -556,15 +527,14 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BidResponse getBid(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<BidResponse> localVarResp = getBidWithHttpInfo(version, bidId, deviceId, accountId);
+    public BidResponse getBid(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<BidResponse> localVarResp = getBidWithHttpInfo(bidId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Bid
      * Get the bid details of a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -577,8 +547,8 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BidResponse> getBidWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getBidValidateBeforeCall(version, bidId, deviceId, accountId, null);
+    public ApiResponse<BidResponse> getBidWithHttpInfo(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getBidValidateBeforeCall(bidId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<BidResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -586,7 +556,6 @@ public class BidApi {
     /**
      * Get Bid (asynchronously)
      * Get the bid details of a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -600,16 +569,15 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBidAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<BidResponse> _callback) throws ApiException {
+    public okhttp3.Call getBidAsync(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<BidResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBidValidateBeforeCall(version, bidId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = getBidValidateBeforeCall(bidId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<BidResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateBid
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -627,7 +595,7 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateBidCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateBidCall(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -644,8 +612,7 @@ public class BidApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/bid/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/bid/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -701,25 +668,19 @@ public class BidApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateBidValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateBid(Async)");
-        }
-
+    private okhttp3.Call updateBidValidateBeforeCall(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bidId' is set
         if (bidId == null) {
             throw new ApiException("Missing the required parameter 'bidId' when calling updateBid(Async)");
         }
 
-        return updateBidCall(version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, _callback);
+        return updateBidCall(bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, _callback);
 
     }
 
     /**
      * Update Bid
      * Updates a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -736,15 +697,14 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BidResponse updateBid(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule) throws ApiException {
-        ApiResponse<BidResponse> localVarResp = updateBidWithHttpInfo(version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
+    public BidResponse updateBid(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule) throws ApiException {
+        ApiResponse<BidResponse> localVarResp = updateBidWithHttpInfo(bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
         return localVarResp.getData();
     }
 
     /**
      * Update Bid
      * Updates a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -761,8 +721,8 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BidResponse> updateBidWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule) throws ApiException {
-        okhttp3.Call localVarCall = updateBidValidateBeforeCall(version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, null);
+    public ApiResponse<BidResponse> updateBidWithHttpInfo(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule) throws ApiException {
+        okhttp3.Call localVarCall = updateBidValidateBeforeCall(bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, null);
         Type localVarReturnType = new TypeToken<BidResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -770,7 +730,6 @@ public class BidApi {
     /**
      * Update Bid (asynchronously)
      * Updates a bid on a biddable object
-     * @param version  (required)
      * @param bidId The bid id (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -788,9 +747,9 @@ public class BidApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateBidAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule, final ApiCallback<BidResponse> _callback) throws ApiException {
+    public okhttp3.Call updateBidAsync(@javax.annotation.Nonnull Long bidId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double amountPerView, @javax.annotation.Nullable Double amountPerAction, @javax.annotation.Nullable Double budgetAmount, @javax.annotation.Nullable String budgetSchedule, final ApiCallback<BidResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateBidValidateBeforeCall(version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, _callback);
+        okhttp3.Call localVarCall = updateBidValidateBeforeCall(bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, _callback);
         Type localVarReturnType = new TypeToken<BidResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

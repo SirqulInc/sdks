@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class StripeApi {
 
     /**
      * Build call for createStripeCheckoutSession
-     * @param version  (required)
      * @param appKey Sirqul Application Key (required)
      * @param stripeParameters Stripe Parameters (required)
      * @param _callback Callback for upload/download progress
@@ -88,7 +86,7 @@ public class StripeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createStripeCheckoutSessionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createStripeCheckoutSessionCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,8 +103,7 @@ public class StripeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/stripe/checkout/session/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/stripe/checkout/session/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -142,12 +139,7 @@ public class StripeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createStripeCheckoutSessionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createStripeCheckoutSession(Async)");
-        }
-
+    private okhttp3.Call createStripeCheckoutSessionValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling createStripeCheckoutSession(Async)");
@@ -158,14 +150,13 @@ public class StripeApi {
             throw new ApiException("Missing the required parameter 'stripeParameters' when calling createStripeCheckoutSession(Async)");
         }
 
-        return createStripeCheckoutSessionCall(version, appKey, stripeParameters, _callback);
+        return createStripeCheckoutSessionCall(appKey, stripeParameters, _callback);
 
     }
 
     /**
      * Create Stripe Checkout Session
      * Create a Stripe checkout session
-     * @param version  (required)
      * @param appKey Sirqul Application Key (required)
      * @param stripeParameters Stripe Parameters (required)
      * @return SirqulResponse
@@ -177,15 +168,14 @@ public class StripeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse createStripeCheckoutSession(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = createStripeCheckoutSessionWithHttpInfo(version, appKey, stripeParameters);
+    public SirqulResponse createStripeCheckoutSession(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = createStripeCheckoutSessionWithHttpInfo(appKey, stripeParameters);
         return localVarResp.getData();
     }
 
     /**
      * Create Stripe Checkout Session
      * Create a Stripe checkout session
-     * @param version  (required)
      * @param appKey Sirqul Application Key (required)
      * @param stripeParameters Stripe Parameters (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -197,8 +187,8 @@ public class StripeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> createStripeCheckoutSessionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters) throws ApiException {
-        okhttp3.Call localVarCall = createStripeCheckoutSessionValidateBeforeCall(version, appKey, stripeParameters, null);
+    public ApiResponse<SirqulResponse> createStripeCheckoutSessionWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters) throws ApiException {
+        okhttp3.Call localVarCall = createStripeCheckoutSessionValidateBeforeCall(appKey, stripeParameters, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -206,7 +196,6 @@ public class StripeApi {
     /**
      * Create Stripe Checkout Session (asynchronously)
      * Create a Stripe checkout session
-     * @param version  (required)
      * @param appKey Sirqul Application Key (required)
      * @param stripeParameters Stripe Parameters (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -219,9 +208,9 @@ public class StripeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createStripeCheckoutSessionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call createStripeCheckoutSessionAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String stripeParameters, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createStripeCheckoutSessionValidateBeforeCall(version, appKey, stripeParameters, _callback);
+        okhttp3.Call localVarCall = createStripeCheckoutSessionValidateBeforeCall(appKey, stripeParameters, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

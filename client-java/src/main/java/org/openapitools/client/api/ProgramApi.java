@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Program;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class ProgramApi {
 
     /**
      * Build call for createProgram
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +85,7 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProgramCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProgramCall(@javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +102,7 @@ public class ProgramApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/program"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/program";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -133,20 +130,14 @@ public class ProgramApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProgramValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createProgram(Async)");
-        }
-
-        return createProgramCall(version, body, _callback);
+    private okhttp3.Call createProgramValidateBeforeCall(@javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
+        return createProgramCall(body, _callback);
 
     }
 
     /**
      * Create Program
      * Create a new program
-     * @param version  (required)
      * @param body  (optional)
      * @return Program
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,15 +148,14 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Program createProgram(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Program body) throws ApiException {
-        ApiResponse<Program> localVarResp = createProgramWithHttpInfo(version, body);
+    public Program createProgram(@javax.annotation.Nullable Program body) throws ApiException {
+        ApiResponse<Program> localVarResp = createProgramWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Program
      * Create a new program
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Program&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,8 +166,8 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Program> createProgramWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Program body) throws ApiException {
-        okhttp3.Call localVarCall = createProgramValidateBeforeCall(version, body, null);
+    public ApiResponse<Program> createProgramWithHttpInfo(@javax.annotation.Nullable Program body) throws ApiException {
+        okhttp3.Call localVarCall = createProgramValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -185,7 +175,6 @@ public class ProgramApi {
     /**
      * Create Program (asynchronously)
      * Create a new program
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -197,16 +186,15 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProgramAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Program body, final ApiCallback<Program> _callback) throws ApiException {
+    public okhttp3.Call createProgramAsync(@javax.annotation.Nullable Program body, final ApiCallback<Program> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProgramValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createProgramValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteProgram
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -218,7 +206,7 @@ public class ProgramApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteProgramCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteProgramCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -235,8 +223,7 @@ public class ProgramApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/program/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/program/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -264,25 +251,19 @@ public class ProgramApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteProgramValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteProgram(Async)");
-        }
-
+    private okhttp3.Call deleteProgramValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteProgram(Async)");
         }
 
-        return deleteProgramCall(version, id, _callback);
+        return deleteProgramCall(id, _callback);
 
     }
 
     /**
      * Delete Program
      * Delete an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -292,14 +273,13 @@ public class ProgramApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteProgram(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        deleteProgramWithHttpInfo(version, id);
+    public void deleteProgram(@javax.annotation.Nonnull Long id) throws ApiException {
+        deleteProgramWithHttpInfo(id);
     }
 
     /**
      * Delete Program
      * Delete an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -310,15 +290,14 @@ public class ProgramApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteProgramWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = deleteProgramValidateBeforeCall(version, id, null);
+    public ApiResponse<Void> deleteProgramWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = deleteProgramValidateBeforeCall(id, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Program (asynchronously)
      * Delete an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -330,15 +309,14 @@ public class ProgramApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteProgramAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteProgramAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteProgramValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = deleteProgramValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getProgram
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -350,7 +328,7 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProgramCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProgramCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -367,8 +345,7 @@ public class ProgramApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/program/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/program/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -397,25 +374,19 @@ public class ProgramApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProgramValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getProgram(Async)");
-        }
-
+    private okhttp3.Call getProgramValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProgram(Async)");
         }
 
-        return getProgramCall(version, id, _callback);
+        return getProgramCall(id, _callback);
 
     }
 
     /**
      * Get Program
      * Get an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @return Program
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -426,15 +397,14 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Program getProgram(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        ApiResponse<Program> localVarResp = getProgramWithHttpInfo(version, id);
+    public Program getProgram(@javax.annotation.Nonnull Long id) throws ApiException {
+        ApiResponse<Program> localVarResp = getProgramWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get Program
      * Get an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @return ApiResponse&lt;Program&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -445,8 +415,8 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Program> getProgramWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = getProgramValidateBeforeCall(version, id, null);
+    public ApiResponse<Program> getProgramWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = getProgramValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -454,7 +424,6 @@ public class ProgramApi {
     /**
      * Get Program (asynchronously)
      * Get an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -466,16 +435,15 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProgramAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Program> _callback) throws ApiException {
+    public okhttp3.Call getProgramAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Program> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProgramValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = getProgramValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for postProgram
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -488,7 +456,7 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call postProgramCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call postProgramCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -505,8 +473,7 @@ public class ProgramApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/program/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/program/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -535,25 +502,19 @@ public class ProgramApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postProgramValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling postProgram(Async)");
-        }
-
+    private okhttp3.Call postProgramValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling postProgram(Async)");
         }
 
-        return postProgramCall(version, id, body, _callback);
+        return postProgramCall(id, body, _callback);
 
     }
 
     /**
      * Update Program
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @return Program
@@ -565,15 +526,14 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Program postProgram(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
-        ApiResponse<Program> localVarResp = postProgramWithHttpInfo(version, id, body);
+    public Program postProgram(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
+        ApiResponse<Program> localVarResp = postProgramWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Program
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Program&gt;
@@ -585,8 +545,8 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Program> postProgramWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
-        okhttp3.Call localVarCall = postProgramValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Program> postProgramWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
+        okhttp3.Call localVarCall = postProgramValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -594,7 +554,6 @@ public class ProgramApi {
     /**
      * Update Program (asynchronously)
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -607,16 +566,15 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call postProgramAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback<Program> _callback) throws ApiException {
+    public okhttp3.Call postProgramAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback<Program> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postProgramValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = postProgramValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for putProgram
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -629,7 +587,7 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call putProgramCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call putProgramCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -646,8 +604,7 @@ public class ProgramApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/program/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/program/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -676,25 +633,19 @@ public class ProgramApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putProgramValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling putProgram(Async)");
-        }
-
+    private okhttp3.Call putProgramValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling putProgram(Async)");
         }
 
-        return putProgramCall(version, id, body, _callback);
+        return putProgramCall(id, body, _callback);
 
     }
 
     /**
      * Update Program
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @return Program
@@ -706,15 +657,14 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Program putProgram(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
-        ApiResponse<Program> localVarResp = putProgramWithHttpInfo(version, id, body);
+    public Program putProgram(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
+        ApiResponse<Program> localVarResp = putProgramWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Program
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Program&gt;
@@ -726,8 +676,8 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Program> putProgramWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
-        okhttp3.Call localVarCall = putProgramValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Program> putProgramWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body) throws ApiException {
+        okhttp3.Call localVarCall = putProgramValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -735,7 +685,6 @@ public class ProgramApi {
     /**
      * Update Program (asynchronously)
      * Update an existing program
-     * @param version  (required)
      * @param id the id of the program (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -748,16 +697,15 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call putProgramAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback<Program> _callback) throws ApiException {
+    public okhttp3.Call putProgramAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Program body, final ApiCallback<Program> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putProgramValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = putProgramValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<Program>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchPrograms
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -774,7 +722,7 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchProgramsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchProgramsCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -791,8 +739,7 @@ public class ProgramApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/program"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/program";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -844,12 +791,7 @@ public class ProgramApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchProgramsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchPrograms(Async)");
-        }
-
+    private okhttp3.Call searchProgramsValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchPrograms(Async)");
@@ -875,14 +817,13 @@ public class ProgramApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchPrograms(Async)");
         }
 
-        return searchProgramsCall(version, sortField, descending, start, limit, activeOnly, keyword, _callback);
+        return searchProgramsCall(sortField, descending, start, limit, activeOnly, keyword, _callback);
 
     }
 
     /**
      * Search Programs
      * Search for programs
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -898,15 +839,14 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Program> searchPrograms(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<Program>> localVarResp = searchProgramsWithHttpInfo(version, sortField, descending, start, limit, activeOnly, keyword);
+    public List<Program> searchPrograms(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<Program>> localVarResp = searchProgramsWithHttpInfo(sortField, descending, start, limit, activeOnly, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Programs
      * Search for programs
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -922,8 +862,8 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Program>> searchProgramsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = searchProgramsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, keyword, null);
+    public ApiResponse<List<Program>> searchProgramsWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = searchProgramsValidateBeforeCall(sortField, descending, start, limit, activeOnly, keyword, null);
         Type localVarReturnType = new TypeToken<List<Program>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -931,7 +871,6 @@ public class ProgramApi {
     /**
      * Search Programs (asynchronously)
      * Search for programs
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -948,9 +887,9 @@ public class ProgramApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchProgramsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, final ApiCallback<List<Program>> _callback) throws ApiException {
+    public okhttp3.Call searchProgramsAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, final ApiCallback<List<Program>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchProgramsValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, keyword, _callback);
+        okhttp3.Call localVarCall = searchProgramsValidateBeforeCall(sortField, descending, start, limit, activeOnly, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<Program>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.OfferTransactionResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class WalletApi {
 
     /**
      * Build call for createOfferTransaction
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -98,7 +96,7 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOfferTransactionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOfferTransactionCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,8 +113,7 @@ public class WalletApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/wallet/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/wallet/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -188,20 +185,14 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createOfferTransaction(Async)");
-        }
-
-        return createOfferTransactionCall(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, _callback);
+    private okhttp3.Call createOfferTransactionValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status, final ApiCallback _callback) throws ApiException {
+        return createOfferTransactionCall(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, _callback);
 
     }
 
     /**
      * Create Wallet Offers
      * Adds offers to the wallet
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -222,15 +213,14 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferTransactionResponse> createOfferTransaction(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status) throws ApiException {
-        ApiResponse<List<OfferTransactionResponse>> localVarResp = createOfferTransactionWithHttpInfo(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
+    public List<OfferTransactionResponse> createOfferTransaction(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status) throws ApiException {
+        ApiResponse<List<OfferTransactionResponse>> localVarResp = createOfferTransactionWithHttpInfo(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
         return localVarResp.getData();
     }
 
     /**
      * Create Wallet Offers
      * Adds offers to the wallet
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -251,8 +241,8 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferTransactionResponse>> createOfferTransactionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status) throws ApiException {
-        okhttp3.Call localVarCall = createOfferTransactionValidateBeforeCall(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, null);
+    public ApiResponse<List<OfferTransactionResponse>> createOfferTransactionWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status) throws ApiException {
+        okhttp3.Call localVarCall = createOfferTransactionValidateBeforeCall(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, null);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -260,7 +250,6 @@ public class WalletApi {
     /**
      * Create Wallet Offers (asynchronously)
      * Adds offers to the wallet
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -282,16 +271,15 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOfferTransactionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
+    public okhttp3.Call createOfferTransactionAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Integer status, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createOfferTransactionValidateBeforeCall(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, _callback);
+        okhttp3.Call localVarCall = createOfferTransactionValidateBeforeCall(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, _callback);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteOfferTransaction
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -305,7 +293,7 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferTransactionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteOfferTransactionCall(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -322,8 +310,7 @@ public class WalletApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/wallet/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/wallet/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -363,25 +350,19 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteOfferTransaction(Async)");
-        }
-
+    private okhttp3.Call deleteOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling deleteOfferTransaction(Async)");
         }
 
-        return deleteOfferTransactionCall(version, transactionId, deviceId, accountId, _callback);
+        return deleteOfferTransactionCall(transactionId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Wallet Offer
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -394,15 +375,14 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteOfferTransaction(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteOfferTransactionWithHttpInfo(version, transactionId, deviceId, accountId);
+    public SirqulResponse deleteOfferTransaction(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteOfferTransactionWithHttpInfo(transactionId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Wallet Offer
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -415,8 +395,8 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteOfferTransactionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteOfferTransactionValidateBeforeCall(version, transactionId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteOfferTransactionWithHttpInfo(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteOfferTransactionValidateBeforeCall(transactionId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -424,7 +404,6 @@ public class WalletApi {
     /**
      * Delete Wallet Offer (asynchronously)
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -438,16 +417,15 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferTransactionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteOfferTransactionAsync(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteOfferTransactionValidateBeforeCall(version, transactionId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteOfferTransactionValidateBeforeCall(transactionId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOfferTransaction
-     * @param version  (required)
      * @param transactionId The offer transaction id to get details of (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -465,7 +443,7 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferTransactionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOfferTransactionCall(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -482,8 +460,7 @@ public class WalletApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/wallet/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/wallet/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -539,25 +516,19 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOfferTransaction(Async)");
-        }
-
+    private okhttp3.Call getOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling getOfferTransaction(Async)");
         }
 
-        return getOfferTransactionCall(version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, _callback);
+        return getOfferTransactionCall(transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, _callback);
 
     }
 
     /**
      * Get Wallet Offer
      * 
-     * @param version  (required)
      * @param transactionId The offer transaction id to get details of (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -574,15 +545,14 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferTransactionResponse getOfferTransaction(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
-        ApiResponse<OfferTransactionResponse> localVarResp = getOfferTransactionWithHttpInfo(version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
+    public OfferTransactionResponse getOfferTransaction(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
+        ApiResponse<OfferTransactionResponse> localVarResp = getOfferTransactionWithHttpInfo(transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
         return localVarResp.getData();
     }
 
     /**
      * Get Wallet Offer
      * 
-     * @param version  (required)
      * @param transactionId The offer transaction id to get details of (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -599,8 +569,8 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferTransactionResponse> getOfferTransactionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
-        okhttp3.Call localVarCall = getOfferTransactionValidateBeforeCall(version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, null);
+    public ApiResponse<OfferTransactionResponse> getOfferTransactionWithHttpInfo(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse) throws ApiException {
+        okhttp3.Call localVarCall = getOfferTransactionValidateBeforeCall(transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, null);
         Type localVarReturnType = new TypeToken<OfferTransactionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -608,7 +578,6 @@ public class WalletApi {
     /**
      * Get Wallet Offer (asynchronously)
      * 
-     * @param version  (required)
      * @param transactionId The offer transaction id to get details of (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -626,16 +595,15 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferTransactionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback<OfferTransactionResponse> _callback) throws ApiException {
+    public okhttp3.Call getOfferTransactionAsync(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean returnFullResponse, final ApiCallback<OfferTransactionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOfferTransactionValidateBeforeCall(version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, _callback);
+        okhttp3.Call localVarCall = getOfferTransactionValidateBeforeCall(transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, _callback);
         Type localVarReturnType = new TypeToken<OfferTransactionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for previewOfferTransaction
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -656,7 +624,7 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call previewOfferTransactionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call previewOfferTransactionCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -673,8 +641,7 @@ public class WalletApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/wallet/preview"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/wallet/preview";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -742,20 +709,14 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call previewOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling previewOfferTransaction(Async)");
-        }
-
-        return previewOfferTransactionCall(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, _callback);
+    private okhttp3.Call previewOfferTransactionValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+        return previewOfferTransactionCall(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, _callback);
 
     }
 
     /**
      * Preview Wallet Offers
      * Preview the final cost of a transaction without charging the user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -775,15 +736,14 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferTransactionResponse> previewOfferTransaction(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<List<OfferTransactionResponse>> localVarResp = previewOfferTransactionWithHttpInfo(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
+    public List<OfferTransactionResponse> previewOfferTransaction(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<List<OfferTransactionResponse>> localVarResp = previewOfferTransactionWithHttpInfo(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Preview Wallet Offers
      * Preview the final cost of a transaction without charging the user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -803,8 +763,8 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferTransactionResponse>> previewOfferTransactionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = previewOfferTransactionValidateBeforeCall(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, null);
+    public ApiResponse<List<OfferTransactionResponse>> previewOfferTransactionWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = previewOfferTransactionValidateBeforeCall(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, null);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -812,7 +772,6 @@ public class WalletApi {
     /**
      * Preview Wallet Offers (asynchronously)
      * Preview the final cost of a transaction without charging the user
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param offerId The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -833,16 +792,15 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call previewOfferTransactionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
+    public okhttp3.Call previewOfferTransactionAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerCart, @javax.annotation.Nullable String promoCode, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = previewOfferTransactionValidateBeforeCall(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, _callback);
+        okhttp3.Call localVarCall = previewOfferTransactionValidateBeforeCall(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, _callback);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchOfferTransactions
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -894,7 +852,7 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOfferTransactionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchOfferTransactionsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -911,8 +869,7 @@ public class WalletApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/wallet/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/wallet/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1104,20 +1061,14 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchOfferTransactionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchOfferTransactions(Async)");
-        }
-
-        return searchOfferTransactionsCall(version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, _callback);
+    private okhttp3.Call searchOfferTransactionsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore, final ApiCallback _callback) throws ApiException {
+        return searchOfferTransactionsCall(deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, _callback);
 
     }
 
     /**
      * Search Wallet Offers
      * Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -1168,15 +1119,14 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferTransactionResponse> searchOfferTransactions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore) throws ApiException {
-        ApiResponse<List<OfferTransactionResponse>> localVarResp = searchOfferTransactionsWithHttpInfo(version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
+    public List<OfferTransactionResponse> searchOfferTransactions(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore) throws ApiException {
+        ApiResponse<List<OfferTransactionResponse>> localVarResp = searchOfferTransactionsWithHttpInfo(deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
         return localVarResp.getData();
     }
 
     /**
      * Search Wallet Offers
      * Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -1227,8 +1177,8 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferTransactionResponse>> searchOfferTransactionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore) throws ApiException {
-        okhttp3.Call localVarCall = searchOfferTransactionsValidateBeforeCall(version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, null);
+    public ApiResponse<List<OfferTransactionResponse>> searchOfferTransactionsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore) throws ApiException {
+        okhttp3.Call localVarCall = searchOfferTransactionsValidateBeforeCall(deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, null);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1236,7 +1186,6 @@ public class WalletApi {
     /**
      * Search Wallet Offers (asynchronously)
      * Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param keyword The keyword to search for (optional)
@@ -1288,16 +1237,15 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOfferTransactionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchOfferTransactionsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String excludeRetailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable String offerIds, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String offerLocationIds, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String specialOfferTypes, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Boolean filterByParentOffer, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable Long recurringStartedSince, @javax.annotation.Nullable Long recurringStartedBefore, @javax.annotation.Nullable Long recurringExpirationSince, @javax.annotation.Nullable Long recurringExpirationBefore, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchOfferTransactionsValidateBeforeCall(version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, _callback);
+        okhttp3.Call localVarCall = searchOfferTransactionsValidateBeforeCall(deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, _callback);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateOfferTransaction
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param status The status value to change to (0 or 1) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1321,7 +1269,7 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferTransactionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateOfferTransactionCall(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1338,8 +1286,7 @@ public class WalletApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/wallet/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/wallet/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1419,12 +1366,7 @@ public class WalletApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateOfferTransaction(Async)");
-        }
-
+    private okhttp3.Call updateOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling updateOfferTransaction(Async)");
@@ -1435,14 +1377,13 @@ public class WalletApi {
             throw new ApiException("Missing the required parameter 'status' when calling updateOfferTransaction(Async)");
         }
 
-        return updateOfferTransactionCall(version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, _callback);
+        return updateOfferTransactionCall(transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, _callback);
 
     }
 
     /**
      * Update Wallet Offer
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param status The status value to change to (0 or 1) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1465,15 +1406,14 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferTransactionResponse updateOfferTransaction(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds) throws ApiException {
-        ApiResponse<OfferTransactionResponse> localVarResp = updateOfferTransactionWithHttpInfo(version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
+    public OfferTransactionResponse updateOfferTransaction(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds) throws ApiException {
+        ApiResponse<OfferTransactionResponse> localVarResp = updateOfferTransactionWithHttpInfo(transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
         return localVarResp.getData();
     }
 
     /**
      * Update Wallet Offer
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param status The status value to change to (0 or 1) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1496,8 +1436,8 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferTransactionResponse> updateOfferTransactionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds) throws ApiException {
-        okhttp3.Call localVarCall = updateOfferTransactionValidateBeforeCall(version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, null);
+    public ApiResponse<OfferTransactionResponse> updateOfferTransactionWithHttpInfo(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds) throws ApiException {
+        okhttp3.Call localVarCall = updateOfferTransactionValidateBeforeCall(transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, null);
         Type localVarReturnType = new TypeToken<OfferTransactionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1505,7 +1445,6 @@ public class WalletApi {
     /**
      * Update Wallet Offer (asynchronously)
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @param version  (required)
      * @param transactionId The offer transaction id to remove (required)
      * @param status The status value to change to (0 or 1) (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1529,9 +1468,9 @@ public class WalletApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferTransactionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds, final ApiCallback<OfferTransactionResponse> _callback) throws ApiException {
+    public okhttp3.Call updateOfferTransactionAsync(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String currencyType, @javax.annotation.Nullable Boolean usePoints, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean returnFullResponse, @javax.annotation.Nullable String exceptionMembershipOfferIds, final ApiCallback<OfferTransactionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateOfferTransactionValidateBeforeCall(version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, _callback);
+        okhttp3.Call localVarCall = updateOfferTransactionValidateBeforeCall(transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, _callback);
         Type localVarReturnType = new TypeToken<OfferTransactionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

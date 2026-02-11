@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.RegionLegSummary;
 import org.openapitools.client.model.ReportBatchResponse;
 import org.openapitools.client.model.ReportRegionLegSummaryBatchResponse;
@@ -79,7 +78,6 @@ public class ReportingApi {
 
     /**
      * Build call for createBatch
-     * @param version  (required)
      * @param accountId The account id of the user for passing account related params (required)
      * @param status the status of the report (required)
      * @param previewLimit the limit on how much you can preview of the batch report (required)
@@ -101,7 +99,7 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBatchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,8 +116,7 @@ public class ReportingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/report/batch/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/report/batch/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -191,12 +188,7 @@ public class ReportingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createBatch(Async)");
-        }
-
+    private okhttp3.Call createBatchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createBatch(Async)");
@@ -212,14 +204,13 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'previewLimit' when calling createBatch(Async)");
         }
 
-        return createBatchCall(version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, _callback);
+        return createBatchCall(accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, _callback);
 
     }
 
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param accountId The account id of the user for passing account related params (required)
      * @param status the status of the report (required)
      * @param previewLimit the limit on how much you can preview of the batch report (required)
@@ -240,15 +231,14 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ReportBatchResponse createBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl) throws ApiException {
-        ApiResponse<ReportBatchResponse> localVarResp = createBatchWithHttpInfo(version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
+    public ReportBatchResponse createBatch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl) throws ApiException {
+        ApiResponse<ReportBatchResponse> localVarResp = createBatchWithHttpInfo(accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
         return localVarResp.getData();
     }
 
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param accountId The account id of the user for passing account related params (required)
      * @param status the status of the report (required)
      * @param previewLimit the limit on how much you can preview of the batch report (required)
@@ -269,8 +259,8 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReportBatchResponse> createBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl) throws ApiException {
-        okhttp3.Call localVarCall = createBatchValidateBeforeCall(version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, null);
+    public ApiResponse<ReportBatchResponse> createBatchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl) throws ApiException {
+        okhttp3.Call localVarCall = createBatchValidateBeforeCall(accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, null);
         Type localVarReturnType = new TypeToken<ReportBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -278,7 +268,6 @@ public class ReportingApi {
     /**
      * Create Offline Report (asynchronously)
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param accountId The account id of the user for passing account related params (required)
      * @param status the status of the report (required)
      * @param previewLimit the limit on how much you can preview of the batch report (required)
@@ -300,16 +289,15 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl, final ApiCallback<ReportBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call createBatchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String status, @javax.annotation.Nonnull Integer previewLimit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String endpoint, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String name, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String description, @javax.annotation.Nullable String pageUrl, final ApiCallback<ReportBatchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createBatchValidateBeforeCall(version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, _callback);
+        okhttp3.Call localVarCall = createBatchValidateBeforeCall(accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, _callback);
         Type localVarReturnType = new TypeToken<ReportBatchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createRegionLegSummaryBatch
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -321,7 +309,7 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRegionLegSummaryBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable List<RegionLegSummary> body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRegionLegSummaryBatchCall(@javax.annotation.Nullable List<RegionLegSummary> body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -338,8 +326,7 @@ public class ReportingApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/report/region/summary/batch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/report/region/summary/batch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -367,20 +354,14 @@ public class ReportingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRegionLegSummaryBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable List<RegionLegSummary> body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRegionLegSummaryBatch(Async)");
-        }
-
-        return createRegionLegSummaryBatchCall(version, body, _callback);
+    private okhttp3.Call createRegionLegSummaryBatchValidateBeforeCall(@javax.annotation.Nullable List<RegionLegSummary> body, final ApiCallback _callback) throws ApiException {
+        return createRegionLegSummaryBatchCall(body, _callback);
 
     }
 
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param body  (optional)
      * @return ReportRegionLegSummaryBatchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -391,15 +372,14 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ReportRegionLegSummaryBatchResponse createRegionLegSummaryBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable List<RegionLegSummary> body) throws ApiException {
-        ApiResponse<ReportRegionLegSummaryBatchResponse> localVarResp = createRegionLegSummaryBatchWithHttpInfo(version, body);
+    public ReportRegionLegSummaryBatchResponse createRegionLegSummaryBatch(@javax.annotation.Nullable List<RegionLegSummary> body) throws ApiException {
+        ApiResponse<ReportRegionLegSummaryBatchResponse> localVarResp = createRegionLegSummaryBatchWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;ReportRegionLegSummaryBatchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -410,8 +390,8 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReportRegionLegSummaryBatchResponse> createRegionLegSummaryBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable List<RegionLegSummary> body) throws ApiException {
-        okhttp3.Call localVarCall = createRegionLegSummaryBatchValidateBeforeCall(version, body, null);
+    public ApiResponse<ReportRegionLegSummaryBatchResponse> createRegionLegSummaryBatchWithHttpInfo(@javax.annotation.Nullable List<RegionLegSummary> body) throws ApiException {
+        okhttp3.Call localVarCall = createRegionLegSummaryBatchValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<ReportRegionLegSummaryBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -419,7 +399,6 @@ public class ReportingApi {
     /**
      * Create Offline Report (asynchronously)
      * Create an entry for the batch for offline report
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -431,16 +410,15 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRegionLegSummaryBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable List<RegionLegSummary> body, final ApiCallback<ReportRegionLegSummaryBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call createRegionLegSummaryBatchAsync(@javax.annotation.Nullable List<RegionLegSummary> body, final ApiCallback<ReportRegionLegSummaryBatchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRegionLegSummaryBatchValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createRegionLegSummaryBatchValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<ReportRegionLegSummaryBatchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteBatch
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to delete (required)
      * @param _callback Callback for upload/download progress
@@ -453,7 +431,7 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteBatchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -470,8 +448,7 @@ public class ReportingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/report/batch/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/report/batch/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -507,12 +484,7 @@ public class ReportingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteBatch(Async)");
-        }
-
+    private okhttp3.Call deleteBatchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteBatch(Async)");
@@ -523,14 +495,13 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'batchId' when calling deleteBatch(Async)");
         }
 
-        return deleteBatchCall(version, accountId, batchId, _callback);
+        return deleteBatchCall(accountId, batchId, _callback);
 
     }
 
     /**
      * Delete Offline Report
      * Deletes a batch report.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to delete (required)
      * @return SirqulResponse
@@ -542,15 +513,14 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteBatchWithHttpInfo(version, accountId, batchId);
+    public SirqulResponse deleteBatch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteBatchWithHttpInfo(accountId, batchId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Offline Report
      * Deletes a batch report.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -562,8 +532,8 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        okhttp3.Call localVarCall = deleteBatchValidateBeforeCall(version, accountId, batchId, null);
+    public ApiResponse<SirqulResponse> deleteBatchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
+        okhttp3.Call localVarCall = deleteBatchValidateBeforeCall(accountId, batchId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -571,7 +541,6 @@ public class ReportingApi {
     /**
      * Delete Offline Report (asynchronously)
      * Deletes a batch report.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -584,16 +553,15 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteBatchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteBatchValidateBeforeCall(version, accountId, batchId, _callback);
+        okhttp3.Call localVarCall = deleteBatchValidateBeforeCall(accountId, batchId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getReportBatch
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId returned by /report/batch/create (required)
      * @param allResults whether to return all batch results or not (required)
@@ -607,7 +575,7 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReportBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getReportBatchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -624,8 +592,7 @@ public class ReportingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/report/batch/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/report/batch/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -665,12 +632,7 @@ public class ReportingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReportBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getReportBatch(Async)");
-        }
-
+    private okhttp3.Call getReportBatchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getReportBatch(Async)");
@@ -686,14 +648,13 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'allResults' when calling getReportBatch(Async)");
         }
 
-        return getReportBatchCall(version, accountId, batchId, allResults, _callback);
+        return getReportBatchCall(accountId, batchId, allResults, _callback);
 
     }
 
     /**
      * Get Offline Report
      * Checks status of batch report.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId returned by /report/batch/create (required)
      * @param allResults whether to return all batch results or not (required)
@@ -706,15 +667,14 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ReportBatchResponse getReportBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults) throws ApiException {
-        ApiResponse<ReportBatchResponse> localVarResp = getReportBatchWithHttpInfo(version, accountId, batchId, allResults);
+    public ReportBatchResponse getReportBatch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults) throws ApiException {
+        ApiResponse<ReportBatchResponse> localVarResp = getReportBatchWithHttpInfo(accountId, batchId, allResults);
         return localVarResp.getData();
     }
 
     /**
      * Get Offline Report
      * Checks status of batch report.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId returned by /report/batch/create (required)
      * @param allResults whether to return all batch results or not (required)
@@ -727,8 +687,8 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReportBatchResponse> getReportBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults) throws ApiException {
-        okhttp3.Call localVarCall = getReportBatchValidateBeforeCall(version, accountId, batchId, allResults, null);
+    public ApiResponse<ReportBatchResponse> getReportBatchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults) throws ApiException {
+        okhttp3.Call localVarCall = getReportBatchValidateBeforeCall(accountId, batchId, allResults, null);
         Type localVarReturnType = new TypeToken<ReportBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -736,7 +696,6 @@ public class ReportingApi {
     /**
      * Get Offline Report (asynchronously)
      * Checks status of batch report.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId returned by /report/batch/create (required)
      * @param allResults whether to return all batch results or not (required)
@@ -750,16 +709,15 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getReportBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults, final ApiCallback<ReportBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call getReportBatchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull Boolean allResults, final ApiCallback<ReportBatchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getReportBatchValidateBeforeCall(version, accountId, batchId, allResults, _callback);
+        okhttp3.Call localVarCall = getReportBatchValidateBeforeCall(accountId, batchId, allResults, _callback);
         Type localVarReturnType = new TypeToken<ReportBatchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for runReport
-     * @param version  (required)
      * @param desc If true then descending order, false is ascending (required)
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -778,7 +736,7 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call runReportCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call runReportCall(@javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -795,8 +753,7 @@ public class ReportingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/report/run"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/report/run";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -856,25 +813,19 @@ public class ReportingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call runReportValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling runReport(Async)");
-        }
-
+    private okhttp3.Call runReportValidateBeforeCall(@javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'desc' is set
         if (desc == null) {
             throw new ApiException("Missing the required parameter 'desc' when calling runReport(Async)");
         }
 
-        return runReportCall(version, desc, accountId, query, parameters, order, start, limit, responseFormat, _callback);
+        return runReportCall(desc, accountId, query, parameters, order, start, limit, responseFormat, _callback);
 
     }
 
     /**
      * Run Report
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-     * @param version  (required)
      * @param desc If true then descending order, false is ascending (required)
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -892,15 +843,14 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ReportResponse runReport(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat) throws ApiException {
-        ApiResponse<ReportResponse> localVarResp = runReportWithHttpInfo(version, desc, accountId, query, parameters, order, start, limit, responseFormat);
+    public ReportResponse runReport(@javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat) throws ApiException {
+        ApiResponse<ReportResponse> localVarResp = runReportWithHttpInfo(desc, accountId, query, parameters, order, start, limit, responseFormat);
         return localVarResp.getData();
     }
 
     /**
      * Run Report
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-     * @param version  (required)
      * @param desc If true then descending order, false is ascending (required)
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -918,8 +868,8 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReportResponse> runReportWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat) throws ApiException {
-        okhttp3.Call localVarCall = runReportValidateBeforeCall(version, desc, accountId, query, parameters, order, start, limit, responseFormat, null);
+    public ApiResponse<ReportResponse> runReportWithHttpInfo(@javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat) throws ApiException {
+        okhttp3.Call localVarCall = runReportValidateBeforeCall(desc, accountId, query, parameters, order, start, limit, responseFormat, null);
         Type localVarReturnType = new TypeToken<ReportResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -927,7 +877,6 @@ public class ReportingApi {
     /**
      * Run Report (asynchronously)
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-     * @param version  (required)
      * @param desc If true then descending order, false is ascending (required)
      * @param accountId The account id of the user for passing account related params (optional)
      * @param query The named identifier of the query (optional)
@@ -946,16 +895,15 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call runReportAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat, final ApiCallback<ReportResponse> _callback) throws ApiException {
+    public okhttp3.Call runReportAsync(@javax.annotation.Nonnull Boolean desc, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String query, @javax.annotation.Nullable String parameters, @javax.annotation.Nullable String order, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable String responseFormat, final ApiCallback<ReportResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = runReportValidateBeforeCall(version, desc, accountId, query, parameters, order, start, limit, responseFormat, _callback);
+        okhttp3.Call localVarCall = runReportValidateBeforeCall(desc, accountId, query, parameters, order, start, limit, responseFormat, _callback);
         Type localVarReturnType = new TypeToken<ReportResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchBatch
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param start the start of the index and/or pagination (required)
      * @param limit the limit of the index and/or pagination (required)
@@ -975,7 +923,7 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchBatchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -992,8 +940,7 @@ public class ReportingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/report/batch/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/report/batch/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1057,12 +1004,7 @@ public class ReportingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchBatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchBatch(Async)");
-        }
-
+    private okhttp3.Call searchBatchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchBatch(Async)");
@@ -1078,14 +1020,13 @@ public class ReportingApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchBatch(Async)");
         }
 
-        return searchBatchCall(version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, _callback);
+        return searchBatchCall(accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, _callback);
 
     }
 
     /**
      * Search Offline Reports
      * Retrieves batches for a user..
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param start the start of the index and/or pagination (required)
      * @param limit the limit of the index and/or pagination (required)
@@ -1104,15 +1045,14 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ReportBatchResponse> searchBatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
-        ApiResponse<List<ReportBatchResponse>> localVarResp = searchBatchWithHttpInfo(version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
+    public List<ReportBatchResponse> searchBatch(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
+        ApiResponse<List<ReportBatchResponse>> localVarResp = searchBatchWithHttpInfo(accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
         return localVarResp.getData();
     }
 
     /**
      * Search Offline Reports
      * Retrieves batches for a user..
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param start the start of the index and/or pagination (required)
      * @param limit the limit of the index and/or pagination (required)
@@ -1131,8 +1071,8 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ReportBatchResponse>> searchBatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
-        okhttp3.Call localVarCall = searchBatchValidateBeforeCall(version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, null);
+    public ApiResponse<List<ReportBatchResponse>> searchBatchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate) throws ApiException {
+        okhttp3.Call localVarCall = searchBatchValidateBeforeCall(accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, null);
         Type localVarReturnType = new TypeToken<List<ReportBatchResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1140,7 +1080,6 @@ public class ReportingApi {
     /**
      * Search Offline Reports (asynchronously)
      * Retrieves batches for a user..
-     * @param version  (required)
      * @param accountId the id of the account logged in (required)
      * @param start the start of the index and/or pagination (required)
      * @param limit the limit of the index and/or pagination (required)
@@ -1160,9 +1099,9 @@ public class ReportingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback<List<ReportBatchResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchBatchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String names, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String status, @javax.annotation.Nullable Boolean globalAppSearch, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, final ApiCallback<List<ReportBatchResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchBatchValidateBeforeCall(version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, _callback);
+        okhttp3.Call localVarCall = searchBatchValidateBeforeCall(accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, _callback);
         Type localVarReturnType = new TypeToken<List<ReportBatchResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

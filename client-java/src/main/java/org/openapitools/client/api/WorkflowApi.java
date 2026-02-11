@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class WorkflowApi {
 
     /**
      * Build call for runWorkflow
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param workflowId the workflow to run (required)
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -91,7 +89,7 @@ public class WorkflowApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call runWorkflowCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call runWorkflowCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class WorkflowApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/workflow/run"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/workflow/run";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -157,12 +154,7 @@ public class WorkflowApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call runWorkflowValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling runWorkflow(Async)");
-        }
-
+    private okhttp3.Call runWorkflowValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling runWorkflow(Async)");
@@ -173,14 +165,13 @@ public class WorkflowApi {
             throw new ApiException("Missing the required parameter 'workflowId' when calling runWorkflow(Async)");
         }
 
-        return runWorkflowCall(version, accountId, workflowId, skuId, versionCode, parameters, _callback);
+        return runWorkflowCall(accountId, workflowId, skuId, versionCode, parameters, _callback);
 
     }
 
     /**
      * Run Workflow
      * Runs a published executable workflow
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param workflowId the workflow to run (required)
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -195,15 +186,14 @@ public class WorkflowApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse runWorkflow(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = runWorkflowWithHttpInfo(version, accountId, workflowId, skuId, versionCode, parameters);
+    public SirqulResponse runWorkflow(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = runWorkflowWithHttpInfo(accountId, workflowId, skuId, versionCode, parameters);
         return localVarResp.getData();
     }
 
     /**
      * Run Workflow
      * Runs a published executable workflow
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param workflowId the workflow to run (required)
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -218,8 +208,8 @@ public class WorkflowApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> runWorkflowWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters) throws ApiException {
-        okhttp3.Call localVarCall = runWorkflowValidateBeforeCall(version, accountId, workflowId, skuId, versionCode, parameters, null);
+    public ApiResponse<SirqulResponse> runWorkflowWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters) throws ApiException {
+        okhttp3.Call localVarCall = runWorkflowValidateBeforeCall(accountId, workflowId, skuId, versionCode, parameters, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -227,7 +217,6 @@ public class WorkflowApi {
     /**
      * Run Workflow (asynchronously)
      * Runs a published executable workflow
-     * @param version  (required)
      * @param accountId the account ID of the user (required)
      * @param workflowId the workflow to run (required)
      * @param skuId this runs a particular sku on the workflow (optional)
@@ -243,9 +232,9 @@ public class WorkflowApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call runWorkflowAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call runWorkflowAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long workflowId, @javax.annotation.Nullable Long skuId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String parameters, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = runWorkflowValidateBeforeCall(version, accountId, workflowId, skuId, versionCode, parameters, _callback);
+        okhttp3.Call localVarCall = runWorkflowValidateBeforeCall(accountId, workflowId, skuId, versionCode, parameters, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

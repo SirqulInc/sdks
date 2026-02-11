@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Trip;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class TripApi {
 
     /**
      * Build call for createTrip
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +85,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTripCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createTripCall(@javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +102,7 @@ public class TripApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trip";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -133,20 +130,14 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTripValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createTrip(Async)");
-        }
-
-        return createTripCall(version, body, _callback);
+    private okhttp3.Call createTripValidateBeforeCall(@javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
+        return createTripCall(body, _callback);
 
     }
 
     /**
      * Create Trip
      * Create a new trip
-     * @param version  (required)
      * @param body  (optional)
      * @return Trip
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,15 +148,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip createTrip(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Trip body) throws ApiException {
-        ApiResponse<Trip> localVarResp = createTripWithHttpInfo(version, body);
+    public Trip createTrip(@javax.annotation.Nullable Trip body) throws ApiException {
+        ApiResponse<Trip> localVarResp = createTripWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Trip
      * Create a new trip
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Trip&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,8 +166,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> createTripWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Trip body) throws ApiException {
-        okhttp3.Call localVarCall = createTripValidateBeforeCall(version, body, null);
+    public ApiResponse<Trip> createTripWithHttpInfo(@javax.annotation.Nullable Trip body) throws ApiException {
+        okhttp3.Call localVarCall = createTripValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -185,7 +175,6 @@ public class TripApi {
     /**
      * Create Trip (asynchronously)
      * Create a new trip
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -197,16 +186,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTripAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call createTripAsync(@javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTripValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createTripValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for delete
-     * @param version  (required)
      * @param id the id of the trip to delete (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -218,7 +206,7 @@ public class TripApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -235,8 +223,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -264,25 +251,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling delete(Async)");
-        }
-
+    private okhttp3.Call deleteValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
 
-        return deleteCall(version, id, _callback);
+        return deleteCall(id, _callback);
 
     }
 
     /**
      * Delete Trip
      * Delete an existing trip
-     * @param version  (required)
      * @param id the id of the trip to delete (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -292,14 +273,13 @@ public class TripApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void delete(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        deleteWithHttpInfo(version, id);
+    public void delete(@javax.annotation.Nonnull Long id) throws ApiException {
+        deleteWithHttpInfo(id);
     }
 
     /**
      * Delete Trip
      * Delete an existing trip
-     * @param version  (required)
      * @param id the id of the trip to delete (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -310,15 +290,14 @@ public class TripApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = deleteValidateBeforeCall(version, id, null);
+    public ApiResponse<Void> deleteWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = deleteValidateBeforeCall(id, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Trip (asynchronously)
      * Delete an existing trip
-     * @param version  (required)
      * @param id the id of the trip to delete (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -330,15 +309,14 @@ public class TripApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = deleteValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for driveTrip
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param _callback Callback for upload/download progress
@@ -351,7 +329,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call driveTripCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call driveTripCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -368,8 +346,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/drive"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/drive"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -402,12 +379,7 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call driveTripValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling driveTrip(Async)");
-        }
-
+    private okhttp3.Call driveTripValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling driveTrip(Async)");
@@ -418,14 +390,13 @@ public class TripApi {
             throw new ApiException("Missing the required parameter 'recurrence' when calling driveTrip(Async)");
         }
 
-        return driveTripCall(version, id, recurrence, _callback);
+        return driveTripCall(id, recurrence, _callback);
 
     }
 
     /**
      * Set Trip Preference Driver
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return Trip
@@ -437,15 +408,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip driveTrip(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
-        ApiResponse<Trip> localVarResp = driveTripWithHttpInfo(version, id, recurrence);
+    public Trip driveTrip(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
+        ApiResponse<Trip> localVarResp = driveTripWithHttpInfo(id, recurrence);
         return localVarResp.getData();
     }
 
     /**
      * Set Trip Preference Driver
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return ApiResponse&lt;Trip&gt;
@@ -457,8 +427,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> driveTripWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
-        okhttp3.Call localVarCall = driveTripValidateBeforeCall(version, id, recurrence, null);
+    public ApiResponse<Trip> driveTripWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
+        okhttp3.Call localVarCall = driveTripValidateBeforeCall(id, recurrence, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -466,7 +436,6 @@ public class TripApi {
     /**
      * Set Trip Preference Driver (asynchronously)
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -479,16 +448,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call driveTripAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call driveTripAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = driveTripValidateBeforeCall(version, id, recurrence, _callback);
+        okhttp3.Call localVarCall = driveTripValidateBeforeCall(id, recurrence, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for flexibleTrip
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param _callback Callback for upload/download progress
@@ -501,7 +469,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call flexibleTripCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call flexibleTripCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -518,8 +486,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/flexible"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/flexible"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -552,12 +519,7 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call flexibleTripValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling flexibleTrip(Async)");
-        }
-
+    private okhttp3.Call flexibleTripValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling flexibleTrip(Async)");
@@ -568,14 +530,13 @@ public class TripApi {
             throw new ApiException("Missing the required parameter 'recurrence' when calling flexibleTrip(Async)");
         }
 
-        return flexibleTripCall(version, id, recurrence, _callback);
+        return flexibleTripCall(id, recurrence, _callback);
 
     }
 
     /**
      * Set Trip Preference Flexible
      * Update trip preference to flexible.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return Trip
@@ -587,15 +548,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip flexibleTrip(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
-        ApiResponse<Trip> localVarResp = flexibleTripWithHttpInfo(version, id, recurrence);
+    public Trip flexibleTrip(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
+        ApiResponse<Trip> localVarResp = flexibleTripWithHttpInfo(id, recurrence);
         return localVarResp.getData();
     }
 
     /**
      * Set Trip Preference Flexible
      * Update trip preference to flexible.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return ApiResponse&lt;Trip&gt;
@@ -607,8 +567,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> flexibleTripWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
-        okhttp3.Call localVarCall = flexibleTripValidateBeforeCall(version, id, recurrence, null);
+    public ApiResponse<Trip> flexibleTripWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
+        okhttp3.Call localVarCall = flexibleTripValidateBeforeCall(id, recurrence, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -616,7 +576,6 @@ public class TripApi {
     /**
      * Set Trip Preference Flexible (asynchronously)
      * Update trip preference to flexible.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -629,16 +588,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call flexibleTripAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call flexibleTripAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = flexibleTripValidateBeforeCall(version, id, recurrence, _callback);
+        okhttp3.Call localVarCall = flexibleTripValidateBeforeCall(id, recurrence, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTrip
-     * @param version  (required)
      * @param id the id of the trip to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -650,7 +608,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTripCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTripCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -667,8 +625,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -697,25 +654,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTripValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTrip(Async)");
-        }
-
+    private okhttp3.Call getTripValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getTrip(Async)");
         }
 
-        return getTripCall(version, id, _callback);
+        return getTripCall(id, _callback);
 
     }
 
     /**
      * Get Trip
      * Get an existing trip
-     * @param version  (required)
      * @param id the id of the trip to get (required)
      * @return Trip
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -726,15 +677,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip getTrip(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        ApiResponse<Trip> localVarResp = getTripWithHttpInfo(version, id);
+    public Trip getTrip(@javax.annotation.Nonnull Long id) throws ApiException {
+        ApiResponse<Trip> localVarResp = getTripWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get Trip
      * Get an existing trip
-     * @param version  (required)
      * @param id the id of the trip to get (required)
      * @return ApiResponse&lt;Trip&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -745,8 +695,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> getTripWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id) throws ApiException {
-        okhttp3.Call localVarCall = getTripValidateBeforeCall(version, id, null);
+    public ApiResponse<Trip> getTripWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+        okhttp3.Call localVarCall = getTripValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -754,7 +704,6 @@ public class TripApi {
     /**
      * Get Trip (asynchronously)
      * Get an existing trip
-     * @param version  (required)
      * @param id the id of the trip to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -766,16 +715,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTripAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call getTripAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTripValidateBeforeCall(version, id, _callback);
+        okhttp3.Call localVarCall = getTripValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTripMatches
-     * @param version  (required)
      * @param id The id The id of the trip to search for matches for (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -794,7 +742,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTripMatchesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTripMatchesCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -811,8 +759,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/match"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/match"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -869,12 +816,7 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTripMatchesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTripMatches(Async)");
-        }
-
+    private okhttp3.Call getTripMatchesValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getTripMatches(Async)");
@@ -905,14 +847,13 @@ public class TripApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling getTripMatches(Async)");
         }
 
-        return getTripMatchesCall(version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, _callback);
+        return getTripMatchesCall(id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, _callback);
 
     }
 
     /**
      * Get Trip Matches
      * Get matching trips of specific trip
-     * @param version  (required)
      * @param id The id The id of the trip to search for matches for (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -930,15 +871,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Trip> getTripMatches(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
-        ApiResponse<List<Trip>> localVarResp = getTripMatchesWithHttpInfo(version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
+    public List<Trip> getTripMatches(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
+        ApiResponse<List<Trip>> localVarResp = getTripMatchesWithHttpInfo(id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
         return localVarResp.getData();
     }
 
     /**
      * Get Trip Matches
      * Get matching trips of specific trip
-     * @param version  (required)
      * @param id The id The id of the trip to search for matches for (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -956,8 +896,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Trip>> getTripMatchesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
-        okhttp3.Call localVarCall = getTripMatchesValidateBeforeCall(version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, null);
+    public ApiResponse<List<Trip>> getTripMatchesWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
+        okhttp3.Call localVarCall = getTripMatchesValidateBeforeCall(id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, null);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -965,7 +905,6 @@ public class TripApi {
     /**
      * Get Trip Matches (asynchronously)
      * Get matching trips of specific trip
-     * @param version  (required)
      * @param id The id The id of the trip to search for matches for (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -984,16 +923,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTripMatchesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback<List<Trip>> _callback) throws ApiException {
+    public okhttp3.Call getTripMatchesAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback<List<Trip>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTripMatchesValidateBeforeCall(version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, _callback);
+        okhttp3.Call localVarCall = getTripMatchesValidateBeforeCall(id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, _callback);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for processTripMatches
-     * @param version  (required)
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
@@ -1007,7 +945,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call processTripMatchesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call processTripMatchesCall(@javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1024,8 +962,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/match/process"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trip/match/process";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1065,20 +1002,14 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call processTripMatchesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling processTripMatches(Async)");
-        }
-
-        return processTripMatchesCall(version, startDate, endDate, tripId, _callback);
+    private okhttp3.Call processTripMatchesValidateBeforeCall(@javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId, final ApiCallback _callback) throws ApiException {
+        return processTripMatchesCall(startDate, endDate, tripId, _callback);
 
     }
 
     /**
      * Process Trip Matches
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @param version  (required)
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
@@ -1091,15 +1022,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Trip> processTripMatches(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId) throws ApiException {
-        ApiResponse<List<Trip>> localVarResp = processTripMatchesWithHttpInfo(version, startDate, endDate, tripId);
+    public List<Trip> processTripMatches(@javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId) throws ApiException {
+        ApiResponse<List<Trip>> localVarResp = processTripMatchesWithHttpInfo(startDate, endDate, tripId);
         return localVarResp.getData();
     }
 
     /**
      * Process Trip Matches
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @param version  (required)
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
@@ -1112,8 +1042,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Trip>> processTripMatchesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId) throws ApiException {
-        okhttp3.Call localVarCall = processTripMatchesValidateBeforeCall(version, startDate, endDate, tripId, null);
+    public ApiResponse<List<Trip>> processTripMatchesWithHttpInfo(@javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId) throws ApiException {
+        okhttp3.Call localVarCall = processTripMatchesValidateBeforeCall(startDate, endDate, tripId, null);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1121,7 +1051,6 @@ public class TripApi {
     /**
      * Process Trip Matches (asynchronously)
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @param version  (required)
      * @param startDate The lower bound date to process matchings (optional)
      * @param endDate The upper bound date to process matchings (optional)
      * @param tripId the id of the trip to process (optional)
@@ -1135,16 +1064,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call processTripMatchesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId, final ApiCallback<List<Trip>> _callback) throws ApiException {
+    public okhttp3.Call processTripMatchesAsync(@javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Long tripId, final ApiCallback<List<Trip>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = processTripMatchesValidateBeforeCall(version, startDate, endDate, tripId, _callback);
+        okhttp3.Call localVarCall = processTripMatchesValidateBeforeCall(startDate, endDate, tripId, _callback);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for ride
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param _callback Callback for upload/download progress
@@ -1157,7 +1085,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rideCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call rideCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1174,8 +1102,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/ride"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/ride"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1208,12 +1135,7 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call rideValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling ride(Async)");
-        }
-
+    private okhttp3.Call rideValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling ride(Async)");
@@ -1224,14 +1146,13 @@ public class TripApi {
             throw new ApiException("Missing the required parameter 'recurrence' when calling ride(Async)");
         }
 
-        return rideCall(version, id, recurrence, _callback);
+        return rideCall(id, recurrence, _callback);
 
     }
 
     /**
      * Set Trip Preference Rider
      * Update trip preference to ride.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return Trip
@@ -1243,15 +1164,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip ride(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
-        ApiResponse<Trip> localVarResp = rideWithHttpInfo(version, id, recurrence);
+    public Trip ride(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
+        ApiResponse<Trip> localVarResp = rideWithHttpInfo(id, recurrence);
         return localVarResp.getData();
     }
 
     /**
      * Set Trip Preference Rider
      * Update trip preference to ride.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @return ApiResponse&lt;Trip&gt;
@@ -1263,8 +1183,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> rideWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
-        okhttp3.Call localVarCall = rideValidateBeforeCall(version, id, recurrence, null);
+    public ApiResponse<Trip> rideWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence) throws ApiException {
+        okhttp3.Call localVarCall = rideValidateBeforeCall(id, recurrence, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1272,7 +1192,6 @@ public class TripApi {
     /**
      * Set Trip Preference Rider (asynchronously)
      * Update trip preference to ride.
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1285,16 +1204,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rideAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call rideAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Boolean recurrence, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = rideValidateBeforeCall(version, id, recurrence, _callback);
+        okhttp3.Call localVarCall = rideValidateBeforeCall(id, recurrence, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for search
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1314,7 +1232,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1331,8 +1249,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trip";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1396,12 +1313,7 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling search(Async)");
-        }
-
+    private okhttp3.Call searchValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling search(Async)");
@@ -1432,14 +1344,13 @@ public class TripApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling search(Async)");
         }
 
-        return searchCall(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, _callback);
+        return searchCall(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, _callback);
 
     }
 
     /**
      * Search Trips
      * Search for trips
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1458,15 +1369,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Trip> search(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications) throws ApiException {
-        ApiResponse<List<Trip>> localVarResp = searchWithHttpInfo(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
+    public List<Trip> search(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications) throws ApiException {
+        ApiResponse<List<Trip>> localVarResp = searchWithHttpInfo(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
         return localVarResp.getData();
     }
 
     /**
      * Search Trips
      * Search for trips
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1485,8 +1395,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Trip>> searchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications) throws ApiException {
-        okhttp3.Call localVarCall = searchValidateBeforeCall(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, null);
+    public ApiResponse<List<Trip>> searchWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications) throws ApiException {
+        okhttp3.Call localVarCall = searchValidateBeforeCall(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, null);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1494,7 +1404,6 @@ public class TripApi {
     /**
      * Search Trips (asynchronously)
      * Search for trips
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1514,16 +1423,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications, final ApiCallback<List<Trip>> _callback) throws ApiException {
+    public okhttp3.Call searchAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean hasNotifications, final ApiCallback<List<Trip>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchValidateBeforeCall(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, _callback);
+        okhttp3.Call localVarCall = searchValidateBeforeCall(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, _callback);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchTrips
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1544,7 +1452,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTripsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTripsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1561,8 +1469,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/match"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trip/match";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1630,12 +1537,7 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTripsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchTrips(Async)");
-        }
-
+    private okhttp3.Call searchTripsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchTrips(Async)");
@@ -1666,14 +1568,13 @@ public class TripApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchTrips(Async)");
         }
 
-        return searchTripsCall(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, _callback);
+        return searchTripsCall(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, _callback);
 
     }
 
     /**
      * Search Trips
      * Search for trips with matching information.
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1693,15 +1594,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Trip> searchTrips(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
-        ApiResponse<List<Trip>> localVarResp = searchTripsWithHttpInfo(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
+    public List<Trip> searchTrips(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
+        ApiResponse<List<Trip>> localVarResp = searchTripsWithHttpInfo(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
         return localVarResp.getData();
     }
 
     /**
      * Search Trips
      * Search for trips with matching information.
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1721,8 +1621,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Trip>> searchTripsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
-        okhttp3.Call localVarCall = searchTripsValidateBeforeCall(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, null);
+    public ApiResponse<List<Trip>> searchTripsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver) throws ApiException {
+        okhttp3.Call localVarCall = searchTripsValidateBeforeCall(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, null);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1730,7 +1630,6 @@ public class TripApi {
     /**
      * Search Trips (asynchronously)
      * Search for trips with matching information.
-     * @param version  (required)
      * @param accountId The owner of the trips (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
@@ -1751,16 +1650,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTripsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback<List<Trip>> _callback) throws ApiException {
+    public okhttp3.Call searchTripsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean matchedHasRoute, @javax.annotation.Nullable Boolean matchedHasDriver, final ApiCallback<List<Trip>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTripsValidateBeforeCall(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, _callback);
+        okhttp3.Call localVarCall = searchTripsValidateBeforeCall(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, _callback);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateLocations
-     * @param version  (required)
      * @param id the id of the trip to update locations for (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -1773,7 +1671,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateLocationsCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1790,8 +1688,7 @@ public class TripApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/locations"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/locations"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1820,25 +1717,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateLocations(Async)");
-        }
-
+    private okhttp3.Call updateLocationsValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateLocations(Async)");
         }
 
-        return updateLocationsCall(version, id, body, _callback);
+        return updateLocationsCall(id, body, _callback);
 
     }
 
     /**
      * Update Trip Locations
      * 
-     * @param version  (required)
      * @param id the id of the trip to update locations for (required)
      * @param body  (optional)
      * @return Trip
@@ -1850,15 +1741,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip updateLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        ApiResponse<Trip> localVarResp = updateLocationsWithHttpInfo(version, id, body);
+    public Trip updateLocations(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        ApiResponse<Trip> localVarResp = updateLocationsWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Trip Locations
      * 
-     * @param version  (required)
      * @param id the id of the trip to update locations for (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Trip&gt;
@@ -1870,8 +1760,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> updateLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        okhttp3.Call localVarCall = updateLocationsValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Trip> updateLocationsWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        okhttp3.Call localVarCall = updateLocationsValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1879,7 +1769,6 @@ public class TripApi {
     /**
      * Update Trip Locations (asynchronously)
      * 
-     * @param version  (required)
      * @param id the id of the trip to update locations for (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1892,16 +1781,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call updateLocationsAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateLocationsValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateLocationsValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRecurrenceLocations
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -1914,7 +1802,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRecurrenceLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRecurrenceLocationsCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1931,8 +1819,7 @@ public class TripApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/locations/recurrence"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/locations/recurrence"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1961,25 +1848,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRecurrenceLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRecurrenceLocations(Async)");
-        }
-
+    private okhttp3.Call updateRecurrenceLocationsValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRecurrenceLocations(Async)");
         }
 
-        return updateRecurrenceLocationsCall(version, id, body, _callback);
+        return updateRecurrenceLocationsCall(id, body, _callback);
 
     }
 
     /**
      * Update Recurrence Locations
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @return List&lt;Trip&gt;
@@ -1991,15 +1872,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Trip> updateRecurrenceLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        ApiResponse<List<Trip>> localVarResp = updateRecurrenceLocationsWithHttpInfo(version, id, body);
+    public List<Trip> updateRecurrenceLocations(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        ApiResponse<List<Trip>> localVarResp = updateRecurrenceLocationsWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Recurrence Locations
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @return ApiResponse&lt;List&lt;Trip&gt;&gt;
@@ -2011,8 +1891,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Trip>> updateRecurrenceLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        okhttp3.Call localVarCall = updateRecurrenceLocationsValidateBeforeCall(version, id, body, null);
+    public ApiResponse<List<Trip>> updateRecurrenceLocationsWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        okhttp3.Call localVarCall = updateRecurrenceLocationsValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2020,7 +1900,6 @@ public class TripApi {
     /**
      * Update Recurrence Locations (asynchronously)
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2033,16 +1912,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRecurrenceLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<List<Trip>> _callback) throws ApiException {
+    public okhttp3.Call updateRecurrenceLocationsAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<List<Trip>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRecurrenceLocationsValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateRecurrenceLocationsValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRecurrenceShipments
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -2055,7 +1933,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRecurrenceShipmentsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRecurrenceShipmentsCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2072,8 +1950,7 @@ public class TripApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/shipments/recurrence"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/shipments/recurrence"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2102,25 +1979,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRecurrenceShipmentsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRecurrenceShipments(Async)");
-        }
-
+    private okhttp3.Call updateRecurrenceShipmentsValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRecurrenceShipments(Async)");
         }
 
-        return updateRecurrenceShipmentsCall(version, id, body, _callback);
+        return updateRecurrenceShipmentsCall(id, body, _callback);
 
     }
 
     /**
      * Update Recurrence Shipments
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @return List&lt;Trip&gt;
@@ -2132,15 +2003,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Trip> updateRecurrenceShipments(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        ApiResponse<List<Trip>> localVarResp = updateRecurrenceShipmentsWithHttpInfo(version, id, body);
+    public List<Trip> updateRecurrenceShipments(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        ApiResponse<List<Trip>> localVarResp = updateRecurrenceShipmentsWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Recurrence Shipments
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @return ApiResponse&lt;List&lt;Trip&gt;&gt;
@@ -2152,8 +2022,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Trip>> updateRecurrenceShipmentsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        okhttp3.Call localVarCall = updateRecurrenceShipmentsValidateBeforeCall(version, id, body, null);
+    public ApiResponse<List<Trip>> updateRecurrenceShipmentsWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        okhttp3.Call localVarCall = updateRecurrenceShipmentsValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2161,7 +2031,6 @@ public class TripApi {
     /**
      * Update Recurrence Shipments (asynchronously)
      * 
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2174,16 +2043,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRecurrenceShipmentsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<List<Trip>> _callback) throws ApiException {
+    public okhttp3.Call updateRecurrenceShipmentsAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<List<Trip>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRecurrenceShipmentsValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateRecurrenceShipmentsValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<List<Trip>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateShipments
-     * @param version  (required)
      * @param id the id of the trip shipments to update (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -2196,7 +2064,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShipmentsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateShipmentsCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2213,8 +2081,7 @@ public class TripApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}/shipments"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}/shipments"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2243,25 +2110,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateShipmentsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateShipments(Async)");
-        }
-
+    private okhttp3.Call updateShipmentsValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateShipments(Async)");
         }
 
-        return updateShipmentsCall(version, id, body, _callback);
+        return updateShipmentsCall(id, body, _callback);
 
     }
 
     /**
      * Update Trip Shipments
      * 
-     * @param version  (required)
      * @param id the id of the trip shipments to update (required)
      * @param body  (optional)
      * @return Trip
@@ -2273,15 +2134,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip updateShipments(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        ApiResponse<Trip> localVarResp = updateShipmentsWithHttpInfo(version, id, body);
+    public Trip updateShipments(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        ApiResponse<Trip> localVarResp = updateShipmentsWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Trip Shipments
      * 
-     * @param version  (required)
      * @param id the id of the trip shipments to update (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Trip&gt;
@@ -2293,8 +2153,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> updateShipmentsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        okhttp3.Call localVarCall = updateShipmentsValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Trip> updateShipmentsWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        okhttp3.Call localVarCall = updateShipmentsValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2302,7 +2162,6 @@ public class TripApi {
     /**
      * Update Trip Shipments (asynchronously)
      * 
-     * @param version  (required)
      * @param id the id of the trip shipments to update (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2315,16 +2174,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateShipmentsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call updateShipmentsAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateShipmentsValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateShipmentsValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateTrip
-     * @param version  (required)
      * @param id the id of the trip to update (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -2337,7 +2195,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTripCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTripCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2354,8 +2212,7 @@ public class TripApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/{id}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/trip/{id}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2384,25 +2241,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTripValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateTrip(Async)");
-        }
-
+    private okhttp3.Call updateTripValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateTrip(Async)");
         }
 
-        return updateTripCall(version, id, body, _callback);
+        return updateTripCall(id, body, _callback);
 
     }
 
     /**
      * Update Trip
      * Update an existing trip. Does not support recurring trip update.
-     * @param version  (required)
      * @param id the id of the trip to update (required)
      * @param body  (optional)
      * @return Trip
@@ -2414,15 +2265,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip updateTrip(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        ApiResponse<Trip> localVarResp = updateTripWithHttpInfo(version, id, body);
+    public Trip updateTrip(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        ApiResponse<Trip> localVarResp = updateTripWithHttpInfo(id, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Trip
      * Update an existing trip. Does not support recurring trip update.
-     * @param version  (required)
      * @param id the id of the trip to update (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Trip&gt;
@@ -2434,8 +2284,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> updateTripWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
-        okhttp3.Call localVarCall = updateTripValidateBeforeCall(version, id, body, null);
+    public ApiResponse<Trip> updateTripWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body) throws ApiException {
+        okhttp3.Call localVarCall = updateTripValidateBeforeCall(id, body, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2443,7 +2293,6 @@ public class TripApi {
     /**
      * Update Trip (asynchronously)
      * Update an existing trip. Does not support recurring trip update.
-     * @param version  (required)
      * @param id the id of the trip to update (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2456,16 +2305,15 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTripAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call updateTripAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Trip body, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTripValidateBeforeCall(version, id, body, _callback);
+        okhttp3.Call localVarCall = updateTripValidateBeforeCall(id, body, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateTripNotifications
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param notifications the notifications to update on the trip (optional)
      * @param _callback Callback for upload/download progress
@@ -2478,7 +2326,7 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTripNotificationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTripNotificationsCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2495,8 +2343,7 @@ public class TripApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/trip/notifications"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/trip/notifications";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2532,25 +2379,19 @@ public class TripApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTripNotificationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateTripNotifications(Async)");
-        }
-
+    private okhttp3.Call updateTripNotificationsValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateTripNotifications(Async)");
         }
 
-        return updateTripNotificationsCall(version, id, notifications, _callback);
+        return updateTripNotificationsCall(id, notifications, _callback);
 
     }
 
     /**
      * Trip Notifications
      * Update the trip notifications
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param notifications the notifications to update on the trip (optional)
      * @return Trip
@@ -2562,15 +2403,14 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Trip updateTripNotifications(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications) throws ApiException {
-        ApiResponse<Trip> localVarResp = updateTripNotificationsWithHttpInfo(version, id, notifications);
+    public Trip updateTripNotifications(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications) throws ApiException {
+        ApiResponse<Trip> localVarResp = updateTripNotificationsWithHttpInfo(id, notifications);
         return localVarResp.getData();
     }
 
     /**
      * Trip Notifications
      * Update the trip notifications
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param notifications the notifications to update on the trip (optional)
      * @return ApiResponse&lt;Trip&gt;
@@ -2582,8 +2422,8 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Trip> updateTripNotificationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications) throws ApiException {
-        okhttp3.Call localVarCall = updateTripNotificationsValidateBeforeCall(version, id, notifications, null);
+    public ApiResponse<Trip> updateTripNotificationsWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications) throws ApiException {
+        okhttp3.Call localVarCall = updateTripNotificationsValidateBeforeCall(id, notifications, null);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2591,7 +2431,6 @@ public class TripApi {
     /**
      * Trip Notifications (asynchronously)
      * Update the trip notifications
-     * @param version  (required)
      * @param id the id of the trip (required)
      * @param notifications the notifications to update on the trip (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2604,9 +2443,9 @@ public class TripApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateTripNotificationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications, final ApiCallback<Trip> _callback) throws ApiException {
+    public okhttp3.Call updateTripNotificationsAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable String notifications, final ApiCallback<Trip> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateTripNotificationsValidateBeforeCall(version, id, notifications, _callback);
+        okhttp3.Call localVarCall = updateTripNotificationsValidateBeforeCall(id, notifications, _callback);
         Type localVarReturnType = new TypeToken<Trip>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

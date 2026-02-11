@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.MissionFormatResponse;
 import org.openapitools.client.model.MissionResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class MissionApi {
 
     /**
      * Build call for createMission
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the mission (required)
      * @param description The description of the mission (optional)
@@ -114,7 +112,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createMissionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createMissionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,8 +129,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -264,12 +261,7 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMissionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createMission(Async)");
-        }
-
+    private okhttp3.Call createMissionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createMission(Async)");
@@ -280,14 +272,13 @@ public class MissionApi {
             throw new ApiException("Missing the required parameter 'title' when calling createMission(Async)");
         }
 
-        return createMissionCall(version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
+        return createMissionCall(accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
 
     }
 
     /**
      * Create Mission
      * Create a user defined mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the mission (required)
      * @param description The description of the mission (optional)
@@ -323,15 +314,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionResponse createMission(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
-        ApiResponse<MissionResponse> localVarResp = createMissionWithHttpInfo(version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+    public MissionResponse createMission(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
+        ApiResponse<MissionResponse> localVarResp = createMissionWithHttpInfo(accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
         return localVarResp.getData();
     }
 
     /**
      * Create Mission
      * Create a user defined mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the mission (required)
      * @param description The description of the mission (optional)
@@ -367,8 +357,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionResponse> createMissionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
-        okhttp3.Call localVarCall = createMissionValidateBeforeCall(version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, null);
+    public ApiResponse<MissionResponse> createMissionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
+        okhttp3.Call localVarCall = createMissionValidateBeforeCall(accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, null);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -376,7 +366,6 @@ public class MissionApi {
     /**
      * Create Mission (asynchronously)
      * Create a user defined mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The title of the mission (required)
      * @param description The description of the mission (optional)
@@ -413,16 +402,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createMissionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback<MissionResponse> _callback) throws ApiException {
+    public okhttp3.Call createMissionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String missionTask, @javax.annotation.Nullable String formatType, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback<MissionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createMissionValidateBeforeCall(version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
+        okhttp3.Call localVarCall = createMissionValidateBeforeCall(accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteMission
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @param _callback Callback for upload/download progress
@@ -435,7 +423,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteMissionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteMissionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -452,8 +440,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -489,12 +476,7 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteMissionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteMission(Async)");
-        }
-
+    private okhttp3.Call deleteMissionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteMission(Async)");
@@ -505,14 +487,13 @@ public class MissionApi {
             throw new ApiException("Missing the required parameter 'missionId' when calling deleteMission(Async)");
         }
 
-        return deleteMissionCall(version, accountId, missionId, _callback);
+        return deleteMissionCall(accountId, missionId, _callback);
 
     }
 
     /**
      * Delete Mission
      * Delete a mission.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @return SirqulResponse
@@ -524,15 +505,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteMission(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteMissionWithHttpInfo(version, accountId, missionId);
+    public SirqulResponse deleteMission(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteMissionWithHttpInfo(accountId, missionId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Mission
      * Delete a mission.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -544,8 +524,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteMissionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
-        okhttp3.Call localVarCall = deleteMissionValidateBeforeCall(version, accountId, missionId, null);
+    public ApiResponse<SirqulResponse> deleteMissionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId) throws ApiException {
+        okhttp3.Call localVarCall = deleteMissionValidateBeforeCall(accountId, missionId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -553,7 +533,6 @@ public class MissionApi {
     /**
      * Delete Mission (asynchronously)
      * Delete a mission.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param missionId the id of the mission to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -566,16 +545,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteMissionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteMissionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteMissionValidateBeforeCall(version, accountId, missionId, _callback);
+        okhttp3.Call localVarCall = deleteMissionValidateBeforeCall(accountId, missionId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for findMissions
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -605,7 +583,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findMissionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call findMissionsCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -622,8 +600,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/find"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/find";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -727,25 +704,19 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call findMissionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling findMissions(Async)");
-        }
-
+    private okhttp3.Call findMissionsValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling findMissions(Async)");
         }
 
-        return findMissionsCall(version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, _callback);
+        return findMissionsCall(appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, _callback);
 
     }
 
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -774,15 +745,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionResponse findMissions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator) throws ApiException {
-        ApiResponse<MissionResponse> localVarResp = findMissionsWithHttpInfo(version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
+    public MissionResponse findMissions(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator) throws ApiException {
+        ApiResponse<MissionResponse> localVarResp = findMissionsWithHttpInfo(appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
         return localVarResp.getData();
     }
 
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -811,8 +781,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionResponse> findMissionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator) throws ApiException {
-        okhttp3.Call localVarCall = findMissionsValidateBeforeCall(version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, null);
+    public ApiResponse<MissionResponse> findMissionsWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator) throws ApiException {
+        okhttp3.Call localVarCall = findMissionsValidateBeforeCall(appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, null);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -820,7 +790,6 @@ public class MissionApi {
     /**
      * Find Missions (asynchronously)
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
      * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -850,16 +819,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findMissionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator, final ApiCallback<MissionResponse> _callback) throws ApiException {
+    public okhttp3.Call findMissionsAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable Boolean randomize, @javax.annotation.Nullable Boolean targetedAdsOnly, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String audienceOperator, final ApiCallback<MissionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = findMissionsValidateBeforeCall(version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, _callback);
+        okhttp3.Call localVarCall = findMissionsValidateBeforeCall(appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, _callback);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getMission
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to return. (required)
      * @param returnCreative Return creatives associated with the mission when true (optional)
@@ -873,7 +841,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMissionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMissionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -890,8 +858,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -931,12 +898,7 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMissionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getMission(Async)");
-        }
-
+    private okhttp3.Call getMissionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getMission(Async)");
@@ -947,14 +909,13 @@ public class MissionApi {
             throw new ApiException("Missing the required parameter 'missionId' when calling getMission(Async)");
         }
 
-        return getMissionCall(version, accountId, missionId, returnCreative, _callback);
+        return getMissionCall(accountId, missionId, returnCreative, _callback);
 
     }
 
     /**
      * Get Mission
      * Get a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to return. (required)
      * @param returnCreative Return creatives associated with the mission when true (optional)
@@ -967,15 +928,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionResponse getMission(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative) throws ApiException {
-        ApiResponse<MissionResponse> localVarResp = getMissionWithHttpInfo(version, accountId, missionId, returnCreative);
+    public MissionResponse getMission(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative) throws ApiException {
+        ApiResponse<MissionResponse> localVarResp = getMissionWithHttpInfo(accountId, missionId, returnCreative);
         return localVarResp.getData();
     }
 
     /**
      * Get Mission
      * Get a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to return. (required)
      * @param returnCreative Return creatives associated with the mission when true (optional)
@@ -988,8 +948,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionResponse> getMissionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative) throws ApiException {
-        okhttp3.Call localVarCall = getMissionValidateBeforeCall(version, accountId, missionId, returnCreative, null);
+    public ApiResponse<MissionResponse> getMissionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative) throws ApiException {
+        okhttp3.Call localVarCall = getMissionValidateBeforeCall(accountId, missionId, returnCreative, null);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -997,7 +957,6 @@ public class MissionApi {
     /**
      * Get Mission (asynchronously)
      * Get a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to return. (required)
      * @param returnCreative Return creatives associated with the mission when true (optional)
@@ -1011,16 +970,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMissionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative, final ApiCallback<MissionResponse> _callback) throws ApiException {
+    public okhttp3.Call getMissionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable Boolean returnCreative, final ApiCallback<MissionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMissionValidateBeforeCall(version, accountId, missionId, returnCreative, _callback);
+        okhttp3.Call localVarCall = getMissionValidateBeforeCall(accountId, missionId, returnCreative, _callback);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for importMission
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param latitude The current location of the requesting device (required)
      * @param longitude The current location of the requesting device (required)
@@ -1039,7 +997,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importMissionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call importMissionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1056,8 +1014,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/import"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/import";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1117,12 +1074,7 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call importMissionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling importMission(Async)");
-        }
-
+    private okhttp3.Call importMissionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling importMission(Async)");
@@ -1143,14 +1095,13 @@ public class MissionApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling importMission(Async)");
         }
 
-        return importMissionCall(version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize, _callback);
+        return importMissionCall(accountId, latitude, longitude, appKey, keyword, start, limit, adSize, _callback);
 
     }
 
     /**
      * Import Mission
      * Create a mission using a source item such as an offer location.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param latitude The current location of the requesting device (required)
      * @param longitude The current location of the requesting device (required)
@@ -1168,15 +1119,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse importMission(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = importMissionWithHttpInfo(version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
+    public SirqulResponse importMission(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = importMissionWithHttpInfo(accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
         return localVarResp.getData();
     }
 
     /**
      * Import Mission
      * Create a mission using a source item such as an offer location.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param latitude The current location of the requesting device (required)
      * @param longitude The current location of the requesting device (required)
@@ -1194,8 +1144,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> importMissionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize) throws ApiException {
-        okhttp3.Call localVarCall = importMissionValidateBeforeCall(version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize, null);
+    public ApiResponse<SirqulResponse> importMissionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize) throws ApiException {
+        okhttp3.Call localVarCall = importMissionValidateBeforeCall(accountId, latitude, longitude, appKey, keyword, start, limit, adSize, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1203,7 +1153,6 @@ public class MissionApi {
     /**
      * Import Mission (asynchronously)
      * Create a mission using a source item such as an offer location.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param latitude The current location of the requesting device (required)
      * @param longitude The current location of the requesting device (required)
@@ -1222,16 +1171,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call importMissionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call importMissionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String adSize, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = importMissionValidateBeforeCall(version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize, _callback);
+        okhttp3.Call localVarCall = importMissionValidateBeforeCall(accountId, latitude, longitude, appKey, keyword, start, limit, adSize, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchMissionFormats
-     * @param version  (required)
      * @param start The starting index in the result set to return. Default is 0. (required)
      * @param limit The total number of records to return. Default is 20. (required)
      * @param activeOnly Determines whether to return only active results. Default is false. (required)
@@ -1245,7 +1193,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionFormatsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchMissionFormatsCall(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1262,8 +1210,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/format/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/format/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1303,12 +1250,7 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchMissionFormatsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchMissionFormats(Async)");
-        }
-
+    private okhttp3.Call searchMissionFormatsValidateBeforeCall(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'start' is set
         if (start == null) {
             throw new ApiException("Missing the required parameter 'start' when calling searchMissionFormats(Async)");
@@ -1324,14 +1266,13 @@ public class MissionApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchMissionFormats(Async)");
         }
 
-        return searchMissionFormatsCall(version, start, limit, activeOnly, _callback);
+        return searchMissionFormatsCall(start, limit, activeOnly, _callback);
 
     }
 
     /**
      * Search Mission Formats
      * Searches on pre-defined mission formats
-     * @param version  (required)
      * @param start The starting index in the result set to return. Default is 0. (required)
      * @param limit The total number of records to return. Default is 20. (required)
      * @param activeOnly Determines whether to return only active results. Default is false. (required)
@@ -1344,15 +1285,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<MissionFormatResponse> searchMissionFormats(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly) throws ApiException {
-        ApiResponse<List<MissionFormatResponse>> localVarResp = searchMissionFormatsWithHttpInfo(version, start, limit, activeOnly);
+    public List<MissionFormatResponse> searchMissionFormats(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly) throws ApiException {
+        ApiResponse<List<MissionFormatResponse>> localVarResp = searchMissionFormatsWithHttpInfo(start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * Search Mission Formats
      * Searches on pre-defined mission formats
-     * @param version  (required)
      * @param start The starting index in the result set to return. Default is 0. (required)
      * @param limit The total number of records to return. Default is 20. (required)
      * @param activeOnly Determines whether to return only active results. Default is false. (required)
@@ -1365,8 +1305,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<MissionFormatResponse>> searchMissionFormatsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchMissionFormatsValidateBeforeCall(version, start, limit, activeOnly, null);
+    public ApiResponse<List<MissionFormatResponse>> searchMissionFormatsWithHttpInfo(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchMissionFormatsValidateBeforeCall(start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<MissionFormatResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1374,7 +1314,6 @@ public class MissionApi {
     /**
      * Search Mission Formats (asynchronously)
      * Searches on pre-defined mission formats
-     * @param version  (required)
      * @param start The starting index in the result set to return. Default is 0. (required)
      * @param limit The total number of records to return. Default is 20. (required)
      * @param activeOnly Determines whether to return only active results. Default is false. (required)
@@ -1388,16 +1327,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionFormatsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, final ApiCallback<List<MissionFormatResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchMissionFormatsAsync(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, final ApiCallback<List<MissionFormatResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchMissionFormatsValidateBeforeCall(version, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchMissionFormatsValidateBeforeCall(start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<MissionFormatResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchMissions
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -1419,7 +1357,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchMissionsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1436,8 +1374,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1509,25 +1446,19 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchMissionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchMissions(Async)");
-        }
-
+    private okhttp3.Call searchMissionsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchMissions(Async)");
         }
 
-        return searchMissionsCall(version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
+        return searchMissionsCall(accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
 
     }
 
     /**
      * Search Missions
      * Get the list missions available to the account.  
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -1548,15 +1479,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<MissionResponse> searchMissions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
-        ApiResponse<List<MissionResponse>> localVarResp = searchMissionsWithHttpInfo(version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+    public List<MissionResponse> searchMissions(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
+        ApiResponse<List<MissionResponse>> localVarResp = searchMissionsWithHttpInfo(accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
         return localVarResp.getData();
     }
 
     /**
      * Search Missions
      * Get the list missions available to the account.  
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -1577,8 +1507,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<MissionResponse>> searchMissionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
-        okhttp3.Call localVarCall = searchMissionsValidateBeforeCall(version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, null);
+    public ApiResponse<List<MissionResponse>> searchMissionsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
+        okhttp3.Call localVarCall = searchMissionsValidateBeforeCall(accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, null);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1586,7 +1516,6 @@ public class MissionApi {
     /**
      * Search Missions (asynchronously)
      * Get the list missions available to the account.  
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param subType Custom string client apps can use for searching/filtering missions (optional)
@@ -1608,16 +1537,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchMissionsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchMissionsValidateBeforeCall(version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
+        okhttp3.Call localVarCall = searchMissionsValidateBeforeCall(accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchMissionsByBillableEntity
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -1638,7 +1566,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionsByBillableEntityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchMissionsByBillableEntityCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1655,8 +1583,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/searchByBillableEntity"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/searchByBillableEntity";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1724,25 +1651,19 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchMissionsByBillableEntityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchMissionsByBillableEntity(Async)");
-        }
-
+    private okhttp3.Call searchMissionsByBillableEntityValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchMissionsByBillableEntity(Async)");
         }
 
-        return searchMissionsByBillableEntityCall(version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
+        return searchMissionsByBillableEntityCall(accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
 
     }
 
     /**
      * Search Missions by Billable Entity
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -1762,15 +1683,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<MissionResponse> searchMissionsByBillableEntity(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
-        ApiResponse<List<MissionResponse>> localVarResp = searchMissionsByBillableEntityWithHttpInfo(version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+    public List<MissionResponse> searchMissionsByBillableEntity(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
+        ApiResponse<List<MissionResponse>> localVarResp = searchMissionsByBillableEntityWithHttpInfo(accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
         return localVarResp.getData();
     }
 
     /**
      * Search Missions by Billable Entity
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -1790,8 +1710,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<MissionResponse>> searchMissionsByBillableEntityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
-        okhttp3.Call localVarCall = searchMissionsByBillableEntityValidateBeforeCall(version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, null);
+    public ApiResponse<List<MissionResponse>> searchMissionsByBillableEntityWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending) throws ApiException {
+        okhttp3.Call localVarCall = searchMissionsByBillableEntityValidateBeforeCall(accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, null);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1799,7 +1719,6 @@ public class MissionApi {
     /**
      * Search Missions by Billable Entity (asynchronously)
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword Filter by keyword (optional)
      * @param start The index into the record set to start with. Default is 0. (optional)
@@ -1820,16 +1739,15 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMissionsByBillableEntityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchMissionsByBillableEntityAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchMissionsByBillableEntityValidateBeforeCall(version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
+        okhttp3.Call localVarCall = searchMissionsByBillableEntityValidateBeforeCall(accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, _callback);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateMission
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to update. (required)
      * @param title The title of the mission (optional)
@@ -1865,7 +1783,7 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMissionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateMissionCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1882,8 +1800,7 @@ public class MissionApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/mission/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/mission/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2011,12 +1928,7 @@ public class MissionApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateMissionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateMission(Async)");
-        }
-
+    private okhttp3.Call updateMissionValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateMission(Async)");
@@ -2027,14 +1939,13 @@ public class MissionApi {
             throw new ApiException("Missing the required parameter 'missionId' when calling updateMission(Async)");
         }
 
-        return updateMissionCall(version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
+        return updateMissionCall(accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
 
     }
 
     /**
      * Update Mission
      * Update a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to update. (required)
      * @param title The title of the mission (optional)
@@ -2069,15 +1980,14 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MissionResponse updateMission(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
-        ApiResponse<MissionResponse> localVarResp = updateMissionWithHttpInfo(version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+    public MissionResponse updateMission(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
+        ApiResponse<MissionResponse> localVarResp = updateMissionWithHttpInfo(accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
         return localVarResp.getData();
     }
 
     /**
      * Update Mission
      * Update a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to update. (required)
      * @param title The title of the mission (optional)
@@ -2112,8 +2022,8 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MissionResponse> updateMissionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
-        okhttp3.Call localVarCall = updateMissionValidateBeforeCall(version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, null);
+    public ApiResponse<MissionResponse> updateMissionWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius) throws ApiException {
+        okhttp3.Call localVarCall = updateMissionValidateBeforeCall(accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, null);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2121,7 +2031,6 @@ public class MissionApi {
     /**
      * Update Mission (asynchronously)
      * Update a mission.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param missionId The id of the mission to update. (required)
      * @param title The title of the mission (optional)
@@ -2157,9 +2066,9 @@ public class MissionApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMissionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback<MissionResponse> _callback) throws ApiException {
+    public okhttp3.Call updateMissionAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long missionId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String subType, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String creativeIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean advancedReporting, @javax.annotation.Nullable Boolean allocateTickets, @javax.annotation.Nullable Long ticketCount, @javax.annotation.Nullable String ticketType, @javax.annotation.Nullable Long points, @javax.annotation.Nullable String applicationIds, @javax.annotation.Nullable String devices, @javax.annotation.Nullable String deviceIds, @javax.annotation.Nullable String deviceVersions, @javax.annotation.Nullable String locations, @javax.annotation.Nullable String radius, final ApiCallback<MissionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateMissionValidateBeforeCall(version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
+        okhttp3.Call localVarCall = updateMissionValidateBeforeCall(accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, _callback);
         Type localVarReturnType = new TypeToken<MissionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

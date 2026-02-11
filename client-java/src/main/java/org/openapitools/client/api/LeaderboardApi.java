@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.LeaderboardResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class LeaderboardApi {
 
     /**
      * Build call for createLeaderboard
-     * @param version  (required)
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -101,7 +99,7 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createLeaderboardCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createLeaderboardCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,8 +116,7 @@ public class LeaderboardApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/leaderboard/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/leaderboard/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -199,20 +196,14 @@ public class LeaderboardApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createLeaderboardValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createLeaderboard(Async)");
-        }
-
-        return createLeaderboardCall(version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, _callback);
+    private okhttp3.Call createLeaderboardValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+        return createLeaderboardCall(accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, _callback);
 
     }
 
     /**
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -235,15 +226,14 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public LeaderboardResponse createLeaderboard(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<LeaderboardResponse> localVarResp = createLeaderboardWithHttpInfo(version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
+    public LeaderboardResponse createLeaderboard(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<LeaderboardResponse> localVarResp = createLeaderboardWithHttpInfo(accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -266,8 +256,8 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LeaderboardResponse> createLeaderboardWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = createLeaderboardValidateBeforeCall(version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, null);
+    public ApiResponse<LeaderboardResponse> createLeaderboardWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = createLeaderboardValidateBeforeCall(accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, null);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -275,7 +265,6 @@ public class LeaderboardApi {
     /**
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation (asynchronously)
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param accountId The account id of the user creating the leaderboard. (optional)
      * @param appKey The application key (optional)
      * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -299,16 +288,15 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createLeaderboardAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
+    public okhttp3.Call createLeaderboardAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createLeaderboardValidateBeforeCall(version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, _callback);
+        okhttp3.Call localVarCall = createLeaderboardValidateBeforeCall(accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, _callback);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteLeaderboard
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to delete. (required)
      * @param accountId The account id of the user making the request. (optional)
      * @param _callback Callback for upload/download progress
@@ -321,7 +309,7 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteLeaderboardCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteLeaderboardCall(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -338,8 +326,7 @@ public class LeaderboardApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/leaderboard/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/leaderboard/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -375,25 +362,19 @@ public class LeaderboardApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteLeaderboardValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteLeaderboard(Async)");
-        }
-
+    private okhttp3.Call deleteLeaderboardValidateBeforeCall(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'leaderboardId' is set
         if (leaderboardId == null) {
             throw new ApiException("Missing the required parameter 'leaderboardId' when calling deleteLeaderboard(Async)");
         }
 
-        return deleteLeaderboardCall(version, leaderboardId, accountId, _callback);
+        return deleteLeaderboardCall(leaderboardId, accountId, _callback);
 
     }
 
     /**
      * Delete the Leader Board
      * Removes a leader board id.
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to delete. (required)
      * @param accountId The account id of the user making the request. (optional)
      * @return SirqulResponse
@@ -405,15 +386,14 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteLeaderboard(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteLeaderboardWithHttpInfo(version, leaderboardId, accountId);
+    public SirqulResponse deleteLeaderboard(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteLeaderboardWithHttpInfo(leaderboardId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete the Leader Board
      * Removes a leader board id.
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to delete. (required)
      * @param accountId The account id of the user making the request. (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -425,8 +405,8 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteLeaderboardWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteLeaderboardValidateBeforeCall(version, leaderboardId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteLeaderboardWithHttpInfo(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteLeaderboardValidateBeforeCall(leaderboardId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -434,7 +414,6 @@ public class LeaderboardApi {
     /**
      * Delete the Leader Board (asynchronously)
      * Removes a leader board id.
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to delete. (required)
      * @param accountId The account id of the user making the request. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -447,16 +426,15 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteLeaderboardAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteLeaderboardAsync(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteLeaderboardValidateBeforeCall(version, leaderboardId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteLeaderboardValidateBeforeCall(leaderboardId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getLeaderboard
-     * @param version  (required)
      * @param leaderboardId The leaderboard id. (required)
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -470,7 +448,7 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLeaderboardCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLeaderboardCall(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -487,8 +465,7 @@ public class LeaderboardApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/leaderboard/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/leaderboard/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -528,25 +505,19 @@ public class LeaderboardApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLeaderboardValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getLeaderboard(Async)");
-        }
-
+    private okhttp3.Call getLeaderboardValidateBeforeCall(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'leaderboardId' is set
         if (leaderboardId == null) {
             throw new ApiException("Missing the required parameter 'leaderboardId' when calling getLeaderboard(Async)");
         }
 
-        return getLeaderboardCall(version, leaderboardId, accountId, includeFullRankingList, _callback);
+        return getLeaderboardCall(leaderboardId, accountId, includeFullRankingList, _callback);
 
     }
 
     /**
      * Read a leaderboard by id and retrieve the matching ranking list
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @param version  (required)
      * @param leaderboardId The leaderboard id. (required)
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -559,15 +530,14 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public LeaderboardResponse getLeaderboard(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList) throws ApiException {
-        ApiResponse<LeaderboardResponse> localVarResp = getLeaderboardWithHttpInfo(version, leaderboardId, accountId, includeFullRankingList);
+    public LeaderboardResponse getLeaderboard(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList) throws ApiException {
+        ApiResponse<LeaderboardResponse> localVarResp = getLeaderboardWithHttpInfo(leaderboardId, accountId, includeFullRankingList);
         return localVarResp.getData();
     }
 
     /**
      * Read a leaderboard by id and retrieve the matching ranking list
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @param version  (required)
      * @param leaderboardId The leaderboard id. (required)
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -580,8 +550,8 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LeaderboardResponse> getLeaderboardWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList) throws ApiException {
-        okhttp3.Call localVarCall = getLeaderboardValidateBeforeCall(version, leaderboardId, accountId, includeFullRankingList, null);
+    public ApiResponse<LeaderboardResponse> getLeaderboardWithHttpInfo(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList) throws ApiException {
+        okhttp3.Call localVarCall = getLeaderboardValidateBeforeCall(leaderboardId, accountId, includeFullRankingList, null);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -589,7 +559,6 @@ public class LeaderboardApi {
     /**
      * Read a leaderboard by id and retrieve the matching ranking list (asynchronously)
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @param version  (required)
      * @param leaderboardId The leaderboard id. (required)
      * @param accountId A valid account. (optional)
      * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list (optional)
@@ -603,16 +572,15 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLeaderboardAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
+    public okhttp3.Call getLeaderboardAsync(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeFullRankingList, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLeaderboardValidateBeforeCall(version, leaderboardId, accountId, includeFullRankingList, _callback);
+        okhttp3.Call localVarCall = getLeaderboardValidateBeforeCall(leaderboardId, accountId, includeFullRankingList, _callback);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchLeaderboards
-     * @param version  (required)
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -635,7 +603,7 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchLeaderboardsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchLeaderboardsCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -652,8 +620,7 @@ public class LeaderboardApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/leaderboard/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/leaderboard/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -729,20 +696,14 @@ public class LeaderboardApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchLeaderboardsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchLeaderboards(Async)");
-        }
-
-        return searchLeaderboardsCall(version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, _callback);
+    private okhttp3.Call searchLeaderboardsValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchLeaderboardsCall(accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, _callback);
 
     }
 
     /**
      * Search leaderboard and retrieve the matching ranking list
      * Search leaderboard and retrieve the matching ranking list
-     * @param version  (required)
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -764,15 +725,14 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public LeaderboardResponse searchLeaderboards(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<LeaderboardResponse> localVarResp = searchLeaderboardsWithHttpInfo(version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
+    public LeaderboardResponse searchLeaderboards(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<LeaderboardResponse> localVarResp = searchLeaderboardsWithHttpInfo(accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search leaderboard and retrieve the matching ranking list
      * Search leaderboard and retrieve the matching ranking list
-     * @param version  (required)
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -794,8 +754,8 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LeaderboardResponse> searchLeaderboardsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchLeaderboardsValidateBeforeCall(version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, null);
+    public ApiResponse<LeaderboardResponse> searchLeaderboardsWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchLeaderboardsValidateBeforeCall(accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, null);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -803,7 +763,6 @@ public class LeaderboardApi {
     /**
      * Search leaderboard and retrieve the matching ranking list (asynchronously)
      * Search leaderboard and retrieve the matching ranking list
-     * @param version  (required)
      * @param accountId The account id of the user requesting the search. (optional)
      * @param appKey The application key. (optional)
      * @param globalOnly only include global leaderboards (this overrides the appKey filter) (optional)
@@ -826,16 +785,15 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchLeaderboardsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
+    public okhttp3.Call searchLeaderboardsAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Boolean globalOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String leaderboardIds, @javax.annotation.Nullable String rankTypes, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean includeInactive, @javax.annotation.Nullable Boolean includeAppResponse, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchLeaderboardsValidateBeforeCall(version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, _callback);
+        okhttp3.Call localVarCall = searchLeaderboardsValidateBeforeCall(accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, _callback);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateLeaderboard
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to update. (required)
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -861,7 +819,7 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLeaderboardCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateLeaderboardCall(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -878,8 +836,7 @@ public class LeaderboardApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/leaderboard/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/leaderboard/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -967,25 +924,19 @@ public class LeaderboardApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateLeaderboardValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateLeaderboard(Async)");
-        }
-
+    private okhttp3.Call updateLeaderboardValidateBeforeCall(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'leaderboardId' is set
         if (leaderboardId == null) {
             throw new ApiException("Missing the required parameter 'leaderboardId' when calling updateLeaderboard(Async)");
         }
 
-        return updateLeaderboardCall(version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, _callback);
+        return updateLeaderboardCall(leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, _callback);
 
     }
 
     /**
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to update. (required)
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -1010,15 +961,14 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public LeaderboardResponse updateLeaderboard(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<LeaderboardResponse> localVarResp = updateLeaderboardWithHttpInfo(version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
+    public LeaderboardResponse updateLeaderboard(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<LeaderboardResponse> localVarResp = updateLeaderboardWithHttpInfo(leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to update. (required)
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -1043,8 +993,8 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LeaderboardResponse> updateLeaderboardWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = updateLeaderboardValidateBeforeCall(version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, null);
+    public ApiResponse<LeaderboardResponse> updateLeaderboardWithHttpInfo(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = updateLeaderboardValidateBeforeCall(leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, null);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1052,7 +1002,6 @@ public class LeaderboardApi {
     /**
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation (asynchronously)
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param version  (required)
      * @param leaderboardId The leaderboard id to update. (required)
      * @param accountId The account id of the user updating the leaderboard. (optional)
      * @param appKey The application key (optional)
@@ -1078,9 +1027,9 @@ public class LeaderboardApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateLeaderboardAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
+    public okhttp3.Call updateLeaderboardAsync(@javax.annotation.Nonnull Long leaderboardId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String rankType, @javax.annotation.Nullable String leaderboardMode, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable File iconMedia, @javax.annotation.Nullable Long iconAssetId, @javax.annotation.Nullable File bannerMedia, @javax.annotation.Nullable Long bannerAssetId, @javax.annotation.Nullable Integer limitation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, final ApiCallback<LeaderboardResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateLeaderboardValidateBeforeCall(version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, _callback);
+        okhttp3.Call localVarCall = updateLeaderboardValidateBeforeCall(leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, _callback);
         Type localVarReturnType = new TypeToken<LeaderboardResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

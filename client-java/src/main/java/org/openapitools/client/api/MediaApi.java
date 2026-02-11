@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.MediaOfferResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class MediaApi {
 
     /**
      * Build call for createMedia
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -144,7 +142,7 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createMediaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createMediaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -161,8 +159,7 @@ public class MediaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/media/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/media/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -418,12 +415,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMediaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createMedia(Async)");
-        }
-
+    private okhttp3.Call createMediaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createMedia(Async)");
@@ -499,14 +491,13 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'active' when calling createMedia(Async)");
         }
 
-        return createMediaCall(version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
+        return createMediaCall(accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
 
     }
 
     /**
      * Create Media
      * Create a media offering.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -573,15 +564,14 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MediaOfferResponse createMedia(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        ApiResponse<MediaOfferResponse> localVarResp = createMediaWithHttpInfo(version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+    public MediaOfferResponse createMedia(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        ApiResponse<MediaOfferResponse> localVarResp = createMediaWithHttpInfo(accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
         return localVarResp.getData();
     }
 
     /**
      * Create Media
      * Create a media offering.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -648,8 +638,8 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MediaOfferResponse> createMediaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        okhttp3.Call localVarCall = createMediaValidateBeforeCall(version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, null);
+    public ApiResponse<MediaOfferResponse> createMediaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        okhttp3.Call localVarCall = createMediaValidateBeforeCall(accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, null);
         Type localVarReturnType = new TypeToken<MediaOfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -657,7 +647,6 @@ public class MediaApi {
     /**
      * Create Media (asynchronously)
      * Create a media offering.
-     * @param version  (required)
      * @param accountId The account id of the logged in user (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -725,16 +714,15 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createMediaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<MediaOfferResponse> _callback) throws ApiException {
+    public okhttp3.Call createMediaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<MediaOfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createMediaValidateBeforeCall(version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
+        okhttp3.Call localVarCall = createMediaValidateBeforeCall(accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
         Type localVarReturnType = new TypeToken<MediaOfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteMedia
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the ID of the media to delete (required)
      * @param _callback Callback for upload/download progress
@@ -747,7 +735,7 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteMediaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteMediaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -764,8 +752,7 @@ public class MediaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/media/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/media/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -801,12 +788,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteMediaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteMedia(Async)");
-        }
-
+    private okhttp3.Call deleteMediaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteMedia(Async)");
@@ -817,14 +799,13 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'mediaId' when calling deleteMedia(Async)");
         }
 
-        return deleteMediaCall(version, accountId, mediaId, _callback);
+        return deleteMediaCall(accountId, mediaId, _callback);
 
     }
 
     /**
      * Delete Media
      * Delete a media offering that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the ID of the media to delete (required)
      * @return SirqulResponse
@@ -836,15 +817,14 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteMedia(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteMediaWithHttpInfo(version, accountId, mediaId);
+    public SirqulResponse deleteMedia(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteMediaWithHttpInfo(accountId, mediaId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Media
      * Delete a media offering that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the ID of the media to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -856,8 +836,8 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteMediaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
-        okhttp3.Call localVarCall = deleteMediaValidateBeforeCall(version, accountId, mediaId, null);
+    public ApiResponse<SirqulResponse> deleteMediaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
+        okhttp3.Call localVarCall = deleteMediaValidateBeforeCall(accountId, mediaId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -865,7 +845,6 @@ public class MediaApi {
     /**
      * Delete Media (asynchronously)
      * Delete a media offering that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the ID of the media to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -878,16 +857,15 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteMediaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteMediaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteMediaValidateBeforeCall(version, accountId, mediaId, _callback);
+        okhttp3.Call localVarCall = deleteMediaValidateBeforeCall(accountId, mediaId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getMedia
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the id of the media to get (required)
      * @param _callback Callback for upload/download progress
@@ -900,7 +878,7 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMediaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMediaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -917,8 +895,7 @@ public class MediaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/media/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/media/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -954,12 +931,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMediaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getMedia(Async)");
-        }
-
+    private okhttp3.Call getMediaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getMedia(Async)");
@@ -970,14 +942,13 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'mediaId' when calling getMedia(Async)");
         }
 
-        return getMediaCall(version, accountId, mediaId, _callback);
+        return getMediaCall(accountId, mediaId, _callback);
 
     }
 
     /**
      * Media Get
      * Get a media offering.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the id of the media to get (required)
      * @return MediaOfferResponse
@@ -989,15 +960,14 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MediaOfferResponse getMedia(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
-        ApiResponse<MediaOfferResponse> localVarResp = getMediaWithHttpInfo(version, accountId, mediaId);
+    public MediaOfferResponse getMedia(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
+        ApiResponse<MediaOfferResponse> localVarResp = getMediaWithHttpInfo(accountId, mediaId);
         return localVarResp.getData();
     }
 
     /**
      * Media Get
      * Get a media offering.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the id of the media to get (required)
      * @return ApiResponse&lt;MediaOfferResponse&gt;
@@ -1009,8 +979,8 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MediaOfferResponse> getMediaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
-        okhttp3.Call localVarCall = getMediaValidateBeforeCall(version, accountId, mediaId, null);
+    public ApiResponse<MediaOfferResponse> getMediaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId) throws ApiException {
+        okhttp3.Call localVarCall = getMediaValidateBeforeCall(accountId, mediaId, null);
         Type localVarReturnType = new TypeToken<MediaOfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1018,7 +988,6 @@ public class MediaApi {
     /**
      * Media Get (asynchronously)
      * Get a media offering.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param mediaId the id of the media to get (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1031,16 +1000,15 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMediaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback<MediaOfferResponse> _callback) throws ApiException {
+    public okhttp3.Call getMediaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, final ApiCallback<MediaOfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMediaValidateBeforeCall(version, accountId, mediaId, _callback);
+        okhttp3.Call localVarCall = getMediaValidateBeforeCall(accountId, mediaId, _callback);
         Type localVarReturnType = new TypeToken<MediaOfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchMedia
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param activeOnly Return only active results (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -1060,7 +1028,7 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMediaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchMediaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1077,8 +1045,7 @@ public class MediaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/media/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/media/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1142,12 +1109,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchMediaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchMedia(Async)");
-        }
-
+    private okhttp3.Call searchMediaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchMedia(Async)");
@@ -1168,14 +1130,13 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'descending' when calling searchMedia(Async)");
         }
 
-        return searchMediaCall(version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, _callback);
+        return searchMediaCall(accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, _callback);
 
     }
 
     /**
      * Search Media
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param activeOnly Return only active results (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -1194,15 +1155,14 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<MediaOfferResponse> searchMedia(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<MediaOfferResponse>> localVarResp = searchMediaWithHttpInfo(version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
+    public List<MediaOfferResponse> searchMedia(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<MediaOfferResponse>> localVarResp = searchMediaWithHttpInfo(accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Media
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param activeOnly Return only active results (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -1221,8 +1181,8 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<MediaOfferResponse>> searchMediaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchMediaValidateBeforeCall(version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, null);
+    public ApiResponse<List<MediaOfferResponse>> searchMediaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchMediaValidateBeforeCall(accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, null);
         Type localVarReturnType = new TypeToken<List<MediaOfferResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1230,7 +1190,6 @@ public class MediaApi {
     /**
      * Search Media (asynchronously)
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param activeOnly Return only active results (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE (required)
@@ -1250,16 +1209,15 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchMediaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<MediaOfferResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchMediaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<MediaOfferResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchMediaValidateBeforeCall(version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, _callback);
+        okhttp3.Call localVarCall = searchMediaValidateBeforeCall(accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<MediaOfferResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateMedia
-     * @param version  (required)
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param mediaId  (required)
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1329,7 +1287,7 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMediaCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateMediaCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1346,8 +1304,7 @@ public class MediaApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/media/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/media/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1611,12 +1568,7 @@ public class MediaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateMediaValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateMedia(Async)");
-        }
-
+    private okhttp3.Call updateMediaValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateMedia(Async)");
@@ -1627,14 +1579,13 @@ public class MediaApi {
             throw new ApiException("Missing the required parameter 'mediaId' when calling updateMedia(Async)");
         }
 
-        return updateMediaCall(version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
+        return updateMediaCall(accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
 
     }
 
     /**
      * Update Media
      * Update a media offering.
-     * @param version  (required)
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param mediaId  (required)
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1703,15 +1654,14 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public MediaOfferResponse updateMedia(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        ApiResponse<MediaOfferResponse> localVarResp = updateMediaWithHttpInfo(version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+    public MediaOfferResponse updateMedia(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        ApiResponse<MediaOfferResponse> localVarResp = updateMediaWithHttpInfo(accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
         return localVarResp.getData();
     }
 
     /**
      * Update Media
      * Update a media offering.
-     * @param version  (required)
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param mediaId  (required)
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1780,8 +1730,8 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MediaOfferResponse> updateMediaWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        okhttp3.Call localVarCall = updateMediaValidateBeforeCall(version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, null);
+    public ApiResponse<MediaOfferResponse> updateMediaWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        okhttp3.Call localVarCall = updateMediaValidateBeforeCall(accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, null);
         Type localVarReturnType = new TypeToken<MediaOfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1789,7 +1739,6 @@ public class MediaApi {
     /**
      * Update Media (asynchronously)
      * Update a media offering.
-     * @param version  (required)
      * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
      * @param mediaId  (required)
      * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -1859,9 +1808,9 @@ public class MediaApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateMediaAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<MediaOfferResponse> _callback) throws ApiException {
+    public okhttp3.Call updateMediaAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long mediaId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<MediaOfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateMediaValidateBeforeCall(version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
+        okhttp3.Call localVarCall = updateMediaValidateBeforeCall(accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, _callback);
         Type localVarReturnType = new TypeToken<MediaOfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

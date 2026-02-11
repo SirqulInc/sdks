@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.EventAttendanceResponse;
 import org.openapitools.client.model.OfferResponse;
 import org.openapitools.client.model.OfferShortResponse;
@@ -78,7 +77,6 @@ public class EventApi {
 
     /**
      * Build call for attendEvent
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -99,7 +97,7 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call attendEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call attendEventCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class EventApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/event/attend"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/event/attend";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -185,20 +182,14 @@ public class EventApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call attendEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling attendEvent(Async)");
-        }
-
-        return attendEventCall(version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, _callback);
+    private okhttp3.Call attendEventValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return attendEventCall(deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, _callback);
 
     }
 
     /**
      * Attend Event
      *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -218,15 +209,14 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferResponse attendEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<OfferResponse> localVarResp = attendEventWithHttpInfo(version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
+    public OfferResponse attendEvent(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<OfferResponse> localVarResp = attendEventWithHttpInfo(deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Attend Event
      *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -246,8 +236,8 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferResponse> attendEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = attendEventValidateBeforeCall(version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, null);
+    public ApiResponse<OfferResponse> attendEventWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = attendEventValidateBeforeCall(deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -255,7 +245,6 @@ public class EventApi {
     /**
      * Attend Event (asynchronously)
      *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id (deviceId or accountId required) (optional)
      * @param appKey The application of where to send notifications about the attend action (optional)
@@ -276,16 +265,15 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call attendEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<OfferResponse> _callback) throws ApiException {
+    public okhttp3.Call attendEventAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Long transactionId, @javax.annotation.Nullable Integer status, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<OfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = attendEventValidateBeforeCall(version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = attendEventValidateBeforeCall(deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createEvent
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The event title (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -308,7 +296,7 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -325,8 +313,7 @@ public class EventApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/event/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/event/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -402,12 +389,7 @@ public class EventApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createEvent(Async)");
-        }
-
+    private okhttp3.Call createEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createEvent(Async)");
@@ -418,14 +400,13 @@ public class EventApi {
             throw new ApiException("Missing the required parameter 'title' when calling createEvent(Async)");
         }
 
-        return createEventCall(version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, _callback);
+        return createEventCall(accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, _callback);
 
     }
 
     /**
      * Create Event
      * Create a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The event title (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -447,15 +428,14 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferResponse createEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<OfferResponse> localVarResp = createEventWithHttpInfo(version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
+    public OfferResponse createEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<OfferResponse> localVarResp = createEventWithHttpInfo(accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Create Event
      * Create a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The event title (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -477,8 +457,8 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferResponse> createEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = createEventValidateBeforeCall(version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, null);
+    public ApiResponse<OfferResponse> createEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = createEventValidateBeforeCall(accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, null);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -486,7 +466,6 @@ public class EventApi {
     /**
      * Create Event (asynchronously)
      * Create a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param title The event title (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -509,16 +488,15 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData, final ApiCallback<OfferResponse> _callback) throws ApiException {
+    public okhttp3.Call createEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String title, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String metaData, final ApiCallback<OfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createEventValidateBeforeCall(version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, _callback);
+        okhttp3.Call localVarCall = createEventValidateBeforeCall(accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, _callback);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteEvent
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId the id of the event to update (required)
      * @param _callback Callback for upload/download progress
@@ -531,7 +509,7 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -548,8 +526,7 @@ public class EventApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/event/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/event/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -585,12 +562,7 @@ public class EventApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteEvent(Async)");
-        }
-
+    private okhttp3.Call deleteEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteEvent(Async)");
@@ -601,14 +573,13 @@ public class EventApi {
             throw new ApiException("Missing the required parameter 'eventId' when calling deleteEvent(Async)");
         }
 
-        return deleteEventCall(version, accountId, eventId, _callback);
+        return deleteEventCall(accountId, eventId, _callback);
 
     }
 
     /**
      * Delete Event
      * Delete an event that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId the id of the event to update (required)
      * @return SirqulResponse
@@ -620,15 +591,14 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteEventWithHttpInfo(version, accountId, eventId);
+    public SirqulResponse deleteEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteEventWithHttpInfo(accountId, eventId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Event
      * Delete an event that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId the id of the event to update (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -640,8 +610,8 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
-        okhttp3.Call localVarCall = deleteEventValidateBeforeCall(version, accountId, eventId, null);
+    public ApiResponse<SirqulResponse> deleteEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
+        okhttp3.Call localVarCall = deleteEventValidateBeforeCall(accountId, eventId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -649,7 +619,6 @@ public class EventApi {
     /**
      * Delete Event (asynchronously)
      * Delete an event that the user has permissions to.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId the id of the event to update (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -662,16 +631,15 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteEventValidateBeforeCall(version, accountId, eventId, _callback);
+        okhttp3.Call localVarCall = deleteEventValidateBeforeCall(accountId, eventId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getEvent
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId The id of the event to return (required)
      * @param _callback Callback for upload/download progress
@@ -684,7 +652,7 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -701,8 +669,7 @@ public class EventApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/event/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/event/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -738,12 +705,7 @@ public class EventApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getEvent(Async)");
-        }
-
+    private okhttp3.Call getEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getEvent(Async)");
@@ -754,14 +716,13 @@ public class EventApi {
             throw new ApiException("Missing the required parameter 'eventId' when calling getEvent(Async)");
         }
 
-        return getEventCall(version, accountId, eventId, _callback);
+        return getEventCall(accountId, eventId, _callback);
 
     }
 
     /**
      * Get Event
      * Get an event.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId The id of the event to return (required)
      * @return OfferResponse
@@ -773,15 +734,14 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferResponse getEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
-        ApiResponse<OfferResponse> localVarResp = getEventWithHttpInfo(version, accountId, eventId);
+    public OfferResponse getEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
+        ApiResponse<OfferResponse> localVarResp = getEventWithHttpInfo(accountId, eventId);
         return localVarResp.getData();
     }
 
     /**
      * Get Event
      * Get an event.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId The id of the event to return (required)
      * @return ApiResponse&lt;OfferResponse&gt;
@@ -793,8 +753,8 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferResponse> getEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
-        okhttp3.Call localVarCall = getEventValidateBeforeCall(version, accountId, eventId, null);
+    public ApiResponse<OfferResponse> getEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId) throws ApiException {
+        okhttp3.Call localVarCall = getEventValidateBeforeCall(accountId, eventId, null);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -802,7 +762,6 @@ public class EventApi {
     /**
      * Get Event (asynchronously)
      * Get an event.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param eventId The id of the event to return (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -815,16 +774,15 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback<OfferResponse> _callback) throws ApiException {
+    public okhttp3.Call getEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, final ApiCallback<OfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEventValidateBeforeCall(version, accountId, eventId, _callback);
+        okhttp3.Call localVarCall = getEventValidateBeforeCall(accountId, eventId, _callback);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchEventTransactions
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -854,7 +812,7 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchEventTransactionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchEventTransactionsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -871,8 +829,7 @@ public class EventApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/event/attendance/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/event/attendance/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -976,20 +933,14 @@ public class EventApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchEventTransactionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchEventTransactions(Async)");
-        }
-
-        return searchEventTransactionsCall(version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, _callback);
+    private okhttp3.Call searchEventTransactionsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return searchEventTransactionsCall(deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search Event Attendance
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -1018,15 +969,14 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<EventAttendanceResponse> searchEventTransactions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<EventAttendanceResponse>> localVarResp = searchEventTransactionsWithHttpInfo(version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
+    public List<EventAttendanceResponse> searchEventTransactions(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<EventAttendanceResponse>> localVarResp = searchEventTransactionsWithHttpInfo(deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Event Attendance
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -1055,8 +1005,8 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<EventAttendanceResponse>> searchEventTransactionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchEventTransactionsValidateBeforeCall(version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, null);
+    public ApiResponse<List<EventAttendanceResponse>> searchEventTransactionsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchEventTransactionsValidateBeforeCall(deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<List<EventAttendanceResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1064,7 +1014,6 @@ public class EventApi {
     /**
      * Search Event Attendance (asynchronously)
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param appKey The application key (optional)
@@ -1094,16 +1043,15 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchEventTransactionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<EventAttendanceResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchEventTransactionsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long excludeRetailerLocationId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String affiliatedCategoryIds, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<EventAttendanceResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchEventTransactionsValidateBeforeCall(version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchEventTransactionsValidateBeforeCall(deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<EventAttendanceResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchEvents
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -1127,7 +1075,7 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchEventsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchEventsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1144,8 +1092,7 @@ public class EventApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/event/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/event/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1225,25 +1172,19 @@ public class EventApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchEventsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchEvents(Async)");
-        }
-
+    private okhttp3.Call searchEventsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchEvents(Async)");
         }
 
-        return searchEventsCall(version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, _callback);
+        return searchEventsCall(accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, _callback);
 
     }
 
     /**
      * Search Events
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -1266,15 +1207,14 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferShortResponse> searchEvents(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<OfferShortResponse>> localVarResp = searchEventsWithHttpInfo(version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
+    public List<OfferShortResponse> searchEvents(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<OfferShortResponse>> localVarResp = searchEventsWithHttpInfo(accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Events
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -1297,8 +1237,8 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferShortResponse>> searchEventsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchEventsValidateBeforeCall(version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, null);
+    public ApiResponse<List<OfferShortResponse>> searchEventsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchEventsValidateBeforeCall(accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, null);
         Type localVarReturnType = new TypeToken<List<OfferShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1306,7 +1246,6 @@ public class EventApi {
     /**
      * Search Events (asynchronously)
      * Searches on events that the account has access to.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param keyword The keyword used to search (optional)
      * @param activeOnly Return only active results (optional)
@@ -1330,16 +1269,15 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchEventsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<OfferShortResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchEventsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String offerAudienceIds, @javax.annotation.Nullable String transactionAudienceIds, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<OfferShortResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchEventsValidateBeforeCall(version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, _callback);
+        okhttp3.Call localVarCall = searchEventsValidateBeforeCall(accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<OfferShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateEvent
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param eventId The id of the event to update (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -1362,7 +1300,7 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEventCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateEventCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1379,8 +1317,7 @@ public class EventApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/event/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/event/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1456,12 +1393,7 @@ public class EventApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateEventValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateEvent(Async)");
-        }
-
+    private okhttp3.Call updateEventValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateEvent(Async)");
@@ -1472,14 +1404,13 @@ public class EventApi {
             throw new ApiException("Missing the required parameter 'eventId' when calling updateEvent(Async)");
         }
 
-        return updateEventCall(version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, _callback);
+        return updateEventCall(accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, _callback);
 
     }
 
     /**
      * Update Event
      * Update a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param eventId The id of the event to update (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -1501,15 +1432,14 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferResponse updateEvent(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd) throws ApiException {
-        ApiResponse<OfferResponse> localVarResp = updateEventWithHttpInfo(version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
+    public OfferResponse updateEvent(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd) throws ApiException {
+        ApiResponse<OfferResponse> localVarResp = updateEventWithHttpInfo(accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
         return localVarResp.getData();
     }
 
     /**
      * Update Event
      * Update a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param eventId The id of the event to update (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -1531,8 +1461,8 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferResponse> updateEventWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd) throws ApiException {
-        okhttp3.Call localVarCall = updateEventValidateBeforeCall(version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, null);
+    public ApiResponse<OfferResponse> updateEventWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd) throws ApiException {
+        okhttp3.Call localVarCall = updateEventValidateBeforeCall(accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, null);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1540,7 +1470,6 @@ public class EventApi {
     /**
      * Update Event (asynchronously)
      * Update a private event to share with associates.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param eventId The id of the event to update (required)
      * @param retailerLocationIds The retailer location to have the event at (optional)
@@ -1563,9 +1492,9 @@ public class EventApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateEventAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, final ApiCallback<OfferResponse> _callback) throws ApiException {
+    public okhttp3.Call updateEventAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long eventId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, final ApiCallback<OfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateEventValidateBeforeCall(version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, _callback);
+        okhttp3.Call localVarCall = updateEventValidateBeforeCall(accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, _callback);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CsvImportResponse;
 import java.io.File;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class CsvImportApi {
 
     /**
      * Build call for getStatusCSV
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId the id of the batch (required)
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -93,7 +91,7 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStatusCSVCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getStatusCSVCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -110,8 +108,7 @@ public class CsvImportApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/csvimport/batch/status/details"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/csvimport/batch/status/details";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -159,12 +156,7 @@ public class CsvImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getStatusCSVValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getStatusCSV(Async)");
-        }
-
+    private okhttp3.Call getStatusCSVValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getStatusCSV(Async)");
@@ -190,14 +182,13 @@ public class CsvImportApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getStatusCSV(Async)");
         }
 
-        return getStatusCSVCall(version, accountId, batchId, responseGroup, start, limit, _callback);
+        return getStatusCSVCall(accountId, batchId, responseGroup, start, limit, _callback);
 
     }
 
     /**
      * Detail Status
      * 
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId the id of the batch (required)
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -212,15 +203,14 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse getStatusCSV(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = getStatusCSVWithHttpInfo(version, accountId, batchId, responseGroup, start, limit);
+    public SirqulResponse getStatusCSV(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = getStatusCSVWithHttpInfo(accountId, batchId, responseGroup, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Detail Status
      * 
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId the id of the batch (required)
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -235,8 +225,8 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> getStatusCSVWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit) throws ApiException {
-        okhttp3.Call localVarCall = getStatusCSVValidateBeforeCall(version, accountId, batchId, responseGroup, start, limit, null);
+    public ApiResponse<SirqulResponse> getStatusCSVWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit) throws ApiException {
+        okhttp3.Call localVarCall = getStatusCSVValidateBeforeCall(accountId, batchId, responseGroup, start, limit, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -244,7 +234,6 @@ public class CsvImportApi {
     /**
      * Detail Status (asynchronously)
      * 
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param batchId the id of the batch (required)
      * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL (required)
@@ -260,16 +249,15 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getStatusCSVAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call getStatusCSVAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, @javax.annotation.Nonnull String responseGroup, @javax.annotation.Nonnull Long start, @javax.annotation.Nonnull Long limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getStatusCSVValidateBeforeCall(version, accountId, batchId, responseGroup, start, limit, _callback);
+        okhttp3.Call localVarCall = getStatusCSVValidateBeforeCall(accountId, batchId, responseGroup, start, limit, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listStatusCSV
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param start the start of the pagination (required)
      * @param limit the limit of the pagination (required)
@@ -283,7 +271,7 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listStatusCSVCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listStatusCSVCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -300,8 +288,7 @@ public class CsvImportApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/csvimport/batch/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/csvimport/batch/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -341,12 +328,7 @@ public class CsvImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listStatusCSVValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling listStatusCSV(Async)");
-        }
-
+    private okhttp3.Call listStatusCSVValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling listStatusCSV(Async)");
@@ -362,14 +344,13 @@ public class CsvImportApi {
             throw new ApiException("Missing the required parameter 'limit' when calling listStatusCSV(Async)");
         }
 
-        return listStatusCSVCall(version, accountId, start, limit, _callback);
+        return listStatusCSVCall(accountId, start, limit, _callback);
 
     }
 
     /**
      * Search Status
      * Retrieves batches for a user.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param start the start of the pagination (required)
      * @param limit the limit of the pagination (required)
@@ -382,15 +363,14 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CsvImportResponse listStatusCSV(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        ApiResponse<CsvImportResponse> localVarResp = listStatusCSVWithHttpInfo(version, accountId, start, limit);
+    public CsvImportResponse listStatusCSV(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        ApiResponse<CsvImportResponse> localVarResp = listStatusCSVWithHttpInfo(accountId, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Status
      * Retrieves batches for a user.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param start the start of the pagination (required)
      * @param limit the limit of the pagination (required)
@@ -403,8 +383,8 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CsvImportResponse> listStatusCSVWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = listStatusCSVValidateBeforeCall(version, accountId, start, limit, null);
+    public ApiResponse<CsvImportResponse> listStatusCSVWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listStatusCSVValidateBeforeCall(accountId, start, limit, null);
         Type localVarReturnType = new TypeToken<CsvImportResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -412,7 +392,6 @@ public class CsvImportApi {
     /**
      * Search Status (asynchronously)
      * Retrieves batches for a user.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param start the start of the pagination (required)
      * @param limit the limit of the pagination (required)
@@ -426,16 +405,15 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listStatusCSVAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<CsvImportResponse> _callback) throws ApiException {
+    public okhttp3.Call listStatusCSVAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, final ApiCallback<CsvImportResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listStatusCSVValidateBeforeCall(version, accountId, start, limit, _callback);
+        okhttp3.Call localVarCall = listStatusCSVValidateBeforeCall(accountId, start, limit, _callback);
         Type localVarReturnType = new TypeToken<CsvImportResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for statusCSV
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to get its status (required)
      * @param _callback Callback for upload/download progress
@@ -448,7 +426,7 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statusCSVCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call statusCSVCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -465,8 +443,7 @@ public class CsvImportApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/csvimport/batch/status"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/csvimport/batch/status";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -502,12 +479,7 @@ public class CsvImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call statusCSVValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling statusCSV(Async)");
-        }
-
+    private okhttp3.Call statusCSVValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling statusCSV(Async)");
@@ -518,14 +490,13 @@ public class CsvImportApi {
             throw new ApiException("Missing the required parameter 'batchId' when calling statusCSV(Async)");
         }
 
-        return statusCSVCall(version, accountId, batchId, _callback);
+        return statusCSVCall(accountId, batchId, _callback);
 
     }
 
     /**
      * Batch Status
      * Checks status of batch upload.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to get its status (required)
      * @return CsvImportResponse
@@ -537,15 +508,14 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CsvImportResponse statusCSV(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        ApiResponse<CsvImportResponse> localVarResp = statusCSVWithHttpInfo(version, accountId, batchId);
+    public CsvImportResponse statusCSV(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
+        ApiResponse<CsvImportResponse> localVarResp = statusCSVWithHttpInfo(accountId, batchId);
         return localVarResp.getData();
     }
 
     /**
      * Batch Status
      * Checks status of batch upload.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to get its status (required)
      * @return ApiResponse&lt;CsvImportResponse&gt;
@@ -557,8 +527,8 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CsvImportResponse> statusCSVWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
-        okhttp3.Call localVarCall = statusCSVValidateBeforeCall(version, accountId, batchId, null);
+    public ApiResponse<CsvImportResponse> statusCSVWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId) throws ApiException {
+        okhttp3.Call localVarCall = statusCSVValidateBeforeCall(accountId, batchId, null);
         Type localVarReturnType = new TypeToken<CsvImportResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -566,7 +536,6 @@ public class CsvImportApi {
     /**
      * Batch Status (asynchronously)
      * Checks status of batch upload.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param batchId the id of the batch to get its status (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -579,16 +548,15 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statusCSVAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback<CsvImportResponse> _callback) throws ApiException {
+    public okhttp3.Call statusCSVAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long batchId, final ApiCallback<CsvImportResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = statusCSVValidateBeforeCall(version, accountId, batchId, _callback);
+        okhttp3.Call localVarCall = statusCSVValidateBeforeCall(accountId, batchId, _callback);
         Type localVarReturnType = new TypeToken<CsvImportResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for uploadCSV
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param importFile the import file to reference (required)
@@ -604,7 +572,7 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadCSVCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadCSVCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -621,8 +589,7 @@ public class CsvImportApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/csvimport/upload"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/csvimport/upload";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -670,12 +637,7 @@ public class CsvImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadCSVValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling uploadCSV(Async)");
-        }
-
+    private okhttp3.Call uploadCSVValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling uploadCSV(Async)");
@@ -696,14 +658,13 @@ public class CsvImportApi {
             throw new ApiException("Missing the required parameter 'fileFormat' when calling uploadCSV(Async)");
         }
 
-        return uploadCSVCall(version, accountId, uploadType, importFile, fileFormat, appKey, _callback);
+        return uploadCSVCall(accountId, uploadType, importFile, fileFormat, appKey, _callback);
 
     }
 
     /**
      * Upload CSV
      * Uploads a CSV import file.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param importFile the import file to reference (required)
@@ -718,15 +679,14 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CsvImportResponse uploadCSV(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<CsvImportResponse> localVarResp = uploadCSVWithHttpInfo(version, accountId, uploadType, importFile, fileFormat, appKey);
+    public CsvImportResponse uploadCSV(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<CsvImportResponse> localVarResp = uploadCSVWithHttpInfo(accountId, uploadType, importFile, fileFormat, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Upload CSV
      * Uploads a CSV import file.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param importFile the import file to reference (required)
@@ -741,8 +701,8 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CsvImportResponse> uploadCSVWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = uploadCSVValidateBeforeCall(version, accountId, uploadType, importFile, fileFormat, appKey, null);
+    public ApiResponse<CsvImportResponse> uploadCSVWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = uploadCSVValidateBeforeCall(accountId, uploadType, importFile, fileFormat, appKey, null);
         Type localVarReturnType = new TypeToken<CsvImportResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -750,7 +710,6 @@ public class CsvImportApi {
     /**
      * Upload CSV (asynchronously)
      * Uploads a CSV import file.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
      * @param importFile the import file to reference (required)
@@ -766,9 +725,9 @@ public class CsvImportApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadCSVAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey, final ApiCallback<CsvImportResponse> _callback) throws ApiException {
+    public okhttp3.Call uploadCSVAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String uploadType, @javax.annotation.Nonnull File importFile, @javax.annotation.Nonnull String fileFormat, @javax.annotation.Nullable String appKey, final ApiCallback<CsvImportResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadCSVValidateBeforeCall(version, accountId, uploadType, importFile, fileFormat, appKey, _callback);
+        okhttp3.Call localVarCall = uploadCSVValidateBeforeCall(accountId, uploadType, importFile, fileFormat, appKey, _callback);
         Type localVarReturnType = new TypeToken<CsvImportResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

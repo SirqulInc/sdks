@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CreativeResponse;
 import org.openapitools.client.model.MissionResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class CreativeApi {
 
     /**
      * Build call for addPreview
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @param _callback Callback for upload/download progress
@@ -90,7 +88,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addPreviewCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addPreviewCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,8 +105,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/creative/addpreview"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/creative/addpreview";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -144,12 +141,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addPreviewValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addPreview(Async)");
-        }
-
+    private okhttp3.Call addPreviewValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling addPreview(Async)");
@@ -160,14 +152,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'creativeId' when calling addPreview(Async)");
         }
 
-        return addPreviewCall(version, accountId, creativeId, _callback);
+        return addPreviewCall(accountId, creativeId, _callback);
 
     }
 
     /**
      * Add Preview
      * Enable this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @return SirqulResponse
@@ -179,15 +170,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse addPreview(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = addPreviewWithHttpInfo(version, accountId, creativeId);
+    public SirqulResponse addPreview(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = addPreviewWithHttpInfo(accountId, creativeId);
         return localVarResp.getData();
     }
 
     /**
      * Add Preview
      * Enable this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -199,8 +189,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> addPreviewWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        okhttp3.Call localVarCall = addPreviewValidateBeforeCall(version, accountId, creativeId, null);
+    public ApiResponse<SirqulResponse> addPreviewWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        okhttp3.Call localVarCall = addPreviewValidateBeforeCall(accountId, creativeId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -208,7 +198,6 @@ public class CreativeApi {
     /**
      * Add Preview (asynchronously)
      * Enable this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the id of the account (required)
      * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -221,16 +210,15 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addPreviewAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call addPreviewAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addPreviewValidateBeforeCall(version, accountId, creativeId, _callback);
+        okhttp3.Call localVarCall = addPreviewValidateBeforeCall(accountId, creativeId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for adsFind
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads. (required)
@@ -257,7 +245,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call adsFindCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call adsFindCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -274,8 +262,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/ads/find"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/ads/find";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -367,12 +354,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call adsFindValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling adsFind(Async)");
-        }
-
+    private okhttp3.Call adsFindValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling adsFind(Async)");
@@ -388,14 +370,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'targetedAdsOnly' when calling adsFind(Async)");
         }
 
-        return adsFindCall(version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, _callback);
+        return adsFindCall(appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, _callback);
 
     }
 
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads. (required)
@@ -421,15 +402,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<MissionResponse> adsFind(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds) throws ApiException {
-        ApiResponse<List<MissionResponse>> localVarResp = adsFindWithHttpInfo(version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
+    public List<MissionResponse> adsFind(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds) throws ApiException {
+        ApiResponse<List<MissionResponse>> localVarResp = adsFindWithHttpInfo(appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
         return localVarResp.getData();
     }
 
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads. (required)
@@ -455,8 +435,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<MissionResponse>> adsFindWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds) throws ApiException {
-        okhttp3.Call localVarCall = adsFindValidateBeforeCall(version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, null);
+    public ApiResponse<List<MissionResponse>> adsFindWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds) throws ApiException {
+        okhttp3.Call localVarCall = adsFindValidateBeforeCall(appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, null);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -464,7 +444,6 @@ public class CreativeApi {
     /**
      * Find Missions (asynchronously)
      * Get a set of ad filtered by the parameters provided.
-     * @param version  (required)
      * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
      * @param randomize return a random set of results, default is true. If false returns in nature order. (required)
      * @param targetedAdsOnly return only ads targets to the specific app, no global ads. (required)
@@ -491,16 +470,15 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call adsFindAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
+    public okhttp3.Call adsFindAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Boolean randomize, @javax.annotation.Nonnull Boolean targetedAdsOnly, @javax.annotation.Nullable String type, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String device, @javax.annotation.Nullable Long deviceIdentifier, @javax.annotation.Nullable String deviceVersion, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean includeAudiences, @javax.annotation.Nullable Boolean allocatesTickets, @javax.annotation.Nullable String missionIds, final ApiCallback<List<MissionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = adsFindValidateBeforeCall(version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, _callback);
+        okhttp3.Call localVarCall = adsFindValidateBeforeCall(appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, _callback);
         Type localVarReturnType = new TypeToken<List<MissionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createCreative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param active If true set the game level as active. Default is false. (required)
@@ -526,7 +504,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCreativeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCreativeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -543,8 +521,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/creative/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/creative/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -632,12 +609,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCreativeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createCreative(Async)");
-        }
-
+    private okhttp3.Call createCreativeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createCreative(Async)");
@@ -658,14 +630,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'waitForAsset' when calling createCreative(Async)");
         }
 
-        return createCreativeCall(version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, _callback);
+        return createCreativeCall(accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, _callback);
 
     }
 
     /**
      * Create Creative
      * Create a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param active If true set the game level as active. Default is false. (required)
@@ -690,15 +661,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CreativeResponse createCreative(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId) throws ApiException {
-        ApiResponse<CreativeResponse> localVarResp = createCreativeWithHttpInfo(version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
+    public CreativeResponse createCreative(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId) throws ApiException {
+        ApiResponse<CreativeResponse> localVarResp = createCreativeWithHttpInfo(accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
         return localVarResp.getData();
     }
 
     /**
      * Create Creative
      * Create a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param active If true set the game level as active. Default is false. (required)
@@ -723,8 +693,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreativeResponse> createCreativeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId) throws ApiException {
-        okhttp3.Call localVarCall = createCreativeValidateBeforeCall(version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, null);
+    public ApiResponse<CreativeResponse> createCreativeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId) throws ApiException {
+        okhttp3.Call localVarCall = createCreativeValidateBeforeCall(accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, null);
         Type localVarReturnType = new TypeToken<CreativeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -732,7 +702,6 @@ public class CreativeApi {
     /**
      * Create Creative (asynchronously)
      * Create a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param name The name of the level. (required)
      * @param active If true set the game level as active. Default is false. (required)
@@ -758,16 +727,15 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCreativeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId, final ApiCallback<CreativeResponse> _callback) throws ApiException {
+    public okhttp3.Call createCreativeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nonnull Boolean waitForAsset, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable Long offerId, final ApiCallback<CreativeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCreativeValidateBeforeCall(version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, _callback);
+        okhttp3.Call localVarCall = createCreativeValidateBeforeCall(accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, _callback);
         Type localVarReturnType = new TypeToken<CreativeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteCreative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the id of the creative to delete (required)
      * @param _callback Callback for upload/download progress
@@ -780,7 +748,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCreativeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCreativeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -797,8 +765,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/creative/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/creative/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -834,12 +801,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCreativeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteCreative(Async)");
-        }
-
+    private okhttp3.Call deleteCreativeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteCreative(Async)");
@@ -850,14 +812,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'creativeId' when calling deleteCreative(Async)");
         }
 
-        return deleteCreativeCall(version, accountId, creativeId, _callback);
+        return deleteCreativeCall(accountId, creativeId, _callback);
 
     }
 
     /**
      * Delete Creative
      * Delete a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the id of the creative to delete (required)
      * @return SirqulResponse
@@ -869,15 +830,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteCreative(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteCreativeWithHttpInfo(version, accountId, creativeId);
+    public SirqulResponse deleteCreative(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteCreativeWithHttpInfo(accountId, creativeId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Creative
      * Delete a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the id of the creative to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -889,8 +849,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteCreativeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        okhttp3.Call localVarCall = deleteCreativeValidateBeforeCall(version, accountId, creativeId, null);
+    public ApiResponse<SirqulResponse> deleteCreativeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        okhttp3.Call localVarCall = deleteCreativeValidateBeforeCall(accountId, creativeId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -898,7 +858,6 @@ public class CreativeApi {
     /**
      * Delete Creative (asynchronously)
      * Delete a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the id of the creative to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -911,16 +870,15 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCreativeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteCreativeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCreativeValidateBeforeCall(version, accountId, creativeId, _callback);
+        okhttp3.Call localVarCall = deleteCreativeValidateBeforeCall(accountId, creativeId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCreative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the ID of the creative to get (required)
      * @param _callback Callback for upload/download progress
@@ -933,7 +891,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCreativeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCreativeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -950,8 +908,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/creative/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/creative/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -987,12 +944,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCreativeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCreative(Async)");
-        }
-
+    private okhttp3.Call getCreativeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getCreative(Async)");
@@ -1003,14 +955,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'creativeId' when calling getCreative(Async)");
         }
 
-        return getCreativeCall(version, accountId, creativeId, _callback);
+        return getCreativeCall(accountId, creativeId, _callback);
 
     }
 
     /**
      * Get Creative
      * Get a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the ID of the creative to get (required)
      * @return CreativeResponse
@@ -1022,15 +973,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CreativeResponse getCreative(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        ApiResponse<CreativeResponse> localVarResp = getCreativeWithHttpInfo(version, accountId, creativeId);
+    public CreativeResponse getCreative(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        ApiResponse<CreativeResponse> localVarResp = getCreativeWithHttpInfo(accountId, creativeId);
         return localVarResp.getData();
     }
 
     /**
      * Get Creative
      * Get a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the ID of the creative to get (required)
      * @return ApiResponse&lt;CreativeResponse&gt;
@@ -1042,8 +992,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreativeResponse> getCreativeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        okhttp3.Call localVarCall = getCreativeValidateBeforeCall(version, accountId, creativeId, null);
+    public ApiResponse<CreativeResponse> getCreativeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        okhttp3.Call localVarCall = getCreativeValidateBeforeCall(accountId, creativeId, null);
         Type localVarReturnType = new TypeToken<CreativeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1051,7 +1001,6 @@ public class CreativeApi {
     /**
      * Get Creative (asynchronously)
      * Get a creative
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param creativeId the ID of the creative to get (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1064,16 +1013,15 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCreativeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<CreativeResponse> _callback) throws ApiException {
+    public okhttp3.Call getCreativeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<CreativeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCreativeValidateBeforeCall(version, accountId, creativeId, _callback);
+        okhttp3.Call localVarCall = getCreativeValidateBeforeCall(accountId, creativeId, _callback);
         Type localVarReturnType = new TypeToken<CreativeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCreativesByApplication
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -1090,7 +1038,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCreativesByApplicationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCreativesByApplicationCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1107,8 +1055,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/creative/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/creative/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1160,12 +1107,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCreativesByApplicationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCreativesByApplication(Async)");
-        }
-
+    private okhttp3.Call getCreativesByApplicationValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getCreativesByApplication(Async)");
@@ -1186,14 +1128,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getCreativesByApplication(Async)");
         }
 
-        return getCreativesByApplicationCall(version, accountId, appKey, start, limit, missionId, keyword, _callback);
+        return getCreativesByApplicationCall(accountId, appKey, start, limit, missionId, keyword, _callback);
 
     }
 
     /**
      * Search Creatives
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -1209,15 +1150,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<CreativeResponse> getCreativesByApplication(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword) throws ApiException {
-        ApiResponse<List<CreativeResponse>> localVarResp = getCreativesByApplicationWithHttpInfo(version, accountId, appKey, start, limit, missionId, keyword);
+    public List<CreativeResponse> getCreativesByApplication(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword) throws ApiException {
+        ApiResponse<List<CreativeResponse>> localVarResp = getCreativesByApplicationWithHttpInfo(accountId, appKey, start, limit, missionId, keyword);
         return localVarResp.getData();
     }
 
     /**
      * Search Creatives
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -1233,8 +1173,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CreativeResponse>> getCreativesByApplicationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword) throws ApiException {
-        okhttp3.Call localVarCall = getCreativesByApplicationValidateBeforeCall(version, accountId, appKey, start, limit, missionId, keyword, null);
+    public ApiResponse<List<CreativeResponse>> getCreativesByApplicationWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword) throws ApiException {
+        okhttp3.Call localVarCall = getCreativesByApplicationValidateBeforeCall(accountId, appKey, start, limit, missionId, keyword, null);
         Type localVarReturnType = new TypeToken<List<CreativeResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1242,7 +1182,6 @@ public class CreativeApi {
     /**
      * Search Creatives (asynchronously)
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -1259,16 +1198,15 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCreativesByApplicationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword, final ApiCallback<List<CreativeResponse>> _callback) throws ApiException {
+    public okhttp3.Call getCreativesByApplicationAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long missionId, @javax.annotation.Nullable String keyword, final ApiCallback<List<CreativeResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCreativesByApplicationValidateBeforeCall(version, accountId, appKey, start, limit, missionId, keyword, _callback);
+        okhttp3.Call localVarCall = getCreativesByApplicationValidateBeforeCall(accountId, appKey, start, limit, missionId, keyword, _callback);
         Type localVarReturnType = new TypeToken<List<CreativeResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removePreview
-     * @param version  (required)
      * @param accountId the ID of the logged in user (required)
      * @param creativeId the ID of the creative to remove preview (required)
      * @param _callback Callback for upload/download progress
@@ -1281,7 +1219,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removePreviewCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removePreviewCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1298,8 +1236,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/creative/removepreview"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/creative/removepreview";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1335,12 +1272,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removePreviewValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removePreview(Async)");
-        }
-
+    private okhttp3.Call removePreviewValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling removePreview(Async)");
@@ -1351,14 +1283,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'creativeId' when calling removePreview(Async)");
         }
 
-        return removePreviewCall(version, accountId, creativeId, _callback);
+        return removePreviewCall(accountId, creativeId, _callback);
 
     }
 
     /**
      * Remove Preview
      * Remove this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the ID of the logged in user (required)
      * @param creativeId the ID of the creative to remove preview (required)
      * @return SirqulResponse
@@ -1370,15 +1301,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removePreview(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removePreviewWithHttpInfo(version, accountId, creativeId);
+    public SirqulResponse removePreview(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removePreviewWithHttpInfo(accountId, creativeId);
         return localVarResp.getData();
     }
 
     /**
      * Remove Preview
      * Remove this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the ID of the logged in user (required)
      * @param creativeId the ID of the creative to remove preview (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -1390,8 +1320,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removePreviewWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
-        okhttp3.Call localVarCall = removePreviewValidateBeforeCall(version, accountId, creativeId, null);
+    public ApiResponse<SirqulResponse> removePreviewWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId) throws ApiException {
+        okhttp3.Call localVarCall = removePreviewValidateBeforeCall(accountId, creativeId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1399,7 +1329,6 @@ public class CreativeApi {
     /**
      * Remove Preview (asynchronously)
      * Remove this ad for preview for this account.
-     * @param version  (required)
      * @param accountId the ID of the logged in user (required)
      * @param creativeId the ID of the creative to remove preview (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1412,16 +1341,15 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removePreviewAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removePreviewAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removePreviewValidateBeforeCall(version, accountId, creativeId, _callback);
+        okhttp3.Call localVarCall = removePreviewValidateBeforeCall(accountId, creativeId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateCreative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param creativeId the creative Id to upate. (required)
      * @param name The name of the level. (optional)
@@ -1446,7 +1374,7 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCreativeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCreativeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1463,8 +1391,7 @@ public class CreativeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/creative/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/creative/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1548,12 +1475,7 @@ public class CreativeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCreativeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateCreative(Async)");
-        }
-
+    private okhttp3.Call updateCreativeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateCreative(Async)");
@@ -1564,14 +1486,13 @@ public class CreativeApi {
             throw new ApiException("Missing the required parameter 'creativeId' when calling updateCreative(Async)");
         }
 
-        return updateCreativeCall(version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, _callback);
+        return updateCreativeCall(accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, _callback);
 
     }
 
     /**
      * Update Creative
      * Update a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param creativeId the creative Id to upate. (required)
      * @param name The name of the level. (optional)
@@ -1595,15 +1516,14 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public CreativeResponse updateCreative(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId) throws ApiException {
-        ApiResponse<CreativeResponse> localVarResp = updateCreativeWithHttpInfo(version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
+    public CreativeResponse updateCreative(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId) throws ApiException {
+        ApiResponse<CreativeResponse> localVarResp = updateCreativeWithHttpInfo(accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
         return localVarResp.getData();
     }
 
     /**
      * Update Creative
      * Update a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param creativeId the creative Id to upate. (required)
      * @param name The name of the level. (optional)
@@ -1627,8 +1547,8 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreativeResponse> updateCreativeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId) throws ApiException {
-        okhttp3.Call localVarCall = updateCreativeValidateBeforeCall(version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, null);
+    public ApiResponse<CreativeResponse> updateCreativeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId) throws ApiException {
+        okhttp3.Call localVarCall = updateCreativeValidateBeforeCall(accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, null);
         Type localVarReturnType = new TypeToken<CreativeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1636,7 +1556,6 @@ public class CreativeApi {
     /**
      * Update Creative (asynchronously)
      * Update a creative
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param creativeId the creative Id to upate. (required)
      * @param name The name of the level. (optional)
@@ -1661,9 +1580,9 @@ public class CreativeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCreativeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, final ApiCallback<CreativeResponse> _callback) throws ApiException {
+    public okhttp3.Call updateCreativeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long creativeId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Long assetImageId, @javax.annotation.Nullable String action, @javax.annotation.Nullable String data, @javax.annotation.Nullable String suffix, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double balance, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long referenceId, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Long missionId, final ApiCallback<CreativeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCreativeValidateBeforeCall(version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, _callback);
+        okhttp3.Call localVarCall = updateCreativeValidateBeforeCall(accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, _callback);
         Type localVarReturnType = new TypeToken<CreativeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

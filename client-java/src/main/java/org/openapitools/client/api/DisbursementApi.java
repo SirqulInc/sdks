@@ -75,7 +75,6 @@ public class DisbursementApi {
 
     /**
      * Build call for checkDisbursements
-     * @param version  (required)
      * @param disbursementId the ID of the disbursement being checked on (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -87,7 +86,7 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call checkDisbursementsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call checkDisbursementsCall(@javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -104,8 +103,7 @@ public class DisbursementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/disbursement/check"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/disbursement/check";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -137,25 +135,19 @@ public class DisbursementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call checkDisbursementsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling checkDisbursements(Async)");
-        }
-
+    private okhttp3.Call checkDisbursementsValidateBeforeCall(@javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'disbursementId' is set
         if (disbursementId == null) {
             throw new ApiException("Missing the required parameter 'disbursementId' when calling checkDisbursements(Async)");
         }
 
-        return checkDisbursementsCall(version, disbursementId, _callback);
+        return checkDisbursementsCall(disbursementId, _callback);
 
     }
 
     /**
      * Check Disbursements
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @param version  (required)
      * @param disbursementId the ID of the disbursement being checked on (required)
      * @return DisbursementResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -166,15 +158,14 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public DisbursementResponse checkDisbursements(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long disbursementId) throws ApiException {
-        ApiResponse<DisbursementResponse> localVarResp = checkDisbursementsWithHttpInfo(version, disbursementId);
+    public DisbursementResponse checkDisbursements(@javax.annotation.Nonnull Long disbursementId) throws ApiException {
+        ApiResponse<DisbursementResponse> localVarResp = checkDisbursementsWithHttpInfo(disbursementId);
         return localVarResp.getData();
     }
 
     /**
      * Check Disbursements
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @param version  (required)
      * @param disbursementId the ID of the disbursement being checked on (required)
      * @return ApiResponse&lt;DisbursementResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -185,8 +176,8 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DisbursementResponse> checkDisbursementsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long disbursementId) throws ApiException {
-        okhttp3.Call localVarCall = checkDisbursementsValidateBeforeCall(version, disbursementId, null);
+    public ApiResponse<DisbursementResponse> checkDisbursementsWithHttpInfo(@javax.annotation.Nonnull Long disbursementId) throws ApiException {
+        okhttp3.Call localVarCall = checkDisbursementsValidateBeforeCall(disbursementId, null);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -194,7 +185,6 @@ public class DisbursementApi {
     /**
      * Check Disbursements (asynchronously)
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @param version  (required)
      * @param disbursementId the ID of the disbursement being checked on (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -206,16 +196,15 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call checkDisbursementsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long disbursementId, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
+    public okhttp3.Call checkDisbursementsAsync(@javax.annotation.Nonnull Long disbursementId, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = checkDisbursementsValidateBeforeCall(version, disbursementId, _callback);
+        okhttp3.Call localVarCall = checkDisbursementsValidateBeforeCall(disbursementId, _callback);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createDisbursement
-     * @param version  (required)
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param receiverAccountId the ID of the account receiving the disbursement (required)
      * @param originalSenderAccountId the ID of the original sender account (required)
@@ -236,7 +225,7 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDisbursementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createDisbursementCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -253,8 +242,7 @@ public class DisbursementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/disbursement/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/disbursement/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -322,12 +310,7 @@ public class DisbursementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createDisbursementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createDisbursement(Async)");
-        }
-
+    private okhttp3.Call createDisbursementValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createDisbursement(Async)");
@@ -353,14 +336,13 @@ public class DisbursementApi {
             throw new ApiException("Missing the required parameter 'provider' when calling createDisbursement(Async)");
         }
 
-        return createDisbursementCall(version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, _callback);
+        return createDisbursementCall(accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, _callback);
 
     }
 
     /**
      * Create Disbursement
      * Creates a Disbursement for sending money to a retailer
-     * @param version  (required)
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param receiverAccountId the ID of the account receiving the disbursement (required)
      * @param originalSenderAccountId the ID of the original sender account (required)
@@ -380,15 +362,14 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public DisbursementResponse createDisbursement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams) throws ApiException {
-        ApiResponse<DisbursementResponse> localVarResp = createDisbursementWithHttpInfo(version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
+    public DisbursementResponse createDisbursement(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams) throws ApiException {
+        ApiResponse<DisbursementResponse> localVarResp = createDisbursementWithHttpInfo(accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
         return localVarResp.getData();
     }
 
     /**
      * Create Disbursement
      * Creates a Disbursement for sending money to a retailer
-     * @param version  (required)
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param receiverAccountId the ID of the account receiving the disbursement (required)
      * @param originalSenderAccountId the ID of the original sender account (required)
@@ -408,8 +389,8 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DisbursementResponse> createDisbursementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams) throws ApiException {
-        okhttp3.Call localVarCall = createDisbursementValidateBeforeCall(version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, null);
+    public ApiResponse<DisbursementResponse> createDisbursementWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams) throws ApiException {
+        okhttp3.Call localVarCall = createDisbursementValidateBeforeCall(accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, null);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -417,7 +398,6 @@ public class DisbursementApi {
     /**
      * Create Disbursement (asynchronously)
      * Creates a Disbursement for sending money to a retailer
-     * @param version  (required)
      * @param accountId the ID of the logging in user (must be an EXECUTIVE account) (required)
      * @param receiverAccountId the ID of the account receiving the disbursement (required)
      * @param originalSenderAccountId the ID of the original sender account (required)
@@ -438,16 +418,15 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDisbursementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
+    public okhttp3.Call createDisbursementAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long receiverAccountId, @javax.annotation.Nonnull Long originalSenderAccountId, @javax.annotation.Nonnull BigDecimal amount, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String introspectionParams, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createDisbursementValidateBeforeCall(version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, _callback);
+        okhttp3.Call localVarCall = createDisbursementValidateBeforeCall(accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, _callback);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getDisbursement
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param disbursementId the id of the disbursement (required)
      * @param _callback Callback for upload/download progress
@@ -460,7 +439,7 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDisbursementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDisbursementCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -477,8 +456,7 @@ public class DisbursementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/disbursement/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/disbursement/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -514,12 +492,7 @@ public class DisbursementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDisbursementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getDisbursement(Async)");
-        }
-
+    private okhttp3.Call getDisbursementValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getDisbursement(Async)");
@@ -530,14 +503,13 @@ public class DisbursementApi {
             throw new ApiException("Missing the required parameter 'disbursementId' when calling getDisbursement(Async)");
         }
 
-        return getDisbursementCall(version, accountId, disbursementId, _callback);
+        return getDisbursementCall(accountId, disbursementId, _callback);
 
     }
 
     /**
      * Get Disbursement
      * Get Disbursement details
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param disbursementId the id of the disbursement (required)
      * @return DisbursementResponse
@@ -549,15 +521,14 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public DisbursementResponse getDisbursement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId) throws ApiException {
-        ApiResponse<DisbursementResponse> localVarResp = getDisbursementWithHttpInfo(version, accountId, disbursementId);
+    public DisbursementResponse getDisbursement(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId) throws ApiException {
+        ApiResponse<DisbursementResponse> localVarResp = getDisbursementWithHttpInfo(accountId, disbursementId);
         return localVarResp.getData();
     }
 
     /**
      * Get Disbursement
      * Get Disbursement details
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param disbursementId the id of the disbursement (required)
      * @return ApiResponse&lt;DisbursementResponse&gt;
@@ -569,8 +540,8 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DisbursementResponse> getDisbursementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId) throws ApiException {
-        okhttp3.Call localVarCall = getDisbursementValidateBeforeCall(version, accountId, disbursementId, null);
+    public ApiResponse<DisbursementResponse> getDisbursementWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId) throws ApiException {
+        okhttp3.Call localVarCall = getDisbursementValidateBeforeCall(accountId, disbursementId, null);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -578,7 +549,6 @@ public class DisbursementApi {
     /**
      * Get Disbursement (asynchronously)
      * Get Disbursement details
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param disbursementId the id of the disbursement (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -591,16 +561,15 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDisbursementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
+    public okhttp3.Call getDisbursementAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDisbursementValidateBeforeCall(version, accountId, disbursementId, _callback);
+        okhttp3.Call localVarCall = getDisbursementValidateBeforeCall(accountId, disbursementId, _callback);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchDisbursements
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -621,7 +590,7 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchDisbursementsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchDisbursementsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -638,8 +607,7 @@ public class DisbursementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/disbursement/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/disbursement/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -707,25 +675,19 @@ public class DisbursementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchDisbursementsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchDisbursements(Async)");
-        }
-
+    private okhttp3.Call searchDisbursementsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchDisbursements(Async)");
         }
 
-        return searchDisbursementsCall(version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, _callback);
+        return searchDisbursementsCall(accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, _callback);
 
     }
 
     /**
      * Search Disbursements
      * Search Disbursements
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -745,15 +707,14 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<DisbursementResponse> searchDisbursements(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId) throws ApiException {
-        ApiResponse<List<DisbursementResponse>> localVarResp = searchDisbursementsWithHttpInfo(version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
+    public List<DisbursementResponse> searchDisbursements(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId) throws ApiException {
+        ApiResponse<List<DisbursementResponse>> localVarResp = searchDisbursementsWithHttpInfo(accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
         return localVarResp.getData();
     }
 
     /**
      * Search Disbursements
      * Search Disbursements
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -773,8 +734,8 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<DisbursementResponse>> searchDisbursementsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId) throws ApiException {
-        okhttp3.Call localVarCall = searchDisbursementsValidateBeforeCall(version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, null);
+    public ApiResponse<List<DisbursementResponse>> searchDisbursementsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId) throws ApiException {
+        okhttp3.Call localVarCall = searchDisbursementsValidateBeforeCall(accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, null);
         Type localVarReturnType = new TypeToken<List<DisbursementResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -782,7 +743,6 @@ public class DisbursementApi {
     /**
      * Search Disbursements (asynchronously)
      * Search Disbursements
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param receiverAccountId filter results by the id of the account receiving the disbursement (optional)
      * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -803,16 +763,15 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchDisbursementsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId, final ApiCallback<List<DisbursementResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchDisbursementsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long receiverAccountId, @javax.annotation.Nullable String statuses, @javax.annotation.Nullable String providers, @javax.annotation.Nullable Long beforeDate, @javax.annotation.Nullable Long afterDate, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable String externalId, final ApiCallback<List<DisbursementResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchDisbursementsValidateBeforeCall(version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, _callback);
+        okhttp3.Call localVarCall = searchDisbursementsValidateBeforeCall(accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, _callback);
         Type localVarReturnType = new TypeToken<List<DisbursementResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateDisbursement
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param disbursementId the id of the disbursement being updated (required)
      * @param amount the disbursement dollar amount being updated (optional)
@@ -833,7 +792,7 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDisbursementCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDisbursementCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -850,8 +809,7 @@ public class DisbursementApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/disbursement/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/disbursement/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -919,12 +877,7 @@ public class DisbursementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateDisbursementValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateDisbursement(Async)");
-        }
-
+    private okhttp3.Call updateDisbursementValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateDisbursement(Async)");
@@ -935,14 +888,13 @@ public class DisbursementApi {
             throw new ApiException("Missing the required parameter 'disbursementId' when calling updateDisbursement(Async)");
         }
 
-        return updateDisbursementCall(version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, _callback);
+        return updateDisbursementCall(accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, _callback);
 
     }
 
     /**
      * Update Disbursement
      * Update Disbursement
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param disbursementId the id of the disbursement being updated (required)
      * @param amount the disbursement dollar amount being updated (optional)
@@ -962,15 +914,14 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public DisbursementResponse updateDisbursement(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams) throws ApiException {
-        ApiResponse<DisbursementResponse> localVarResp = updateDisbursementWithHttpInfo(version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
+    public DisbursementResponse updateDisbursement(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams) throws ApiException {
+        ApiResponse<DisbursementResponse> localVarResp = updateDisbursementWithHttpInfo(accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
         return localVarResp.getData();
     }
 
     /**
      * Update Disbursement
      * Update Disbursement
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param disbursementId the id of the disbursement being updated (required)
      * @param amount the disbursement dollar amount being updated (optional)
@@ -990,8 +941,8 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DisbursementResponse> updateDisbursementWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams) throws ApiException {
-        okhttp3.Call localVarCall = updateDisbursementValidateBeforeCall(version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, null);
+    public ApiResponse<DisbursementResponse> updateDisbursementWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams) throws ApiException {
+        okhttp3.Call localVarCall = updateDisbursementValidateBeforeCall(accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, null);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -999,7 +950,6 @@ public class DisbursementApi {
     /**
      * Update Disbursement (asynchronously)
      * Update Disbursement
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param disbursementId the id of the disbursement being updated (required)
      * @param amount the disbursement dollar amount being updated (optional)
@@ -1020,9 +970,9 @@ public class DisbursementApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDisbursementAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
+    public okhttp3.Call updateDisbursementAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long disbursementId, @javax.annotation.Nullable BigDecimal amount, @javax.annotation.Nullable String provider, @javax.annotation.Nullable Long scheduledDate, @javax.annotation.Nullable String title, @javax.annotation.Nullable String comment, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable Boolean retry, @javax.annotation.Nullable String introspectionParams, final ApiCallback<DisbursementResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateDisbursementValidateBeforeCall(version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, _callback);
+        okhttp3.Call localVarCall = updateDisbursementValidateBeforeCall(accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, _callback);
         Type localVarReturnType = new TypeToken<DisbursementResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

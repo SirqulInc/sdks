@@ -30,7 +30,6 @@ import java.io.IOException;
 import org.openapitools.client.model.AssetFullResponse;
 import org.openapitools.client.model.AssetResponse;
 import org.openapitools.client.model.AssetShortResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -79,7 +78,6 @@ public class AssetApi {
 
     /**
      * Build call for assetDownload
-     * @param version  (required)
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -91,7 +89,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assetDownloadCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filename, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assetDownloadCall(@javax.annotation.Nonnull String filename, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,8 +106,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/download/{filename}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/asset/download/{filename}"
             .replace("{" + "filename" + "}", localVarApiClient.escapeString(filename.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -138,25 +135,19 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assetDownloadValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filename, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assetDownload(Async)");
-        }
-
+    private okhttp3.Call assetDownloadValidateBeforeCall(@javax.annotation.Nonnull String filename, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'filename' is set
         if (filename == null) {
             throw new ApiException("Missing the required parameter 'filename' when calling assetDownload(Async)");
         }
 
-        return assetDownloadCall(version, filename, _callback);
+        return assetDownloadCall(filename, _callback);
 
     }
 
     /**
      * Download Asset
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @param version  (required)
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @return SirqulResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -167,15 +158,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse assetDownload(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filename) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = assetDownloadWithHttpInfo(version, filename);
+    public SirqulResponse assetDownload(@javax.annotation.Nonnull String filename) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = assetDownloadWithHttpInfo(filename);
         return localVarResp.getData();
     }
 
     /**
      * Download Asset
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @param version  (required)
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -186,8 +176,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> assetDownloadWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filename) throws ApiException {
-        okhttp3.Call localVarCall = assetDownloadValidateBeforeCall(version, filename, null);
+    public ApiResponse<SirqulResponse> assetDownloadWithHttpInfo(@javax.annotation.Nonnull String filename) throws ApiException {
+        okhttp3.Call localVarCall = assetDownloadValidateBeforeCall(filename, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,7 +185,6 @@ public class AssetApi {
     /**
      * Download Asset (asynchronously)
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @param version  (required)
      * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -207,16 +196,15 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assetDownloadAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filename, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call assetDownloadAsync(@javax.annotation.Nonnull String filename, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assetDownloadValidateBeforeCall(version, filename, _callback);
+        okhttp3.Call localVarCall = assetDownloadValidateBeforeCall(filename, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for assetMorph
-     * @param version  (required)
      * @param offerId offer id used for inserting offer text/flavor (required)
      * @param adSize the ad size used for selecting a format for the creative image (required)
      * @param creativeId used for inserting the newly created image into (optional)
@@ -234,7 +222,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assetMorphCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call assetMorphCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -251,8 +239,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/morph"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/asset/morph";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -308,12 +295,7 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call assetMorphValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling assetMorph(Async)");
-        }
-
+    private okhttp3.Call assetMorphValidateBeforeCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerId' is set
         if (offerId == null) {
             throw new ApiException("Missing the required parameter 'offerId' when calling assetMorph(Async)");
@@ -324,14 +306,13 @@ public class AssetApi {
             throw new ApiException("Missing the required parameter 'adSize' when calling assetMorph(Async)");
         }
 
-        return assetMorphCall(version, offerId, adSize, creativeId, width, height, backgroundSize, template, _callback);
+        return assetMorphCall(offerId, adSize, creativeId, width, height, backgroundSize, template, _callback);
 
     }
 
     /**
      * Convert Offer to Creative
      * Converts an offer image + text into a creative image.
-     * @param version  (required)
      * @param offerId offer id used for inserting offer text/flavor (required)
      * @param adSize the ad size used for selecting a format for the creative image (required)
      * @param creativeId used for inserting the newly created image into (optional)
@@ -348,15 +329,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssetShortResponse assetMorph(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template) throws ApiException {
-        ApiResponse<AssetShortResponse> localVarResp = assetMorphWithHttpInfo(version, offerId, adSize, creativeId, width, height, backgroundSize, template);
+    public AssetShortResponse assetMorph(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template) throws ApiException {
+        ApiResponse<AssetShortResponse> localVarResp = assetMorphWithHttpInfo(offerId, adSize, creativeId, width, height, backgroundSize, template);
         return localVarResp.getData();
     }
 
     /**
      * Convert Offer to Creative
      * Converts an offer image + text into a creative image.
-     * @param version  (required)
      * @param offerId offer id used for inserting offer text/flavor (required)
      * @param adSize the ad size used for selecting a format for the creative image (required)
      * @param creativeId used for inserting the newly created image into (optional)
@@ -373,8 +353,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssetShortResponse> assetMorphWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template) throws ApiException {
-        okhttp3.Call localVarCall = assetMorphValidateBeforeCall(version, offerId, adSize, creativeId, width, height, backgroundSize, template, null);
+    public ApiResponse<AssetShortResponse> assetMorphWithHttpInfo(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template) throws ApiException {
+        okhttp3.Call localVarCall = assetMorphValidateBeforeCall(offerId, adSize, creativeId, width, height, backgroundSize, template, null);
         Type localVarReturnType = new TypeToken<AssetShortResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -382,7 +362,6 @@ public class AssetApi {
     /**
      * Convert Offer to Creative (asynchronously)
      * Converts an offer image + text into a creative image.
-     * @param version  (required)
      * @param offerId offer id used for inserting offer text/flavor (required)
      * @param adSize the ad size used for selecting a format for the creative image (required)
      * @param creativeId used for inserting the newly created image into (optional)
@@ -400,16 +379,15 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call assetMorphAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template, final ApiCallback<AssetShortResponse> _callback) throws ApiException {
+    public okhttp3.Call assetMorphAsync(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull String adSize, @javax.annotation.Nullable Long creativeId, @javax.annotation.Nullable Integer width, @javax.annotation.Nullable Integer height, @javax.annotation.Nullable String backgroundSize, @javax.annotation.Nullable String template, final ApiCallback<AssetShortResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = assetMorphValidateBeforeCall(version, offerId, adSize, creativeId, width, height, backgroundSize, template, _callback);
+        okhttp3.Call localVarCall = assetMorphValidateBeforeCall(offerId, adSize, creativeId, width, height, backgroundSize, template, _callback);
         Type localVarReturnType = new TypeToken<AssetShortResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createAsset
-     * @param version  (required)
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -454,7 +432,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAssetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAssetCall(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -471,8 +449,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/asset/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -636,20 +613,14 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAssetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createAsset(Async)");
-        }
-
-        return createAssetCall(version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, _callback);
+    private okhttp3.Call createAssetValidateBeforeCall(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+        return createAssetCall(returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, _callback);
 
     }
 
     /**
      * Create Asset
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @param version  (required)
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -693,15 +664,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssetResponse createAsset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<AssetResponse> localVarResp = createAssetWithHttpInfo(version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
+    public AssetResponse createAsset(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<AssetResponse> localVarResp = createAssetWithHttpInfo(returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Asset
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @param version  (required)
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -745,8 +715,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssetResponse> createAssetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = createAssetValidateBeforeCall(version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, null);
+    public ApiResponse<AssetResponse> createAssetWithHttpInfo(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = createAssetValidateBeforeCall(returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<AssetResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -754,7 +724,6 @@ public class AssetApi {
     /**
      * Create Asset (asynchronously)
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @param version  (required)
      * @param returnNulls to return nulls (optional)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -799,16 +768,15 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAssetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AssetResponse> _callback) throws ApiException {
+    public okhttp3.Call createAssetAsync(@javax.annotation.Nullable Boolean returnNulls, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable String addToDefaultAlbum, @javax.annotation.Nullable Boolean addToMediaLibrary, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String app, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<AssetResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAssetValidateBeforeCall(version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = createAssetValidateBeforeCall(returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<AssetResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteAsset
-     * @param version  (required)
      * @param assetId the id of the asset to delete (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -824,7 +792,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAssetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAssetCall(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -841,8 +809,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/asset/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -890,25 +857,19 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAssetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteAsset(Async)");
-        }
-
+    private okhttp3.Call deleteAssetValidateBeforeCall(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'assetId' is set
         if (assetId == null) {
             throw new ApiException("Missing the required parameter 'assetId' when calling deleteAsset(Async)");
         }
 
-        return deleteAssetCall(version, assetId, deviceId, accountId, latitude, longitude, _callback);
+        return deleteAssetCall(assetId, deviceId, accountId, latitude, longitude, _callback);
 
     }
 
     /**
      * Delete Asset
      * Delete an asset.
-     * @param version  (required)
      * @param assetId the id of the asset to delete (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -923,15 +884,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteAsset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteAssetWithHttpInfo(version, assetId, deviceId, accountId, latitude, longitude);
+    public SirqulResponse deleteAsset(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteAssetWithHttpInfo(assetId, deviceId, accountId, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Delete Asset
      * Delete an asset.
-     * @param version  (required)
      * @param assetId the id of the asset to delete (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -946,8 +906,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteAssetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = deleteAssetValidateBeforeCall(version, assetId, deviceId, accountId, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> deleteAssetWithHttpInfo(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = deleteAssetValidateBeforeCall(assetId, deviceId, accountId, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -955,7 +915,6 @@ public class AssetApi {
     /**
      * Delete Asset (asynchronously)
      * Delete an asset.
-     * @param version  (required)
      * @param assetId the id of the asset to delete (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -971,16 +930,15 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAssetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteAssetAsync(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAssetValidateBeforeCall(version, assetId, deviceId, accountId, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = deleteAssetValidateBeforeCall(assetId, deviceId, accountId, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAsset
-     * @param version  (required)
      * @param assetId the asset ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -995,7 +953,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssetCall(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1012,8 +970,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/asset/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1057,25 +1014,19 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAsset(Async)");
-        }
-
+    private okhttp3.Call getAssetValidateBeforeCall(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'assetId' is set
         if (assetId == null) {
             throw new ApiException("Missing the required parameter 'assetId' when calling getAsset(Async)");
         }
 
-        return getAssetCall(version, assetId, deviceId, accountId, noteDescending, _callback);
+        return getAssetCall(assetId, deviceId, accountId, noteDescending, _callback);
 
     }
 
     /**
      * Get Asset
      * Gets the full asset response including attached likes and notes.
-     * @param version  (required)
      * @param assetId the asset ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1089,15 +1040,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AssetFullResponse getAsset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending) throws ApiException {
-        ApiResponse<AssetFullResponse> localVarResp = getAssetWithHttpInfo(version, assetId, deviceId, accountId, noteDescending);
+    public AssetFullResponse getAsset(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending) throws ApiException {
+        ApiResponse<AssetFullResponse> localVarResp = getAssetWithHttpInfo(assetId, deviceId, accountId, noteDescending);
         return localVarResp.getData();
     }
 
     /**
      * Get Asset
      * Gets the full asset response including attached likes and notes.
-     * @param version  (required)
      * @param assetId the asset ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1111,8 +1061,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssetFullResponse> getAssetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending) throws ApiException {
-        okhttp3.Call localVarCall = getAssetValidateBeforeCall(version, assetId, deviceId, accountId, noteDescending, null);
+    public ApiResponse<AssetFullResponse> getAssetWithHttpInfo(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending) throws ApiException {
+        okhttp3.Call localVarCall = getAssetValidateBeforeCall(assetId, deviceId, accountId, noteDescending, null);
         Type localVarReturnType = new TypeToken<AssetFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1120,7 +1070,6 @@ public class AssetApi {
     /**
      * Get Asset (asynchronously)
      * Gets the full asset response including attached likes and notes.
-     * @param version  (required)
      * @param assetId the asset ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1135,16 +1084,15 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending, final ApiCallback<AssetFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getAssetAsync(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean noteDescending, final ApiCallback<AssetFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssetValidateBeforeCall(version, assetId, deviceId, accountId, noteDescending, _callback);
+        okhttp3.Call localVarCall = getAssetValidateBeforeCall(assetId, deviceId, accountId, noteDescending, _callback);
         Type localVarReturnType = new TypeToken<AssetFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeAsset
-     * @param version  (required)
      * @param assetId the id of the asset to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1163,7 +1111,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeAssetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeAssetCall(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1180,8 +1128,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/remove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/asset/remove";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1241,25 +1188,19 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeAssetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeAsset(Async)");
-        }
-
+    private okhttp3.Call removeAssetValidateBeforeCall(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'assetId' is set
         if (assetId == null) {
             throw new ApiException("Missing the required parameter 'assetId' when calling removeAsset(Async)");
         }
 
-        return removeAssetCall(version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, _callback);
+        return removeAssetCall(assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, _callback);
 
     }
 
     /**
      * Remove Asset from Collection
      * Remove assets from collections
-     * @param version  (required)
      * @param assetId the id of the asset to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1277,15 +1218,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeAsset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeAssetWithHttpInfo(version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
+    public SirqulResponse removeAsset(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeAssetWithHttpInfo(assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Remove Asset from Collection
      * Remove assets from collections
-     * @param version  (required)
      * @param assetId the id of the asset to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1303,8 +1243,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeAssetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = removeAssetValidateBeforeCall(version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> removeAssetWithHttpInfo(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = removeAssetValidateBeforeCall(assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1312,7 +1252,6 @@ public class AssetApi {
     /**
      * Remove Asset from Collection (asynchronously)
      * Remove assets from collections
-     * @param version  (required)
      * @param assetId the id of the asset to remove (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -1331,16 +1270,15 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeAssetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeAssetAsync(@javax.annotation.Nonnull String assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long collectionId, @javax.annotation.Nullable Boolean removeFromDefaultAlbums, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeAssetValidateBeforeCall(version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = removeAssetValidateBeforeCall(assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchAssets
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -1375,7 +1313,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAssetsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAssetsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1392,8 +1330,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/asset/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1517,20 +1454,14 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAssetsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchAssets(Async)");
-        }
-
-        return searchAssetsCall(version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, _callback);
+    private okhttp3.Call searchAssetsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, final ApiCallback _callback) throws ApiException {
+        return searchAssetsCall(deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, _callback);
 
     }
 
     /**
      * Search Assets
      * Searches for assets
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -1564,15 +1495,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AssetResponse> searchAssets(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId) throws ApiException {
-        ApiResponse<List<AssetResponse>> localVarResp = searchAssetsWithHttpInfo(version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
+    public List<AssetResponse> searchAssets(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId) throws ApiException {
+        ApiResponse<List<AssetResponse>> localVarResp = searchAssetsWithHttpInfo(deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
         return localVarResp.getData();
     }
 
     /**
      * Search Assets
      * Searches for assets
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -1606,8 +1536,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AssetResponse>> searchAssetsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId) throws ApiException {
-        okhttp3.Call localVarCall = searchAssetsValidateBeforeCall(version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, null);
+    public ApiResponse<List<AssetResponse>> searchAssetsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId) throws ApiException {
+        okhttp3.Call localVarCall = searchAssetsValidateBeforeCall(deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, null);
         Type localVarReturnType = new TypeToken<List<AssetResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1615,7 +1545,6 @@ public class AssetApi {
     /**
      * Search Assets (asynchronously)
      * Searches for assets
-     * @param version  (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
      * @param albumIds comma separated list of album ids to search on (optional)
@@ -1650,16 +1579,15 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAssetsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, final ApiCallback<List<AssetResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchAssetsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String assetIds, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable String mimeType, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Boolean searchMediaLibrary, @javax.annotation.Nullable Boolean filterByBillable, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnApp, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, final ApiCallback<List<AssetResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAssetsValidateBeforeCall(version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, _callback);
+        okhttp3.Call localVarCall = searchAssetsValidateBeforeCall(deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, _callback);
         Type localVarReturnType = new TypeToken<List<AssetResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateAsset
-     * @param version  (required)
      * @param assetId the ID of the asset to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1701,7 +1629,7 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAssetCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAssetCall(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1718,8 +1646,7 @@ public class AssetApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/asset/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/asset/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1871,25 +1798,19 @@ public class AssetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAssetValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateAsset(Async)");
-        }
-
+    private okhttp3.Call updateAssetValidateBeforeCall(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'assetId' is set
         if (assetId == null) {
             throw new ApiException("Missing the required parameter 'assetId' when calling updateAsset(Async)");
         }
 
-        return updateAssetCall(version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, _callback);
+        return updateAssetCall(assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, _callback);
 
     }
 
     /**
      * Update Asset
      * Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @param version  (required)
      * @param assetId the ID of the asset to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1930,15 +1851,14 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateAsset(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateAssetWithHttpInfo(version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
+    public SirqulResponse updateAsset(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateAssetWithHttpInfo(assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Update Asset
      * Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @param version  (required)
      * @param assetId the ID of the asset to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1979,8 +1899,8 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateAssetWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = updateAssetValidateBeforeCall(version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, null);
+    public ApiResponse<SirqulResponse> updateAssetWithHttpInfo(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = updateAssetValidateBeforeCall(assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1988,7 +1908,6 @@ public class AssetApi {
     /**
      * Update Asset (asynchronously)
      * Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @param version  (required)
      * @param assetId the ID of the asset to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -2030,9 +1949,9 @@ public class AssetApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAssetAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAssetAsync(@javax.annotation.Nonnull Long assetId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long albumId, @javax.annotation.Nullable Long attachedAssetId, @javax.annotation.Nullable Integer versionCode, @javax.annotation.Nullable String versionName, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String caption, @javax.annotation.Nullable String assetType, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Long assignedAccountId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaUrl, @javax.annotation.Nullable String mediaString, @javax.annotation.Nullable String mediaStringFileName, @javax.annotation.Nullable String mediaStringContentType, @javax.annotation.Nullable Integer mediaHeight, @javax.annotation.Nullable Integer mediaWidth, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaUrl, @javax.annotation.Nullable String attachedMediaString, @javax.annotation.Nullable String attachedMediaStringFileName, @javax.annotation.Nullable String attachedMediaStringContentType, @javax.annotation.Nullable Integer attachedMediaHeight, @javax.annotation.Nullable Integer attachedMediaWidth, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAssetValidateBeforeCall(version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = updateAssetValidateBeforeCall(assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

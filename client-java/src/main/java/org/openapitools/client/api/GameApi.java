@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.GameResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class GameApi {
 
     /**
      * Build call for createGame
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -94,7 +92,7 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createGameCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createGameCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -111,8 +109,7 @@ public class GameApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -168,20 +165,14 @@ public class GameApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createGameValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createGame(Async)");
-        }
-
-        return createGameCall(version, accountId, appKey, title, description, metaData, packIds, includeGameData, _callback);
+    private okhttp3.Call createGameValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+        return createGameCall(accountId, appKey, title, description, metaData, packIds, includeGameData, _callback);
 
     }
 
     /**
      * Create a Game
      * Create a Game.
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -198,15 +189,14 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameResponse createGame(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<GameResponse> localVarResp = createGameWithHttpInfo(version, accountId, appKey, title, description, metaData, packIds, includeGameData);
+    public GameResponse createGame(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<GameResponse> localVarResp = createGameWithHttpInfo(accountId, appKey, title, description, metaData, packIds, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Create a Game
      * Create a Game.
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -223,8 +213,8 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameResponse> createGameWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = createGameValidateBeforeCall(version, accountId, appKey, title, description, metaData, packIds, includeGameData, null);
+    public ApiResponse<GameResponse> createGameWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = createGameValidateBeforeCall(accountId, appKey, title, description, metaData, packIds, includeGameData, null);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -232,7 +222,6 @@ public class GameApi {
     /**
      * Create a Game (asynchronously)
      * Create a Game.
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param appKey The game application key to save the level for. (optional)
      * @param title Title of the game. (optional)
@@ -250,16 +239,15 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createGameAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameResponse> _callback) throws ApiException {
+    public okhttp3.Call createGameAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createGameValidateBeforeCall(version, accountId, appKey, title, description, metaData, packIds, includeGameData, _callback);
+        okhttp3.Call localVarCall = createGameValidateBeforeCall(accountId, appKey, title, description, metaData, packIds, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteGame
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @param _callback Callback for upload/download progress
@@ -272,7 +260,7 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteGameCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteGameCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -289,8 +277,7 @@ public class GameApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -326,12 +313,7 @@ public class GameApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteGameValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteGame(Async)");
-        }
-
+    private okhttp3.Call deleteGameValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteGame(Async)");
@@ -342,14 +324,13 @@ public class GameApi {
             throw new ApiException("Missing the required parameter 'gameId' when calling deleteGame(Async)");
         }
 
-        return deleteGameCall(version, accountId, gameId, _callback);
+        return deleteGameCall(accountId, gameId, _callback);
 
     }
 
     /**
      * Delete a Game
      * Delete a game.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @return SirqulResponse
@@ -361,15 +342,14 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteGame(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteGameWithHttpInfo(version, accountId, gameId);
+    public SirqulResponse deleteGame(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteGameWithHttpInfo(accountId, gameId);
         return localVarResp.getData();
     }
 
     /**
      * Delete a Game
      * Delete a game.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -381,8 +361,8 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteGameWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId) throws ApiException {
-        okhttp3.Call localVarCall = deleteGameValidateBeforeCall(version, accountId, gameId, null);
+    public ApiResponse<SirqulResponse> deleteGameWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId) throws ApiException {
+        okhttp3.Call localVarCall = deleteGameValidateBeforeCall(accountId, gameId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -390,7 +370,6 @@ public class GameApi {
     /**
      * Delete a Game (asynchronously)
      * Delete a game.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -403,16 +382,15 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteGameAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteGameAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteGameValidateBeforeCall(version, accountId, gameId, _callback);
+        okhttp3.Call localVarCall = deleteGameValidateBeforeCall(accountId, gameId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getGame
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -426,7 +404,7 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getGameCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -443,8 +421,7 @@ public class GameApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -484,12 +461,7 @@ public class GameApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGameValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getGame(Async)");
-        }
-
+    private okhttp3.Call getGameValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getGame(Async)");
@@ -500,14 +472,13 @@ public class GameApi {
             throw new ApiException("Missing the required parameter 'gameId' when calling getGame(Async)");
         }
 
-        return getGameCall(version, accountId, gameId, includeGameData, _callback);
+        return getGameCall(accountId, gameId, includeGameData, _callback);
 
     }
 
     /**
      * Get a Game by id
      * Get a Game by id.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -520,15 +491,14 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameResponse getGame(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<GameResponse> localVarResp = getGameWithHttpInfo(version, accountId, gameId, includeGameData);
+    public GameResponse getGame(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<GameResponse> localVarResp = getGameWithHttpInfo(accountId, gameId, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Get a Game by id
      * Get a Game by id.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -541,8 +511,8 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameResponse> getGameWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = getGameValidateBeforeCall(version, accountId, gameId, includeGameData, null);
+    public ApiResponse<GameResponse> getGameWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = getGameValidateBeforeCall(accountId, gameId, includeGameData, null);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -550,7 +520,6 @@ public class GameApi {
     /**
      * Get a Game by id (asynchronously)
      * Get a Game by id.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param gameId the updating game&#39;s id. (required)
      * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false. (optional)
@@ -564,16 +533,15 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getGameAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameResponse> _callback) throws ApiException {
+    public okhttp3.Call getGameAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long gameId, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getGameValidateBeforeCall(version, accountId, gameId, includeGameData, _callback);
+        okhttp3.Call localVarCall = getGameValidateBeforeCall(accountId, gameId, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchGames
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -592,7 +560,7 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchGamesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchGamesCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -609,8 +577,7 @@ public class GameApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -670,12 +637,7 @@ public class GameApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchGamesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchGames(Async)");
-        }
-
+    private okhttp3.Call searchGamesValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchGames(Async)");
@@ -696,14 +658,13 @@ public class GameApi {
             throw new ApiException("Missing the required parameter 'limit' when calling searchGames(Async)");
         }
 
-        return searchGamesCall(version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, _callback);
+        return searchGamesCall(accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, _callback);
 
     }
 
     /**
      * Search a Game
      * Get a list of games for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -721,15 +682,14 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameResponse searchGames(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
-        ApiResponse<GameResponse> localVarResp = searchGamesWithHttpInfo(version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
+    public GameResponse searchGames(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
+        ApiResponse<GameResponse> localVarResp = searchGamesWithHttpInfo(accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
         return localVarResp.getData();
     }
 
     /**
      * Search a Game
      * Get a list of games for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -747,8 +707,8 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameResponse> searchGamesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
-        okhttp3.Call localVarCall = searchGamesValidateBeforeCall(version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, null);
+    public ApiResponse<GameResponse> searchGamesWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive) throws ApiException {
+        okhttp3.Call localVarCall = searchGamesValidateBeforeCall(accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, null);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -756,7 +716,6 @@ public class GameApi {
     /**
      * Search a Game (asynchronously)
      * Get a list of games for an application, just those the account has permissions to view.
-     * @param version  (required)
      * @param accountId The logged in user. (required)
      * @param appKey the application key (required)
      * @param start Start the result set at some index. (required)
@@ -775,16 +734,15 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchGamesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback<GameResponse> _callback) throws ApiException {
+    public okhttp3.Call searchGamesAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable Boolean includeInactive, final ApiCallback<GameResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchGamesValidateBeforeCall(version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, _callback);
+        okhttp3.Call localVarCall = searchGamesValidateBeforeCall(accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, _callback);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateGame
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -803,7 +761,7 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateGameCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateGameCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -820,8 +778,7 @@ public class GameApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/game/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/game/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -881,20 +838,14 @@ public class GameApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateGameValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateGame(Async)");
-        }
-
-        return updateGameCall(version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, _callback);
+    private okhttp3.Call updateGameValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback _callback) throws ApiException {
+        return updateGameCall(accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, _callback);
 
     }
 
     /**
      * Update a Game
      * Update a Game
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -912,15 +863,14 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public GameResponse updateGame(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        ApiResponse<GameResponse> localVarResp = updateGameWithHttpInfo(version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
+    public GameResponse updateGame(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        ApiResponse<GameResponse> localVarResp = updateGameWithHttpInfo(accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
         return localVarResp.getData();
     }
 
     /**
      * Update a Game
      * Update a Game
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -938,8 +888,8 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameResponse> updateGameWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
-        okhttp3.Call localVarCall = updateGameValidateBeforeCall(version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, null);
+    public ApiResponse<GameResponse> updateGameWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData) throws ApiException {
+        okhttp3.Call localVarCall = updateGameValidateBeforeCall(accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, null);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -947,7 +897,6 @@ public class GameApi {
     /**
      * Update a Game (asynchronously)
      * Update a Game
-     * @param version  (required)
      * @param accountId The logged in user. (optional)
      * @param gameId the updating game&#39;s id (optional)
      * @param appKey The game application key to save the level for. (optional)
@@ -966,9 +915,9 @@ public class GameApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateGameAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameResponse> _callback) throws ApiException {
+    public okhttp3.Call updateGameAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long gameId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String title, @javax.annotation.Nullable String description, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable Boolean includeGameData, final ApiCallback<GameResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateGameValidateBeforeCall(version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, _callback);
+        okhttp3.Call localVarCall = updateGameValidateBeforeCall(accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, _callback);
         Type localVarReturnType = new TypeToken<GameResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

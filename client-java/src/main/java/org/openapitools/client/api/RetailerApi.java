@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AccountLoginResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.RetailerFullResponse;
 import org.openapitools.client.model.RetailerResponse;
@@ -79,7 +78,6 @@ public class RetailerApi {
 
     /**
      * Build call for createRetailer
-     * @param version  (required)
      * @param name The name of the retailer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -123,7 +121,7 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRetailerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRetailerCall(@javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -140,8 +138,7 @@ public class RetailerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -301,25 +298,19 @@ public class RetailerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRetailerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRetailer(Async)");
-        }
-
+    private okhttp3.Call createRetailerValidateBeforeCall(@javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling createRetailer(Async)");
         }
 
-        return createRetailerCall(version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, _callback);
+        return createRetailerCall(name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, _callback);
 
     }
 
     /**
      * Create Retailer
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @param version  (required)
      * @param name The name of the retailer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -362,15 +353,14 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerFullResponse createRetailer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat) throws ApiException {
-        ApiResponse<RetailerFullResponse> localVarResp = createRetailerWithHttpInfo(version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
+    public RetailerFullResponse createRetailer(@javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat) throws ApiException {
+        ApiResponse<RetailerFullResponse> localVarResp = createRetailerWithHttpInfo(name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
         return localVarResp.getData();
     }
 
     /**
      * Create Retailer
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @param version  (required)
      * @param name The name of the retailer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -413,8 +403,8 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerFullResponse> createRetailerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat) throws ApiException {
-        okhttp3.Call localVarCall = createRetailerValidateBeforeCall(version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, null);
+    public ApiResponse<RetailerFullResponse> createRetailerWithHttpInfo(@javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat) throws ApiException {
+        okhttp3.Call localVarCall = createRetailerValidateBeforeCall(name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, null);
         Type localVarReturnType = new TypeToken<RetailerFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -422,7 +412,6 @@ public class RetailerApi {
     /**
      * Create Retailer (asynchronously)
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @param version  (required)
      * @param name The name of the retailer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -466,16 +455,15 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRetailerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat, final ApiCallback<RetailerFullResponse> _callback) throws ApiException {
+    public okhttp3.Call createRetailerAsync(@javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryIdsToAdd, @javax.annotation.Nullable String categoryIdsToRemove, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean createDefaultLocation, @javax.annotation.Nullable String responseFormat, final ApiCallback<RetailerFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRetailerValidateBeforeCall(version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, _callback);
+        okhttp3.Call localVarCall = createRetailerValidateBeforeCall(name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, _callback);
         Type localVarReturnType = new TypeToken<RetailerFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteRetailer
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
@@ -489,7 +477,7 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRetailerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteRetailerCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -506,8 +494,7 @@ public class RetailerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -547,20 +534,14 @@ public class RetailerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRetailerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteRetailer(Async)");
-        }
-
-        return deleteRetailerCall(version, deviceId, accountId, retailerId, _callback);
+    private okhttp3.Call deleteRetailerValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId, final ApiCallback _callback) throws ApiException {
+        return deleteRetailerCall(deviceId, accountId, retailerId, _callback);
 
     }
 
     /**
      * Delete Retailer
      * Set the deleted timestamp to current time.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
@@ -573,15 +554,14 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteRetailer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteRetailerWithHttpInfo(version, deviceId, accountId, retailerId);
+    public SirqulResponse deleteRetailer(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteRetailerWithHttpInfo(deviceId, accountId, retailerId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Retailer
      * Set the deleted timestamp to current time.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
@@ -594,8 +574,8 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteRetailerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId) throws ApiException {
-        okhttp3.Call localVarCall = deleteRetailerValidateBeforeCall(version, deviceId, accountId, retailerId, null);
+    public ApiResponse<SirqulResponse> deleteRetailerWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId) throws ApiException {
+        okhttp3.Call localVarCall = deleteRetailerValidateBeforeCall(deviceId, accountId, retailerId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -603,7 +583,6 @@ public class RetailerApi {
     /**
      * Delete Retailer (asynchronously)
      * Set the deleted timestamp to current time.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the retailer. (optional)
      * @param retailerId The ID of the retailer to be deleted (optional)
@@ -617,16 +596,15 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRetailerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteRetailerAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRetailerValidateBeforeCall(version, deviceId, accountId, retailerId, _callback);
+        okhttp3.Call localVarCall = deleteRetailerValidateBeforeCall(deviceId, accountId, retailerId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRetailer
-     * @param version  (required)
      * @param retailerId the ID of the retailer (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -641,7 +619,7 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRetailerCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -658,8 +636,7 @@ public class RetailerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -703,25 +680,19 @@ public class RetailerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRetailerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRetailer(Async)");
-        }
-
+    private okhttp3.Call getRetailerValidateBeforeCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'retailerId' is set
         if (retailerId == null) {
             throw new ApiException("Missing the required parameter 'retailerId' when calling getRetailer(Async)");
         }
 
-        return getRetailerCall(version, retailerId, deviceId, accountId, includeCounts, _callback);
+        return getRetailerCall(retailerId, deviceId, accountId, includeCounts, _callback);
 
     }
 
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the ID of the retailer (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -735,15 +706,14 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerFullResponse getRetailer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts) throws ApiException {
-        ApiResponse<RetailerFullResponse> localVarResp = getRetailerWithHttpInfo(version, retailerId, deviceId, accountId, includeCounts);
+    public RetailerFullResponse getRetailer(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts) throws ApiException {
+        ApiResponse<RetailerFullResponse> localVarResp = getRetailerWithHttpInfo(retailerId, deviceId, accountId, includeCounts);
         return localVarResp.getData();
     }
 
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the ID of the retailer (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -757,8 +727,8 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerFullResponse> getRetailerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts) throws ApiException {
-        okhttp3.Call localVarCall = getRetailerValidateBeforeCall(version, retailerId, deviceId, accountId, includeCounts, null);
+    public ApiResponse<RetailerFullResponse> getRetailerWithHttpInfo(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts) throws ApiException {
+        okhttp3.Call localVarCall = getRetailerValidateBeforeCall(retailerId, deviceId, accountId, includeCounts, null);
         Type localVarReturnType = new TypeToken<RetailerFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -766,7 +736,6 @@ public class RetailerApi {
     /**
      * Get Retailer (asynchronously)
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the ID of the retailer (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -781,16 +750,15 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, final ApiCallback<RetailerFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getRetailerAsync(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, final ApiCallback<RetailerFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRetailerValidateBeforeCall(version, retailerId, deviceId, accountId, includeCounts, _callback);
+        okhttp3.Call localVarCall = getRetailerValidateBeforeCall(retailerId, deviceId, accountId, includeCounts, _callback);
         Type localVarReturnType = new TypeToken<RetailerFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRetailers
-     * @param version  (required)
      * @param visibility  (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -815,7 +783,7 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRetailersCall(@javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -832,8 +800,7 @@ public class RetailerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -917,12 +884,7 @@ public class RetailerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRetailersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRetailers(Async)");
-        }
-
+    private okhttp3.Call getRetailersValidateBeforeCall(@javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'visibility' is set
         if (visibility == null) {
             throw new ApiException("Missing the required parameter 'visibility' when calling getRetailers(Async)");
@@ -953,14 +915,13 @@ public class RetailerApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling getRetailers(Async)");
         }
 
-        return getRetailersCall(version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, _callback);
+        return getRetailersCall(visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, _callback);
 
     }
 
     /**
      * Search Retailers
      * earches on retailers that the account has access to.
-     * @param version  (required)
      * @param visibility  (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -984,15 +945,14 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RetailerResponse> getRetailers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
-        ApiResponse<List<RetailerResponse>> localVarResp = getRetailersWithHttpInfo(version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
+    public List<RetailerResponse> getRetailers(@javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
+        ApiResponse<List<RetailerResponse>> localVarResp = getRetailersWithHttpInfo(visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
         return localVarResp.getData();
     }
 
     /**
      * Search Retailers
      * earches on retailers that the account has access to.
-     * @param version  (required)
      * @param visibility  (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -1016,8 +976,8 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RetailerResponse>> getRetailersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
-        okhttp3.Call localVarCall = getRetailersValidateBeforeCall(version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, null);
+    public ApiResponse<List<RetailerResponse>> getRetailersWithHttpInfo(@javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
+        okhttp3.Call localVarCall = getRetailersValidateBeforeCall(visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, null);
         Type localVarReturnType = new TypeToken<List<RetailerResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1025,7 +985,6 @@ public class RetailerApi {
     /**
      * Search Retailers (asynchronously)
      * earches on retailers that the account has access to.
-     * @param version  (required)
      * @param visibility  (required)
      * @param sortField The column to sort the search on (required)
      * @param descending The order to return the search results (required)
@@ -1050,16 +1009,15 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback<List<RetailerResponse>> _callback) throws ApiException {
+    public okhttp3.Call getRetailersAsync(@javax.annotation.Nonnull String visibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback<List<RetailerResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRetailersValidateBeforeCall(version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, _callback);
+        okhttp3.Call localVarCall = getRetailersValidateBeforeCall(visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, _callback);
         Type localVarReturnType = new TypeToken<List<RetailerResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for retailerLoginCheck
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional) (optional)
@@ -1076,7 +1034,7 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retailerLoginCheckCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call retailerLoginCheckCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1093,8 +1051,7 @@ public class RetailerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/login"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/login";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1146,12 +1103,7 @@ public class RetailerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call retailerLoginCheckValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling retailerLoginCheck(Async)");
-        }
-
+    private okhttp3.Call retailerLoginCheckValidateBeforeCall(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling retailerLoginCheck(Async)");
@@ -1162,14 +1114,13 @@ public class RetailerApi {
             throw new ApiException("Missing the required parameter 'password' when calling retailerLoginCheck(Async)");
         }
 
-        return retailerLoginCheckCall(version, username, password, deviceId, latitude, longitude, appKey, _callback);
+        return retailerLoginCheckCall(username, password, deviceId, latitude, longitude, appKey, _callback);
 
     }
 
     /**
      * Login Retailer
      * Retailer login check.
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional) (optional)
@@ -1185,15 +1136,14 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AccountLoginResponse retailerLoginCheck(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<AccountLoginResponse> localVarResp = retailerLoginCheckWithHttpInfo(version, username, password, deviceId, latitude, longitude, appKey);
+    public AccountLoginResponse retailerLoginCheck(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<AccountLoginResponse> localVarResp = retailerLoginCheckWithHttpInfo(username, password, deviceId, latitude, longitude, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Login Retailer
      * Retailer login check.
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional) (optional)
@@ -1209,8 +1159,8 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountLoginResponse> retailerLoginCheckWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = retailerLoginCheckValidateBeforeCall(version, username, password, deviceId, latitude, longitude, appKey, null);
+    public ApiResponse<AccountLoginResponse> retailerLoginCheckWithHttpInfo(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = retailerLoginCheckValidateBeforeCall(username, password, deviceId, latitude, longitude, appKey, null);
         Type localVarReturnType = new TypeToken<AccountLoginResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1218,7 +1168,6 @@ public class RetailerApi {
     /**
      * Login Retailer (asynchronously)
      * Retailer login check.
-     * @param version  (required)
      * @param username the user&#39;s email address they used to sign-up (required)
      * @param password the password (required)
      * @param deviceId the device id (optional) (optional)
@@ -1235,16 +1184,15 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retailerLoginCheckAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback<AccountLoginResponse> _callback) throws ApiException {
+    public okhttp3.Call retailerLoginCheckAsync(@javax.annotation.Nonnull String username, @javax.annotation.Nonnull String password, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, final ApiCallback<AccountLoginResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = retailerLoginCheckValidateBeforeCall(version, username, password, deviceId, latitude, longitude, appKey, _callback);
+        okhttp3.Call localVarCall = retailerLoginCheckValidateBeforeCall(username, password, deviceId, latitude, longitude, appKey, _callback);
         Type localVarReturnType = new TypeToken<AccountLoginResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRetailer
-     * @param version  (required)
      * @param retailerId The ID of the retailer to update (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1287,7 +1235,7 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRetailerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRetailerCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1304,8 +1252,7 @@ public class RetailerApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1461,25 +1408,19 @@ public class RetailerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRetailerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRetailer(Async)");
-        }
-
+    private okhttp3.Call updateRetailerValidateBeforeCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'retailerId' is set
         if (retailerId == null) {
             throw new ApiException("Missing the required parameter 'retailerId' when calling updateRetailer(Async)");
         }
 
-        return updateRetailerCall(version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, _callback);
+        return updateRetailerCall(retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, _callback);
 
     }
 
     /**
      * Update Retailer
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @param version  (required)
      * @param retailerId The ID of the retailer to update (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1521,15 +1462,14 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerFullResponse updateRetailer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat) throws ApiException {
-        ApiResponse<RetailerFullResponse> localVarResp = updateRetailerWithHttpInfo(version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
+    public RetailerFullResponse updateRetailer(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat) throws ApiException {
+        ApiResponse<RetailerFullResponse> localVarResp = updateRetailerWithHttpInfo(retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
         return localVarResp.getData();
     }
 
     /**
      * Update Retailer
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @param version  (required)
      * @param retailerId The ID of the retailer to update (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1571,8 +1511,8 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerFullResponse> updateRetailerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat) throws ApiException {
-        okhttp3.Call localVarCall = updateRetailerValidateBeforeCall(version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, null);
+    public ApiResponse<RetailerFullResponse> updateRetailerWithHttpInfo(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat) throws ApiException {
+        okhttp3.Call localVarCall = updateRetailerValidateBeforeCall(retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, null);
         Type localVarReturnType = new TypeToken<RetailerFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1580,7 +1520,6 @@ public class RetailerApi {
     /**
      * Update Retailer (asynchronously)
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @param version  (required)
      * @param retailerId The ID of the retailer to update (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1623,9 +1562,9 @@ public class RetailerApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRetailerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat, final ApiCallback<RetailerFullResponse> _callback) throws ApiException {
+    public okhttp3.Call updateRetailerAsync(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String facebookUrl, @javax.annotation.Nullable String twitterUrl, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String searchTags, @javax.annotation.Nullable String retailerType, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String responseFormat, final ApiCallback<RetailerFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRetailerValidateBeforeCall(version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, _callback);
+        okhttp3.Call localVarCall = updateRetailerValidateBeforeCall(retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, _callback);
         Type localVarReturnType = new TypeToken<RetailerFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

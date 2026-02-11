@@ -29,7 +29,6 @@ import java.io.IOException;
 
 import org.openapitools.client.model.AlbumFullResponse;
 import org.openapitools.client.model.AlbumResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.SearchResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -79,7 +78,6 @@ public class AlbumApi {
 
     /**
      * Build call for addAlbumCollection
-     * @param version  (required)
      * @param title the title of the album (required)
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list (required)
@@ -136,7 +134,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addAlbumCollectionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addAlbumCollectionCall(@javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -153,8 +151,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -366,12 +363,7 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addAlbumCollectionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addAlbumCollection(Async)");
-        }
-
+    private okhttp3.Call addAlbumCollectionValidateBeforeCall(@javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'title' is set
         if (title == null) {
             throw new ApiException("Missing the required parameter 'title' when calling addAlbumCollection(Async)");
@@ -412,14 +404,13 @@ public class AlbumApi {
             throw new ApiException("Missing the required parameter 'anonymous' when calling addAlbumCollection(Async)");
         }
 
-        return addAlbumCollectionCall(version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, _callback);
+        return addAlbumCollectionCall(title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, _callback);
 
     }
 
     /**
      * Create Album
      * Create an Album.
-     * @param version  (required)
      * @param title the title of the album (required)
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list (required)
@@ -475,15 +466,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SearchResponse addAlbumCollection(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId) throws ApiException {
-        ApiResponse<SearchResponse> localVarResp = addAlbumCollectionWithHttpInfo(version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
+    public SearchResponse addAlbumCollection(@javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId) throws ApiException {
+        ApiResponse<SearchResponse> localVarResp = addAlbumCollectionWithHttpInfo(title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
         return localVarResp.getData();
     }
 
     /**
      * Create Album
      * Create an Album.
-     * @param version  (required)
      * @param title the title of the album (required)
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list (required)
@@ -539,8 +529,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SearchResponse> addAlbumCollectionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId) throws ApiException {
-        okhttp3.Call localVarCall = addAlbumCollectionValidateBeforeCall(version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, null);
+    public ApiResponse<SearchResponse> addAlbumCollectionWithHttpInfo(@javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId) throws ApiException {
+        okhttp3.Call localVarCall = addAlbumCollectionValidateBeforeCall(title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, null);
         Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -548,7 +538,6 @@ public class AlbumApi {
     /**
      * Create Album (asynchronously)
      * Create an Album.
-     * @param version  (required)
      * @param title the title of the album (required)
      * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image (required)
      * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list (required)
@@ -605,16 +594,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addAlbumCollectionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, final ApiCallback<SearchResponse> _callback) throws ApiException {
+    public okhttp3.Call addAlbumCollectionAsync(@javax.annotation.Nonnull String title, @javax.annotation.Nonnull Boolean coverAssetNullable, @javax.annotation.Nonnull Boolean includeCoverInAssetList, @javax.annotation.Nonnull Boolean publicRead, @javax.annotation.Nonnull Boolean publicWrite, @javax.annotation.Nonnull Boolean publicDelete, @javax.annotation.Nonnull Boolean publicAdd, @javax.annotation.Nonnull Boolean anonymous, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File attachedMedia, @javax.annotation.Nullable String attachedMediaURL, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, final ApiCallback<SearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addAlbumCollectionValidateBeforeCall(version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, _callback);
+        okhttp3.Call localVarCall = addAlbumCollectionValidateBeforeCall(title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, _callback);
         Type localVarReturnType = new TypeToken<SearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for addAlbumUsers
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param includeFriendGroup determines whether to include all friends as participants (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -635,7 +623,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addAlbumUsersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addAlbumUsersCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -652,8 +640,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/user/add"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/user/add";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -721,12 +708,7 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addAlbumUsersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addAlbumUsers(Async)");
-        }
-
+    private okhttp3.Call addAlbumUsersValidateBeforeCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumId' is set
         if (albumId == null) {
             throw new ApiException("Missing the required parameter 'albumId' when calling addAlbumUsers(Async)");
@@ -737,14 +719,13 @@ public class AlbumApi {
             throw new ApiException("Missing the required parameter 'includeFriendGroup' when calling addAlbumUsers(Async)");
         }
 
-        return addAlbumUsersCall(version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, _callback);
+        return addAlbumUsersCall(albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, _callback);
 
     }
 
     /**
      * Add Album Users
      * Add users to an album as participants.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param includeFriendGroup determines whether to include all friends as participants (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -764,15 +745,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse addAlbumUsers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = addAlbumUsersWithHttpInfo(version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
+    public SirqulResponse addAlbumUsers(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = addAlbumUsersWithHttpInfo(albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
         return localVarResp.getData();
     }
 
     /**
      * Add Album Users
      * Add users to an album as participants.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param includeFriendGroup determines whether to include all friends as participants (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -792,8 +772,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> addAlbumUsersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
-        okhttp3.Call localVarCall = addAlbumUsersValidateBeforeCall(version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, null);
+    public ApiResponse<SirqulResponse> addAlbumUsersWithHttpInfo(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
+        okhttp3.Call localVarCall = addAlbumUsersValidateBeforeCall(albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -801,7 +781,6 @@ public class AlbumApi {
     /**
      * Add Album Users (asynchronously)
      * Add users to an album as participants.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param includeFriendGroup determines whether to include all friends as participants (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -822,16 +801,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addAlbumUsersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call addAlbumUsersAsync(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean includeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean read, @javax.annotation.Nullable Boolean write, @javax.annotation.Nullable Boolean delete, @javax.annotation.Nullable Boolean add, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addAlbumUsersValidateBeforeCall(version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, _callback);
+        okhttp3.Call localVarCall = addAlbumUsersValidateBeforeCall(albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for approveAlbum
-     * @param version  (required)
      * @param albumId The ID of the album (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -847,7 +825,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveAlbumCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call approveAlbumCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -864,8 +842,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/approve"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/approve";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -913,25 +890,19 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call approveAlbumValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling approveAlbum(Async)");
-        }
-
+    private okhttp3.Call approveAlbumValidateBeforeCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumId' is set
         if (albumId == null) {
             throw new ApiException("Missing the required parameter 'albumId' when calling approveAlbum(Async)");
         }
 
-        return approveAlbumCall(version, albumId, deviceId, accountId, approvalStatus, verified, _callback);
+        return approveAlbumCall(albumId, deviceId, accountId, approvalStatus, verified, _callback);
 
     }
 
     /**
      * Approve Album
      * Sets the approval status of an Album.
-     * @param version  (required)
      * @param albumId The ID of the album (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -946,15 +917,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse approveAlbum(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = approveAlbumWithHttpInfo(version, albumId, deviceId, accountId, approvalStatus, verified);
+    public SirqulResponse approveAlbum(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = approveAlbumWithHttpInfo(albumId, deviceId, accountId, approvalStatus, verified);
         return localVarResp.getData();
     }
 
     /**
      * Approve Album
      * Sets the approval status of an Album.
-     * @param version  (required)
      * @param albumId The ID of the album (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -969,8 +939,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> approveAlbumWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified) throws ApiException {
-        okhttp3.Call localVarCall = approveAlbumValidateBeforeCall(version, albumId, deviceId, accountId, approvalStatus, verified, null);
+    public ApiResponse<SirqulResponse> approveAlbumWithHttpInfo(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified) throws ApiException {
+        okhttp3.Call localVarCall = approveAlbumValidateBeforeCall(albumId, deviceId, accountId, approvalStatus, verified, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -978,7 +948,6 @@ public class AlbumApi {
     /**
      * Approve Album (asynchronously)
      * Sets the approval status of an Album.
-     * @param version  (required)
      * @param albumId The ID of the album (required)
      * @param deviceId A unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId The account ID of the user (deviceId or accountId required) (optional)
@@ -994,16 +963,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveAlbumAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call approveAlbumAsync(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String approvalStatus, @javax.annotation.Nullable Boolean verified, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = approveAlbumValidateBeforeCall(version, albumId, deviceId, accountId, approvalStatus, verified, _callback);
+        okhttp3.Call localVarCall = approveAlbumValidateBeforeCall(albumId, deviceId, accountId, approvalStatus, verified, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAlbumCollection
-     * @param version  (required)
      * @param returnNulls This parameter is deprecated. (required)
      * @param albumId the album to look up (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1023,7 +991,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAlbumCollectionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAlbumCollectionCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1040,8 +1008,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1105,12 +1072,7 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAlbumCollectionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAlbumCollection(Async)");
-        }
-
+    private okhttp3.Call getAlbumCollectionValidateBeforeCall(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'returnNulls' is set
         if (returnNulls == null) {
             throw new ApiException("Missing the required parameter 'returnNulls' when calling getAlbumCollection(Async)");
@@ -1121,14 +1083,13 @@ public class AlbumApi {
             throw new ApiException("Missing the required parameter 'albumId' when calling getAlbumCollection(Async)");
         }
 
-        return getAlbumCollectionCall(version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, _callback);
+        return getAlbumCollectionCall(returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, _callback);
 
     }
 
     /**
      *  Get Album
      * Get an Album.
-     * @param version  (required)
      * @param returnNulls This parameter is deprecated. (required)
      * @param albumId the album to look up (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1147,15 +1108,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AlbumFullResponse getAlbumCollection(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize) throws ApiException {
-        ApiResponse<AlbumFullResponse> localVarResp = getAlbumCollectionWithHttpInfo(version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
+    public AlbumFullResponse getAlbumCollection(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize) throws ApiException {
+        ApiResponse<AlbumFullResponse> localVarResp = getAlbumCollectionWithHttpInfo(returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
         return localVarResp.getData();
     }
 
     /**
      *  Get Album
      * Get an Album.
-     * @param version  (required)
      * @param returnNulls This parameter is deprecated. (required)
      * @param albumId the album to look up (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1174,8 +1134,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AlbumFullResponse> getAlbumCollectionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize) throws ApiException {
-        okhttp3.Call localVarCall = getAlbumCollectionValidateBeforeCall(version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, null);
+    public ApiResponse<AlbumFullResponse> getAlbumCollectionWithHttpInfo(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize) throws ApiException {
+        okhttp3.Call localVarCall = getAlbumCollectionValidateBeforeCall(returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, null);
         Type localVarReturnType = new TypeToken<AlbumFullResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1183,7 +1143,6 @@ public class AlbumApi {
     /**
      *  Get Album (asynchronously)
      * Get an Album.
-     * @param version  (required)
      * @param returnNulls This parameter is deprecated. (required)
      * @param albumId the album to look up (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1203,16 +1162,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAlbumCollectionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize, final ApiCallback<AlbumFullResponse> _callback) throws ApiException {
+    public okhttp3.Call getAlbumCollectionAsync(@javax.annotation.Nonnull Boolean returnNulls, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer likePreviewSize, @javax.annotation.Nullable Integer assetPreviewSize, @javax.annotation.Nullable Integer notePreviewSize, @javax.annotation.Nullable Integer connectionPreviewSize, @javax.annotation.Nullable Integer audiencePreviewSize, final ApiCallback<AlbumFullResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAlbumCollectionValidateBeforeCall(version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, _callback);
+        okhttp3.Call localVarCall = getAlbumCollectionValidateBeforeCall(returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, _callback);
         Type localVarReturnType = new TypeToken<AlbumFullResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for leaveAlbum
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1226,7 +1184,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call leaveAlbumCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call leaveAlbumCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1243,8 +1201,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/user/leave"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/user/leave";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1284,25 +1241,19 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call leaveAlbumValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling leaveAlbum(Async)");
-        }
-
+    private okhttp3.Call leaveAlbumValidateBeforeCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumId' is set
         if (albumId == null) {
             throw new ApiException("Missing the required parameter 'albumId' when calling leaveAlbum(Async)");
         }
 
-        return leaveAlbumCall(version, albumId, deviceId, accountId, _callback);
+        return leaveAlbumCall(albumId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Leave Album
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1315,15 +1266,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse leaveAlbum(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = leaveAlbumWithHttpInfo(version, albumId, deviceId, accountId);
+    public SirqulResponse leaveAlbum(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = leaveAlbumWithHttpInfo(albumId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Leave Album
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1336,8 +1286,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> leaveAlbumWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = leaveAlbumValidateBeforeCall(version, albumId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> leaveAlbumWithHttpInfo(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = leaveAlbumValidateBeforeCall(albumId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1345,7 +1295,6 @@ public class AlbumApi {
     /**
      * Leave Album (asynchronously)
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1359,16 +1308,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call leaveAlbumAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call leaveAlbumAsync(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = leaveAlbumValidateBeforeCall(version, albumId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = leaveAlbumValidateBeforeCall(albumId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeAlbum
-     * @param version  (required)
      * @param albumId the album ID to delete (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1382,7 +1330,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeAlbumCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeAlbumCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1399,8 +1347,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1440,25 +1387,19 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeAlbumValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeAlbum(Async)");
-        }
-
+    private okhttp3.Call removeAlbumValidateBeforeCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumId' is set
         if (albumId == null) {
             throw new ApiException("Missing the required parameter 'albumId' when calling removeAlbum(Async)");
         }
 
-        return removeAlbumCall(version, albumId, deviceId, accountId, _callback);
+        return removeAlbumCall(albumId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Album
      * Deletes an Album
-     * @param version  (required)
      * @param albumId the album ID to delete (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1471,15 +1412,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeAlbum(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeAlbumWithHttpInfo(version, albumId, deviceId, accountId);
+    public SirqulResponse removeAlbum(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeAlbumWithHttpInfo(albumId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Album
      * Deletes an Album
-     * @param version  (required)
      * @param albumId the album ID to delete (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1492,8 +1432,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeAlbumWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = removeAlbumValidateBeforeCall(version, albumId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> removeAlbumWithHttpInfo(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = removeAlbumValidateBeforeCall(albumId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1501,7 +1441,6 @@ public class AlbumApi {
     /**
      * Delete Album (asynchronously)
      * Deletes an Album
-     * @param version  (required)
      * @param albumId the album ID to delete (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -1515,16 +1454,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeAlbumAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeAlbumAsync(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeAlbumValidateBeforeCall(version, albumId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = removeAlbumValidateBeforeCall(albumId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeAlbumUsers
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param removeFriendGroup remove friend group (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1541,7 +1479,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeAlbumUsersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeAlbumUsersCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1558,8 +1496,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/user/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/user/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1611,12 +1548,7 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeAlbumUsersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeAlbumUsers(Async)");
-        }
-
+    private okhttp3.Call removeAlbumUsersValidateBeforeCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumId' is set
         if (albumId == null) {
             throw new ApiException("Missing the required parameter 'albumId' when calling removeAlbumUsers(Async)");
@@ -1627,14 +1559,13 @@ public class AlbumApi {
             throw new ApiException("Missing the required parameter 'removeFriendGroup' when calling removeAlbumUsers(Async)");
         }
 
-        return removeAlbumUsersCall(version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, _callback);
+        return removeAlbumUsersCall(albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, _callback);
 
     }
 
     /**
      * Remove Album Users
      * Remove participants of an album.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param removeFriendGroup remove friend group (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1650,15 +1581,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse removeAlbumUsers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = removeAlbumUsersWithHttpInfo(version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
+    public SirqulResponse removeAlbumUsers(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = removeAlbumUsersWithHttpInfo(albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
         return localVarResp.getData();
     }
 
     /**
      * Remove Album Users
      * Remove participants of an album.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param removeFriendGroup remove friend group (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1674,8 +1604,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> removeAlbumUsersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
-        okhttp3.Call localVarCall = removeAlbumUsersValidateBeforeCall(version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, null);
+    public ApiResponse<SirqulResponse> removeAlbumUsersWithHttpInfo(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups) throws ApiException {
+        okhttp3.Call localVarCall = removeAlbumUsersValidateBeforeCall(albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1683,7 +1613,6 @@ public class AlbumApi {
     /**
      * Remove Album Users (asynchronously)
      * Remove participants of an album.
-     * @param version  (required)
      * @param albumId the album ID (required)
      * @param removeFriendGroup remove friend group (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
@@ -1700,16 +1629,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeAlbumUsersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call removeAlbumUsersAsync(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nonnull Boolean removeFriendGroup, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String connections, @javax.annotation.Nullable String connectionGroups, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeAlbumUsersValidateBeforeCall(version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, _callback);
+        okhttp3.Call localVarCall = removeAlbumUsersValidateBeforeCall(albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchAlbums
-     * @param version  (required)
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
      * @param albumTypeId id of custom albumType (required)
      * @param subType filter albums with this album sub type (required)
@@ -1780,7 +1708,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAlbumsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAlbumsCall(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1797,8 +1725,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2066,12 +1993,7 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAlbumsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchAlbums(Async)");
-        }
-
+    private okhttp3.Call searchAlbumsValidateBeforeCall(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'filter' is set
         if (filter == null) {
             throw new ApiException("Missing the required parameter 'filter' when calling searchAlbums(Async)");
@@ -2157,14 +2079,13 @@ public class AlbumApi {
             throw new ApiException("Missing the required parameter 'audiencePreviewSize' when calling searchAlbums(Async)");
         }
 
-        return searchAlbumsCall(version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, _callback);
+        return searchAlbumsCall(filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, _callback);
 
     }
 
     /**
      * Search Albums
      * Searches on Albums.
-     * @param version  (required)
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
      * @param albumTypeId id of custom albumType (required)
      * @param subType filter albums with this album sub type (required)
@@ -2234,15 +2155,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AlbumFullResponse> searchAlbums(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums) throws ApiException {
-        ApiResponse<List<AlbumFullResponse>> localVarResp = searchAlbumsWithHttpInfo(version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
+    public List<AlbumFullResponse> searchAlbums(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums) throws ApiException {
+        ApiResponse<List<AlbumFullResponse>> localVarResp = searchAlbumsWithHttpInfo(filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
         return localVarResp.getData();
     }
 
     /**
      * Search Albums
      * Searches on Albums.
-     * @param version  (required)
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
      * @param albumTypeId id of custom albumType (required)
      * @param subType filter albums with this album sub type (required)
@@ -2312,8 +2232,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AlbumFullResponse>> searchAlbumsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums) throws ApiException {
-        okhttp3.Call localVarCall = searchAlbumsValidateBeforeCall(version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, null);
+    public ApiResponse<List<AlbumFullResponse>> searchAlbumsWithHttpInfo(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums) throws ApiException {
+        okhttp3.Call localVarCall = searchAlbumsValidateBeforeCall(filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, null);
         Type localVarReturnType = new TypeToken<List<AlbumFullResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2321,7 +2241,6 @@ public class AlbumApi {
     /**
      * Search Albums (asynchronously)
      * Searches on Albums.
-     * @param version  (required)
      * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
      * @param albumTypeId id of custom albumType (required)
      * @param subType filter albums with this album sub type (required)
@@ -2392,16 +2311,15 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAlbumsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums, final ApiCallback<List<AlbumFullResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchAlbumsAsync(@javax.annotation.Nonnull String filter, @javax.annotation.Nonnull Long albumTypeId, @javax.annotation.Nonnull String subType, @javax.annotation.Nonnull Boolean includeInactive, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Double range, @javax.annotation.Nonnull Boolean includeLiked, @javax.annotation.Nonnull Boolean includeFavorited, @javax.annotation.Nonnull Boolean includePermissions, @javax.annotation.Nonnull Integer likePreviewSize, @javax.annotation.Nonnull Integer assetPreviewSize, @javax.annotation.Nonnull Integer notePreviewSize, @javax.annotation.Nonnull Integer connectionPreviewSize, @javax.annotation.Nonnull Integer audiencePreviewSize, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long connectionAccountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String albumIds, @javax.annotation.Nullable String excludeAlbumIds, @javax.annotation.Nullable Long mediaId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Integer limitPerAlbumType, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long updatedSince, @javax.annotation.Nullable Long updatedBefore, @javax.annotation.Nullable Long createdSince, @javax.annotation.Nullable Long createdBefore, @javax.annotation.Nullable Long startedSince, @javax.annotation.Nullable Long startedBefore, @javax.annotation.Nullable Long endedSince, @javax.annotation.Nullable Long endedBefore, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String excludeAudienceIds, @javax.annotation.Nullable Boolean includeCompletable, @javax.annotation.Nullable Boolean includeRating, @javax.annotation.Nullable String searchMode, @javax.annotation.Nullable Boolean stackSearch, @javax.annotation.Nullable Integer stackWindowSize, @javax.annotation.Nullable Integer minStackPerPage, @javax.annotation.Nullable String stackPaginationIdentifier, @javax.annotation.Nullable Boolean stackDetails, @javax.annotation.Nullable Long flagCountMinimum, @javax.annotation.Nullable Boolean removeFlaggedContent, @javax.annotation.Nullable Boolean verifiedFilter, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Long orderAudienceId, @javax.annotation.Nullable Boolean ignoreDefaultAppFilter, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean generateAlbums, final ApiCallback<List<AlbumFullResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAlbumsValidateBeforeCall(version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, _callback);
+        okhttp3.Call localVarCall = searchAlbumsValidateBeforeCall(filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, _callback);
         Type localVarReturnType = new TypeToken<List<AlbumFullResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateAlbumCollection
-     * @param version  (required)
      * @param albumId the ID of the album to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -2457,7 +2375,7 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAlbumCollectionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAlbumCollectionCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2474,8 +2392,7 @@ public class AlbumApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/album/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/album/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2683,25 +2600,19 @@ public class AlbumApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAlbumCollectionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateAlbumCollection(Async)");
-        }
-
+    private okhttp3.Call updateAlbumCollectionValidateBeforeCall(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'albumId' is set
         if (albumId == null) {
             throw new ApiException("Missing the required parameter 'albumId' when calling updateAlbumCollection(Async)");
         }
 
-        return updateAlbumCollectionCall(version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, _callback);
+        return updateAlbumCollectionCall(albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, _callback);
 
     }
 
     /**
      * Update Album
      * Update an Album.
-     * @param version  (required)
      * @param albumId the ID of the album to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -2756,15 +2667,14 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AlbumResponse updateAlbumCollection(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow) throws ApiException {
-        ApiResponse<AlbumResponse> localVarResp = updateAlbumCollectionWithHttpInfo(version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
+    public AlbumResponse updateAlbumCollection(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow) throws ApiException {
+        ApiResponse<AlbumResponse> localVarResp = updateAlbumCollectionWithHttpInfo(albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
         return localVarResp.getData();
     }
 
     /**
      * Update Album
      * Update an Album.
-     * @param version  (required)
      * @param albumId the ID of the album to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -2819,8 +2729,8 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AlbumResponse> updateAlbumCollectionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow) throws ApiException {
-        okhttp3.Call localVarCall = updateAlbumCollectionValidateBeforeCall(version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, null);
+    public ApiResponse<AlbumResponse> updateAlbumCollectionWithHttpInfo(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow) throws ApiException {
+        okhttp3.Call localVarCall = updateAlbumCollectionValidateBeforeCall(albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, null);
         Type localVarReturnType = new TypeToken<AlbumResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2828,7 +2738,6 @@ public class AlbumApi {
     /**
      * Update Album (asynchronously)
      * Update an Album.
-     * @param version  (required)
      * @param albumId the ID of the album to update (required)
      * @param deviceId a unique ID given by the device (deviceId or accountId required) (optional)
      * @param accountId the account ID of the user (deviceId or accountId required) (optional)
@@ -2884,9 +2793,9 @@ public class AlbumApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAlbumCollectionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow, final ApiCallback<AlbumResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAlbumCollectionAsync(@javax.annotation.Nonnull Long albumId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String assetsToAdd, @javax.annotation.Nullable String assetsToRemove, @javax.annotation.Nullable Long assetId, @javax.annotation.Nullable File media, @javax.annotation.Nullable String mediaURL, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String title, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String description, @javax.annotation.Nullable String albumType, @javax.annotation.Nullable Long albumTypeId, @javax.annotation.Nullable String subType, @javax.annotation.Nullable Boolean publicRead, @javax.annotation.Nullable Boolean publicWrite, @javax.annotation.Nullable Boolean publicDelete, @javax.annotation.Nullable Boolean publicAdd, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String locationDescription, @javax.annotation.Nullable String visibility, @javax.annotation.Nullable String cellPhone, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String fullAddress, @javax.annotation.Nullable Boolean anonymous, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String categoryFilterIds, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Boolean includeAllAppUsersAsMembers, @javax.annotation.Nullable Boolean includeAudiencesAsMembers, @javax.annotation.Nullable String audienceOperator, @javax.annotation.Nullable String linkedObjectType, @javax.annotation.Nullable Long linkedObjectId, @javax.annotation.Nullable Boolean indexNow, final ApiCallback<AlbumResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAlbumCollectionValidateBeforeCall(version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, _callback);
+        okhttp3.Call localVarCall = updateAlbumCollectionValidateBeforeCall(albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, _callback);
         Type localVarReturnType = new TypeToken<AlbumResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

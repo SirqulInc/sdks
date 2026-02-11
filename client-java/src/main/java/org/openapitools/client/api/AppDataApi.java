@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AppResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -76,7 +75,6 @@ public class AppDataApi {
 
     /**
      * Build call for getAppData
-     * @param version  (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -112,7 +110,7 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppDataCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAppDataCall(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -129,8 +127,7 @@ public class AppDataApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/app/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/app/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -258,12 +255,7 @@ public class AppDataApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAppDataValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getAppData(Async)");
-        }
-
+    private okhttp3.Call getAppDataValidateBeforeCall(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'start' is set
         if (start == null) {
             throw new ApiException("Missing the required parameter 'start' when calling getAppData(Async)");
@@ -274,14 +266,13 @@ public class AppDataApi {
             throw new ApiException("Missing the required parameter 'limit' when calling getAppData(Async)");
         }
 
-        return getAppDataCall(version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
+        return getAppDataCall(start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
 
     }
 
     /**
      * Get App Data
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @param version  (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -316,15 +307,14 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AppResponse getAppData(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
-        ApiResponse<AppResponse> localVarResp = getAppDataWithHttpInfo(version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+    public AppResponse getAppData(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
+        ApiResponse<AppResponse> localVarResp = getAppDataWithHttpInfo(start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
         return localVarResp.getData();
     }
 
     /**
      * Get App Data
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @param version  (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -359,8 +349,8 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AppResponse> getAppDataWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
-        okhttp3.Call localVarCall = getAppDataValidateBeforeCall(version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, null);
+    public ApiResponse<AppResponse> getAppDataWithHttpInfo(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
+        okhttp3.Call localVarCall = getAppDataValidateBeforeCall(start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, null);
         Type localVarReturnType = new TypeToken<AppResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -368,7 +358,6 @@ public class AppDataApi {
     /**
      * Get App Data (asynchronously)
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @param version  (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
      * @param deviceId the device id (deviceId or accountId required). (optional)
@@ -404,16 +393,15 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAppDataAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback<AppResponse> _callback) throws ApiException {
+    public okhttp3.Call getAppDataAsync(@javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String gameType, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback<AppResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAppDataValidateBeforeCall(version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
+        okhttp3.Call localVarCall = getAppDataValidateBeforeCall(start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
         Type localVarReturnType = new TypeToken<AppResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for postAppData
-     * @param version  (required)
      * @param gameType the game to retrieve the data for, use your application key. (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
@@ -450,7 +438,7 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call postAppDataCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call postAppDataCall(@javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -467,8 +455,7 @@ public class AppDataApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/app/post"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/app/post";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -600,12 +587,7 @@ public class AppDataApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postAppDataValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling postAppData(Async)");
-        }
-
+    private okhttp3.Call postAppDataValidateBeforeCall(@javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'gameType' is set
         if (gameType == null) {
             throw new ApiException("Missing the required parameter 'gameType' when calling postAppData(Async)");
@@ -626,14 +608,13 @@ public class AppDataApi {
             throw new ApiException("Missing the required parameter 'data' when calling postAppData(Async)");
         }
 
-        return postAppDataCall(version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
+        return postAppDataCall(gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
 
     }
 
     /**
      * Create App Data
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @param version  (required)
      * @param gameType the game to retrieve the data for, use your application key. (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
@@ -669,15 +650,14 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public AppResponse postAppData(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
-        ApiResponse<AppResponse> localVarResp = postAppDataWithHttpInfo(version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+    public AppResponse postAppData(@javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
+        ApiResponse<AppResponse> localVarResp = postAppDataWithHttpInfo(gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
         return localVarResp.getData();
     }
 
     /**
      * Create App Data
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @param version  (required)
      * @param gameType the game to retrieve the data for, use your application key. (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
@@ -713,8 +693,8 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AppResponse> postAppDataWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
-        okhttp3.Call localVarCall = postAppDataValidateBeforeCall(version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, null);
+    public ApiResponse<AppResponse> postAppDataWithHttpInfo(@javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType) throws ApiException {
+        okhttp3.Call localVarCall = postAppDataValidateBeforeCall(gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, null);
         Type localVarReturnType = new TypeToken<AppResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -722,7 +702,6 @@ public class AppDataApi {
     /**
      * Create App Data (asynchronously)
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @param version  (required)
      * @param gameType the game to retrieve the data for, use your application key. (required)
      * @param start start the search results at a record. (required)
      * @param limit limit the search results to some number. (required)
@@ -759,16 +738,15 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call postAppDataAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback<AppResponse> _callback) throws ApiException {
+    public okhttp3.Call postAppDataAsync(@javax.annotation.Nonnull String gameType, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeGameData, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Boolean gameObjectCount, @javax.annotation.Nullable String filter, @javax.annotation.Nullable Long dateCreated, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String missionIds, @javax.annotation.Nullable String gameIds, @javax.annotation.Nullable String packIds, @javax.annotation.Nullable String gameLevelIds, @javax.annotation.Nullable String appVersion, @javax.annotation.Nullable Boolean includeHigherVersionPacks, @javax.annotation.Nullable Boolean includeHigherVersionLevels, @javax.annotation.Nullable String responseGroups, @javax.annotation.Nullable String purchaseType, final ApiCallback<AppResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postAppDataValidateBeforeCall(version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
+        okhttp3.Call localVarCall = postAppDataValidateBeforeCall(gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, _callback);
         Type localVarReturnType = new TypeToken<AppResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for regenAppData
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
@@ -783,7 +761,7 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call regenAppDataCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call regenAppDataCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -800,8 +778,7 @@ public class AppDataApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/app/regen"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/app/regen";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -845,20 +822,14 @@ public class AppDataApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call regenAppDataValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling regenAppData(Async)");
-        }
-
-        return regenAppDataCall(version, accountId, appKey, buildVersion, apiVersion, _callback);
+    private okhttp3.Call regenAppDataValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion, final ApiCallback _callback) throws ApiException {
+        return regenAppDataCall(accountId, appKey, buildVersion, apiVersion, _callback);
 
     }
 
     /**
      * Regenerate App Data
      * Regenerate the app data cache for apps
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
@@ -872,15 +843,14 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse regenAppData(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = regenAppDataWithHttpInfo(version, accountId, appKey, buildVersion, apiVersion);
+    public SirqulResponse regenAppData(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = regenAppDataWithHttpInfo(accountId, appKey, buildVersion, apiVersion);
         return localVarResp.getData();
     }
 
     /**
      * Regenerate App Data
      * Regenerate the app data cache for apps
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
@@ -894,8 +864,8 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> regenAppDataWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion) throws ApiException {
-        okhttp3.Call localVarCall = regenAppDataValidateBeforeCall(version, accountId, appKey, buildVersion, apiVersion, null);
+    public ApiResponse<SirqulResponse> regenAppDataWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion) throws ApiException {
+        okhttp3.Call localVarCall = regenAppDataValidateBeforeCall(accountId, appKey, buildVersion, apiVersion, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -903,7 +873,6 @@ public class AppDataApi {
     /**
      * Regenerate App Data (asynchronously)
      * Regenerate the app data cache for apps
-     * @param version  (required)
      * @param accountId the account id of the user (optional)
      * @param appKey process a specific application, if null process all apps with caches (optional)
      * @param buildVersion create a specific version, if null use current version. Be careful if processing all (optional)
@@ -918,9 +887,9 @@ public class AppDataApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call regenAppDataAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call regenAppDataAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String buildVersion, @javax.annotation.Nullable String apiVersion, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = regenAppDataValidateBeforeCall(version, accountId, appKey, buildVersion, apiVersion, _callback);
+        okhttp3.Call localVarCall = regenAppDataValidateBeforeCall(accountId, appKey, buildVersion, apiVersion, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

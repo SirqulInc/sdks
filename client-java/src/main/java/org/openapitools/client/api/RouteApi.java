@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Direction;
 import org.openapitools.client.model.Route;
 import org.openapitools.client.model.Shipment;
@@ -78,7 +77,6 @@ public class RouteApi {
 
     /**
      * Build call for approveRoute
-     * @param version  (required)
      * @param routeId the id of the route to approve (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -90,7 +88,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call approveRouteCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,8 +105,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/approve"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/approve"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -137,25 +134,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call approveRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling approveRoute(Async)");
-        }
-
+    private okhttp3.Call approveRouteValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling approveRoute(Async)");
         }
 
-        return approveRouteCall(version, routeId, _callback);
+        return approveRouteCall(routeId, _callback);
 
     }
 
     /**
      * Approve Route
      * Approve a route
-     * @param version  (required)
      * @param routeId the id of the route to approve (required)
      * @return Route
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -166,15 +157,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Route approveRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        ApiResponse<Route> localVarResp = approveRouteWithHttpInfo(version, routeId);
+    public Route approveRoute(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        ApiResponse<Route> localVarResp = approveRouteWithHttpInfo(routeId);
         return localVarResp.getData();
     }
 
     /**
      * Approve Route
      * Approve a route
-     * @param version  (required)
      * @param routeId the id of the route to approve (required)
      * @return ApiResponse&lt;Route&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -185,8 +175,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Route> approveRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = approveRouteValidateBeforeCall(version, routeId, null);
+    public ApiResponse<Route> approveRouteWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = approveRouteValidateBeforeCall(routeId, null);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -194,7 +184,6 @@ public class RouteApi {
     /**
      * Approve Route (asynchronously)
      * Approve a route
-     * @param version  (required)
      * @param routeId the id of the route to approve (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -206,16 +195,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call approveRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<Route> _callback) throws ApiException {
+    public okhttp3.Call approveRouteAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<Route> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = approveRouteValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = approveRouteValidateBeforeCall(routeId, _callback);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for copyRoute
-     * @param version  (required)
      * @param routeId the id of the route to duplicate (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -228,7 +216,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call copyRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call copyRouteCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -245,8 +233,7 @@ public class RouteApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/copy"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/copy"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -275,25 +262,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call copyRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling copyRoute(Async)");
-        }
-
+    private okhttp3.Call copyRouteValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling copyRoute(Async)");
         }
 
-        return copyRouteCall(version, routeId, body, _callback);
+        return copyRouteCall(routeId, body, _callback);
 
     }
 
     /**
      * Copy Route
      * Make an copy of the given route with optional overriding properties
-     * @param version  (required)
      * @param routeId the id of the route to duplicate (required)
      * @param body  (optional)
      * @return Route
@@ -305,15 +286,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Route copyRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
-        ApiResponse<Route> localVarResp = copyRouteWithHttpInfo(version, routeId, body);
+    public Route copyRoute(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
+        ApiResponse<Route> localVarResp = copyRouteWithHttpInfo(routeId, body);
         return localVarResp.getData();
     }
 
     /**
      * Copy Route
      * Make an copy of the given route with optional overriding properties
-     * @param version  (required)
      * @param routeId the id of the route to duplicate (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Route&gt;
@@ -325,8 +305,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Route> copyRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
-        okhttp3.Call localVarCall = copyRouteValidateBeforeCall(version, routeId, body, null);
+    public ApiResponse<Route> copyRouteWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
+        okhttp3.Call localVarCall = copyRouteValidateBeforeCall(routeId, body, null);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -334,7 +314,6 @@ public class RouteApi {
     /**
      * Copy Route (asynchronously)
      * Make an copy of the given route with optional overriding properties
-     * @param version  (required)
      * @param routeId the id of the route to duplicate (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -347,16 +326,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call copyRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback<Route> _callback) throws ApiException {
+    public okhttp3.Call copyRouteAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback<Route> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = copyRouteValidateBeforeCall(version, routeId, body, _callback);
+        okhttp3.Call localVarCall = copyRouteValidateBeforeCall(routeId, body, _callback);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createRoute
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -368,7 +346,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRouteCall(@javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -385,8 +363,7 @@ public class RouteApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/route";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -414,20 +391,14 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRoute(Async)");
-        }
-
-        return createRouteCall(version, body, _callback);
+    private okhttp3.Call createRouteValidateBeforeCall(@javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
+        return createRouteCall(body, _callback);
 
     }
 
     /**
      * Create Route
      * Create new route
-     * @param version  (required)
      * @param body  (optional)
      * @return Route
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -438,15 +409,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Route createRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Route body) throws ApiException {
-        ApiResponse<Route> localVarResp = createRouteWithHttpInfo(version, body);
+    public Route createRoute(@javax.annotation.Nullable Route body) throws ApiException {
+        ApiResponse<Route> localVarResp = createRouteWithHttpInfo(body);
         return localVarResp.getData();
     }
 
     /**
      * Create Route
      * Create new route
-     * @param version  (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Route&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -457,8 +427,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Route> createRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Route body) throws ApiException {
-        okhttp3.Call localVarCall = createRouteValidateBeforeCall(version, body, null);
+    public ApiResponse<Route> createRouteWithHttpInfo(@javax.annotation.Nullable Route body) throws ApiException {
+        okhttp3.Call localVarCall = createRouteValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -466,7 +436,6 @@ public class RouteApi {
     /**
      * Create Route (asynchronously)
      * Create new route
-     * @param version  (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -478,16 +447,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Route body, final ApiCallback<Route> _callback) throws ApiException {
+    public okhttp3.Call createRouteAsync(@javax.annotation.Nullable Route body, final ApiCallback<Route> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRouteValidateBeforeCall(version, body, _callback);
+        okhttp3.Call localVarCall = createRouteValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createRouteDirections
-     * @param version  (required)
      * @param routeId the id of the route to update directions for (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -499,7 +467,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRouteDirectionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRouteDirectionsCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -516,8 +484,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/directions"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/directions"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -546,25 +513,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRouteDirectionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRouteDirections(Async)");
-        }
-
+    private okhttp3.Call createRouteDirectionsValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling createRouteDirections(Async)");
         }
 
-        return createRouteDirectionsCall(version, routeId, _callback);
+        return createRouteDirectionsCall(routeId, _callback);
 
     }
 
     /**
      * Update Route Directions
      * Regenerate the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to update directions for (required)
      * @return List&lt;Direction&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -575,15 +536,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Direction> createRouteDirections(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        ApiResponse<List<Direction>> localVarResp = createRouteDirectionsWithHttpInfo(version, routeId);
+    public List<Direction> createRouteDirections(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        ApiResponse<List<Direction>> localVarResp = createRouteDirectionsWithHttpInfo(routeId);
         return localVarResp.getData();
     }
 
     /**
      * Update Route Directions
      * Regenerate the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to update directions for (required)
      * @return ApiResponse&lt;List&lt;Direction&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -594,8 +554,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Direction>> createRouteDirectionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = createRouteDirectionsValidateBeforeCall(version, routeId, null);
+    public ApiResponse<List<Direction>> createRouteDirectionsWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = createRouteDirectionsValidateBeforeCall(routeId, null);
         Type localVarReturnType = new TypeToken<List<Direction>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -603,7 +563,6 @@ public class RouteApi {
     /**
      * Update Route Directions (asynchronously)
      * Regenerate the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to update directions for (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -615,16 +574,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRouteDirectionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<List<Direction>> _callback) throws ApiException {
+    public okhttp3.Call createRouteDirectionsAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<List<Direction>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRouteDirectionsValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = createRouteDirectionsValidateBeforeCall(routeId, _callback);
         Type localVarReturnType = new TypeToken<List<Direction>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createRoutePolyline
-     * @param version  (required)
      * @param routeId the id of the route to create a polyline for (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -636,7 +594,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRoutePolylineCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRoutePolylineCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -653,8 +611,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/polyline"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/polyline"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -683,25 +640,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRoutePolylineValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRoutePolyline(Async)");
-        }
-
+    private okhttp3.Call createRoutePolylineValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling createRoutePolyline(Async)");
         }
 
-        return createRoutePolylineCall(version, routeId, _callback);
+        return createRoutePolylineCall(routeId, _callback);
 
     }
 
     /**
      * Create Route Polyline
      * Update the polyline of the requested route
-     * @param version  (required)
      * @param routeId the id of the route to create a polyline for (required)
      * @return Route
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -712,15 +663,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Route createRoutePolyline(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        ApiResponse<Route> localVarResp = createRoutePolylineWithHttpInfo(version, routeId);
+    public Route createRoutePolyline(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        ApiResponse<Route> localVarResp = createRoutePolylineWithHttpInfo(routeId);
         return localVarResp.getData();
     }
 
     /**
      * Create Route Polyline
      * Update the polyline of the requested route
-     * @param version  (required)
      * @param routeId the id of the route to create a polyline for (required)
      * @return ApiResponse&lt;Route&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -731,8 +681,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Route> createRoutePolylineWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = createRoutePolylineValidateBeforeCall(version, routeId, null);
+    public ApiResponse<Route> createRoutePolylineWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = createRoutePolylineValidateBeforeCall(routeId, null);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -740,7 +690,6 @@ public class RouteApi {
     /**
      * Create Route Polyline (asynchronously)
      * Update the polyline of the requested route
-     * @param version  (required)
      * @param routeId the id of the route to create a polyline for (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -752,16 +701,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRoutePolylineAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<Route> _callback) throws ApiException {
+    public okhttp3.Call createRoutePolylineAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<Route> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRoutePolylineValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = createRoutePolylineValidateBeforeCall(routeId, _callback);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteRoute
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -773,7 +721,7 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteRouteCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -790,8 +738,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -819,25 +766,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteRoute(Async)");
-        }
-
+    private okhttp3.Call deleteRouteValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling deleteRoute(Async)");
         }
 
-        return deleteRouteCall(version, routeId, _callback);
+        return deleteRouteCall(routeId, _callback);
 
     }
 
     /**
      * Delete Route
      * Delete an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -847,14 +788,13 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        deleteRouteWithHttpInfo(version, routeId);
+    public void deleteRoute(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        deleteRouteWithHttpInfo(routeId);
     }
 
     /**
      * Delete Route
      * Delete an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -865,15 +805,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = deleteRouteValidateBeforeCall(version, routeId, null);
+    public ApiResponse<Void> deleteRouteWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = deleteRouteValidateBeforeCall(routeId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Route (asynchronously)
      * Delete an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -885,15 +824,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteRouteAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRouteValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = deleteRouteValidateBeforeCall(routeId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for disapproveRoute
-     * @param version  (required)
      * @param routeId the id of the route to reject (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -905,7 +843,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call disapproveRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call disapproveRouteCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -922,8 +860,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/disapprove"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/disapprove"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -952,25 +889,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call disapproveRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling disapproveRoute(Async)");
-        }
-
+    private okhttp3.Call disapproveRouteValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling disapproveRoute(Async)");
         }
 
-        return disapproveRouteCall(version, routeId, _callback);
+        return disapproveRouteCall(routeId, _callback);
 
     }
 
     /**
      * Disapprove Route
      * Disapprove a route
-     * @param version  (required)
      * @param routeId the id of the route to reject (required)
      * @return Route
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -981,15 +912,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Route disapproveRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        ApiResponse<Route> localVarResp = disapproveRouteWithHttpInfo(version, routeId);
+    public Route disapproveRoute(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        ApiResponse<Route> localVarResp = disapproveRouteWithHttpInfo(routeId);
         return localVarResp.getData();
     }
 
     /**
      * Disapprove Route
      * Disapprove a route
-     * @param version  (required)
      * @param routeId the id of the route to reject (required)
      * @return ApiResponse&lt;Route&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1000,8 +930,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Route> disapproveRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = disapproveRouteValidateBeforeCall(version, routeId, null);
+    public ApiResponse<Route> disapproveRouteWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = disapproveRouteValidateBeforeCall(routeId, null);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1009,7 +939,6 @@ public class RouteApi {
     /**
      * Disapprove Route (asynchronously)
      * Disapprove a route
-     * @param version  (required)
      * @param routeId the id of the route to reject (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1021,16 +950,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call disapproveRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<Route> _callback) throws ApiException {
+    public okhttp3.Call disapproveRouteAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<Route> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = disapproveRouteValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = disapproveRouteValidateBeforeCall(routeId, _callback);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRoute
-     * @param version  (required)
      * @param routeId the id of the route to get (required)
      * @param showInheritedProperties return inherited properties from parent or not (required)
      * @param _callback Callback for upload/download progress
@@ -1043,7 +971,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRouteCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1060,8 +988,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1094,12 +1021,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRoute(Async)");
-        }
-
+    private okhttp3.Call getRouteValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling getRoute(Async)");
@@ -1110,14 +1032,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'showInheritedProperties' when calling getRoute(Async)");
         }
 
-        return getRouteCall(version, routeId, showInheritedProperties, _callback);
+        return getRouteCall(routeId, showInheritedProperties, _callback);
 
     }
 
     /**
      * Get Route
      * Get an existing route
-     * @param version  (required)
      * @param routeId the id of the route to get (required)
      * @param showInheritedProperties return inherited properties from parent or not (required)
      * @return Route
@@ -1129,15 +1050,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Route getRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties) throws ApiException {
-        ApiResponse<Route> localVarResp = getRouteWithHttpInfo(version, routeId, showInheritedProperties);
+    public Route getRoute(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties) throws ApiException {
+        ApiResponse<Route> localVarResp = getRouteWithHttpInfo(routeId, showInheritedProperties);
         return localVarResp.getData();
     }
 
     /**
      * Get Route
      * Get an existing route
-     * @param version  (required)
      * @param routeId the id of the route to get (required)
      * @param showInheritedProperties return inherited properties from parent or not (required)
      * @return ApiResponse&lt;Route&gt;
@@ -1149,8 +1069,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Route> getRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties) throws ApiException {
-        okhttp3.Call localVarCall = getRouteValidateBeforeCall(version, routeId, showInheritedProperties, null);
+    public ApiResponse<Route> getRouteWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties) throws ApiException {
+        okhttp3.Call localVarCall = getRouteValidateBeforeCall(routeId, showInheritedProperties, null);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1158,7 +1078,6 @@ public class RouteApi {
     /**
      * Get Route (asynchronously)
      * Get an existing route
-     * @param version  (required)
      * @param routeId the id of the route to get (required)
      * @param showInheritedProperties return inherited properties from parent or not (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1171,16 +1090,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties, final ApiCallback<Route> _callback) throws ApiException {
+    public okhttp3.Call getRouteAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean showInheritedProperties, final ApiCallback<Route> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRouteValidateBeforeCall(version, routeId, showInheritedProperties, _callback);
+        okhttp3.Call localVarCall = getRouteValidateBeforeCall(routeId, showInheritedProperties, _callback);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRouteDirections
-     * @param version  (required)
      * @param routeId the id of the route to get directions for (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1192,7 +1110,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteDirectionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRouteDirectionsCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1209,8 +1127,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/directions"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/directions"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1239,25 +1156,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRouteDirectionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRouteDirections(Async)");
-        }
-
+    private okhttp3.Call getRouteDirectionsValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling getRouteDirections(Async)");
         }
 
-        return getRouteDirectionsCall(version, routeId, _callback);
+        return getRouteDirectionsCall(routeId, _callback);
 
     }
 
     /**
      * Get Route Directions
      * Get the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to get directions for (required)
      * @return List&lt;Direction&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1268,15 +1179,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Direction> getRouteDirections(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        ApiResponse<List<Direction>> localVarResp = getRouteDirectionsWithHttpInfo(version, routeId);
+    public List<Direction> getRouteDirections(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        ApiResponse<List<Direction>> localVarResp = getRouteDirectionsWithHttpInfo(routeId);
         return localVarResp.getData();
     }
 
     /**
      * Get Route Directions
      * Get the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to get directions for (required)
      * @return ApiResponse&lt;List&lt;Direction&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1287,8 +1197,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Direction>> getRouteDirectionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = getRouteDirectionsValidateBeforeCall(version, routeId, null);
+    public ApiResponse<List<Direction>> getRouteDirectionsWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = getRouteDirectionsValidateBeforeCall(routeId, null);
         Type localVarReturnType = new TypeToken<List<Direction>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1296,7 +1206,6 @@ public class RouteApi {
     /**
      * Get Route Directions (asynchronously)
      * Get the directions of a route
-     * @param version  (required)
      * @param routeId the id of the route to get directions for (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1308,16 +1217,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteDirectionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<List<Direction>> _callback) throws ApiException {
+    public okhttp3.Call getRouteDirectionsAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<List<Direction>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRouteDirectionsValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = getRouteDirectionsValidateBeforeCall(routeId, _callback);
         Type localVarReturnType = new TypeToken<List<Direction>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRouteShipments
-     * @param version  (required)
      * @param routeId the id of the route to get shipments for (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1329,7 +1237,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteShipmentsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRouteShipmentsCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1346,8 +1254,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/shipments"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/shipments"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1376,25 +1283,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRouteShipmentsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRouteShipments(Async)");
-        }
-
+    private okhttp3.Call getRouteShipmentsValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling getRouteShipments(Async)");
         }
 
-        return getRouteShipmentsCall(version, routeId, _callback);
+        return getRouteShipmentsCall(routeId, _callback);
 
     }
 
     /**
      * Get Route Shipments
      * Get the shipments on the requested route
-     * @param version  (required)
      * @param routeId the id of the route to get shipments for (required)
      * @return List&lt;Shipment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1405,15 +1306,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Shipment> getRouteShipments(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        ApiResponse<List<Shipment>> localVarResp = getRouteShipmentsWithHttpInfo(version, routeId);
+    public List<Shipment> getRouteShipments(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        ApiResponse<List<Shipment>> localVarResp = getRouteShipmentsWithHttpInfo(routeId);
         return localVarResp.getData();
     }
 
     /**
      * Get Route Shipments
      * Get the shipments on the requested route
-     * @param version  (required)
      * @param routeId the id of the route to get shipments for (required)
      * @return ApiResponse&lt;List&lt;Shipment&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1424,8 +1324,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Shipment>> getRouteShipmentsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = getRouteShipmentsValidateBeforeCall(version, routeId, null);
+    public ApiResponse<List<Shipment>> getRouteShipmentsWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = getRouteShipmentsValidateBeforeCall(routeId, null);
         Type localVarReturnType = new TypeToken<List<Shipment>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1433,7 +1333,6 @@ public class RouteApi {
     /**
      * Get Route Shipments (asynchronously)
      * Get the shipments on the requested route
-     * @param version  (required)
      * @param routeId the id of the route to get shipments for (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1445,16 +1344,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteShipmentsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<List<Shipment>> _callback) throws ApiException {
+    public okhttp3.Call getRouteShipmentsAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<List<Shipment>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRouteShipmentsValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = getRouteShipmentsValidateBeforeCall(routeId, _callback);
         Type localVarReturnType = new TypeToken<List<Shipment>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRouteStop
-     * @param version  (required)
      * @param routeId the id of the route to get stops for (required)
      * @param stopId the id of the specific stop on the route (required)
      * @param _callback Callback for upload/download progress
@@ -1467,7 +1365,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteStopCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRouteStopCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1484,8 +1382,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/stop/{stopId}"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()))
             .replace("{" + "stopId" + "}", localVarApiClient.escapeString(stopId.toString()));
 
@@ -1515,12 +1412,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRouteStopValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRouteStop(Async)");
-        }
-
+    private okhttp3.Call getRouteStopValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling getRouteStop(Async)");
@@ -1531,14 +1423,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'stopId' when calling getRouteStop(Async)");
         }
 
-        return getRouteStopCall(version, routeId, stopId, _callback);
+        return getRouteStopCall(routeId, stopId, _callback);
 
     }
 
     /**
      * Get Route Stop
      * Get the specific stop on a route
-     * @param version  (required)
      * @param routeId the id of the route to get stops for (required)
      * @param stopId the id of the specific stop on the route (required)
      * @return Stop
@@ -1550,15 +1441,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Stop getRouteStop(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
-        ApiResponse<Stop> localVarResp = getRouteStopWithHttpInfo(version, routeId, stopId);
+    public Stop getRouteStop(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
+        ApiResponse<Stop> localVarResp = getRouteStopWithHttpInfo(routeId, stopId);
         return localVarResp.getData();
     }
 
     /**
      * Get Route Stop
      * Get the specific stop on a route
-     * @param version  (required)
      * @param routeId the id of the route to get stops for (required)
      * @param stopId the id of the specific stop on the route (required)
      * @return ApiResponse&lt;Stop&gt;
@@ -1570,8 +1460,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Stop> getRouteStopWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
-        okhttp3.Call localVarCall = getRouteStopValidateBeforeCall(version, routeId, stopId, null);
+    public ApiResponse<Stop> getRouteStopWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
+        okhttp3.Call localVarCall = getRouteStopValidateBeforeCall(routeId, stopId, null);
         Type localVarReturnType = new TypeToken<Stop>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1579,7 +1469,6 @@ public class RouteApi {
     /**
      * Get Route Stop (asynchronously)
      * Get the specific stop on a route
-     * @param version  (required)
      * @param routeId the id of the route to get stops for (required)
      * @param stopId the id of the specific stop on the route (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1592,16 +1481,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteStopAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback<Stop> _callback) throws ApiException {
+    public okhttp3.Call getRouteStopAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback<Stop> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRouteStopValidateBeforeCall(version, routeId, stopId, _callback);
+        okhttp3.Call localVarCall = getRouteStopValidateBeforeCall(routeId, stopId, _callback);
         Type localVarReturnType = new TypeToken<Stop>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRouteStops
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param confirmedOnly only get stops that have been confirmed or not (required)
      * @param _callback Callback for upload/download progress
@@ -1614,7 +1502,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteStopsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRouteStopsCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1631,8 +1519,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/stops"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/stops"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1665,12 +1552,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRouteStopsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRouteStops(Async)");
-        }
-
+    private okhttp3.Call getRouteStopsValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling getRouteStops(Async)");
@@ -1681,14 +1563,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'confirmedOnly' when calling getRouteStops(Async)");
         }
 
-        return getRouteStopsCall(version, routeId, confirmedOnly, _callback);
+        return getRouteStopsCall(routeId, confirmedOnly, _callback);
 
     }
 
     /**
      * Get Route Stops
      * The stops of the route requested
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param confirmedOnly only get stops that have been confirmed or not (required)
      * @return List&lt;Stop&gt;
@@ -1700,15 +1581,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Stop> getRouteStops(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly) throws ApiException {
-        ApiResponse<List<Stop>> localVarResp = getRouteStopsWithHttpInfo(version, routeId, confirmedOnly);
+    public List<Stop> getRouteStops(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly) throws ApiException {
+        ApiResponse<List<Stop>> localVarResp = getRouteStopsWithHttpInfo(routeId, confirmedOnly);
         return localVarResp.getData();
     }
 
     /**
      * Get Route Stops
      * The stops of the route requested
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param confirmedOnly only get stops that have been confirmed or not (required)
      * @return ApiResponse&lt;List&lt;Stop&gt;&gt;
@@ -1720,8 +1600,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Stop>> getRouteStopsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly) throws ApiException {
-        okhttp3.Call localVarCall = getRouteStopsValidateBeforeCall(version, routeId, confirmedOnly, null);
+    public ApiResponse<List<Stop>> getRouteStopsWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly) throws ApiException {
+        okhttp3.Call localVarCall = getRouteStopsValidateBeforeCall(routeId, confirmedOnly, null);
         Type localVarReturnType = new TypeToken<List<Stop>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1729,7 +1609,6 @@ public class RouteApi {
     /**
      * Get Route Stops (asynchronously)
      * The stops of the route requested
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param confirmedOnly only get stops that have been confirmed or not (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1742,16 +1621,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRouteStopsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly, final ApiCallback<List<Stop>> _callback) throws ApiException {
+    public okhttp3.Call getRouteStopsAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Boolean confirmedOnly, final ApiCallback<List<Stop>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRouteStopsValidateBeforeCall(version, routeId, confirmedOnly, _callback);
+        okhttp3.Call localVarCall = getRouteStopsValidateBeforeCall(routeId, confirmedOnly, _callback);
         Type localVarReturnType = new TypeToken<List<Stop>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getShipmentsAtStop
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the stop to get shipments on (required)
      * @param _callback Callback for upload/download progress
@@ -1764,7 +1642,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentsAtStopCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getShipmentsAtStopCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1781,8 +1659,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}/shipments"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/stop/{stopId}/shipments"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()))
             .replace("{" + "stopId" + "}", localVarApiClient.escapeString(stopId.toString()));
 
@@ -1812,12 +1689,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getShipmentsAtStopValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getShipmentsAtStop(Async)");
-        }
-
+    private okhttp3.Call getShipmentsAtStopValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling getShipmentsAtStop(Async)");
@@ -1828,14 +1700,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'stopId' when calling getShipmentsAtStop(Async)");
         }
 
-        return getShipmentsAtStopCall(version, routeId, stopId, _callback);
+        return getShipmentsAtStopCall(routeId, stopId, _callback);
 
     }
 
     /**
      * Get Shipments At Stop
      * Get the list of shipments on the requested route at a stop
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the stop to get shipments on (required)
      * @return List&lt;Shipment&gt;
@@ -1847,15 +1718,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Shipment> getShipmentsAtStop(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
-        ApiResponse<List<Shipment>> localVarResp = getShipmentsAtStopWithHttpInfo(version, routeId, stopId);
+    public List<Shipment> getShipmentsAtStop(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
+        ApiResponse<List<Shipment>> localVarResp = getShipmentsAtStopWithHttpInfo(routeId, stopId);
         return localVarResp.getData();
     }
 
     /**
      * Get Shipments At Stop
      * Get the list of shipments on the requested route at a stop
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the stop to get shipments on (required)
      * @return ApiResponse&lt;List&lt;Shipment&gt;&gt;
@@ -1867,8 +1737,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Shipment>> getShipmentsAtStopWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
-        okhttp3.Call localVarCall = getShipmentsAtStopValidateBeforeCall(version, routeId, stopId, null);
+    public ApiResponse<List<Shipment>> getShipmentsAtStopWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
+        okhttp3.Call localVarCall = getShipmentsAtStopValidateBeforeCall(routeId, stopId, null);
         Type localVarReturnType = new TypeToken<List<Shipment>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1876,7 +1746,6 @@ public class RouteApi {
     /**
      * Get Shipments At Stop (asynchronously)
      * Get the list of shipments on the requested route at a stop
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the stop to get shipments on (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1889,16 +1758,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getShipmentsAtStopAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback<List<Shipment>> _callback) throws ApiException {
+    public okhttp3.Call getShipmentsAtStopAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback<List<Shipment>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getShipmentsAtStopValidateBeforeCall(version, routeId, stopId, _callback);
+        okhttp3.Call localVarCall = getShipmentsAtStopValidateBeforeCall(routeId, stopId, _callback);
         Type localVarReturnType = new TypeToken<List<Shipment>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for optimizeRoute
-     * @param version  (required)
      * @param routeId the id of the route to optimize (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1910,7 +1778,7 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call optimizeRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call optimizeRouteCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1927,8 +1795,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/optimize"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/optimize"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1956,25 +1823,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call optimizeRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling optimizeRoute(Async)");
-        }
-
+    private okhttp3.Call optimizeRouteValidateBeforeCall(@javax.annotation.Nonnull Long routeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling optimizeRoute(Async)");
         }
 
-        return optimizeRouteCall(version, routeId, _callback);
+        return optimizeRouteCall(routeId, _callback);
 
     }
 
     /**
      * Optimize Route
      * Optimize a route. The optimization method based on how the server is configured.
-     * @param version  (required)
      * @param routeId the id of the route to optimize (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1984,14 +1845,13 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void optimizeRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        optimizeRouteWithHttpInfo(version, routeId);
+    public void optimizeRoute(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        optimizeRouteWithHttpInfo(routeId);
     }
 
     /**
      * Optimize Route
      * Optimize a route. The optimization method based on how the server is configured.
-     * @param version  (required)
      * @param routeId the id of the route to optimize (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2002,15 +1862,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> optimizeRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId) throws ApiException {
-        okhttp3.Call localVarCall = optimizeRouteValidateBeforeCall(version, routeId, null);
+    public ApiResponse<Void> optimizeRouteWithHttpInfo(@javax.annotation.Nonnull Long routeId) throws ApiException {
+        okhttp3.Call localVarCall = optimizeRouteValidateBeforeCall(routeId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Optimize Route (asynchronously)
      * Optimize a route. The optimization method based on how the server is configured.
-     * @param version  (required)
      * @param routeId the id of the route to optimize (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2022,15 +1881,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call optimizeRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call optimizeRouteAsync(@javax.annotation.Nonnull Long routeId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = optimizeRouteValidateBeforeCall(version, routeId, _callback);
+        okhttp3.Call localVarCall = optimizeRouteValidateBeforeCall(routeId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for removeStop
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the specific stop to delete on the route (required)
      * @param _callback Callback for upload/download progress
@@ -2043,7 +1901,7 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeStopCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call removeStopCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2060,8 +1918,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/stop/{stopId}"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()))
             .replace("{" + "stopId" + "}", localVarApiClient.escapeString(stopId.toString()));
 
@@ -2090,12 +1947,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeStopValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling removeStop(Async)");
-        }
-
+    private okhttp3.Call removeStopValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling removeStop(Async)");
@@ -2106,14 +1958,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'stopId' when calling removeStop(Async)");
         }
 
-        return removeStopCall(version, routeId, stopId, _callback);
+        return removeStopCall(routeId, stopId, _callback);
 
     }
 
     /**
      * Delete Stop
      * Delete a stop on a route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the specific stop to delete on the route (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2124,14 +1975,13 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void removeStop(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
-        removeStopWithHttpInfo(version, routeId, stopId);
+    public void removeStop(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
+        removeStopWithHttpInfo(routeId, stopId);
     }
 
     /**
      * Delete Stop
      * Delete a stop on a route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the specific stop to delete on the route (required)
      * @return ApiResponse&lt;Void&gt;
@@ -2143,15 +1993,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> removeStopWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
-        okhttp3.Call localVarCall = removeStopValidateBeforeCall(version, routeId, stopId, null);
+    public ApiResponse<Void> removeStopWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId) throws ApiException {
+        okhttp3.Call localVarCall = removeStopValidateBeforeCall(routeId, stopId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete Stop (asynchronously)
      * Delete a stop on a route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param stopId the id of the specific stop to delete on the route (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2164,15 +2013,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call removeStopAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call removeStopAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = removeStopValidateBeforeCall(version, routeId, stopId, _callback);
+        okhttp3.Call localVarCall = removeStopValidateBeforeCall(routeId, stopId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for reorderRouteStopsPatch
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -2185,7 +2033,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reorderRouteStopsPatchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call reorderRouteStopsPatchCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2202,8 +2050,7 @@ public class RouteApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/stops/reorder"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/stops/reorder"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2232,25 +2079,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call reorderRouteStopsPatchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling reorderRouteStopsPatch(Async)");
-        }
-
+    private okhttp3.Call reorderRouteStopsPatchValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling reorderRouteStopsPatch(Async)");
         }
 
-        return reorderRouteStopsPatchCall(version, routeId, body, _callback);
+        return reorderRouteStopsPatchCall(routeId, body, _callback);
 
     }
 
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return List&lt;Stop&gt;
@@ -2262,15 +2103,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Stop> reorderRouteStopsPatch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
-        ApiResponse<List<Stop>> localVarResp = reorderRouteStopsPatchWithHttpInfo(version, routeId, body);
+    public List<Stop> reorderRouteStopsPatch(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
+        ApiResponse<List<Stop>> localVarResp = reorderRouteStopsPatchWithHttpInfo(routeId, body);
         return localVarResp.getData();
     }
 
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return ApiResponse&lt;List&lt;Stop&gt;&gt;
@@ -2282,8 +2122,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Stop>> reorderRouteStopsPatchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
-        okhttp3.Call localVarCall = reorderRouteStopsPatchValidateBeforeCall(version, routeId, body, null);
+    public ApiResponse<List<Stop>> reorderRouteStopsPatchWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
+        okhttp3.Call localVarCall = reorderRouteStopsPatchValidateBeforeCall(routeId, body, null);
         Type localVarReturnType = new TypeToken<List<Stop>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2291,7 +2131,6 @@ public class RouteApi {
     /**
      * Reorder Route Stops (asynchronously)
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2304,16 +2143,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reorderRouteStopsPatchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback<List<Stop>> _callback) throws ApiException {
+    public okhttp3.Call reorderRouteStopsPatchAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback<List<Stop>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = reorderRouteStopsPatchValidateBeforeCall(version, routeId, body, _callback);
+        okhttp3.Call localVarCall = reorderRouteStopsPatchValidateBeforeCall(routeId, body, _callback);
         Type localVarReturnType = new TypeToken<List<Stop>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for reorderRouteStopsPost
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -2326,7 +2164,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reorderRouteStopsPostCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call reorderRouteStopsPostCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2343,8 +2181,7 @@ public class RouteApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/stops/reorder"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/stops/reorder"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2373,25 +2210,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call reorderRouteStopsPostValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling reorderRouteStopsPost(Async)");
-        }
-
+    private okhttp3.Call reorderRouteStopsPostValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling reorderRouteStopsPost(Async)");
         }
 
-        return reorderRouteStopsPostCall(version, routeId, body, _callback);
+        return reorderRouteStopsPostCall(routeId, body, _callback);
 
     }
 
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return List&lt;Stop&gt;
@@ -2403,15 +2234,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Stop> reorderRouteStopsPost(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
-        ApiResponse<List<Stop>> localVarResp = reorderRouteStopsPostWithHttpInfo(version, routeId, body);
+    public List<Stop> reorderRouteStopsPost(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
+        ApiResponse<List<Stop>> localVarResp = reorderRouteStopsPostWithHttpInfo(routeId, body);
         return localVarResp.getData();
     }
 
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return ApiResponse&lt;List&lt;Stop&gt;&gt;
@@ -2423,8 +2253,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Stop>> reorderRouteStopsPostWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
-        okhttp3.Call localVarCall = reorderRouteStopsPostValidateBeforeCall(version, routeId, body, null);
+    public ApiResponse<List<Stop>> reorderRouteStopsPostWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body) throws ApiException {
+        okhttp3.Call localVarCall = reorderRouteStopsPostValidateBeforeCall(routeId, body, null);
         Type localVarReturnType = new TypeToken<List<Stop>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2432,7 +2262,6 @@ public class RouteApi {
     /**
      * Reorder Route Stops (asynchronously)
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2445,16 +2274,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call reorderRouteStopsPostAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback<List<Stop>> _callback) throws ApiException {
+    public okhttp3.Call reorderRouteStopsPostAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable List<Stop> body, final ApiCallback<List<Stop>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = reorderRouteStopsPostValidateBeforeCall(version, routeId, body, _callback);
+        okhttp3.Call localVarCall = reorderRouteStopsPostValidateBeforeCall(routeId, body, _callback);
         Type localVarReturnType = new TypeToken<List<Stop>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRoutes
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -2486,7 +2314,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRoutesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRoutesCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2503,8 +2331,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/route";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2616,12 +2443,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRoutesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRoutes(Async)");
-        }
-
+    private okhttp3.Call searchRoutesValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchRoutes(Async)");
@@ -2662,14 +2484,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'showInheritedProperties' when calling searchRoutes(Async)");
         }
 
-        return searchRoutesCall(version, sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId, _callback);
+        return searchRoutesCall(sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId, _callback);
 
     }
 
     /**
      * Search Routes
      * Search for routes.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -2700,15 +2521,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Route> searchRoutes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId) throws ApiException {
-        ApiResponse<List<Route>> localVarResp = searchRoutesWithHttpInfo(version, sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId);
+    public List<Route> searchRoutes(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId) throws ApiException {
+        ApiResponse<List<Route>> localVarResp = searchRoutesWithHttpInfo(sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId);
         return localVarResp.getData();
     }
 
     /**
      * Search Routes
      * Search for routes.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -2739,8 +2559,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Route>> searchRoutesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId) throws ApiException {
-        okhttp3.Call localVarCall = searchRoutesValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId, null);
+    public ApiResponse<List<Route>> searchRoutesWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId) throws ApiException {
+        okhttp3.Call localVarCall = searchRoutesValidateBeforeCall(sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId, null);
         Type localVarReturnType = new TypeToken<List<Route>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2748,7 +2568,6 @@ public class RouteApi {
     /**
      * Search Routes (asynchronously)
      * Search for routes.
-     * @param version  (required)
      * @param sortField The field to sort by (required)
      * @param descending Determines whether the sorted list is in descending or ascending order (required)
      * @param start The start index for pagination (required)
@@ -2780,16 +2599,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRoutesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId, final ApiCallback<List<Route>> _callback) throws ApiException {
+    public okhttp3.Call searchRoutesAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includesEmpty, @javax.annotation.Nonnull Boolean rootOnly, @javax.annotation.Nonnull Boolean showInheritedProperties, @javax.annotation.Nullable Long hubId, @javax.annotation.Nullable Long programId, @javax.annotation.Nullable Long scheduledStart, @javax.annotation.Nullable Long scheduledEnd, @javax.annotation.Nullable Long updatedStart, @javax.annotation.Nullable Long updatedEnd, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable Integer seatCount, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable Boolean started, @javax.annotation.Nullable Boolean completed, @javax.annotation.Nullable Boolean valid, @javax.annotation.Nullable Long parentId, final ApiCallback<List<Route>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRoutesValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId, _callback);
+        okhttp3.Call localVarCall = searchRoutesValidateBeforeCall(sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, hubId, programId, scheduledStart, scheduledEnd, updatedStart, updatedEnd, featured, seatCount, approved, started, completed, valid, parentId, _callback);
         Type localVarReturnType = new TypeToken<List<Route>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for setDriver
-     * @param version  (required)
      * @param id the id of the route (required)
      * @param driverId the id of the driver (required)
      * @param _callback Callback for upload/download progress
@@ -2802,7 +2620,7 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setDriverCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call setDriverCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2819,8 +2637,7 @@ public class RouteApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{id}/driver/{driverId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{id}/driver/{driverId}"
             .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
             .replace("{" + "driverId" + "}", localVarApiClient.escapeString(driverId.toString()));
 
@@ -2849,12 +2666,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call setDriverValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling setDriver(Async)");
-        }
-
+    private okhttp3.Call setDriverValidateBeforeCall(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling setDriver(Async)");
@@ -2865,14 +2677,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'driverId' when calling setDriver(Async)");
         }
 
-        return setDriverCall(version, id, driverId, _callback);
+        return setDriverCall(id, driverId, _callback);
 
     }
 
     /**
      * Set Driver
      * Update the driver of the route.
-     * @param version  (required)
      * @param id the id of the route (required)
      * @param driverId the id of the driver (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2883,14 +2694,13 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void setDriver(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId) throws ApiException {
-        setDriverWithHttpInfo(version, id, driverId);
+    public void setDriver(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId) throws ApiException {
+        setDriverWithHttpInfo(id, driverId);
     }
 
     /**
      * Set Driver
      * Update the driver of the route.
-     * @param version  (required)
      * @param id the id of the route (required)
      * @param driverId the id of the driver (required)
      * @return ApiResponse&lt;Void&gt;
@@ -2902,15 +2712,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> setDriverWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId) throws ApiException {
-        okhttp3.Call localVarCall = setDriverValidateBeforeCall(version, id, driverId, null);
+    public ApiResponse<Void> setDriverWithHttpInfo(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId) throws ApiException {
+        okhttp3.Call localVarCall = setDriverValidateBeforeCall(id, driverId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Set Driver (asynchronously)
      * Update the driver of the route.
-     * @param version  (required)
      * @param id the id of the route (required)
      * @param driverId the id of the driver (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2923,15 +2732,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setDriverAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call setDriverAsync(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long driverId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = setDriverValidateBeforeCall(version, id, driverId, _callback);
+        okhttp3.Call localVarCall = setDriverValidateBeforeCall(id, driverId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRoute
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -2944,7 +2752,7 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRouteCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRouteCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2961,8 +2769,7 @@ public class RouteApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2991,25 +2798,19 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRouteValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRoute(Async)");
-        }
-
+    private okhttp3.Call updateRouteValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling updateRoute(Async)");
         }
 
-        return updateRouteCall(version, routeId, body, _callback);
+        return updateRouteCall(routeId, body, _callback);
 
     }
 
     /**
      * Update Route
      * Update an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return Route
@@ -3021,15 +2822,14 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public Route updateRoute(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
-        ApiResponse<Route> localVarResp = updateRouteWithHttpInfo(version, routeId, body);
+    public Route updateRoute(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
+        ApiResponse<Route> localVarResp = updateRouteWithHttpInfo(routeId, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Route
      * Update an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Route&gt;
@@ -3041,8 +2841,8 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Route> updateRouteWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
-        okhttp3.Call localVarCall = updateRouteValidateBeforeCall(version, routeId, body, null);
+    public ApiResponse<Route> updateRouteWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body) throws ApiException {
+        okhttp3.Call localVarCall = updateRouteValidateBeforeCall(routeId, body, null);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3050,7 +2850,6 @@ public class RouteApi {
     /**
      * Update Route (asynchronously)
      * Update an existing route
-     * @param version  (required)
      * @param routeId the id of the route (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3063,16 +2862,15 @@ public class RouteApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRouteAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback<Route> _callback) throws ApiException {
+    public okhttp3.Call updateRouteAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nullable Route body, final ApiCallback<Route> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRouteValidateBeforeCall(version, routeId, body, _callback);
+        okhttp3.Call localVarCall = updateRouteValidateBeforeCall(routeId, body, _callback);
         Type localVarReturnType = new TypeToken<Route>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRouteStop
-     * @param version  (required)
      * @param routeId the id of the route to update stops for (required)
      * @param stopId the id of the specific stop to update on the route (required)
      * @param body  (optional)
@@ -3086,7 +2884,7 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRouteStopCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRouteStopCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3103,8 +2901,7 @@ public class RouteApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/route/{routeId}/stop/{stopId}"
             .replace("{" + "routeId" + "}", localVarApiClient.escapeString(routeId.toString()))
             .replace("{" + "stopId" + "}", localVarApiClient.escapeString(stopId.toString()));
 
@@ -3133,12 +2930,7 @@ public class RouteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRouteStopValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRouteStop(Async)");
-        }
-
+    private okhttp3.Call updateRouteStopValidateBeforeCall(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'routeId' is set
         if (routeId == null) {
             throw new ApiException("Missing the required parameter 'routeId' when calling updateRouteStop(Async)");
@@ -3149,14 +2941,13 @@ public class RouteApi {
             throw new ApiException("Missing the required parameter 'stopId' when calling updateRouteStop(Async)");
         }
 
-        return updateRouteStopCall(version, routeId, stopId, body, _callback);
+        return updateRouteStopCall(routeId, stopId, body, _callback);
 
     }
 
     /**
      * Update Route Stop
      * Update a stop on a specified route
-     * @param version  (required)
      * @param routeId the id of the route to update stops for (required)
      * @param stopId the id of the specific stop to update on the route (required)
      * @param body  (optional)
@@ -3168,14 +2959,13 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public void updateRouteStop(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body) throws ApiException {
-        updateRouteStopWithHttpInfo(version, routeId, stopId, body);
+    public void updateRouteStop(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body) throws ApiException {
+        updateRouteStopWithHttpInfo(routeId, stopId, body);
     }
 
     /**
      * Update Route Stop
      * Update a stop on a specified route
-     * @param version  (required)
      * @param routeId the id of the route to update stops for (required)
      * @param stopId the id of the specific stop to update on the route (required)
      * @param body  (optional)
@@ -3188,15 +2978,14 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateRouteStopWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body) throws ApiException {
-        okhttp3.Call localVarCall = updateRouteStopValidateBeforeCall(version, routeId, stopId, body, null);
+    public ApiResponse<Void> updateRouteStopWithHttpInfo(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body) throws ApiException {
+        okhttp3.Call localVarCall = updateRouteStopValidateBeforeCall(routeId, stopId, body, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update Route Stop (asynchronously)
      * Update a stop on a specified route
-     * @param version  (required)
      * @param routeId the id of the route to update stops for (required)
      * @param stopId the id of the specific stop to update on the route (required)
      * @param body  (optional)
@@ -3210,9 +2999,9 @@ public class RouteApi {
         <tr><td> 0 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRouteStopAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateRouteStopAsync(@javax.annotation.Nonnull Long routeId, @javax.annotation.Nonnull Long stopId, @javax.annotation.Nullable Stop body, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRouteStopValidateBeforeCall(version, routeId, stopId, body, _callback);
+        okhttp3.Call localVarCall = updateRouteStopValidateBeforeCall(routeId, stopId, body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

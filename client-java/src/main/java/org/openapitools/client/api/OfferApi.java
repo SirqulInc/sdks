@@ -81,7 +81,6 @@ public class OfferApi {
 
     /**
      * Build call for batchUpdateOfferLocations
-     * @param version  (required)
      * @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -95,7 +94,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchUpdateOfferLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call batchUpdateOfferLocationsCall(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,8 +111,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/location/batchUpdate"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/location/batchUpdate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -153,25 +151,19 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchUpdateOfferLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling batchUpdateOfferLocations(Async)");
-        }
-
+    private okhttp3.Call batchUpdateOfferLocationsValidateBeforeCall(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'data' is set
         if (data == null) {
             throw new ApiException("Missing the required parameter 'data' when calling batchUpdateOfferLocations(Async)");
         }
 
-        return batchUpdateOfferLocationsCall(version, data, deviceId, accountId, _callback);
+        return batchUpdateOfferLocationsCall(data, deviceId, accountId, _callback);
 
     }
 
     /**
      * Update Offer Locations
      * Batch update offer locations.
-     * @param version  (required)
      * @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -184,15 +176,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse batchUpdateOfferLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = batchUpdateOfferLocationsWithHttpInfo(version, data, deviceId, accountId);
+    public SirqulResponse batchUpdateOfferLocations(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = batchUpdateOfferLocationsWithHttpInfo(data, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Update Offer Locations
      * Batch update offer locations.
-     * @param version  (required)
      * @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -205,8 +196,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> batchUpdateOfferLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = batchUpdateOfferLocationsValidateBeforeCall(version, data, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> batchUpdateOfferLocationsWithHttpInfo(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = batchUpdateOfferLocationsValidateBeforeCall(data, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -214,7 +205,6 @@ public class OfferApi {
     /**
      * Update Offer Locations (asynchronously)
      * Batch update offer locations.
-     * @param version  (required)
      * @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -228,16 +218,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchUpdateOfferLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call batchUpdateOfferLocationsAsync(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = batchUpdateOfferLocationsValidateBeforeCall(version, data, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = batchUpdateOfferLocationsValidateBeforeCall(data, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createOffer
-     * @param version  (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -334,7 +323,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOfferCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createOfferCall(@javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -351,8 +340,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -724,12 +712,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createOfferValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createOffer(Async)");
-        }
-
+    private okhttp3.Call createOfferValidateBeforeCall(@javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'includeOfferLocations' is set
         if (includeOfferLocations == null) {
             throw new ApiException("Missing the required parameter 'includeOfferLocations' when calling createOffer(Async)");
@@ -810,14 +793,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'active' when calling createOffer(Async)");
         }
 
-        return createOfferCall(version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
+        return createOfferCall(includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
 
     }
 
     /**
      * Create Offer
      * Create an offer and assign it to the provided retailer locations.
-     * @param version  (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -913,15 +895,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerOfferResponse createOffer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        ApiResponse<RetailerOfferResponse> localVarResp = createOfferWithHttpInfo(version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+    public RetailerOfferResponse createOffer(@javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        ApiResponse<RetailerOfferResponse> localVarResp = createOfferWithHttpInfo(includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
         return localVarResp.getData();
     }
 
     /**
      * Create Offer
      * Create an offer and assign it to the provided retailer locations.
-     * @param version  (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -1017,8 +998,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerOfferResponse> createOfferWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        okhttp3.Call localVarCall = createOfferValidateBeforeCall(version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, null);
+    public ApiResponse<RetailerOfferResponse> createOfferWithHttpInfo(@javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        okhttp3.Call localVarCall = createOfferValidateBeforeCall(includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, null);
         Type localVarReturnType = new TypeToken<RetailerOfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1026,7 +1007,6 @@ public class OfferApi {
     /**
      * Create Offer (asynchronously)
      * Create an offer and assign it to the provided retailer locations.
-     * @param version  (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param title The title (255 char limit) (required)
      * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} (required)
@@ -1123,16 +1103,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createOfferAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<RetailerOfferResponse> _callback) throws ApiException {
+    public okhttp3.Call createOfferAsync(@javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nonnull String title, @javax.annotation.Nonnull String barcodeType, @javax.annotation.Nonnull Boolean noExpiration, @javax.annotation.Nonnull Integer availableLimit, @javax.annotation.Nonnull Integer availableLimitPerUser, @javax.annotation.Nonnull Integer addedLimit, @javax.annotation.Nonnull Integer viewLimit, @javax.annotation.Nonnull Integer maxPrints, @javax.annotation.Nonnull Long ticketPrice, @javax.annotation.Nonnull Double fullPrice, @javax.annotation.Nonnull Double discountPrice, @javax.annotation.Nonnull String offerType, @javax.annotation.Nonnull String specialOfferType, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<RetailerOfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createOfferValidateBeforeCall(version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
+        okhttp3.Call localVarCall = createOfferValidateBeforeCall(includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
         Type localVarReturnType = new TypeToken<RetailerOfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteOffer
-     * @param version  (required)
      * @param offerId The ID of the offer to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -1146,7 +1125,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteOfferCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1163,8 +1142,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1204,25 +1182,19 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteOfferValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteOffer(Async)");
-        }
-
+    private okhttp3.Call deleteOfferValidateBeforeCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerId' is set
         if (offerId == null) {
             throw new ApiException("Missing the required parameter 'offerId' when calling deleteOffer(Async)");
         }
 
-        return deleteOfferCall(version, offerId, deviceId, accountId, _callback);
+        return deleteOfferCall(offerId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Offer
      * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerId The ID of the offer to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -1235,15 +1207,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteOffer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteOfferWithHttpInfo(version, offerId, deviceId, accountId);
+    public SirqulResponse deleteOffer(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteOfferWithHttpInfo(offerId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Offer
      * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerId The ID of the offer to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -1256,8 +1227,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteOfferWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteOfferValidateBeforeCall(version, offerId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteOfferWithHttpInfo(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteOfferValidateBeforeCall(offerId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1265,7 +1236,6 @@ public class OfferApi {
     /**
      * Delete Offer (asynchronously)
      * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerId The ID of the offer to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer. (optional)
@@ -1279,16 +1249,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteOfferAsync(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteOfferValidateBeforeCall(version, offerId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteOfferValidateBeforeCall(offerId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteOfferLocation
-     * @param version  (required)
      * @param offerLocationId The ID of the offer location to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -1302,7 +1271,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferLocationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteOfferLocationCall(@javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1319,8 +1288,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/location/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/location/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1360,25 +1328,19 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteOfferLocationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteOfferLocation(Async)");
-        }
-
+    private okhttp3.Call deleteOfferLocationValidateBeforeCall(@javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerLocationId' is set
         if (offerLocationId == null) {
             throw new ApiException("Missing the required parameter 'offerLocationId' when calling deleteOfferLocation(Async)");
         }
 
-        return deleteOfferLocationCall(version, offerLocationId, deviceId, accountId, _callback);
+        return deleteOfferLocationCall(offerLocationId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Offer Location
      * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerLocationId The ID of the offer location to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -1391,15 +1353,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteOfferLocation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteOfferLocationWithHttpInfo(version, offerLocationId, deviceId, accountId);
+    public SirqulResponse deleteOfferLocation(@javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteOfferLocationWithHttpInfo(offerLocationId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Offer Location
      * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerLocationId The ID of the offer location to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -1412,8 +1373,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteOfferLocationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteOfferLocationValidateBeforeCall(version, offerLocationId, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteOfferLocationWithHttpInfo(@javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteOfferLocationValidateBeforeCall(offerLocationId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1421,7 +1382,6 @@ public class OfferApi {
     /**
      * Delete Offer Location (asynchronously)
      * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param offerLocationId The ID of the offer location to be deleted (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the offer location. (optional)
@@ -1435,16 +1395,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteOfferLocationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteOfferLocationAsync(@javax.annotation.Nonnull Long offerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteOfferLocationValidateBeforeCall(version, offerLocationId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteOfferLocationValidateBeforeCall(offerLocationId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOffer
-     * @param version  (required)
      * @param offerId The id of the offer (required)
      * @param includeOfferLocations  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1459,7 +1418,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOfferCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1476,8 +1435,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1521,12 +1479,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOfferValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOffer(Async)");
-        }
-
+    private okhttp3.Call getOfferValidateBeforeCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerId' is set
         if (offerId == null) {
             throw new ApiException("Missing the required parameter 'offerId' when calling getOffer(Async)");
@@ -1537,14 +1490,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'includeOfferLocations' when calling getOffer(Async)");
         }
 
-        return getOfferCall(version, offerId, includeOfferLocations, deviceId, accountId, _callback);
+        return getOfferCall(offerId, includeOfferLocations, deviceId, accountId, _callback);
 
     }
 
     /**
      * Get Offer
      * Gets the details of an offer that the user has access to.
-     * @param version  (required)
      * @param offerId The id of the offer (required)
      * @param includeOfferLocations  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1558,15 +1510,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerOfferResponse getOffer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<RetailerOfferResponse> localVarResp = getOfferWithHttpInfo(version, offerId, includeOfferLocations, deviceId, accountId);
+    public RetailerOfferResponse getOffer(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<RetailerOfferResponse> localVarResp = getOfferWithHttpInfo(offerId, includeOfferLocations, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Offer
      * Gets the details of an offer that the user has access to.
-     * @param version  (required)
      * @param offerId The id of the offer (required)
      * @param includeOfferLocations  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1580,8 +1531,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerOfferResponse> getOfferWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getOfferValidateBeforeCall(version, offerId, includeOfferLocations, deviceId, accountId, null);
+    public ApiResponse<RetailerOfferResponse> getOfferWithHttpInfo(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getOfferValidateBeforeCall(offerId, includeOfferLocations, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<RetailerOfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1589,7 +1540,6 @@ public class OfferApi {
     /**
      * Get Offer (asynchronously)
      * Gets the details of an offer that the user has access to.
-     * @param version  (required)
      * @param offerId The id of the offer (required)
      * @param includeOfferLocations  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -1604,16 +1554,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<RetailerOfferResponse> _callback) throws ApiException {
+    public okhttp3.Call getOfferAsync(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<RetailerOfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOfferValidateBeforeCall(version, offerId, includeOfferLocations, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = getOfferValidateBeforeCall(offerId, includeOfferLocations, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<RetailerOfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOfferDetails
-     * @param version  (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1634,7 +1583,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferDetailsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOfferDetailsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1651,8 +1600,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1720,20 +1668,14 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOfferDetailsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOfferDetails(Async)");
-        }
-
-        return getOfferDetailsCall(version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, _callback);
+    private okhttp3.Call getOfferDetailsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers, final ApiCallback _callback) throws ApiException {
+        return getOfferDetailsCall(deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, _callback);
 
     }
 
     /**
      * Get Offer
      * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     * @param version  (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1753,15 +1695,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferResponse getOfferDetails(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers) throws ApiException {
-        ApiResponse<OfferResponse> localVarResp = getOfferDetailsWithHttpInfo(version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
+    public OfferResponse getOfferDetails(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers) throws ApiException {
+        ApiResponse<OfferResponse> localVarResp = getOfferDetailsWithHttpInfo(deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
         return localVarResp.getData();
     }
 
     /**
      * Get Offer
      * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     * @param version  (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1781,8 +1722,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferResponse> getOfferDetailsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers) throws ApiException {
-        okhttp3.Call localVarCall = getOfferDetailsValidateBeforeCall(version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, null);
+    public ApiResponse<OfferResponse> getOfferDetailsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers) throws ApiException {
+        okhttp3.Call localVarCall = getOfferDetailsValidateBeforeCall(deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, null);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1790,7 +1731,6 @@ public class OfferApi {
     /**
      * Get Offer (asynchronously)
      * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     * @param version  (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
      * @param offerId The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -1811,16 +1751,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferDetailsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers, final ApiCallback<OfferResponse> _callback) throws ApiException {
+    public okhttp3.Call getOfferDetailsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Boolean includeOfferLocations, @javax.annotation.Nullable Boolean includeRetailerLocations, @javax.annotation.Nullable Boolean includeChildOffers, final ApiCallback<OfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOfferDetailsValidateBeforeCall(version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, _callback);
+        okhttp3.Call localVarCall = getOfferDetailsValidateBeforeCall(deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, _callback);
         Type localVarReturnType = new TypeToken<OfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOfferListCounts
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param searchRange The range of the search (optional, default to 5)
@@ -1835,7 +1774,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferListCountsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOfferListCountsCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1852,8 +1791,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/lists/count"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/lists/count";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1897,12 +1835,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOfferListCountsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOfferListCounts(Async)");
-        }
-
+    private okhttp3.Call getOfferListCountsValidateBeforeCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'latitude' is set
         if (latitude == null) {
             throw new ApiException("Missing the required parameter 'latitude' when calling getOfferListCounts(Async)");
@@ -1913,14 +1846,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'longitude' when calling getOfferListCounts(Async)");
         }
 
-        return getOfferListCountsCall(version, latitude, longitude, searchRange, distanceUnit, _callback);
+        return getOfferListCountsCall(latitude, longitude, searchRange, distanceUnit, _callback);
 
     }
 
     /**
      * Get Offers (Counts)
      * Gets the offer list counts.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param searchRange The range of the search (optional, default to 5)
@@ -1934,15 +1866,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ListCountResponse getOfferListCounts(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
-        ApiResponse<ListCountResponse> localVarResp = getOfferListCountsWithHttpInfo(version, latitude, longitude, searchRange, distanceUnit);
+    public ListCountResponse getOfferListCounts(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
+        ApiResponse<ListCountResponse> localVarResp = getOfferListCountsWithHttpInfo(latitude, longitude, searchRange, distanceUnit);
         return localVarResp.getData();
     }
 
     /**
      * Get Offers (Counts)
      * Gets the offer list counts.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param searchRange The range of the search (optional, default to 5)
@@ -1956,8 +1887,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListCountResponse> getOfferListCountsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
-        okhttp3.Call localVarCall = getOfferListCountsValidateBeforeCall(version, latitude, longitude, searchRange, distanceUnit, null);
+    public ApiResponse<ListCountResponse> getOfferListCountsWithHttpInfo(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
+        okhttp3.Call localVarCall = getOfferListCountsValidateBeforeCall(latitude, longitude, searchRange, distanceUnit, null);
         Type localVarReturnType = new TypeToken<ListCountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1965,7 +1896,6 @@ public class OfferApi {
     /**
      * Get Offers (Counts) (asynchronously)
      * Gets the offer list counts.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param searchRange The range of the search (optional, default to 5)
@@ -1980,16 +1910,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferListCountsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback<ListCountResponse> _callback) throws ApiException {
+    public okhttp3.Call getOfferListCountsAsync(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable BigDecimal searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback<ListCountResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOfferListCountsValidateBeforeCall(version, latitude, longitude, searchRange, distanceUnit, _callback);
+        okhttp3.Call localVarCall = getOfferListCountsValidateBeforeCall(latitude, longitude, searchRange, distanceUnit, _callback);
         Type localVarReturnType = new TypeToken<ListCountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOfferLocation
-     * @param version  (required)
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @param _callback Callback for upload/download progress
@@ -2002,7 +1931,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferLocationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOfferLocationCall(@javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2019,8 +1948,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/location/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/location/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2056,20 +1984,14 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOfferLocationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOfferLocation(Async)");
-        }
-
-        return getOfferLocationCall(version, offerLocationId, udid, _callback);
+    private okhttp3.Call getOfferLocationValidateBeforeCall(@javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid, final ApiCallback _callback) throws ApiException {
+        return getOfferLocationCall(offerLocationId, udid, _callback);
 
     }
 
     /**
      * Get Offer Location
      * Gets the offer location by offer location id or udid (of a device)
-     * @param version  (required)
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @return OfferShortResponse
@@ -2081,15 +2003,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferShortResponse getOfferLocation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
-        ApiResponse<OfferShortResponse> localVarResp = getOfferLocationWithHttpInfo(version, offerLocationId, udid);
+    public OfferShortResponse getOfferLocation(@javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
+        ApiResponse<OfferShortResponse> localVarResp = getOfferLocationWithHttpInfo(offerLocationId, udid);
         return localVarResp.getData();
     }
 
     /**
      * Get Offer Location
      * Gets the offer location by offer location id or udid (of a device)
-     * @param version  (required)
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @return ApiResponse&lt;OfferShortResponse&gt;
@@ -2101,8 +2022,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferShortResponse> getOfferLocationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
-        okhttp3.Call localVarCall = getOfferLocationValidateBeforeCall(version, offerLocationId, udid, null);
+    public ApiResponse<OfferShortResponse> getOfferLocationWithHttpInfo(@javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid) throws ApiException {
+        okhttp3.Call localVarCall = getOfferLocationValidateBeforeCall(offerLocationId, udid, null);
         Type localVarReturnType = new TypeToken<OfferShortResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2110,7 +2031,6 @@ public class OfferApi {
     /**
      * Get Offer Location (asynchronously)
      * Gets the offer location by offer location id or udid (of a device)
-     * @param version  (required)
      * @param offerLocationId the id of the offer location to get (optional)
      * @param udid the UDID of the device (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2123,16 +2043,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferLocationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid, final ApiCallback<OfferShortResponse> _callback) throws ApiException {
+    public okhttp3.Call getOfferLocationAsync(@javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable String udid, final ApiCallback<OfferShortResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOfferLocationValidateBeforeCall(version, offerLocationId, udid, _callback);
+        okhttp3.Call localVarCall = getOfferLocationValidateBeforeCall(offerLocationId, udid, _callback);
         Type localVarReturnType = new TypeToken<OfferShortResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOfferLocationsForRetailers
-     * @param version  (required)
      * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param start The index into the record set to start with. Default is 0. (required)
@@ -2163,7 +2082,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferLocationsForRetailersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOfferLocationsForRetailersCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2180,8 +2099,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/location/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/location/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2289,12 +2207,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOfferLocationsForRetailersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOfferLocationsForRetailers(Async)");
-        }
-
+    private okhttp3.Call getOfferLocationsForRetailersValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling getOfferLocationsForRetailers(Async)");
@@ -2325,14 +2238,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'includeRetailerLocation' when calling getOfferLocationsForRetailers(Async)");
         }
 
-        return getOfferLocationsForRetailersCall(version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
+        return getOfferLocationsForRetailersCall(sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
 
     }
 
     /**
      * Search Offer Locations
      * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     * @param version  (required)
      * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param start The index into the record set to start with. Default is 0. (required)
@@ -2362,15 +2274,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferShortResponse> getOfferLocationsForRetailers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
-        ApiResponse<List<OfferShortResponse>> localVarResp = getOfferLocationsForRetailersWithHttpInfo(version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+    public List<OfferShortResponse> getOfferLocationsForRetailers(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
+        ApiResponse<List<OfferShortResponse>> localVarResp = getOfferLocationsForRetailersWithHttpInfo(sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
         return localVarResp.getData();
     }
 
     /**
      * Search Offer Locations
      * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     * @param version  (required)
      * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param start The index into the record set to start with. Default is 0. (required)
@@ -2400,8 +2311,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferShortResponse>> getOfferLocationsForRetailersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
-        okhttp3.Call localVarCall = getOfferLocationsForRetailersValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, null);
+    public ApiResponse<List<OfferShortResponse>> getOfferLocationsForRetailersWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
+        okhttp3.Call localVarCall = getOfferLocationsForRetailersValidateBeforeCall(sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, null);
         Type localVarReturnType = new TypeToken<List<OfferShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2409,7 +2320,6 @@ public class OfferApi {
     /**
      * Search Offer Locations (asynchronously)
      * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     * @param version  (required)
      * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending The order to return the results. Default is false, which will return the results in ascending order. (required)
      * @param start The index into the record set to start with. Default is 0. (required)
@@ -2440,16 +2350,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOfferLocationsForRetailersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback<List<OfferShortResponse>> _callback) throws ApiException {
+    public okhttp3.Call getOfferLocationsForRetailersAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeRetailerLocation, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback<List<OfferShortResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOfferLocationsForRetailersValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
+        okhttp3.Call localVarCall = getOfferLocationsForRetailersValidateBeforeCall(sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
         Type localVarReturnType = new TypeToken<List<OfferShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getOffersForRetailers
-     * @param version  (required)
      * @param offerVisibility  (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param descending The order to return the search results (required)
@@ -2491,7 +2400,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOffersForRetailersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOffersForRetailersCall(@javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2508,8 +2417,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2661,12 +2569,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOffersForRetailersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getOffersForRetailers(Async)");
-        }
-
+    private okhttp3.Call getOffersForRetailersValidateBeforeCall(@javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerVisibility' is set
         if (offerVisibility == null) {
             throw new ApiException("Missing the required parameter 'offerVisibility' when calling getOffersForRetailers(Async)");
@@ -2717,14 +2620,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'includeOfferLocations' when calling getOffersForRetailers(Async)");
         }
 
-        return getOffersForRetailersCall(version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
+        return getOffersForRetailersCall(offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
 
     }
 
     /**
      * Search Offers
      * Searches on offers that the account has access to.
-     * @param version  (required)
      * @param offerVisibility  (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param descending The order to return the search results (required)
@@ -2765,15 +2667,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferResponse> getOffersForRetailers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
-        ApiResponse<List<OfferResponse>> localVarResp = getOffersForRetailersWithHttpInfo(version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+    public List<OfferResponse> getOffersForRetailers(@javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
+        ApiResponse<List<OfferResponse>> localVarResp = getOffersForRetailersWithHttpInfo(offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
         return localVarResp.getData();
     }
 
     /**
      * Search Offers
      * Searches on offers that the account has access to.
-     * @param version  (required)
      * @param offerVisibility  (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param descending The order to return the search results (required)
@@ -2814,8 +2715,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferResponse>> getOffersForRetailersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
-        okhttp3.Call localVarCall = getOffersForRetailersValidateBeforeCall(version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, null);
+    public ApiResponse<List<OfferResponse>> getOffersForRetailersWithHttpInfo(@javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent) throws ApiException {
+        okhttp3.Call localVarCall = getOffersForRetailersValidateBeforeCall(offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, null);
         Type localVarReturnType = new TypeToken<List<OfferResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2823,7 +2724,6 @@ public class OfferApi {
     /**
      * Search Offers (asynchronously)
      * Searches on offers that the account has access to.
-     * @param version  (required)
      * @param offerVisibility  (required)
      * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
      * @param descending The order to return the search results (required)
@@ -2865,16 +2765,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOffersForRetailersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback<List<OfferResponse>> _callback) throws ApiException {
+    public okhttp3.Call getOffersForRetailersAsync(@javax.annotation.Nonnull String offerVisibility, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean availableOnly, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nonnull Boolean includeCategories, @javax.annotation.Nonnull Boolean includeFilters, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String deviceStatus, @javax.annotation.Nullable Boolean needsNotificationSent, @javax.annotation.Nullable Long lastNotificationSent, final ApiCallback<List<OfferResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOffersForRetailersValidateBeforeCall(version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
+        okhttp3.Call localVarCall = getOffersForRetailersValidateBeforeCall(offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, _callback);
         Type localVarReturnType = new TypeToken<List<OfferResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for redeemOfferTransaction
-     * @param version  (required)
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed (required)
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2890,7 +2789,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call redeemOfferTransactionCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call redeemOfferTransactionCall(@javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2907,8 +2806,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/transaction/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/transaction/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2956,12 +2854,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call redeemOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling redeemOfferTransaction(Async)");
-        }
-
+    private okhttp3.Call redeemOfferTransactionValidateBeforeCall(@javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerTransactionId' is set
         if (offerTransactionId == null) {
             throw new ApiException("Missing the required parameter 'offerTransactionId' when calling redeemOfferTransaction(Async)");
@@ -2972,14 +2865,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'status' when calling redeemOfferTransaction(Async)");
         }
 
-        return redeemOfferTransactionCall(version, offerTransactionId, status, deviceId, accountId, offerLocationId, _callback);
+        return redeemOfferTransactionCall(offerTransactionId, status, deviceId, accountId, offerLocationId, _callback);
 
     }
 
     /**
      * Update Offer Transaction
      * Redeems an offer.
-     * @param version  (required)
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed (required)
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -2994,15 +2886,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse redeemOfferTransaction(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = redeemOfferTransactionWithHttpInfo(version, offerTransactionId, status, deviceId, accountId, offerLocationId);
+    public SirqulResponse redeemOfferTransaction(@javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = redeemOfferTransactionWithHttpInfo(offerTransactionId, status, deviceId, accountId, offerLocationId);
         return localVarResp.getData();
     }
 
     /**
      * Update Offer Transaction
      * Redeems an offer.
-     * @param version  (required)
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed (required)
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3017,8 +2908,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> redeemOfferTransactionWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
-        okhttp3.Call localVarCall = redeemOfferTransactionValidateBeforeCall(version, offerTransactionId, status, deviceId, accountId, offerLocationId, null);
+    public ApiResponse<SirqulResponse> redeemOfferTransactionWithHttpInfo(@javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId) throws ApiException {
+        okhttp3.Call localVarCall = redeemOfferTransactionValidateBeforeCall(offerTransactionId, status, deviceId, accountId, offerLocationId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3026,7 +2917,6 @@ public class OfferApi {
     /**
      * Update Offer Transaction (asynchronously)
      * Redeems an offer.
-     * @param version  (required)
      * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed (required)
      * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
@@ -3042,16 +2932,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call redeemOfferTransactionAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call redeemOfferTransactionAsync(@javax.annotation.Nonnull Long offerTransactionId, @javax.annotation.Nonnull Integer status, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long offerLocationId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = redeemOfferTransactionValidateBeforeCall(version, offerTransactionId, status, deviceId, accountId, offerLocationId, _callback);
+        okhttp3.Call localVarCall = redeemOfferTransactionValidateBeforeCall(offerTransactionId, status, deviceId, accountId, offerLocationId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchOfferTransactionsForRetailers
-     * @param version  (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
      * @param start The start index for pagination (required)
@@ -3086,7 +2975,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOfferTransactionsForRetailersCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchOfferTransactionsForRetailersCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3103,8 +2992,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/transaction/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/transaction/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3228,12 +3116,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchOfferTransactionsForRetailersValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchOfferTransactionsForRetailers(Async)");
-        }
-
+    private okhttp3.Call searchOfferTransactionsForRetailersValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling searchOfferTransactionsForRetailers(Async)");
@@ -3259,14 +3142,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchOfferTransactionsForRetailers(Async)");
         }
 
-        return searchOfferTransactionsForRetailersCall(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, _callback);
+        return searchOfferTransactionsForRetailersCall(sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, _callback);
 
     }
 
     /**
      * Search Offer Transactions
      * Searches on offer transactions for offers that the account has access to.
-     * @param version  (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
      * @param start The start index for pagination (required)
@@ -3300,15 +3182,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<OfferTransactionResponse> searchOfferTransactionsForRetailers(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
-        ApiResponse<List<OfferTransactionResponse>> localVarResp = searchOfferTransactionsForRetailersWithHttpInfo(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
+    public List<OfferTransactionResponse> searchOfferTransactionsForRetailers(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
+        ApiResponse<List<OfferTransactionResponse>> localVarResp = searchOfferTransactionsForRetailersWithHttpInfo(sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
         return localVarResp.getData();
     }
 
     /**
      * Search Offer Transactions
      * Searches on offer transactions for offers that the account has access to.
-     * @param version  (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
      * @param start The start index for pagination (required)
@@ -3342,8 +3223,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OfferTransactionResponse>> searchOfferTransactionsForRetailersWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
-        okhttp3.Call localVarCall = searchOfferTransactionsForRetailersValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, null);
+    public ApiResponse<List<OfferTransactionResponse>> searchOfferTransactionsForRetailersWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l) throws ApiException {
+        okhttp3.Call localVarCall = searchOfferTransactionsForRetailersValidateBeforeCall(sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, null);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3351,7 +3232,6 @@ public class OfferApi {
     /**
      * Search Offer Transactions (asynchronously)
      * Searches on offer transactions for offers that the account has access to.
-     * @param version  (required)
      * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
      * @param descending Determines whether the results are in descending order (required)
      * @param start The start index for pagination (required)
@@ -3386,16 +3266,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOfferTransactionsForRetailersAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchOfferTransactionsForRetailersAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long retailerId, @javax.annotation.Nullable Long retailerLocationId, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Long offerLocationId, @javax.annotation.Nullable Boolean redeemed, @javax.annotation.Nullable Boolean reservationsOnly, @javax.annotation.Nullable String couponType, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String customerAccountIds, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable Long redeemableStartDate, @javax.annotation.Nullable Long redeemableEndDate, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer l, final ApiCallback<List<OfferTransactionResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchOfferTransactionsForRetailersValidateBeforeCall(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, _callback);
+        okhttp3.Call localVarCall = searchOfferTransactionsForRetailersValidateBeforeCall(sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, _callback);
         Type localVarReturnType = new TypeToken<List<OfferTransactionResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchOffersForConsumer
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -3437,7 +3316,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOffersForConsumerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchOffersForConsumerCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3454,8 +3333,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/lists"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/lists";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3607,12 +3485,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchOffersForConsumerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchOffersForConsumer(Async)");
-        }
-
+    private okhttp3.Call searchOffersForConsumerValidateBeforeCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'latitude' is set
         if (latitude == null) {
             throw new ApiException("Missing the required parameter 'latitude' when calling searchOffersForConsumer(Async)");
@@ -3653,14 +3526,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'distanceUnit' when calling searchOffersForConsumer(Async)");
         }
 
-        return searchOffersForConsumerCall(version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, _callback);
+        return searchOffersForConsumerCall(latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, _callback);
 
     }
 
     /**
      * Search Offers
      * Searches for offers as a consumer.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -3701,15 +3573,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferListResponse searchOffersForConsumer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy) throws ApiException {
-        ApiResponse<OfferListResponse> localVarResp = searchOffersForConsumerWithHttpInfo(version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
+    public OfferListResponse searchOffersForConsumer(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy) throws ApiException {
+        ApiResponse<OfferListResponse> localVarResp = searchOffersForConsumerWithHttpInfo(latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
         return localVarResp.getData();
     }
 
     /**
      * Search Offers
      * Searches for offers as a consumer.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -3750,8 +3621,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferListResponse> searchOffersForConsumerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy) throws ApiException {
-        okhttp3.Call localVarCall = searchOffersForConsumerValidateBeforeCall(version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, null);
+    public ApiResponse<OfferListResponse> searchOffersForConsumerWithHttpInfo(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy) throws ApiException {
+        okhttp3.Call localVarCall = searchOffersForConsumerValidateBeforeCall(latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, null);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3759,7 +3630,6 @@ public class OfferApi {
     /**
      * Search Offers (asynchronously)
      * Searches for offers as a consumer.
-     * @param version  (required)
      * @param latitude The latitude of where the search will center at (required)
      * @param longitude The longitude of where the search will center at (required)
      * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available (required)
@@ -3801,16 +3671,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchOffersForConsumerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy, final ApiCallback<OfferListResponse> _callback) throws ApiException {
+    public okhttp3.Call searchOffersForConsumerAsync(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull String recommendationType, @javax.annotation.Nonnull Long locationId, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Integer maxRecommendations, @javax.annotation.Nonnull String distanceUnit, @javax.annotation.Nullable String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String supportedPostalCodes, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String offerTypes, @javax.annotation.Nullable String type, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable String recommendOfferIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable Long offerId, @javax.annotation.Nullable Boolean includeMission, @javax.annotation.Nullable Boolean includeCategories, @javax.annotation.Nullable Boolean includeFilters, @javax.annotation.Nullable Boolean includeExpired, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean closestOfferOnly, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String groupBy, final ApiCallback<OfferListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchOffersForConsumerValidateBeforeCall(version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, _callback);
+        okhttp3.Call localVarCall = searchOffersForConsumerValidateBeforeCall(latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, _callback);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for topOfferTransactions
-     * @param version  (required)
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param limit The total number of record to return. Default id 20. (optional, default to 20)
      * @param _callback Callback for upload/download progress
@@ -3823,7 +3692,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call topOfferTransactionsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call topOfferTransactionsCall(@javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3840,8 +3709,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/offer/top"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/offer/top";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3877,20 +3745,14 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call topOfferTransactionsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling topOfferTransactions(Async)");
-        }
-
-        return topOfferTransactionsCall(version, start, limit, _callback);
+    private okhttp3.Call topOfferTransactionsValidateBeforeCall(@javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return topOfferTransactionsCall(start, limit, _callback);
 
     }
 
     /**
      * Get Offers (Top)
      * Gets the top active offers.
-     * @param version  (required)
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param limit The total number of record to return. Default id 20. (optional, default to 20)
      * @return OfferListResponse
@@ -3902,15 +3764,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public OfferListResponse topOfferTransactions(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<OfferListResponse> localVarResp = topOfferTransactionsWithHttpInfo(version, start, limit);
+    public OfferListResponse topOfferTransactions(@javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<OfferListResponse> localVarResp = topOfferTransactionsWithHttpInfo(start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Get Offers (Top)
      * Gets the top active offers.
-     * @param version  (required)
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param limit The total number of record to return. Default id 20. (optional, default to 20)
      * @return ApiResponse&lt;OfferListResponse&gt;
@@ -3922,8 +3783,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OfferListResponse> topOfferTransactionsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = topOfferTransactionsValidateBeforeCall(version, start, limit, null);
+    public ApiResponse<OfferListResponse> topOfferTransactionsWithHttpInfo(@javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = topOfferTransactionsValidateBeforeCall(start, limit, null);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3931,7 +3792,6 @@ public class OfferApi {
     /**
      * Get Offers (Top) (asynchronously)
      * Gets the top active offers.
-     * @param version  (required)
      * @param start The index into the record set to start with. Default is 0. (optional, default to 0)
      * @param limit The total number of record to return. Default id 20. (optional, default to 20)
      * @param _callback The callback to be executed when the API call finishes
@@ -3944,16 +3804,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call topOfferTransactionsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<OfferListResponse> _callback) throws ApiException {
+    public okhttp3.Call topOfferTransactionsAsync(@javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<OfferListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = topOfferTransactionsValidateBeforeCall(version, start, limit, _callback);
+        okhttp3.Call localVarCall = topOfferTransactionsValidateBeforeCall(start, limit, _callback);
         Type localVarReturnType = new TypeToken<OfferListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateOffer
-     * @param version  (required)
      * @param offerId The offer to update (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4051,7 +3910,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateOfferCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4068,8 +3927,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4445,12 +4303,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateOfferValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateOffer(Async)");
-        }
-
+    private okhttp3.Call updateOfferValidateBeforeCall(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerId' is set
         if (offerId == null) {
             throw new ApiException("Missing the required parameter 'offerId' when calling updateOffer(Async)");
@@ -4461,14 +4314,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'includeOfferLocations' when calling updateOffer(Async)");
         }
 
-        return updateOfferCall(version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
+        return updateOfferCall(offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
 
     }
 
     /**
      * Update Offer
      * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     * @param version  (required)
      * @param offerId The offer to update (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4565,15 +4417,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerOfferResponse updateOffer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        ApiResponse<RetailerOfferResponse> localVarResp = updateOfferWithHttpInfo(version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+    public RetailerOfferResponse updateOffer(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        ApiResponse<RetailerOfferResponse> localVarResp = updateOfferWithHttpInfo(offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
         return localVarResp.getData();
     }
 
     /**
      * Update Offer
      * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     * @param version  (required)
      * @param offerId The offer to update (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4670,8 +4521,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerOfferResponse> updateOfferWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
-        okhttp3.Call localVarCall = updateOfferValidateBeforeCall(version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, null);
+    public ApiResponse<RetailerOfferResponse> updateOfferWithHttpInfo(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary) throws ApiException {
+        okhttp3.Call localVarCall = updateOfferValidateBeforeCall(offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, null);
         Type localVarReturnType = new TypeToken<RetailerOfferResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4679,7 +4530,6 @@ public class OfferApi {
     /**
      * Update Offer (asynchronously)
      * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     * @param version  (required)
      * @param offerId The offer to update (required)
      * @param includeOfferLocations If true return all the offer locations associated with the offer (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4777,16 +4627,15 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<RetailerOfferResponse> _callback) throws ApiException {
+    public okhttp3.Call updateOfferAsync(@javax.annotation.Nonnull Long offerId, @javax.annotation.Nonnull Boolean includeOfferLocations, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long parentOfferId, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String offerLocations, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String title, @javax.annotation.Nullable String subTitle, @javax.annotation.Nullable String details, @javax.annotation.Nullable String subDetails, @javax.annotation.Nullable String finePrint, @javax.annotation.Nullable String barcodeType, @javax.annotation.Nullable String barcodeEntry, @javax.annotation.Nullable String externalRedeemOptions, @javax.annotation.Nullable String externalUrl, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String ticketsRewardType, @javax.annotation.Nullable Long ticketsReward, @javax.annotation.Nullable Long activated, @javax.annotation.Nullable Long expires, @javax.annotation.Nullable Boolean noExpiration, @javax.annotation.Nullable Integer availableLimit, @javax.annotation.Nullable Integer availableLimitPerUser, @javax.annotation.Nullable Integer addedLimit, @javax.annotation.Nullable Integer viewLimit, @javax.annotation.Nullable Integer maxPrints, @javax.annotation.Nullable String ticketPriceType, @javax.annotation.Nullable Long ticketPrice, @javax.annotation.Nullable Double fullPrice, @javax.annotation.Nullable Double discountPrice, @javax.annotation.Nullable Boolean showRemaining, @javax.annotation.Nullable Boolean showRedeemed, @javax.annotation.Nullable Boolean replaced, @javax.annotation.Nullable Boolean featured, @javax.annotation.Nullable String offerType, @javax.annotation.Nullable String specialOfferType, @javax.annotation.Nullable String offerVisibility, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Long barcodeAssetId, @javax.annotation.Nullable Long imageAssetId, @javax.annotation.Nullable Long imageAssetId1, @javax.annotation.Nullable Long imageAssetId2, @javax.annotation.Nullable Long imageAssetId3, @javax.annotation.Nullable Long imageAssetId4, @javax.annotation.Nullable Long imageAssetId5, @javax.annotation.Nullable String publisher, @javax.annotation.Nullable Long redeemableStart, @javax.annotation.Nullable Long redeemableEnd, @javax.annotation.Nullable String brand, @javax.annotation.Nullable String productType, @javax.annotation.Nullable String conditionType, @javax.annotation.Nullable String isbn, @javax.annotation.Nullable String asin, @javax.annotation.Nullable String catalogNumbers, @javax.annotation.Nullable String department, @javax.annotation.Nullable String features, @javax.annotation.Nullable Double minimumPrice, @javax.annotation.Nullable Double width, @javax.annotation.Nullable Double height, @javax.annotation.Nullable Double depth, @javax.annotation.Nullable Double weight, @javax.annotation.Nullable String unit, @javax.annotation.Nullable String studio, @javax.annotation.Nullable String parentalRating, @javax.annotation.Nullable Long publishDate, @javax.annotation.Nullable Long availabilityDate, @javax.annotation.Nullable Long sizeId, @javax.annotation.Nullable Long listingId, @javax.annotation.Nullable String mediaType, @javax.annotation.Nullable Integer duration, @javax.annotation.Nullable String author, @javax.annotation.Nullable Long releaseDate, @javax.annotation.Nullable String collectionIds, @javax.annotation.Nullable Integer rebootTimeHour, @javax.annotation.Nullable Integer rebootTimeMinute, @javax.annotation.Nullable Integer idleTimeoutInSecond, @javax.annotation.Nullable String serialNumber, @javax.annotation.Nullable String udid, @javax.annotation.Nullable String deviceType, @javax.annotation.Nullable Double devicePower, @javax.annotation.Nullable Double deviceInterference, @javax.annotation.Nullable String availability, @javax.annotation.Nullable String availabilitySummary, final ApiCallback<RetailerOfferResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateOfferValidateBeforeCall(version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
+        okhttp3.Call localVarCall = updateOfferValidateBeforeCall(offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, _callback);
         Type localVarReturnType = new TypeToken<RetailerOfferResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateOfferStatus
-     * @param version  (required)
      * @param offerIds Comma separated list of offer ids (required)
      * @param active Determines whether to make the offer active as well (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4801,7 +4650,7 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferStatusCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateOfferStatusCall(@javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4818,8 +4667,7 @@ public class OfferApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/offer/status"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/offer/status";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4863,12 +4711,7 @@ public class OfferApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateOfferStatusValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateOfferStatus(Async)");
-        }
-
+    private okhttp3.Call updateOfferStatusValidateBeforeCall(@javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'offerIds' is set
         if (offerIds == null) {
             throw new ApiException("Missing the required parameter 'offerIds' when calling updateOfferStatus(Async)");
@@ -4879,14 +4722,13 @@ public class OfferApi {
             throw new ApiException("Missing the required parameter 'active' when calling updateOfferStatus(Async)");
         }
 
-        return updateOfferStatusCall(version, offerIds, active, deviceId, accountId, _callback);
+        return updateOfferStatusCall(offerIds, active, deviceId, accountId, _callback);
 
     }
 
     /**
      * Activate Offer
      * Sets the activated date on offers. This will make offers visible for consumers.
-     * @param version  (required)
      * @param offerIds Comma separated list of offer ids (required)
      * @param active Determines whether to make the offer active as well (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4900,15 +4742,14 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse updateOfferStatus(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = updateOfferStatusWithHttpInfo(version, offerIds, active, deviceId, accountId);
+    public SirqulResponse updateOfferStatus(@javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = updateOfferStatusWithHttpInfo(offerIds, active, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Activate Offer
      * Sets the activated date on offers. This will make offers visible for consumers.
-     * @param version  (required)
      * @param offerIds Comma separated list of offer ids (required)
      * @param active Determines whether to make the offer active as well (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4922,8 +4763,8 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> updateOfferStatusWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = updateOfferStatusValidateBeforeCall(version, offerIds, active, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> updateOfferStatusWithHttpInfo(@javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = updateOfferStatusValidateBeforeCall(offerIds, active, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4931,7 +4772,6 @@ public class OfferApi {
     /**
      * Activate Offer (asynchronously)
      * Sets the activated date on offers. This will make offers visible for consumers.
-     * @param version  (required)
      * @param offerIds Comma separated list of offer ids (required)
      * @param active Determines whether to make the offer active as well (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -4946,9 +4786,9 @@ public class OfferApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateOfferStatusAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call updateOfferStatusAsync(@javax.annotation.Nonnull String offerIds, @javax.annotation.Nonnull Boolean active, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateOfferStatusValidateBeforeCall(version, offerIds, active, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = updateOfferStatusValidateBeforeCall(offerIds, active, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AccountMiniResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.Leg;
 import org.openapitools.client.model.LegResponse;
 import org.openapitools.client.model.PredictedLocationResponse;
@@ -81,7 +80,6 @@ public class TrackingApi {
 
     /**
      * Build call for batchSaveTracking
-     * @param version  (required)
      * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -99,7 +97,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchSaveTrackingCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call batchSaveTrackingCall(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/batch/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/batch/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -173,25 +170,19 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchSaveTrackingValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling batchSaveTracking(Async)");
-        }
-
+    private okhttp3.Call batchSaveTrackingValidateBeforeCall(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'data' is set
         if (data == null) {
             throw new ApiException("Missing the required parameter 'data' when calling batchSaveTracking(Async)");
         }
 
-        return batchSaveTrackingCall(version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, _callback);
+        return batchSaveTrackingCall(data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, _callback);
 
     }
 
     /**
      * Create Batch Tracking
      * Batch create tracking legs
-     * @param version  (required)
      * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -208,15 +199,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<Leg> batchSaveTracking(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID) throws ApiException {
-        ApiResponse<List<Leg>> localVarResp = batchSaveTrackingWithHttpInfo(version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
+    public List<Leg> batchSaveTracking(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID) throws ApiException {
+        ApiResponse<List<Leg>> localVarResp = batchSaveTrackingWithHttpInfo(data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
         return localVarResp.getData();
     }
 
     /**
      * Create Batch Tracking
      * Batch create tracking legs
-     * @param version  (required)
      * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -233,8 +223,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Leg>> batchSaveTrackingWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID) throws ApiException {
-        okhttp3.Call localVarCall = batchSaveTrackingValidateBeforeCall(version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, null);
+    public ApiResponse<List<Leg>> batchSaveTrackingWithHttpInfo(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID) throws ApiException {
+        okhttp3.Call localVarCall = batchSaveTrackingValidateBeforeCall(data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, null);
         Type localVarReturnType = new TypeToken<List<Leg>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -242,7 +232,6 @@ public class TrackingApi {
     /**
      * Create Batch Tracking (asynchronously)
      * Batch create tracking legs
-     * @param version  (required)
      * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
@@ -260,16 +249,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchSaveTrackingAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID, final ApiCallback<List<Leg>> _callback) throws ApiException {
+    public okhttp3.Call batchSaveTrackingAsync(@javax.annotation.Nonnull String data, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean generateAccounts, @javax.annotation.Nullable Boolean updateAccountLocations, @javax.annotation.Nullable String defaultTag, @javax.annotation.Nullable String slaveUID, final ApiCallback<List<Leg>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = batchSaveTrackingValidateBeforeCall(version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, _callback);
+        okhttp3.Call localVarCall = batchSaveTrackingValidateBeforeCall(data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, _callback);
         Type localVarReturnType = new TypeToken<List<Leg>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPredictedLocations
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -289,7 +277,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPredictedLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPredictedLocationsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -306,8 +294,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/predicted/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/predicted/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -371,25 +358,19 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPredictedLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPredictedLocations(Async)");
-        }
-
+    private okhttp3.Call getPredictedLocationsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPredictedLocations(Async)");
         }
 
-        return getPredictedLocationsCall(version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, _callback);
+        return getPredictedLocationsCall(accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, _callback);
 
     }
 
     /**
      * Get Predicted Locations
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -408,15 +389,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PredictedLocationResponse getPredictedLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        ApiResponse<PredictedLocationResponse> localVarResp = getPredictedLocationsWithHttpInfo(version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
+    public PredictedLocationResponse getPredictedLocations(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        ApiResponse<PredictedLocationResponse> localVarResp = getPredictedLocationsWithHttpInfo(accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
         return localVarResp.getData();
     }
 
     /**
      * Get Predicted Locations
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -435,8 +415,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PredictedLocationResponse> getPredictedLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        okhttp3.Call localVarCall = getPredictedLocationsValidateBeforeCall(version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, null);
+    public ApiResponse<PredictedLocationResponse> getPredictedLocationsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        okhttp3.Call localVarCall = getPredictedLocationsValidateBeforeCall(accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, null);
         Type localVarReturnType = new TypeToken<PredictedLocationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -444,7 +424,6 @@ public class TrackingApi {
     /**
      * Get Predicted Locations (asynchronously)
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -464,16 +443,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPredictedLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder, final ApiCallback<PredictedLocationResponse> _callback) throws ApiException {
+    public okhttp3.Call getPredictedLocationsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable Long threshold, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String sortOrder, final ApiCallback<PredictedLocationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPredictedLocationsValidateBeforeCall(version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, _callback);
+        okhttp3.Call localVarCall = getPredictedLocationsValidateBeforeCall(accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, _callback);
         Type localVarReturnType = new TypeToken<PredictedLocationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPredictedPath
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param startStepId The stepId to begin from (required)
      * @param endStepId The stepId to end with (required)
@@ -487,7 +465,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPredictedPathCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPredictedPathCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -504,8 +482,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/path/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/path/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -545,12 +522,7 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPredictedPathValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPredictedPath(Async)");
-        }
-
+    private okhttp3.Call getPredictedPathValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPredictedPath(Async)");
@@ -566,14 +538,13 @@ public class TrackingApi {
             throw new ApiException("Missing the required parameter 'endStepId' when calling getPredictedPath(Async)");
         }
 
-        return getPredictedPathCall(version, accountId, startStepId, endStepId, _callback);
+        return getPredictedPathCall(accountId, startStepId, endStepId, _callback);
 
     }
 
     /**
      * Get Tracking Path
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param startStepId The stepId to begin from (required)
      * @param endStepId The stepId to end with (required)
@@ -586,15 +557,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<StepResponse> getPredictedPath(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId) throws ApiException {
-        ApiResponse<List<StepResponse>> localVarResp = getPredictedPathWithHttpInfo(version, accountId, startStepId, endStepId);
+    public List<StepResponse> getPredictedPath(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId) throws ApiException {
+        ApiResponse<List<StepResponse>> localVarResp = getPredictedPathWithHttpInfo(accountId, startStepId, endStepId);
         return localVarResp.getData();
     }
 
     /**
      * Get Tracking Path
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param startStepId The stepId to begin from (required)
      * @param endStepId The stepId to end with (required)
@@ -607,8 +577,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<StepResponse>> getPredictedPathWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId) throws ApiException {
-        okhttp3.Call localVarCall = getPredictedPathValidateBeforeCall(version, accountId, startStepId, endStepId, null);
+    public ApiResponse<List<StepResponse>> getPredictedPathWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId) throws ApiException {
+        okhttp3.Call localVarCall = getPredictedPathValidateBeforeCall(accountId, startStepId, endStepId, null);
         Type localVarReturnType = new TypeToken<List<StepResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -616,7 +586,6 @@ public class TrackingApi {
     /**
      * Get Tracking Path (asynchronously)
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param startStepId The stepId to begin from (required)
      * @param endStepId The stepId to end with (required)
@@ -630,16 +599,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPredictedPathAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId, final ApiCallback<List<StepResponse>> _callback) throws ApiException {
+    public okhttp3.Call getPredictedPathAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long startStepId, @javax.annotation.Nonnull Long endStepId, final ApiCallback<List<StepResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPredictedPathValidateBeforeCall(version, accountId, startStepId, endStepId, _callback);
+        okhttp3.Call localVarCall = getPredictedPathValidateBeforeCall(accountId, startStepId, endStepId, _callback);
         Type localVarReturnType = new TypeToken<List<StepResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPreferredLocations
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -661,7 +629,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPreferredLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPreferredLocationsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -678,8 +646,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/preferred/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/preferred/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -751,25 +718,19 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPreferredLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPreferredLocations(Async)");
-        }
-
+    private okhttp3.Call getPreferredLocationsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPreferredLocations(Async)");
         }
 
-        return getPreferredLocationsCall(version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, _callback);
+        return getPreferredLocationsCall(accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, _callback);
 
     }
 
     /**
      * Search Preferred Locations
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -790,15 +751,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<PreferredLocationResponse> getPreferredLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
-        ApiResponse<List<PreferredLocationResponse>> localVarResp = getPreferredLocationsWithHttpInfo(version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
+    public List<PreferredLocationResponse> getPreferredLocations(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
+        ApiResponse<List<PreferredLocationResponse>> localVarResp = getPreferredLocationsWithHttpInfo(accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
         return localVarResp.getData();
     }
 
     /**
      * Search Preferred Locations
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -819,8 +779,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<PreferredLocationResponse>> getPreferredLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
-        okhttp3.Call localVarCall = getPreferredLocationsValidateBeforeCall(version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, null);
+    public ApiResponse<List<PreferredLocationResponse>> getPreferredLocationsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit) throws ApiException {
+        okhttp3.Call localVarCall = getPreferredLocationsValidateBeforeCall(accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, null);
         Type localVarReturnType = new TypeToken<List<PreferredLocationResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,7 +788,6 @@ public class TrackingApi {
     /**
      * Search Preferred Locations (asynchronously)
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @param version  (required)
      * @param accountId The account id of the customer (required)
      * @param latitude latitude to return a more likely result set based on the user&#39;s current location (optional)
      * @param longitude longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -850,16 +809,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPreferredLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback<List<PreferredLocationResponse>> _callback) throws ApiException {
+    public okhttp3.Call getPreferredLocationsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Long dateCheck, @javax.annotation.Nullable String hourCheck, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Double searchRange, @javax.annotation.Nullable String distanceUnit, final ApiCallback<List<PreferredLocationResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPreferredLocationsValidateBeforeCall(version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, _callback);
+        okhttp3.Call localVarCall = getPreferredLocationsValidateBeforeCall(accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, _callback);
         Type localVarReturnType = new TypeToken<List<PreferredLocationResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTrackingLegs
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -878,7 +836,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrackingLegsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTrackingLegsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -895,8 +853,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -956,20 +913,14 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTrackingLegsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getTrackingLegs(Async)");
-        }
-
-        return getTrackingLegsCall(version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, _callback);
+    private okhttp3.Call getTrackingLegsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint, final ApiCallback _callback) throws ApiException {
+        return getTrackingLegsCall(deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, _callback);
 
     }
 
     /**
      * Search Tracking
      * Retrieve tracking data to be able to show where a user has been.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -987,15 +938,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<LegResponse> getTrackingLegs(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint) throws ApiException {
-        ApiResponse<List<LegResponse>> localVarResp = getTrackingLegsWithHttpInfo(version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
+    public List<LegResponse> getTrackingLegs(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint) throws ApiException {
+        ApiResponse<List<LegResponse>> localVarResp = getTrackingLegsWithHttpInfo(deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
         return localVarResp.getData();
     }
 
     /**
      * Search Tracking
      * Retrieve tracking data to be able to show where a user has been.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -1013,8 +963,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<LegResponse>> getTrackingLegsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint) throws ApiException {
-        okhttp3.Call localVarCall = getTrackingLegsValidateBeforeCall(version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, null);
+    public ApiResponse<List<LegResponse>> getTrackingLegsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint) throws ApiException {
+        okhttp3.Call localVarCall = getTrackingLegsValidateBeforeCall(deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, null);
         Type localVarReturnType = new TypeToken<List<LegResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1022,7 +972,6 @@ public class TrackingApi {
     /**
      * Search Tracking (asynchronously)
      * Retrieve tracking data to be able to show where a user has been.
-     * @param version  (required)
      * @param deviceId the device id (deviceId or accountId required) (optional)
      * @param accountId the account id of the user (deviceId or accountId required) (optional)
      * @param ownerId the account id of the person the user wants to tracking data for (optional)
@@ -1041,16 +990,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTrackingLegsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint, final ApiCallback<List<LegResponse>> _callback) throws ApiException {
+    public okhttp3.Call getTrackingLegsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long ownerId, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Boolean getLastPoint, final ApiCallback<List<LegResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTrackingLegsValidateBeforeCall(version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, _callback);
+        okhttp3.Call localVarCall = getTrackingLegsValidateBeforeCall(deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, _callback);
         Type localVarReturnType = new TypeToken<List<LegResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for saveTrackingLeg
-     * @param version  (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
      * @param startDate the start date (in UTC milliseconds) of the first point (required)
@@ -1073,7 +1021,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTrackingLegCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call saveTrackingLegCall(@javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1090,8 +1038,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/leg/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/leg/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1167,12 +1114,7 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call saveTrackingLegValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling saveTrackingLeg(Async)");
-        }
-
+    private okhttp3.Call saveTrackingLegValidateBeforeCall(@javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'startLat' is set
         if (startLat == null) {
             throw new ApiException("Missing the required parameter 'startLat' when calling saveTrackingLeg(Async)");
@@ -1203,14 +1145,13 @@ public class TrackingApi {
             throw new ApiException("Missing the required parameter 'endDate' when calling saveTrackingLeg(Async)");
         }
 
-        return saveTrackingLegCall(version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, _callback);
+        return saveTrackingLegCall(startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, _callback);
 
     }
 
     /**
      * Create Tracking Leg
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
      * @param startDate the start date (in UTC milliseconds) of the first point (required)
@@ -1232,15 +1173,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse saveTrackingLeg(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = saveTrackingLegWithHttpInfo(version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
+    public SirqulResponse saveTrackingLeg(@javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = saveTrackingLegWithHttpInfo(startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
         return localVarResp.getData();
     }
 
     /**
      * Create Tracking Leg
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
      * @param startDate the start date (in UTC milliseconds) of the first point (required)
@@ -1262,8 +1202,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> saveTrackingLegWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags) throws ApiException {
-        okhttp3.Call localVarCall = saveTrackingLegValidateBeforeCall(version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, null);
+    public ApiResponse<SirqulResponse> saveTrackingLegWithHttpInfo(@javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags) throws ApiException {
+        okhttp3.Call localVarCall = saveTrackingLegValidateBeforeCall(startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1271,7 +1211,6 @@ public class TrackingApi {
     /**
      * Create Tracking Leg (asynchronously)
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
      * @param startDate the start date (in UTC milliseconds) of the first point (required)
@@ -1294,16 +1233,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTrackingLegAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call saveTrackingLegAsync(@javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, @javax.annotation.Nullable String steps, @javax.annotation.Nullable String tags, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = saveTrackingLegValidateBeforeCall(version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, _callback);
+        okhttp3.Call localVarCall = saveTrackingLegValidateBeforeCall(startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for saveTrackingStep
-     * @param version  (required)
      * @param legId the leg to add the step to (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
@@ -1325,7 +1263,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTrackingStepCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call saveTrackingStepCall(@javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1342,8 +1280,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/step/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/step/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1415,12 +1352,7 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call saveTrackingStepValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling saveTrackingStep(Async)");
-        }
-
+    private okhttp3.Call saveTrackingStepValidateBeforeCall(@javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'legId' is set
         if (legId == null) {
             throw new ApiException("Missing the required parameter 'legId' when calling saveTrackingStep(Async)");
@@ -1456,14 +1388,13 @@ public class TrackingApi {
             throw new ApiException("Missing the required parameter 'endDate' when calling saveTrackingStep(Async)");
         }
 
-        return saveTrackingStepCall(version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, _callback);
+        return saveTrackingStepCall(legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, _callback);
 
     }
 
     /**
      * Create Tracking Step
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param legId the leg to add the step to (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
@@ -1484,15 +1415,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse saveTrackingStep(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = saveTrackingStepWithHttpInfo(version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
+    public SirqulResponse saveTrackingStep(@javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = saveTrackingStepWithHttpInfo(legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
         return localVarResp.getData();
     }
 
     /**
      * Create Tracking Step
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param legId the leg to add the step to (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
@@ -1513,8 +1443,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> saveTrackingStepWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration) throws ApiException {
-        okhttp3.Call localVarCall = saveTrackingStepValidateBeforeCall(version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, null);
+    public ApiResponse<SirqulResponse> saveTrackingStepWithHttpInfo(@javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration) throws ApiException {
+        okhttp3.Call localVarCall = saveTrackingStepValidateBeforeCall(legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1522,7 +1452,6 @@ public class TrackingApi {
     /**
      * Create Tracking Step (asynchronously)
      * Send tracking points to be able to generate pathing data
-     * @param version  (required)
      * @param legId the leg to add the step to (required)
      * @param startLat the latitude of the first point (required)
      * @param startLng the longitude of the first point (required)
@@ -1544,16 +1473,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveTrackingStepAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call saveTrackingStepAsync(@javax.annotation.Nonnull Long legId, @javax.annotation.Nonnull Double startLat, @javax.annotation.Nonnull Double startLng, @javax.annotation.Nonnull Long startDate, @javax.annotation.Nonnull Double endLat, @javax.annotation.Nonnull Double endLng, @javax.annotation.Nonnull Long endDate, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Double distance, @javax.annotation.Nullable Long duration, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = saveTrackingStepValidateBeforeCall(version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, _callback);
+        okhttp3.Call localVarCall = saveTrackingStepValidateBeforeCall(legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchAccountsWithTrackingLegs
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -1578,7 +1506,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAccountsWithTrackingLegsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchAccountsWithTrackingLegsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1595,8 +1523,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/list"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/list";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1680,25 +1607,19 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchAccountsWithTrackingLegsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchAccountsWithTrackingLegs(Async)");
-        }
-
+    private okhttp3.Call searchAccountsWithTrackingLegsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchAccountsWithTrackingLegs(Async)");
         }
 
-        return searchAccountsWithTrackingLegsCall(version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, _callback);
+        return searchAccountsWithTrackingLegsCall(accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, _callback);
 
     }
 
     /**
      * List Tracking
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -1722,15 +1643,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<AccountMiniResponse> searchAccountsWithTrackingLegs(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        ApiResponse<List<AccountMiniResponse>> localVarResp = searchAccountsWithTrackingLegsWithHttpInfo(version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
+    public List<AccountMiniResponse> searchAccountsWithTrackingLegs(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        ApiResponse<List<AccountMiniResponse>> localVarResp = searchAccountsWithTrackingLegsWithHttpInfo(accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
         return localVarResp.getData();
     }
 
     /**
      * List Tracking
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -1754,8 +1674,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AccountMiniResponse>> searchAccountsWithTrackingLegsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchAccountsWithTrackingLegsValidateBeforeCall(version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, null);
+    public ApiResponse<List<AccountMiniResponse>> searchAccountsWithTrackingLegsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchAccountsWithTrackingLegsValidateBeforeCall(accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, null);
         Type localVarReturnType = new TypeToken<List<AccountMiniResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1763,7 +1683,6 @@ public class TrackingApi {
     /**
      * List Tracking (asynchronously)
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword Used for LIKE search of first or last name on the acocunt (optional)
      * @param startDate Range to begin in UTC milliseconds (optional)
@@ -1788,16 +1707,15 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAccountsWithTrackingLegsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<AccountMiniResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchAccountsWithTrackingLegsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable Double range, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean activeOnly, final ApiCallback<List<AccountMiniResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchAccountsWithTrackingLegsValidateBeforeCall(version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, _callback);
+        okhttp3.Call localVarCall = searchAccountsWithTrackingLegsValidateBeforeCall(accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, _callback);
         Type localVarReturnType = new TypeToken<List<AccountMiniResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchTrackingLegs
-     * @param version  (required)
      * @param accountId The account id to search tracking for (required)
      * @param appKey The application key (required)
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -1816,7 +1734,7 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTrackingLegsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchTrackingLegsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1833,8 +1751,7 @@ public class TrackingApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/tracking/searchByBillable"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/tracking/searchByBillable";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1894,12 +1811,7 @@ public class TrackingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchTrackingLegsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchTrackingLegs(Async)");
-        }
-
+    private okhttp3.Call searchTrackingLegsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchTrackingLegs(Async)");
@@ -1910,14 +1822,13 @@ public class TrackingApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling searchTrackingLegs(Async)");
         }
 
-        return searchTrackingLegsCall(version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, _callback);
+        return searchTrackingLegsCall(accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, _callback);
 
     }
 
     /**
      * Search Tracking (Billable)
      * Retrieve tracking data for billable/account scoped queries.
-     * @param version  (required)
      * @param accountId The account id to search tracking for (required)
      * @param appKey The application key (required)
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -1935,15 +1846,14 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<LegResponse> searchTrackingLegs(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<LegResponse>> localVarResp = searchTrackingLegsWithHttpInfo(version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
+    public List<LegResponse> searchTrackingLegs(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<LegResponse>> localVarResp = searchTrackingLegsWithHttpInfo(accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Tracking (Billable)
      * Retrieve tracking data for billable/account scoped queries.
-     * @param version  (required)
      * @param accountId The account id to search tracking for (required)
      * @param appKey The application key (required)
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -1961,8 +1871,8 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<LegResponse>> searchTrackingLegsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchTrackingLegsValidateBeforeCall(version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, null);
+    public ApiResponse<List<LegResponse>> searchTrackingLegsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchTrackingLegsValidateBeforeCall(accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, null);
         Type localVarReturnType = new TypeToken<List<LegResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1970,7 +1880,6 @@ public class TrackingApi {
     /**
      * Search Tracking (Billable) (asynchronously)
      * Retrieve tracking data for billable/account scoped queries.
-     * @param version  (required)
      * @param accountId The account id to search tracking for (required)
      * @param appKey The application key (required)
      * @param trackingDeviceId The id of the tracking device (optional)
@@ -1989,9 +1898,9 @@ public class TrackingApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchTrackingLegsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<LegResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchTrackingLegsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String trackingDeviceId, @javax.annotation.Nullable Long startDate, @javax.annotation.Nullable Long endDate, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<LegResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchTrackingLegsValidateBeforeCall(version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, _callback);
+        okhttp3.Call localVarCall = searchTrackingLegsValidateBeforeCall(accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<LegResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

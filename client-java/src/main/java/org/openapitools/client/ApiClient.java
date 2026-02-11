@@ -61,12 +61,19 @@ import org.openapitools.client.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    protected String basePath = "http://localhost";
+    protected String basePath = "https://dev.sirqul.com/api/3.18";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "",
+      "https://dev.sirqul.com/api/{version}",
       "No description provided",
-      new HashMap<String, ServerVariable>()
+      new HashMap<String, ServerVariable>() {{
+        put("version", new ServerVariable(
+          "No description provided",
+          "3.18",
+          new HashSet<String>(
+          )
+        ));
+      }}
     )
   ));
     protected Integer serverIndex = 0;
@@ -161,7 +168,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://localhost)
+     * @param basePath Base path of the URL (e.g https://dev.sirqul.com/api/3.18)
      * @return An instance of ApiClient
      */
     public ApiClient setBasePath(String basePath) {

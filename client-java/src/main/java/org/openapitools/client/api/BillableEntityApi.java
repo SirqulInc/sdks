@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.BillableEntityResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class BillableEntityApi {
 
     /**
      * Build call for createBillableEntity
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -99,7 +97,7 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBillableEntityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBillableEntityCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,8 +114,7 @@ public class BillableEntityApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billable/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billable/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -193,20 +190,14 @@ public class BillableEntityApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBillableEntityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createBillableEntity(Async)");
-        }
-
-        return createBillableEntityCall(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
+    private okhttp3.Call createBillableEntityValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
+        return createBillableEntityCall(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
 
     }
 
     /**
      * Create Billable
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -228,15 +219,14 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BillableEntityResponse createBillableEntity(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
-        ApiResponse<BillableEntityResponse> localVarResp = createBillableEntityWithHttpInfo(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+    public BillableEntityResponse createBillableEntity(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
+        ApiResponse<BillableEntityResponse> localVarResp = createBillableEntityWithHttpInfo(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
         return localVarResp.getData();
     }
 
     /**
      * Create Billable
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -258,8 +248,8 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BillableEntityResponse> createBillableEntityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
-        okhttp3.Call localVarCall = createBillableEntityValidateBeforeCall(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, null);
+    public ApiResponse<BillableEntityResponse> createBillableEntityWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
+        okhttp3.Call localVarCall = createBillableEntityValidateBeforeCall(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, null);
         Type localVarReturnType = new TypeToken<BillableEntityResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -267,7 +257,6 @@ public class BillableEntityApi {
     /**
      * Create Billable (asynchronously)
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -290,16 +279,15 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBillableEntityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback<BillableEntityResponse> _callback) throws ApiException {
+    public okhttp3.Call createBillableEntityAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback<BillableEntityResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createBillableEntityValidateBeforeCall(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
+        okhttp3.Call localVarCall = createBillableEntityValidateBeforeCall(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
         Type localVarReturnType = new TypeToken<BillableEntityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteBillableEntity
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @param _callback Callback for upload/download progress
@@ -312,7 +300,7 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteBillableEntityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteBillableEntityCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -329,8 +317,7 @@ public class BillableEntityApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billable/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billable/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -366,20 +353,14 @@ public class BillableEntityApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteBillableEntityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteBillableEntity(Async)");
-        }
-
-        return deleteBillableEntityCall(version, deviceId, accountId, _callback);
+    private okhttp3.Call deleteBillableEntityValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+        return deleteBillableEntityCall(deviceId, accountId, _callback);
 
     }
 
     /**
      * Delete Billable
      * Mark the billable as deleted
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @return SirqulResponse
@@ -391,15 +372,14 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteBillableEntity(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteBillableEntityWithHttpInfo(version, deviceId, accountId);
+    public SirqulResponse deleteBillableEntity(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteBillableEntityWithHttpInfo(deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Billable
      * Mark the billable as deleted
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -411,8 +391,8 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteBillableEntityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = deleteBillableEntityValidateBeforeCall(version, deviceId, accountId, null);
+    public ApiResponse<SirqulResponse> deleteBillableEntityWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = deleteBillableEntityValidateBeforeCall(deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -420,7 +400,6 @@ public class BillableEntityApi {
     /**
      * Delete Billable (asynchronously)
      * Mark the billable as deleted
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account used to perform the delete, must have rights to edit the billable entity. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -433,16 +412,15 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteBillableEntityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteBillableEntityAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteBillableEntityValidateBeforeCall(version, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = deleteBillableEntityValidateBeforeCall(deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBillableEntity
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -457,7 +435,7 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillableEntityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBillableEntityCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -474,8 +452,7 @@ public class BillableEntityApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billable/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billable/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -519,20 +496,14 @@ public class BillableEntityApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBillableEntityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getBillableEntity(Async)");
-        }
-
-        return getBillableEntityCall(version, deviceId, accountId, includeCounts, includePayments, _callback);
+    private okhttp3.Call getBillableEntityValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments, final ApiCallback _callback) throws ApiException {
+        return getBillableEntityCall(deviceId, accountId, includeCounts, includePayments, _callback);
 
     }
 
     /**
      * Get Billable
      * Used to determine the associated BillableEntity of an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -546,15 +517,14 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BillableEntityResponse getBillableEntity(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments) throws ApiException {
-        ApiResponse<BillableEntityResponse> localVarResp = getBillableEntityWithHttpInfo(version, deviceId, accountId, includeCounts, includePayments);
+    public BillableEntityResponse getBillableEntity(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments) throws ApiException {
+        ApiResponse<BillableEntityResponse> localVarResp = getBillableEntityWithHttpInfo(deviceId, accountId, includeCounts, includePayments);
         return localVarResp.getData();
     }
 
     /**
      * Get Billable
      * Used to determine the associated BillableEntity of an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -568,8 +538,8 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BillableEntityResponse> getBillableEntityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments) throws ApiException {
-        okhttp3.Call localVarCall = getBillableEntityValidateBeforeCall(version, deviceId, accountId, includeCounts, includePayments, null);
+    public ApiResponse<BillableEntityResponse> getBillableEntityWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments) throws ApiException {
+        okhttp3.Call localVarCall = getBillableEntityValidateBeforeCall(deviceId, accountId, includeCounts, includePayments, null);
         Type localVarReturnType = new TypeToken<BillableEntityResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -577,7 +547,6 @@ public class BillableEntityApi {
     /**
      * Get Billable (asynchronously)
      * Used to determine the associated BillableEntity of an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used) (optional)
      * @param includeCounts Determines whether to include the retailer dash board counts into the response (optional, default to false)
@@ -592,16 +561,15 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBillableEntityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments, final ApiCallback<BillableEntityResponse> _callback) throws ApiException {
+    public okhttp3.Call getBillableEntityAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Boolean includeCounts, @javax.annotation.Nullable Boolean includePayments, final ApiCallback<BillableEntityResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBillableEntityValidateBeforeCall(version, deviceId, accountId, includeCounts, includePayments, _callback);
+        okhttp3.Call localVarCall = getBillableEntityValidateBeforeCall(deviceId, accountId, includeCounts, includePayments, _callback);
         Type localVarReturnType = new TypeToken<BillableEntityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateBillableEntity
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -624,7 +592,7 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateBillableEntityCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateBillableEntityCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -641,8 +609,7 @@ public class BillableEntityApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billable/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billable/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -718,20 +685,14 @@ public class BillableEntityApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateBillableEntityValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateBillableEntity(Async)");
-        }
-
-        return updateBillableEntityCall(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
+    private okhttp3.Call updateBillableEntityValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback _callback) throws ApiException {
+        return updateBillableEntityCall(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
 
     }
 
     /**
      * Update Billable
      * Updates the billable record for an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -753,15 +714,14 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public BillableEntityResponse updateBillableEntity(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
-        ApiResponse<BillableEntityResponse> localVarResp = updateBillableEntityWithHttpInfo(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+    public BillableEntityResponse updateBillableEntity(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
+        ApiResponse<BillableEntityResponse> localVarResp = updateBillableEntityWithHttpInfo(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
         return localVarResp.getData();
     }
 
     /**
      * Update Billable
      * Updates the billable record for an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -783,8 +743,8 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BillableEntityResponse> updateBillableEntityWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
-        okhttp3.Call localVarCall = updateBillableEntityValidateBeforeCall(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, null);
+    public ApiResponse<BillableEntityResponse> updateBillableEntityWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey) throws ApiException {
+        okhttp3.Call localVarCall = updateBillableEntityValidateBeforeCall(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, null);
         Type localVarReturnType = new TypeToken<BillableEntityResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -792,7 +752,6 @@ public class BillableEntityApi {
     /**
      * Update Billable (asynchronously)
      * Updates the billable record for an account
-     * @param version  (required)
      * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
      * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
      * @param name The name of the entity responsible for billing  (optional)
@@ -815,9 +774,9 @@ public class BillableEntityApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateBillableEntityAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback<BillableEntityResponse> _callback) throws ApiException {
+    public okhttp3.Call updateBillableEntityAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String authorizeNetApiKey, @javax.annotation.Nullable String authorizeNetTransactionKey, final ApiCallback<BillableEntityResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateBillableEntityValidateBeforeCall(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
+        okhttp3.Call localVarCall = updateBillableEntityValidateBeforeCall(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, _callback);
         Type localVarReturnType = new TypeToken<BillableEntityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.RetailerLocationResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -77,7 +76,6 @@ public class RetailerLocationApi {
 
     /**
      * Build call for createRetailerLocationConsumer
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param name The name of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -117,7 +115,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRetailerLocationConsumerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRetailerLocationConsumerCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -134,8 +132,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -279,12 +276,7 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRetailerLocationConsumerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRetailerLocationConsumer(Async)");
-        }
-
+    private okhttp3.Call createRetailerLocationConsumerValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling createRetailerLocationConsumer(Async)");
@@ -295,14 +287,13 @@ public class RetailerLocationApi {
             throw new ApiException("Missing the required parameter 'name' when calling createRetailerLocationConsumer(Async)");
         }
 
-        return createRetailerLocationConsumerCall(version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, _callback);
+        return createRetailerLocationConsumerCall(appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, _callback);
 
     }
 
     /**
      * Create Retailer Location (Consumer)
      * Creates a location record for an application that can support crowd sourced locations.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param name The name of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -341,15 +332,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerLocationResponse createRetailerLocationConsumer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        ApiResponse<RetailerLocationResponse> localVarResp = createRetailerLocationConsumerWithHttpInfo(version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
+    public RetailerLocationResponse createRetailerLocationConsumer(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        ApiResponse<RetailerLocationResponse> localVarResp = createRetailerLocationConsumerWithHttpInfo(appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
         return localVarResp.getData();
     }
 
     /**
      * Create Retailer Location (Consumer)
      * Creates a location record for an application that can support crowd sourced locations.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param name The name of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -388,8 +378,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerLocationResponse> createRetailerLocationConsumerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
-        okhttp3.Call localVarCall = createRetailerLocationConsumerValidateBeforeCall(version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, null);
+    public ApiResponse<RetailerLocationResponse> createRetailerLocationConsumerWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude) throws ApiException {
+        okhttp3.Call localVarCall = createRetailerLocationConsumerValidateBeforeCall(appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, null);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -397,7 +387,6 @@ public class RetailerLocationApi {
     /**
      * Create Retailer Location (Consumer) (asynchronously)
      * Creates a location record for an application that can support crowd sourced locations.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param name The name of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
@@ -437,16 +426,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRetailerLocationConsumerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
+    public okhttp3.Call createRetailerLocationConsumerAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String name, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable String tags, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRetailerLocationConsumerValidateBeforeCall(version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, _callback);
+        okhttp3.Call localVarCall = createRetailerLocationConsumerValidateBeforeCall(appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, _callback);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createRetailerLocations
-     * @param version  (required)
      * @param retailerId The ID of the retailer (required)
      * @param name The name of the retailer location (required)
      * @param streetAddress The street address of the retailer location (required)
@@ -496,7 +484,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRetailerLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRetailerLocationsCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -513,8 +501,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/location/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/location/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -698,12 +685,7 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRetailerLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createRetailerLocations(Async)");
-        }
-
+    private okhttp3.Call createRetailerLocationsValidateBeforeCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'retailerId' is set
         if (retailerId == null) {
             throw new ApiException("Missing the required parameter 'retailerId' when calling createRetailerLocations(Async)");
@@ -734,14 +716,13 @@ public class RetailerLocationApi {
             throw new ApiException("Missing the required parameter 'postalCode' when calling createRetailerLocations(Async)");
         }
 
-        return createRetailerLocationsCall(version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, _callback);
+        return createRetailerLocationsCall(retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, _callback);
 
     }
 
     /**
      * Create Retailer Location
      * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerId The ID of the retailer (required)
      * @param name The name of the retailer location (required)
      * @param streetAddress The street address of the retailer location (required)
@@ -790,15 +771,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerLocationResponse createRetailerLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes) throws ApiException {
-        ApiResponse<RetailerLocationResponse> localVarResp = createRetailerLocationsWithHttpInfo(version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
+    public RetailerLocationResponse createRetailerLocations(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes) throws ApiException {
+        ApiResponse<RetailerLocationResponse> localVarResp = createRetailerLocationsWithHttpInfo(retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
         return localVarResp.getData();
     }
 
     /**
      * Create Retailer Location
      * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerId The ID of the retailer (required)
      * @param name The name of the retailer location (required)
      * @param streetAddress The street address of the retailer location (required)
@@ -847,8 +827,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerLocationResponse> createRetailerLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes) throws ApiException {
-        okhttp3.Call localVarCall = createRetailerLocationsValidateBeforeCall(version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, null);
+    public ApiResponse<RetailerLocationResponse> createRetailerLocationsWithHttpInfo(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes) throws ApiException {
+        okhttp3.Call localVarCall = createRetailerLocationsValidateBeforeCall(retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, null);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -856,7 +836,6 @@ public class RetailerLocationApi {
     /**
      * Create Retailer Location (asynchronously)
      * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerId The ID of the retailer (required)
      * @param name The name of the retailer location (required)
      * @param streetAddress The street address of the retailer location (required)
@@ -906,16 +885,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createRetailerLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
+    public okhttp3.Call createRetailerLocationsAsync(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull String streetAddress, @javax.annotation.Nonnull String city, @javax.annotation.Nonnull String state, @javax.annotation.Nonnull String postalCode, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String responseIncludes, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRetailerLocationsValidateBeforeCall(version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, _callback);
+        okhttp3.Call localVarCall = createRetailerLocationsValidateBeforeCall(retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, _callback);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteRetailerLocation
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
@@ -929,7 +907,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRetailerLocationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteRetailerLocationCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -946,8 +924,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/location/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/location/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -987,20 +964,14 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteRetailerLocationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteRetailerLocation(Async)");
-        }
-
-        return deleteRetailerLocationCall(version, deviceId, accountId, retailerLocationId, _callback);
+    private okhttp3.Call deleteRetailerLocationValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback _callback) throws ApiException {
+        return deleteRetailerLocationCall(deviceId, accountId, retailerLocationId, _callback);
 
     }
 
     /**
      * Delete Retailer Location
      * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
@@ -1013,15 +984,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteRetailerLocation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteRetailerLocationWithHttpInfo(version, deviceId, accountId, retailerLocationId);
+    public SirqulResponse deleteRetailerLocation(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteRetailerLocationWithHttpInfo(deviceId, accountId, retailerLocationId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Retailer Location
      * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
@@ -1034,8 +1004,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteRetailerLocationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
-        okhttp3.Call localVarCall = deleteRetailerLocationValidateBeforeCall(version, deviceId, accountId, retailerLocationId, null);
+    public ApiResponse<SirqulResponse> deleteRetailerLocationWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId) throws ApiException {
+        okhttp3.Call localVarCall = deleteRetailerLocationValidateBeforeCall(deviceId, accountId, retailerLocationId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1043,7 +1013,6 @@ public class RetailerLocationApi {
     /**
      * Delete Retailer Location (asynchronously)
      * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     * @param version  (required)
      * @param deviceId the device id (optional)
      * @param accountId the id of the logged in user (optional)
      * @param retailerLocationId the id of the retailer location to delete (optional)
@@ -1057,16 +1026,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteRetailerLocationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteRetailerLocationAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Long retailerLocationId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteRetailerLocationValidateBeforeCall(version, deviceId, accountId, retailerLocationId, _callback);
+        okhttp3.Call localVarCall = deleteRetailerLocationValidateBeforeCall(deviceId, accountId, retailerLocationId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRetailerLocation
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1081,7 +1049,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailerLocationCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRetailerLocationCall(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1098,8 +1066,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/location/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/location/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1143,25 +1110,19 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRetailerLocationValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRetailerLocation(Async)");
-        }
-
+    private okhttp3.Call getRetailerLocationValidateBeforeCall(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'retailerLocationId' is set
         if (retailerLocationId == null) {
             throw new ApiException("Missing the required parameter 'retailerLocationId' when calling getRetailerLocation(Async)");
         }
 
-        return getRetailerLocationCall(version, retailerLocationId, deviceId, accountId, retailerLocationToken, _callback);
+        return getRetailerLocationCall(retailerLocationId, deviceId, accountId, retailerLocationToken, _callback);
 
     }
 
     /**
      * Get Retailer Location
      * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1175,15 +1136,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerLocationResponse getRetailerLocation(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken) throws ApiException {
-        ApiResponse<RetailerLocationResponse> localVarResp = getRetailerLocationWithHttpInfo(version, retailerLocationId, deviceId, accountId, retailerLocationToken);
+    public RetailerLocationResponse getRetailerLocation(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken) throws ApiException {
+        ApiResponse<RetailerLocationResponse> localVarResp = getRetailerLocationWithHttpInfo(retailerLocationId, deviceId, accountId, retailerLocationToken);
         return localVarResp.getData();
     }
 
     /**
      * Get Retailer Location
      * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1197,8 +1157,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerLocationResponse> getRetailerLocationWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken) throws ApiException {
-        okhttp3.Call localVarCall = getRetailerLocationValidateBeforeCall(version, retailerLocationId, deviceId, accountId, retailerLocationToken, null);
+    public ApiResponse<RetailerLocationResponse> getRetailerLocationWithHttpInfo(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken) throws ApiException {
+        okhttp3.Call localVarCall = getRetailerLocationValidateBeforeCall(retailerLocationId, deviceId, accountId, retailerLocationToken, null);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1206,7 +1166,6 @@ public class RetailerLocationApi {
     /**
      * Get Retailer Location (asynchronously)
      * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -1221,16 +1180,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailerLocationAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
+    public okhttp3.Call getRetailerLocationAsync(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String retailerLocationToken, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRetailerLocationValidateBeforeCall(version, retailerLocationId, deviceId, accountId, retailerLocationToken, _callback);
+        okhttp3.Call localVarCall = getRetailerLocationValidateBeforeCall(retailerLocationId, deviceId, accountId, retailerLocationToken, _callback);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRetailerLocationConsumer
-     * @param version  (required)
      * @param retailerLocationId The retailer location id (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -1244,7 +1202,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailerLocationConsumerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRetailerLocationConsumerCall(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1261,8 +1219,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/location/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/location/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1302,25 +1259,19 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRetailerLocationConsumerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRetailerLocationConsumer(Async)");
-        }
-
+    private okhttp3.Call getRetailerLocationConsumerValidateBeforeCall(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'retailerLocationId' is set
         if (retailerLocationId == null) {
             throw new ApiException("Missing the required parameter 'retailerLocationId' when calling getRetailerLocationConsumer(Async)");
         }
 
-        return getRetailerLocationConsumerCall(version, retailerLocationId, deviceId, accountId, _callback);
+        return getRetailerLocationConsumerCall(retailerLocationId, deviceId, accountId, _callback);
 
     }
 
     /**
      * Get Retailer Location (Consumer)
      * Gets the details of a retailer location as a consumer.
-     * @param version  (required)
      * @param retailerLocationId The retailer location id (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -1333,15 +1284,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerLocationResponse getRetailerLocationConsumer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        ApiResponse<RetailerLocationResponse> localVarResp = getRetailerLocationConsumerWithHttpInfo(version, retailerLocationId, deviceId, accountId);
+    public RetailerLocationResponse getRetailerLocationConsumer(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        ApiResponse<RetailerLocationResponse> localVarResp = getRetailerLocationConsumerWithHttpInfo(retailerLocationId, deviceId, accountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Retailer Location (Consumer)
      * Gets the details of a retailer location as a consumer.
-     * @param version  (required)
      * @param retailerLocationId The retailer location id (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -1354,8 +1304,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerLocationResponse> getRetailerLocationConsumerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
-        okhttp3.Call localVarCall = getRetailerLocationConsumerValidateBeforeCall(version, retailerLocationId, deviceId, accountId, null);
+    public ApiResponse<RetailerLocationResponse> getRetailerLocationConsumerWithHttpInfo(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId) throws ApiException {
+        okhttp3.Call localVarCall = getRetailerLocationConsumerValidateBeforeCall(retailerLocationId, deviceId, accountId, null);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1363,7 +1313,6 @@ public class RetailerLocationApi {
     /**
      * Get Retailer Location (Consumer) (asynchronously)
      * Gets the details of a retailer location as a consumer.
-     * @param version  (required)
      * @param retailerLocationId The retailer location id (required)
      * @param deviceId The device id for returning account information (i.e. favorites) (optional)
      * @param accountId The account id for returning account information (i.e. favorites) (optional)
@@ -1377,16 +1326,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetailerLocationConsumerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
+    public okhttp3.Call getRetailerLocationConsumerAsync(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRetailerLocationConsumerValidateBeforeCall(version, retailerLocationId, deviceId, accountId, _callback);
+        okhttp3.Call localVarCall = getRetailerLocationConsumerValidateBeforeCall(retailerLocationId, deviceId, accountId, _callback);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for indexedRetailerLocationDistanceSearch
-     * @param version  (required)
      * @param latitude The latitude to center the search on (required)
      * @param longitude The longitude to center the search on (required)
      * @param searchRange The search range in the distanceUnit specified; default is MILES. (required)
@@ -1431,7 +1379,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call indexedRetailerLocationDistanceSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call indexedRetailerLocationDistanceSearchCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1448,8 +1396,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/location/idistancesearch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/location/idistancesearch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1613,12 +1560,7 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call indexedRetailerLocationDistanceSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling indexedRetailerLocationDistanceSearch(Async)");
-        }
-
+    private okhttp3.Call indexedRetailerLocationDistanceSearchValidateBeforeCall(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'latitude' is set
         if (latitude == null) {
             throw new ApiException("Missing the required parameter 'latitude' when calling indexedRetailerLocationDistanceSearch(Async)");
@@ -1644,14 +1586,13 @@ public class RetailerLocationApi {
             throw new ApiException("Missing the required parameter 'limit' when calling indexedRetailerLocationDistanceSearch(Async)");
         }
 
-        return indexedRetailerLocationDistanceSearchCall(version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
+        return indexedRetailerLocationDistanceSearchCall(latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
 
     }
 
     /**
      * Distance Search Retailer Locations (Indexed)
      * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     * @param version  (required)
      * @param latitude The latitude to center the search on (required)
      * @param longitude The longitude to center the search on (required)
      * @param searchRange The search range in the distanceUnit specified; default is MILES. (required)
@@ -1695,15 +1636,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RetailerLocationResponse> indexedRetailerLocationDistanceSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
-        ApiResponse<List<RetailerLocationResponse>> localVarResp = indexedRetailerLocationDistanceSearchWithHttpInfo(version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+    public List<RetailerLocationResponse> indexedRetailerLocationDistanceSearch(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
+        ApiResponse<List<RetailerLocationResponse>> localVarResp = indexedRetailerLocationDistanceSearchWithHttpInfo(latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
         return localVarResp.getData();
     }
 
     /**
      * Distance Search Retailer Locations (Indexed)
      * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     * @param version  (required)
      * @param latitude The latitude to center the search on (required)
      * @param longitude The longitude to center the search on (required)
      * @param searchRange The search range in the distanceUnit specified; default is MILES. (required)
@@ -1747,8 +1687,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RetailerLocationResponse>> indexedRetailerLocationDistanceSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
-        okhttp3.Call localVarCall = indexedRetailerLocationDistanceSearchValidateBeforeCall(version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, null);
+    public ApiResponse<List<RetailerLocationResponse>> indexedRetailerLocationDistanceSearchWithHttpInfo(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
+        okhttp3.Call localVarCall = indexedRetailerLocationDistanceSearchValidateBeforeCall(latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, null);
         Type localVarReturnType = new TypeToken<List<RetailerLocationResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1756,7 +1696,6 @@ public class RetailerLocationApi {
     /**
      * Distance Search Retailer Locations (Indexed) (asynchronously)
      * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     * @param version  (required)
      * @param latitude The latitude to center the search on (required)
      * @param longitude The longitude to center the search on (required)
      * @param searchRange The search range in the distanceUnit specified; default is MILES. (required)
@@ -1801,16 +1740,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call indexedRetailerLocationDistanceSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback<List<RetailerLocationResponse>> _callback) throws ApiException {
+    public okhttp3.Call indexedRetailerLocationDistanceSearchAsync(@javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nonnull Double searchRange, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String address, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable String distanceUnit, @javax.annotation.Nullable Boolean returnFavorited, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback<List<RetailerLocationResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = indexedRetailerLocationDistanceSearchValidateBeforeCall(version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
+        okhttp3.Call localVarCall = indexedRetailerLocationDistanceSearchValidateBeforeCall(latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
         Type localVarReturnType = new TypeToken<List<RetailerLocationResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for indexedRetailerLocationSearch
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param limit The limit for pagination (optional)
@@ -1849,7 +1787,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call indexedRetailerLocationSearchCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call indexedRetailerLocationSearchCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1866,8 +1804,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/location/isearch"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/location/isearch";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2007,20 +1944,14 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call indexedRetailerLocationSearchValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling indexedRetailerLocationSearch(Async)");
-        }
-
-        return indexedRetailerLocationSearchCall(version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
+    private okhttp3.Call indexedRetailerLocationSearchValidateBeforeCall(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
+        return indexedRetailerLocationSearchCall(accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
 
     }
 
     /**
      * Keyword Search Retailer Locations (Indexed)
      * Retailer location (faster) indexed search. This searches all retailer locations.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param limit The limit for pagination (optional)
@@ -2058,15 +1989,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RetailerLocationResponse> indexedRetailerLocationSearch(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
-        ApiResponse<List<RetailerLocationResponse>> localVarResp = indexedRetailerLocationSearchWithHttpInfo(version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+    public List<RetailerLocationResponse> indexedRetailerLocationSearch(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
+        ApiResponse<List<RetailerLocationResponse>> localVarResp = indexedRetailerLocationSearchWithHttpInfo(accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
         return localVarResp.getData();
     }
 
     /**
      * Keyword Search Retailer Locations (Indexed)
      * Retailer location (faster) indexed search. This searches all retailer locations.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param limit The limit for pagination (optional)
@@ -2104,8 +2034,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RetailerLocationResponse>> indexedRetailerLocationSearchWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
-        okhttp3.Call localVarCall = indexedRetailerLocationSearchValidateBeforeCall(version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, null);
+    public ApiResponse<List<RetailerLocationResponse>> indexedRetailerLocationSearchWithHttpInfo(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
+        okhttp3.Call localVarCall = indexedRetailerLocationSearchValidateBeforeCall(accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, null);
         Type localVarReturnType = new TypeToken<List<RetailerLocationResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2113,7 +2043,6 @@ public class RetailerLocationApi {
     /**
      * Keyword Search Retailer Locations (Indexed) (asynchronously)
      * Retailer location (faster) indexed search. This searches all retailer locations.
-     * @param version  (required)
      * @param accountId The account id of the user (optional)
      * @param start The start index for pagination (optional)
      * @param limit The limit for pagination (optional)
@@ -2152,16 +2081,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call indexedRetailerLocationSearchAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback<List<RetailerLocationResponse>> _callback) throws ApiException {
+    public okhttp3.Call indexedRetailerLocationSearchAsync(@javax.annotation.Nullable Long accountId, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean hasOffers, @javax.annotation.Nullable String categories, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String audiences, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String tags, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String keywordOperator, @javax.annotation.Nullable String searchExpression, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean returnExternalCategoryData, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback<List<RetailerLocationResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = indexedRetailerLocationSearchValidateBeforeCall(version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
+        okhttp3.Call localVarCall = indexedRetailerLocationSearchValidateBeforeCall(accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, _callback);
         Type localVarReturnType = new TypeToken<List<RetailerLocationResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchRetailerLocations
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -2197,7 +2125,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRetailerLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRetailerLocationsCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2214,8 +2142,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/location/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/location/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2343,20 +2270,14 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRetailerLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchRetailerLocations(Async)");
-        }
-
-        return searchRetailerLocationsCall(version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, _callback);
+    private okhttp3.Call searchRetailerLocationsValidateBeforeCall(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback _callback) throws ApiException {
+        return searchRetailerLocationsCall(deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, _callback);
 
     }
 
     /**
      * Search Retailer Locations (Owned)
      * Searches on retailer locations that the account has access to.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -2391,15 +2312,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<RetailerLocationResponse> searchRetailerLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
-        ApiResponse<List<RetailerLocationResponse>> localVarResp = searchRetailerLocationsWithHttpInfo(version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
+    public List<RetailerLocationResponse> searchRetailerLocations(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
+        ApiResponse<List<RetailerLocationResponse>> localVarResp = searchRetailerLocationsWithHttpInfo(deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
         return localVarResp.getData();
     }
 
     /**
      * Search Retailer Locations (Owned)
      * Searches on retailer locations that the account has access to.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -2434,8 +2354,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<RetailerLocationResponse>> searchRetailerLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
-        okhttp3.Call localVarCall = searchRetailerLocationsValidateBeforeCall(version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, null);
+    public ApiResponse<List<RetailerLocationResponse>> searchRetailerLocationsWithHttpInfo(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating) throws ApiException {
+        okhttp3.Call localVarCall = searchRetailerLocationsValidateBeforeCall(deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, null);
         Type localVarReturnType = new TypeToken<List<RetailerLocationResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2443,7 +2363,6 @@ public class RetailerLocationApi {
     /**
      * Search Retailer Locations (Owned) (asynchronously)
      * Searches on retailer locations that the account has access to.
-     * @param version  (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
      * @param q This parameter is deprecated. (optional)
@@ -2479,16 +2398,15 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchRetailerLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback<List<RetailerLocationResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchRetailerLocationsAsync(@javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String q, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String retailerIds, @javax.annotation.Nullable String retailerLocationIds, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer i, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer l, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Boolean showPublicLocations, @javax.annotation.Nullable Boolean activeOnly, @javax.annotation.Nullable Boolean returnRetailer, @javax.annotation.Nullable Boolean returnAssets, @javax.annotation.Nullable Boolean returnOffers, @javax.annotation.Nullable Boolean returnCategories, @javax.annotation.Nullable Boolean returnFilters, @javax.annotation.Nullable Boolean returnAudiences, @javax.annotation.Nullable Boolean returnQrCode, @javax.annotation.Nullable Boolean includeFavorite, @javax.annotation.Nullable Boolean includeLiked, @javax.annotation.Nullable Boolean includeRating, final ApiCallback<List<RetailerLocationResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchRetailerLocationsValidateBeforeCall(version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, _callback);
+        okhttp3.Call localVarCall = searchRetailerLocationsValidateBeforeCall(deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, _callback);
         Type localVarReturnType = new TypeToken<List<RetailerLocationResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateRetailerLocations
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2540,7 +2458,7 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRetailerLocationsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateRetailerLocationsCall(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2557,8 +2475,7 @@ public class RetailerLocationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer/location/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer/location/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2750,25 +2667,19 @@ public class RetailerLocationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateRetailerLocationsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateRetailerLocations(Async)");
-        }
-
+    private okhttp3.Call updateRetailerLocationsValidateBeforeCall(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'retailerLocationId' is set
         if (retailerLocationId == null) {
             throw new ApiException("Missing the required parameter 'retailerLocationId' when calling updateRetailerLocations(Async)");
         }
 
-        return updateRetailerLocationsCall(version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, _callback);
+        return updateRetailerLocationsCall(retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, _callback);
 
     }
 
     /**
      * Update Retailer Location
      * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2819,15 +2730,14 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public RetailerLocationResponse updateRetailerLocations(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags) throws ApiException {
-        ApiResponse<RetailerLocationResponse> localVarResp = updateRetailerLocationsWithHttpInfo(version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
+    public RetailerLocationResponse updateRetailerLocations(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags) throws ApiException {
+        ApiResponse<RetailerLocationResponse> localVarResp = updateRetailerLocationsWithHttpInfo(retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
         return localVarResp.getData();
     }
 
     /**
      * Update Retailer Location
      * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2878,8 +2788,8 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetailerLocationResponse> updateRetailerLocationsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags) throws ApiException {
-        okhttp3.Call localVarCall = updateRetailerLocationsValidateBeforeCall(version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, null);
+    public ApiResponse<RetailerLocationResponse> updateRetailerLocationsWithHttpInfo(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags) throws ApiException {
+        okhttp3.Call localVarCall = updateRetailerLocationsValidateBeforeCall(retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, null);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2887,7 +2797,6 @@ public class RetailerLocationApi {
     /**
      * Update Retailer Location (asynchronously)
      * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param version  (required)
      * @param retailerLocationId The ID of the retailer location (required)
      * @param deviceId The device id (deviceId or accountId required) (optional)
      * @param accountId The account id of the user (deviceId or accountId required) (optional)
@@ -2939,9 +2848,9 @@ public class RetailerLocationApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateRetailerLocationsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
+    public okhttp3.Call updateRetailerLocationsAsync(@javax.annotation.Nonnull Long retailerLocationId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String name, @javax.annotation.Nullable String streetAddress, @javax.annotation.Nullable String streetAddress2, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String businessPhone, @javax.annotation.Nullable String businessPhoneExt, @javax.annotation.Nullable String website, @javax.annotation.Nullable String email, @javax.annotation.Nullable String internalId, @javax.annotation.Nullable String detailsHeader, @javax.annotation.Nullable String detailsBody, @javax.annotation.Nullable String hours, @javax.annotation.Nullable File logo, @javax.annotation.Nullable Long logoAssetId, @javax.annotation.Nullable File picture1, @javax.annotation.Nullable Long picture1AssetId, @javax.annotation.Nullable File picture2, @javax.annotation.Nullable Long picture2AssetId, @javax.annotation.Nullable String categoryIds, @javax.annotation.Nullable String filterIds, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String building, @javax.annotation.Nullable String googlePlaceId, @javax.annotation.Nullable String yelpId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String paymentProvider, @javax.annotation.Nullable Boolean active, @javax.annotation.Nullable Boolean publicLocation, @javax.annotation.Nullable String locationType, @javax.annotation.Nullable String audienceIds, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable String responseFormat, @javax.annotation.Nullable String tags, final ApiCallback<RetailerLocationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateRetailerLocationsValidateBeforeCall(version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, _callback);
+        okhttp3.Call localVarCall = updateRetailerLocationsValidateBeforeCall(retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, _callback);
         Type localVarReturnType = new TypeToken<RetailerLocationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

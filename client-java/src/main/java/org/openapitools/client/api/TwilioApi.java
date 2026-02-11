@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.TwiMLResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class TwilioApi {
 
     /**
      * Build call for smsBuyOffer
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param body the message of the text (required)
      * @param from the sender of the sms (required)
@@ -90,7 +88,7 @@ public class TwilioApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call smsBuyOfferCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call smsBuyOfferCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -107,8 +105,7 @@ public class TwilioApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/sms/buyoffer/{appKey}"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()))
+        String localVarPath = "/sms/buyoffer/{appKey}"
             .replace("{" + "appKey" + "}", localVarApiClient.escapeString(appKey.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -149,12 +146,7 @@ public class TwilioApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call smsBuyOfferValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling smsBuyOffer(Async)");
-        }
-
+    private okhttp3.Call smsBuyOfferValidateBeforeCall(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appKey' is set
         if (appKey == null) {
             throw new ApiException("Missing the required parameter 'appKey' when calling smsBuyOffer(Async)");
@@ -175,14 +167,13 @@ public class TwilioApi {
             throw new ApiException("Missing the required parameter 'currencyType' when calling smsBuyOffer(Async)");
         }
 
-        return smsBuyOfferCall(version, appKey, body, from, currencyType, _callback);
+        return smsBuyOfferCall(appKey, body, from, currencyType, _callback);
 
     }
 
     /**
      * Buy Offer by SMS
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param body the message of the text (required)
      * @param from the sender of the sms (required)
@@ -196,15 +187,14 @@ public class TwilioApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public TwiMLResponse smsBuyOffer(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType) throws ApiException {
-        ApiResponse<TwiMLResponse> localVarResp = smsBuyOfferWithHttpInfo(version, appKey, body, from, currencyType);
+    public TwiMLResponse smsBuyOffer(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType) throws ApiException {
+        ApiResponse<TwiMLResponse> localVarResp = smsBuyOfferWithHttpInfo(appKey, body, from, currencyType);
         return localVarResp.getData();
     }
 
     /**
      * Buy Offer by SMS
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param body the message of the text (required)
      * @param from the sender of the sms (required)
@@ -218,8 +208,8 @@ public class TwilioApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TwiMLResponse> smsBuyOfferWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType) throws ApiException {
-        okhttp3.Call localVarCall = smsBuyOfferValidateBeforeCall(version, appKey, body, from, currencyType, null);
+    public ApiResponse<TwiMLResponse> smsBuyOfferWithHttpInfo(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType) throws ApiException {
+        okhttp3.Call localVarCall = smsBuyOfferValidateBeforeCall(appKey, body, from, currencyType, null);
         Type localVarReturnType = new TypeToken<TwiMLResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -227,7 +217,6 @@ public class TwilioApi {
     /**
      * Buy Offer by SMS (asynchronously)
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @param version  (required)
      * @param appKey the application key (required)
      * @param body the message of the text (required)
      * @param from the sender of the sms (required)
@@ -242,9 +231,9 @@ public class TwilioApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call smsBuyOfferAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType, final ApiCallback<TwiMLResponse> _callback) throws ApiException {
+    public okhttp3.Call smsBuyOfferAsync(@javax.annotation.Nonnull String appKey, @javax.annotation.Nonnull String body, @javax.annotation.Nonnull String from, @javax.annotation.Nonnull String currencyType, final ApiCallback<TwiMLResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = smsBuyOfferValidateBeforeCall(version, appKey, body, from, currencyType, _callback);
+        okhttp3.Call localVarCall = smsBuyOfferValidateBeforeCall(appKey, body, from, currencyType, _callback);
         Type localVarReturnType = new TypeToken<TwiMLResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

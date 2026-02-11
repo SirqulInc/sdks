@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class RetailerV2Api {
 
     /**
      * Build call for getRetaokiler
-     * @param version  (required)
      * @param retailerId the id of the retailer (required)
      * @param activeOnly whether to return results that are active only or all (required)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -92,7 +90,7 @@ public class RetailerV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetaokilerCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRetaokilerCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -109,8 +107,7 @@ public class RetailerV2Api {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/retailer"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/retailer";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -162,12 +159,7 @@ public class RetailerV2Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRetaokilerValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getRetaokiler(Async)");
-        }
-
+    private okhttp3.Call getRetaokilerValidateBeforeCall(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'retailerId' is set
         if (retailerId == null) {
             throw new ApiException("Missing the required parameter 'retailerId' when calling getRetaokiler(Async)");
@@ -178,14 +170,13 @@ public class RetailerV2Api {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling getRetaokiler(Async)");
         }
 
-        return getRetaokilerCall(version, retailerId, activeOnly, keyword, sortField, start, limit, _callback);
+        return getRetaokilerCall(retailerId, activeOnly, keyword, sortField, start, limit, _callback);
 
     }
 
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the id of the retailer (required)
      * @param activeOnly whether to return results that are active only or all (required)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -201,15 +192,14 @@ public class RetailerV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse getRetaokiler(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = getRetaokilerWithHttpInfo(version, retailerId, activeOnly, keyword, sortField, start, limit);
+    public SirqulResponse getRetaokiler(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = getRetaokilerWithHttpInfo(retailerId, activeOnly, keyword, sortField, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the id of the retailer (required)
      * @param activeOnly whether to return results that are active only or all (required)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -225,8 +215,8 @@ public class RetailerV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> getRetaokilerWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
-        okhttp3.Call localVarCall = getRetaokilerValidateBeforeCall(version, retailerId, activeOnly, keyword, sortField, start, limit, null);
+    public ApiResponse<SirqulResponse> getRetaokilerWithHttpInfo(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit) throws ApiException {
+        okhttp3.Call localVarCall = getRetaokilerValidateBeforeCall(retailerId, activeOnly, keyword, sortField, start, limit, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -234,7 +224,6 @@ public class RetailerV2Api {
     /**
      * Get Retailer (asynchronously)
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param version  (required)
      * @param retailerId the id of the retailer (required)
      * @param activeOnly whether to return results that are active only or all (required)
      * @param keyword the keyword to search on to get retailer (optional)
@@ -251,9 +240,9 @@ public class RetailerV2Api {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRetaokilerAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call getRetaokilerAsync(@javax.annotation.Nonnull Long retailerId, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Long start, @javax.annotation.Nullable Long limit, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRetaokilerValidateBeforeCall(version, retailerId, activeOnly, keyword, sortField, start, limit, _callback);
+        okhttp3.Call localVarCall = getRetaokilerValidateBeforeCall(retailerId, activeOnly, keyword, sortField, start, limit, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

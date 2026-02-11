@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PostalCodeResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -76,7 +75,6 @@ public class PostalCodeApi {
 
     /**
      * Build call for createPostalCode
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param code the postal code (required)
      * @param latitude the latitude of the postal code (required)
@@ -94,7 +92,7 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPostalCodeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPostalCodeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -111,8 +109,7 @@ public class PostalCodeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/postalCode/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/postalCode/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -168,12 +165,7 @@ public class PostalCodeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPostalCodeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createPostalCode(Async)");
-        }
-
+    private okhttp3.Call createPostalCodeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createPostalCode(Async)");
@@ -194,14 +186,13 @@ public class PostalCodeApi {
             throw new ApiException("Missing the required parameter 'longitude' when calling createPostalCode(Async)");
         }
 
-        return createPostalCodeCall(version, accountId, code, latitude, longitude, stateCode, city, active, _callback);
+        return createPostalCodeCall(accountId, code, latitude, longitude, stateCode, city, active, _callback);
 
     }
 
     /**
      * Create Postal Code
      * Create a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param code the postal code (required)
      * @param latitude the latitude of the postal code (required)
@@ -218,15 +209,14 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PostalCodeResponse createPostalCode(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<PostalCodeResponse> localVarResp = createPostalCodeWithHttpInfo(version, accountId, code, latitude, longitude, stateCode, city, active);
+    public PostalCodeResponse createPostalCode(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<PostalCodeResponse> localVarResp = createPostalCodeWithHttpInfo(accountId, code, latitude, longitude, stateCode, city, active);
         return localVarResp.getData();
     }
 
     /**
      * Create Postal Code
      * Create a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param code the postal code (required)
      * @param latitude the latitude of the postal code (required)
@@ -243,8 +233,8 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PostalCodeResponse> createPostalCodeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = createPostalCodeValidateBeforeCall(version, accountId, code, latitude, longitude, stateCode, city, active, null);
+    public ApiResponse<PostalCodeResponse> createPostalCodeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = createPostalCodeValidateBeforeCall(accountId, code, latitude, longitude, stateCode, city, active, null);
         Type localVarReturnType = new TypeToken<PostalCodeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -252,7 +242,6 @@ public class PostalCodeApi {
     /**
      * Create Postal Code (asynchronously)
      * Create a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param code the postal code (required)
      * @param latitude the latitude of the postal code (required)
@@ -270,16 +259,15 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPostalCodeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback<PostalCodeResponse> _callback) throws ApiException {
+    public okhttp3.Call createPostalCodeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String code, @javax.annotation.Nonnull Double latitude, @javax.annotation.Nonnull Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback<PostalCodeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPostalCodeValidateBeforeCall(version, accountId, code, latitude, longitude, stateCode, city, active, _callback);
+        okhttp3.Call localVarCall = createPostalCodeValidateBeforeCall(accountId, code, latitude, longitude, stateCode, city, active, _callback);
         Type localVarReturnType = new TypeToken<PostalCodeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deletePostalCode
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to delete (required)
      * @param _callback Callback for upload/download progress
@@ -292,7 +280,7 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePostalCodeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deletePostalCodeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -309,8 +297,7 @@ public class PostalCodeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/postalCode/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/postalCode/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -346,12 +333,7 @@ public class PostalCodeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePostalCodeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deletePostalCode(Async)");
-        }
-
+    private okhttp3.Call deletePostalCodeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deletePostalCode(Async)");
@@ -362,14 +344,13 @@ public class PostalCodeApi {
             throw new ApiException("Missing the required parameter 'postalCodeId' when calling deletePostalCode(Async)");
         }
 
-        return deletePostalCodeCall(version, accountId, postalCodeId, _callback);
+        return deletePostalCodeCall(accountId, postalCodeId, _callback);
 
     }
 
     /**
      * Delete Postal Code
      * Delete a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to delete (required)
      * @return SirqulResponse
@@ -381,15 +362,14 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deletePostalCode(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deletePostalCodeWithHttpInfo(version, accountId, postalCodeId);
+    public SirqulResponse deletePostalCode(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deletePostalCodeWithHttpInfo(accountId, postalCodeId);
         return localVarResp.getData();
     }
 
     /**
      * Delete Postal Code
      * Delete a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to delete (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -401,8 +381,8 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deletePostalCodeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId) throws ApiException {
-        okhttp3.Call localVarCall = deletePostalCodeValidateBeforeCall(version, accountId, postalCodeId, null);
+    public ApiResponse<SirqulResponse> deletePostalCodeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId) throws ApiException {
+        okhttp3.Call localVarCall = deletePostalCodeValidateBeforeCall(accountId, postalCodeId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -410,7 +390,6 @@ public class PostalCodeApi {
     /**
      * Delete Postal Code (asynchronously)
      * Delete a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to delete (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -423,16 +402,15 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deletePostalCodeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deletePostalCodeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deletePostalCodeValidateBeforeCall(version, accountId, postalCodeId, _callback);
+        okhttp3.Call localVarCall = deletePostalCodeValidateBeforeCall(accountId, postalCodeId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPostalCode
-     * @param version  (required)
      * @param postalCodeId the id of the postal code to get (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -444,7 +422,7 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPostalCodeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPostalCodeCall(@javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -461,8 +439,7 @@ public class PostalCodeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/postalCode/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/postalCode/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -494,25 +471,19 @@ public class PostalCodeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPostalCodeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPostalCode(Async)");
-        }
-
+    private okhttp3.Call getPostalCodeValidateBeforeCall(@javax.annotation.Nonnull Long postalCodeId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'postalCodeId' is set
         if (postalCodeId == null) {
             throw new ApiException("Missing the required parameter 'postalCodeId' when calling getPostalCode(Async)");
         }
 
-        return getPostalCodeCall(version, postalCodeId, _callback);
+        return getPostalCodeCall(postalCodeId, _callback);
 
     }
 
     /**
      * Get Postal Code
      * Get a Postal Code
-     * @param version  (required)
      * @param postalCodeId the id of the postal code to get (required)
      * @return PostalCodeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -523,15 +494,14 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PostalCodeResponse getPostalCode(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long postalCodeId) throws ApiException {
-        ApiResponse<PostalCodeResponse> localVarResp = getPostalCodeWithHttpInfo(version, postalCodeId);
+    public PostalCodeResponse getPostalCode(@javax.annotation.Nonnull Long postalCodeId) throws ApiException {
+        ApiResponse<PostalCodeResponse> localVarResp = getPostalCodeWithHttpInfo(postalCodeId);
         return localVarResp.getData();
     }
 
     /**
      * Get Postal Code
      * Get a Postal Code
-     * @param version  (required)
      * @param postalCodeId the id of the postal code to get (required)
      * @return ApiResponse&lt;PostalCodeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -542,8 +512,8 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PostalCodeResponse> getPostalCodeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long postalCodeId) throws ApiException {
-        okhttp3.Call localVarCall = getPostalCodeValidateBeforeCall(version, postalCodeId, null);
+    public ApiResponse<PostalCodeResponse> getPostalCodeWithHttpInfo(@javax.annotation.Nonnull Long postalCodeId) throws ApiException {
+        okhttp3.Call localVarCall = getPostalCodeValidateBeforeCall(postalCodeId, null);
         Type localVarReturnType = new TypeToken<PostalCodeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -551,7 +521,6 @@ public class PostalCodeApi {
     /**
      * Get Postal Code (asynchronously)
      * Get a Postal Code
-     * @param version  (required)
      * @param postalCodeId the id of the postal code to get (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -563,16 +532,15 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPostalCodeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long postalCodeId, final ApiCallback<PostalCodeResponse> _callback) throws ApiException {
+    public okhttp3.Call getPostalCodeAsync(@javax.annotation.Nonnull Long postalCodeId, final ApiCallback<PostalCodeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPostalCodeValidateBeforeCall(version, postalCodeId, _callback);
+        okhttp3.Call localVarCall = getPostalCodeValidateBeforeCall(postalCodeId, _callback);
         Type localVarReturnType = new TypeToken<PostalCodeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPostalCodes
-     * @param version  (required)
      * @param sortField the field to sort the results on (required)
      * @param descending whether to order results in ascending or descending order (required)
      * @param latitude the latitude of the postal code to search on (optional)
@@ -591,7 +559,7 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPostalCodesCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPostalCodesCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -608,8 +576,7 @@ public class PostalCodeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/postalCode/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/postalCode/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -669,12 +636,7 @@ public class PostalCodeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPostalCodesValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPostalCodes(Async)");
-        }
-
+    private okhttp3.Call getPostalCodesValidateBeforeCall(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sortField' is set
         if (sortField == null) {
             throw new ApiException("Missing the required parameter 'sortField' when calling getPostalCodes(Async)");
@@ -685,14 +647,13 @@ public class PostalCodeApi {
             throw new ApiException("Missing the required parameter 'descending' when calling getPostalCodes(Async)");
         }
 
-        return getPostalCodesCall(version, sortField, descending, latitude, longitude, keyword, miles, start, limit, _callback);
+        return getPostalCodesCall(sortField, descending, latitude, longitude, keyword, miles, start, limit, _callback);
 
     }
 
     /**
      * Search Postal Codes
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @param version  (required)
      * @param sortField the field to sort the results on (required)
      * @param descending whether to order results in ascending or descending order (required)
      * @param latitude the latitude of the postal code to search on (optional)
@@ -710,15 +671,14 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<PostalCodeResponse> getPostalCodes(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<PostalCodeResponse>> localVarResp = getPostalCodesWithHttpInfo(version, sortField, descending, latitude, longitude, keyword, miles, start, limit);
+    public List<PostalCodeResponse> getPostalCodes(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<PostalCodeResponse>> localVarResp = getPostalCodesWithHttpInfo(sortField, descending, latitude, longitude, keyword, miles, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Postal Codes
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @param version  (required)
      * @param sortField the field to sort the results on (required)
      * @param descending whether to order results in ascending or descending order (required)
      * @param latitude the latitude of the postal code to search on (optional)
@@ -736,8 +696,8 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<PostalCodeResponse>> getPostalCodesWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getPostalCodesValidateBeforeCall(version, sortField, descending, latitude, longitude, keyword, miles, start, limit, null);
+    public ApiResponse<List<PostalCodeResponse>> getPostalCodesWithHttpInfo(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getPostalCodesValidateBeforeCall(sortField, descending, latitude, longitude, keyword, miles, start, limit, null);
         Type localVarReturnType = new TypeToken<List<PostalCodeResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -745,7 +705,6 @@ public class PostalCodeApi {
     /**
      * Search Postal Codes (asynchronously)
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @param version  (required)
      * @param sortField the field to sort the results on (required)
      * @param descending whether to order results in ascending or descending order (required)
      * @param latitude the latitude of the postal code to search on (optional)
@@ -764,16 +723,15 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPostalCodesAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<PostalCodeResponse>> _callback) throws ApiException {
+    public okhttp3.Call getPostalCodesAsync(@javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Double miles, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<PostalCodeResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPostalCodesValidateBeforeCall(version, sortField, descending, latitude, longitude, keyword, miles, start, limit, _callback);
+        okhttp3.Call localVarCall = getPostalCodesValidateBeforeCall(sortField, descending, latitude, longitude, keyword, miles, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<PostalCodeResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updatePostalCode
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to update (required)
      * @param code the postal code to update (optional)
@@ -792,7 +750,7 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePostalCodeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updatePostalCodeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -809,8 +767,7 @@ public class PostalCodeApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/postalCode/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/postalCode/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -870,12 +827,7 @@ public class PostalCodeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updatePostalCodeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updatePostalCode(Async)");
-        }
-
+    private okhttp3.Call updatePostalCodeValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updatePostalCode(Async)");
@@ -886,14 +838,13 @@ public class PostalCodeApi {
             throw new ApiException("Missing the required parameter 'postalCodeId' when calling updatePostalCode(Async)");
         }
 
-        return updatePostalCodeCall(version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, _callback);
+        return updatePostalCodeCall(accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, _callback);
 
     }
 
     /**
      * Update Postal Code
      * Update a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to update (required)
      * @param code the postal code to update (optional)
@@ -911,15 +862,14 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PostalCodeResponse updatePostalCode(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
-        ApiResponse<PostalCodeResponse> localVarResp = updatePostalCodeWithHttpInfo(version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
+    public PostalCodeResponse updatePostalCode(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
+        ApiResponse<PostalCodeResponse> localVarResp = updatePostalCodeWithHttpInfo(accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
         return localVarResp.getData();
     }
 
     /**
      * Update Postal Code
      * Update a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to update (required)
      * @param code the postal code to update (optional)
@@ -937,8 +887,8 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PostalCodeResponse> updatePostalCodeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
-        okhttp3.Call localVarCall = updatePostalCodeValidateBeforeCall(version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, null);
+    public ApiResponse<PostalCodeResponse> updatePostalCodeWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active) throws ApiException {
+        okhttp3.Call localVarCall = updatePostalCodeValidateBeforeCall(accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, null);
         Type localVarReturnType = new TypeToken<PostalCodeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -946,7 +896,6 @@ public class PostalCodeApi {
     /**
      * Update Postal Code (asynchronously)
      * Update a Postal Code
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param postalCodeId the id of the postal code to update (required)
      * @param code the postal code to update (optional)
@@ -965,9 +914,9 @@ public class PostalCodeApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updatePostalCodeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback<PostalCodeResponse> _callback) throws ApiException {
+    public okhttp3.Call updatePostalCodeAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull Long postalCodeId, @javax.annotation.Nullable String code, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String stateCode, @javax.annotation.Nullable String city, @javax.annotation.Nullable Boolean active, final ApiCallback<PostalCodeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updatePostalCodeValidateBeforeCall(version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, _callback);
+        okhttp3.Call localVarCall = updatePostalCodeValidateBeforeCall(accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, _callback);
         Type localVarReturnType = new TypeToken<PostalCodeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

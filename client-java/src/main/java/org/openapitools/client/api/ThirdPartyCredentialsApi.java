@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.ProfileResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -80,7 +79,6 @@ public class ThirdPartyCredentialsApi {
 
     /**
      * Build call for createCredential
-     * @param version  (required)
      * @param thirdPartyId the third party user account id (required)
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param networkUID the access provider to authenticate against (required)
@@ -108,7 +106,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCredentialCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCredentialCall(@javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,8 +123,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/credential/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/credential/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -222,12 +219,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCredentialValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createCredential(Async)");
-        }
-
+    private okhttp3.Call createCredentialValidateBeforeCall(@javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'thirdPartyId' is set
         if (thirdPartyId == null) {
             throw new ApiException("Missing the required parameter 'thirdPartyId' when calling createCredential(Async)");
@@ -248,14 +240,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling createCredential(Async)");
         }
 
-        return createCredentialCall(version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, _callback);
+        return createCredentialCall(thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, _callback);
 
     }
 
     /**
      * Create Credential
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @param version  (required)
      * @param thirdPartyId the third party user account id (required)
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param networkUID the access provider to authenticate against (required)
@@ -282,15 +273,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse createCredential(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = createCredentialWithHttpInfo(version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
+    public ProfileResponse createCredential(@javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = createCredentialWithHttpInfo(thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
         return localVarResp.getData();
     }
 
     /**
      * Create Credential
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @param version  (required)
      * @param thirdPartyId the third party user account id (required)
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param networkUID the access provider to authenticate against (required)
@@ -317,8 +307,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> createCredentialWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove) throws ApiException {
-        okhttp3.Call localVarCall = createCredentialValidateBeforeCall(version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, null);
+    public ApiResponse<ProfileResponse> createCredentialWithHttpInfo(@javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove) throws ApiException {
+        okhttp3.Call localVarCall = createCredentialValidateBeforeCall(thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -326,7 +316,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Create Credential (asynchronously)
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @param version  (required)
      * @param thirdPartyId the third party user account id (required)
      * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number) (required)
      * @param networkUID the access provider to authenticate against (required)
@@ -354,16 +343,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCredentialAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call createCredentialAsync(@javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String thirdPartyToken, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String emailAddress, @javax.annotation.Nullable Boolean signinOnlyMode, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCredentialValidateBeforeCall(version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, _callback);
+        okhttp3.Call localVarCall = createCredentialValidateBeforeCall(thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createNetwork
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param name The name of the network (required)
      * @param enableIntrospection Whether the network uses introspection calls (required)
@@ -391,7 +379,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNetworkCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createNetworkCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -408,8 +396,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/network/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/network/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -501,12 +488,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNetworkValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createNetwork(Async)");
-        }
-
+    private okhttp3.Call createNetworkValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createNetwork(Async)");
@@ -522,14 +504,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'enableIntrospection' when calling createNetwork(Async)");
         }
 
-        return createNetworkCall(version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
+        return createNetworkCall(accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
 
     }
 
     /**
      * Create Network
      * Creates a custom third party network.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param name The name of the network (required)
      * @param enableIntrospection Whether the network uses introspection calls (required)
@@ -556,15 +537,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ThirdPartyNetworkResponse createNetwork(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
-        ApiResponse<ThirdPartyNetworkResponse> localVarResp = createNetworkWithHttpInfo(version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+    public ThirdPartyNetworkResponse createNetwork(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
+        ApiResponse<ThirdPartyNetworkResponse> localVarResp = createNetworkWithHttpInfo(accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
         return localVarResp.getData();
     }
 
     /**
      * Create Network
      * Creates a custom third party network.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param name The name of the network (required)
      * @param enableIntrospection Whether the network uses introspection calls (required)
@@ -591,8 +571,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ThirdPartyNetworkResponse> createNetworkWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
-        okhttp3.Call localVarCall = createNetworkValidateBeforeCall(version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, null);
+    public ApiResponse<ThirdPartyNetworkResponse> createNetworkWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
+        okhttp3.Call localVarCall = createNetworkValidateBeforeCall(accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, null);
         Type localVarReturnType = new TypeToken<ThirdPartyNetworkResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -600,7 +580,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Create Network (asynchronously)
      * Creates a custom third party network.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param name The name of the network (required)
      * @param enableIntrospection Whether the network uses introspection calls (required)
@@ -628,16 +607,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNetworkAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback<ThirdPartyNetworkResponse> _callback) throws ApiException {
+    public okhttp3.Call createNetworkAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String name, @javax.annotation.Nonnull Boolean enableIntrospection, @javax.annotation.Nullable String description, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback<ThirdPartyNetworkResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createNetworkValidateBeforeCall(version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
+        okhttp3.Call localVarCall = createNetworkValidateBeforeCall(accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
         Type localVarReturnType = new TypeToken<ThirdPartyNetworkResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteCredential
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param networkUID The third party network identifier (required)
      * @param thirdPartyId The third party user id (required)
@@ -652,7 +630,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCredentialCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCredentialCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -669,8 +647,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/credential/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/credential/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -714,12 +691,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCredentialValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteCredential(Async)");
-        }
-
+    private okhttp3.Call deleteCredentialValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteCredential(Async)");
@@ -740,14 +712,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling deleteCredential(Async)");
         }
 
-        return deleteCredentialCall(version, accountId, networkUID, thirdPartyId, appKey, _callback);
+        return deleteCredentialCall(accountId, networkUID, thirdPartyId, appKey, _callback);
 
     }
 
     /**
      * Delete Credential
      * Delete a third party network on a Sirqul account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param networkUID The third party network identifier (required)
      * @param thirdPartyId The third party user id (required)
@@ -761,15 +732,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteCredential(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteCredentialWithHttpInfo(version, accountId, networkUID, thirdPartyId, appKey);
+    public SirqulResponse deleteCredential(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteCredentialWithHttpInfo(accountId, networkUID, thirdPartyId, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Delete Credential
      * Delete a third party network on a Sirqul account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param networkUID The third party network identifier (required)
      * @param thirdPartyId The third party user id (required)
@@ -783,8 +753,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteCredentialWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey) throws ApiException {
-        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(version, accountId, networkUID, thirdPartyId, appKey, null);
+    public ApiResponse<SirqulResponse> deleteCredentialWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey) throws ApiException {
+        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(accountId, networkUID, thirdPartyId, appKey, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -792,7 +762,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Delete Credential (asynchronously)
      * Delete a third party network on a Sirqul account.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param networkUID The third party network identifier (required)
      * @param thirdPartyId The third party user id (required)
@@ -807,16 +776,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCredentialAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteCredentialAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(version, accountId, networkUID, thirdPartyId, appKey, _callback);
+        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(accountId, networkUID, thirdPartyId, appKey, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteNetwork
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param _callback Callback for upload/download progress
@@ -829,7 +797,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteNetworkCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteNetworkCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -846,8 +814,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/network/delete"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/network/delete";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -883,12 +850,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNetworkValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling deleteNetwork(Async)");
-        }
-
+    private okhttp3.Call deleteNetworkValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling deleteNetwork(Async)");
@@ -899,14 +861,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'networkUID' when calling deleteNetwork(Async)");
         }
 
-        return deleteNetworkCall(version, accountId, networkUID, _callback);
+        return deleteNetworkCall(accountId, networkUID, _callback);
 
     }
 
     /**
      * Delete Network
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @return SirqulResponse
@@ -918,15 +879,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse deleteNetwork(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = deleteNetworkWithHttpInfo(version, accountId, networkUID);
+    public SirqulResponse deleteNetwork(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = deleteNetworkWithHttpInfo(accountId, networkUID);
         return localVarResp.getData();
     }
 
     /**
      * Delete Network
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @return ApiResponse&lt;SirqulResponse&gt;
@@ -938,8 +898,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> deleteNetworkWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
-        okhttp3.Call localVarCall = deleteNetworkValidateBeforeCall(version, accountId, networkUID, null);
+    public ApiResponse<SirqulResponse> deleteNetworkWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
+        okhttp3.Call localVarCall = deleteNetworkValidateBeforeCall(accountId, networkUID, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -947,7 +907,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Delete Network (asynchronously)
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId the id of the logged in user (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -960,16 +919,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteNetworkAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call deleteNetworkAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteNetworkValidateBeforeCall(version, accountId, networkUID, _callback);
+        okhttp3.Call localVarCall = deleteNetworkValidateBeforeCall(accountId, networkUID, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCredential
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param appKey the application key (required)
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -995,7 +953,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCredentialCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCredentialCall(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1012,8 +970,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/credential/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/credential/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1101,12 +1058,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCredentialValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCredential(Async)");
-        }
-
+    private okhttp3.Call getCredentialValidateBeforeCall(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkUID' is set
         if (networkUID == null) {
             throw new ApiException("Missing the required parameter 'networkUID' when calling getCredential(Async)");
@@ -1117,14 +1069,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling getCredential(Async)");
         }
 
-        return getCredentialCall(version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, _callback);
+        return getCredentialCall(networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, _callback);
 
     }
 
     /**
      * Get Credential
      * Gets the account information given a third party token.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param appKey the application key (required)
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -1149,15 +1100,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse getCredential(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = getCredentialWithHttpInfo(version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
+    public ProfileResponse getCredential(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = getCredentialWithHttpInfo(networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
         return localVarResp.getData();
     }
 
     /**
      * Get Credential
      * Gets the account information given a third party token.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param appKey the application key (required)
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -1182,8 +1132,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> getCredentialWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId) throws ApiException {
-        okhttp3.Call localVarCall = getCredentialValidateBeforeCall(version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, null);
+    public ApiResponse<ProfileResponse> getCredentialWithHttpInfo(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId) throws ApiException {
+        okhttp3.Call localVarCall = getCredentialValidateBeforeCall(networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1191,7 +1141,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Get Credential (asynchronously)
      * Gets the account information given a third party token.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param appKey the application key (required)
      * @param accountId the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -1217,16 +1166,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCredentialAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call getCredentialAsync(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable Long accountId, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String thirdPartySecret, @javax.annotation.Nullable Boolean createNewAccount, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable Double latitude, @javax.annotation.Nullable Double longitude, @javax.annotation.Nullable String audienceIdsToAdd, @javax.annotation.Nullable String audienceIdsToRemove, @javax.annotation.Nullable Long referralAccountId, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCredentialValidateBeforeCall(version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, _callback);
+        okhttp3.Call localVarCall = getCredentialValidateBeforeCall(networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getNetwork
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param _callback Callback for upload/download progress
@@ -1239,7 +1187,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNetworkCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNetworkCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1256,8 +1204,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/network/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/network/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1293,12 +1240,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNetworkValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getNetwork(Async)");
-        }
-
+    private okhttp3.Call getNetworkValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getNetwork(Async)");
@@ -1309,14 +1251,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'networkUID' when calling getNetwork(Async)");
         }
 
-        return getNetworkCall(version, accountId, networkUID, _callback);
+        return getNetworkCall(accountId, networkUID, _callback);
 
     }
 
     /**
      * Get Network
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @return ThirdPartyNetworkResponse
@@ -1328,15 +1269,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ThirdPartyNetworkResponse getNetwork(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
-        ApiResponse<ThirdPartyNetworkResponse> localVarResp = getNetworkWithHttpInfo(version, accountId, networkUID);
+    public ThirdPartyNetworkResponse getNetwork(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
+        ApiResponse<ThirdPartyNetworkResponse> localVarResp = getNetworkWithHttpInfo(accountId, networkUID);
         return localVarResp.getData();
     }
 
     /**
      * Get Network
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @return ApiResponse&lt;ThirdPartyNetworkResponse&gt;
@@ -1348,8 +1288,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ThirdPartyNetworkResponse> getNetworkWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
-        okhttp3.Call localVarCall = getNetworkValidateBeforeCall(version, accountId, networkUID, null);
+    public ApiResponse<ThirdPartyNetworkResponse> getNetworkWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID) throws ApiException {
+        okhttp3.Call localVarCall = getNetworkValidateBeforeCall(accountId, networkUID, null);
         Type localVarReturnType = new TypeToken<ThirdPartyNetworkResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1357,7 +1297,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Get Network (asynchronously)
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1370,16 +1309,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNetworkAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback<ThirdPartyNetworkResponse> _callback) throws ApiException {
+    public okhttp3.Call getNetworkAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, final ApiCallback<ThirdPartyNetworkResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNetworkValidateBeforeCall(version, accountId, networkUID, _callback);
+        okhttp3.Call localVarCall = getNetworkValidateBeforeCall(accountId, networkUID, _callback);
         Type localVarReturnType = new TypeToken<ThirdPartyNetworkResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchCredentials
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -1396,7 +1334,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCredentialsCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCredentialsCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1413,8 +1351,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/credential/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/credential/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1466,25 +1403,19 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCredentialsValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchCredentials(Async)");
-        }
-
+    private okhttp3.Call searchCredentialsValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchCredentials(Async)");
         }
 
-        return searchCredentialsCall(version, accountId, keyword, networkUID, descending, start, limit, _callback);
+        return searchCredentialsCall(accountId, keyword, networkUID, descending, start, limit, _callback);
 
     }
 
     /**
      * Search Credentials
      * Search on a user&#39;s linked third party networks.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -1500,15 +1431,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ThirdPartyCredentialResponse> searchCredentials(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<List<ThirdPartyCredentialResponse>> localVarResp = searchCredentialsWithHttpInfo(version, accountId, keyword, networkUID, descending, start, limit);
+    public List<ThirdPartyCredentialResponse> searchCredentials(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<ThirdPartyCredentialResponse>> localVarResp = searchCredentialsWithHttpInfo(accountId, keyword, networkUID, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Credentials
      * Search on a user&#39;s linked third party networks.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -1524,8 +1454,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ThirdPartyCredentialResponse>> searchCredentialsWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchCredentialsValidateBeforeCall(version, accountId, keyword, networkUID, descending, start, limit, null);
+    public ApiResponse<List<ThirdPartyCredentialResponse>> searchCredentialsWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchCredentialsValidateBeforeCall(accountId, keyword, networkUID, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<List<ThirdPartyCredentialResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1533,7 +1463,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Search Credentials (asynchronously)
      * Search on a user&#39;s linked third party networks.
-     * @param version  (required)
      * @param accountId The account id of the user (required)
      * @param keyword The keyword used to search on the third party name and network string (optional)
      * @param networkUID The network UID to filter results with (optional)
@@ -1550,16 +1479,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCredentialsAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<ThirdPartyCredentialResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchCredentialsAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String networkUID, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<List<ThirdPartyCredentialResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCredentialsValidateBeforeCall(version, accountId, keyword, networkUID, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchCredentialsValidateBeforeCall(accountId, keyword, networkUID, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<List<ThirdPartyCredentialResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchNetworks
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param descending The order to return the search results (required)
@@ -1578,7 +1506,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchNetworksCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchNetworksCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1595,8 +1523,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/network/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/network/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1656,12 +1583,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchNetworksValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchNetworks(Async)");
-        }
-
+    private okhttp3.Call searchNetworksValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchNetworks(Async)");
@@ -1692,14 +1614,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'activeOnly' when calling searchNetworks(Async)");
         }
 
-        return searchNetworksCall(version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, _callback);
+        return searchNetworksCall(accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, _callback);
 
     }
 
     /**
      * Search Networks
      * Search on supported third party networks and custom networks from external users.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param descending The order to return the search results (required)
@@ -1717,15 +1638,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public List<ThirdPartyNetworkShortResponse> searchNetworks(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable) throws ApiException {
-        ApiResponse<List<ThirdPartyNetworkShortResponse>> localVarResp = searchNetworksWithHttpInfo(version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
+    public List<ThirdPartyNetworkShortResponse> searchNetworks(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable) throws ApiException {
+        ApiResponse<List<ThirdPartyNetworkShortResponse>> localVarResp = searchNetworksWithHttpInfo(accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
         return localVarResp.getData();
     }
 
     /**
      * Search Networks
      * Search on supported third party networks and custom networks from external users.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param descending The order to return the search results (required)
@@ -1743,8 +1663,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ThirdPartyNetworkShortResponse>> searchNetworksWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable) throws ApiException {
-        okhttp3.Call localVarCall = searchNetworksValidateBeforeCall(version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, null);
+    public ApiResponse<List<ThirdPartyNetworkShortResponse>> searchNetworksWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable) throws ApiException {
+        okhttp3.Call localVarCall = searchNetworksValidateBeforeCall(accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, null);
         Type localVarReturnType = new TypeToken<List<ThirdPartyNetworkShortResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1752,7 +1672,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Search Networks (asynchronously)
      * Search on supported third party networks and custom networks from external users.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
      * @param descending The order to return the search results (required)
@@ -1771,16 +1690,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchNetworksAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable, final ApiCallback<List<ThirdPartyNetworkShortResponse>> _callback) throws ApiException {
+    public okhttp3.Call searchNetworksAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String sortField, @javax.annotation.Nonnull Boolean descending, @javax.annotation.Nonnull Integer start, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Boolean activeOnly, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable Boolean filterBillable, final ApiCallback<List<ThirdPartyNetworkShortResponse>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchNetworksValidateBeforeCall(version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, _callback);
+        okhttp3.Call localVarCall = searchNetworksValidateBeforeCall(accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, _callback);
         Type localVarReturnType = new TypeToken<List<ThirdPartyNetworkShortResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for sendMFAChallenge
-     * @param version  (required)
      * @param networkUID the third party network provider that has MFA enabled (required)
      * @param appKey the application key (required)
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -1796,7 +1714,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendMFAChallengeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendMFAChallengeCall(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1813,8 +1731,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/credential/mfa/send"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/credential/mfa/send";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1862,12 +1779,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendMFAChallengeValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling sendMFAChallenge(Async)");
-        }
-
+    private okhttp3.Call sendMFAChallengeValidateBeforeCall(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkUID' is set
         if (networkUID == null) {
             throw new ApiException("Missing the required parameter 'networkUID' when calling sendMFAChallenge(Async)");
@@ -1878,14 +1790,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling sendMFAChallenge(Async)");
         }
 
-        return sendMFAChallengeCall(version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, _callback);
+        return sendMFAChallengeCall(networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, _callback);
 
     }
 
     /**
      * Send MFA Challenge
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @param version  (required)
      * @param networkUID the third party network provider that has MFA enabled (required)
      * @param appKey the application key (required)
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -1900,15 +1811,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public SirqulResponse sendMFAChallenge(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId) throws ApiException {
-        ApiResponse<SirqulResponse> localVarResp = sendMFAChallengeWithHttpInfo(version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
+    public SirqulResponse sendMFAChallenge(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId) throws ApiException {
+        ApiResponse<SirqulResponse> localVarResp = sendMFAChallengeWithHttpInfo(networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
         return localVarResp.getData();
     }
 
     /**
      * Send MFA Challenge
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @param version  (required)
      * @param networkUID the third party network provider that has MFA enabled (required)
      * @param appKey the application key (required)
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -1923,8 +1833,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SirqulResponse> sendMFAChallengeWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId) throws ApiException {
-        okhttp3.Call localVarCall = sendMFAChallengeValidateBeforeCall(version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, null);
+    public ApiResponse<SirqulResponse> sendMFAChallengeWithHttpInfo(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId) throws ApiException {
+        okhttp3.Call localVarCall = sendMFAChallengeValidateBeforeCall(networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, null);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1932,7 +1842,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Send MFA Challenge (asynchronously)
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @param version  (required)
      * @param networkUID the third party network provider that has MFA enabled (required)
      * @param appKey the application key (required)
      * @param thirdPartyToken the access token to authenticate with (optional)
@@ -1948,16 +1857,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendMFAChallengeAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
+    public okhttp3.Call sendMFAChallengeAsync(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable Long thirdPartyCredentialId, @javax.annotation.Nullable String deviceId, final ApiCallback<SirqulResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sendMFAChallengeValidateBeforeCall(version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, _callback);
+        okhttp3.Call localVarCall = sendMFAChallengeValidateBeforeCall(networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, _callback);
         Type localVarReturnType = new TypeToken<SirqulResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateCredential
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param thirdPartyId the third party user account id (required)
      * @param appKey the application key (required)
@@ -1977,7 +1885,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCredentialCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCredentialCall(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1994,8 +1902,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/credential/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/credential/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2059,12 +1966,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCredentialValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateCredential(Async)");
-        }
-
+    private okhttp3.Call updateCredentialValidateBeforeCall(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'networkUID' is set
         if (networkUID == null) {
             throw new ApiException("Missing the required parameter 'networkUID' when calling updateCredential(Async)");
@@ -2080,14 +1982,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'appKey' when calling updateCredential(Async)");
         }
 
-        return updateCredentialCall(version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, _callback);
+        return updateCredentialCall(networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, _callback);
 
     }
 
     /**
      * Update Credential
      * Updates a third-party login for an account.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param thirdPartyId the third party user account id (required)
      * @param appKey the application key (required)
@@ -2106,15 +2007,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ProfileResponse updateCredential(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken) throws ApiException {
-        ApiResponse<ProfileResponse> localVarResp = updateCredentialWithHttpInfo(version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
+    public ProfileResponse updateCredential(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken) throws ApiException {
+        ApiResponse<ProfileResponse> localVarResp = updateCredentialWithHttpInfo(networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
         return localVarResp.getData();
     }
 
     /**
      * Update Credential
      * Updates a third-party login for an account.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param thirdPartyId the third party user account id (required)
      * @param appKey the application key (required)
@@ -2133,8 +2033,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProfileResponse> updateCredentialWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken) throws ApiException {
-        okhttp3.Call localVarCall = updateCredentialValidateBeforeCall(version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, null);
+    public ApiResponse<ProfileResponse> updateCredentialWithHttpInfo(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken) throws ApiException {
+        okhttp3.Call localVarCall = updateCredentialValidateBeforeCall(networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, null);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2142,7 +2042,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Update Credential (asynchronously)
      * Updates a third-party login for an account.
-     * @param version  (required)
      * @param networkUID the access provider to authenticate against (required)
      * @param thirdPartyId the third party user account id (required)
      * @param appKey the application key (required)
@@ -2162,16 +2061,15 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCredentialAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, final ApiCallback<ProfileResponse> _callback) throws ApiException {
+    public okhttp3.Call updateCredentialAsync(@javax.annotation.Nonnull String networkUID, @javax.annotation.Nonnull String thirdPartyId, @javax.annotation.Nonnull String appKey, @javax.annotation.Nullable String deviceId, @javax.annotation.Nullable String thirdPartyName, @javax.annotation.Nullable String thirdPartyToken, @javax.annotation.Nullable String responseFilters, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String thirdPartyRefreshToken, final ApiCallback<ProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCredentialValidateBeforeCall(version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, _callback);
+        okhttp3.Call localVarCall = updateCredentialValidateBeforeCall(networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, _callback);
         Type localVarReturnType = new TypeToken<ProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateNetwork
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param name The name of the network (optional)
@@ -2200,7 +2098,7 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateNetworkCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateNetworkCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2217,8 +2115,7 @@ public class ThirdPartyCredentialsApi {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/thirdparty/network/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/thirdparty/network/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2314,12 +2211,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateNetworkValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling updateNetwork(Async)");
-        }
-
+    private okhttp3.Call updateNetworkValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling updateNetwork(Async)");
@@ -2330,14 +2222,13 @@ public class ThirdPartyCredentialsApi {
             throw new ApiException("Missing the required parameter 'networkUID' when calling updateNetwork(Async)");
         }
 
-        return updateNetworkCall(version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
+        return updateNetworkCall(accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
 
     }
 
     /**
      * Update Network
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param name The name of the network (optional)
@@ -2365,15 +2256,14 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ThirdPartyNetworkResponse updateNetwork(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
-        ApiResponse<ThirdPartyNetworkResponse> localVarResp = updateNetworkWithHttpInfo(version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+    public ThirdPartyNetworkResponse updateNetwork(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
+        ApiResponse<ThirdPartyNetworkResponse> localVarResp = updateNetworkWithHttpInfo(accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
         return localVarResp.getData();
     }
 
     /**
      * Update Network
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param name The name of the network (optional)
@@ -2401,8 +2291,8 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ThirdPartyNetworkResponse> updateNetworkWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
-        okhttp3.Call localVarCall = updateNetworkValidateBeforeCall(version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, null);
+    public ApiResponse<ThirdPartyNetworkResponse> updateNetworkWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body) throws ApiException {
+        okhttp3.Call localVarCall = updateNetworkValidateBeforeCall(accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, null);
         Type localVarReturnType = new TypeToken<ThirdPartyNetworkResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2410,7 +2300,6 @@ public class ThirdPartyCredentialsApi {
     /**
      * Update Network (asynchronously)
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @param version  (required)
      * @param accountId The account id making the request (required)
      * @param networkUID The unique identifier for the third party network defined by Sirqul (required)
      * @param name The name of the network (optional)
@@ -2439,9 +2328,9 @@ public class ThirdPartyCredentialsApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateNetworkAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback<ThirdPartyNetworkResponse> _callback) throws ApiException {
+    public okhttp3.Call updateNetworkAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String networkUID, @javax.annotation.Nullable String name, @javax.annotation.Nullable String description, @javax.annotation.Nullable Boolean enableIntrospection, @javax.annotation.Nullable String introspectionMethod, @javax.annotation.Nullable String introspectionURL, @javax.annotation.Nullable String introspectionParams, @javax.annotation.Nullable String requiredRootField, @javax.annotation.Nullable Boolean enableMFA, @javax.annotation.Nullable Integer sizeMFA, @javax.annotation.Nullable Integer shelfLifeMFA, @javax.annotation.Nullable String oauthTokenURL, @javax.annotation.Nullable File oauthPrivateKey, @javax.annotation.Nullable File oauthPublicKey, @javax.annotation.Nullable String oauthClientId, @javax.annotation.Nullable String oauthSecretKey, @javax.annotation.Nullable String body, final ApiCallback<ThirdPartyNetworkResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateNetworkValidateBeforeCall(version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
+        okhttp3.Call localVarCall = updateNetworkValidateBeforeCall(accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, _callback);
         Type localVarReturnType = new TypeToken<ThirdPartyNetworkResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

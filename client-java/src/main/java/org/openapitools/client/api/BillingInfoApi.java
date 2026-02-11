@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PaymentTypesResponse;
 
 import java.lang.reflect.Type;
@@ -75,7 +74,6 @@ public class BillingInfoApi {
 
     /**
      * Build call for addPaymentMethod
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -109,7 +107,7 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addPaymentMethodCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call addPaymentMethodCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -126,8 +124,7 @@ public class BillingInfoApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billing/update"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billing/update";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -247,25 +244,19 @@ public class BillingInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling addPaymentMethod(Async)");
-        }
-
+    private okhttp3.Call addPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling addPaymentMethod(Async)");
         }
 
-        return addPaymentMethodCall(version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, _callback);
+        return addPaymentMethodCall(accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, _callback);
 
     }
 
     /**
      * Update Payment Method
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -298,15 +289,14 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentTypesResponse addPaymentMethod(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData) throws ApiException {
-        ApiResponse<PaymentTypesResponse> localVarResp = addPaymentMethodWithHttpInfo(version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
+    public PaymentTypesResponse addPaymentMethod(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData) throws ApiException {
+        ApiResponse<PaymentTypesResponse> localVarResp = addPaymentMethodWithHttpInfo(accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
         return localVarResp.getData();
     }
 
     /**
      * Update Payment Method
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -339,8 +329,8 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentTypesResponse> addPaymentMethodWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData) throws ApiException {
-        okhttp3.Call localVarCall = addPaymentMethodValidateBeforeCall(version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, null);
+    public ApiResponse<PaymentTypesResponse> addPaymentMethodWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData) throws ApiException {
+        okhttp3.Call localVarCall = addPaymentMethodValidateBeforeCall(accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, null);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -348,7 +338,6 @@ public class BillingInfoApi {
     /**
      * Update Payment Method (asynchronously)
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId Payment Method Id (optional)
      * @param accountName the name of the account (optional)
@@ -382,16 +371,15 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addPaymentMethodAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
+    public okhttp3.Call addPaymentMethodAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = addPaymentMethodValidateBeforeCall(version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, _callback);
+        okhttp3.Call localVarCall = addPaymentMethodValidateBeforeCall(accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, _callback);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createPaymentMethod
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -427,7 +415,7 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPaymentMethodCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPaymentMethodCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -444,8 +432,7 @@ public class BillingInfoApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billing/create"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billing/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -573,25 +560,19 @@ public class BillingInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createPaymentMethod(Async)");
-        }
-
+    private okhttp3.Call createPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createPaymentMethod(Async)");
         }
 
-        return createPaymentMethodCall(version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, _callback);
+        return createPaymentMethodCall(accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, _callback);
 
     }
 
     /**
      * Create Payment Method
      * Add a new method of payment.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -626,15 +607,14 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentTypesResponse createPaymentMethod(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
-        ApiResponse<PaymentTypesResponse> localVarResp = createPaymentMethodWithHttpInfo(version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
+    public PaymentTypesResponse createPaymentMethod(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
+        ApiResponse<PaymentTypesResponse> localVarResp = createPaymentMethodWithHttpInfo(accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
         return localVarResp.getData();
     }
 
     /**
      * Create Payment Method
      * Add a new method of payment.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -669,8 +649,8 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentTypesResponse> createPaymentMethodWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
-        okhttp3.Call localVarCall = createPaymentMethodValidateBeforeCall(version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, null);
+    public ApiResponse<PaymentTypesResponse> createPaymentMethodWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey) throws ApiException {
+        okhttp3.Call localVarCall = createPaymentMethodValidateBeforeCall(accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, null);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -678,7 +658,6 @@ public class BillingInfoApi {
     /**
      * Create Payment Method (asynchronously)
      * Add a new method of payment.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param accountName Account Name of the credit card user (optional)
      * @param firstName The first name on the credit card (optional)
@@ -714,16 +693,15 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPaymentMethodAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
+    public okhttp3.Call createPaymentMethodAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String accountName, @javax.annotation.Nullable String firstName, @javax.annotation.Nullable String lastName, @javax.annotation.Nullable String address, @javax.annotation.Nullable String city, @javax.annotation.Nullable String state, @javax.annotation.Nullable String postalCode, @javax.annotation.Nullable String country, @javax.annotation.Nullable String phone, @javax.annotation.Nullable String creditCardNumber, @javax.annotation.Nullable String expirationDate, @javax.annotation.Nullable String ccv, @javax.annotation.Nullable String accountNumber, @javax.annotation.Nullable String bankName, @javax.annotation.Nullable String routingNumber, @javax.annotation.Nullable String paymentMethodNickname, @javax.annotation.Nullable String taxId, @javax.annotation.Nullable Boolean defaultPaymentMethod, @javax.annotation.Nullable String authToken, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String providerCustomerProfileId, @javax.annotation.Nullable String providerPaymentProfileId, @javax.annotation.Nullable String metaData, @javax.annotation.Nullable String appKey, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPaymentMethodValidateBeforeCall(version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, _callback);
+        okhttp3.Call localVarCall = createPaymentMethodValidateBeforeCall(accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, _callback);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createSmartContract
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param tokenName The token name (required)
      * @param tokenSymbol The token symbol (required)
@@ -738,7 +716,7 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSmartContractCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createSmartContractCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -755,8 +733,7 @@ public class BillingInfoApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billing/crypto/transfer"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billing/crypto/transfer";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -800,12 +777,7 @@ public class BillingInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSmartContractValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling createSmartContract(Async)");
-        }
-
+    private okhttp3.Call createSmartContractValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling createSmartContract(Async)");
@@ -821,14 +793,13 @@ public class BillingInfoApi {
             throw new ApiException("Missing the required parameter 'tokenSymbol' when calling createSmartContract(Async)");
         }
 
-        return createSmartContractCall(version, accountId, tokenName, tokenSymbol, paymentMethodId, _callback);
+        return createSmartContractCall(accountId, tokenName, tokenSymbol, paymentMethodId, _callback);
 
     }
 
     /**
      * Create Smart Contract
      * Adds a smart contract.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param tokenName The token name (required)
      * @param tokenSymbol The token symbol (required)
@@ -842,15 +813,14 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentTypesResponse createSmartContract(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
-        ApiResponse<PaymentTypesResponse> localVarResp = createSmartContractWithHttpInfo(version, accountId, tokenName, tokenSymbol, paymentMethodId);
+    public PaymentTypesResponse createSmartContract(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
+        ApiResponse<PaymentTypesResponse> localVarResp = createSmartContractWithHttpInfo(accountId, tokenName, tokenSymbol, paymentMethodId);
         return localVarResp.getData();
     }
 
     /**
      * Create Smart Contract
      * Adds a smart contract.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param tokenName The token name (required)
      * @param tokenSymbol The token symbol (required)
@@ -864,8 +834,8 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentTypesResponse> createSmartContractWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
-        okhttp3.Call localVarCall = createSmartContractValidateBeforeCall(version, accountId, tokenName, tokenSymbol, paymentMethodId, null);
+    public ApiResponse<PaymentTypesResponse> createSmartContractWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
+        okhttp3.Call localVarCall = createSmartContractValidateBeforeCall(accountId, tokenName, tokenSymbol, paymentMethodId, null);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -873,7 +843,6 @@ public class BillingInfoApi {
     /**
      * Create Smart Contract (asynchronously)
      * Adds a smart contract.
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param tokenName The token name (required)
      * @param tokenSymbol The token symbol (required)
@@ -888,16 +857,15 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSmartContractAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
+    public okhttp3.Call createSmartContractAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nonnull String tokenName, @javax.annotation.Nonnull String tokenSymbol, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createSmartContractValidateBeforeCall(version, accountId, tokenName, tokenSymbol, paymentMethodId, _callback);
+        okhttp3.Call localVarCall = createSmartContractValidateBeforeCall(accountId, tokenName, tokenSymbol, paymentMethodId, _callback);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getCryptoBalance
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -911,7 +879,7 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCryptoBalanceCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCryptoBalanceCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -928,8 +896,7 @@ public class BillingInfoApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billing/crypto/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billing/crypto/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -969,25 +936,19 @@ public class BillingInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCryptoBalanceValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getCryptoBalance(Async)");
-        }
-
+    private okhttp3.Call getCryptoBalanceValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getCryptoBalance(Async)");
         }
 
-        return getCryptoBalanceCall(version, accountId, ownerAccountId, paymentMethodId, _callback);
+        return getCryptoBalanceCall(accountId, ownerAccountId, paymentMethodId, _callback);
 
     }
 
     /**
      * Get Crypto Balances
      * Get the cypto balance details for a user
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1000,15 +961,14 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentTypesResponse getCryptoBalance(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
-        ApiResponse<PaymentTypesResponse> localVarResp = getCryptoBalanceWithHttpInfo(version, accountId, ownerAccountId, paymentMethodId);
+    public PaymentTypesResponse getCryptoBalance(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
+        ApiResponse<PaymentTypesResponse> localVarResp = getCryptoBalanceWithHttpInfo(accountId, ownerAccountId, paymentMethodId);
         return localVarResp.getData();
     }
 
     /**
      * Get Crypto Balances
      * Get the cypto balance details for a user
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1021,8 +981,8 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentTypesResponse> getCryptoBalanceWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
-        okhttp3.Call localVarCall = getCryptoBalanceValidateBeforeCall(version, accountId, ownerAccountId, paymentMethodId, null);
+    public ApiResponse<PaymentTypesResponse> getCryptoBalanceWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId) throws ApiException {
+        okhttp3.Call localVarCall = getCryptoBalanceValidateBeforeCall(accountId, ownerAccountId, paymentMethodId, null);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1030,7 +990,6 @@ public class BillingInfoApi {
     /**
      * Get Crypto Balances (asynchronously)
      * Get the cypto balance details for a user
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param ownerAccountId The account to retreive balances for (optional)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
@@ -1044,16 +1003,15 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCryptoBalanceAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
+    public okhttp3.Call getCryptoBalanceAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long ownerAccountId, @javax.annotation.Nullable Long paymentMethodId, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCryptoBalanceValidateBeforeCall(version, accountId, ownerAccountId, paymentMethodId, _callback);
+        okhttp3.Call localVarCall = getCryptoBalanceValidateBeforeCall(accountId, ownerAccountId, paymentMethodId, _callback);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPaymentMethod
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -1067,7 +1025,7 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentMethodCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPaymentMethodCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1084,8 +1042,7 @@ public class BillingInfoApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billing/get"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billing/get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1125,25 +1082,19 @@ public class BillingInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling getPaymentMethod(Async)");
-        }
-
+    private okhttp3.Call getPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling getPaymentMethod(Async)");
         }
 
-        return getPaymentMethodCall(version, accountId, paymentMethodId, getCurrentBalance, _callback);
+        return getPaymentMethodCall(accountId, paymentMethodId, getCurrentBalance, _callback);
 
     }
 
     /**
      * Get Payment Method
      * Get the details of the user&#39;s payment method or their current default method of payment
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -1156,15 +1107,14 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentTypesResponse getPaymentMethod(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance) throws ApiException {
-        ApiResponse<PaymentTypesResponse> localVarResp = getPaymentMethodWithHttpInfo(version, accountId, paymentMethodId, getCurrentBalance);
+    public PaymentTypesResponse getPaymentMethod(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance) throws ApiException {
+        ApiResponse<PaymentTypesResponse> localVarResp = getPaymentMethodWithHttpInfo(accountId, paymentMethodId, getCurrentBalance);
         return localVarResp.getData();
     }
 
     /**
      * Get Payment Method
      * Get the details of the user&#39;s payment method or their current default method of payment
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -1177,8 +1127,8 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentTypesResponse> getPaymentMethodWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance) throws ApiException {
-        okhttp3.Call localVarCall = getPaymentMethodValidateBeforeCall(version, accountId, paymentMethodId, getCurrentBalance, null);
+    public ApiResponse<PaymentTypesResponse> getPaymentMethodWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance) throws ApiException {
+        okhttp3.Call localVarCall = getPaymentMethodValidateBeforeCall(accountId, paymentMethodId, getCurrentBalance, null);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1186,7 +1136,6 @@ public class BillingInfoApi {
     /**
      * Get Payment Method (asynchronously)
      * Get the details of the user&#39;s payment method or their current default method of payment
-     * @param version  (required)
      * @param accountId The account used to perform the the request (required)
      * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
      * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
@@ -1200,16 +1149,15 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPaymentMethodAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
+    public okhttp3.Call getPaymentMethodAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable Long paymentMethodId, @javax.annotation.Nullable Boolean getCurrentBalance, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPaymentMethodValidateBeforeCall(version, accountId, paymentMethodId, getCurrentBalance, _callback);
+        okhttp3.Call localVarCall = getPaymentMethodValidateBeforeCall(accountId, paymentMethodId, getCurrentBalance, _callback);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchPaymentMethod
-     * @param version  (required)
      * @param accountId Account Id to search on (required)
      * @param provider Provider to search on (optional, default to AUTHORIZE_NET)
      * @param type the type to search on (optional)
@@ -1228,7 +1176,7 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPaymentMethodCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchPaymentMethodCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1245,8 +1193,7 @@ public class BillingInfoApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/{version}/billing/search"
-            .replace("{" + "version" + "}", localVarApiClient.escapeString(version.toString()));
+        String localVarPath = "/billing/search";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1306,25 +1253,19 @@ public class BillingInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'version' is set
-        if (version == null) {
-            throw new ApiException("Missing the required parameter 'version' when calling searchPaymentMethod(Async)");
-        }
-
+    private okhttp3.Call searchPaymentMethodValidateBeforeCall(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'accountId' is set
         if (accountId == null) {
             throw new ApiException("Missing the required parameter 'accountId' when calling searchPaymentMethod(Async)");
         }
 
-        return searchPaymentMethodCall(version, accountId, provider, type, keyword, sortField, descending, start, limit, _callback);
+        return searchPaymentMethodCall(accountId, provider, type, keyword, sortField, descending, start, limit, _callback);
 
     }
 
     /**
      * Search Payment Methods
      * Search the payment methods of an account
-     * @param version  (required)
      * @param accountId Account Id to search on (required)
      * @param provider Provider to search on (optional, default to AUTHORIZE_NET)
      * @param type the type to search on (optional)
@@ -1342,15 +1283,14 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentTypesResponse searchPaymentMethod(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        ApiResponse<PaymentTypesResponse> localVarResp = searchPaymentMethodWithHttpInfo(version, accountId, provider, type, keyword, sortField, descending, start, limit);
+    public PaymentTypesResponse searchPaymentMethod(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<PaymentTypesResponse> localVarResp = searchPaymentMethodWithHttpInfo(accountId, provider, type, keyword, sortField, descending, start, limit);
         return localVarResp.getData();
     }
 
     /**
      * Search Payment Methods
      * Search the payment methods of an account
-     * @param version  (required)
      * @param accountId Account Id to search on (required)
      * @param provider Provider to search on (optional, default to AUTHORIZE_NET)
      * @param type the type to search on (optional)
@@ -1368,8 +1308,8 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentTypesResponse> searchPaymentMethodWithHttpInfo(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = searchPaymentMethodValidateBeforeCall(version, accountId, provider, type, keyword, sortField, descending, start, limit, null);
+    public ApiResponse<PaymentTypesResponse> searchPaymentMethodWithHttpInfo(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = searchPaymentMethodValidateBeforeCall(accountId, provider, type, keyword, sortField, descending, start, limit, null);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1377,7 +1317,6 @@ public class BillingInfoApi {
     /**
      * Search Payment Methods (asynchronously)
      * Search the payment methods of an account
-     * @param version  (required)
      * @param accountId Account Id to search on (required)
      * @param provider Provider to search on (optional, default to AUTHORIZE_NET)
      * @param type the type to search on (optional)
@@ -1396,9 +1335,9 @@ public class BillingInfoApi {
         <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchPaymentMethodAsync(@javax.annotation.Nonnull BigDecimal version, @javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
+    public okhttp3.Call searchPaymentMethodAsync(@javax.annotation.Nonnull Long accountId, @javax.annotation.Nullable String provider, @javax.annotation.Nullable String type, @javax.annotation.Nullable String keyword, @javax.annotation.Nullable String sortField, @javax.annotation.Nullable Boolean descending, @javax.annotation.Nullable Integer start, @javax.annotation.Nullable Integer limit, final ApiCallback<PaymentTypesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchPaymentMethodValidateBeforeCall(version, accountId, provider, type, keyword, sortField, descending, start, limit, _callback);
+        okhttp3.Call localVarCall = searchPaymentMethodValidateBeforeCall(accountId, provider, type, keyword, sortField, descending, start, limit, _callback);
         Type localVarReturnType = new TypeToken<PaymentTypesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
